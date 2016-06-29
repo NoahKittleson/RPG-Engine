@@ -14,78 +14,46 @@
 // method resourcePath() from ResourcePath.hpp
 //
 
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
-
-// Here is a small helper for you ! Have a look.
-#include "ResourcePath.hpp"
+#include "Game.h"
 
 int main(int, char const**)
 {
-    // Create the main window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
-
-    // Set the Icon
-    sf::Image icon;
-    if (!icon.loadFromFile(resourcePath() + "icon.png")) {
-        return EXIT_FAILURE;
-    }
-    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
-
-    // Load a sprite to display
-    sf::Texture texture;
-    if (!texture.loadFromFile(resourcePath() + "cute_image.jpg")) {
-        return EXIT_FAILURE;
-    }
-    sf::Sprite sprite(texture);
-
-    // Create a graphical text to display
-    sf::Font font;
-    if (!font.loadFromFile(resourcePath() + "sansation.ttf")) {
-        return EXIT_FAILURE;
-    }
-    sf::Text text("Hello SFML", font, 50);
-    text.setColor(sf::Color::Black);
-
-    // Load a music to play
-    sf::Music music;
-    if (!music.openFromFile(resourcePath() + "nice_music.ogg")) {
-        return EXIT_FAILURE;
-    }
-
-    // Play the music
-    music.play();
-
-    // Start the game loop
-    while (window.isOpen())
-    {
-        // Process events
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            // Close window : exit
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            }
-
-            // Escape pressed : exit
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
-                window.close();
-            }
-        }
-
-        // Clear screen
-        window.clear();
-
-        // Draw the sprite
-        window.draw(sprite);
-
-        // Draw the string
-        window.draw(text);
-
-        // Update the window
-        window.display();
-    }
-
+    Game::run();
     return EXIT_SUCCESS;
 }
+
+
+
+
+
+//things to fix:
+//  -BattleMode disabled
+//  -ResourceHolder needs to be loaded and used (especially in game.cpp)
+//  -Make a loadState
+//  -Recoveries don't work
+//  -BattleAnimation suspended
+//  -AI suspended
+//  -CONSIDER a stateStack approach for battleMode
+//  -BattleMode doens't load player party
+
+//  -add sound
+
+
+
+//Done:
+//  -DialogueMode SkipText works
+//  -ZoneExit pointers done as well as they can be for now...
+//  -MapSections no longer copy unnecessarily
+//  -ZoneExits fixed
+//  -DialogueMode implemented, broken, and fixed
+//  -implement drawing of characters with playerSprite included.
+//  -classic dialogue boxes and scrolling
+
+
+//what if Menus were template objects that I instantiated each time and the set of options...?
+//Would I then be able to template okay?
+
+
+
+
+
