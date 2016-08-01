@@ -34,6 +34,7 @@
 		B77784091AE5C84D007FA840 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77784071AE5C84D007FA840 /* Game.cpp */; };
 		B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77BE44A1BB5E03500F5645C /* Menu.cpp */; };
 		B77ED0FB1C82E221004046D1 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77ED0F91C82E221004046D1 /* Player.cpp */; };
+		B79AD8D81D4F128200B7C8F7 /* StartingZone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */; };
 		B79E29881BA0E1C80020BA93 /* RollingWheat.png in Resources */ = {isa = PBXBuildFile; fileRef = B79E29871BA0E1C80020BA93 /* RollingWheat.png */; };
 		B7A26C0C1C805AA30083989B /* TalkingSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C0A1C805AA30083989B /* TalkingSprite.cpp */; };
 		B7A26C0F1C8061A50083989B /* Trigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C0D1C8061A50083989B /* Trigger.cpp */; };
@@ -92,6 +93,8 @@
 		B77BE44B1BB5E03500F5645C /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		B77ED0F91C82E221004046D1 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		B77ED0FA1C82E221004046D1 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartingZone.cpp; sourceTree = "<group>"; };
+		B79AD8D71D4F128200B7C8F7 /* StartingZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartingZone.h; sourceTree = "<group>"; };
 		B79E29871BA0E1C80020BA93 /* RollingWheat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RollingWheat.png; sourceTree = "<group>"; };
 		B7A26C0A1C805AA30083989B /* TalkingSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TalkingSprite.cpp; sourceTree = "<group>"; };
 		B7A26C0B1C805AA30083989B /* TalkingSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingSprite.h; sourceTree = "<group>"; };
@@ -224,8 +227,7 @@
 				B7A26C0D1C8061A50083989B /* Trigger.cpp */,
 				B7A26C111C8070370083989B /* ZoneExit.h */,
 				B7A26C101C8070370083989B /* ZoneExit.cpp */,
-				B73219211B2111D000C41162 /* MapSection.h */,
-				B73219201B2111D000C41162 /* MapSection.cpp */,
+				B79AD8D51D4F11EE00B7C8F7 /* Maps */,
 				B7E5DD491AE879C800E6EA3F /* OverworldMode.h */,
 				B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */,
 			);
@@ -245,6 +247,17 @@
 				B75ABA271C7BE1C400B9FFDE /* DialogueMode.cpp */,
 			);
 			name = DialogueMode;
+			sourceTree = "<group>";
+		};
+		B79AD8D51D4F11EE00B7C8F7 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				B73219211B2111D000C41162 /* MapSection.h */,
+				B73219201B2111D000C41162 /* MapSection.cpp */,
+				B79AD8D71D4F128200B7C8F7 /* StartingZone.h */,
+				B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */,
+			);
+			name = Maps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B75ABA291C7BE1C400B9FFDE /* DialogueMode.cpp in Sources */,
+				B79AD8D81D4F128200B7C8F7 /* StartingZone.cpp in Sources */,
 				B706F0781BFFE59700C95D49 /* State.cpp in Sources */,
 				B7023E0F1BB5E19F005A6F93 /* EffectsHandler.cpp in Sources */,
 				B7A26C0C1C805AA30083989B /* TalkingSprite.cpp in Sources */,
