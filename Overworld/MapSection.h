@@ -22,7 +22,8 @@ using TriggerVec = std::vector<Trigger>;
 class MapSection: sf::NonCopyable
 {
 public:
-    MapSection(const sf::Texture&, SpriteVec&,  TriggerVec&);
+    //It may seem weird that Maps are not constructed with ExitVecs, but that is because ZoneExits point to other MapSections
+    MapSection(const sf::Texture&, SpriteVec&, TriggerVec&);
     
     void drawBackground(sf::RenderWindow &rw);
     void drawAllObjects(sf::RenderWindow &rw, Player&);
@@ -41,3 +42,4 @@ private:
     SpriteVec sprites;
     TriggerVec triggers;
 };
+
