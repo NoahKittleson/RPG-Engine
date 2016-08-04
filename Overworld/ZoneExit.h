@@ -16,14 +16,14 @@ class MapSection;
 class ZoneExit
 {
 public:
-    ZoneExit(sf::FloatRect pos, sf::Vector2f offset, MapSection* next);
+    ZoneExit(sf::FloatRect pos, sf::Vector2f offset, std::string nextZoneID);
     
     bool intersects(sf::FloatRect) const;
-    MapSection* getNextZone() const;
+    std::string getNextZone() const;
     void MoveSpriteToNewZone(Player&, sf::View&) const;         //a little jank... possible to change?
     
 private:
-    MapSection* newZone;
+    std::string newZoneID;
     const sf::FloatRect area;
     const sf::Vector2f transitionOffset;
 };

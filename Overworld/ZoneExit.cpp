@@ -8,8 +8,8 @@
 
 #include "ZoneExit.h"
 
-ZoneExit::ZoneExit(sf::FloatRect pos, sf::Vector2f offset, MapSection* next)
-: area(pos), transitionOffset(offset), newZone(next)
+ZoneExit::ZoneExit(sf::FloatRect pos, sf::Vector2f offset, std::string nextZoneID)
+: area(pos), transitionOffset(offset), newZoneID(nextZoneID)
 {
     
 }
@@ -19,9 +19,9 @@ bool ZoneExit::intersects(sf::FloatRect rect) const
     return rect.intersects(area);
 }
 
-MapSection* ZoneExit::getNextZone() const
+std::string ZoneExit::getNextZone() const
 {
-    return newZone;
+    return newZoneID;
 }
 
 void ZoneExit::MoveSpriteToNewZone(Player &player, sf::View &view) const

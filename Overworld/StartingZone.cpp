@@ -53,7 +53,7 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
         ObjList.push_back(Object1);
     }
     
-    std::list<ZoneExit> StartingZoneExits;			//1920 by 1200 mountain jpg
+    //1920 by 1200 mountain jpg
     {
         std::string ZoneID = "NextZone";
         ZoneExit top(sf::FloatRect(0,-100,1920,100), sf::Vector2f(0,550), ZoneID);
