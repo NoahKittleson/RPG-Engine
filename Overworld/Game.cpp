@@ -27,70 +27,10 @@ void Game::run()
 	//here beings crap code
 	sf::Texture dummyTexture;
 	dummyTexture.loadFromFile("icon.png");
-	sf::Font font;
-	font.loadFromFile("sansation.ttf");
-	std::list<InteractableObject> ObjList;
-	
-	sf::Texture Wheat;
-	Wheat.loadFromFile("RollingWheat.png");
-	std::list<sf::FloatRect> emptyList;
-	InteractableObject WheatField (Wheat, sf::Vector2f(200,50), emptyList);
-	WheatField.setScale(3.0f);
-	
-	for (int iii = 0; iii < 6; iii++) {
-		ObjList.push_back(WheatField);
-		WheatField.move(20, 0);
-		ObjList.push_back(WheatField);
-		WheatField.move(0, 20);
-	}
-	
-	/*
-	DialogueThread dialogue;
-	dialogue.addDialogue("Hello. Hello. Hello. Hello. Hello. Hello. Hello.");
-	dialogue.addDialogue("GoodBye");
-	*/
-	
-	TalkNode hey(font);
-	hey.addText("Hey look this thing is working!");
-	hey.addText("And there's a second text too!");
-	
-	{
-		sf::FloatRect Rectangle (dummyTexture.getSize().x/2, dummyTexture.getSize().y/2,10,10);
-		std::list<sf::FloatRect> boxlist;
-		
-		boxlist.push_back(sf::FloatRect(dummyTexture.getSize().x/2, dummyTexture.getSize().y/2,10,50));
-		boxlist.push_back(sf::FloatRect(dummyTexture.getSize().x/2, dummyTexture.getSize().y/2,50,10));
-		InteractableObject Object2 (dummyTexture, sf::Vector2f (900,100), boxlist);
-		ObjList.push_back(Object2);
-		
-		boxlist.clear();
-		boxlist.push_back(sf::FloatRect(dummyTexture.getSize().x/4,
-										dummyTexture.getSize().y/4,
-										dummyTexture.getSize().x/2,
-										dummyTexture.getSize().y/2));
-		ObjList.emplace_back(dummyTexture, sf::Vector2f (300,300), boxlist);
-		
-		boxlist.clear();
-		boxlist.push_back(Rectangle);
-		InteractableObject Object1 (dummyTexture, sf::Vector2f (150,650), boxlist);
-		Object1.addDialogue(&hey);
-		ObjList.push_back(Object1);
-	}
 	
 	MapSection* ToNextPtr = nullptr;
 	MapSection* ToStartPtr = nullptr;
 	
-	std::list<ZoneExit> StartingZoneExits;			//1920 by 1200 mountain jpg
-	{
-		ZoneExit top(sf::FloatRect(0,-100,1920,100), sf::Vector2f(0,550), ToNextPtr);
-		ZoneExit left(sf::FloatRect(-100,0,100,1200), sf::Vector2f(750,0), ToNextPtr);
-		ZoneExit right(sf::FloatRect(1920,0,100,1200), sf::Vector2f(-1870,0), ToNextPtr);
-		ZoneExit bottom(sf::FloatRect(0,1200,1920,100), sf::Vector2f(0,-1150), ToNextPtr);
-		StartingZoneExits.push_front(top);
-		StartingZoneExits.push_front(left);
-		StartingZoneExits.push_front(right);
-		StartingZoneExits.push_front(bottom);
-	}
 	std::list<ZoneExit> NextZoneExits;				//800 by 600 cute image
 	{
 		ZoneExit top (sf::FloatRect(0, -100, 800, 100), sf::Vector2f(0, 1150), ToStartPtr);
@@ -103,7 +43,7 @@ void Game::run()
 		NextZoneExits.push_front(right);
 	}
 	
-	std::list<InteractableObject> EmptyList;
+	std::list<sf::Sprite> EmptyList;
 	
 	std::list<Character> EnemyList;
 	std::list<ActionZone*> TriggerList;

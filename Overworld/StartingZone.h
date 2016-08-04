@@ -7,11 +7,17 @@
 //
 
 #pragma once
+#include "MapSection.h"
+#include "ResourceHolder.h"
+#include "TalkNode.h"
+#include "PrefixHeader.pch"
 
-class MapSection: sf::NonCopyable
+class StartingZone: public MapSection
 {
-    public:
+public:
+    StartingZone(ResourceHolder& resources);
     
-    private:
     
-}
+private:
+    
+};
