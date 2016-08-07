@@ -28,15 +28,14 @@ void Game::run()
 	sf::Texture dummyTexture;
 	dummyTexture.loadFromFile("icon.png");
 	
-	MapSection* ToNextPtr = nullptr;
-	MapSection* ToStartPtr = nullptr;
+	std::string startZoneID = "startZoneID";
 	
 	std::list<ZoneExit> NextZoneExits;				//800 by 600 cute image
 	{
-		ZoneExit top (sf::FloatRect(0, -100, 800, 100), sf::Vector2f(0, 1150), ToStartPtr);
-		ZoneExit bottom (sf::FloatRect(0, 600, 800, 100), sf::Vector2f(0,-500), ToStartPtr);
-		ZoneExit left (sf::FloatRect(-100, 0, 100, 600), sf::Vector2f(1870, 0), ToStartPtr);
-		ZoneExit right (sf::FloatRect(800,0,100,600), sf::Vector2f(-750, 0), ToStartPtr);
+		ZoneExit top (sf::FloatRect(0, -100, 800, 100), sf::Vector2f(0, 1150), startZoneID);
+		ZoneExit bottom (sf::FloatRect(0, 600, 800, 100), sf::Vector2f(0,-500), startZoneID);
+		ZoneExit left (sf::FloatRect(-100, 0, 100, 600), sf::Vector2f(1870, 0), startZoneID);
+		ZoneExit right (sf::FloatRect(800,0,100,600), sf::Vector2f(-750, 0), startZoneID);
 		NextZoneExits.push_front(top);
 		NextZoneExits.push_front(bottom);
 		NextZoneExits.push_front(left);
@@ -54,7 +53,7 @@ void Game::run()
 	
 	EnemyList.emplace_back(300, 100,  30, Wheat, font, "GrainMan", ".", true, Wheat);
 	
-	MapSection StartZone ("Mountains.jpg", StartingZoneExits, ObjList, TriggerList);
+	StartingZone StartZone;
 	MapSection NextZone ("cute_image.jpg", NextZoneExits, EmptyList, TriggerList);
 	
 	ToNextPtr = &NextZone;					//I can't delete these pointers, because I take references to them in ZoneExits

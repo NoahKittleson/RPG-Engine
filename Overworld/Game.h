@@ -9,6 +9,7 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "OverworldMode.h"
+#include "StartingZone.h"
 
 class Game
 {
