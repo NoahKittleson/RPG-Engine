@@ -26,16 +26,17 @@ bool Trigger::intersects(sf::FloatRect box) const
     return area.intersects(box);
 }
 
-State* Trigger::procTrigger(sf::RenderWindow &rw) const
-{
-    switch (type) {
-        case DataType::Talk:
-            return new DialogueMode(data.conversation, rw);
-            
-        case DataType::Fight:
-            return new BattleMode(data.enemyVec);
-        
-        default:
-            return nullptr;
-    }
-}
+//State* Trigger::procTrigger(sf::RenderWindow &rw) const
+//{
+//    switch (type) {
+//        case DataType::Talk:
+//            return new DialogueMode(data.conversation, rw);
+//            
+//        case DataType::Fight:
+//            return new BattleMode(data.enemyVec);
+//        
+//        default:
+//            return nullptr;
+//    }
+//}
+

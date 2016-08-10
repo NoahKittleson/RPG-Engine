@@ -24,6 +24,24 @@ OverworldMode::OverworldMode(MapSection* map)
 	//eventually I should set the origin in center of sprite
 }
 
+void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
+{
+	float elapsed = timer.restart().asSeconds();
+	rw.clear(sf::Color::White);
+	handleMovement(elapsed);
+	handleEvent(rw);
+	checkExits();			//only applicable if player moves... move to handlemovement?
+	checkTriggers(rw);		//only applicable if player moved...
+	
+	updateView();			//applicable if player moves OR if zone is changed.
+	rw.setView(view);
+	//animate?
+	currentMap->drawAllObjects(rw, playerSprite);
+	drawAllBoxes(rw);
+	
+	rw.display();
+}
+
 void OverworldMode::handleMovement(float elapsed)
 {
 	sf::Vector2f moveVec (0,0);
@@ -86,19 +104,28 @@ void OverworldMode::handlePlayerCollision(sf::Vector2f moveVec)
 void OverworldMode::checkExits()
 {
 	for (const auto & exit: currentMap->getExitList()) {
-		if (exit.intersects(playerSprite.getAbsBox()) && exit.getNextZone() != nullptr) {
+		if (exit.intersects(playerSprite.getAbsBox()) && exit.getNextZone() != "") {
 			currentMap = exit.getNextZone();
+			//SHOULD BE SOMETHING LIKE: currentMap = World.getMap(exit.getNextZone());
+			//Or better yet: switchToMap("string");
 			exit.MoveSpriteToNewZone(playerSprite, view);
 			return;
 		}
 	}
 }
 
-void OverworldMode::checkTriggers(sf::RenderWindow &rw)			//this works perfectly fine, but I've disabled FightMode for obvious reasons
-{
+void OverworldMode::checkTriggers(sf::RenderWindow &rw) {
 	for (const auto & it: currentMap->getTriggerList()) {
 		if (it.intersects(playerSprite.getAbsBox())) {
-			addToStack(it.procTrigger(rw));
+			//addToStack(it.procTrigger(rw));
+			switch(it.getDataType()) {
+				case DataType::Fight:
+					addToStack(new BattleMode (it.getData().enemyVec));
+					break;
+				case DataType::Talk:
+					addToStack(new DialogueMode (it.getData().conversation));
+					break;
+			}
 		}
 	}
 }
@@ -142,24 +169,6 @@ void OverworldMode::handleEvent(sf::RenderWindow &rw)
 			}
 		}
 	}
-}
-
-void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
-{
-	float elapsed = timer.restart().asSeconds();
-	rw.clear(sf::Color::White);
-	handleMovement(elapsed);
-	handleEvent(rw);
-	checkExits();			//only applicable if player moves... move to handlemovement?
-	checkTriggers(rw);		//only applicable if player moved...
-	
-	updateView();			//applicable if player moves OR if zone is changed.
-	rw.setView(view);
-	//animate?
-	currentMap->drawAllObjects(rw, playerSprite);
-	drawAllBoxes(rw);
-	
-	rw.display();
 }
 
 void OverworldMode::drawPlayerCollision(sf::RenderWindow &rw)

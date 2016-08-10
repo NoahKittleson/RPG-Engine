@@ -53,7 +53,7 @@ void Game::run()
 	
 	EnemyList.emplace_back(300, 100,  30, Wheat, font, "GrainMan", ".", true, Wheat);
 	
-	StartingZone StartZone;
+	StartingZone StartZone (resourceHolder);
 	MapSection NextZone ("cute_image.jpg", NextZoneExits, EmptyList, TriggerList);
 	
 	ToNextPtr = &NextZone;					//I can't delete these pointers, because I take references to them in ZoneExits
@@ -320,6 +320,7 @@ void Game::Start()
 sf::RenderWindow Game::mainWindow;
 sf::Clock Game::gameTimer;
 StateStack Game::gameStack;
+ResourceHolder Game::resourceHolder;
 
 
 

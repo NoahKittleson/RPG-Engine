@@ -20,6 +20,7 @@ public:
 	static void run();
 	static sf::RenderWindow mainWindow;
 	static StateStack gameStack;
+	static ResourceHolder resourceHolder;
 	static sf::Clock gameTimer;
 };
 
