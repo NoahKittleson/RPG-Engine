@@ -23,44 +23,10 @@ void Game::run()
 	mainWindow.create (sf::VideoMode (1024, 768, 32), "ViewMaker");
 	mainWindow.setFramerateLimit(60);
 	mainWindow.setVerticalSyncEnabled(true);
-	
-	//here beings crap code
-	sf::Texture dummyTexture;
-	dummyTexture.loadFromFile("icon.png");
-	
-	std::string startZoneID = "startZoneID";
-	
-	std::list<ZoneExit> NextZoneExits;				//800 by 600 cute image
-	{
-		ZoneExit top (sf::FloatRect(0, -100, 800, 100), sf::Vector2f(0, 1150), startZoneID);
-		ZoneExit bottom (sf::FloatRect(0, 600, 800, 100), sf::Vector2f(0,-500), startZoneID);
-		ZoneExit left (sf::FloatRect(-100, 0, 100, 600), sf::Vector2f(1870, 0), startZoneID);
-		ZoneExit right (sf::FloatRect(800,0,100,600), sf::Vector2f(-750, 0), startZoneID);
-		NextZoneExits.push_front(top);
-		NextZoneExits.push_front(bottom);
-		NextZoneExits.push_front(left);
-		NextZoneExits.push_front(right);
-	}
-	
-	std::list<sf::Sprite> EmptyList;
-	
-	std::list<Character> EnemyList;
-	std::list<ActionZone*> TriggerList;
-	FightZone killzone (EnemyList, sf::FloatRect(400,0,500,500));
-	//ActionZone* fuckptr = &killzone;
-	
-	TriggerList.push_back(&killzone);
-	
-	EnemyList.emplace_back(300, 100,  30, Wheat, font, "GrainMan", ".", true, Wheat);
-	
-	StartingZone StartZone (resourceHolder);
-	MapSection NextZone ("cute_image.jpg", NextZoneExits, EmptyList, TriggerList);
-	
-	ToNextPtr = &NextZone;					//I can't delete these pointers, because I take references to them in ZoneExits
-	ToStartPtr = &StartZone;				//Also I have to point to everything correctly here, which is awkward.
-	
 
-	//here ends crap code?  (who am I kidding?)
+	//create Starting Maps
+	StartingZone StartZone (resourceHolder);
+//	MapSection NextZone ("cute_image.jpg", NextZoneExits, EmptyList, TriggerList);
 	
 	//add a state to the stack so I have something to run
 	auto startMode = new OverworldMode(&StartZone);

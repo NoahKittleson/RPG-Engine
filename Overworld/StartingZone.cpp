@@ -15,10 +15,10 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
     std::vector<sf::FloatRect> emptyList;
     std::vector<sf::Sprite> ObjList;
     
+    //Set up Non-interactable wheat field
     sf::Texture Wheat = resources.getTexture("RollingWheat.png");
     TalkingSprite WheatField (Wheat, sf::Vector2f(200,50), emptyList, nullptr);
     WheatField.setScale(3.0f, 3.0f);
-    
     for (int iii = 0; iii < 6; iii++) {
         ObjList.push_back(WheatField);
         WheatField.move(20, 0);
@@ -26,11 +26,11 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
         WheatField.move(0, 20);
     }
     
+    //Set up Interactable Sprite
     sf::Font font = resources.getFont("sansation.ttf");
     TalkNode hey(font);
     hey.addText("Hey look this thing is working!");
     hey.addText("And there's a second text too!");
-    
     {
         sf::FloatRect Rectangle (dummyTexture.getSize().x/2, dummyTexture.getSize().y/2,10,10);
         std::vector<sf::FloatRect> boxlist;
@@ -53,6 +53,15 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
         ObjList.push_back(Object1);
     }
     
+    //Set up Trigger for Fighting
+    std::vector<Character> EnemyList;
+    EnemyList.emplace_back(300, 100,  30, resources.getTexture("RollingWheat.png"),
+                           resources.getFont("sansation.ttf"), "GrainMan", ".", true,
+                           resources.getTexture("RollingWheat.png"));
+    Trigger killzone (sf::FloatRect(400,0,500,500), EnemyList);
+    this->triggers.push_back(killzone);
+    
+    //Set up Zone Exits
     //1920 by 1200 mountain jpg
     {
         std::string ZoneID = "NextZone";
