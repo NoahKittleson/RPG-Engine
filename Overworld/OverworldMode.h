@@ -20,6 +20,8 @@ class OverworldMode: public State
 public:
 	OverworldMode(MapSection* map);
 	void update(sf::RenderWindow &rw, sf::Clock&) override;
+	void draw(sf::RenderWindow &rw) override;
+	void handleEvent() override;
 	
 private:
 	void handleMovement(float);
@@ -27,7 +29,7 @@ private:
 	void checkExits();
 	void checkTriggers(sf::RenderWindow &rw);
 	void checkForInteraction(sf::RenderWindow &rw);
-	void handleEvent(sf::RenderWindow &rw);
+	void handleKeyPress(sf::RenderWindow &rw);
 	
 	void updateView();
 	void drawPlayerCollision(sf::RenderWindow &rw);

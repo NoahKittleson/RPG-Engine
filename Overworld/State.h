@@ -36,7 +36,7 @@ protected:
     static MapSection* currentMap;
     static std::list<Character> party;
     static Player playerSprite;               //do I need this? Will this be stored in first Character?
-    const static ResourceHolder resources;
+    //const static ResourceHolder resources;
 
     bool deletionOrder = false;
     bool looping = true;

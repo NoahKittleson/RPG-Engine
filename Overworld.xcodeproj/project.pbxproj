@@ -219,6 +219,8 @@
 		B78FB2951BF950ED008A435F /* OverworldMode */ = {
 			isa = PBXGroup;
 			children = (
+				B7E5DD491AE879C800E6EA3F /* OverworldMode.h */,
+				B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */,
 				B77ED0FA1C82E221004046D1 /* Player.h */,
 				B77ED0F91C82E221004046D1 /* Player.cpp */,
 				B7A26C0B1C805AA30083989B /* TalkingSprite.h */,
@@ -228,8 +230,6 @@
 				B7A26C111C8070370083989B /* ZoneExit.h */,
 				B7A26C101C8070370083989B /* ZoneExit.cpp */,
 				B79AD8D51D4F11EE00B7C8F7 /* Maps */,
-				B7E5DD491AE879C800E6EA3F /* OverworldMode.h */,
-				B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */,
 			);
 			name = OverworldMode;
 			sourceTree = "<group>";
@@ -237,14 +237,14 @@
 		B78FB2961BF950FE008A435F /* DialogueMode */ = {
 			isa = PBXGroup;
 			children = (
+				B75ABA281C7BE1C400B9FFDE /* DialogueMode.h */,
+				B75ABA271C7BE1C400B9FFDE /* DialogueMode.cpp */,
 				B75ABA1B1C7BD81D00B9FFDE /* DNode.h */,
 				B75ABA1C1C7BD81D00B9FFDE /* DNode.cpp */,
 				B75ABA1D1C7BD81D00B9FFDE /* OptionNode.h */,
 				B75ABA1E1C7BD81D00B9FFDE /* OptionNode.cpp */,
 				B75ABA1F1C7BD81D00B9FFDE /* TalkNode.h */,
 				B75ABA201C7BD81D00B9FFDE /* TalkNode.cpp */,
-				B75ABA281C7BE1C400B9FFDE /* DialogueMode.h */,
-				B75ABA271C7BE1C400B9FFDE /* DialogueMode.cpp */,
 			);
 			name = DialogueMode;
 			sourceTree = "<group>";

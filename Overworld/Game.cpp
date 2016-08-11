@@ -36,9 +36,11 @@ void Game::run()
 	while (mainWindow.isOpen()) {
 		//float elapsed = gameTimer.restart().asSeconds();
 		while (gameStack.getCurrentState()->checkDeletion()) {		//could run out stack?
-			gameStack.popFront();
+			gameStack.popTop();
 		}
+		gameStack.getCurrentState()->handleEvent();
 		gameStack.getCurrentState()->update(mainWindow, gameTimer);
+		gameStack.getCurrentState()->draw(mainWindow);
 	}
 }
 

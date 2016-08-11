@@ -29,10 +29,12 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 	float elapsed = timer.restart().asSeconds();
 	rw.clear(sf::Color::White);
 	handleMovement(elapsed);
-	handleEvent(rw);
+	handleKeyPress(rw);
 	checkExits();			//only applicable if player moves... move to handlemovement?
 	checkTriggers(rw);		//only applicable if player moved...
-	
+}
+
+void OverworldMode::draw(sf::RenderWindow &rw) {
 	updateView();			//applicable if player moves OR if zone is changed.
 	rw.setView(view);
 	//animate?
@@ -40,6 +42,10 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 	drawAllBoxes(rw);
 	
 	rw.display();
+}
+
+void OverworldMode::handleEvent() {
+	//what should I put here?
 }
 
 void OverworldMode::handleMovement(float elapsed)
@@ -105,7 +111,7 @@ void OverworldMode::checkExits()
 {
 	for (const auto & exit: currentMap->getExitList()) {
 		if (exit.intersects(playerSprite.getAbsBox()) && exit.getNextZone() != "") {
-			currentMap = exit.getNextZone();
+//			currentMap = exit.getNextZone();
 			//SHOULD BE SOMETHING LIKE: currentMap = World.getMap(exit.getNextZone());
 			//Or better yet: switchToMap("string");
 			exit.MoveSpriteToNewZone(playerSprite, view);
@@ -123,7 +129,7 @@ void OverworldMode::checkTriggers(sf::RenderWindow &rw) {
 					addToStack(new BattleMode (it.getData().enemyVec));
 					break;
 				case DataType::Talk:
-					addToStack(new DialogueMode (it.getData().conversation));
+					addToStack(new DialogueMode (it.getData().conversation, rw));
 					break;
 			}
 		}
@@ -147,7 +153,7 @@ void OverworldMode::checkTriggers(sf::RenderWindow &rw) {
 }*/
 
 
-void OverworldMode::handleEvent(sf::RenderWindow &rw)
+void OverworldMode::handleKeyPress(sf::RenderWindow &rw)
 {
 	sf::Event event;
 	while (rw.pollEvent(event)) {
