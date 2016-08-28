@@ -26,6 +26,7 @@
 		B75F862C1BACE0C60093B615 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F862A1BACE0C60093B615 /* Character.cpp */; };
 		B75F862F1BACE0FB0093B615 /* Ability.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F862D1BACE0FB0093B615 /* Ability.cpp */; };
 		B75F86331BACE5C10093B615 /* AnimatedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */; };
+		B76E02341D738EC90058D39E /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = B76E02331D738EC90058D39E /* ResourcePath.mm */; };
 		B77783F81AE5C57D007FA840 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77783F71AE5C57D007FA840 /* main.cpp */; };
 		B77783FB1AE5C57D007FA840 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B77783FA1AE5C57D007FA840 /* cute_image.jpg */; };
 		B77783FD1AE5C57D007FA840 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = B77783FC1AE5C57D007FA840 /* nice_music.ogg */; };
@@ -79,6 +80,8 @@
 		B75F862E1BACE0FB0093B615 /* Ability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ability.h; sourceTree = "<group>"; };
 		B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedSprite.cpp; sourceTree = "<group>"; };
 		B75F86321BACE5C10093B615 /* AnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedSprite.h; sourceTree = "<group>"; };
+		B76E02321D738EC90058D39E /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
+		B76E02331D738EC90058D39E /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		B77783EF1AE5C57D007FA840 /* Overworld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overworld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77783F31AE5C57D007FA840 /* Overworld-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Overworld-Info.plist"; sourceTree = "<group>"; };
 		B77783F71AE5C57D007FA840 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 		B770E8381C75214E00F0A688 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				B76E02321D738EC90058D39E /* ResourcePath.hpp */,
+				B76E02331D738EC90058D39E /* ResourcePath.mm */,
 				B75ABA181C7BD7DA00B9FFDE /* IterVector.hpp */,
 				B75ABA191C7BD7DA00B9FFDE /* IterVector.inl */,
 				B742D6F81C1292EA0093C785 /* ResourceHolder.h */,
@@ -371,6 +376,7 @@
 				B742D6F91C1292EA0093C785 /* ResourceHolder.cpp in Sources */,
 				B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */,
 				B75F86331BACE5C10093B615 /* AnimatedSprite.cpp in Sources */,
+				B76E02341D738EC90058D39E /* ResourcePath.mm in Sources */,
 				B7DD37451C35DFFC0089224E /* BattleMode.cpp in Sources */,
 				B7A26C0F1C8061A50083989B /* Trigger.cpp in Sources */,
 				B75ABA241C7BD81D00B9FFDE /* OptionNode.cpp in Sources */,

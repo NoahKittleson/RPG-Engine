@@ -8,6 +8,8 @@
 
 #pragma once
 #include "PrefixHeader.pch"
+#include "ResourcePath.hpp"
+
 
 class ResourceHolder : public sf::NonCopyable
 {
