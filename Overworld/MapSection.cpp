@@ -9,15 +9,16 @@
 #include "MapSection.h"
 
 
-
-MapSection::MapSection(const sf::Texture& bg, SpriteVec& sv,  TriggerVec& tv)
-: triggers(tv)
-{
-	background.setTexture(bg);
-	for (auto & it: sv) {
-		addObject(it);
-	}
-}
+//Deleted for now because copying SpriteVec and TriggerVec is not a great idea
+//(and any map instantiation should be derived from MapSection)
+//MapSection::MapSection(const sf::Texture& bg, SpriteVec& sv,  TriggerVec& tv)
+//: triggers(tv)
+//{
+//	background.setTexture(bg);
+//	for (auto & it: sv) {
+//		addObject(it);
+//	}
+//}
 
 
 void MapSection::addObject(TalkingSprite& add)
@@ -52,7 +53,7 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, Player& player)
 	}
 }
 
-void MapSection::addExit(sf::FloatRect pos, sf::Vector2f offset, MapSection* next)
+void MapSection::addExit(sf::FloatRect pos, sf::Vector2f offset, std::string next)
 {
 	exits.emplace_back(pos, offset, next);
 }

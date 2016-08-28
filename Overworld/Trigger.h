@@ -24,6 +24,9 @@ public:
     
     //I need this, but I don't know why...
     ~TriggerData() {};
+    TriggerData(TriggerData &&ref) = default;
+    //deleted because TriggerData is surprisingly large
+    TriggerData (const TriggerData &obj) = delete;
     
     DNode* conversation;
     std::vector<Character> enemyVec;

@@ -8,6 +8,12 @@
 
 #include "Player.h"
 
+//Player Constructor is very hacky, but will work for now.
+//Later, have it initialized with a sprite from ResourceHolder
+Player::Player() {
+    texture.loadFromFile("Stickmaniac.png");
+    setTexture(texture);
+}
 
 sf::FloatRect Player::getAbsBox()
 {

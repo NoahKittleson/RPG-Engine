@@ -45,7 +45,7 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
                                         dummyTexture.getSize().y/4,
                                         dummyTexture.getSize().x/2,
                                         dummyTexture.getSize().y/2));
-        ObjList.emplace_back(dummyTexture, sf::Vector2f (300,300), boxlist);
+        ObjList.emplace_back(TalkingSprite(dummyTexture, sf::Vector2f (300,300), boxlist, nullptr));
         
         boxlist.clear();
         boxlist.push_back(Rectangle);
@@ -54,12 +54,12 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
     }
     
     //Set up Trigger for Fighting
-    std::vector<Character> EnemyList;
-    EnemyList.emplace_back(300, 100,  30, resources.getTexture("RollingWheat.png"),
+    std::vector<Character> EnemyVector;
+    EnemyVector.emplace_back(300, 100,  30, resources.getTexture("RollingWheat.png"),
                            resources.getFont("sansation.ttf"), "GrainMan", ".", true,
                            resources.getTexture("RollingWheat.png"));
-    Trigger killzone (sf::FloatRect(400,0,500,500), EnemyList);
-    this->triggers.push_back(killzone);
+    //Trigger killzone (sf::FloatRect(400,0,500,500), EnemyList);
+    //this->triggers.emplace_back(sf::FloatRect(400,0,500,500), EnemyVector);
     
     //Set up Zone Exits
     //1920 by 1200 mountain jpg

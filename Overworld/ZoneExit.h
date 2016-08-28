@@ -11,8 +11,6 @@
 //#include "MapSection.h"
 #include "Player.h"
 
-class MapSection;
-
 class ZoneExit
 {
 public:

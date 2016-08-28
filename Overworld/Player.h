@@ -13,8 +13,10 @@
 class Player : public sf::Sprite
 {
 public:
+    Player();
     sf::FloatRect getAbsBox();
     
 private:
     sf::FloatRect box;
+    sf::Texture texture;
 };

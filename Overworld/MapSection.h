@@ -32,12 +32,12 @@ protected:
     
 public:
     //It may seem weird that Maps are not constructed with ExitVecs, but that is because ZoneExits point to other MapSections
-    MapSection(const sf::Texture&, SpriteVec&, TriggerVec&);
+    //MapSection(const sf::Texture&, SpriteVec&, TriggerVec&);
     MapSection();
     
     void drawBackground(sf::RenderWindow &rw);
     void drawAllObjects(sf::RenderWindow &rw, Player&);
-    void addExit(sf::FloatRect pos, sf::Vector2f offset, MapSection* next);
+    void addExit(sf::FloatRect pos, sf::Vector2f offset, std::string next);
     
     sf::Vector2u getSize();
     
