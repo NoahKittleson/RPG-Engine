@@ -41,7 +41,7 @@ public:
     
     bool intersects(sf::FloatRect) const;
     DataType getDataType() const;
-    TriggerData getData() const;
+    //TriggerData getData() const;                          //doesn't work.  Triggers suck.  Need major redesign
     //State* procTrigger(sf::RenderWindow &rw) const;        //returns new state from trigger.
     
     DataType type;

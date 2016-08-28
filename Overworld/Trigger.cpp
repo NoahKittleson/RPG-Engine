@@ -22,6 +22,14 @@ Trigger::Trigger(sf::FloatRect box, DNode* text)
     
 }
 
+DataType Trigger::getDataType() const {
+    return type;
+}
+
+//TriggerData Trigger::getData() const {
+//    return data;
+//}
+
 bool Trigger::intersects(sf::FloatRect box) const
 {
     return area.intersects(box);

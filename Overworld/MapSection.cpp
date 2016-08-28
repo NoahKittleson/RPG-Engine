@@ -20,6 +20,10 @@
 //	}
 //}
 
+MapSection::MapSection() {
+	//should this be empty?
+};
+
 
 void MapSection::addObject(TalkingSprite& add)
 {

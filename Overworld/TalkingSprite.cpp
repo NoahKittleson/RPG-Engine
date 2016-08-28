@@ -54,6 +54,15 @@ void TalkingSprite::collide(Player &PC, sf::Vector2f moveVec) const
     }
 }
 
+bool TalkingSprite::intersects(sf::FloatRect rect) const {
+    for (auto && it: collisionBoxList) {
+        if (rect.intersects(it)) {
+            return true;
+        }
+    }
+    return false;
+}
+
 
 DNode* TalkingSprite::interact(sf::FloatRect rect)
 {

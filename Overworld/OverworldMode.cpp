@@ -126,10 +126,12 @@ void OverworldMode::checkTriggers(sf::RenderWindow &rw) {
 			//addToStack(it.procTrigger(rw));
 			switch(it.getDataType()) {
 				case DataType::Fight:
-					addToStack(new BattleMode (it.getData().enemyVec));
+					//fix later
+					//addToStack(new BattleMode (it.getData().enemyVec));
 					break;
 				case DataType::Talk:
-					addToStack(new DialogueMode (it.getData().conversation, rw));
+					//fix later
+					//addToStack(new DialogueMode (it.getData().conversation, rw));
 					break;
 			}
 		}
