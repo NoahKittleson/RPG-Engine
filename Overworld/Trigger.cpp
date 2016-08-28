@@ -12,7 +12,8 @@
 Trigger::Trigger(sf::FloatRect box, std::vector<Character> enemies)
 : area(box), type(DataType::Fight), data(enemies)
 {
-    data.enemyVec = enemies;
+    //don't think I need this because data is alrady initialzed with enemies above ^
+    //data.enemyVec = enemies;
 }
 
 Trigger::Trigger(sf::FloatRect box, DNode* text)
