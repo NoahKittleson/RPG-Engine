@@ -64,7 +64,12 @@ void MapSection::addExit(sf::FloatRect pos, sf::Vector2f offset, std::string nex
 
 sf::Vector2u MapSection::getSize()
 {
-	return background.getTexture()->getSize();
+	if (background.getTexture()) {
+		return background.getTexture()->getSize();
+	} else {
+		return sf::Vector2u(1000,1000);
+	}
+	
 }
 
 SpriteVec& MapSection::getSpriteList()

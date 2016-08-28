@@ -11,7 +11,7 @@
 //Player Constructor is very hacky, but will work for now.
 //Later, have it initialized with a sprite from ResourceHolder
 Player::Player() {
-    texture.loadFromFile("Stickmaniac.png");
+    texture.loadFromFile(resourcePath() + "Stickmaniac.png");
     setTexture(texture);
 }
 

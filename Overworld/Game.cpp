@@ -45,6 +45,13 @@ void Game::run()
 }
 
 
+sf::RenderWindow Game::mainWindow;
+sf::Clock Game::gameTimer;
+StateStack Game::gameStack;
+ResourceHolder Game::resourceHolder;
+
+
+//Saving this mostly for the pre-written abilities and such that I will add back in later
 /*
 void Game::Start()
 {
@@ -285,10 +292,6 @@ void Game::Start()
 	}
 }*/
 
-sf::RenderWindow Game::mainWindow;
-sf::Clock Game::gameTimer;
-StateStack Game::gameStack;
-ResourceHolder Game::resourceHolder;
 
 
 

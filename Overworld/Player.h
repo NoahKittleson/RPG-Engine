@@ -8,7 +8,7 @@
 
 #pragma once
 #include "PrefixHeader.pch"
-
+#include "ResourcePath.hpp"
 
 class Player : public sf::Sprite
 {
