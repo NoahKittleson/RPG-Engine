@@ -15,7 +15,7 @@ void TalkNode::setNext(DNode *ptr)
     next = ptr;
 }
 
-TalkNode::TalkNode(sf::Font &font)
+TalkNode::TalkNode(const sf::Font &font)
 : DNode(font)
 {
     text.setLooping(false);

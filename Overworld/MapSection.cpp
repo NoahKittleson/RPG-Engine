@@ -64,11 +64,11 @@ void MapSection::addExit(sf::FloatRect pos, sf::Vector2f offset, std::string nex
 
 sf::Vector2u MapSection::getSize()
 {
-	if (background.getTexture()) {
+//	if (background.getTexture()) {
 		return background.getTexture()->getSize();
-	} else {
+//	} else {
 		return sf::Vector2u(1000,1000);
-	}
+//	}
 	
 }
 

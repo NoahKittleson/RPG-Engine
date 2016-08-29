@@ -8,7 +8,7 @@
 
 #include "DNode.h"
 
-DNode::DNode(sf::Font& font)
+DNode::DNode(const sf::Font& font)
 {
     display.setFont(font);
     display.setColor(sf::Color::Black);

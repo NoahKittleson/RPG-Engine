@@ -13,7 +13,7 @@
 class TalkNode: public DNode
 {
 public:
-    TalkNode(sf::Font&);
+    TalkNode(const sf::Font&);
     
     void addText(sf::String&&);
     void setNext(DNode *ptr);

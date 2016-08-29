@@ -10,47 +10,44 @@
 
 StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
     
-    sf::Texture dummyTexture = resources.getTexture("icon.png");
-
     std::vector<sf::FloatRect> emptyList;
-    std::vector<sf::Sprite> ObjList;
+    background.setTexture(resources.getTexture("cute_image.jpg"));
     
     //Set up Non-interactable wheat field
-    sf::Texture Wheat = resources.getTexture("RollingWheat.png");
-    TalkingSprite WheatField (Wheat, sf::Vector2f(200,50), emptyList, nullptr);
+    TalkingSprite WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(200,50), emptyList, nullptr);
     WheatField.setScale(3.0f, 3.0f);
     for (int iii = 0; iii < 6; iii++) {
-        ObjList.push_back(WheatField);
+        sprites.push_back(WheatField);
         WheatField.move(20, 0);
-        ObjList.push_back(WheatField);
+        sprites.push_back(WheatField);
         WheatField.move(0, 20);
     }
     
     //Set up Interactable Sprite
-    sf::Font font = resources.getFont("sansation.ttf");
-    TalkNode hey(font);
+    TalkNode hey(resources.getFont("sansation.ttf"));
     hey.addText("Hey look this thing is working!");
     hey.addText("And there's a second text too!");
     {
-        sf::FloatRect Rectangle (dummyTexture.getSize().x/2, dummyTexture.getSize().y/2,10,10);
+        sf::FloatRect Rectangle (resources.getTexture("icon.png").getSize().x/2,
+                                 resources.getTexture("icon.png").getSize().y/2,10,10);
         std::vector<sf::FloatRect> boxlist;
         
-        boxlist.push_back(sf::FloatRect(dummyTexture.getSize().x/2, dummyTexture.getSize().y/2,10,50));
-        boxlist.push_back(sf::FloatRect(dummyTexture.getSize().x/2, dummyTexture.getSize().y/2,50,10));
-        TalkingSprite Object2 (dummyTexture, sf::Vector2f (900,100), boxlist, nullptr);
-        ObjList.push_back(Object2);
+        boxlist.emplace_back(Rectangle.width, Rectangle.height,10,50);
+        boxlist.emplace_back(Rectangle.width, Rectangle.height,50,10);
+//        TalkingSprite Object2 (dummyTexture, sf::Vector2f (900,100), boxlist, nullptr);
+        sprites.emplace_back(resources.getTexture("icon.png"), sf::Vector2f (900,100), boxlist, nullptr);
         
         boxlist.clear();
-        boxlist.push_back(sf::FloatRect(dummyTexture.getSize().x/4,
-                                        dummyTexture.getSize().y/4,
-                                        dummyTexture.getSize().x/2,
-                                        dummyTexture.getSize().y/2));
-        ObjList.emplace_back(TalkingSprite(dummyTexture, sf::Vector2f (300,300), boxlist, nullptr));
+        boxlist.push_back(sf::FloatRect(resources.getTexture("RollingWheat.png").getSize().x/4,
+                                        resources.getTexture("RollingWheat.png").getSize().y/4,
+                                        resources.getTexture("RollingWheat.png").getSize().x/2,
+                                        resources.getTexture("RollingWheat.png").getSize().y/2));
+        sprites.emplace_back(TalkingSprite(resources.getTexture("RollingWheat.png"),
+                                           sf::Vector2f (300,300), boxlist, nullptr));
         
         boxlist.clear();
         boxlist.push_back(Rectangle);
-        TalkingSprite Object1 (dummyTexture, sf::Vector2f (150,650), boxlist, &hey);
-        ObjList.push_back(Object1);
+        sprites.emplace_back(resources.getTexture("RollingWheat.png"), sf::Vector2f (150,650), boxlist, &hey);
     }
     
     //Set up Trigger for Fighting

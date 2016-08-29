@@ -13,7 +13,7 @@
 class DNode
 {
 public:
-    DNode(sf::Font&);
+    DNode(const sf::Font&);
     void setPosition(float x, float y);
     
     virtual void update(float) = 0;

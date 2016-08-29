@@ -11,31 +11,31 @@
 ResourceHolder::ResourceHolder()
 {    
     std::list<sf::String> IDList;
-    IDList.push_back(resourcePath() + "Mountains.jpg");
-    IDList.push_back(resourcePath() + "Stickmaniac.png");
-    IDList.push_back(resourcePath() + "BasicIdle.png");
-    IDList.push_back(resourcePath() + "BadAttackAnimation.png");
-    IDList.push_back(resourcePath() + "GetHitAnimation.png");
-    IDList.push_back(resourcePath() + "RollingWheat.png");
-    IDList.push_back(resourcePath() + "cute_image.jpg");
-    IDList.push_back(resourcePath() + "icon.png");
+    IDList.push_back("Mountains.jpg");
+    IDList.push_back("Stickmaniac.png");
+    IDList.push_back("BasicIdle.png");
+    IDList.push_back("BadAttackAnimation.png");
+    IDList.push_back("GetHitAnimation.png");
+    IDList.push_back("RollingWheat.png");
+    IDList.push_back("cute_image.jpg");
+    IDList.push_back("icon.png");
     
     sf::Texture dummy;
     for (auto ID: IDList) {
-        textureMap[ID].loadFromFile(ID);
+        textureMap[ID].loadFromFile(resourcePath() + ID);
     }
     
     IDList.clear();
-    IDList.push_back(resourcePath() + "sansation.ttf");
+    IDList.push_back("sansation.ttf");
     
     for (auto && ID: IDList) {
-        fontMap[ID].loadFromFile(ID);
+        fontMap[ID].loadFromFile(resourcePath() + ID);
     }
     
     IDList.clear();
-    IDList.push_back(resourcePath() + "nice_music.ogg");
+    IDList.push_back("nice_music.ogg");
     for (auto && ID: IDList) {
-        musicMap[ID].openFromFile(ID);
+        musicMap[ID].openFromFile(resourcePath() + ID);
     }
 }
 
