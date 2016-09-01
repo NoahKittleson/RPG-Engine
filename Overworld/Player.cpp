@@ -13,10 +13,14 @@
 Player::Player() {
     texture.loadFromFile(resourcePath() + "Stickmaniac.png");
     setTexture(texture);
+    float textureLength = texture.getSize().x;
+    float textureHeight = texture.getSize().y;
+    box = sf::FloatRect(-textureLength/4, -textureHeight/4,
+                        textureLength/2, textureHeight/2);
+    setOrigin(textureLength/2, textureHeight/2);
 }
 
-sf::FloatRect Player::getAbsBox()
-{
+sf::FloatRect Player::getAbsBox() {
     auto position = getPosition();
     auto scale = getScale().x;
     sf::FloatRect absolutePosition (position.x + box.left * scale,

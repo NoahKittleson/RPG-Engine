@@ -28,8 +28,7 @@ void TalkingSprite::DrawCollisionBoxes(sf::RenderWindow &rw) const
 }
 
 
-void TalkingSprite::collide(Player &PC, sf::Vector2f moveVec) const
-{
+void TalkingSprite::collide(Player &PC, sf::Vector2f moveVec) const {
     sf::FloatRect playerRect = PC.getAbsBox();
     
     for (auto const & itBox : collisionBoxList) {
@@ -47,7 +46,7 @@ void TalkingSprite::collide(Player &PC, sf::Vector2f moveVec) const
                                PC.getPosition().y);
             }
             else if (moveVec.x < 0 && moveVec.y == 0){		//moving left
-                PC.setPosition(itBox.left + itBox.width + playerRect.height/2,
+                PC.setPosition(itBox.left + itBox.width + playerRect.width /2,
                                PC.getPosition().y);
             }
         }
@@ -64,8 +63,7 @@ bool TalkingSprite::intersects(sf::FloatRect rect) const {
 }
 
 
-DNode* TalkingSprite::interact(sf::FloatRect rect)
-{
+DNode* TalkingSprite::interact(sf::FloatRect rect) {
     for (auto && box: collisionBoxList) {
         if (box.intersects(rect)) {
             return whatItSays;

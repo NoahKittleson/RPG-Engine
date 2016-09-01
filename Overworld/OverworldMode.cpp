@@ -32,9 +32,6 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 	handleKeyPress(rw);
 	checkExits();			//only applicable if player moves... move to handlemovement?
 	checkTriggers(rw);		//only applicable if player moved...
-}
-
-void OverworldMode::draw(sf::RenderWindow &rw) {
 	updateView();			//applicable if player moves OR if zone is changed.
 	rw.setView(view);
 	//animate?
@@ -42,6 +39,10 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	drawAllBoxes(rw);
 	
 	rw.display();
+}
+
+void OverworldMode::draw(sf::RenderWindow &rw) {
+
 }
 
 void OverworldMode::handleEvent() {
