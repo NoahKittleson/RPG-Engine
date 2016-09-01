@@ -12,13 +12,15 @@ DialogueMode::DialogueMode(DNode* start, const sf::RenderWindow &rw)
 : current(start), mapView(rw.getView()), HUD(rw.getDefaultView())
 {
     start->setPosition(0, HUD.getSize().y * .75f);
+    current = start;
     messageBox.setPosition(0, HUD.getSize().y * .75f);
     messageBox.setSize(sf::Vector2f(HUD.getSize().x, HUD.getSize().y/4));
     messageBox.setFillColor(sf::Color(153,76,0));
 }
 
-void DialogueMode::handleEvent() {
+std::string DialogueMode::handleEvent() {
     //nothing yet... implement later
+    return "";
 }
 
 void DialogueMode::draw(sf::RenderWindow &rw) {

@@ -19,8 +19,8 @@ Character::Character(const Character& other)					//is this necessary? Doesn't _s
 :_IdleTexture(other._IdleTexture), _maxMana(other._maxMana), _maxHealth(other._maxHealth), _NPC(other._NPC),
 _currentHealth(other._currentHealth), _currentMana(other._currentMana), _sprite(other._sprite), _name(other._name),
 _HPText(other._HPText), _MPText(other._MPText), _AttackName(other._AttackName), _recoveryAbility(other._recoveryAbility),
-_basicAttack(other._basicAttack), _abilityList(other._abilityList), _getHitTexture(other._getHitTexture), _HPBar(other._HPBar),
-_MPBar(other._MPBar), _BarOutline(other._BarOutline)
+_basicAttack(other._basicAttack), _abilityList(other._abilityList), _getHitTexture(other._getHitTexture),
+_HPBar(other._HPBar), _MPBar(other._MPBar), _BarOutline(other._BarOutline)
 {
     //setFont(*other._name.getFont());
     _sprite.setTexture(*_IdleTexture);
@@ -68,7 +68,7 @@ _currentHealth(MaxHealth), _currentMana(MaxMana)
     _AttackName = attackName;
     _recoveryAbility = Ability("Recover", "Restores all Mana", 0, 0, 0, *_IdleTexture);				//placeholder texture
     _basicAttack = Ability("ATTACK", "Does Basic Damage", BAdmg, 0, 0, *_IdleTexture);				//placeholder texture
-    if (NPC)
+    if (_NPC)
     { _basicAttack._allyPrimaryTarget = true; }
     else _basicAttack._allyPrimaryTarget = false;
     
@@ -76,6 +76,7 @@ _currentHealth(MaxHealth), _currentMana(MaxMana)
     if (_NPC) {
         _recoveryAbility._baseDamage = 200;
     }
+    UpdateStatDisplay();
 }
 
 void Character::addAbility(Ability ability)

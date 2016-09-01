@@ -19,5 +19,7 @@ public:
     
     
 private:
+    //very temporary, see below
+    std::vector<MiniTrigger> testTriggers;
     
 };

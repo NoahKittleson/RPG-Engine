@@ -57,6 +57,7 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
                            resources.getTexture("RollingWheat.png"));
     //Trigger killzone (sf::FloatRect(400,0,500,500), EnemyList);
     //this->triggers.emplace_back(sf::FloatRect(400,0,500,500), EnemyVector);
+    miniTriggers.emplace_back(sf::FloatRect(500,50,50,50), "fight");
     
     //Set up Zone Exits
     //1920 by 1200 mountain jpg

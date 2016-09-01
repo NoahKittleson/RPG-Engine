@@ -18,6 +18,7 @@ Player::Player() {
     box = sf::FloatRect(-textureLength/4, -textureHeight/4,
                         textureLength/2, textureHeight/2);
     setOrigin(textureLength/2, textureHeight/2);
+    setPosition(100, 100);
 }
 
 sf::FloatRect Player::getAbsBox() {

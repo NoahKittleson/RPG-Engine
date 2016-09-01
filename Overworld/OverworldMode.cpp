@@ -45,8 +45,13 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 
 }
 
-void OverworldMode::handleEvent() {
-	//what should I put here?
+std::string OverworldMode::handleEvent() {
+	for (const auto & it: currentMap->miniTriggers) {
+		if (it.getZone().intersects(playerSprite.getAbsBox())) {
+			return it.getActionID();
+		}
+	}
+	return "";
 }
 
 void OverworldMode::handleMovement(float elapsed)

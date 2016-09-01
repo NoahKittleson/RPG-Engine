@@ -21,7 +21,7 @@ public:
 	OverworldMode(MapSection* map);
 	void update(sf::RenderWindow &rw, sf::Clock&) override;
 	void draw(sf::RenderWindow &rw) override;
-	void handleEvent() override;
+	std::string handleEvent() override;
 	
 private:
 	void handleMovement(float);

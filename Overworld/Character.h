@@ -35,7 +35,7 @@ public:
     void setFont(const sf::Font &font);
     
     //void UseRecovery();
-    //void UseRecovery(Character* target);							//there has got to be a better way to do damaging recoveries...
+    //void UseRecovery(Character* target);					//there has got to be a better way to do damaging recoveries...
     //void setIdle();
     //void setIdleNext();
     //void setGetHit();
@@ -46,13 +46,13 @@ public:
     Ability _basicAttack;
     Ability _recoveryAbility;
     std::list<Ability> _abilityList;
+    const bool _NPC;
     
 private:
     //character stats
     sf::Text _name;
     AnimatedSprite _sprite;
     std::string _AttackName;
-    const bool _NPC;
     float _maxHealth;
     float _currentHealth;
     float _maxMana;
