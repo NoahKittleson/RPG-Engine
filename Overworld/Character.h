@@ -31,7 +31,7 @@ public:
     void adjustHealth(int);
     void adjustMana(int);
     
-    void setColor(sf::Color);
+    void setColor(sf::Color);                             //Sets item's color in an option menu
     void setFont(const sf::Font &font);
     
     //void UseRecovery();

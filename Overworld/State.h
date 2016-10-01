@@ -34,7 +34,7 @@ protected:
     //perhaps a LOADSTATE which exists to fill ResourceHolder, currentMap, party, and playerSprite with correct values.
     
     static MapSection* currentMap;
-    static std::list<Character> party;
+    static std::vector<Character> party;
     static Player playerSprite;               //do I need this? Will this be stored in first Character?
     const static ResourceHolder resources;
 

@@ -8,46 +8,38 @@
 
 #include "BattleMode.h"
 
-
-BattleMode::BattleMode(std::vector<Character> enemies)
+//This alters base enemyVec.  Change if this is a problem
+BattleMode::BattleMode(std::vector<Character>& enemies) : enemyVec(enemies)
 {
-    //merge enemies and allies into combatants list;
-    //combatants = std::move(enemies);
-
-    //add allies to list as well
-    //this only adds COPIES.  I need REFERENCES OR POINTERS
-    for (auto && it: party) {
-        //it.setFont(resources.getFont("sansation.ttf"));
-        combatants.push_back(it);
-    }
-    for (auto && it: combatants) {
-        it.setFont(resources.getFont("sansation.ttf"));
-    }
-    combatants.emplace_back(500, 450, 75, resources.getTexture("BasicIdle.png"),
+    //keep enemyVec and player party separate
+    
+    //create the enemies and party cause fuck me...
+    party.emplace_back(500, 450, 75, resources.getTexture("BasicIdle.png"),
                              resources.getFont("sansation.ttf"), "Pringus", "CLASH", false,
                              resources.getTexture("GetHitAnimation.png"));
-    combatants.back()._recoveryAbility.setProperties(Ability::Heal, 100);
+    party.back()._recoveryAbility.setProperties(Ability::Heal, 100);
     Ability ability1 ("BigPunch", "Makes a big punch", 100, false, false,
                       resources.getTexture("BadAttackAnimation.png"));
     ability1.setReq(Ability::ManaCost, 100);
     Ability ability2 ("SmallPunch", "Makes a smaller punch" , 50, false, false,
                       resources.getTexture("BadAttackAnimation.png"));
     ability2.setReq(Ability::ManaCost, 50);
-    combatants.back().addAbility(ability1);
-    combatants.back().addAbility(ability2);
-    combatants.emplace_back(300, 100,  30, resources.getTexture("RollingWheat.png"),
-                            resources.getFont("sansation.ttf"), "GrainMan", ".", true,
-                            resources.getTexture("RollingWheat.png"));
+    party.back().addAbility(ability1);
+    party.back().addAbility(ability2);
+    
+    enemyVec.emplace_back(300, 100,  30, resources.getTexture("RollingWheat.png"),
+                          resources.getFont("sansation.ttf"), "GrainMan", ".", true,
+                          resources.getTexture("RollingWheat.png"));
     
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Attack", MenuOption::Attack);
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Ability", MenuOption::Ability);
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Recovery", MenuOption::Recovery);
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Crash Game", MenuOption::Crash);
     
-    currentChar = combatants.begin();
+    currentChar = enemyVec.begin();
 }
 
-void BattleMode::update(sf::RenderWindow &rw, sf::Clock &timer)
+void BattleMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 {
     rw.setView(rw.getDefaultView());
     float elapsed = timer.restart().asSeconds();
@@ -74,9 +66,9 @@ void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
             
         case Mode::PickTarget: {
             sf::Event event;
-            auto iter = combatants.begin();
+            auto iter = enemyVec.begin();
             while (rw.pollEvent(event)) {
-                scroll(event, iter, combatants);
+                scroll(event, iter, enemyVec, party);
             }
             break;
         }
@@ -146,7 +138,7 @@ void BattleMode::Animate(sf::RenderWindow &rw, float elapsed)
 void BattleMode::drawAll(sf::RenderWindow &rw, float elapsed)
 {
     int iii = 0;
-    for (auto && it: combatants) {
+    for (auto && it: enemyVec) {
         it.setSpritePosition(200 + (200 * iii), 300);
         it.setStatPosition(200 + (200 * iii), 300);
         it.drawAllStats(rw);

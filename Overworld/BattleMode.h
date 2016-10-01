@@ -30,7 +30,7 @@ private:
 class BattleMode : public State
 {
 public:
-    BattleMode(std::vector<Character> enemies);
+    BattleMode(std::vector<Character>& enemies);
     void update(sf::RenderWindow&rw, sf::Clock& timer) override;
     //fill these next two out later....
     void draw(sf::RenderWindow&) override {};
@@ -44,8 +44,8 @@ private:
     float calculateDmg();
     
     enum class Mode {StartChoice, PickAbility, PickTarget, Animating};
-    std::vector<Character> combatants;//alternatively, could keep party and enemies separtate, would make iterating a bit harder though...
-    std::vector<Character>::iterator currentChar {combatants.begin()};
+    std::vector<Character>& enemyVec;
+    std::vector<Character>::iterator currentChar { enemyVec.begin() };
     Ability* chosenAbil {nullptr};
     Character* chosenTarget {nullptr};
     Mode Choice = Mode::StartChoice;
@@ -63,6 +63,9 @@ private:
     template <typename ItemIterator, typename ItemList>
     void scroll(sf::Event &event, ItemIterator &it, ItemList &list);
     
+    template <typename ItemIterator, typename ItemList>
+    void scroll(sf::Event &event, ItemIterator &it, ItemList &list, ItemList &otherList);
+    
     template <typename T>
     void drawOptions(sf::RenderWindow &rw, std::list<T> list, sf::Vector2f startPos);
     
@@ -74,7 +77,7 @@ private:
 template <typename ListType>
 void BattleMode::scrollAndDisplay (sf::RenderWindow &rw, std::list<ListType>& list)
 {
-    static typename std::list<ListType>::iterator itr {list.begin()};
+    static typename std::list<ListType>::iterator itr { list.begin() };
     sf::Event event;
     while (rw.pollEvent(event)) {
         scroll(event, itr, list);
@@ -108,6 +111,43 @@ void BattleMode::scroll(sf::Event &event, ItemIterator &it, ItemList &list)
         previousMenu();
     }
 
+}
+
+
+template <typename ItemIterator, typename ItemList>
+void BattleMode::scroll(sf::Event &event, ItemIterator &it, ItemList &list, ItemList &otherList) {
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Right) {
+        it->setColor(sf::Color::Black);
+        it++;
+        if (it == list.end()) {
+            it = list.begin();
+        }
+        it->setColor(sf::Color::Red);
+    }
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Left) {
+        it->setColor(sf::Color::Black);
+        if (it == list.begin()) {
+            it = list.end();
+        }
+        it--;
+        it->setColor(sf::Color::Red);
+    }
+    if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::Down || event.key.code == sf::Keyboard::Up)) {
+        it->setColor(sf::Color::Black);
+        int index = it - list.begin();
+        if (index < otherList.size()) {
+            it = otherList.begin() + index;
+        } else {
+           it = --otherList.end();
+        }
+        it->setColor(sf::Color::Red);
+    }
+    if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::X || event.key.code == sf::Keyboard::Return)) {
+        nextMenu(*it);
+    }
+    if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::Z || event.key.code == sf::Keyboard::Slash)) {
+        previousMenu();
+    }
 }
 
 template <typename T>

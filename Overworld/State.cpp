@@ -38,5 +38,5 @@ bool State::checkDeletion()
 const ResourceHolder State::resources;
 StateStack* State::stack;
 MapSection* State::currentMap;
-std::list<Character> State::party;
+std::vector<Character> State::party;
 Player State::playerSprite;
