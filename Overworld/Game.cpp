@@ -48,6 +48,12 @@ void Game::run()
 			EnemyVector.emplace_back(300, 100,  30, resourceHolder.getTexture("RollingWheat.png"),
 									 resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
 									 resourceHolder.getTexture("RollingWheat.png"));
+			EnemyVector.emplace_back(300, 100,  30, resourceHolder.getTexture("RollingWheat.png"),
+									 resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
+									 resourceHolder.getTexture("RollingWheat.png"));
+			EnemyVector.emplace_back(300, 100,  30, resourceHolder.getTexture("RollingWheat.png"),
+									 resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
+									 resourceHolder.getTexture("RollingWheat.png"));
 			gameStack.addState(new BattleMode(EnemyVector));
 		}
 		else if (newState == "talk") {

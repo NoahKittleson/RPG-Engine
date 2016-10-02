@@ -54,6 +54,7 @@ private:
     void nextMenu(MenuOption&);
     void nextMenu(Character&);
     void previousMenu();
+    void positionStats();
     
     std::list<MenuOption> StartOptions;           //messy...
 

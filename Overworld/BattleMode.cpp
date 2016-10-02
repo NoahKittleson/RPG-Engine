@@ -17,6 +17,7 @@ BattleMode::BattleMode(std::vector<Character>& enemies) : enemyVec(enemies)
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Crash Game", MenuOption::Crash);
     
     currentChar = enemyVec.begin();
+    positionStats();
 }
 
 void BattleMode::update(sf::RenderWindow &rw, sf::Clock& timer)
@@ -115,29 +116,33 @@ void BattleMode::Animate(sf::RenderWindow &rw, float elapsed)
     //this is gonna be the really hard one
 }
 
-void BattleMode::drawAll(sf::RenderWindow &rw, float elapsed)
-{
+void BattleMode::positionStats() {
+    char combatants = enemyVec.size() + party.size();
+    int statBarWidth = 1024 / (combatants + 1);                   //magic number!! Also I add +1 for padding on both sides
     int iii = 0;
     for (auto && it: enemyVec) {
-        it.animate(rw, elapsed);
-        it.setSpritePosition(200 + (200 * iii), 300);
-        it.setStatPosition(200 + (200 * iii), 300);
-        it.drawAllStats(rw);
-        it.drawSprite(rw);
-        
-        sf::RectangleShape test;
-        test.setSize(sf::Vector2f(100.f,100.f));
-        test.setPosition(200 + (200 * iii), 300);
-        test.setFillColor(sf::Color(250,250,250));
+        it.setSpritePosition(statBarWidth/2 + (statBarWidth * iii), 300);
+        it.setStatPosition(statBarWidth/2 + (statBarWidth * iii), 300);
         iii++;
     }
     for (auto && it: party) {
+        it.setSpritePosition(statBarWidth/2 + (statBarWidth * iii), 300);
+        it.setStatPosition(statBarWidth/2 + (statBarWidth * iii), 300);
+        iii++;
+    }
+}
+
+void BattleMode::drawAll(sf::RenderWindow &rw, float elapsed)
+{
+    for (auto && it: enemyVec) {
         it.animate(rw, elapsed);
-        it.setSpritePosition(200 + (200 * iii), 300);
-        it.setStatPosition(200 + (200 * iii), 300);
         it.drawAllStats(rw);
         it.drawSprite(rw);
-        iii++;
+    }
+    for (auto && it: party) {
+        it.animate(rw, elapsed);
+        it.drawAllStats(rw);
+        it.drawSprite(rw);
     }
 }
 
