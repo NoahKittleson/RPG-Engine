@@ -17,6 +17,7 @@ BattleMode::BattleMode(std::vector<Character>& enemies) : enemyVec(enemies)
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Crash Game", MenuOption::Crash);
     
     currentChar = enemyVec.begin();
+    StartOptions.begin()->setColor(sf::Color::Red);
     positionStats();
 }
 
@@ -47,9 +48,13 @@ void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
             
         case Mode::PickTarget: {
             sf::Event event;
-            auto iter = enemyVec.begin();
+            static auto iter { chosenAbil->_allyPrimaryTarget ? party.begin() : enemyVec.begin() };
             while (rw.pollEvent(event)) {
-                scroll(event, iter, enemyVec, party);
+                if (iter->_NPC) {
+                    scroll(event, iter, enemyVec, party);
+                } else {
+                    scroll(event, iter, party, enemyVec);
+                }
             }
             break;
         }
@@ -77,6 +82,7 @@ void BattleMode::nextMenu(Ability& abil)
 {
     Choice = Mode::PickTarget;
     chosenAbil = &abil;
+    chosenAbil->_allyPrimaryTarget ? party.begin()->setColor(sf::Color::Red) : enemyVec.begin()->setColor(sf::Color::Red);
 }
 
 void BattleMode::nextMenu(Character &target)
