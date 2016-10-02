@@ -44,7 +44,7 @@ private:
     float calculateDmg();
     
     enum class Mode {StartChoice, PickAbility, PickTarget, Animating};
-    std::vector<Character>& enemyVec;
+    std::vector<Character> enemyVec;
     std::vector<Character>::iterator currentChar { enemyVec.begin() };
     Ability* chosenAbil {nullptr};
     Character* chosenTarget {nullptr};

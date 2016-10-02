@@ -34,6 +34,7 @@ public:
     void setColor(sf::Color);                             //Sets item's color in an option menu
     void setFont(const sf::Font &font);
     
+    void animate(sf::RenderWindow &rw, float elapased);
     //void UseRecovery();
     //void UseRecovery(Character* target);					//there has got to be a better way to do damaging recoveries...
     //void setIdle();
@@ -47,10 +48,11 @@ public:
     Ability _recoveryAbility;
     std::list<Ability> _abilityList;
     const bool _NPC;
+    sf::Text _name;
     
 private:
     //character stats
-    sf::Text _name;
+    //sf::Text _name;
     AnimatedSprite _sprite;
     std::string _AttackName;
     float _maxHealth;

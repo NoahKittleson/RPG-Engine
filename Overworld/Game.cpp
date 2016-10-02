@@ -33,6 +33,9 @@ void Game::run()
 	startMode->setStack(gameStack);
 	gameStack.addState(startMode);
 	
+	//a better load state would be nice eventually...
+	startMode->load();
+	
 	while (mainWindow.isOpen()) {
 		//float elapsed = gameTimer.restart().asSeconds();
 		while (gameStack.getCurrentState()->checkDeletion()) {		//could run out stack?
@@ -45,18 +48,6 @@ void Game::run()
 			EnemyVector.emplace_back(300, 100,  30, resourceHolder.getTexture("RollingWheat.png"),
 									 resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
 									 resourceHolder.getTexture("RollingWheat.png"));
-			EnemyVector.emplace_back(500, 450, 75, resourceHolder.getTexture("BasicIdle.png"),
-									 resourceHolder.getFont("sansation.ttf"), "Pringus", "CLASH", false,
-									 resourceHolder.getTexture("GetHitAnimation.png"));
-			EnemyVector.back()._recoveryAbility.setProperties(Ability::Heal, 100);
-			Ability ability1 ("BigPunch", "Makes a big punch", 100, false, false,
-							  resourceHolder.getTexture("BadAttackAnimation.png"));
-			ability1.setReq(Ability::ManaCost, 100);
-			Ability ability2 ("SmallPunch", "Makes a smaller punch" , 50, false, false,
-							  resourceHolder.getTexture("BadAttackAnimation.png"));
-			ability2.setReq(Ability::ManaCost, 50);
-			EnemyVector.back().addAbility(ability1);
-			EnemyVector.back().addAbility(ability2);
 			gameStack.addState(new BattleMode(EnemyVector));
 		}
 		else if (newState == "talk") {

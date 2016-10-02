@@ -28,6 +28,8 @@ public:
     bool checkDeletion();
     void setStack(StateStack&);
     
+    void load();    //this is a very janky version of how this will eventually work
+    
 protected:
     //this is effectively functioning as the gameInfo class I had considered
     //I need a way to make sure this is all initialized as correct values the first time I call ANY of the states.
