@@ -18,7 +18,7 @@ public:
     Character(const Character& other);
     Character& operator= (const Character &other) = delete;
     
-    void addAbility(Ability);
+    void addAbility(Ability&);
     bool CheckAbilityCost(Ability&);
     void PayAbilityCost(Ability&);
     float takeDamage(Ability, Character& attacker);

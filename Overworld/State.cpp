@@ -37,8 +37,8 @@ bool State::checkDeletion()
 
 void State::load() {
     party.emplace_back(500, 450, 75, resources.getTexture("BasicIdle.png"),
-                                  resources.getFont("sansation.ttf"), "Pringus", "CLASH", false,
-                                  resources.getTexture("GetHitAnimation.png"));
+                       resources.getFont("sansation.ttf"), "Pringus", "CLASH", false,
+                       resources.getTexture("GetHitAnimation.png"));
     party.back()._recoveryAbility.setProperties(Ability::Heal, 100);
     Ability ability1 ("BigPunch", "Makes a big punch", 100, false, false,
                       resources.getTexture("BadAttackAnimation.png"));
@@ -48,6 +48,10 @@ void State::load() {
     ability2.setReq(Ability::ManaCost, 50);
     party.back().addAbility(ability1);
     party.back().addAbility(ability2);
+    std::cout << "ability list size: ";
+    std::cout << party.back()._abilityList.size();
+    std::cout << "\n";
+    
 }
 
 const ResourceHolder State::resources;

@@ -68,8 +68,9 @@ _currentHealth(MaxHealth), _currentMana(MaxMana)
     _AttackName = attackName;
     _recoveryAbility = Ability("Recover", "Restores all Mana", 0, 0, 0, *_IdleTexture);				//placeholder texture
     _basicAttack = Ability("ATTACK", "Does Basic Damage", BAdmg, 0, 0, *_IdleTexture);				//placeholder texture
-    if (_NPC)
-    { _basicAttack._allyPrimaryTarget = true; }
+    if (_NPC) {
+        _basicAttack._allyPrimaryTarget = true;
+    }
     else _basicAttack._allyPrimaryTarget = false;
     
     _recoveryAbility.setProperties(Ability::PercentManaRecovery, 1.0);
@@ -79,7 +80,7 @@ _currentHealth(MaxHealth), _currentMana(MaxMana)
     UpdateStatDisplay();
 }
 
-void Character::addAbility(Ability ability)
+void Character::addAbility(Ability& ability)
 {
     _abilityList.push_back(ability);
 }
