@@ -19,10 +19,6 @@ BattleMode::BattleMode(std::vector<Character>& enemies) : enemyVec(enemies)
     currentChar = enemyVec.begin();
     StartOptions.begin()->setColor(sf::Color::Red);
     positionStats();
-    
-    std::cout << "ability list size: ";
-    std::cout << party.back()._abilityList.size();
-    std::cout << "\n";
 }
 
 void BattleMode::update(sf::RenderWindow &rw, sf::Clock& timer)
@@ -47,9 +43,6 @@ void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
             break;
             
         case Mode::PickAbility:
-            std::cout << "ability list size: ";
-            std::cout << party.back()._abilityList.size();
-            std::cout << "\n";
             scrollAndDisplay(rw, currentChar->_abilityList);
             break;
             
@@ -106,10 +99,6 @@ void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
         Choice = Mode::PickTarget;
     }
     if (type == MenuOption::Ability) {
-        std::cout << "ability list size: ";
-        std::cout << party.back()._abilityList.size();
-        std::cout << "\n";
-        
         if (currentChar->_abilityList.empty()) {
             return;
         }
@@ -127,9 +116,6 @@ void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
 
 void BattleMode::Animate(sf::RenderWindow &rw, float elapsed)
 {
-    std::cout << "Attacker ability list size: " << currentChar->_abilityList.size() << "\n";
-    std::cout << "Defender ability list size: " << chosenTarget->_abilityList.size() << "\n";
-    
     chosenTarget->takeDamage(*chosenAbil, *currentChar);
     currentChar++;
     if (currentChar == enemyVec.end()) {
