@@ -84,14 +84,14 @@ void BattleMode::scrollAndDisplay (sf::RenderWindow &rw, std::list<ListType>& li
         scroll(event, itr, list);
     }
     
-    std::cout << "S&D ability list size: " << list.size() << "\n";
+    //std::cout << "S&D ability list size: " << list.size() << "\n";
     drawOptions(rw, list, sf::Vector2f(100,100));
 }
 
 template <typename ItemIterator, typename ItemList>
 void BattleMode::scroll(sf::Event &event, ItemIterator &it, ItemList &list)
 {
-    std::cout << "SCR ability list size: " << list.size() << " "<< party.back()._abilityList.size() << "\n";
+    //std::cout << "SCR ability list size: " << list.size() << " "<< party.back()._abilityList.size() << "\n";
     
     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
         it->setColor(sf::Color::Black);

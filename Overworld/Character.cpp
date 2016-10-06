@@ -22,6 +22,7 @@ _HPText(other._HPText), _MPText(other._MPText), _AttackName(other._AttackName), 
 _basicAttack(other._basicAttack), _abilityList(other._abilityList), _getHitTexture(other._getHitTexture),
 _HPBar(other._HPBar), _MPBar(other._MPBar), _BarOutline(other._BarOutline)
 {
+    std::cout << "alert: character copied. Name: " << other._name.getString().toAnsiString() << "\n";
     //setFont(*other._name.getFont());
     _sprite.setTexture(*_IdleTexture);
 }

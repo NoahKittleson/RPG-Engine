@@ -127,8 +127,16 @@ void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
 
 void BattleMode::Animate(sf::RenderWindow &rw, float elapsed)
 {
+    std::cout << "Attacker ability list size: " << currentChar->_abilityList.size() << "\n";
+    std::cout << "Defender ability list size: " << chosenTarget->_abilityList.size() << "\n";
+    
     chosenTarget->takeDamage(*chosenAbil, *currentChar);
     currentChar++;
+    if (currentChar == enemyVec.end()) {
+        currentChar = party.begin();
+    } else if (currentChar == party.end()) {
+        currentChar = enemyVec.begin();
+    }
     Choice = Mode::StartChoice;
     //this is gonna be the really hard one
 }
