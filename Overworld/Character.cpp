@@ -83,6 +83,7 @@ _currentHealth(MaxHealth), _currentMana(MaxMana)
 
 void Character::addAbility(Ability& ability)
 {
+    ability.setFont(*_name.getFont());
     _abilityList.push_back(ability);
 }
 
