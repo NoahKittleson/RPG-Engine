@@ -31,6 +31,20 @@ void BattleMode::update(sf::RenderWindow &rw, sf::Clock& timer)
     rw.display();
 }
 
+//non-template
+void BattleMode::scrollAndDisplayMore (sf::RenderWindow &rw, std::list<Ability>& list)
+{
+    static std::list<Ability>::iterator itr { list.begin() };
+    sf::Event event;
+    while (rw.pollEvent(event)) {
+        scroll(event, itr, list);
+    }
+    
+    //std::cout << "S&D ability list size: " << list.size() << "\n";
+    itr->drawDesc(rw);
+    drawOptions(rw, list, sf::Vector2f(100,100));
+}
+
 void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
 {
     if (currentChar->_NPC) {
@@ -43,7 +57,7 @@ void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
             break;
             
         case Mode::PickAbility:
-            scrollAndDisplay(rw, currentChar->_abilityList);
+            scrollAndDisplayMore(rw, currentChar->_abilityList);
             break;
             
         case Mode::PickTarget: {
@@ -102,6 +116,7 @@ void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
         if (currentChar->_abilityList.empty()) {
             return;
         }
+        currentChar->_abilityList.begin()->setColor(sf::Color::Red);
         Choice = Mode::PickAbility;
     }
     if (type == MenuOption::Recovery) {

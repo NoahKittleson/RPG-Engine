@@ -61,6 +61,9 @@ private:
     template <typename ListType>
     void scrollAndDisplay (sf::RenderWindow &rw, std::list<ListType>& list);
     
+    //non-template to test to see if I like that better-
+    void scrollAndDisplayMore (sf::RenderWindow &rw, std::list<Ability>& list);            //shitty fucking name
+    
     template <typename ItemIterator, typename ItemList>
     void scroll(sf::Event &event, ItemIterator &it, ItemList &list);
     
