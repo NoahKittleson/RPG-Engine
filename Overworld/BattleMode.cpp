@@ -31,7 +31,6 @@ void BattleMode::update(sf::RenderWindow &rw, sf::Clock& timer)
     rw.display();
 }
 
-//non-template
 void BattleMode::scrollAndDisplayMore (sf::RenderWindow &rw, std::list<Ability>& list)
 {
     static std::list<Ability>::iterator itr { list.begin() };
@@ -83,10 +82,13 @@ void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
 
 void BattleMode::previousMenu()
 {
-    if (!chosenAbil || Choice == Mode::Animating) {
+    if (Choice == Mode::StartChoice || Choice == Mode::Animating) {
         return;
     }
-    if (chosenAbil != &currentChar->_basicAttack) {
+    if (Choice == Mode::PickAbility) {
+        Choice = Mode::StartChoice;
+    }
+    else if (chosenAbil != &currentChar->_basicAttack) {
         Choice = Mode::PickAbility;
     }
     else Choice = Mode::StartChoice;
@@ -94,6 +96,7 @@ void BattleMode::previousMenu()
 
 void BattleMode::nextMenu(Ability& abil)
 {
+    abil.setColor(sf::Color::Black);
     Choice = Mode::PickTarget;
     chosenAbil = &abil;
     chosenAbil->_allyPrimaryTarget ? party.begin()->setColor(sf::Color::Red) : enemyVec.begin()->setColor(sf::Color::Red);

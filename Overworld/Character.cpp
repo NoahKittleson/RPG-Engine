@@ -295,7 +295,7 @@ void Character::UpdateStatDisplay()
     _MPText.setString(GetText("MP: ", _currentMana, _maxMana));
     
     _HPBar.setSize(sf::Vector2f(percentHealth()*BAR_WIDTH, BAR_HEIGHT));
-    _MPBar.setSize(sf::Vector2f(percentHealth()*BAR_WIDTH, BAR_HEIGHT));
+    _MPBar.setSize(sf::Vector2f(percentMana()*BAR_WIDTH, BAR_HEIGHT));
     updateStatusEffects();
 }
 
