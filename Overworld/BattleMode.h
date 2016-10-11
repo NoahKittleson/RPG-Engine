@@ -56,8 +56,13 @@ private:
     void previousMenu();
     void positionStats();
     
-    std::list<MenuOption> StartOptions;           //messy...
-
+    IterVector<MenuOption> StartOptions;           //messy...
+    
+    //just testing stuff out...
+    void scrollAndDisplay2(sf::RenderWindow &rw, IterVector<MenuOption> &list);
+    //end testing
+    
+    
     template <typename ListType>
     void scrollAndDisplay (sf::RenderWindow &rw, std::list<ListType>& list);
     

@@ -43,6 +43,13 @@ void IterVector<T>::setLooping(bool Loop)
 }
 
 template <typename T>
+void IterVector<T>::forAll(void (*funcPtr)(T)) {
+    for (int iii = 0; iii < this->size(); iii++) {
+        funcPtr(this[iii]);
+    }
+}
+
+template <typename T>
 void IterVector<T>::reset()
 {
     index = 0;

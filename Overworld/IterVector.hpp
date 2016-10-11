@@ -26,6 +26,7 @@ public:
     bool atEnd();
     
     void setLooping(bool);
+    void forAll(void (*funcPtr)(T));
     void reset();
     
 private:

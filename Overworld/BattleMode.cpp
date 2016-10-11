@@ -9,7 +9,7 @@
 #include "BattleMode.h"
 
 //This copies passed enemyVec.  Change if this is a problem
-BattleMode::BattleMode(std::vector<Character>& enemies) : enemyVec(enemies)
+BattleMode::BattleMode(std::vector<Character>& enemies) : enemyVec(enemies), StartOptions(true)
 {
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Attack", MenuOption::Attack);
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Ability", MenuOption::Ability);
@@ -44,6 +44,18 @@ void BattleMode::scrollAndDisplayMore (sf::RenderWindow &rw, std::list<Ability>&
     drawOptions(rw, list, sf::Vector2f(100,100));
 }
 
+void BattleMode::scrollAndDisplay2(sf::RenderWindow &rw, IterVector<MenuOption> &list) {
+    //static typename std::list<ListType>::iterator itr { list.begin() };
+    sf::Event event;
+    while (rw.pollEvent(event)) {
+        scroll(event, list);
+    }
+    for (<#initialization#>; <#condition#>; <#increment#>) {
+        statements
+    }
+    drawOptions(rw, list, sf::Vector2f(100,100));
+}
+
 void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
 {
     if (currentChar->_NPC) {
@@ -52,7 +64,7 @@ void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
     
     switch (Choice) {
         case Mode::StartChoice:
-            scrollAndDisplay(rw, StartOptions);
+            scrollAndDisplay2(rw, StartOptions);
             break;
             
         case Mode::PickAbility:
