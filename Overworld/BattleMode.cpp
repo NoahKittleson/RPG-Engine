@@ -9,15 +9,21 @@
 #include "BattleMode.h"
 
 //This copies passed enemyVec.  Change if this is a problem
-BattleMode::BattleMode(std::vector<Character>& enemies) : enemyVec(enemies), StartOptions(true)
+BattleMode::BattleMode(std::vector<Character>& enemies) : StartOptions(true)
 {
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Attack", MenuOption::Attack);
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Ability", MenuOption::Ability);
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Recovery", MenuOption::Recovery);
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Crash Game", MenuOption::Crash);
     
-    currentChar = enemyVec.begin();
-    StartOptions.begin()->setColor(sf::Color::Red);
+    for (auto && it : party) {
+        combatants.emplace_back(&it);
+    }
+    for (auto && it : enemies) {
+        combatants.emplace_back(&it);
+    }
+    StartOptions.get().setColor(sf::Color::Red);
+    targetSelectVec = combatants;
     positionStats();
 }
 
@@ -33,35 +39,40 @@ void BattleMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 
 void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
 {
-    if (currentChar->_NPC) {
+    if (combatants.get()->_NPC) {
         //run AI logic...
     }
     sf::Event event;
     switch (Choice) {
         case Mode::StartChoice:
-            scroll(rw, StartOptions);
+            while (rw.pollEvent(event)) {
+                StartOptions.get().setColor(sf::Color::Black);
+                scroll(event, StartOptions);
+                StartOptions.get().setColor(sf::Color::Red);
+            }
             for (auto && it: StartOptions) {
                 it.draw(rw);
             }
             break;
             
         case Mode::PickAbility:
-            scroll(rw, currentChar->_abilityList);
-            for (auto && it: currentChar->_abilityList) {
+            while (rw.pollEvent(event)) {
+                combatants.get()->_abilityList.get().setColor(sf::Color::Black);
+                scroll(event, StartOptions);
+                combatants.get()->_abilityList.get().setColor(sf::Color::Red);
+            }
+            for (auto && it: combatants.get()->_abilityList) {
                 it.draw(rw);
             }
-            currentChar->_abilityList.get().drawDesc(rw);
+            combatants.get()->_abilityList.get().drawDesc(rw);
             break;
             
         case Mode::PickTarget: {
-            sf::Event event;
-            static auto iter { chosenAbil->_allyPrimaryTarget ? party.begin() : enemyVec.begin() };
+            //if I want to have special behavior for the target scroll (i.e. scrolling over enemies) just define another scroll();
             while (rw.pollEvent(event)) {
-                if (iter->_NPC) {
-                    scroll(event, iter, enemyVec, party);
-                } else {
-                    scroll(event, iter, party, enemyVec);
-                }
+                targetSelectVec.get()->setColor(sf::Color::Black);
+                scroll(event, StartOptions);
+                targetSelectVec.get()->setColor(sf::Color::Red);
             }
             break;
         }
@@ -82,8 +93,9 @@ void BattleMode::previousMenu()
     if (Choice == Mode::PickAbility) {
         Choice = Mode::StartChoice;
     }
-    else if (chosenAbil != &currentChar->_basicAttack) {
+    else if (chosenAbil != &combatants.get()->_basicAttack) {
         Choice = Mode::PickAbility;
+        
     }
     else Choice = Mode::StartChoice;
 }
@@ -93,32 +105,32 @@ void BattleMode::nextMenu(Ability& abil)
     abil.setColor(sf::Color::Black);
     Choice = Mode::PickTarget;
     chosenAbil = &abil;
-    chosenAbil->_allyPrimaryTarget ? party.begin()->setColor(sf::Color::Red) : enemyVec.begin()->setColor(sf::Color::Red);
+    //chosenAbil->_allyPrimaryTarget ? party.begin()->setColor(sf::Color::Red) : enemyVec.begin()->setColor(sf::Color::Red);
 }
 
-void BattleMode::nextMenu(Character &target)
+void BattleMode::nextMenu(Character *target)
 {
     Choice = Mode::Animating;
-    chosenTarget = &target;
+    chosenTarget = target;
 }
 
 void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
 {
     auto type = item.Option;
     if (type == MenuOption::Attack) {
-        chosenAbil = &currentChar->_basicAttack;
+        chosenAbil = &combatants.get()->_basicAttack;
         Choice = Mode::PickTarget;
     }
     if (type == MenuOption::Ability) {
-        if (currentChar->_abilityList.empty()) {
+        if (combatants.get()->_abilityList.empty()) {
             return;
         }
-        currentChar->_abilityList.begin()->setColor(sf::Color::Red);
+        combatants.get()->_abilityList.begin()->setColor(sf::Color::Red);
         Choice = Mode::PickAbility;
     }
     if (type == MenuOption::Recovery) {
-        chosenAbil = &currentChar->_basicAttack;
-        chosenTarget = &(*currentChar);
+        chosenAbil = &combatants.get()->_basicAttack;
+        chosenTarget = combatants.get();
         Choice = Mode::Animating;
     }
     if (type == MenuOption::Crash) {
@@ -128,44 +140,28 @@ void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
 
 void BattleMode::Animate(sf::RenderWindow &rw, float elapsed)
 {
-    chosenTarget->takeDamage(*chosenAbil, *currentChar);
-    currentChar++;
-    if (currentChar == enemyVec.end()) {
-        currentChar = party.begin();
-    } else if (currentChar == party.end()) {
-        currentChar = enemyVec.begin();
-    }
+    chosenTarget->takeDamage(*chosenAbil, *combatants.get());
+    ++combatants;
     Choice = Mode::StartChoice;
     //this is gonna be the really hard one
 }
 
 void BattleMode::positionStats() {
-    char combatants = enemyVec.size() + party.size();
-    int statBarWidth = 1024 / (combatants + 1);                   //magic number!! Also I add +1 for padding on both sides
+    int statBarWidth = 1024 / (combatants.size() + 1);                   //magic number!! Also I add +1 for padding on both sides
     int iii = 0;
-    for (auto && it: enemyVec) {
-        it.setSpritePosition(statBarWidth/2 + (statBarWidth * iii), 300);
-        it.setStatPosition(statBarWidth/2 + (statBarWidth * iii), 300);
-        iii++;
-    }
-    for (auto && it: party) {
-        it.setSpritePosition(statBarWidth/2 + (statBarWidth * iii), 300);
-        it.setStatPosition(statBarWidth/2 + (statBarWidth * iii), 300);
+    for (auto && it: combatants) {
+        it->setSpritePosition(statBarWidth/2 + (statBarWidth * iii), 300);
+        it->setStatPosition(statBarWidth/2 + (statBarWidth * iii), 300);
         iii++;
     }
 }
 
 void BattleMode::drawAll(sf::RenderWindow &rw, float elapsed)
 {
-    for (auto && it: enemyVec) {
-        it.animate(rw, elapsed);
-        it.drawAllStats(rw);
-        it.drawSprite(rw);
-    }
-    for (auto && it: party) {
-        it.animate(rw, elapsed);
-        it.drawAllStats(rw);
-        it.drawSprite(rw);
+    for (auto && it: combatants) {
+        it->animate(rw, elapsed);
+        it->drawAllStats(rw);
+        it->drawSprite(rw);
     }
 }
 

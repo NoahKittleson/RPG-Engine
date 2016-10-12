@@ -44,46 +44,41 @@ private:
     float calculateDmg();
     
     enum class Mode {StartChoice, PickAbility, PickTarget, Animating};
-    std::vector<Character> enemyVec;
-    std::vector<Character>::iterator currentChar { enemyVec.begin() };
+    IterVector<Character*> combatants;
+    IterVector<Character*> targetSelectVec;
+    //std::vector<Character>::iterator currentChar { enemyVec.begin() };
     Ability* chosenAbil {nullptr};
     Character* chosenTarget {nullptr};
     Mode Choice = Mode::StartChoice;
     
     void nextMenu(Ability&);
     void nextMenu(MenuOption&);
-    void nextMenu(Character&);
+    void nextMenu(Character*);
     void previousMenu();
     void positionStats();
     
     IterVector<MenuOption> StartOptions;           //messy...
 
     template <typename Item>
-    void scroll(sf::RenderWindow &rw, IterVector<Item> &list);
+    void scroll(sf::Event &event, IterVector<Item> &list);
+    
 };
-
 
 
 //////////////Definitions for Template Functions//////////////
 template <typename Item>
-void BattleMode::scroll(sf::RenderWindow &rw, IterVector<Item> &list) {
-    sf::Event event;
-    while (rw.pollEvent(event)) {
-        list.get().setColor(sf::Color::Black);
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
-            ++list;
-        }
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up) {
-            --list;
-        }
-        list.get().setColor(sf::Color::Red);
-        
-        if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::X || event.key.code == sf::Keyboard::Return)) {
-            nextMenu(list.get());
-        }
-        if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::Z || event.key.code == sf::Keyboard::Slash)) {
-            previousMenu();
-        }
+void BattleMode::scroll(sf::Event &event, IterVector<Item> &list) {
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
+        ++list;
+    }
+    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up) {
+        --list;
+    }        
+    if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::X || event.key.code == sf::Keyboard::Return)) {
+        nextMenu(list.get());
+    }
+    if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::Z || event.key.code == sf::Keyboard::Slash)) {
+        previousMenu();
     }
 }
 
