@@ -9,6 +9,7 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "Ability.h"
+#include "IterVector.hpp"
 #include "AnimatedSprite.h"
 
 class Character
@@ -46,7 +47,7 @@ public:
 public:
     Ability _basicAttack;
     Ability _recoveryAbility;
-    std::list<Ability> _abilityList;
+    IterVector<Ability> _abilityList;
     const bool _NPC;
     sf::Text _name;
     

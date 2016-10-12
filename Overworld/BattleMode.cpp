@@ -31,29 +31,42 @@ void BattleMode::update(sf::RenderWindow &rw, sf::Clock& timer)
     rw.display();
 }
 
-void BattleMode::scrollAndDisplayMore (sf::RenderWindow &rw, std::list<Ability>& list)
-{
-    static std::list<Ability>::iterator itr { list.begin() };
-    sf::Event event;
-    while (rw.pollEvent(event)) {
-        scroll(event, itr, list);
-    }
-    
-    //std::cout << "S&D ability list size: " << list.size() << "\n";
-    itr->drawDesc(rw);
-    drawOptions(rw, list, sf::Vector2f(100,100));
-}
-
-void BattleMode::scrollAndDisplay2(sf::RenderWindow &rw, IterVector<MenuOption> &list) {
-    //static typename std::list<ListType>::iterator itr { list.begin() };
+//this actually doesn't make sense to turn ability list into an IterVector
+void BattleMode::abilityScroll (sf::RenderWindow &rw, IterVector<Ability>& list){
     sf::Event event;
     while (rw.pollEvent(event)) {
         scroll(event, list);
     }
-    for (<#initialization#>; <#condition#>; <#increment#>) {
-        statements
+    list.get().drawDesc(rw);
+    for (auto && it: list) {
+        it.draw(rw);
     }
-    drawOptions(rw, list, sf::Vector2f(100,100));
+}
+
+//void testFunc(sf::RenderWindow &rw, MenuOption option) {
+//    option.draw(rw);
+//}
+
+void BattleMode::startMenuScroll(sf::RenderWindow &rw, IterVector<MenuOption> &list) {
+    sf::Event event;
+    while (rw.pollEvent(event)) {
+        scroll(event, list);
+    }
+    for (auto && it: list) {
+        it.draw(rw);
+    }
+    //Learn how binding might work on a latter date.  Not necessary for now.
+    //using namespace std::placeholders;
+    //auto drawFunc = std::bind (testFunc, &rw, _1);
+    //list.forAll(&drawFunc);
+}
+
+template <typename ItemType>
+void BattleMode::commonMenuScroll(sf::RenderWindow &rw, IterVector<ItemType>) {
+    sf::Event event;
+    while (rw.pollEvent(event)) {
+        scroll(event, list);
+    }
 }
 
 void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
@@ -61,14 +74,20 @@ void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
     if (currentChar->_NPC) {
         //run AI logic...
     }
-    
+    sf::Event event;
     switch (Choice) {
         case Mode::StartChoice:
-            scrollAndDisplay2(rw, StartOptions);
+            commonMenuScroll(rw, StartOptions);
+            for (auto && it: StartOptions) {
+                it.draw(rw);
+            }
             break;
             
         case Mode::PickAbility:
-            scrollAndDisplayMore(rw, currentChar->_abilityList);
+            commonMenuScroll(rw, currentChar->_abilityList);
+            for (auto && it: currentChar->_abilityList) {
+                it.draw(rw);
+            }
             break;
             
         case Mode::PickTarget: {

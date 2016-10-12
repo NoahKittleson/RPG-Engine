@@ -61,117 +61,96 @@ private:
     //just testing stuff out...
     void scrollAndDisplay2(sf::RenderWindow &rw, IterVector<MenuOption> &list);
     //end testing
+
+    template <typename Item>
+    void scroll(sf::Event &event, IterVector<Item> &list);
     
-    
-    template <typename ListType>
-    void scrollAndDisplay (sf::RenderWindow &rw, std::list<ListType>& list);
-    
-    //non-template to test to see if I like that better-
-    void scrollAndDisplayMore (sf::RenderWindow &rw, std::list<Ability>& list);            //shitty fucking name
-    
-    template <typename ItemIterator, typename ItemList>
-    void scroll(sf::Event &event, ItemIterator &it, ItemList &list);
-    
-    template <typename ItemIterator, typename ItemList>
-    void scroll(sf::Event &event, ItemIterator &it, ItemList &list, ItemList &otherList);
-    
-    template <typename T>
-    void drawOptions(sf::RenderWindow &rw, std::list<T> list, sf::Vector2f startPos);
+    template <typename ItemType>
+    void scroll(sf::Event &event, IterVector<ItemType> &list, IterVector<ItemType> &otherList);
     
 };
 
 
 
 //////////////Definitions for Template Fuctions//////////////
-template <typename ListType>
-void BattleMode::scrollAndDisplay (sf::RenderWindow &rw, std::list<ListType>& list)
-{
-    static typename std::list<ListType>::iterator itr { list.begin() };
-    sf::Event event;
-    while (rw.pollEvent(event)) {
-        scroll(event, itr, list);
-    }
-    
-    //std::cout << "S&D ability list size: " << list.size() << "\n";
-    drawOptions(rw, list, sf::Vector2f(100,100));
-}
+//template <typename ListType>
+//void BattleMode::scrollAndDisplay (sf::RenderWindow &rw, std::list<ListType>& list)
+//{
+//    static typename std::list<ListType>::iterator itr { list.begin() };
+//    sf::Event event;
+//    while (rw.pollEvent(event)) {
+//        scroll(event, itr, list);
+//    }
+//    
+//    //std::cout << "S&D ability list size: " << list.size() << "\n";
+//    drawOptions(rw, list, sf::Vector2f(100,100));
+//}
 
-template <typename ItemIterator, typename ItemList>
-void BattleMode::scroll(sf::Event &event, ItemIterator &it, ItemList &list)
-{
-    //std::cout << "SCR ability list size: " << list.size() << " "<< party.back()._abilityList.size() << "\n";
-    
+template <typename Item>
+void BattleMode::scroll(sf::Event &event, IterVector<Item> &list) {
+    list.get().setColor(sf::Color::Black);
     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
-        it->setColor(sf::Color::Black);
-        it++;
-        if (it == list.end()) {
-            it = list.begin();
-        }
-        it->setColor(sf::Color::Red);
+        ++list;
     }
     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up) {
-        it->setColor(sf::Color::Black);
-        if (it == list.begin()) {
-            it = list.end();
-        }
-        it--;
-        it->setColor(sf::Color::Red);
+        --list;
     }
+    list.get().setColor(sf::Color::Red);
+    
     if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::X || event.key.code == sf::Keyboard::Return)) {
-        nextMenu(*it);
-    }
-    if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::Z || event.key.code == sf::Keyboard::Slash)) {
-        previousMenu();
-    }
-
-}
-
-
-template <typename ItemIterator, typename ItemList>
-void BattleMode::scroll(sf::Event &event, ItemIterator &it, ItemList &list, ItemList &otherList) {
-    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Right) {
-        it->setColor(sf::Color::Black);
-        it++;
-        if (it == list.end()) {
-            it = list.begin();
-        }
-        it->setColor(sf::Color::Red);
-    }
-    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Left) {
-        it->setColor(sf::Color::Black);
-        if (it == list.begin()) {
-            it = list.end();
-        }
-        it--;
-        it->setColor(sf::Color::Red);
-    }
-    if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::Down || event.key.code == sf::Keyboard::Up)) {
-        it->setColor(sf::Color::Black);
-        int index = it - list.begin();
-        if (index < otherList.size()) {
-            it = otherList.begin() + index;
-        } else {
-           it = --otherList.end();
-        }
-        it->setColor(sf::Color::Red);
-    }
-    if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::X || event.key.code == sf::Keyboard::Return)) {
-        nextMenu(*it);
+        nextMenu(list.get());
     }
     if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::Z || event.key.code == sf::Keyboard::Slash)) {
         previousMenu();
     }
 }
 
-template <typename T>
-void BattleMode::drawOptions(sf::RenderWindow &rw, std::list<T> list, sf::Vector2f startPos)
-{
-    for (auto && it: list) {
-        it.setPosition(startPos.x, startPos.y);
-        it.draw(rw);
-        startPos.y += 30;               //!!ALERT: MAGIC NUMBER :ALERT!!
-    }
-}
+
+//template <typename ItemIterator, typename ItemList>
+//void BattleMode::scroll(sf::Event &event, ItemIterator &it, ItemList &list, ItemList &otherList) {
+//    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Right) {
+//        it->setColor(sf::Color::Black);
+//        it++;
+//        if (it == list.end()) {
+//            it = list.begin();
+//        }
+//        it->setColor(sf::Color::Red);
+//    }
+//    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Left) {
+//        it->setColor(sf::Color::Black);
+//        if (it == list.begin()) {
+//            it = list.end();
+//        }
+//        it--;
+//        it->setColor(sf::Color::Red);
+//    }
+//    if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::Down || event.key.code == sf::Keyboard::Up)) {
+//        it->setColor(sf::Color::Black);
+//        int index = it - list.begin();
+//        if (index < otherList.size()) {
+//            it = otherList.begin() + index;
+//        } else {
+//           it = --otherList.end();
+//        }
+//        it->setColor(sf::Color::Red);
+//    }
+//    if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::X || event.key.code == sf::Keyboard::Return)) {
+//        nextMenu(*it);
+//    }
+//    if (event.type == sf::Event::KeyPressed && (event.key.code == sf::Keyboard::Z || event.key.code == sf::Keyboard::Slash)) {
+//        previousMenu();
+//    }
+//}
+
+//template <typename T>
+//void BattleMode::drawOptions(sf::RenderWindow &rw, std::list<T> list, sf::Vector2f startPos)
+//{
+//    for (auto && it: list) {
+//        it.setPosition(startPos.x, startPos.y);
+//        it.draw(rw);
+//        startPos.y += 30;               //!!ALERT: MAGIC NUMBER :ALERT!!
+//    }
+//}
 
 
 
