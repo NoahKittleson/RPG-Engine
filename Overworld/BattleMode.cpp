@@ -31,44 +31,6 @@ void BattleMode::update(sf::RenderWindow &rw, sf::Clock& timer)
     rw.display();
 }
 
-//this actually doesn't make sense to turn ability list into an IterVector
-void BattleMode::abilityScroll (sf::RenderWindow &rw, IterVector<Ability>& list){
-    sf::Event event;
-    while (rw.pollEvent(event)) {
-        scroll(event, list);
-    }
-    list.get().drawDesc(rw);
-    for (auto && it: list) {
-        it.draw(rw);
-    }
-}
-
-//void testFunc(sf::RenderWindow &rw, MenuOption option) {
-//    option.draw(rw);
-//}
-
-void BattleMode::startMenuScroll(sf::RenderWindow &rw, IterVector<MenuOption> &list) {
-    sf::Event event;
-    while (rw.pollEvent(event)) {
-        scroll(event, list);
-    }
-    for (auto && it: list) {
-        it.draw(rw);
-    }
-    //Learn how binding might work on a latter date.  Not necessary for now.
-    //using namespace std::placeholders;
-    //auto drawFunc = std::bind (testFunc, &rw, _1);
-    //list.forAll(&drawFunc);
-}
-
-template <typename ItemType>
-void BattleMode::commonMenuScroll(sf::RenderWindow &rw, IterVector<ItemType>) {
-    sf::Event event;
-    while (rw.pollEvent(event)) {
-        scroll(event, list);
-    }
-}
-
 void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
 {
     if (currentChar->_NPC) {
@@ -77,17 +39,18 @@ void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
     sf::Event event;
     switch (Choice) {
         case Mode::StartChoice:
-            commonMenuScroll(rw, StartOptions);
+            scroll(rw, StartOptions);
             for (auto && it: StartOptions) {
                 it.draw(rw);
             }
             break;
             
         case Mode::PickAbility:
-            commonMenuScroll(rw, currentChar->_abilityList);
+            scroll(rw, currentChar->_abilityList);
             for (auto && it: currentChar->_abilityList) {
                 it.draw(rw);
             }
+            currentChar->_abilityList.get().drawDesc(rw);
             break;
             
         case Mode::PickTarget: {
