@@ -9,18 +9,22 @@
 #include "BattleMode.h"
 
 //This copies passed enemyVec.  Change if this is a problem
-BattleMode::BattleMode(std::vector<Character>& enemies) : StartOptions(true)
+BattleMode::BattleMode(std::vector<Character*>& enemies) : StartOptions(true)
 {
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Attack", MenuOption::Attack);
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Ability", MenuOption::Ability);
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Recovery", MenuOption::Recovery);
     StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Crash Game", MenuOption::Crash);
     
+    for (int iii = 0; iii < StartOptions.size(); ++iii) {
+        StartOptions[iii].setPosition(100, 40 * iii);
+    }
+    
     for (auto && it : party) {
         combatants.emplace_back(&it);
     }
     for (auto && it : enemies) {
-        combatants.emplace_back(&it);
+        combatants.emplace_back(it);
     }
     StartOptions.get().setColor(sf::Color::Red);
     targetSelectVec = combatants;
@@ -58,7 +62,7 @@ void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
         case Mode::PickAbility:
             while (rw.pollEvent(event)) {
                 combatants.get()->_abilityList.get().setColor(sf::Color::Black);
-                scroll(event, StartOptions);
+                scroll(event, combatants);
                 combatants.get()->_abilityList.get().setColor(sf::Color::Red);
             }
             for (auto && it: combatants.get()->_abilityList) {
@@ -71,7 +75,7 @@ void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
             //if I want to have special behavior for the target scroll (i.e. scrolling over enemies) just define another scroll();
             while (rw.pollEvent(event)) {
                 targetSelectVec.get()->setColor(sf::Color::Black);
-                scroll(event, StartOptions);
+                scroll(event, targetSelectVec);
                 targetSelectVec.get()->setColor(sf::Color::Red);
             }
             break;

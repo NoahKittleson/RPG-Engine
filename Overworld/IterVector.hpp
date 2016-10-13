@@ -28,6 +28,7 @@ public:
     void setLooping(bool);
     void forAll(void (*funcPtr)(T));
     void reset();
+    void removeCurrent();
     
 private:
     int index{0};

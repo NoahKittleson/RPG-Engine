@@ -44,16 +44,16 @@ void Game::run()
 		std::string newState = gameStack.getCurrentState()->handleEvent();
 		if (newState == "fight") {
 			//put a battlemode on the StateStack;
-			std::vector<Character> EnemyVector;
-			EnemyVector.emplace_back(300, 100,  30, resourceHolder.getTexture("RollingWheat.png"),
-									 resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
-									 resourceHolder.getTexture("RollingWheat.png"));
-			EnemyVector.emplace_back(300, 100,  30, resourceHolder.getTexture("RollingWheat.png"),
-									 resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
-									 resourceHolder.getTexture("RollingWheat.png"));
-			EnemyVector.emplace_back(300, 100,  30, resourceHolder.getTexture("RollingWheat.png"),
-									 resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
-									 resourceHolder.getTexture("RollingWheat.png"));
+			std::vector<Character*> EnemyVector;
+			EnemyVector.push_back(new Character(300, 100,  30, resourceHolder.getTexture("RollingWheat.png"),
+												resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
+												resourceHolder.getTexture("RollingWheat.png")));
+			EnemyVector.push_back(new Character(300, 100,  30, resourceHolder.getTexture("RollingWheat.png"),
+												resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
+												resourceHolder.getTexture("RollingWheat.png")));
+			EnemyVector.push_back(new Character(300, 100,  30, resourceHolder.getTexture("RollingWheat.png"),
+												resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
+												resourceHolder.getTexture("RollingWheat.png")));
 			gameStack.addState(new BattleMode(EnemyVector));
 		}
 		else if (newState == "talk") {

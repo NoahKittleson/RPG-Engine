@@ -27,6 +27,10 @@ _HPBar(other._HPBar), _MPBar(other._MPBar), _BarOutline(other._BarOutline)
     _sprite.setTexture(*_IdleTexture);
 }
 
+Character::~Character() {
+    std::cout << "Character destroyed.  Name: " << this->_name.getString().toAnsiString() << "\n";
+}
+
 Character::Character(int MaxHealth, int MaxMana, int BAdmg, const sf::Texture &texture, const sf::Font& font,
                      std::string name, std::string attackName, bool NPC, const sf::Texture& getHit)
 : _maxMana(MaxMana), _maxHealth(MaxHealth), _IdleTexture(&texture), _NPC(NPC),

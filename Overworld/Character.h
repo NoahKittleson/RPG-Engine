@@ -18,6 +18,7 @@ public:
     Character(int MaxHealth, int MaxMana, int BasicAttackDmg,  const sf::Texture& texture, const sf::Font&, std::string name, std::string Attackname, bool enemy, const sf::Texture& getHit);
     Character(const Character& other);
     Character& operator= (const Character &other) = delete;
+    ~Character();
     
     void addAbility(Ability&);
     bool CheckAbilityCost(Ability&);
