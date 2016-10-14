@@ -14,7 +14,7 @@ template <typename T>
 class IterVector : public std::vector<T>
 {
 public:
-    IterVector (bool = false);
+    IterVector (bool = true);
     IterVector& operator++();
     IterVector& operator--();
     

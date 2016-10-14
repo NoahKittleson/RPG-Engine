@@ -31,6 +31,7 @@ class BattleMode : public State
 {
 public:
     BattleMode(std::vector<Character*>& enemies);
+    ~BattleMode();
     void update(sf::RenderWindow&rw, sf::Clock& timer) override;
     //fill these next two out later....
     void draw(sf::RenderWindow&) override {};

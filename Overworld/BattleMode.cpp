@@ -27,8 +27,17 @@ BattleMode::BattleMode(std::vector<Character*>& enemies) : StartOptions(true)
         combatants.emplace_back(it);
     }
     StartOptions.get().setColor(sf::Color::Red);
+    combatants.setLooping(true);
     targetSelectVec = combatants;
     positionStats();
+}
+
+BattleMode::~BattleMode() {
+    for (auto && it : combatants) {
+        if (it->_NPC) {
+            delete it;
+        }
+    }
 }
 
 void BattleMode::update(sf::RenderWindow &rw, sf::Clock& timer)
@@ -62,7 +71,7 @@ void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
         case Mode::PickAbility:
             while (rw.pollEvent(event)) {
                 combatants.get()->_abilityList.get().setColor(sf::Color::Black);
-                scroll(event, combatants);
+                scroll(event, combatants.get()->_abilityList);
                 combatants.get()->_abilityList.get().setColor(sf::Color::Red);
             }
             for (auto && it: combatants.get()->_abilityList) {
@@ -109,7 +118,6 @@ void BattleMode::nextMenu(Ability& abil)
     abil.setColor(sf::Color::Black);
     Choice = Mode::PickTarget;
     chosenAbil = &abil;
-    //chosenAbil->_allyPrimaryTarget ? party.begin()->setColor(sf::Color::Red) : enemyVec.begin()->setColor(sf::Color::Red);
 }
 
 void BattleMode::nextMenu(Character *target)

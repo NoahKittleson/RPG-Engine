@@ -88,6 +88,7 @@ _currentHealth(MaxHealth), _currentMana(MaxMana)
 void Character::addAbility(Ability& ability)
 {
     ability.setFont(*_name.getFont());
+    ability.setPosition(100, 30 * _abilityList.size());
     _abilityList.push_back(ability);
 }
 
