@@ -12,6 +12,11 @@
 TalkingSprite::TalkingSprite(const sf::Texture& texture, sf::Vector2f position, std::vector<sf::FloatRect>& collisionList, DNode* text)
 : collisionBoxList(collisionList), whatItSays(text)
 {
+    
+    for (auto && it : collisionBoxList) {
+        it.left += position.x;
+        it.top += position.y;
+    }
     setTexture(texture);
     setPosition(position);
 }

@@ -15,7 +15,7 @@ OverworldMode::OverworldMode(MapSection* map)
 {
 	currentMap = map;
 
-	view.setSize(sf::Vector2f(1024,768));				//this is very much cheating but I don't want to figure this out right now.
+	view.setSize(sf::Vector2f(1024,768));			//this is very much cheating but I don't want to figure this out right now.
 	view.zoom(0.5);
 	view.setCenter(playerSprite.getPosition());
 	
@@ -35,6 +35,7 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 	updateView();			//applicable if player moves OR if zone is changed.
 	rw.setView(view);
 	//animate?
+	currentMap->drawBackground(rw);
 	currentMap->drawAllObjects(rw, playerSprite);
 	drawAllBoxes(rw);
 	

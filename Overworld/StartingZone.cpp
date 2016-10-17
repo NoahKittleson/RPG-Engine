@@ -35,7 +35,7 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
         boxlist.emplace_back(Rectangle.width, Rectangle.height,10,50);
         boxlist.emplace_back(Rectangle.width, Rectangle.height,50,10);
 //        TalkingSprite Object2 (dummyTexture, sf::Vector2f (900,100), boxlist, nullptr);
-        sprites.emplace_back(resources.getTexture("icon.png"), sf::Vector2f (900,100), boxlist, nullptr);
+        sprites.emplace_back(resources.getTexture("icon.png"), sf::Vector2f (600,100), boxlist, nullptr);
         
         boxlist.clear();
         boxlist.push_back(sf::FloatRect(resources.getTexture("RollingWheat.png").getSize().x/4,
