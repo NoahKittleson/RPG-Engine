@@ -29,7 +29,6 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 	float elapsed = timer.restart().asSeconds();
 	rw.clear(sf::Color::White);
 	handleMovement(elapsed);
-	handleKeyPress(rw);
 	checkExits();			//only applicable if player moves... move to handlemovement?
 	checkTriggers(rw);		//only applicable if player moved...
 	updateView();			//applicable if player moves OR if zone is changed.
@@ -234,8 +233,10 @@ void OverworldMode::checkForInteraction(sf::RenderWindow &rw)
 	bigCollision.height += COLLISION_BOX_EXTRA*2;
 	
 	for (auto && obj: currentMap->getSpriteList()) {
-		if (obj.interact(bigCollision)) {
-			addToStack( new DialogueMode (obj.interact(bigCollision), rw) );
+		auto dialoguePtr = obj.interact(bigCollision);
+		if (dialoguePtr) {
+			std::cout << "dialogueMode created\n";
+			addToStack( new DialogueMode (dialoguePtr, rw) );
 		}
 	}
 }
