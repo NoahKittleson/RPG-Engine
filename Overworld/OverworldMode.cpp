@@ -29,6 +29,7 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 	float elapsed = timer.restart().asSeconds();
 	rw.clear(sf::Color::White);
 	handleMovement(elapsed);
+	handleKeyPress(rw);
 	checkExits();			//only applicable if player moves... move to handlemovement?
 	checkTriggers(rw);		//only applicable if player moved...
 	updateView();			//applicable if player moves OR if zone is changed.
