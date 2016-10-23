@@ -21,7 +21,7 @@ public:
     virtual void handleInput(sf::Event&) = 0;
     virtual DNode* getNext() = 0;
     
-protected:
+//protected:
     sf::Text display;
 
 };

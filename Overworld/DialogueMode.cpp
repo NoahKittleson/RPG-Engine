@@ -13,6 +13,9 @@ DialogueMode::DialogueMode(DNode* start, const sf::RenderWindow &rw)
 {
     start->setPosition(0, HUD.getSize().y * .75f);
     current = start;
+    std::cout << "DNode is as address: " << current << "\n";
+    std::cout << "DNode has a string that says: " << current->display.getString().toAnsiString() << "\n";
+    std::cout << "DNode has a font: " << (current->display.getFont() ? "true" : "false") << "\n";
     messageBox.setPosition(0, HUD.getSize().y * .75f);
     messageBox.setSize(sf::Vector2f(HUD.getSize().x, HUD.getSize().y/4));
     messageBox.setFillColor(sf::Color(153,76,0));
@@ -46,7 +49,7 @@ void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
         }
         else current->handleInput(event);
     }
-    current->update(elapsed);
+    //current->update(elapsed);
     
     //put into drawAll function?
     rw.setView(mapView);
@@ -55,6 +58,8 @@ void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
     
     rw.setView(HUD);
     rw.draw(messageBox);
-    current->draw(rw);
+    if (current != nullptr) {
+        current->draw(rw);
+    }
     rw.display();
 }

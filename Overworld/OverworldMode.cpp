@@ -172,6 +172,7 @@ void OverworldMode::handleKeyPress(sf::RenderWindow &rw)
 		if (event.type == sf::Event::KeyPressed) {
 			switch (event.key.code) {
 				case sf::Keyboard::X:
+					std::cout << "X key pressed\n";
 					checkForInteraction(rw);
 					break;
 					

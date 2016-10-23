@@ -47,7 +47,7 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
         
         boxlist.clear();
         boxlist.push_back(Rectangle);
-        sprites.emplace_back(resources.getTexture("RollingWheat.png"), sf::Vector2f (150,650), boxlist, &hey);
+        sprites.emplace_back(resources.getTexture("icon.png"), sf::Vector2f (150,400), boxlist, &hey);
     }
     
     //Set up Trigger for Fighting
