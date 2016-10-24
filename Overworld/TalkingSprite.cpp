@@ -18,7 +18,7 @@ TalkingSprite::TalkingSprite(const sf::Texture& texture, sf::Vector2f position, 
     }
     setTexture(texture);
     setPosition(position);
-    //setOrigin(texture.getSize().x/2, texture.getSize().y/2);
+    setOrigin(texture.getSize().x/2, texture.getSize().y/2);
 
 }
 
