@@ -14,7 +14,7 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
     background.setTexture(resources.getTexture("cute_image.jpg"));
     
     //Set up Non-interactable wheat field
-    TalkingSprite WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(200,50), emptyList, nullptr);
+    TalkingSprite WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(400,100), emptyList, nullptr);
     WheatField.setScale(3.0f, 3.0f);
     for (int iii = 0; iii < 6; iii++) {
         sprites.push_back(WheatField);
