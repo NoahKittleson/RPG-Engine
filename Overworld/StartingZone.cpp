@@ -24,8 +24,8 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
     }
     
     //Set up Interactable Sprite
-    //!!! WARNING : THIS IS A MEMORY LEAK !!!//
-    TalkNode* hey = new TalkNode(resources.getFont("sansation.ttf"));
+    talkNodeHolder.emplace_back(resources.getFont("sansation.ttf"));
+    TalkNode* hey = &talkNodeHolder.back();
     hey->addText("Hey look this thing is working!");
     hey->addText("And there's a second text too!");
     {

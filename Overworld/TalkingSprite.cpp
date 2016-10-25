@@ -84,4 +84,3 @@ DNode* TalkingSprite::interact(sf::FloatRect rect) {
 
 
 
-

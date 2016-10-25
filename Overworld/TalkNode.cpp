@@ -9,7 +9,6 @@
 #include "TalkNode.h"
 
 
-
 void TalkNode::setNext(DNode *ptr)
 {
     next = ptr;
