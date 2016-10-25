@@ -13,7 +13,7 @@ DialogueMode::DialogueMode(DNode* start, const sf::RenderWindow &rw)
 {
     start->setPosition(0, HUD.getSize().y * .75f);
     current = start;
-    std::cout << "DNode is as address: " << current << "\n";
+    std::cout << "DNode is at address: " << current << "\n";
     std::cout << "DNode has a string that says: " << current->display.getString().toAnsiString() << "\n";
     std::cout << "DNode has a font: " << (current->display.getFont() ? "true" : "false") << "\n";
     messageBox.setPosition(0, HUD.getSize().y * .75f);
@@ -34,6 +34,9 @@ void DialogueMode::draw(sf::RenderWindow &rw) {
 //void DManager::update(sf::RenderWindow &rw, float elapsed, sf::Event &event)
 void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
 {
+    std::cout << "DNode is at address: " << current << "\n";
+    std::cout << "DNode has a string that says: " << current->display.getString().toAnsiString() << "\n";
+    std::cout << "DNode has a font: " << (current->display.getFont() ? "true" : "false") << "\n";
     float elapsed = clock.restart().asSeconds();
     rw.clear(sf::Color::White);                                     //should this be in highest loop?
     
@@ -59,7 +62,7 @@ void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
     rw.setView(HUD);
     rw.draw(messageBox);
     if (current != nullptr) {
-        current->draw(rw);
+        //current->draw(rw);
     }
     rw.display();
 }

@@ -24,9 +24,10 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
     }
     
     //Set up Interactable Sprite
-    TalkNode hey(resources.getFont("sansation.ttf"));
-    hey.addText("Hey look this thing is working!");
-    hey.addText("And there's a second text too!");
+    //!!! WARNING : THIS IS A MEMORY LEAK !!!//
+    TalkNode* hey = new TalkNode(resources.getFont("sansation.ttf"));
+    hey->addText("Hey look this thing is working!");
+    hey->addText("And there's a second text too!");
     {
         int xIcon = resources.getTexture("icon.png").getSize().x/2;
         int yIcon = resources.getTexture("icon.png").getSize().y/2;
@@ -48,7 +49,7 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
         
         boxlist.clear();
         boxlist.push_back(Rectangle);
-        sprites.emplace_back(resources.getTexture("icon.png"), sf::Vector2f (150,400), boxlist, &hey);
+        sprites.emplace_back(resources.getTexture("icon.png"), sf::Vector2f (150,400), boxlist, hey);
     }
     
     //Set up Trigger for Fighting
