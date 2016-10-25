@@ -46,7 +46,7 @@ void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
         }
         else current->handleInput(event);
     }
-    //current->update(elapsed);
+    current->update(elapsed);
     
     //put into drawAll function?
     rw.setView(mapView);
@@ -55,8 +55,6 @@ void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
     
     rw.setView(HUD);
     rw.draw(messageBox);
-    if (current != nullptr) {
-        //current->draw(rw);
-    }
+    current->draw(rw);
     rw.display();
 }
