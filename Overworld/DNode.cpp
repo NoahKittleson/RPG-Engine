@@ -19,3 +19,7 @@ void DNode::setPosition(float x, float y)
 {
     display.setPosition(x, y);
 }
+
+void DNode::clear() {
+    display.setString("");
+}

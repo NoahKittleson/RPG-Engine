@@ -47,6 +47,11 @@ void TalkNode::draw(sf::RenderWindow &rw)
     rw.draw(display);
 }
 
+void TalkNode::clear() {
+    DNode::clear();
+    totalElapsed = 0;
+}
+
 void TalkNode::handleInput(sf::Event &)         //perhaps for later?
 {
     return;
@@ -64,7 +69,6 @@ DNode* TalkNode::getNext()
         return next;
     }
     ++text;
-    display.setString("");
-    totalElapsed = 0;
+    clear();
     return this;
 }

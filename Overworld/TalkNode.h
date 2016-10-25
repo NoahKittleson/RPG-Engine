@@ -18,6 +18,8 @@ public:
     void addText(sf::String&&);
     void setNext(DNode *ptr);
     
+    void clear() override;
+    
     void update(float elapsed) override;
     void draw(sf::RenderWindow &rw) override;
     void handleInput(sf::Event&) override;

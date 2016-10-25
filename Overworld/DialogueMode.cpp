@@ -13,6 +13,7 @@ DialogueMode::DialogueMode(DNode* start, const sf::RenderWindow &rw)
 {
     start->setPosition(0, HUD.getSize().y * .75f);
     current = start;
+    current->clear();
     messageBox.setPosition(0, HUD.getSize().y * .75f);
     messageBox.setSize(sf::Vector2f(HUD.getSize().x, HUD.getSize().y/4));
     messageBox.setFillColor(sf::Color(153,76,0));
@@ -28,7 +29,6 @@ void DialogueMode::draw(sf::RenderWindow &rw) {
 }
 
 
-//void DManager::update(sf::RenderWindow &rw, float elapsed, sf::Event &event)
 void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
 {
     float elapsed = clock.restart().asSeconds();
@@ -39,7 +39,7 @@ void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
     while (rw.pollEvent(event)) {
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
             current = current->getNext();
-            if (current == nullptr) {               //change this...
+            if (current == nullptr) {
                 deletionOrder = true;
                 return;
             }

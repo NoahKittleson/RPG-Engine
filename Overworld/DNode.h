@@ -16,6 +16,7 @@ public:
     DNode(const sf::Font&);
     void setPosition(float x, float y);
     
+    virtual void clear();
     virtual void update(float) = 0;
     virtual void draw(sf::RenderWindow &rw) = 0;
     virtual void handleInput(sf::Event&) = 0;
