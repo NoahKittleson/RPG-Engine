@@ -28,20 +28,21 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
     hey.addText("Hey look this thing is working!");
     hey.addText("And there's a second text too!");
     {
-        sf::FloatRect Rectangle (resources.getTexture("icon.png").getSize().x/2,
-                                 resources.getTexture("icon.png").getSize().y/2,10,10);
+        int xIcon = resources.getTexture("icon.png").getSize().x/2;
+        int yIcon = resources.getTexture("icon.png").getSize().y/2;
+        sf::FloatRect Rectangle (-xIcon/2, -yIcon/2, xIcon, yIcon);
         std::vector<sf::FloatRect> boxlist;
         
-        boxlist.emplace_back(Rectangle.width, Rectangle.height,10,50);
-        boxlist.emplace_back(Rectangle.width, Rectangle.height,50,10);
-//        TalkingSprite Object2 (dummyTexture, sf::Vector2f (900,100), boxlist, nullptr);
+        //L block Icon
+        boxlist.emplace_back(0, 0, 10, 50);
+        boxlist.emplace_back(0, 0, 50, 10);
         sprites.emplace_back(resources.getTexture("icon.png"), sf::Vector2f (600,100), boxlist, nullptr);
         
+        //Collision Wheat
         boxlist.clear();
-        boxlist.push_back(sf::FloatRect(resources.getTexture("RollingWheat.png").getSize().x/4,
-                                        resources.getTexture("RollingWheat.png").getSize().y/4,
-                                        resources.getTexture("RollingWheat.png").getSize().x/2,
-                                        resources.getTexture("RollingWheat.png").getSize().y/2));
+        int xWheat = resources.getTexture("RollingWheat.png").getSize().x/2;
+        int yWheat = resources.getTexture("RollingWheat.png").getSize().y/2;
+        boxlist.push_back(sf::FloatRect(-xWheat/2, -yWheat/2, xWheat, yWheat));
         sprites.emplace_back(TalkingSprite(resources.getTexture("RollingWheat.png"),
                                            sf::Vector2f (300,300), boxlist, nullptr));
         
