@@ -16,7 +16,6 @@ class TalkingSprite: public sf::Sprite
 public:
     TalkingSprite(const sf::Texture&, sf::Vector2f, std::vector<sf::FloatRect>&, DNode*);
     void DrawCollisionBoxes(sf::RenderWindow &rw) const;
-    //bool intersects(sf::FloatRect) const;
     //DNode* getDialogue() const;
     
     bool intersects(sf::FloatRect) const;

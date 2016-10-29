@@ -48,7 +48,7 @@ void TalkNode::draw(sf::RenderWindow &rw)
 }
 
 void TalkNode::clear() {
-    DNode::clear();
+    display.setString("");
     totalElapsed = 0;
 }
 

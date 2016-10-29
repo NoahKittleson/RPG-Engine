@@ -24,5 +24,8 @@ public:
     
 //protected:
     sf::Text display;
+    int testing = 420;
+    
+    virtual std::string getText() = 0;
 
 };

@@ -9,7 +9,7 @@
 #include "OptionNode.h"
 
 
-OptionNode::OptionNode(sf::Font &font)
+OptionNode::OptionNode(const sf::Font &font)
 : DNode(font)
 {
     text.setLooping(true);

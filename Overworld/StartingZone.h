@@ -17,7 +17,7 @@ class StartingZone: public MapSection
 {
 public:
     StartingZone(ResourceHolder& resources);
-    
+    ~StartingZone() {std::cout << "StartingZone deleted.\n";}
     
 private:
     //very temporary, see below

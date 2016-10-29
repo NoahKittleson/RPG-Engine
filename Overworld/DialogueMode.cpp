@@ -37,7 +37,7 @@ void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
     //handle all input
     sf::Event event;
     while (rw.pollEvent(event)) {
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
+        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::X) {
             current = current->getNext();
             if (current == nullptr) {
                 deletionOrder = true;
@@ -51,6 +51,7 @@ void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
     //put into drawAll function?
     rw.setView(mapView);
     
+    currentMap->drawBackground(rw);
     currentMap->drawAllObjects(rw, playerSprite);
     
     rw.setView(HUD);
