@@ -15,6 +15,11 @@ OptionNode::OptionNode(const sf::Font &font)
     text.setLooping(true);
 }
 
+OptionNode::~OptionNode()
+{
+    std::cout << "OptionNode deleted. Text:" << getText() << "\n";
+}
+
 void OptionNode::addText(sf::String&& rString, DNode* ptr)
 {
     text.emplace_back(std::pair<sf::String, DNode*>(rString, ptr));
@@ -55,4 +60,12 @@ DNode* OptionNode::getNext()
     DNode* returnVal = text.get().second;
     text.reset();
     return returnVal;
+}
+
+std::string OptionNode::getText()
+{
+    if (text.size()) {
+        return text[0].first.toAnsiString();
+    }
+    return "EMPTY TEXT";
 }

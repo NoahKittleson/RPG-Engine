@@ -14,7 +14,6 @@ class TalkNode: public DNode
 {
 public:
     TalkNode(const sf::Font&);
-//    TalkNode(const TalkNode& other);
     ~TalkNode() {std::cout << "TalkNode deleted. Text:" << getText() << "\n";}
     
     void addText(sf::String&&);
@@ -27,13 +26,10 @@ public:
     void handleInput(sf::Event&) override;
     DNode* getNext() override;
     
-    std::string getText() override {
-        return "TEST420";//text[0];
-    }
-    
 private:
     DNode* next {nullptr};
     float totalElapsed{0};
     IterVector<sf::String> text;
-
+    
+    std::string getText() override;
 };

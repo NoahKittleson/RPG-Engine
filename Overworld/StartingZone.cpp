@@ -8,7 +8,12 @@
 
 #include "StartingZone.h"
 
-StartingZone::StartingZone(ResourceHolder& resources) : MapSection(), talkNodeHolder(3, resources.getFont("sansation.ttf")) {
+#define NO_OF_TALKNODES 3
+#define NO_OF_OPTIONNODES 1
+
+StartingZone::StartingZone(ResourceHolder& resources)
+: MapSection(), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),
+                optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     
     std::vector<sf::FloatRect> emptyList;
     background.setTexture(resources.getTexture("cute_image.jpg"));
@@ -24,24 +29,21 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection(), talkNodeHo
     }
     
     //Set up Interactable Sprite
-    //talkNodeHolder.emplace_back(resources.getFont("sansation.ttf"));
     TalkNode* hey = &talkNodeHolder[0];
-    //talkNodeHolder.emplace_back(resources.getFont("sansation.ttf"));
     TalkNode* optionOne = &talkNodeHolder[1];
-    //talkNodeHolder.emplace_back(resources.getFont("sansation.ttf"));
     TalkNode* optionTwo = &talkNodeHolder[2];
+                    
+    OptionNode* choice = &optionNodeHolder.back();
 
     hey->addText("Looky loo this thing is working!");
     hey->addText("And there's a second text too!");
-    /////////////////////////////////////////////////////////////////
-    optionNodeHolder.emplace_back(resources.getFont("sansation.ttf"));
-    OptionNode* choice = &optionNodeHolder.back();
     hey->setNext(choice);
 
     optionOne->addText("uhh....");
     optionOne->addText("well I got nothing");
 
     optionTwo->addText("well fine then");
+                    
     choice->addText("Talk some more", optionOne);
     choice->addText("Just leave", optionTwo);
     

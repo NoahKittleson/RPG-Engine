@@ -15,7 +15,7 @@ class OptionNode: public DNode
 {
 public:
     OptionNode(const sf::Font& font);
-    ~OptionNode() {std::cout << "OptionNode deleted. Text:" << getText() << "\n";}
+    ~OptionNode();
     
     void addText(sf::String&&, DNode*);
     
@@ -24,10 +24,7 @@ public:
     void handleInput(sf::Event&) override;
     DNode* getNext() override;
     
-    std::string getText() override {
-        return text[0].first.toAnsiString();
-    }
-    
 private:
     IterVector<std::pair<sf::String, DNode*>> text;
+    std::string getText() override;
 };
