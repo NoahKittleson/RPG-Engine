@@ -59,8 +59,8 @@ void Game::run()
 		else if (newState == "talk") {
 			//put a dialogueMode on the StateStack;
 			TalkNode hey(resourceHolder.getFont("sansation.ttf"));
-			hey.addText("Hey look this thing is working!");
-			hey.addText("And there's a second text too!");
+			hey.addText("What is going on here?");
+			hey.addText("I really don't know");
 			gameStack.addState(new DialogueMode(&hey, mainWindow));
 		}
 		gameStack.getCurrentState()->update(mainWindow, gameTimer);

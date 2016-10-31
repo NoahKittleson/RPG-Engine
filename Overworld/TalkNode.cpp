@@ -14,6 +14,10 @@ void TalkNode::setNext(DNode *ptr)
     next = ptr;
 }
 
+//TalkNode::TalkNode(const TalkNode& other) : DNode(*other.display.getFont()) {
+//    
+//}
+
 TalkNode::TalkNode(const sf::Font &font)
 : DNode(font)
 {

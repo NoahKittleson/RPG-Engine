@@ -14,6 +14,7 @@ class TalkNode: public DNode
 {
 public:
     TalkNode(const sf::Font&);
+//    TalkNode(const TalkNode& other);
     ~TalkNode() {std::cout << "TalkNode deleted. Text:" << getText() << "\n";}
     
     void addText(sf::String&&);
@@ -27,7 +28,7 @@ public:
     DNode* getNext() override;
     
     std::string getText() override {
-        return text[0];
+        return "TEST420";//text[0];
     }
     
 private:

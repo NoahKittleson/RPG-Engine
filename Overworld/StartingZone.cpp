@@ -8,7 +8,7 @@
 
 #include "StartingZone.h"
 
-StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
+StartingZone::StartingZone(ResourceHolder& resources) : MapSection(), talkNodeHolder(3, resources.getFont("sansation.ttf")) {
     
     std::vector<sf::FloatRect> emptyList;
     background.setTexture(resources.getTexture("cute_image.jpg"));
@@ -24,24 +24,26 @@ StartingZone::StartingZone(ResourceHolder& resources) : MapSection() {
     }
     
     //Set up Interactable Sprite
-    talkNodeHolder.emplace_back(resources.getFont("sansation.ttf"));
-    TalkNode* hey = &talkNodeHolder.back();                                     //this might be the problem,
-    hey->addText("Hey look this thing is working!");
+    //talkNodeHolder.emplace_back(resources.getFont("sansation.ttf"));
+    TalkNode* hey = &talkNodeHolder[0];
+    //talkNodeHolder.emplace_back(resources.getFont("sansation.ttf"));
+    TalkNode* optionOne = &talkNodeHolder[1];
+    //talkNodeHolder.emplace_back(resources.getFont("sansation.ttf"));
+    TalkNode* optionTwo = &talkNodeHolder[2];
+
+    hey->addText("Looky loo this thing is working!");
     hey->addText("And there's a second text too!");
     /////////////////////////////////////////////////////////////////
-//    optionNodeHolder.emplace_back(resources.getFont("sansation.ttf"));
-//    OptionNode* choice = &optionNodeHolder.back();
-//    hey->setNext(choice);
-    talkNodeHolder.emplace_back(resources.getFont("sansation.ttf"));
-    TalkNode* optionOne = &talkNodeHolder.back();
+    optionNodeHolder.emplace_back(resources.getFont("sansation.ttf"));
+    OptionNode* choice = &optionNodeHolder.back();
+    hey->setNext(choice);
+
     optionOne->addText("uhh....");
     optionOne->addText("well I got nothing");
-    
-//    talkNodeHolder.emplace_back(resources.getFont("sansation.ttf"));
-//    TalkNode* optionTwo = &talkNodeHolder.back();
-//    optionTwo->addText("well fine then");
-//    choice->addText("Talk some more", optionOne);
-//    choice->addText("Just leave", optionTwo);
+
+    optionTwo->addText("well fine then");
+    choice->addText("Talk some more", optionOne);
+    choice->addText("Just leave", optionTwo);
     
     {
         int xIcon = resources.getTexture("icon.png").getSize().x/2;
