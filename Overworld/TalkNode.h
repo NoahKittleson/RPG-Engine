@@ -14,7 +14,7 @@ class TalkNode: public DNode
 {
 public:
     TalkNode(const sf::Font&);
-    ~TalkNode() {std::cout << "TalkNode deleted. Text:" << getText() << "\n";}
+    ~TalkNode();
     
     void addText(sf::String&&);
     void setNext(DNode *ptr);

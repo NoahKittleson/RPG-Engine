@@ -15,6 +15,8 @@ class DNode
 public:
     DNode(const sf::Font&);
     void setPosition(float x, float y);
+    void setPosition(sf::Vector2f xy);
+    sf::Vector2f getPosition() const;
     
     virtual void clear();
     virtual void update(float) = 0;

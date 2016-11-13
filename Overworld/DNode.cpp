@@ -20,6 +20,16 @@ void DNode::setPosition(float x, float y)
     display.setPosition(x, y);
 }
 
+void DNode::setPosition(sf::Vector2f xy)
+{
+    display.setPosition(xy);
+}
+
+sf::Vector2f DNode::getPosition() const
+{
+    return display.getPosition();
+}
+
 void DNode::clear() {
     display.setString("");
 }

@@ -8,6 +8,11 @@
 
 #include "TalkNode.h"
 
+TalkNode::~TalkNode()
+{
+    std::cout << "TalkNode deleted. Text:" << getText() << "\n";
+}
+
 
 void TalkNode::setNext(DNode *ptr)
 {
@@ -74,6 +79,9 @@ DNode* TalkNode::getNext()
     
     if (text.atEnd()) {
         text.reset();
+        if (next) {
+            next->setPosition(getPosition());
+        }
         return next;
     }
     ++text;

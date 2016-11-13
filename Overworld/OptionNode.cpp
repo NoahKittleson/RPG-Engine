@@ -59,6 +59,9 @@ DNode* OptionNode::getNext()
 {
     DNode* returnVal = text.get().second;
     text.reset();
+    if (returnVal) {
+        returnVal->setPosition(getPosition());
+    }
     return returnVal;
 }
 
