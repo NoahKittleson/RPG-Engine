@@ -66,6 +66,11 @@ T& IterVector<T>::get()
 }
 
 template <typename T>
+int IterVector<T>::getIndex() const {
+    return index;
+}
+
+template <typename T>
 void IterVector<T>::removeCurrent(){
     erase(this->begin()+index);
 }

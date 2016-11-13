@@ -13,6 +13,7 @@ OptionNode::OptionNode(const sf::Font &font)
 : DNode(font)
 {
     text.setLooping(true);
+    display.setColor(sf::Color::Black);
 }
 
 OptionNode::~OptionNode()
@@ -34,13 +35,11 @@ void OptionNode::draw(sf::RenderWindow &rw)
 {
     sf::Vector2f position = display.getPosition();
     
-    display.setColor(sf::Color::Red);
     for (char iii {0}; iii != text.size(); ++iii) {         //a little ghetto... perhaps include a forAll in IterVector
-        display.setString(text.get().first);
+        display.setString(text[iii].first);
+        text.getIndex() == iii ? display.setColor(sf::Color::Red) : display.setColor(sf::Color::Black);
         rw.draw(display);
-        display.setColor(sf::Color::Black);
-        display.setPosition(position.x, display.getPosition().y+40);        //might be a slighty better way to do this.
-        ++text;
+        display.setPosition(position.x, position.y+40);
     }
     display.setPosition(position);
 }

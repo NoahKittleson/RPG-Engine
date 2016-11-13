@@ -23,6 +23,7 @@ public:
     
     T& get();
     const T& get() const;
+    int getIndex() const;
     bool atEnd();
     
     void setLooping(bool);
