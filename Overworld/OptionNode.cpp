@@ -35,7 +35,7 @@ void OptionNode::draw(sf::RenderWindow &rw)
 {
     sf::Vector2f position = display.getPosition();
     
-    for (char iii {0}; iii != text.size(); ++iii) {         //a little ghetto... perhaps include a forAll in IterVector
+    for (char iii {0}; iii != text.size(); ++iii) {
         display.setString(text[iii].first);
         text.getIndex() == iii ? display.setColor(sf::Color::Red) : display.setColor(sf::Color::Black);
         rw.draw(display);

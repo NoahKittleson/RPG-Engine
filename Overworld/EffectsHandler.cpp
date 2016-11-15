@@ -112,13 +112,13 @@ void EffectsHandler::UpdateSprites(float elapsed)               //this will decr
     for (std::list<MoveInfo>::iterator it = MoveInfoList.begin(); it != MoveInfoList.end();)    //manual iteration
     {
         sf::Vector2f moveVector = (*it).MoveToPos-(*it).OriginalPos;
-        if (abs((*it).OriginalPos.x - (*it).SprPtr->getPosition().x) >=
-            abs((*it).OriginalPos.x - (*it).MoveToPos.x))
+        if (std::abs((*it).OriginalPos.x - (*it).SprPtr->getPosition().x) >=
+            std::abs((*it).OriginalPos.x - (*it).MoveToPos.x))
         {
             moveVector.x = 0;
         }
-        if (abs((*it).OriginalPos.y - (*it).SprPtr->getPosition().y) >=
-            abs((*it).OriginalPos.y - (*it).MoveToPos.y))
+        if (std::abs((*it).OriginalPos.y - (*it).SprPtr->getPosition().y) >=
+            std::abs((*it).OriginalPos.y - (*it).MoveToPos.y))
         {
             moveVector.y = 0;
         }
