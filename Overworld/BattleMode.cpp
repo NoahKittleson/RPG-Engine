@@ -158,8 +158,14 @@ void BattleMode::Animate(sf::RenderWindow &rw, float elapsed)
     //this is gonna be the really hard one
 }
 
+void BattleMode::Cycle(){
+    do ++combatants; while (combatants.get()->getHealth() == 0);
+    Choice = Mode::StartChoice;
+    
+}
+
 void BattleMode::positionStats() {
-    int statBarWidth = 1024 / (combatants.size() + 1);                   //magic number!! Also I add +1 for padding on both sides
+    int statBarWidth = 1024 / (combatants.size() + 1);             //magic number!! Also I add +1 for padding on both sides
     int iii = 0;
     for (auto && it: combatants) {
         it->setSpritePosition(statBarWidth/2 + (statBarWidth * iii), 300);

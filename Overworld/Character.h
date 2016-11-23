@@ -31,7 +31,9 @@ public:
     void drawSprite(sf::RenderWindow&);
 
     void adjustHealth(int);
+    float getHealth() const;
     void adjustMana(int);
+    float getMana() const;
     
     void setColor(sf::Color);                             //Sets item's color in an option menu
     void setFont(const sf::Font &font);

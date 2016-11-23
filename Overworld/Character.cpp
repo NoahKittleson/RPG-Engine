@@ -283,6 +283,10 @@ void Character::adjustHealth(int amount)
     }
 }
 
+float Character::getHealth() const {
+    return _currentHealth;
+}
+
 void Character::adjustMana(int amount)
 {
     _currentMana += amount;
@@ -292,6 +296,9 @@ void Character::adjustMana(int amount)
     if (_currentMana < 0) {
         _currentMana = 0;
     }
+}
+float Character::getMana() const {
+    return _currentMana;
 }
 
 void Character::UpdateStatDisplay()
