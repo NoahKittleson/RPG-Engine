@@ -39,6 +39,7 @@ public:
     
 private:
     void runChoice(sf::RenderWindow &rw, float elapsed /*input*/);
+    void nextTurn();
     void drawAll(sf::RenderWindow& rw, float elapsed);
     
     void Animate(sf::RenderWindow &rw, float elapsed);

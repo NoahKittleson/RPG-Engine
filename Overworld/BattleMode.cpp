@@ -158,7 +158,7 @@ void BattleMode::Animate(sf::RenderWindow &rw, float elapsed)
     //this is gonna be the really hard one
 }
 
-void BattleMode::Cycle(){
+void BattleMode::nextTurn(){
     do ++combatants; while (combatants.get()->getHealth() == 0);
     Choice = Mode::StartChoice;
     
