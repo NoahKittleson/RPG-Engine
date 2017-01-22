@@ -91,6 +91,7 @@ void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
         }
         case Mode::Animating:
             Animate(rw, elapsed);
+            nextTurn();
             break;
             
         default:
@@ -153,9 +154,8 @@ void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
 void BattleMode::Animate(sf::RenderWindow &rw, float elapsed)
 {
     chosenTarget->takeDamage(*chosenAbil, *combatants.get());
-    ++combatants;
-    Choice = Mode::StartChoice;
     //this is gonna be the really hard one
+    //Animate battle
 }
 
 void BattleMode::nextTurn(){
