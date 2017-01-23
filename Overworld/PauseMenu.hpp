@@ -8,6 +8,7 @@
 
 #pragma once
 #include "State.h"
+#include <fstream>
 
 class PauseMenu: public State {
 public:
@@ -20,6 +21,9 @@ public:
 private:
     IterVector<sf::Text> menuOptions;
     sf::RectangleShape menuBox;
+    
+    void save (const std::string& filename) const;
+    
 };
 
 
