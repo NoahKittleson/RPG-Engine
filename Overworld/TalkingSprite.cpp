@@ -9,8 +9,9 @@
 #include "TalkingSprite.h"
 
 
-TalkingSprite::TalkingSprite(const sf::Texture& texture, sf::Vector2f position, std::vector<sf::FloatRect>& collisionList, DNode* text)
-: collisionBoxList(collisionList), whatItSays(text)
+TalkingSprite::TalkingSprite(const sf::Texture& texture, sf::Vector2f position,
+                             std::vector<sf::FloatRect>& collisionList, DNode* text)
+: collisionBoxList(collisionList), whatItSays(text), timePerFrame(0)
 {
     setOrigin(texture.getSize().x/2, texture.getSize().y/2);
     for (auto && it : collisionBoxList) {
@@ -20,6 +21,12 @@ TalkingSprite::TalkingSprite(const sf::Texture& texture, sf::Vector2f position, 
     setTexture(texture);
     setPosition(position);
 
+}
+
+TalkingSprite::TalkingSprite(const sf::Texture& texture, sf::Vector2f position, std::vector<sf::FloatRect>& collisionList, DNode* text, sf::Vector2u frameSize, float timePerFrame)
+: TalkingSprite(texture, position, collisionList, text), timePerFrame(timePerFrame), frameSize(frameSize)
+{
+    
 }
 
 void TalkingSprite::DrawCollisionBoxes(sf::RenderWindow &rw) const
@@ -80,6 +87,30 @@ DNode* TalkingSprite::interact(sf::FloatRect rect) {
         }
     }
     return nullptr;
+}
+
+void TalkingSprite::animate(float elapsed, sf::RenderWindow &rw)       //non looped animation stays on final frame
+{
+    totalelapsed+= elapsed;
+    while (totalelapsed >= timePerFrame) {
+        totalelapsed -= timePerFrame;
+        next_frame();
+    }
+    
+    rw.draw(*this);
+}
+
+void TalkingSprite::next_frame() {
+    if (getTextureRect().left + frameSize.width >= getTexture()->getSize().x) {
+        setTextureRect(frameSize);
+        if (nextAnimation) {
+            setTexture(*nextAnimation);
+        }
+    }
+    else setTextureRect(sf::IntRect(getTextureRect().left + frameSize.width,
+                                   getTextureRect().top,
+                                   getTextureRect().width,
+                                   getTextureRect().height ));
 }
 
 

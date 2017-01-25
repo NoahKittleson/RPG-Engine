@@ -9,7 +9,7 @@
 #pragma once
 #include "PrefixHeader.pch"
 
-class AnimatedSprite
+class AnimatedSprite            //shouldn't this extend from sprite?
 {
 public:
     AnimatedSprite(const sf::Vector2i&, float, const sf::Texture& texture);
@@ -31,7 +31,7 @@ private:
     
     sf::Sprite _sprite;
     const sf::IntRect _frameSize;
-    const sf::Texture* _nextAnimation = nullptr;  //nullptr: loops, ptr = non-looping, change to this atfter animation ends.
+    const sf::Texture* _nextAnimation = nullptr;  //nullptr: loops, ptr = non-looping, change to this after animation ends.
     
     const float _timePerFrame;
     float _totalelapsed = 0;
