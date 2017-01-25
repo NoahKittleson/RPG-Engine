@@ -19,8 +19,9 @@ ResourceHolder::ResourceHolder()
     IDList.push_back("RollingWheat.png");
     IDList.push_back("cute_image.jpg");
     IDList.push_back("icon.png");
+    IDList.push_back("tree.png");
     
-    sf::Texture dummy;
+//    sf::Texture dummy;        //if this didn't crash the program, remove.
     for (auto ID: IDList) {
         textureMap[ID].loadFromFile(resourcePath() + ID);
     }

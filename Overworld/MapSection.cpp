@@ -28,7 +28,7 @@ MapSection::MapSection() {
 void MapSection::addObject(TalkingSprite& add)
 {
 	for (auto it = sprites.begin(); it != sprites.end(); it++) {
-		if (add.getPosition().y < it->getPosition().y) {
+		if (add.getBase() < it->getBase()) {
 			sprites.insert(it, add);									//perhaps this /should/ be a list...
 			return;
 		}
@@ -46,7 +46,7 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, Player& player)
 	bool playerDrawn = false;
 	for (const auto & obj: sprites)
 	{
-		if (!playerDrawn && (obj.getPosition().y > player.getPosition().y)) {			//SUPER HACKY
+		if (!playerDrawn && (obj.getBase() > player.getPosition().y)) {			//SUPER HACKY
 			rw.draw(player);
 			playerDrawn = true;
 		}

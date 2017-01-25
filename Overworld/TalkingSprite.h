@@ -18,6 +18,7 @@ public:
     void DrawCollisionBoxes(sf::RenderWindow &rw) const;
     //DNode* getDialogue() const;
     
+    int getBase() const;
     bool intersects(sf::FloatRect) const;
     void collide(Player&, sf::Vector2f movement) const;
     DNode* interact(sf::FloatRect);

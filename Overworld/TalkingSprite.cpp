@@ -59,6 +59,10 @@ void TalkingSprite::collide(Player &PC, sf::Vector2f moveVec) const {
     }
 }
 
+int TalkingSprite::getBase() const {
+    return getPosition().y + getTextureRect().height/2;
+}
+
 bool TalkingSprite::intersects(sf::FloatRect rect) const {
     for (auto && it: collisionBoxList) {
         if (rect.intersects(it)) {
