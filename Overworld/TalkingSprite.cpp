@@ -10,24 +10,24 @@
 
 
 TalkingSprite::TalkingSprite(const sf::Texture& texture, sf::Vector2f position,
-                             std::vector<sf::FloatRect>& collisionList, DNode* text)
-: collisionBoxList(collisionList), whatItSays(text), timePerFrame(0)
+                             const std::vector<sf::FloatRect>& collisionList, DNode* text, float timePerFrame)
+: collisionBoxList(collisionList), whatItSays(text), timePerFrame(timePerFrame), frameSize(sf::IntRect(0,0,texture.getSize().x, texture.getSize().x))   //yes, this is meant to have texture.getSize().x twice, because all my animation sheets are square
 {
-    setOrigin(texture.getSize().x/2, texture.getSize().y/2);
+    setOrigin(frameSize.width/2, frameSize.height/2);
     for (auto && it : collisionBoxList) {
         it.left += position.x;
         it.top += position.y;
     }
     setTexture(texture);
     setPosition(position);
-
+  
 }
 
-TalkingSprite::TalkingSprite(const sf::Texture& texture, sf::Vector2f position, std::vector<sf::FloatRect>& collisionList, DNode* text, sf::Vector2u frameSize, float timePerFrame)
-: TalkingSprite(texture, position, collisionList, text), timePerFrame(timePerFrame), frameSize(frameSize)
-{
-    
-}
+//TalkingSprite::TalkingSprite(const TalkingSprite& other)
+//:collisionBoxList(other.collisionBoxList), whatItSays(other.whatItSays), timePerFrame(other.timePerFrame), frameSize(other.frameSize), nextAnimation(other.nextAnimation)
+//{
+//    
+//}
 
 void TalkingSprite::DrawCollisionBoxes(sf::RenderWindow &rw) const
 {
@@ -91,6 +91,7 @@ DNode* TalkingSprite::interact(sf::FloatRect rect) {
 
 void TalkingSprite::animate(float elapsed, sf::RenderWindow &rw)       //non looped animation stays on final frame
 {
+    if (timePerFrame == 0) return;
     totalelapsed+= elapsed;
     while (totalelapsed >= timePerFrame) {
         totalelapsed -= timePerFrame;

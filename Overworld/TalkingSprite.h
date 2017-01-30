@@ -14,8 +14,8 @@
 class TalkingSprite: public sf::Sprite
 {
 public:
-    TalkingSprite(const sf::Texture&, sf::Vector2f, std::vector<sf::FloatRect>&, DNode* text);
-    TalkingSprite(const sf::Texture& texture, sf::Vector2f position, std::vector<sf::FloatRect>& collisionList, DNode* text, sf::Vector2u frameSize, float timePerFrame);
+    TalkingSprite(const sf::Texture&, sf::Vector2f, const std::vector<sf::FloatRect>&, DNode* text, float timePerFrame = 0);
+    //TalkingSprite& operator= (const TalkingSprite&);
     void DrawCollisionBoxes(sf::RenderWindow &rw) const;
     //DNode* getDialogue() const;
     
