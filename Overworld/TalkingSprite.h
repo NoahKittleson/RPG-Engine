@@ -15,7 +15,6 @@ class TalkingSprite: public sf::Sprite
 {
 public:
     TalkingSprite(const sf::Texture&, sf::Vector2f, const std::vector<sf::FloatRect>&, DNode* text, float timePerFrame = 0);
-    //TalkingSprite& operator= (const TalkingSprite&);
     void DrawCollisionBoxes(sf::RenderWindow &rw) const;
     //DNode* getDialogue() const;
     
@@ -31,8 +30,8 @@ private:
     DNode* whatItSays = nullptr;
     std::vector<sf::FloatRect> collisionBoxList;
     
-    const sf::IntRect frameSize;
-    const sf::Texture* nextAnimation = nullptr;  //nullptr: loops, ptr = non-looping, change to this after animation ends.
-    const float timePerFrame;
+    sf::IntRect frameSize;
+    sf::Texture* nextAnimation = nullptr;  //nullptr: loops, ptr = non-looping, change to this after animation ends.
+    float timePerFrame;
     float totalelapsed = 0;
 };
