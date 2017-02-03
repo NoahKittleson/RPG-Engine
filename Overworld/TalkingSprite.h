@@ -23,6 +23,7 @@ public:
     void collide(Player&, sf::Vector2f movement) const;
     DNode* interact(sf::FloatRect);
     void animate(float elapsed, sf::RenderWindow &rw);
+    void addTime (float delta);    
     
 private:
     void next_frame();
@@ -34,4 +35,5 @@ private:
     sf::Texture* nextAnimation = nullptr;  //nullptr: loops, ptr = non-looping, change to this after animation ends.
     float timePerFrame;
     float totalelapsed = 0;
+    
 };

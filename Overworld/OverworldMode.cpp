@@ -35,6 +35,9 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 	updateView();			//applicable if player moves OR if zone is changed.
 	rw.setView(view);
 	//animate?
+	for (auto && sprite : currentMap->getSpriteList()) {
+		sprite.animate(elapsed, rw);
+	}
 	currentMap->drawBackground(rw);
 	currentMap->drawAllObjects(rw, playerSprite);
 	drawAllBoxes(rw);

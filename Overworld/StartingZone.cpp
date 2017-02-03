@@ -19,13 +19,23 @@ StartingZone::StartingZone(ResourceHolder& resources)
     background.setTexture(resources.getTexture("cute_image.jpg"));
     
     //Set up Non-interactable wheat field
-    TalkingSprite WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(400,100), emptyList, nullptr);
+    TalkingSprite WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100), emptyList, nullptr, 0.4);
     WheatField.setScale(3.0f, 3.0f);
-    for (int iii = 0; iii < 6; iii++) {
+				char rows = 6;
+				char columns = 4;
+																				float timeOffset = .05;
+																				int verticalGap = 90;
+																				int horizontalGap = 20;
+																				int rowOffset = 20;
+    for (int iii = 0; iii < rows; iii++) {
+        for (int jjj = 0; jjj < columns-1; jjj++) {
+            sprites.push_back(WheatField);
+            WheatField.addTime(timeOffset);
+            WheatField.move(verticalGap, 0);
+        }
         sprites.push_back(WheatField);
-        WheatField.move(20, 0);
-        sprites.push_back(WheatField);
-        WheatField.move(0, 20);
+        WheatField.addTime(timeOffset);
+        WheatField.move(-verticalGap * (columns - 1) + rowOffset, horizontalGap);
     }
     
     //Set up Interactable Sprite

@@ -11,7 +11,7 @@
 
 TalkingSprite::TalkingSprite(const sf::Texture& texture, sf::Vector2f position,
                              const std::vector<sf::FloatRect>& collisionList, DNode* text, float timePerFrame)
-: collisionBoxList(collisionList), whatItSays(text), timePerFrame(timePerFrame), frameSize(sf::IntRect(0,0,texture.getSize().x, texture.getSize().x))   //yes, this is meant to have texture.getSize().x twice, because all my animation sheets are square
+: collisionBoxList(collisionList), whatItSays(text), timePerFrame(timePerFrame), frameSize(sf::IntRect(0,0,texture.getSize().y, texture.getSize().y))   //yes, this is meant to have texture.getSize().y twice, because all my animation sheets are square
 {
     setOrigin(frameSize.width/2, frameSize.height/2);
     for (auto && it : collisionBoxList) {
@@ -19,6 +19,10 @@ TalkingSprite::TalkingSprite(const sf::Texture& texture, sf::Vector2f position,
         it.top += position.y;
     }
     setTexture(texture);
+    setTextureRect(frameSize);
+    //float offset = std::rand()%100;
+    //totalelapsed = offset/100;
+    //totalelapsed = offset;
     setPosition(position);
   
 }
@@ -114,6 +118,9 @@ void TalkingSprite::next_frame() {
                                    getTextureRect().height ));
 }
 
+void TalkingSprite::addTime(float delta) {
+    totalelapsed += delta;
+}
 
 
 
