@@ -21,12 +21,12 @@ StartingZone::StartingZone(ResourceHolder& resources)
     //Set up Non-interactable wheat field
     TalkingSprite WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100), emptyList, nullptr, 0.4);
     WheatField.setScale(3.0f, 3.0f);
-				char rows = 6;
-				char columns = 4;
-																				float timeOffset = .05;
-																				int verticalGap = 90;
-																				int horizontalGap = 20;
-																				int rowOffset = 20;
+    char rows = 6;
+    char columns = 4;
+    float timeOffset = .05;
+    int verticalGap = 90;
+    int horizontalGap = 20;
+    int rowOffset = 20;
     for (int iii = 0; iii < rows; iii++) {
         for (int jjj = 0; jjj < columns-1; jjj++) {
             sprites.push_back(WheatField);

@@ -46,7 +46,7 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, Player& player)
 	bool playerDrawn = false;
 	for (const auto & obj: sprites)
 	{
-		if (!playerDrawn && (obj.getBase() > player.getPosition().y)) {			//SUPER HACKY
+		if (!playerDrawn && (obj.getBase() > player.getBase())) {			//SUPER HACKY
 			rw.draw(player);
 			playerDrawn = true;
 		}

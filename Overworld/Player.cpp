@@ -30,3 +30,7 @@ sf::FloatRect Player::getAbsBox() {
                                     box.height * scale);
     return absolutePosition;
 }
+
+int Player::getBase() const {
+    return getPosition().y + getTextureRect().height/2;
+}

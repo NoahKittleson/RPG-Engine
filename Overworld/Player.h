@@ -15,6 +15,7 @@ class Player : public sf::Sprite
 public:
     Player();
     sf::FloatRect getAbsBox();
+    int getBase() const;
     
 private:
     sf::FloatRect box;

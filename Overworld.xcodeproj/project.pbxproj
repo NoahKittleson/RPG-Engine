@@ -104,7 +104,7 @@
 		B77BE44B1BB5E03500F5645C /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		B77ED0F91C82E221004046D1 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
 		B77ED0FA1C82E221004046D1 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 0; lastKnownFileType = sourcecode.cpp.cpp; path = StartingZone.cpp; sourceTree = "<group>"; tabWidth = 1; usesTabs = 0; };
+		B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartingZone.cpp; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
 		B79AD8D71D4F128200B7C8F7 /* StartingZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartingZone.h; sourceTree = "<group>"; };
 		B79E29871BA0E1C80020BA93 /* RollingWheat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RollingWheat.png; sourceTree = "<group>"; };
 		B7A26C0A1C805AA30083989B /* TalkingSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TalkingSprite.cpp; sourceTree = "<group>"; };
