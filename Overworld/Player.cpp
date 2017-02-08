@@ -12,15 +12,17 @@
 //Later, have it initialized with a sprite from ResourceHolder
 Player::Player() {
     texture.loadFromFile(resourcePath() + "Stickmaniac.png");
-    walkUp.loadFromFile(resourcePath() + "playerWalkUp.png");
-    walkDown.loadFromFile(resourcePath() + "playerWalkDown.png");
-    walkRight.loadFromFile(resourcePath() + "playerWalkRight.png");
+    walkUp.loadFromFile(resourcePath() + "PlayerWalkingUp.png");
+    walkDown.loadFromFile(resourcePath() + "PlayerWalkingDown.png");
+    walkRight.loadFromFile(resourcePath() + "PlayerWalkingRight.png");
     setTexture(texture);
     float textureLength = texture.getSize().x;
     float textureHeight = texture.getSize().y;
+    
+    setTextureRect(sf::IntRect(0,0,textureHeight, textureHeight));
+    setOrigin(textureHeight/2, textureHeight/2);
     box = sf::FloatRect(-textureLength/4, -textureHeight/4,
                         textureLength/2, textureHeight/2);
-    setOrigin(textureLength/2, textureHeight/2);
     setPosition(100, 100);
 }
 
@@ -41,10 +43,12 @@ int Player::getBase() const {
 void Player::update(sf::Vector2f moveVec) {
     if (moveVec.x > 0) {
         setTexture(walkRight);
+        setScale(std::abs(getScale().x), getScale().y);
     } else if (moveVec.x < 0) {
-        setScale(-getScale().x, getScale().y);
+        setTexture(walkRight);
+        setScale(-std::abs(getScale().x), getScale().y);
     }
-    if (moveVec.y > 0) {
+    if (moveVec.y < 0) {
         setTexture(walkUp);
     } else if (moveVec.y > 0) {
         setTexture(walkDown);

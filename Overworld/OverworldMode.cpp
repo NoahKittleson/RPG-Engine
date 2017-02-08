@@ -78,6 +78,7 @@ void OverworldMode::handleMovement(float elapsed)
 	handlePlayerCollision(sf::Vector2f(moveVec.x, 0));
 	playerSprite.move(0, moveVec.y);
 	handlePlayerCollision(sf::Vector2f(0, moveVec.y));
+	playerSprite.update(moveVec);
 }
 
 void OverworldMode::handlePlayerCollision(sf::Vector2f moveVec)
