@@ -12,6 +12,9 @@
 //Later, have it initialized with a sprite from ResourceHolder
 Player::Player() {
     texture.loadFromFile(resourcePath() + "Stickmaniac.png");
+    walkUp.loadFromFile(resourcePath() + "playerWalkUp.png");
+    walkDown.loadFromFile(resourcePath() + "playerWalkDown.png");
+    walkRight.loadFromFile(resourcePath() + "playerWalkRight.png");
     setTexture(texture);
     float textureLength = texture.getSize().x;
     float textureHeight = texture.getSize().y;
@@ -33,4 +36,17 @@ sf::FloatRect Player::getAbsBox() {
 
 int Player::getBase() const {
     return getPosition().y + getTextureRect().height/2;
+}
+
+void Player::update(sf::Vector2f moveVec) {
+    if (moveVec.x > 0) {
+        setTexture(walkRight);
+    } else if (moveVec.x < 0) {
+        setScale(-getScale().x, getScale().y);
+    }
+    if (moveVec.y > 0) {
+        setTexture(walkUp);
+    } else if (moveVec.y > 0) {
+        setTexture(walkDown);
+    }
 }
