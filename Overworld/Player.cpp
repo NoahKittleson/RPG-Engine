@@ -19,7 +19,8 @@ Player::Player() {
     float textureLength = texture.getSize().x;
     float textureHeight = texture.getSize().y;
     
-    setTextureRect(sf::IntRect(0,0,textureHeight, textureHeight));
+    frameSize = sf::IntRect(0,0,textureHeight, textureHeight);
+    setTextureRect(frameSize);
     setOrigin(textureHeight/2, textureHeight/2);
     box = sf::FloatRect(-textureLength/4, -textureHeight/4,
                         textureLength/2, textureHeight/2);
@@ -40,7 +41,7 @@ int Player::getBase() const {
     return getPosition().y + getTextureRect().height/2;
 }
 
-void Player::update(sf::Vector2f moveVec) {
+void Player::update(sf::Vector2f moveVec, float elapsed) {
     if (moveVec.x > 0) {
         setTexture(walkRight);
         setScale(std::abs(getScale().x), getScale().y);
@@ -53,4 +54,28 @@ void Player::update(sf::Vector2f moveVec) {
     } else if (moveVec.y > 0) {
         setTexture(walkDown);
     }
+    
+    //animate only if player moves
+    if (moveVec.y || moveVec.x) {
+        animate(elapsed);
+    }
+}
+
+void Player::animate(float elapsed) {
+    if (timePerFrame == 0) return;
+    totalElapsed+= elapsed;
+    while (totalElapsed >= timePerFrame) {
+        totalElapsed -= timePerFrame;
+        nextFrame();
+    }
+}
+
+void Player::nextFrame() {
+    if (getTextureRect().left + frameSize.width >= getTexture()->getSize().x) {
+        setTextureRect(frameSize);
+    }
+    else setTextureRect(sf::IntRect(getTextureRect().left + frameSize.width,
+                                    getTextureRect().top,
+                                    getTextureRect().width,
+                                    getTextureRect().height ));
 }
