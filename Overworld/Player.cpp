@@ -22,8 +22,8 @@ Player::Player() {
     frameSize = sf::IntRect(0,0,textureHeight, textureHeight);
     setTextureRect(frameSize);
     setOrigin(textureHeight/2, textureHeight/2);
-    box = sf::FloatRect(-textureLength/4, -textureHeight/4,
-                        textureLength/2, textureHeight/2);
+    box = sf::FloatRect(-textureHeight/4, -textureHeight/2,
+                        textureHeight/2, textureHeight);
     setPosition(100, 100);
 }
 
