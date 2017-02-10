@@ -16,7 +16,7 @@ Player::Player() {
     walkDown.loadFromFile(resourcePath() + "PlayerWalkingDown.png");
     walkRight.loadFromFile(resourcePath() + "PlayerWalkingRight.png");
     setTexture(texture);
-    float textureLength = texture.getSize().x;
+    //float textureLength = texture.getSize().x;        //all sprites are square.
     float textureHeight = texture.getSize().y;
     
     frameSize = sf::IntRect(0,0,textureHeight, textureHeight);
@@ -51,10 +51,10 @@ void Player::drawBase(sf::RenderWindow &rw) {
 void Player::update(sf::Vector2f moveVec, float elapsed) {
     if (moveVec.x > 0) {
         setTexture(walkRight);
-        setScale(std::abs(getScale().x), getScale().y);
+        //setScale(std::abs(getScale().x), getScale().y);
     } else if (moveVec.x < 0) {
         setTexture(walkRight);
-        setScale(-std::abs(getScale().x), getScale().y);
+        //setScale(-std::abs(getScale().x), getScale().y);
     }
     if (moveVec.y < 0) {
         setTexture(walkUp);

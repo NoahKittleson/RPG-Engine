@@ -63,7 +63,7 @@ void TalkingSprite::collide(Player &PC, sf::Vector2f moveVec) const {
                                PC.getPosition().y);
             }
             else if (moveVec.x < 0 && moveVec.y == 0){		//moving left
-                PC.setPosition(itBox.left + itBox.width + playerRect.width /2,
+                PC.setPosition(itBox.left + itBox.width + playerRect.width/2,
                                PC.getPosition().y);
             }
         }

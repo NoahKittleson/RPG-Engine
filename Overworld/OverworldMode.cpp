@@ -90,32 +90,6 @@ void OverworldMode::handlePlayerCollision(sf::Vector2f moveVec)
 			sprite.collide(playerSprite, moveVec);
 		}
 	}
-	
-	//probably move this to TalkingSprite.collide();
-	//sf::FloatRect playerRect = playerSprite.getAbsBox();
-	/*for (auto const & itObj : currentMap->getSpriteList()) {
-		for (auto const & itBox : itObj.getCollisionBoxList()) {
-			if (playerRect.intersects(itBox)) {
-				if (moveVec.x == 0 && moveVec.y > 0) {			//moving down
-					playerSprite.setPosition(playerSprite.getPosition().x,
-											 itBox.top - playerRect.height/2);
-				}
-				else if (moveVec.x == 0 && moveVec.y < 0){		//moving up
-					playerSprite.setPosition(playerSprite.getPosition().x,
-											 itBox.top + itBox.height + playerRect.height/2);
-											 //itBox.top + itBox.height * 1.5f);
-				}
-				else if (moveVec.x > 0 && moveVec.y == 0){		//moving right
-					playerSprite.setPosition(itBox.left - playerRect.width/2,
-											 playerSprite.getPosition().y);
-				}
-				else if (moveVec.x < 0 && moveVec.y == 0){		//moving left	
-					playerSprite.setPosition(itBox.left + itBox.width + playerRect.height/2,
-											 playerSprite.getPosition().y);
-				}
-			}
-		}
-	}*/
 }
 
 void OverworldMode::checkExits()
