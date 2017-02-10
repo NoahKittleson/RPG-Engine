@@ -16,6 +16,7 @@ public:
     Player();
     sf::FloatRect getAbsBox();
     int getBase() const;
+    void drawBase(sf::RenderWindow &rw);
     void update(sf::Vector2f moveVec, float elapsed);
     
 private:

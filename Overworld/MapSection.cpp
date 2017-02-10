@@ -48,9 +48,11 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, Player& player)
 	{
 		if (!playerDrawn && (obj.getBase() > player.getBase())) {			//SUPER HACKY
 			rw.draw(player);
+			//player.drawBase(rw);	//temporary, just to see where bases ACTUALLY are.
 			playerDrawn = true;
 		}
 		rw.draw(obj);
+		//obj.drawBase(rw);
 	}
 	if (!playerDrawn) {
 		rw.draw(player);

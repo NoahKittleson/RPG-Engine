@@ -38,7 +38,14 @@ sf::FloatRect Player::getAbsBox() {
 }
 
 int Player::getBase() const {
-    return getPosition().y + getTextureRect().height/2;
+    return getPosition().y + (getTextureRect().height * getScale().y) - (getOrigin().y * getScale().y);
+}
+
+void Player::drawBase(sf::RenderWindow &rw) {
+    sf::RectangleShape rect (sf::Vector2f(20, 1));
+    rect.setFillColor(sf::Color::Green);
+    rect.setPosition(getPosition().x, getBase());
+    rw.draw(rect);
 }
 
 void Player::update(sf::Vector2f moveVec, float elapsed) {

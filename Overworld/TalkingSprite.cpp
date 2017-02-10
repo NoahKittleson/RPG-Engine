@@ -71,7 +71,14 @@ void TalkingSprite::collide(Player &PC, sf::Vector2f moveVec) const {
 }
 
 int TalkingSprite::getBase() const {
-    return getPosition().y + getTextureRect().height/2;
+    return getPosition().y + (getTextureRect().height * getScale().y) - (getOrigin().y * getScale().y);
+}
+
+void TalkingSprite::drawBase(sf::RenderWindow &rw) const{
+    sf::RectangleShape rect (sf::Vector2f(20, 1));
+    rect.setFillColor(sf::Color::Green);
+    rect.setPosition(getPosition().x, getBase());
+    rw.draw(rect);
 }
 
 bool TalkingSprite::intersects(sf::FloatRect rect) const {

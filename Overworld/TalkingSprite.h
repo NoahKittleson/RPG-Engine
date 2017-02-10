@@ -19,11 +19,15 @@ public:
     //DNode* getDialogue() const;
     
     int getBase() const;
+    void drawBase(sf::RenderWindow &rw) const;
+    
     bool intersects(sf::FloatRect) const;
     void collide(Player&, sf::Vector2f movement) const;
     DNode* interact(sf::FloatRect);
     void animate(float elapsed, sf::RenderWindow &rw);
-    void addTime (float delta);    
+    void addTime (float delta);
+    
+
     
 private:
     void next_frame();
