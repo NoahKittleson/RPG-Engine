@@ -10,8 +10,7 @@
 
 //Player Constructor is very hacky, but will work for now.
 //Later, have it initialized with a sprite from ResourceHolder
-Player::Player() {
-    timePerFrame = 0.1f;
+Player::Player() : MapSprite(sf::IntRect(0,0,16,16), 0.1f) {                //cheating.
     walkUp.loadFromFile(resourcePath() + "PlayerWalkingUp.png");
     walkDown.loadFromFile(resourcePath() + "PlayerWalkingDown.png");
     walkLeft.loadFromFile(resourcePath() + "PlayerWalkingLeft.png");
@@ -38,17 +37,6 @@ sf::FloatRect Player::getAbsBox() {
     return absolutePosition;
 }
 
-int Player::getBase() const {
-    return getPosition().y + (getTextureRect().height * getScale().y) - (getOrigin().y * getScale().y);
-}
-
-void Player::drawBase(sf::RenderWindow &rw) {
-    sf::RectangleShape rect (sf::Vector2f(20, 1));
-    rect.setFillColor(sf::Color::Green);
-    rect.setPosition(getPosition().x, getBase());
-    rw.draw(rect);
-}
-
 void Player::update(sf::Vector2f moveVec, float elapsed) {
     if (moveVec.x > 0) {
         setTexture(walkRight);
@@ -65,23 +53,4 @@ void Player::update(sf::Vector2f moveVec, float elapsed) {
     if (moveVec.y || moveVec.x) {
         animate(elapsed);
     }
-}
-
-void Player::animate(float elapsed) {
-    if (timePerFrame == 0) return;
-    totalElapsed+= elapsed;
-    while (totalElapsed >= timePerFrame) {
-        totalElapsed -= timePerFrame;
-        nextFrame();
-    }
-}
-
-void Player::nextFrame() {
-    if (getTextureRect().left + frameSize.width >= getTexture()->getSize().x) {
-        setTextureRect(frameSize);
-    }
-    else setTextureRect(sf::IntRect(getTextureRect().left + frameSize.width,
-                                    getTextureRect().top,
-                                    getTextureRect().width,
-                                    getTextureRect().height ));
 }

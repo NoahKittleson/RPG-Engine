@@ -34,19 +34,16 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 	checkTriggers(rw);		//only applicable if player moved...
 	updateView();			//applicable if player moves OR if zone is changed.
 	rw.setView(view);
-	//animate?
 	for (auto && sprite : currentMap->getSpriteList()) {
-		sprite.animate(elapsed, rw);
+		sprite.update(elapsed);
 	}
-	currentMap->drawBackground(rw);
-	currentMap->drawAllObjects(rw, playerSprite);
-	drawAllBoxes(rw);
-	
-	rw.display();
 }
 
 void OverworldMode::draw(sf::RenderWindow &rw) {
-
+	currentMap->drawBackground(rw);
+	drawAllBoxes(rw);
+	currentMap->drawAllObjects(rw, playerSprite);
+	rw.display();
 }
 
 std::string OverworldMode::handleEvent() {

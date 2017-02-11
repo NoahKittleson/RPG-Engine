@@ -9,14 +9,14 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "Trigger.h"
-#include "TalkingSprite.h"
+#include "InteractableSprite.h"
 #include "ZoneExit.h"
 #include "Player.h"
 
 class MiniTrigger;
 
 using ExitVec = std::vector<ZoneExit>;
-using SpriteVec = std::vector<TalkingSprite>;
+using SpriteVec = std::vector<InteractableSprite>;
 //temporary change, see below
 using TriggerVec = std::vector<Trigger>;
 using MiniTriggerVec = std::vector<MiniTrigger>;
@@ -30,7 +30,7 @@ protected:
     SpriteVec sprites;
     TriggerVec triggers;
     
-    void addObject(TalkingSprite&);
+    void addObject(InteractableSprite&);
 
     
 public:

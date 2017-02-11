@@ -11,7 +11,7 @@
 
 InteractableSprite::InteractableSprite(const sf::Texture& texture, sf::Vector2f position,
                              const std::vector<sf::FloatRect>& collisionList, DNode* text, float timePerFrame)
-: collisionBoxList(collisionList), whatItSays(text), timePerFrame(timePerFrame), frameSize(sf::IntRect(0,0,texture.getSize().y, texture.getSize().y))   //yes, this is meant to have texture.getSize().y twice, because all my animation sheets are square
+: MapSprite(sf::IntRect(0,0,texture.getSize().y, texture.getSize().y), timePerFrame), collisionBoxList(collisionList), whatItSays(text)  //yes, this is meant to have texture.getSize().y twice, because all my animation sheets are square
 {
     setOrigin(frameSize.width/2, frameSize.height/2);
     for (auto && it : collisionBoxList) {
@@ -20,9 +20,6 @@ InteractableSprite::InteractableSprite(const sf::Texture& texture, sf::Vector2f 
     }
     setTexture(texture);
     setTextureRect(frameSize);
-    //float offset = std::rand()%100;
-    //totalelapsed = offset/100;
-    //totalelapsed = offset;
     setPosition(position);
   
 }
@@ -89,33 +86,8 @@ DNode* InteractableSprite::interact(sf::FloatRect rect) {
     return nullptr;
 }
 
-void InteractableSprite::animate(float elapsed, sf::RenderWindow &rw)       //non looped animation stays on final frame
-{
-    if (timePerFrame == 0) return;
-    totalelapsed+= elapsed;
-    while (totalelapsed >= timePerFrame) {
-        totalelapsed -= timePerFrame;
-        next_frame();
-    }
-    
-    rw.draw(*this);
-}
-
-void InteractableSprite::next_frame() {
-    if (getTextureRect().left + frameSize.width >= getTexture()->getSize().x) {
-        setTextureRect(frameSize);
-        if (nextAnimation) {
-            setTexture(*nextAnimation);
-        }
-    }
-    else setTextureRect(sf::IntRect(getTextureRect().left + frameSize.width,
-                                   getTextureRect().top,
-                                   getTextureRect().width,
-                                   getTextureRect().height ));
-}
-
 void InteractableSprite::addTime(float delta) {
-    totalelapsed += delta;
+    totalElapsed += delta;
 }
 
 

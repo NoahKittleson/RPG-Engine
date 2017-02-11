@@ -19,7 +19,7 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     background.setTexture(resources.getTexture("cute_image.jpg"));
     
     //Set up Non-interactable wheat field
-    TalkingSprite WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(400,100), emptyList, nullptr);
+    InteractableSprite WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(400,100), emptyList, nullptr);
     WheatField.setScale(3.0f, 3.0f);
     for (int iii = 0; iii < 6; iii++) {
         sprites.push_back(WheatField);
@@ -63,7 +63,7 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
         int xWheat = resources.getTexture("RollingWheat.png").getSize().x/2;
         int yWheat = resources.getTexture("RollingWheat.png").getSize().y/2;
         boxlist.push_back(sf::FloatRect(-xWheat/2, -yWheat/2, xWheat, yWheat));
-        sprites.emplace_back(TalkingSprite(resources.getTexture("RollingWheat.png"),
+        sprites.emplace_back(InteractableSprite(resources.getTexture("RollingWheat.png"),
                                            sf::Vector2f (300,300), boxlist, nullptr));
         
         boxlist.clear();

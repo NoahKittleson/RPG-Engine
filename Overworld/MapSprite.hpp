@@ -12,15 +12,17 @@
 class MapSprite : public sf::Sprite
 {
 public:
+    MapSprite(sf::IntRect, float timePerFrame = 0);
+    
     int getBase() const;
-    void drawBase(sf::RenderWindow &rw);
+    void drawBase(sf::RenderWindow &rw) const;
     virtual void update(float elapsed);
     
 protected:
     void animate(float elapsed);
     void nextFrame();
     
-    float timePerFrame = 0.f;
-    float totalElapsed = 0;
+    float timePerFrame;
+    float totalElapsed;
     sf::IntRect frameSize;
 };

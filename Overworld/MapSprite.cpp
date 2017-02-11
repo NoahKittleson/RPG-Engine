@@ -8,11 +8,16 @@
 
 #include "MapSprite.hpp"
 
+MapSprite::MapSprite(sf::IntRect frameSize, float timePerFrame)
+: frameSize(frameSize), timePerFrame(timePerFrame) {
+    totalElapsed = 0.f;
+}
+
 int MapSprite::getBase() const {
     return getPosition().y + (getTextureRect().height * getScale().y) - (getOrigin().y * getScale().y);
 }
 
-void MapSprite::drawBase(sf::RenderWindow &rw) {
+void MapSprite::drawBase(sf::RenderWindow &rw) const {
     sf::RectangleShape rect (sf::Vector2f(20, 1));
     rect.setFillColor(sf::Color::Green);
     rect.setPosition(getPosition().x, getBase());
@@ -30,7 +35,6 @@ void MapSprite::animate(float elapsed) {
     while (totalElapsed >= timePerFrame) {
         totalElapsed -= timePerFrame;
         nextFrame();
-        
     }
 }
 
