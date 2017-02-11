@@ -32,6 +32,7 @@ private:
     //every one of these should be texture ptrs
     sf::Texture walkUp;
     sf::Texture walkDown;
+    sf::Texture walkLeft;
     sf::Texture walkRight;
 };
 

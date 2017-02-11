@@ -14,6 +14,7 @@ Player::Player() {
     texture.loadFromFile(resourcePath() + "Stickmaniac.png");
     walkUp.loadFromFile(resourcePath() + "PlayerWalkingUp.png");
     walkDown.loadFromFile(resourcePath() + "PlayerWalkingDown.png");
+    walkLeft.loadFromFile(resourcePath() + "PlayerWalkingLeft.png");
     walkRight.loadFromFile(resourcePath() + "PlayerWalkingRight.png");
     setTexture(texture);
     //float textureLength = texture.getSize().x;        //all sprites are square.
@@ -51,10 +52,8 @@ void Player::drawBase(sf::RenderWindow &rw) {
 void Player::update(sf::Vector2f moveVec, float elapsed) {
     if (moveVec.x > 0) {
         setTexture(walkRight);
-        //setScale(std::abs(getScale().x), getScale().y);
     } else if (moveVec.x < 0) {
-        setTexture(walkRight);
-        //setScale(-std::abs(getScale().x), getScale().y);
+        setTexture(walkLeft);
     }
     if (moveVec.y < 0) {
         setTexture(walkUp);
