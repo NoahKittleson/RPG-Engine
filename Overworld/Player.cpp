@@ -10,27 +10,26 @@
 
 //Player Constructor is very hacky, but will work for now.
 //Later, have it initialized with a sprite from ResourceHolder
-Player::Player() : MapSprite(sf::IntRect(0,0,16,16), 0.1f), walkingState(Stand) {                //cheating.
-    walkUp.loadFromFile(resourcePath() + "PlayerWalkingUp.png");
-    walkDown.loadFromFile(resourcePath() + "PlayerWalkingDown.png");
-    walkLeft.loadFromFile(resourcePath() + "PlayerWalkingLeft.png");
-    walkRight.loadFromFile(resourcePath() + "PlayerWalkingRight.png");
-    setTexture(walkDown);
-    //float textureLength = texture.getSize().x;        //all sprites are square.
-    float textureHeight = walkDown.getSize().y;
+Player::Player(const ResourceHolder& resources)
+    : MapSprite(sf::IntRect(0,0,16,16), 0.1f), walkingState(Stand),
+    walkUp(&resources.getTexture("PlayerWalkingUp.png")), walkDown(&resources.getTexture("PlayerWalkingDown.png")),
+    walkLeft(&resources.getTexture("PlayerWalkingLeft.png")), walkRight(&resources.getTexture("PlayerWalkingRight.png"))
+{
+    setTexture(*walkDown);
+    int textureHeight = walkDown->getSize().y;
     
     frameSize = sf::IntRect(0,0,textureHeight, textureHeight);
     setTextureRect(frameSize);
     setOrigin(textureHeight/2, textureHeight/2);
-    box = sf::FloatRect(-textureHeight/4, -textureHeight/2,
+    box = sf::IntRect(-textureHeight/4, -textureHeight/2,
                         textureHeight/2, textureHeight);
     setPosition(100, 100);
 }
 
-sf::FloatRect Player::getAbsBox() {
+sf::IntRect Player::getAbsBox() {
     auto position = getPosition();
     auto scale = getScale().x;
-    sf::FloatRect absolutePosition (position.x + box.left * scale,
+    sf::IntRect absolutePosition (position.x + box.left * scale,
                                     position.y + box.top * scale,
                                     box.width * scale,
                                     box.height * scale);
@@ -63,22 +62,23 @@ void Player::changeState(Player::Direction newDir) {
     }
     else switch (newDir) {
         case Up:
-            setTexture(walkUp);
+            setTexture(*walkUp);
             break;
             
         case Down:
-            setTexture(walkDown);
+            setTexture(*walkDown);
             break;
             
         case Left:
-            setTexture(walkLeft);
+            setTexture(*walkLeft);
             break;
             
         case Right:
-            setTexture(walkRight);
+            setTexture(*walkRight);
             break;
             
         default:
+            //right now this catches Stand.  Create case Stand if I add idle animation.
             break;
     }
 }

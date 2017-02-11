@@ -17,9 +17,9 @@ OverworldMode::OverworldMode(MapSection* map)
 
 	view.setSize(sf::Vector2f(1024,768));			//this is very much cheating but I don't want to figure this out right now.
 	view.zoom(0.5);
-	view.setCenter(playerSprite.getPosition());
+	view.setCenter(playerSprite->getPosition());
 	
-	playerSprite.setScale(4.0f, 4.0f);
+	playerSprite->setScale(4.0f, 4.0f);
 	//playerSprite.setFrame(0);
 	//eventually I should set the origin in center of sprite
 }
@@ -42,13 +42,13 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 void OverworldMode::draw(sf::RenderWindow &rw) {
 	currentMap->drawBackground(rw);
 	drawAllBoxes(rw);
-	currentMap->drawAllObjects(rw, playerSprite);
+	currentMap->drawAllObjects(rw, *playerSprite);
 	rw.display();
 }
 
 std::string OverworldMode::handleEvent() {
 	for (const auto & it: currentMap->miniTriggers) {
-		if (it.getZone().intersects(playerSprite.getAbsBox())) {
+		if (it.getZone().intersects(playerSprite->getAbsBox())) {
 			return it.getActionID();
 		}
 	}
@@ -71,11 +71,11 @@ void OverworldMode::handleMovement(float elapsed)
 		moveVec.x += 100;
 	}
 	moveVec *= elapsed;
-	playerSprite.move(moveVec.x, 0);
+	playerSprite->move(moveVec.x, 0);
 	handlePlayerCollision(sf::Vector2f(moveVec.x, 0));
-	playerSprite.move(0, moveVec.y);
+	playerSprite->move(0, moveVec.y);
 	handlePlayerCollision(sf::Vector2f(0, moveVec.y));
-	playerSprite.update(moveVec, elapsed);
+	playerSprite->update(moveVec, elapsed);
 }
 
 void OverworldMode::handlePlayerCollision(sf::Vector2f moveVec)
@@ -83,8 +83,8 @@ void OverworldMode::handlePlayerCollision(sf::Vector2f moveVec)
 	//sf::FloatRect playerRect = playerSprite.getAbsBox();
 	
 	for (auto const & sprite: currentMap->getSpriteList()) {
-		if (sprite.intersects(playerSprite.getAbsBox())) {
-			sprite.collide(playerSprite, moveVec);
+		if (sprite.intersects(playerSprite->getAbsBox())) {
+			sprite.collide(*playerSprite, moveVec);
 		}
 	}
 }
@@ -92,11 +92,11 @@ void OverworldMode::handlePlayerCollision(sf::Vector2f moveVec)
 void OverworldMode::checkExits()
 {
 	for (const auto & exit: currentMap->getExitList()) {
-		if (exit.intersects(playerSprite.getAbsBox()) && exit.getNextZone() != "") {
+		if (exit.intersects(playerSprite->getAbsBox()) && exit.getNextZone() != "") {
 //			currentMap = exit.getNextZone();
 			//SHOULD BE SOMETHING LIKE: currentMap = World.getMap(exit.getNextZone());
 			//Or better yet: switchToMap("string");
-			exit.MoveSpriteToNewZone(playerSprite, view);
+			exit.MoveSpriteToNewZone(*playerSprite, view);
 			return;
 		}
 	}
@@ -104,7 +104,7 @@ void OverworldMode::checkExits()
 
 void OverworldMode::checkTriggers(sf::RenderWindow &rw) {
 	for (const auto & it: currentMap->getTriggerList()) {
-		if (it.intersects(playerSprite.getAbsBox())) {
+		if (it.intersects(playerSprite->getAbsBox())) {
 			//addToStack(it.procTrigger(rw));
 			switch(it.getDataType()) {
 				case DataType::Fight:
@@ -166,10 +166,10 @@ void OverworldMode::drawPlayerCollision(sf::RenderWindow &rw)
 {
 	sf::RectangleShape Rectangle;
 	Rectangle.setFillColor(sf::Color(0,250,0,125));
-	Rectangle.setSize(sf::Vector2f(playerSprite.getAbsBox().width,
-								   playerSprite.getAbsBox().height));
-	Rectangle.setPosition(playerSprite.getAbsBox().left,
-						  playerSprite.getAbsBox().top );
+	Rectangle.setSize(sf::Vector2f(playerSprite->getAbsBox().width,
+								   playerSprite->getAbsBox().height));
+	Rectangle.setPosition(playerSprite->getAbsBox().left,
+						  playerSprite->getAbsBox().top );
 	rw.draw(Rectangle);
 }
 
@@ -183,19 +183,19 @@ void OverworldMode::drawAllBoxes(sf::RenderWindow &rw)
 
 void OverworldMode::updateView()
 {
-	sf::Vector2f NewPosition = playerSprite.getPosition();
+	sf::Vector2f NewPosition = playerSprite->getPosition();
 	int viewWidth = view.getSize().x;
 	int viewHeight = view.getSize().y;
 	
 	int backgroundWidth = currentMap->getSize().x;
 	int backgroundHeight = currentMap->getSize().y;
 	
-	if (playerSprite.getPosition().x < viewWidth/2) NewPosition.x = viewWidth/2;
-	else if (playerSprite.getPosition().x > backgroundWidth - viewWidth/2)
+	if (playerSprite->getPosition().x < viewWidth/2) NewPosition.x = viewWidth/2;
+	else if (playerSprite->getPosition().x > backgroundWidth - viewWidth/2)
 		NewPosition.x = backgroundWidth - viewWidth/2;
 	
-	if (playerSprite.getPosition().y < viewHeight/2) NewPosition.y = viewHeight/2;
-	else if (playerSprite.getPosition().y > backgroundHeight - viewHeight/2)
+	if (playerSprite->getPosition().y < viewHeight/2) NewPosition.y = viewHeight/2;
+	else if (playerSprite->getPosition().y > backgroundHeight - viewHeight/2)
 		NewPosition.y = backgroundHeight - viewHeight/2;
 
 	view.setCenter(NewPosition);
@@ -203,7 +203,7 @@ void OverworldMode::updateView()
 
 void OverworldMode::checkForInteraction(sf::RenderWindow &rw)
 {
-	sf::FloatRect bigCollision = playerSprite.getAbsBox();
+	sf::IntRect bigCollision = playerSprite->getAbsBox();
 	bigCollision.left -= COLLISION_BOX_EXTRA;
 	bigCollision.top -= COLLISION_BOX_EXTRA;
 	bigCollision.width += COLLISION_BOX_EXTRA*2;		//X2 to make up for the left offset

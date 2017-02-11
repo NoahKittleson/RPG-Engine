@@ -20,6 +20,10 @@ ResourceHolder::ResourceHolder()
     IDList.push_back("cute_image.jpg");
     IDList.push_back("icon.png");
     IDList.push_back("tree.png");
+    IDList.push_back("PlayerWalkingUp.png");
+    IDList.push_back("PlayerWalkingDown.png");
+    IDList.push_back("PlayerWalkingLeft.png");
+    IDList.push_back("PlayerWalkingRight.png");
     
 //    sf::Texture dummy;        //if this didn't crash the program, remove.
     for (auto ID: IDList) {

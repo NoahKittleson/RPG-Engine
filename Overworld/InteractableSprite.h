@@ -14,20 +14,20 @@
 class InteractableSprite: public MapSprite
 {
 public:
-    InteractableSprite(const sf::Texture&, sf::Vector2f, const std::vector<sf::FloatRect>&,
+    InteractableSprite(const sf::Texture&, sf::Vector2f, const std::vector<sf::IntRect>&,
                        DNode* text, float timePerFrame = 0);
     void addTime (float delta);
 
     void DrawCollisionBoxes(sf::RenderWindow &rw) const;
     //DNode* getDialogue() const;
-    bool intersects(sf::FloatRect) const;
+    bool intersects(sf::IntRect) const;
     void collide(Player&, sf::Vector2f movement) const;
-    DNode* interact(sf::FloatRect);
+    DNode* interact(sf::IntRect);
 
     
 private:
     DNode* whatItSays = nullptr;
-    std::vector<sf::FloatRect> collisionBoxList;
+    std::vector<sf::IntRect> collisionBoxList;
     
     //sf::Texture* nextAnimation = nullptr;  //nullptr: loops, ptr = non-looping, change to this after animation ends.
 };

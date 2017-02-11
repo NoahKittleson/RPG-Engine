@@ -41,7 +41,7 @@ public:
     
     void drawBackground(sf::RenderWindow &rw);
     void drawAllObjects(sf::RenderWindow &rw, Player&);
-    void addExit(sf::FloatRect pos, sf::Vector2f offset, std::string next);
+    void addExit(sf::IntRect pos, sf::Vector2f offset, std::string next);
     
     sf::Vector2u getSize();
     
@@ -56,11 +56,11 @@ public:
 class MiniTrigger
 {
 public:
-    MiniTrigger (sf::FloatRect rect, std::string str) : zone(rect), actionID(str) { };
-    sf::FloatRect getZone() const { return zone; }
+    MiniTrigger (sf::IntRect rect, std::string str) : zone(rect), actionID(str) { };
+    sf::IntRect getZone() const { return zone; }
     std::string getActionID() const { return actionID; }
 private:
-    sf::FloatRect zone;
+    sf::IntRect zone;
     std::string actionID;
 };
 

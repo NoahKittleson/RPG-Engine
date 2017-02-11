@@ -15,7 +15,7 @@ BigField::BigField(ResourceHolder& resources)
 : MapSection(), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),
 optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     
-    std::vector<sf::FloatRect> emptyList;
+    std::vector<sf::IntRect> emptyList;
     background.setTexture(resources.getTexture("cute_image.jpg"));
     
     //Set up Non-interactable wheat field
@@ -50,8 +50,8 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     {
         int xIcon = resources.getTexture("icon.png").getSize().x/2;
         int yIcon = resources.getTexture("icon.png").getSize().y/2;
-        sf::FloatRect Rectangle (-xIcon/2, -yIcon/2, xIcon, yIcon);
-        std::vector<sf::FloatRect> boxlist;
+        sf::IntRect Rectangle (-xIcon/2, -yIcon/2, xIcon, yIcon);
+        std::vector<sf::IntRect> boxlist;
         
         //L block Icon
         boxlist.emplace_back(0, 0, 10, 50);
@@ -62,7 +62,7 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
         boxlist.clear();
         int xWheat = resources.getTexture("RollingWheat.png").getSize().x/2;
         int yWheat = resources.getTexture("RollingWheat.png").getSize().y/2;
-        boxlist.push_back(sf::FloatRect(-xWheat/2, -yWheat/2, xWheat, yWheat));
+        boxlist.push_back(sf::IntRect(-xWheat/2, -yWheat/2, xWheat, yWheat));
         sprites.emplace_back(InteractableSprite(resources.getTexture("RollingWheat.png"),
                                            sf::Vector2f (300,300), boxlist, nullptr));
         
@@ -76,18 +76,18 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     EnemyVector.emplace_back(300, 100,  30, resources.getTexture("RollingWheat.png"),
                              resources.getFont("sansation.ttf"), "GrainMan", ".", true,
                              resources.getTexture("RollingWheat.png"));
-    //Trigger killzone (sf::FloatRect(400,0,500,500), EnemyList);
-    //this->triggers.emplace_back(sf::FloatRect(400,0,500,500), EnemyVector);
-    miniTriggers.emplace_back(sf::FloatRect(500,50,50,50), "fight");
+    //Trigger killzone (sf::IntRect(400,0,500,500), EnemyList);
+    //this->triggers.emplace_back(sf::IntRect(400,0,500,500), EnemyVector);
+    miniTriggers.emplace_back(sf::IntRect(500,50,50,50), "fight");
     
     //Set up Zone Exits
     //1920 by 1200 mountain jpg
     {
         std::string ZoneID = "NextZone";
-        ZoneExit top(sf::FloatRect(0,-100,1920,100), sf::Vector2f(0,550), ZoneID);
-        ZoneExit left(sf::FloatRect(-100,0,100,1200), sf::Vector2f(750,0), ZoneID);
-        ZoneExit right(sf::FloatRect(1920,0,100,1200), sf::Vector2f(-1870,0), ZoneID);
-        ZoneExit bottom(sf::FloatRect(0,1200,1920,100), sf::Vector2f(0,-1150), ZoneID);
+        ZoneExit top(sf::IntRect(0,-100,1920,100), sf::Vector2f(0,550), ZoneID);
+        ZoneExit left(sf::IntRect(-100,0,100,1200), sf::Vector2f(750,0), ZoneID);
+        ZoneExit right(sf::IntRect(1920,0,100,1200), sf::Vector2f(-1870,0), ZoneID);
+        ZoneExit bottom(sf::IntRect(0,1200,1920,100), sf::Vector2f(0,-1150), ZoneID);
         exits.push_back(top);
         exits.push_back(left);
         exits.push_back(right);

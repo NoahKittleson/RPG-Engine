@@ -52,7 +52,7 @@ void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
     rw.setView(mapView);
     
     currentMap->drawBackground(rw);
-    currentMap->drawAllObjects(rw, playerSprite);
+    currentMap->drawAllObjects(rw, *playerSprite);
     
     rw.setView(HUD);
     rw.draw(messageBox);

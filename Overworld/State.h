@@ -37,7 +37,7 @@ protected:
     
     static MapSection* currentMap;
     static std::vector<Character> party;
-    static Player playerSprite;               //do I need this? Will this be stored in first Character?
+    static Player* playerSprite;               //consider boost_ptr unique pointer?
     const static ResourceHolder resources;
 
     bool deletionOrder = false;

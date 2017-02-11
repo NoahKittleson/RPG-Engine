@@ -9,14 +9,14 @@
 #include "Trigger.h"
 
 
-Trigger::Trigger(sf::FloatRect box, std::vector<Character> enemies)
+Trigger::Trigger(sf::IntRect box, std::vector<Character> enemies)
 : area(box), type(DataType::Fight), data(enemies)
 {
     //don't think I need this because data is alrady initialzed with enemies above ^
     //data.enemyVec = enemies;
 }
 
-Trigger::Trigger(sf::FloatRect box, DNode* text)
+Trigger::Trigger(sf::IntRect box, DNode* text)
 : area(box), type(DataType::Talk), data(text)
 {
     
@@ -30,7 +30,7 @@ DataType Trigger::getDataType() const {
 //    return data;
 //}
 
-bool Trigger::intersects(sf::FloatRect box) const
+bool Trigger::intersects(sf::IntRect box) const
 {
     return area.intersects(box);
 }

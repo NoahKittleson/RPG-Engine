@@ -10,28 +10,27 @@
 #include "PrefixHeader.pch"
 #include "ResourcePath.hpp"
 #include "MapSprite.hpp"
+#include "ResourceHolder.h"
 
 class Player : public MapSprite
 {
 public:
-    Player();
-    sf::FloatRect getAbsBox();
+    Player(const ResourceHolder &rh);
+    sf::IntRect getAbsBox();
     void update(sf::Vector2f moveVec, float elapsed);
     
 private:
-    sf::FloatRect box;
+    sf::IntRect box;
 	enum Direction {Up, Down, Left, Right, Stand};
 	Direction walkingState;
 	
 	void changeState(Direction newDir);
 	
-    //every one of these should be texture ptrs
-    sf::Texture walkUp;
-    sf::Texture walkDown;
-    sf::Texture walkLeft;
-    sf::Texture walkRight;
+    const sf::Texture* walkUp;
+    const sf::Texture* walkDown;
+    const sf::Texture* walkLeft;
+    const sf::Texture* walkRight;
 };
 
 //things to do-
-//2.Switch to a state-based system for movementTexture stuff
 //3.Get the constructor away from being so extremely hard-coded

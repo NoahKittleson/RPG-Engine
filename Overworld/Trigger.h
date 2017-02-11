@@ -36,10 +36,10 @@ public:
 class Trigger
 {
 public:
-    Trigger(sf::FloatRect, std::vector<Character> enemies);
-    Trigger(sf::FloatRect, DNode* text);
+    Trigger(sf::IntRect, std::vector<Character> enemies);
+    Trigger(sf::IntRect, DNode* text);
     
-    bool intersects(sf::FloatRect) const;
+    bool intersects(sf::IntRect) const;
     DataType getDataType() const;
     //TriggerData getData() const;                          //doesn't work.  Triggers suck.  Need major redesign
     //State* procTrigger(sf::RenderWindow &rw) const;        //returns new state from trigger.
@@ -48,7 +48,7 @@ public:
     TriggerData data;
     
 private:
-    sf::FloatRect area;
+    sf::IntRect area;
 
     
 };

@@ -59,7 +59,7 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, Player& player)
 	}
 }
 
-void MapSection::addExit(sf::FloatRect pos, sf::Vector2f offset, std::string next)
+void MapSection::addExit(sf::IntRect pos, sf::Vector2f offset, std::string next)
 {
 	exits.emplace_back(pos, offset, next);
 }

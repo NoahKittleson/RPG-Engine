@@ -10,7 +10,7 @@
 
 
 InteractableSprite::InteractableSprite(const sf::Texture& texture, sf::Vector2f position,
-                             const std::vector<sf::FloatRect>& collisionList, DNode* text, float timePerFrame)
+                             const std::vector<sf::IntRect>& collisionList, DNode* text, float timePerFrame)
 : MapSprite(sf::IntRect(0,0,texture.getSize().y, texture.getSize().y), timePerFrame), collisionBoxList(collisionList), whatItSays(text)  //yes, this is meant to have texture.getSize().y twice, because all my animation sheets are square
 {
     setOrigin(frameSize.width/2, frameSize.height/2);
@@ -43,7 +43,7 @@ void InteractableSprite::DrawCollisionBoxes(sf::RenderWindow &rw) const
 
 
 void InteractableSprite::collide(Player &PC, sf::Vector2f moveVec) const {
-    sf::FloatRect playerRect = PC.getAbsBox();
+    sf::IntRect playerRect = PC.getAbsBox();
     
     for (auto const & itBox : collisionBoxList) {
         if (playerRect.intersects(itBox)) {
@@ -67,7 +67,7 @@ void InteractableSprite::collide(Player &PC, sf::Vector2f moveVec) const {
     }
 }
 
-bool InteractableSprite::intersects(sf::FloatRect rect) const {
+bool InteractableSprite::intersects(sf::IntRect rect) const {
     for (auto && it: collisionBoxList) {
         if (rect.intersects(it)) {
             return true;
@@ -77,7 +77,7 @@ bool InteractableSprite::intersects(sf::FloatRect rect) const {
 }
 
 
-DNode* InteractableSprite::interact(sf::FloatRect rect) {
+DNode* InteractableSprite::interact(sf::IntRect rect) {
     for (auto && box: collisionBoxList) {
         if (box.intersects(rect)) {
             return whatItSays;

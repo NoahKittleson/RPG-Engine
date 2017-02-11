@@ -11,7 +11,7 @@
 
 State::~State()
 {
-    
+    delete playerSprite;
 }
 
 void State::addToStack(State* addMe)
@@ -48,14 +48,12 @@ void State::load() {
     ability2.setReq(Ability::ManaCost, 50);
     party.back().addAbility(ability1);
     party.back().addAbility(ability2);
-    std::cout << "ability list size: ";
-    std::cout << party.back()._abilityList.size();
-    std::cout << "\n";
     
+    playerSprite = new Player(resources);
 }
 
 const ResourceHolder State::resources;
 StateStack* State::stack;
 MapSection* State::currentMap;
 std::vector<Character> State::party;
-Player State::playerSprite;
+Player* State::playerSprite;
