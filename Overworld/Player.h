@@ -20,6 +20,11 @@ public:
     
 private:
     sf::FloatRect box;
+	enum Direction {Up, Down, Left, Right, Stand};
+	Direction walkingState;
+	
+	void changeState(Direction newDir);
+	
     //every one of these should be texture ptrs
     sf::Texture walkUp;
     sf::Texture walkDown;
@@ -28,6 +33,5 @@ private:
 };
 
 //things to do-
-//1.Draw out similarities between this and TalkingSprite (also really consider renaming talkingSprite)
 //2.Switch to a state-based system for movementTexture stuff
 //3.Get the constructor away from being so extremely hard-coded
