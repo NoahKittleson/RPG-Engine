@@ -9,8 +9,9 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "ResourcePath.hpp"
+#include "MapSprite.hpp"
 
-class Player : public sf::Sprite
+class Player : public MapSprite
 {
 public:
     Player();
@@ -20,15 +21,7 @@ public:
     void update(sf::Vector2f moveVec, float elapsed);
     
 private:
-    //stats used for animation
-    float timePerFrame = 0.1f;
-    float totalElapsed = 0;
-    sf::IntRect frameSize;
-    void nextFrame();
-    void animate(float elapsed);
-    
     sf::FloatRect box;
-    sf::Texture texture;
     //every one of these should be texture ptrs
     sf::Texture walkUp;
     sf::Texture walkDown;

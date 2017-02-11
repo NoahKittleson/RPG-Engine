@@ -11,14 +11,14 @@
 //Player Constructor is very hacky, but will work for now.
 //Later, have it initialized with a sprite from ResourceHolder
 Player::Player() {
-    texture.loadFromFile(resourcePath() + "Stickmaniac.png");
+    timePerFrame = 0.1f;
     walkUp.loadFromFile(resourcePath() + "PlayerWalkingUp.png");
     walkDown.loadFromFile(resourcePath() + "PlayerWalkingDown.png");
     walkLeft.loadFromFile(resourcePath() + "PlayerWalkingLeft.png");
     walkRight.loadFromFile(resourcePath() + "PlayerWalkingRight.png");
-    setTexture(texture);
+    setTexture(walkDown);
     //float textureLength = texture.getSize().x;        //all sprites are square.
-    float textureHeight = texture.getSize().y;
+    float textureHeight = walkDown.getSize().y;
     
     frameSize = sf::IntRect(0,0,textureHeight, textureHeight);
     setTextureRect(frameSize);

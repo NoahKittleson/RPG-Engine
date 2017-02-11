@@ -1,15 +1,15 @@
 //
-//  TalkingSprite.cpp
+//  InteractableSprite.cpp
 //  Overworld
 //
 //  Created by Noah Kittleson on 2/26/16.
 //  Copyright (c) 2016 Noah. All rights reserved.
 //
 
-#include "TalkingSprite.h"
+#include "InteractableSprite.h"
 
 
-TalkingSprite::TalkingSprite(const sf::Texture& texture, sf::Vector2f position,
+InteractableSprite::InteractableSprite(const sf::Texture& texture, sf::Vector2f position,
                              const std::vector<sf::FloatRect>& collisionList, DNode* text, float timePerFrame)
 : collisionBoxList(collisionList), whatItSays(text), timePerFrame(timePerFrame), frameSize(sf::IntRect(0,0,texture.getSize().y, texture.getSize().y))   //yes, this is meant to have texture.getSize().y twice, because all my animation sheets are square
 {
@@ -27,13 +27,13 @@ TalkingSprite::TalkingSprite(const sf::Texture& texture, sf::Vector2f position,
   
 }
 
-//TalkingSprite::TalkingSprite(const TalkingSprite& other)
+//InteractableSprite::InteractableSprite(const InteractableSprite& other)
 //:collisionBoxList(other.collisionBoxList), whatItSays(other.whatItSays), timePerFrame(other.timePerFrame), frameSize(other.frameSize), nextAnimation(other.nextAnimation)
 //{
 //    
 //}
 
-void TalkingSprite::DrawCollisionBoxes(sf::RenderWindow &rw) const
+void InteractableSprite::DrawCollisionBoxes(sf::RenderWindow &rw) const
 {
     sf::RectangleShape rectangle;
     rectangle.setFillColor(sf::Color::Red);
@@ -45,7 +45,7 @@ void TalkingSprite::DrawCollisionBoxes(sf::RenderWindow &rw) const
 }
 
 
-void TalkingSprite::collide(Player &PC, sf::Vector2f moveVec) const {
+void InteractableSprite::collide(Player &PC, sf::Vector2f moveVec) const {
     sf::FloatRect playerRect = PC.getAbsBox();
     
     for (auto const & itBox : collisionBoxList) {
@@ -70,18 +70,7 @@ void TalkingSprite::collide(Player &PC, sf::Vector2f moveVec) const {
     }
 }
 
-int TalkingSprite::getBase() const {
-    return getPosition().y + (getTextureRect().height * getScale().y) - (getOrigin().y * getScale().y);
-}
-
-void TalkingSprite::drawBase(sf::RenderWindow &rw) const{
-    sf::RectangleShape rect (sf::Vector2f(20, 1));
-    rect.setFillColor(sf::Color::Green);
-    rect.setPosition(getPosition().x, getBase());
-    rw.draw(rect);
-}
-
-bool TalkingSprite::intersects(sf::FloatRect rect) const {
+bool InteractableSprite::intersects(sf::FloatRect rect) const {
     for (auto && it: collisionBoxList) {
         if (rect.intersects(it)) {
             return true;
@@ -91,7 +80,7 @@ bool TalkingSprite::intersects(sf::FloatRect rect) const {
 }
 
 
-DNode* TalkingSprite::interact(sf::FloatRect rect) {
+DNode* InteractableSprite::interact(sf::FloatRect rect) {
     for (auto && box: collisionBoxList) {
         if (box.intersects(rect)) {
             return whatItSays;
@@ -100,7 +89,7 @@ DNode* TalkingSprite::interact(sf::FloatRect rect) {
     return nullptr;
 }
 
-void TalkingSprite::animate(float elapsed, sf::RenderWindow &rw)       //non looped animation stays on final frame
+void InteractableSprite::animate(float elapsed, sf::RenderWindow &rw)       //non looped animation stays on final frame
 {
     if (timePerFrame == 0) return;
     totalelapsed+= elapsed;
@@ -112,7 +101,7 @@ void TalkingSprite::animate(float elapsed, sf::RenderWindow &rw)       //non loo
     rw.draw(*this);
 }
 
-void TalkingSprite::next_frame() {
+void InteractableSprite::next_frame() {
     if (getTextureRect().left + frameSize.width >= getTexture()->getSize().x) {
         setTextureRect(frameSize);
         if (nextAnimation) {
@@ -125,7 +114,7 @@ void TalkingSprite::next_frame() {
                                    getTextureRect().height ));
 }
 
-void TalkingSprite::addTime(float delta) {
+void InteractableSprite::addTime(float delta) {
     totalelapsed += delta;
 }
 

@@ -11,20 +11,19 @@
 #include "Player.h"
 #include "DNode.h"
 
-class TalkingSprite: public sf::Sprite
+class InteractableSprite: public sf::Sprite
 {
 public:
-    TalkingSprite(const sf::Texture&, sf::Vector2f, const std::vector<sf::FloatRect>&, DNode* text, float timePerFrame = 0);
+    InteractableSprite(const sf::Texture&, sf::Vector2f, const std::vector<sf::FloatRect>&,
+                       
+                       DNode* text, float timePerFrame = 0);
     void DrawCollisionBoxes(sf::RenderWindow &rw) const;
     //DNode* getDialogue() const;
-    
-    int getBase() const;
-    void drawBase(sf::RenderWindow &rw) const;
     
     bool intersects(sf::FloatRect) const;
     void collide(Player&, sf::Vector2f movement) const;
     DNode* interact(sf::FloatRect);
-    void animate(float elapsed, sf::RenderWindow &rw);
+    //void animate(float elapsed, sf::RenderWindow &rw);
     void addTime (float delta);
     
 

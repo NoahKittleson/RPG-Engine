@@ -43,10 +43,11 @@
 		B77ED0FB1C82E221004046D1 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77ED0F91C82E221004046D1 /* Player.cpp */; };
 		B79AD8D81D4F128200B7C8F7 /* StartingZone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */; };
 		B79E29881BA0E1C80020BA93 /* RollingWheat.png in Resources */ = {isa = PBXBuildFile; fileRef = B79E29871BA0E1C80020BA93 /* RollingWheat.png */; };
-		B7A26C0C1C805AA30083989B /* TalkingSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C0A1C805AA30083989B /* TalkingSprite.cpp */; };
+		B7A26C0C1C805AA30083989B /* InteractableSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C0A1C805AA30083989B /* InteractableSprite.cpp */; };
 		B7A26C0F1C8061A50083989B /* Trigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C0D1C8061A50083989B /* Trigger.cpp */; };
 		B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C101C8070370083989B /* ZoneExit.cpp */; };
 		B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */; };
+		B7D17D181E4EA12C00D71290 /* MapSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7D17D161E4EA12C00D71290 /* MapSprite.cpp */; };
 		B7D3C23A1AEF869F0052DE83 /* Stickmaniac.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D3C2391AEF869F0052DE83 /* Stickmaniac.png */; };
 		B7DD37451C35DFFC0089224E /* BattleMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DD37431C35DFFC0089224E /* BattleMode.cpp */; };
 		B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */; };
@@ -110,17 +111,19 @@
 		B77BE44A1BB5E03500F5645C /* Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
 		B77BE44B1BB5E03500F5645C /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		B77ED0F91C82E221004046D1 /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
-		B77ED0FA1C82E221004046D1 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		B77ED0FA1C82E221004046D1 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; usesTabs = 1; };
 		B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartingZone.cpp; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
 		B79AD8D71D4F128200B7C8F7 /* StartingZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartingZone.h; sourceTree = "<group>"; };
 		B79E29871BA0E1C80020BA93 /* RollingWheat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RollingWheat.png; sourceTree = "<group>"; };
-		B7A26C0A1C805AA30083989B /* TalkingSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TalkingSprite.cpp; sourceTree = "<group>"; };
-		B7A26C0B1C805AA30083989B /* TalkingSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkingSprite.h; sourceTree = "<group>"; };
+		B7A26C0A1C805AA30083989B /* InteractableSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InteractableSprite.cpp; sourceTree = "<group>"; };
+		B7A26C0B1C805AA30083989B /* InteractableSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractableSprite.h; sourceTree = "<group>"; };
 		B7A26C0D1C8061A50083989B /* Trigger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger.cpp; sourceTree = "<group>"; };
 		B7A26C0E1C8061A50083989B /* Trigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger.h; sourceTree = "<group>"; };
 		B7A26C101C8070370083989B /* ZoneExit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZoneExit.cpp; sourceTree = "<group>"; };
 		B7A26C111C8070370083989B /* ZoneExit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneExit.h; sourceTree = "<group>"; };
 		B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingLeft.png; sourceTree = "<group>"; };
+		B7D17D161E4EA12C00D71290 /* MapSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapSprite.cpp; sourceTree = "<group>"; };
+		B7D17D171E4EA12C00D71290 /* MapSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MapSprite.hpp; sourceTree = "<group>"; };
 		B7D3C2391AEF869F0052DE83 /* Stickmaniac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stickmaniac.png; sourceTree = "<group>"; };
 		B7DD37431C35DFFC0089224E /* BattleMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleMode.cpp; sourceTree = "<group>"; };
 		B7DD37441C35DFFC0089224E /* BattleMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleMode.h; sourceTree = "<group>"; };
@@ -249,10 +252,12 @@
 			children = (
 				B7E5DD491AE879C800E6EA3F /* OverworldMode.h */,
 				B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */,
+				B7D17D171E4EA12C00D71290 /* MapSprite.hpp */,
+				B7D17D161E4EA12C00D71290 /* MapSprite.cpp */,
 				B77ED0FA1C82E221004046D1 /* Player.h */,
 				B77ED0F91C82E221004046D1 /* Player.cpp */,
-				B7A26C0B1C805AA30083989B /* TalkingSprite.h */,
-				B7A26C0A1C805AA30083989B /* TalkingSprite.cpp */,
+				B7A26C0B1C805AA30083989B /* InteractableSprite.h */,
+				B7A26C0A1C805AA30083989B /* InteractableSprite.cpp */,
 				B7A26C0E1C8061A50083989B /* Trigger.h */,
 				B7A26C0D1C8061A50083989B /* Trigger.cpp */,
 				B7A26C111C8070370083989B /* ZoneExit.h */,
@@ -392,8 +397,9 @@
 				B75ABA291C7BE1C400B9FFDE /* DialogueMode.cpp in Sources */,
 				B79AD8D81D4F128200B7C8F7 /* StartingZone.cpp in Sources */,
 				B706F0781BFFE59700C95D49 /* State.cpp in Sources */,
+				B7D17D181E4EA12C00D71290 /* MapSprite.cpp in Sources */,
 				B7023E0F1BB5E19F005A6F93 /* EffectsHandler.cpp in Sources */,
-				B7A26C0C1C805AA30083989B /* TalkingSprite.cpp in Sources */,
+				B7A26C0C1C805AA30083989B /* InteractableSprite.cpp in Sources */,
 				B75F862F1BACE0FB0093B615 /* Ability.cpp in Sources */,
 				B75ABA251C7BD81D00B9FFDE /* TalkNode.cpp in Sources */,
 				B77784091AE5C84D007FA840 /* Game.cpp in Sources */,
