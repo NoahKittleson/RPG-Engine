@@ -24,14 +24,11 @@ void Game::run()
 	mainWindow.setFramerateLimit(60);
 	mainWindow.setVerticalSyncEnabled(true);
 
-	//create Starting Maps
-	StartingZone StartZone (resourceHolder);
-//	MapSection NextZone ("cute_image.jpg", NextZoneExits, EmptyList, TriggerList);
-	
 	//add a state to the stack so I have something to run
-	auto startMode = new OverworldMode(&StartZone);
-	startMode->setStack(gameStack);
+	auto loadMode = new LoadState(gameStack);
+	auto startMode = new OverworldMode();
 	gameStack.addState(startMode);
+	delete loadMode;
 	
 	//a better load state would be nice eventually...
 	startMode->load();

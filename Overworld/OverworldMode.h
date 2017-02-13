@@ -18,7 +18,7 @@
 class OverworldMode: public State
 {
 public:
-	OverworldMode(MapSection* map);
+	OverworldMode();
 	void update(sf::RenderWindow &rw, sf::Clock&) override;
 	void draw(sf::RenderWindow &rw) override;
 	std::string handleEvent() override;

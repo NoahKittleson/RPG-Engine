@@ -11,7 +11,7 @@
 #define NO_OF_TALKNODES 3
 #define NO_OF_OPTIONNODES 1
 
-StartingZone::StartingZone(ResourceHolder& resources)
+StartingZone::StartingZone(const ResourceHolder& resources)
 : MapSection(), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),
                 optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     

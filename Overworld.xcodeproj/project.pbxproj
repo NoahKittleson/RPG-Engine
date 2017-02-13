@@ -48,6 +48,7 @@
 		B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C101C8070370083989B /* ZoneExit.cpp */; };
 		B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */; };
 		B7D17D181E4EA12C00D71290 /* MapSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7D17D161E4EA12C00D71290 /* MapSprite.cpp */; };
+		B7D17D1B1E512CDC00D71290 /* LoadState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7D17D191E512CDC00D71290 /* LoadState.cpp */; };
 		B7D3C23A1AEF869F0052DE83 /* Stickmaniac.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D3C2391AEF869F0052DE83 /* Stickmaniac.png */; };
 		B7DD37451C35DFFC0089224E /* BattleMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DD37431C35DFFC0089224E /* BattleMode.cpp */; };
 		B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */; };
@@ -124,6 +125,8 @@
 		B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingLeft.png; sourceTree = "<group>"; };
 		B7D17D161E4EA12C00D71290 /* MapSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapSprite.cpp; sourceTree = "<group>"; };
 		B7D17D171E4EA12C00D71290 /* MapSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MapSprite.hpp; sourceTree = "<group>"; };
+		B7D17D191E512CDC00D71290 /* LoadState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadState.cpp; sourceTree = "<group>"; };
+		B7D17D1A1E512CDC00D71290 /* LoadState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LoadState.hpp; sourceTree = "<group>"; };
 		B7D3C2391AEF869F0052DE83 /* Stickmaniac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stickmaniac.png; sourceTree = "<group>"; };
 		B7DD37431C35DFFC0089224E /* BattleMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleMode.cpp; sourceTree = "<group>"; };
 		B7DD37441C35DFFC0089224E /* BattleMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleMode.h; sourceTree = "<group>"; };
@@ -203,6 +206,8 @@
 				B77784071AE5C84D007FA840 /* Game.cpp */,
 				B706F0771BFFE59700C95D49 /* State.h */,
 				B706F0761BFFE59700C95D49 /* State.cpp */,
+				B7D17D1A1E512CDC00D71290 /* LoadState.hpp */,
+				B7D17D191E512CDC00D71290 /* LoadState.cpp */,
 				B75B77901C00723900122CCC /* StateStack.h */,
 				B75B778F1C00723900122CCC /* StateStack.cpp */,
 				B77844A61E25D2F7002C7555 /* PauseMenu.hpp */,
@@ -411,6 +416,7 @@
 				B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */,
 				B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */,
 				B742D6F91C1292EA0093C785 /* ResourceHolder.cpp in Sources */,
+				B7D17D1B1E512CDC00D71290 /* LoadState.cpp in Sources */,
 				B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */,
 				B75F86331BACE5C10093B615 /* AnimatedSprite.cpp in Sources */,
 				B77844A71E25D2F7002C7555 /* PauseMenu.cpp in Sources */,

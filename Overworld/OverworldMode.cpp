@@ -11,10 +11,8 @@
 #define COLLISION_BOX_EXTRA 10
 
 
-OverworldMode::OverworldMode(MapSection* map)
+OverworldMode::OverworldMode()
 {
-	currentMap = map;
-
 	view.setSize(sf::Vector2f(1024,768));			//this is very much cheating but I don't want to figure this out right now.
 	view.zoom(0.5);
 	view.setCenter(playerSprite->getPosition());
@@ -96,6 +94,7 @@ void OverworldMode::checkExits()
 //			currentMap = exit.getNextZone();
 			//SHOULD BE SOMETHING LIKE: currentMap = World.getMap(exit.getNextZone());
 			//Or better yet: switchToMap("string");
+			//but right now map is dynamically allocated.  Need to delete old map.
 			exit.MoveSpriteToNewZone(*playerSprite, view);
 			return;
 		}
