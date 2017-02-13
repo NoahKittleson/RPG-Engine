@@ -25,6 +25,7 @@ using MiniTriggerVec = std::vector<MiniTrigger>;
 class MapSection: sf::NonCopyable
 {
 protected:
+    ~MapSection() {std::cout << "Map Deleted\n"; }
     sf::Sprite background;
     ExitVec exits;
     SpriteVec sprites;

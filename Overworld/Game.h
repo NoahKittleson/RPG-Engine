@@ -22,6 +22,9 @@ public:
 	static sf::RenderWindow mainWindow;
 	static StateStack gameStack;
 	static sf::Clock gameTimer;
+private:
+	static void resolveTrigger(std::string);
+
 };
 
 

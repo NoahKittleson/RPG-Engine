@@ -19,6 +19,7 @@ class State
 {
 public:
     virtual ~State();
+    State();
     virtual void update(sf::RenderWindow&, sf::Clock&) = 0;
     virtual void draw(sf::RenderWindow&) = 0;
     virtual std::string handleEvent() = 0;
@@ -43,7 +44,8 @@ protected:
     bool looping = true;
     
     static StateStack* stack;
-
+private:
+    int instances=0;
 
 };
 

@@ -11,7 +11,15 @@
 
 State::~State()
 {
-    delete playerSprite;
+    --instances;
+//    if (instances <= 0) {
+//        delete playerSprite;
+//        delete currentMap;
+//    }
+}
+
+State::State() {
+    ++instances;
 }
 
 void State::addToStack(State* addMe)

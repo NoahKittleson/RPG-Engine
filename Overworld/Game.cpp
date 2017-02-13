@@ -29,39 +29,42 @@ void Game::run()
 	auto startMode = new OverworldMode();
 	gameStack.addState(startMode);
 	delete loadMode;
-	
-	//a better load state would be nice eventually...
-	startMode->load();
-	
+
 	while (mainWindow.isOpen()) {
 		//float elapsed = gameTimer.restart().asSeconds();
 		while (gameStack.getCurrentState()->checkDeletion()) {		//could run out stack?
 			gameStack.popTop();
 		}
-		std::string newState = gameStack.getCurrentState()->handleEvent();
-		if (newState == "fight") {
-			//put a battlemode on the StateStack;
-			std::vector<Character*> EnemyVector;
-			EnemyVector.push_back(new Character(300, 100,  30, resourceHolder.getTexture("RollingWheat.png"),
-												resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
-												resourceHolder.getTexture("RollingWheat.png")));
-			EnemyVector.push_back(new Character(300, 100,  30, resourceHolder.getTexture("RollingWheat.png"),
-												resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
-												resourceHolder.getTexture("RollingWheat.png")));
-			EnemyVector.push_back(new Character(300, 100,  30, resourceHolder.getTexture("RollingWheat.png"),
-												resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
-												resourceHolder.getTexture("RollingWheat.png")));
-			gameStack.addState(new BattleMode(EnemyVector));
-		}
-		else if (newState == "talk") {
-			//put a dialogueMode on the StateStack;
-			TalkNode hey(resourceHolder.getFont("sansation.ttf"));
-			hey.addText("What is going on here?");
-			hey.addText("I really don't know");
-			gameStack.addState(new DialogueMode(&hey, mainWindow));
-		}
+		resolveTrigger(gameStack.getCurrentState()->handleEvent());
 		gameStack.getCurrentState()->update(mainWindow, gameTimer);
 		gameStack.getCurrentState()->draw(mainWindow);
+	}
+}
+
+void Game::resolveTrigger(std::string id) {
+	if (id == "") {
+		return;
+	}
+	if (id == "fight") {
+		//put a battlemode on the StateStack;
+//		std::vector<Character*> EnemyVector;
+//		EnemyVector.push_back(new Character(300, 100, 30, resourceHolder.getTexture("RollingWheat.png"),
+//											resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
+//											resourceHolder.getTexture("RollingWheat.png")));
+//		EnemyVector.push_back(new Character(300, 100, 30, resourceHolder.getTexture("RollingWheat.png"),
+//											resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
+//											resourceHolder.getTexture("RollingWheat.png")));
+//		EnemyVector.push_back(new Character(300, 100, 30, resourceHolder.getTexture("RollingWheat.png"),
+//											resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
+//											resourceHolder.getTexture("RollingWheat.png")));
+//		gameStack.addState(new BattleMode(EnemyVector));
+	}
+	else if (id == "talk") {
+		//put a dialogueMode on the StateStack;
+//		TalkNode hey(resourceHolder.getFont("sansation.ttf"));
+//		hey.addText("What is going on here?");
+//		hey.addText("I really don't know");
+//		gameStack.addState(new DialogueMode(&hey, mainWindow));
 	}
 }
 
@@ -69,7 +72,6 @@ void Game::run()
 sf::RenderWindow Game::mainWindow;
 sf::Clock Game::gameTimer;
 StateStack Game::gameStack;
-ResourceHolder Game::resourceHolder;
 
 
 //Saving this mostly for the pre-written abilities and such that I will add back in later
