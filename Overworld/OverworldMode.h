@@ -27,7 +27,7 @@ private:
 	void handleMovement(float);
 	void handlePlayerCollision(sf::Vector2f);
 	void checkExits();
-	void checkTriggers(sf::RenderWindow &rw);
+	void checkTriggers();
 	void checkForInteraction(sf::RenderWindow &rw);
 	void handleKeyPress(sf::RenderWindow &rw);
 	
