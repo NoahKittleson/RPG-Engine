@@ -10,17 +10,19 @@
 #include "PrefixHeader.pch"
 #include "Player.h"
 
+enum class ZoneID {Starting, BigField};
+
 class ZoneExit
 {
 public:
-    ZoneExit(sf::IntRect pos, sf::Vector2f offset, std::string nextZoneID);
+    ZoneExit(sf::IntRect pos, sf::Vector2f offset, ZoneID nextZone);
     
     bool intersects(sf::IntRect) const;
-    std::string getNextZone() const;
-    void MoveSpriteToNewZone(Player&, sf::View&) const;         //a little jank... possible to change?
+    ZoneID getNextZone() const;
+    sf::Vector2f getMoveOffset() const;
     
 private:
-    std::string newZoneID;
+    ZoneID newZone;
     const sf::IntRect area;
     const sf::Vector2f transitionOffset;
 };

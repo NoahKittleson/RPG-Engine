@@ -76,22 +76,15 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     EnemyVector.emplace_back(300, 100,  30, resources.getTexture("RollingWheat.png"),
                              resources.getFont("sansation.ttf"), "GrainMan", ".", true,
                              resources.getTexture("RollingWheat.png"));
-    //Trigger killzone (sf::IntRect(400,0,500,500), EnemyList);
-    //this->triggers.emplace_back(sf::IntRect(400,0,500,500), EnemyVector);
-    miniTriggers.emplace_back(sf::IntRect(500,50,50,50), "fight");
+
     
     //Set up Zone Exits
-    //1920 by 1200 mountain jpg
-    {
-        std::string ZoneID = "NextZone";
-        ZoneExit top(sf::IntRect(0,-100,1920,100), sf::Vector2f(0,550), ZoneID);
-        ZoneExit left(sf::IntRect(-100,0,100,1200), sf::Vector2f(750,0), ZoneID);
-        ZoneExit right(sf::IntRect(1920,0,100,1200), sf::Vector2f(-1870,0), ZoneID);
-        ZoneExit bottom(sf::IntRect(0,1200,1920,100), sf::Vector2f(0,-1150), ZoneID);
-        exits.push_back(top);
-        exits.push_back(left);
-        exits.push_back(right);
-        exits.push_back(bottom);
-    }
+    sf::Vector2u totalArea = background.getTexture()->getSize();
+    
+    ZoneID zoneID = ZoneID::Starting;
+    exits.emplace_back(sf::IntRect(0,-100,totalArea.x,100), sf::Vector2f(0,totalArea.y-150), zoneID);
+    exits.emplace_back(sf::IntRect(-100,0,100,totalArea.y), sf::Vector2f(totalArea.x-150,0), zoneID);
+    exits.emplace_back(sf::IntRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(-totalArea.x+150,0), zoneID);
+    exits.emplace_back(sf::IntRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,-totalArea.y+150), zoneID);
     
 }

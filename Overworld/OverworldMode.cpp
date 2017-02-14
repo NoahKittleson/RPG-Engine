@@ -29,7 +29,7 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 	handleMovement(elapsed);
 	handleKeyPress(rw);
 	checkExits();			//only applicable if player moves... move to handlemovement?
-	checkTriggers(rw);		//only applicable if player moved...
+	checkTriggers();		//only applicable if player moved...
 	updateView();			//applicable if player moves OR if zone is changed.
 	rw.setView(view);
 	for (auto && sprite : currentMap->getSpriteList()) {
@@ -95,7 +95,10 @@ void OverworldMode::checkExits()
 			//SHOULD BE SOMETHING LIKE: currentMap = World.getMap(exit.getNextZone());
 			//Or better yet: switchToMap("string");
 			//but right now map is dynamically allocated.  Need to delete old map.
-			exit.MoveSpriteToNewZone(*playerSprite, view);
+			//exit.MoveSpriteToNewZone(*playerSprite, view);
+			auto transitionOffset = exit.getMoveOffset();
+			playerSprite->move(transitionOffset.x, transitionOffset.y);
+			view.move(transitionOffset);
 			return;
 		}
 	}
