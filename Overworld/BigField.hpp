@@ -16,7 +16,7 @@
 class BigField: public MapSection
 {
 public:
-    BigField(ResourceHolder& resources);
+    BigField(const ResourceHolder& resources);
     ~BigField() {std::cout << "BigField deleted.\n";}
     
 private:

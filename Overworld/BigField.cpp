@@ -11,7 +11,7 @@
 #define NO_OF_TALKNODES 3
 #define NO_OF_OPTIONNODES 1
 
-BigField::BigField(ResourceHolder& resources)
+BigField::BigField(const ResourceHolder& resources)
 : MapSection(MapID::BigField), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),
 optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     

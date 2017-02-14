@@ -93,8 +93,21 @@ void OverworldMode::checkExits()
 		if (exit.intersects(playerSprite->getAbsBox())) {
 			auto nextZone = exit.getNextZone();
 			if (nextZone != currentMap->ID) {
-				//changemap
-				//delete old map (since it is dynamically allocated)
+				delete currentMap;
+				switch (nextZone) {
+					case MapID::Starting:
+						currentMap = new StartingZone(resources);
+						break;
+						
+					case MapID::BigField:
+						currentMap = new BigField(resources);
+						break;
+						
+					default:
+						//just in case.  It's better than a game crash.
+						currentMap = new StartingZone(resources);
+						break;
+				}
 			}
 			auto transitionOffset = exit.getMoveOffset();
 			playerSprite->move(transitionOffset.x, transitionOffset.y);
