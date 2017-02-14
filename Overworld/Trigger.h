@@ -11,28 +11,23 @@
 #include "DNode.h"
 #include "Character.h"
 
-enum class ActionID {fight, talk};
-class Condition; //needs defining and implementing
+enum class ActionID {Fight, Talk, None};
+enum class Condition {FoughtWheat, ChangedMap};
+using ConditionMap = std::map<Condition, bool>;
 
 class Trigger
 {
 public:
     //base:
     bool intersects(sf::IntRect) const;
-    ActionID proc() const;
+    ActionID proc(ConditionMap conds) const;
 
 private:
+    bool testConditions(ConditionMap conds) const;
     sf::IntRect area;
-    ActionID whatItDoes;
-    std::map<Condition, bool> prerequisites;
+    ActionID successAction;
+    ActionID failureAction = ActionID::None;
+    ConditionMap prerequisites;
     
 };
 
-
-class Condition
-{
-public:
-    
-private:
-    
-};
