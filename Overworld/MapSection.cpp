@@ -9,17 +9,6 @@
 #include "MapSection.h"
 
 
-//Deleted for now because copying SpriteVec and TriggerVec is not a great idea
-//(and any map instantiation should be derived from MapSection)
-//MapSection::MapSection(const sf::Texture& bg, SpriteVec& sv,  TriggerVec& tv)
-//: triggers(tv)
-//{
-//	background.setTexture(bg);
-//	for (auto & it: sv) {
-//		addObject(it);
-//	}
-//}
-
 MapSection::MapSection() {
 	//should this be empty?
 };
@@ -46,7 +35,7 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, Player& player)
 	bool playerDrawn = false;
 	for (const auto & obj: sprites)
 	{
-		if (!playerDrawn && (obj.getBase() > player.getBase())) {			//SUPER HACKY
+		if (!playerDrawn && (obj.getBase() > player.getBase())) {
 			rw.draw(player);
 			player.drawBase(rw);	//temporary, just to see where bases ACTUALLY are.
 			playerDrawn = true;

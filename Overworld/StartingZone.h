@@ -17,11 +17,10 @@ class StartingZone: public MapSection
 {
 public:
     StartingZone(const ResourceHolder& resources);
-    ~StartingZone() {std::cout << "StartingZone deleted.\n";}
+    ~StartingZone() { std::cout << "StartingZone deleted.\n"; }
     
 private:
     //very temporary, see below
-    std::vector<MiniTrigger> testTriggers;
     //only here so that the pointers persist until map is destructed.
     std::vector<TalkNode> talkNodeHolder;
     std::vector<OptionNode> optionNodeHolder;

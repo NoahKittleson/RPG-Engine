@@ -45,7 +45,7 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 }
 
 std::string OverworldMode::handleEvent() {
-	for (const auto & it: currentMap->miniTriggers) {
+	for (const auto & it: currentMap->getTriggers) {
 		if (it.getZone().intersects(playerSprite->getAbsBox())) {
 			return it.getActionID();
 		}
@@ -118,22 +118,6 @@ void OverworldMode::checkTriggers(sf::RenderWindow &rw) {
 		}
 	}
 }
-
-/*			switch(it.getType()) {
-				case ActionType::Fight:
-					addToStack(new BattleMode (*static_cast<FightZone*>(it)->enemylist));
-					break;
-				case ActionType::None:
-					break;
-				case ActionType::Dialogue:
-					addToStack(new DialogueMode (static_cast<DialogueZone*>(it)->dialogue, rw));
-					break;
-				case ActionType::OverWorld:
-					break;
-			}
-		}
-	}
-}*/
 
 
 void OverworldMode::handleKeyPress(sf::RenderWindow &rw)
@@ -222,145 +206,6 @@ void OverworldMode::addDialogueState(DNode* thread, sf::RenderWindow &rw)
 	auto ptr = new DialogueMode(thread, rw);								//danger danger Will Robinson.
 	addToStackAndBreak(ptr);
 }
-
-//Candidates for moving or complete removal--
-
-/*
-void OverworldMode::InteractionLoop(sf::RenderWindow &rw, InteractableObject& obj)
-{
-	std::stringstream ss;
-	float totalElapsed = 0;
-	
-	while(rw.isOpen()) {
-		totalElapsed += _gameClock.restart().asSeconds();
-		
-		sf::Event event;
-		while (rw.pollEvent(event)) {
-			if (event.type == sf::Event::Closed) {
-				rw.close();
-			}
-			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::X) {
-				if (ss.str().size() >= obj.GetText().getString().getSize()) {
-					obj.CurrentText++;
-					return;
-				}
-				ss.str("");
-				//ss << obj.WhatItSays.getString().toAnsiString();
-				ss << obj.GetText().getString().toAnsiString();
-			}
-		}
-		rw.clear(sf::Color::White);
-		
-		rw.setView(_view);
-		_currentMap->DrawAllObjects(rw, _playerCharacter);
-		//_playerCharacter.Draw(rw);
-		
-		//make a HUD view, set it, and then draw a message box with the WhatItSays text
-		sf::View HUD = rw.getDefaultView();
-		rw.setView(HUD);
-		static sf::RectangleShape MessageRect (sf::Vector2f(0,0));
-		MessageRect.setSize(sf::Vector2f(800,200));
-		MessageRect.setFillColor(sf::Color::Magenta);
-		rw.draw(MessageRect);
-		rw.draw(getGradualText(obj.GetText(), totalElapsed, ss));
-		
-		rw.display();
-	}
-}
-
-void OverworldMode::InteractionLoopNEW(sf::RenderWindow &rw, DialogueThread* spool)
-{
-	sf::Font font;
-	font.loadFromFile("sansation.ttf");
-	sf::Text Display ("", font, 32);
-	Display.setColor(sf::Color::Black);
-	
-	std::list<sf::String>::iterator it = spool->getDialogue().begin();
-	
-	sf::Clock clock;
-	float elapsed;
-	float totalElapsed{0};
-	
-	while (rw.isOpen()) {
-		
-		sf::Event event;
-		elapsed = clock.restart().asSeconds();
-		totalElapsed += elapsed;
-		while (rw.pollEvent(event)) {
-			
-			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
-				it++;
-				if (it == spool->getDialogue().end()) {
-					if (spool->getChoices().empty()) {
-						return;
-					}
-					spool = getDecision(spool->getChoices(), rw, clock);
-					it = spool->getDialogue().begin();
-				}
-				Display.setString("");
-				totalElapsed = 0;
-			}
-		}
-		Display.setString(getGradualTextNEW(*it, Display.getString(), totalElapsed));
-		
-		rw.clear(sf::Color::White);
-		rw.draw(Display);
-		rw.display();
-	}
-}
-
-DialogueThread* OverworldMode::getDecision(std::list<DialogueThread*> choices, sf::RenderWindow &rw, sf::Clock& timer)
-{
-	if (choices.size() == 1) {
-		return *choices.begin();
-	}
-	
-	sf::Font font;
-	font.loadFromFile("sansation.ttf");
-	sf::Text Display("BAD ERROR", font, 32);
-	Display.setColor(sf::Color::Black);
-	std::list<DialogueThread*>::iterator iter = choices.begin();
-	
-	while (rw.isOpen()) {
-		rw.clear(sf::Color::White);
-		timer.restart();                                //this is where I will make float elapsed if I have need of it
-		
-		int Ypos = 0;
-		for (auto&& it: choices) {
-			Display.setString(it->getStartingOption());
-			Display.setPosition(0, Ypos);
-			Ypos += 50;
-			
-			if (it == *iter) {
-				Display.setColor(sf::Color::Red);
-			}
-			rw.draw(Display);
-			Display.setColor(sf::Color::Black);
-		}
-		
-		sf::Event event;
-		while (rw.pollEvent(event)) {
-			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up) {
-				if (iter == choices.begin()) {
-					iter = choices.end();
-				}
-				iter--;
-			}
-			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
-				iter++;
-				if (iter == choices.end()) {
-					iter = choices.begin();
-				}
-			}
-			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space) {
-				return *iter;
-			}
-		}
-		rw.display();
-	}
-	//I don't think this can be reached, but in case it does...
-	return *iter;
-}*/
 
 
 

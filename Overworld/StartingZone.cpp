@@ -82,13 +82,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     }
     
     //Set up Trigger for Fighting
-    std::vector<Character> EnemyVector;
-    EnemyVector.emplace_back(300, 100,  30, resources.getTexture("RollingWheat.png"),
-                           resources.getFont("sansation.ttf"), "GrainMan", ".", true,
-                           resources.getTexture("RollingWheat.png"));
-    //Trigger killzone (sf::FloatRect(400,0,500,500), EnemyList);
-    //this->triggers.emplace_back(sf::FloatRect(400,0,500,500), EnemyVector);
-    miniTriggers.emplace_back(sf::IntRect(500,50,50,50), "fight");
+    //...nothing right now...
     
     //Set up Zone Exits
     //1920 by 1200 mountain jpg
