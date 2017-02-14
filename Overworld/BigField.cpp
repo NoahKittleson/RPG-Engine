@@ -12,7 +12,7 @@
 #define NO_OF_OPTIONNODES 1
 
 BigField::BigField(ResourceHolder& resources)
-: MapSection(), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),
+: MapSection(MapID::BigField), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),
 optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     
     std::vector<sf::IntRect> emptyList;
@@ -81,7 +81,7 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     //Set up Zone Exits
     sf::Vector2u totalArea = background.getTexture()->getSize();
     
-    ZoneID zoneID = ZoneID::Starting;
+    MapID zoneID = MapID::Starting;
     exits.emplace_back(sf::IntRect(0,-100,totalArea.x,100), sf::Vector2f(0,totalArea.y-150), zoneID);
     exits.emplace_back(sf::IntRect(-100,0,100,totalArea.y), sf::Vector2f(totalArea.x-150,0), zoneID);
     exits.emplace_back(sf::IntRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(-totalArea.x+150,0), zoneID);

@@ -32,11 +32,11 @@ protected:
 
     
 public:
-    MapSection();
+    MapSection(MapID id);
+    const MapID ID;
     
     void drawBackground(sf::RenderWindow &rw);
     void drawAllObjects(sf::RenderWindow &rw, Player&);
-    void addExit(sf::IntRect pos, sf::Vector2f offset, std::string next);
     
     sf::Vector2u getSize();
     

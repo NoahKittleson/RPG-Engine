@@ -9,7 +9,7 @@
 #include "MapSection.h"
 
 
-MapSection::MapSection() {
+MapSection::MapSection(MapID id) : ID(id) {
 	//should this be empty?
 };
 
@@ -46,11 +46,6 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, Player& player)
 	if (!playerDrawn) {
 		rw.draw(player);
 	}
-}
-
-void MapSection::addExit(sf::IntRect pos, sf::Vector2f offset, std::string next)
-{
-	exits.emplace_back(pos, offset, next);
 }
 
 sf::Vector2u MapSection::getSize()

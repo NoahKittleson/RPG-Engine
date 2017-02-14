@@ -10,19 +10,19 @@
 #include "PrefixHeader.pch"
 #include "Player.h"
 
-enum class ZoneID {Starting, BigField};
+enum class MapID {Starting, BigField};
 
 class ZoneExit
 {
 public:
-    ZoneExit(sf::IntRect pos, sf::Vector2f offset, ZoneID nextZone);
+    ZoneExit(sf::IntRect pos, sf::Vector2f offset, MapID nextZone);
     
     bool intersects(sf::IntRect) const;
-    ZoneID getNextZone() const;
+    MapID getNextZone() const;
     sf::Vector2f getMoveOffset() const;
     
 private:
-    ZoneID newZone;
+    MapID newZone;
     const sf::IntRect area;
     const sf::Vector2f transitionOffset;
 };

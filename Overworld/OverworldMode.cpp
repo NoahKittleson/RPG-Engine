@@ -90,12 +90,12 @@ void OverworldMode::handlePlayerCollision(sf::Vector2f moveVec)
 void OverworldMode::checkExits()
 {
 	for (const auto & exit: currentMap->getExitList()) {
-		if (exit.intersects(playerSprite->getAbsBox()) && exit.getNextZone() != "") {
-//			currentMap = exit.getNextZone();
-			//SHOULD BE SOMETHING LIKE: currentMap = World.getMap(exit.getNextZone());
-			//Or better yet: switchToMap("string");
-			//but right now map is dynamically allocated.  Need to delete old map.
-			//exit.MoveSpriteToNewZone(*playerSprite, view);
+		if (exit.intersects(playerSprite->getAbsBox())) {
+			auto nextZone = exit.getNextZone();
+			if (nextZone != currentMap->ID) {
+				//changemap
+				//delete old map (since it is dynamically allocated)
+			}
 			auto transitionOffset = exit.getMoveOffset();
 			playerSprite->move(transitionOffset.x, transitionOffset.y);
 			view.move(transitionOffset);
