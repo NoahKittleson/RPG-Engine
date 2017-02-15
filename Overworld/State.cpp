@@ -44,3 +44,4 @@ StateStack* State::stack;
 MapSection* State::currentMap;
 std::vector<Character> State::party;
 Player* State::playerSprite;
+std::vector<Condition> State::conditions;

@@ -22,7 +22,7 @@ public:
     State();
     virtual void update(sf::RenderWindow&, sf::Clock&) = 0;
     virtual void draw(sf::RenderWindow&) = 0;
-    virtual std::string handleEvent() = 0;
+    virtual ActionID handleEvent() = 0;
 
     void addToStack(State*);
     void addToStackAndBreak(State*);
@@ -38,6 +38,7 @@ protected:
     static std::vector<Character> party;
     static Player* playerSprite;               //consider boost_ptr unique pointer?
     const static ResourceHolder resources;
+    static std::vector<Condition> conditions;
 
     bool deletionOrder = false;
     //I don't think looping actually does anything.

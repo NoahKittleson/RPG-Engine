@@ -44,13 +44,8 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	rw.display();
 }
 
-std::string OverworldMode::handleEvent() {
-	for (const auto & it: currentMap->getTriggers) {
-		if (it.getZone().intersects(playerSprite->getAbsBox())) {
-			return it.getActionID();
-		}
-	}
-	return "";
+ActionID OverworldMode::handleEvent() {
+	return checkTriggers();
 }
 
 void OverworldMode::handleMovement(float elapsed)
@@ -117,22 +112,26 @@ void OverworldMode::checkExits()
 	}
 }
 
-void OverworldMode::checkTriggers(sf::RenderWindow &rw) {
+ActionID OverworldMode::checkTriggers() {
 	for (const auto & it: currentMap->getTriggerList()) {
 		if (it.intersects(playerSprite->getAbsBox())) {
-			//addToStack(it.procTrigger(rw));
-			switch(it.getDataType()) {
-				case DataType::Fight:
-					//fix later
-					//addToStack(new BattleMode (it.getData().enemyVec));
+			ActionID action = it.proc(conditions);
+			switch (action) {
+				case ActionID::Fight:
+					addToStack(new BattleMode (action));
+					//create state
 					break;
-				case DataType::Talk:
-					//fix later
-					//addToStack(new DialogueMode (it.getData().conversation, rw));
+					
+				case ActionID::Talk:
+					addToStack(new DialogueMode (action));
+					break;
+					
+				default:
 					break;
 			}
 		}
 	}
+	return ActionID::None;
 }
 
 

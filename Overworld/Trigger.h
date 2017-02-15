@@ -12,7 +12,7 @@
 #include "Character.h"
 
 enum class ActionID {Fight, Talk, None};
-enum class Condition {FoughtWheat, ChangedMap};
+enum class Condition {First, FoughtWheat, ChangedMap, Last};
 using ConditionMap = std::map<Condition, bool>;
 
 class Trigger
@@ -20,14 +20,17 @@ class Trigger
 public:
     //base:
     bool intersects(sf::IntRect) const;
-    ActionID proc(ConditionMap conds) const;
+    ActionID proc(std::vector<Condition> conds) const;
 
 private:
-    bool testConditions(ConditionMap conds) const;
+    bool testConditions(std::vector<Condition> conds) const;
     sf::IntRect area;
     ActionID successAction;
     ActionID failureAction = ActionID::None;
     ConditionMap prerequisites;
     
 };
+
+//Things to do:
+//1. Make Trigger a more general base class so that I can have non-area triggers
 

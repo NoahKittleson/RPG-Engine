@@ -15,6 +15,7 @@ LoadState::LoadState(StateStack& SS) {
     currentMap = new StartingZone (resources);
     //DANGER DANGER CHANGE SOON AS POSSIBLE
     
+    //set up party
     party.emplace_back(500, 450, 75, resources.getTexture("BasicIdle.png"),
                        resources.getFont("sansation.ttf"), "Pringus", "CLASH", false,
                        resources.getTexture("GetHitAnimation.png"));
@@ -28,7 +29,11 @@ LoadState::LoadState(StateStack& SS) {
     party.back().addAbility(ability1);
     party.back().addAbility(ability2);
     
+    //set up player sprite
     playerSprite = new Player(resources);
+    
+    //load conditions into ConditionList
+    //(not yet)
 }
 
 std::string LoadState::handleEvent() {

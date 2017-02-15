@@ -23,13 +23,13 @@ public:
 	OverworldMode();
 	void update(sf::RenderWindow &rw, sf::Clock&) override;
 	void draw(sf::RenderWindow &rw) override;
-	std::string handleEvent() override;
+	ActionID handleEvent() override;
 	
 private:
 	void handleMovement(float);
 	void handlePlayerCollision(sf::Vector2f);
 	void checkExits();
-	void checkTriggers();
+	ActionID checkTriggers();
 	void checkForInteraction(sf::RenderWindow &rw);
 	void handleKeyPress(sf::RenderWindow &rw);
 	

@@ -19,9 +19,9 @@ DialogueMode::DialogueMode(DNode* start, const sf::RenderWindow &rw)
     messageBox.setFillColor(sf::Color(153,76,0));
 }
 
-std::string DialogueMode::handleEvent() {
+ActionID DialogueMode::handleEvent() {
     //nothing yet... implement later
-    return "";
+    return ActionID::None;
 }
 
 void DialogueMode::draw(sf::RenderWindow &rw) {
