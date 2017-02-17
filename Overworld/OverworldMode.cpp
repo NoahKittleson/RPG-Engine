@@ -107,7 +107,6 @@ void OverworldMode::checkExits()
 			sf::Vector2f transitionOffset = exit.getMoveOffset();
 			playerSprite->move(transitionOffset.x, transitionOffset.y);
 			view.move(transitionOffset);
-			std::cout << "player moved to: " << playerSprite->getPosition().x << ", " << playerSprite->getPosition().y << "\n";
 			return;
 		}
 	}

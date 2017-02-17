@@ -11,7 +11,6 @@
 ZoneExit::ZoneExit(sf::IntRect pos, sf::Vector2f offset, MapID nextZone)
 : area(pos), transitionOffset(offset), newZone(nextZone)
 {
-    std::cout << "Offset created: " << offset.x << ", " << offset.y << "\n";
 }
 
 bool ZoneExit::intersects(sf::IntRect rect) const
@@ -25,6 +24,5 @@ MapID ZoneExit::getNextZone() const
 }
 
 sf::Vector2f ZoneExit::getMoveOffset() const {
-    std::cout << "Offset: " << transitionOffset.x << ", " << transitionOffset.y << "\n";
     return transitionOffset;
 }
