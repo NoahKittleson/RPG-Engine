@@ -36,8 +36,8 @@ LoadState::LoadState(StateStack& SS) {
     //(not yet)
 }
 
-std::string LoadState::handleEvent() {
-    return "";
+ActionID LoadState::handleEvent() {
+    return ActionID::None;
 }
 
 void LoadState::update(sf::RenderWindow&, sf::Clock&) {

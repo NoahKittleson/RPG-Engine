@@ -41,30 +41,18 @@ void Game::run()
 	}
 }
 
-void Game::resolveTrigger(std::string id) {
-	if (id == "") {
-		return;
-	}
-	if (id == "fight") {
-		//put a battlemode on the StateStack;
-//		std::vector<Character*> EnemyVector;
-//		EnemyVector.push_back(new Character(300, 100, 30, resourceHolder.getTexture("RollingWheat.png"),
-//											resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
-//											resourceHolder.getTexture("RollingWheat.png")));
-//		EnemyVector.push_back(new Character(300, 100, 30, resourceHolder.getTexture("RollingWheat.png"),
-//											resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
-//											resourceHolder.getTexture("RollingWheat.png")));
-//		EnemyVector.push_back(new Character(300, 100, 30, resourceHolder.getTexture("RollingWheat.png"),
-//											resourceHolder.getFont("sansation.ttf"), "GrainMan", ".", true,
-//											resourceHolder.getTexture("RollingWheat.png")));
-//		gameStack.addState(new BattleMode(EnemyVector));
-	}
-	else if (id == "talk") {
-		//put a dialogueMode on the StateStack;
-//		TalkNode hey(resourceHolder.getFont("sansation.ttf"));
-//		hey.addText("What is going on here?");
-//		hey.addText("I really don't know");
-//		gameStack.addState(new DialogueMode(&hey, mainWindow));
+void Game::resolveTrigger(ActionID action) {
+	switch (action) {
+		case ActionID::Fight:
+			//addToStack(new BattleMode (action));
+			break;
+			
+		case ActionID::Talk:
+			//addToStack(new DialogueMode (action));
+			break;
+			
+		default:
+			break;
 	}
 }
 

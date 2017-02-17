@@ -8,10 +8,10 @@
 
 #include "ZoneExit.h"
 
-ZoneExit::ZoneExit(sf::IntRect pos, sf::Vector2f offset, ZoneID nextZone)
+ZoneExit::ZoneExit(sf::IntRect pos, sf::Vector2f offset, MapID nextZone)
 : area(pos), transitionOffset(offset), newZone(nextZone)
 {
-    
+    std::cout << "Offset created: " << offset.x << ", " << offset.y << "\n";
 }
 
 bool ZoneExit::intersects(sf::IntRect rect) const
@@ -19,11 +19,12 @@ bool ZoneExit::intersects(sf::IntRect rect) const
     return rect.intersects(area);
 }
 
-ZoneID ZoneExit::getNextZone() const
+MapID ZoneExit::getNextZone() const
 {
     return newZone;
 }
 
 sf::Vector2f ZoneExit::getMoveOffset() const {
+    std::cout << "Offset: " << transitionOffset.x << ", " << transitionOffset.y << "\n";
     return transitionOffset;
 }

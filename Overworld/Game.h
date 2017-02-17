@@ -23,7 +23,7 @@ public:
 	static StateStack gameStack;
 	static sf::Clock gameTimer;
 private:
-	static void resolveTrigger(std::string);
+	static void resolveTrigger(ActionID action);
 
 };
 

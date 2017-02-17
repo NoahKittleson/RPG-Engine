@@ -104,9 +104,10 @@ void OverworldMode::checkExits()
 						break;
 				}
 			}
-			auto transitionOffset = exit.getMoveOffset();
+			sf::Vector2f transitionOffset = exit.getMoveOffset();
 			playerSprite->move(transitionOffset.x, transitionOffset.y);
 			view.move(transitionOffset);
+			std::cout << "player moved to: " << playerSprite->getPosition().x << ", " << playerSprite->getPosition().y << "\n";
 			return;
 		}
 	}
@@ -118,12 +119,12 @@ ActionID OverworldMode::checkTriggers() {
 			ActionID action = it.proc(conditions);
 			switch (action) {
 				case ActionID::Fight:
-					addToStack(new BattleMode (action));
+					//addToStack(new BattleMode (action));
 					//create state
 					break;
 					
 				case ActionID::Talk:
-					addToStack(new DialogueMode (action));
+					//addToStack(new DialogueMode (action));
 					break;
 					
 				default:

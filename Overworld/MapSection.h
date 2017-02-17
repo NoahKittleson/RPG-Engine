@@ -13,8 +13,6 @@
 #include "ZoneExit.h"
 #include "Player.h"
 
-class MiniTrigger;
-
 using ExitVec = std::vector<ZoneExit>;
 using SpriteVec = std::vector<InteractableSprite>;
 using TriggerVec = std::vector<Trigger>;

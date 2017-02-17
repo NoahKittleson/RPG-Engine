@@ -13,7 +13,7 @@ class LoadState: public State
 {
 public:
     LoadState(StateStack& stack);
-    std::string handleEvent();
+    ActionID handleEvent();
     void update(sf::RenderWindow&, sf::Clock&);
     void draw(sf::RenderWindow&);
 };
