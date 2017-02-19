@@ -12,9 +12,8 @@
 #define NO_OF_OPTIONNODES 1
 
 StartingZone::StartingZone(const ResourceHolder& resources)
-: MapSection(MapID::Starting), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),
+: MapSection(MapID::Starting, "nice_music.ogg"), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),
                 optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
-    
     std::vector<sf::IntRect> emptyList;
     background.setTexture(resources.getTexture("cute_image.jpg"));
     
@@ -87,7 +86,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     //Set up Zone Exits
     sf::Vector2u totalArea = background.getTexture()->getSize();
 
-    MapID zoneID = MapID::Starting;
+    MapID zoneID = MapID::BigField;
     exits.emplace_back(sf::IntRect(0,-100,totalArea.x,100), sf::Vector2f(0,totalArea.y-70.f), zoneID);
     exits.emplace_back(sf::IntRect(-100,0,100,totalArea.y), sf::Vector2f(totalArea.x-50.f,0), zoneID);
     exits.emplace_back(sf::IntRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(50.f-totalArea.x,0), zoneID);

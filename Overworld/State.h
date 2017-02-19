@@ -39,14 +39,15 @@ protected:
     static Player* playerSprite;               //consider boost_ptr unique pointer?
     const static ResourceHolder resources;
     static std::vector<Condition> conditions;
-
+    sf::Music musicPlayer;
+    
     bool deletionOrder = false;
     //I don't think looping actually does anything.
     bool looping = true;
     
     static StateStack* stack;
 private:
-    int instances=0;
+    int instances = 0;
 
 };
 

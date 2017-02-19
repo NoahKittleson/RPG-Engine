@@ -12,11 +12,11 @@
 #define NO_OF_OPTIONNODES 1
 
 BigField::BigField(const ResourceHolder& resources)
-: MapSection(MapID::BigField), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),
+: MapSection(MapID::BigField, ""), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),
 optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     
     std::vector<sf::IntRect> emptyList;
-    background.setTexture(resources.getTexture("cute_image.jpg"));
+    background.setTexture(resources.getTexture("Mountains.jpg"));
     
     //Set up Non-interactable wheat field
     InteractableSprite WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(400,100), emptyList, nullptr);

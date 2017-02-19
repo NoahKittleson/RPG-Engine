@@ -9,7 +9,7 @@
 #include "MapSection.h"
 
 
-MapSection::MapSection(MapID id) : ID(id) {
+MapSection::MapSection(MapID id, std::string musicFile) : ID(id), musicFilename(musicFile) {
 	//should this be empty?
 };
 
@@ -28,6 +28,10 @@ void MapSection::addObject(InteractableSprite& add)
 void MapSection::drawBackground(sf::RenderWindow&rw)
 {
 	rw.draw(background);
+}
+
+std::string MapSection::getMusicAddress() {
+	return resourcePath() + musicFilename;
 }
 
 void MapSection::drawAllObjects(sf::RenderWindow &rw, Player& player)

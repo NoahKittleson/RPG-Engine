@@ -18,6 +18,8 @@ OverworldMode::OverworldMode()
 	view.setCenter(playerSprite->getPosition());
 	
 	playerSprite->setScale(4.0f, 4.0f);
+	musicPlayer.openFromFile(currentMap->getMusicAddress());
+	musicPlayer.play();
 	//playerSprite.setFrame(0);
 	//eventually I should set the origin in center of sprite
 }
@@ -88,6 +90,7 @@ void OverworldMode::checkExits()
 		if (exit.intersects(playerSprite->getAbsBox())) {
 			auto nextZone = exit.getNextZone();
 			if (nextZone != currentMap->ID) {
+				//change maps
 				delete currentMap;
 				switch (nextZone) {
 					case MapID::Starting:
@@ -118,12 +121,12 @@ ActionID OverworldMode::checkTriggers() {
 			ActionID action = it.proc(conditions);
 			switch (action) {
 				case ActionID::Fight:
-					//addToStack(new BattleMode (action));
+//					addToStack(new BattleMode (action));
 					//create state
 					break;
 					
 				case ActionID::Talk:
-					//addToStack(new DialogueMode (action));
+//					addToStack(new DialogueMode (action));
 					break;
 					
 				default:

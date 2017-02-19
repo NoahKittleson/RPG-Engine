@@ -25,18 +25,20 @@ protected:
     ExitVec exits;
     SpriteVec sprites;
     TriggerVec triggers;
+    const std::string musicFilename;
     
     void addObject(InteractableSprite&);
 
     
 public:
-    MapSection(MapID id);
+    MapSection(MapID id, std::string musicFile);
     const MapID ID;
     
     void drawBackground(sf::RenderWindow &rw);
     void drawAllObjects(sf::RenderWindow &rw, Player&);
     
     sf::Vector2u getSize();
+    std::string getMusicAddress();
     
     //collision detection that takes callback function for when collision is detected?
     
