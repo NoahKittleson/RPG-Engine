@@ -26,12 +26,15 @@ public:
 	ActionID handleEvent() override;
 	
 private:
-	void handleMovement(float);
+	enum State {TransitionIn, TransitionOut, Dialogue, Normal};
+	State overWorldState;
+	
+	void handleMovement(float elapsed, sf::Vector2f moveVec);
 	void handlePlayerCollision(sf::Vector2f);
 	void checkExits();
 	ActionID checkTriggers();
 	void checkForInteraction(sf::RenderWindow &rw);
-	void handleKeyPress(sf::RenderWindow &rw);
+	void handleKeyPress(sf::RenderWindow &rw, float elapsed);
 	
 	void updateView();
 	void drawPlayerCollision(sf::RenderWindow &rw);

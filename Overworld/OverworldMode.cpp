@@ -11,7 +11,7 @@
 #define COLLISION_BOX_EXTRA 10
 
 
-OverworldMode::OverworldMode()
+OverworldMode::OverworldMode() : overWorldState(Normal)
 {
 	view.setSize(sf::Vector2f(1024,768));			//this is very much cheating but I don't want to figure this out right now.
 	view.zoom(0.5);
@@ -28,11 +28,22 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 {
 	float elapsed = timer.restart().asSeconds();
 	rw.clear(sf::Color::White);
-	handleMovement(elapsed);
-	handleKeyPress(rw);
-	checkExits();			//only applicable if player moves... move to handlemovement?
-	checkTriggers();		//only applicable if player moved...
-	updateView();			//applicable if player moves OR if zone is changed.
+	//handleInput
+	switch (overWorldState) {
+		case Normal:
+			handleKeyPress(rw, elapsed);
+			break;
+			
+		case Dialogue:
+			//handleKeyPressDifferently...
+			break;
+			
+		case TransitionIn:
+		case TransitionOut:
+		default:
+			break;
+	}
+	//animate
 	rw.setView(view);
 	for (auto && sprite : currentMap->getSpriteList()) {
 		sprite.update(elapsed);
@@ -50,27 +61,20 @@ ActionID OverworldMode::handleEvent() {
 	return checkTriggers();
 }
 
-void OverworldMode::handleMovement(float elapsed)
+void OverworldMode::handleMovement(float elapsed, sf::Vector2f moveVec)
 {
-	sf::Vector2f moveVec (0,0);
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-		moveVec.y -= 100;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-		moveVec.y += 100;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-		moveVec.x -= 100;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-		moveVec.x += 100;
-	}
 	moveVec *= elapsed;
 	playerSprite->move(moveVec.x, 0);
 	handlePlayerCollision(sf::Vector2f(moveVec.x, 0));
 	playerSprite->move(0, moveVec.y);
 	handlePlayerCollision(sf::Vector2f(0, moveVec.y));
 	playerSprite->update(moveVec, elapsed);
+	
+	if (moveVec != sf::Vector2f(0,0)) {
+		checkExits();
+		checkTriggers();
+		updateView();			//applicable if player moves OR if zone is changed.
+	}
 }
 
 void OverworldMode::handlePlayerCollision(sf::Vector2f moveVec)
@@ -138,8 +142,9 @@ ActionID OverworldMode::checkTriggers() {
 }
 
 
-void OverworldMode::handleKeyPress(sf::RenderWindow &rw)
+void OverworldMode::handleKeyPress(sf::RenderWindow &rw, float elapsed)
 {
+	//Logic for Key PRESS Events
 	sf::Event event;
 	while (rw.pollEvent(event)) {
 		if (event.type == sf::Event::Closed) {
@@ -161,6 +166,22 @@ void OverworldMode::handleKeyPress(sf::RenderWindow &rw)
 			}
 		}
 	}
+	
+	//Logic for Key HOLDING
+	sf::Vector2f moveVec;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+		moveVec.y -= 100;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+		moveVec.y += 100;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+		moveVec.x -= 100;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+		moveVec.x += 100;
+	}
+	handleMovement(elapsed, moveVec);
 }
 
 void OverworldMode::drawPlayerCollision(sf::RenderWindow &rw)
