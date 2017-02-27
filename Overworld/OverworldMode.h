@@ -26,6 +26,9 @@ public:
 	ActionID handleEvent() override;
 	
 private:
+	//temporary?
+	float fadeProgress = 0.f;
+	
 	enum State {TransitionIn, TransitionOut, Dialogue, Normal};
 	State overWorldState;
 	

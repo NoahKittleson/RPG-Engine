@@ -16,6 +16,7 @@ OverworldMode::OverworldMode() : overWorldState(Normal)
 	view.setSize(sf::Vector2f(1024,768));			//this is very much cheating but I don't want to figure this out right now.
 	view.zoom(0.5);
 	view.setCenter(playerSprite->getPosition());
+	updateView();
 	
 	playerSprite->setScale(4.0f, 4.0f);
 	musicPlayer.openFromFile(currentMap->getMusicAddress());
@@ -40,20 +41,37 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 			
 		case TransitionIn:
 		case TransitionOut:
+			fadeProgress += elapsed;
+			if (fadeProgress > 1.0) {
+				fadeProgress = 0;
+				overWorldState = Normal;
+			}
+			break;
 		default:
 			break;
 	}
 	//animate
-	rw.setView(view);
 	for (auto && sprite : currentMap->getSpriteList()) {
 		sprite.update(elapsed);
 	}
 }
 
 void OverworldMode::draw(sf::RenderWindow &rw) {
+	rw.setView(view);
 	currentMap->drawBackground(rw);
 	drawAllBoxes(rw);
 	currentMap->drawAllObjects(rw, *playerSprite);
+	if (overWorldState == TransitionOut) {
+		//fade out
+		sf::RectangleShape jankScreenFade;
+		jankScreenFade.setSize(sf::Vector2f(1000,1000));
+		jankScreenFade.setOrigin(500, 500);
+		jankScreenFade.setPosition(playerSprite->getPosition());
+		jankScreenFade.setFillColor(sf::Color(255,255,255,fadeProgress));
+		rw.draw(jankScreenFade);
+	} else if (overWorldState == TransitionIn) {
+		//fade in
+	}
 	rw.display();
 }
 
