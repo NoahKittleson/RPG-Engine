@@ -40,11 +40,18 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 			break;
 			
 		case TransitionIn:
-		case TransitionOut:
 			fadeProgress += elapsed;
 			if (fadeProgress > 1.0) {
 				fadeProgress = 0;
 				overWorldState = Normal;
+			}
+			break;
+			
+		case TransitionOut:
+			fadeProgress += elapsed;
+			if (fadeProgress > 1.0) {
+				fadeProgress = 0;
+				overWorldState = TransitionIn;
 			}
 			break;
 		default:
@@ -67,10 +74,16 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 		jankScreenFade.setSize(sf::Vector2f(1000,1000));
 		jankScreenFade.setOrigin(500, 500);
 		jankScreenFade.setPosition(playerSprite->getPosition());
-		jankScreenFade.setFillColor(sf::Color(255,255,255,fadeProgress));
+		jankScreenFade.setFillColor(sf::Color(0,0,0,255*fadeProgress));
 		rw.draw(jankScreenFade);
 	} else if (overWorldState == TransitionIn) {
 		//fade in
+		sf::RectangleShape jankScreenFade;
+		jankScreenFade.setSize(sf::Vector2f(1000,1000));
+		jankScreenFade.setOrigin(500, 500);
+		jankScreenFade.setPosition(playerSprite->getPosition());
+		jankScreenFade.setFillColor(sf::Color(0,0,0,255 - 255 * fadeProgress));
+		rw.draw(jankScreenFade);
 	}
 	rw.display();
 }
@@ -110,29 +123,35 @@ void OverworldMode::checkExits()
 {
 	for (const auto & exit: currentMap->getExitList()) {
 		if (exit.intersects(playerSprite->getAbsBox())) {
-			auto nextZone = exit.getNextZone();
-			if (nextZone != currentMap->ID) {
-				//change maps
-				delete currentMap;
-				switch (nextZone) {
-					case MapID::Starting:
-						currentMap = new StartingZone(resources);
-						break;
-						
-					case MapID::BigField:
-						currentMap = new BigField(resources);
-						break;
-						
-					default:
-						//just in case.  It's better than a game crash.
-						currentMap = new StartingZone(resources);
-						break;
+			if (overWorldState == Normal) {
+				overWorldState = TransitionOut;
+			} else if (overWorldState == TransitionOut) {
+				return;
+			} else if (overWorldState == TransitionIn) {
+				auto nextZone = exit.getNextZone();
+				if (nextZone != currentMap->ID) {
+					//change maps
+					delete currentMap;
+					switch (nextZone) {
+						case MapID::Starting:
+							currentMap = new StartingZone(resources);
+							break;
+							
+						case MapID::BigField:
+							currentMap = new BigField(resources);
+							break;
+							
+						default:
+							//just in case.  It's better than a game crash.
+							currentMap = new StartingZone(resources);
+							break;
+					}
 				}
+				sf::Vector2f transitionOffset = exit.getMoveOffset();
+				playerSprite->move(transitionOffset.x, transitionOffset.y);
+				view.move(transitionOffset);
+				return;
 			}
-			sf::Vector2f transitionOffset = exit.getMoveOffset();
-			playerSprite->move(transitionOffset.x, transitionOffset.y);
-			view.move(transitionOffset);
-			return;
 		}
 	}
 }

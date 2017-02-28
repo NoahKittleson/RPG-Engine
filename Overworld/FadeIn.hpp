@@ -8,11 +8,11 @@
 
 #pragma once
 
-class FadeIn  :public OverworldState {
-public:
-    void update(elapsed) override;
-    void draw(rw) override;
-    void handleInput() override;
-private:
-    
-};
+//class FadeIn  :public OverworldState {
+//public:
+//    void update(elapsed) override;
+//    void draw(rw) override;
+//    void handleInput() override;
+//private:
+//    
+//};
