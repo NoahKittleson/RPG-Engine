@@ -57,15 +57,16 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     choice->addText("Just leave", optionTwo);
     
     {
-        int xIcon = resources.getTexture("icon.png").getSize().x/2;
-        int yIcon = resources.getTexture("icon.png").getSize().y/2;
+        int xIcon = resources.getTexture("tree.png").getSize().x/2;
+        int yIcon = resources.getTexture("tree.png").getSize().y/2;
         sf::IntRect Rectangle (-xIcon/2, -yIcon/2, xIcon, yIcon);
         std::vector<sf::IntRect> boxlist;
         
         //L block Icon
         boxlist.emplace_back(0, 0, 10, 50);
         boxlist.emplace_back(0, 0, 50, 10);
-        sprites.emplace_back(resources.getTexture("icon.png"), sf::Vector2f (600,100), boxlist, nullptr);
+        sprites.emplace_back(resources.getTexture("tree.png"), sf::Vector2f (600,100), boxlist, nullptr);
+        sprites.back().setScale(4.0, 4.0);
         
         //Collision Wheat
         boxlist.clear();
@@ -73,11 +74,12 @@ StartingZone::StartingZone(const ResourceHolder& resources)
         int yWheat = resources.getTexture("RollingWheat.png").getSize().y/2;
         boxlist.push_back(sf::IntRect(-xWheat/2, -yWheat/2, xWheat, yWheat));
         sprites.emplace_back(InteractableSprite(resources.getTexture("RollingWheat.png"),
-                                           sf::Vector2f (300,300), boxlist, nullptr));
+                                                sf::Vector2f (300,300), boxlist, nullptr));
         
         boxlist.clear();
         boxlist.push_back(Rectangle);
-        sprites.emplace_back(resources.getTexture("icon.png"), sf::Vector2f (150,400), boxlist, hey);
+        sprites.emplace_back(resources.getTexture("tree.png"), sf::Vector2f (150,400), boxlist, hey);
+        sprites.back().setScale(4.0, 4.0);
     }
     
     //Set up Trigger for Fighting

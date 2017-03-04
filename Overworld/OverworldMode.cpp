@@ -223,8 +223,7 @@ void OverworldMode::handleInput(sf::RenderWindow &rw, float elapsed)
 }
 
 void OverworldMode::handleInputFade(sf::RenderWindow &rw, float elapsed) {
-	//should be way better than this
-	//the only part of HandleMovement I want is the part where I change maps if I'm in fadeIn...
+	//I don't really want to handleInput at all to be honest.  And it's probably a good idea to change checkExits
 	checkExits();
 	updateView();
 }

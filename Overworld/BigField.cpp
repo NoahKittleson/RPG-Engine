@@ -48,15 +48,15 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     choice->addText("Just leave", optionTwo);
     
     {
-        int xIcon = resources.getTexture("icon.png").getSize().x/2;
-        int yIcon = resources.getTexture("icon.png").getSize().y/2;
+        int xIcon = resources.getTexture("tree.png").getSize().x/2;
+        int yIcon = resources.getTexture("tree.png").getSize().y/2;
         sf::IntRect Rectangle (-xIcon/2, -yIcon/2, xIcon, yIcon);
         std::vector<sf::IntRect> boxlist;
         
         //L block Icon
         boxlist.emplace_back(0, 0, 10, 50);
         boxlist.emplace_back(0, 0, 50, 10);
-        sprites.emplace_back(resources.getTexture("icon.png"), sf::Vector2f (600,100), boxlist, nullptr);
+        sprites.emplace_back(resources.getTexture("tree.png"), sf::Vector2f (600,100), boxlist, nullptr);
         
         //Collision Wheat
         boxlist.clear();
@@ -68,7 +68,7 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
         
         boxlist.clear();
         boxlist.push_back(Rectangle);
-        sprites.emplace_back(resources.getTexture("icon.png"), sf::Vector2f (150,400), boxlist, hey);
+        sprites.emplace_back(resources.getTexture("tree.png"), sf::Vector2f (150,400), boxlist, hey);
     }
     
     //Set up Trigger for Fighting
