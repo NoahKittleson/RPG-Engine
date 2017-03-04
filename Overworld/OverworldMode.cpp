@@ -20,55 +20,55 @@ OverworldMode::OverworldMode() : overWorldState(Normal)
 	
 	playerSprite->setScale(4.0f, 4.0f);
 	musicPlayer.openFromFile(currentMap->getMusicAddress());
-	musicPlayer.play();
-	//playerSprite.setFrame(0);
-	//eventually I should set the origin in center of sprite
+	//musicPlayer.play();
 }
 
 void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 {
 	float elapsed = timer.restart().asSeconds();
-	rw.clear(sf::Color::White);
+	//animate
+	for (auto && sprite : currentMap->getSpriteList()) {
+		sprite.update(elapsed);
+	}
 	//handleInput
 	switch (overWorldState) {
 		case Normal:
-			handleKeyPress(rw, elapsed);
+			handleInput(rw, elapsed);
 			break;
 			
 		case Dialogue:
-			//handleKeyPressDifferently...
+			handleInputDialogue(rw, elapsed);
 			break;
 			
-		case TransitionIn:
+		case FadeIn:
 			fadeProgress += elapsed;
 			if (fadeProgress > 1.0) {
 				fadeProgress = 0;
 				overWorldState = Normal;
 			}
+			handleInputFade(rw, elapsed);
 			break;
 			
-		case TransitionOut:
+		case FadeOut:
 			fadeProgress += elapsed;
 			if (fadeProgress > 1.0) {
 				fadeProgress = 0;
-				overWorldState = TransitionIn;
+				overWorldState = FadeIn;
 			}
+			handleInputFade(rw, elapsed);
 			break;
 		default:
 			break;
 	}
-	//animate
-	for (auto && sprite : currentMap->getSpriteList()) {
-		sprite.update(elapsed);
-	}
 }
 
 void OverworldMode::draw(sf::RenderWindow &rw) {
+	rw.clear(sf::Color::White);
 	rw.setView(view);
 	currentMap->drawBackground(rw);
 	drawAllBoxes(rw);
 	currentMap->drawAllObjects(rw, *playerSprite);
-	if (overWorldState == TransitionOut) {
+	if (overWorldState == FadeOut) {
 		//fade out
 		sf::RectangleShape jankScreenFade;
 		jankScreenFade.setSize(sf::Vector2f(1000,1000));
@@ -76,7 +76,7 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 		jankScreenFade.setPosition(playerSprite->getPosition());
 		jankScreenFade.setFillColor(sf::Color(0,0,0,255*fadeProgress));
 		rw.draw(jankScreenFade);
-	} else if (overWorldState == TransitionIn) {
+	} else if (overWorldState == FadeIn) {
 		//fade in
 		sf::RectangleShape jankScreenFade;
 		jankScreenFade.setSize(sf::Vector2f(1000,1000));
@@ -124,10 +124,12 @@ void OverworldMode::checkExits()
 	for (const auto & exit: currentMap->getExitList()) {
 		if (exit.intersects(playerSprite->getAbsBox())) {
 			if (overWorldState == Normal) {
-				overWorldState = TransitionOut;
-			} else if (overWorldState == TransitionOut) {
+				std::cout << "Exit detected, fading out now\n";
+				overWorldState = FadeOut;
+			} else if (overWorldState == FadeOut) {
+				std::cout << "This is going to flood the console\n";
 				return;
-			} else if (overWorldState == TransitionIn) {
+			} else if (overWorldState == FadeIn) {
 				auto nextZone = exit.getNextZone();
 				if (nextZone != currentMap->ID) {
 					//change maps
@@ -178,8 +180,7 @@ ActionID OverworldMode::checkTriggers() {
 	return ActionID::None;
 }
 
-
-void OverworldMode::handleKeyPress(sf::RenderWindow &rw, float elapsed)
+void OverworldMode::handleInput(sf::RenderWindow &rw, float elapsed)
 {
 	//Logic for Key PRESS Events
 	sf::Event event;
@@ -219,6 +220,17 @@ void OverworldMode::handleKeyPress(sf::RenderWindow &rw, float elapsed)
 		moveVec.x += 100;
 	}
 	handleMovement(elapsed, moveVec);
+}
+
+void OverworldMode::handleInputFade(sf::RenderWindow &rw, float elapsed) {
+	//should be way better than this
+	//the only part of HandleMovement I want is the part where I change maps if I'm in fadeIn...
+	checkExits();
+	updateView();
+}
+
+void OverworldMode::handleInputDialogue(sf::RenderWindow &rw, float elapsed) {
+	//this isn't a real thing yet.
 }
 
 void OverworldMode::drawPlayerCollision(sf::RenderWindow &rw)

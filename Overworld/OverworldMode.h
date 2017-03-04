@@ -29,7 +29,7 @@ private:
 	//temporary?
 	float fadeProgress = 0.f;
 	
-	enum State {TransitionIn, TransitionOut, Dialogue, Normal};
+	enum State {FadeIn, FadeOut, Dialogue, Normal};
 	State overWorldState;
 	
 	void handleMovement(float elapsed, sf::Vector2f moveVec);
@@ -37,7 +37,10 @@ private:
 	void checkExits();
 	ActionID checkTriggers();
 	void checkForInteraction(sf::RenderWindow &rw);
-	void handleKeyPress(sf::RenderWindow &rw, float elapsed);
+	//is there a better way to do this without overcomplicating things?
+	void handleInput(sf::RenderWindow &rw, float elapsed);
+	void handleInputFade(sf::RenderWindow &rw, float elapsed);
+	void handleInputDialogue(sf::RenderWindow &rw, float elapsed);
 	
 	void updateView();
 	void drawPlayerCollision(sf::RenderWindow &rw);
