@@ -9,7 +9,10 @@
 #include "ResourceHolder.h"
 
 ResourceHolder::ResourceHolder()
-{    
+{
+    assert(!instantiated);
+    instantiated = true;
+        
     std::list<sf::String> IDList;
     IDList.push_back("Mountains.jpg");
     IDList.push_back("Stickmaniac.png");

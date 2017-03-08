@@ -21,7 +21,11 @@ public:
     const sf::Music& getMusic(sf::String ID) const;
     
 private:
+    static bool instantiated;
+    
     std::map<sf::String, sf::Texture> textureMap;
     std::map<sf::String, sf::Font> fontMap;
     std::map<sf::String, sf::Music> musicMap;
 };
+
+bool ResourceHolder::instantiated = false;
