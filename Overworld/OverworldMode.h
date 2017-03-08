@@ -26,10 +26,8 @@ public:
 	ActionID handleEvent() override;
 	
 private:
-	//temporary?
-	float fadeProgress = 0.f;
-	
 	enum State {FadeIn, FadeOut, Dialogue, Normal};
+	float fadeProgress = 0.f;			//only relevant for FadeIn/FadeOut
 	State overWorldState;
 	
 	void handleMovement(float elapsed, sf::Vector2f moveVec);

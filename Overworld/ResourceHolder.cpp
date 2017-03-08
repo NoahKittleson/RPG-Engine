@@ -28,7 +28,6 @@ ResourceHolder::ResourceHolder()
     IDList.push_back("PlayerWalkingLeft.png");
     IDList.push_back("PlayerWalkingRight.png");
     
-//    sf::Texture dummy;        //if this didn't crash the program, remove.
     for (auto ID: IDList) {
         textureMap[ID].loadFromFile(resourcePath() + ID);
     }
