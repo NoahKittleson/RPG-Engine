@@ -28,4 +28,3 @@ private:
     std::map<sf::String, sf::Music> musicMap;
 };
 
-bool ResourceHolder::instantiated = false;

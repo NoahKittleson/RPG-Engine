@@ -12,7 +12,7 @@ ResourceHolder::ResourceHolder()
 {
     assert(!instantiated);
     instantiated = true;
-        
+    
     std::list<sf::String> IDList;
     IDList.push_back("Mountains.jpg");
     IDList.push_back("Stickmaniac.png");
@@ -76,6 +76,7 @@ const sf::Music& ResourceHolder::getMusic(sf::String ID) const
     else return musicMap.begin()->second;
 }
 
+bool ResourceHolder::instantiated = false;
 
 
 //std::map<sf::String, sf::Texture> ResourceHolder::textureMap;
