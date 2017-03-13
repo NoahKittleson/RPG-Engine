@@ -1,33 +1,35 @@
 //
-//  FadeIn.cpp
+//  Fade.cpp
 //  Overworld
 //
 //  Created by Noah Kittleson on 2/25/17.
 //  Copyright © 2017 Noah. All rights reserved.
 //
 
-#include "FadeIn.hpp"
+#include "Fade.hpp"
 
-void FadeIn::update(float elapsed) {
+Fade::Fade(bool inOut) {
+    inOrOut = inOut;
+}
+
+void Fade::update(float elapsed) {
     //animate everything that needs to be animated
     //update all lower components
     fadeProgress += elapsed;
-    //handle input
-    
 }
 
-void FadeIn::draw(sf::RenderWindow &rw) {
+void Fade::draw(sf::RenderWindow &rw) {
     //draw fade box
     
 }
 
-void FadeIn::handleInput(sf::RenderWindow &rw, float elapsed) {
+void Fade::handleInput(sf::RenderWindow &rw, float elapsed) {
     //nothing
 }
 
-Mode::modeAction FadeIn::handleEvent() {
+Mode::modeAction Fade::handleEvent() {
     if (fadeProgress > 1.0) {
-        return modeAction::FadeInEnd;
+        return inOrOut ? modeAction::FadeInEnd : modeAction::FadeOutEnd;
     }
     return modeAction::None;
 }

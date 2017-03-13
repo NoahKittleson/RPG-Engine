@@ -42,29 +42,37 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	currentMap->drawBackground(rw);
 	drawAllBoxes(rw);
 	currentMap->drawAllObjects(rw, *playerSprite);
-	mode->draw();
+	mode->draw(rw);
 	rw.display();
 }
 
 ActionID OverworldMode::handleEvent() {
-	ActionID action = mode->handleEvent();
+	Mode::modeAction action = mode->handleEvent();
 	switch(action) {
-	case FadeOutEnd:
-		//find out which exitZone we intersect with and change the map accordingly
-		mode = new fadeIn();
-		break;
+		case Mode::FadeOutEnd:
+			//find out which exitZone we intersect with and change the map accordingly
+			delete mode;
+			mode = new Fade(true);
+			break;
 		
-	case FadeInEnd:
-		mode = new freeRoam();
-		break;
+		case Mode::FadeInEnd:
+			delete mode;
+			mode = new FreeRoam();
+			break;
 		
-	case FadeOutBegin:
-		mode = new fadeOut();
-		break;
+		case Mode::FadeOutBegin:
+			delete mode;
+			mode = new Fade(false);
+			break;
 		
-	case FadeInBegin:
-		mode = new fadeIn();
-		break;
+		case Mode::FadeInBegin:
+			delete mode;
+			mode = new Fade(true);
+			break;
+
+		case Mode::None:
+		default:
+			break;
 	}
 	
 	return checkTriggers();
@@ -101,32 +109,31 @@ void OverworldMode::checkExits()
 {
 	for (const auto & exit: currentMap->getExitList()) {
 		if (exit.intersects(playerSprite->getAbsBox())) {
-			mode = new fadeOut();
+			mode = new Fade(false);
 			
-				auto nextZone = exit.getNextZone();
-				if (nextZone != currentMap->ID) {
-					//change maps
-					delete currentMap;
-					switch (nextZone) {
-						case MapID::Starting:
-							currentMap = new StartingZone(resources);
-							break;
+			auto nextZone = exit.getNextZone();
+			if (nextZone != currentMap->ID) {
+				//change maps
+				delete currentMap;
+				switch (nextZone) {
+					case MapID::Starting:
+						currentMap = new StartingZone(resources);
+						break;
 							
-						case MapID::BigField:
-							currentMap = new BigField(resources);
-							break;
+					case MapID::BigField:
+						currentMap = new BigField(resources);
+						break;
 							
-						default:
-							//just in case.  It's better than a game crash.
-							currentMap = new StartingZone(resources);
-							break;
-					}
+					default:
+						//just in case.  It's better than a game crash.
+						currentMap = new StartingZone(resources);
+						break;
 				}
-				sf::Vector2f transitionOffset = exit.getMoveOffset();
-				playerSprite->move(transitionOffset.x, transitionOffset.y);
-				view.move(transitionOffset);
-				return;
 			}
+			sf::Vector2f transitionOffset = exit.getMoveOffset();
+			playerSprite->move(transitionOffset.x, transitionOffset.y);
+			view.move(transitionOffset);
+			return;
 		}
 	}
 }

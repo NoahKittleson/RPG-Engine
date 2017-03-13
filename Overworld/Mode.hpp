@@ -10,10 +10,11 @@
 #include "PrefixHeader.pch"
 
 class Mode {
-protected:
+public:
     enum modeAction {FadeInBegin, FadeOutBegin, FadeOutEnd, FadeInEnd, None};
     
 public:
+    virtual ~Mode();
     virtual void update(float elapsed) = 0;
     virtual void draw(sf::RenderWindow &rw) = 0;
     virtual void handleInput(sf::RenderWindow &rw, float elapsed) = 0;
