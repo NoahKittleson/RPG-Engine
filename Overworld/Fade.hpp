@@ -20,4 +20,5 @@ public:
 private:
     float fadeProgress = 0.f;
     bool inOrOut;
+    sf::RectangleShape jankScreenFade;
 };

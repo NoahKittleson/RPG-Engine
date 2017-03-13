@@ -10,17 +10,18 @@
 
 Fade::Fade(bool inOut) {
     inOrOut = inOut;
+    jankScreenFade.setSize(sf::Vector2f(2000,2000));
+    jankScreenFade.setFillColor(sf::Color::Black);
 }
 
 void Fade::update(float elapsed) {
-    //animate everything that needs to be animated
-    //update all lower components
     fadeProgress += elapsed;
 }
 
 void Fade::draw(sf::RenderWindow &rw) {
     //draw fade box
-    
+    rw.setView(rw.getDefaultView());
+    rw.draw(jankScreenFade);
 }
 
 void Fade::handleInput(sf::RenderWindow &rw, float elapsed) {
