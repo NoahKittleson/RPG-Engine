@@ -15,6 +15,7 @@
 #include "StartingZone.h"
 #include "DialogueMode.h"
 #include "BattleMode.h"
+#include "Mode.hpp"
 
 
 class OverworldMode: public State
@@ -26,19 +27,12 @@ public:
 	ActionID handleEvent() override;
 	
 private:
-	enum State {FadeIn, FadeOut, Dialogue, Normal};
-	float fadeProgress = 0.f;			//only relevant for FadeIn/FadeOut
-	State overWorldState;
-	
 	void handleMovement(float elapsed, sf::Vector2f moveVec);
 	void handlePlayerCollision(sf::Vector2f);
 	void checkExits();
 	ActionID checkTriggers();
 	void checkForInteraction(sf::RenderWindow &rw);
-	//is there a better way to do this without overcomplicating things?
 	void handleInput(sf::RenderWindow &rw, float elapsed);
-	void handleInputFade(sf::RenderWindow &rw, float elapsed);
-	void handleInputDialogue(sf::RenderWindow &rw, float elapsed);
 	
 	void updateView();
 	void drawPlayerCollision(sf::RenderWindow &rw);
@@ -47,6 +41,8 @@ private:
 	void addDialogueState(DNode*, sf::RenderWindow &rw);
 	
 	sf::View view;
+	Mode* mode;
+	
 };
 
 template <typename Creation, typename... ParamTypes>
@@ -54,9 +50,6 @@ std::unique_ptr<Creation> make_unique(ParamTypes&& ... params)
 {
 	return std::unique_ptr<Creation>(new Creation(std::forward<ParamTypes>(params)...));
 }
-
-//take the ActionPOInt*, determine the type, and create a unique_ptr to a newstate.
-
 
 
 

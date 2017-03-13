@@ -6,9 +6,16 @@
 //  Copyright © 2017 Noah. All rights reserved.
 //
 
-#ifndef Mode_hpp
-#define Mode_hpp
+#pragma once
+#include "PrefixHeader.pch"
 
-#include <stdio.h>
-
-#endif /* Mode_hpp */
+class Mode {
+protected:
+    enum modeAction {FadeInBegin, FadeOutBegin, FadeOutEnd, FadeInEnd, None};
+    
+public:
+    virtual void update(float elapsed) = 0;
+    virtual void draw(sf::RenderWindow &rw) = 0;
+    virtual void handleInput(sf::RenderWindow &rw, float elapsed) = 0;
+    virtual modeAction handleEvent();
+};

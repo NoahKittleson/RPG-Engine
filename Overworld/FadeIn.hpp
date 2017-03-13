@@ -7,12 +7,16 @@
 //
 
 #pragma once
+#include "Mode.hpp"
 
-//class FadeIn  :public OverworldState {
-//public:
-//    void update(elapsed) override;
-//    void draw(rw) override;
-//    void handleInput() override;
-//private:
-//    
-//};
+class FadeIn : public Mode {
+public:
+    void update(float elapsed) override;
+    void draw(sf::RenderWindow &rw) override;
+    void handleInput(sf::RenderWindow &rw, float elapsed) override;
+    modeAction handleEvent() override;
+    
+private:
+    float fadeProgress = 0.f;
+    
+};

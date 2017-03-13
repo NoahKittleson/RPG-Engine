@@ -11,7 +11,7 @@
 #define COLLISION_BOX_EXTRA 10
 
 
-OverworldMode::OverworldMode() : overWorldState(Normal)
+OverworldMode::OverworldMode()
 {
 	view.setSize(sf::Vector2f(1024,768));			//this is very much cheating but I don't want to figure this out right now.
 	view.zoom(0.5);
@@ -31,35 +31,9 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 		sprite.update(elapsed);
 	}
 	//handleInput
-	switch (overWorldState) {
-		case Normal:
-			handleInput(rw, elapsed);
-			break;
-			
-		case Dialogue:
-			handleInputDialogue(rw, elapsed);
-			break;
-			
-		case FadeIn:
-			fadeProgress += elapsed;
-			if (fadeProgress > 1.0) {
-				fadeProgress = 0;
-				overWorldState = Normal;
-			}
-			handleInputFade(rw, elapsed);
-			break;
-			
-		case FadeOut:
-			fadeProgress += elapsed;
-			if (fadeProgress > 1.0) {
-				fadeProgress = 0;
-				overWorldState = FadeIn;
-			}
-			handleInputFade(rw, elapsed);
-			break;
-		default:
-			break;
-	}
+	
+	mode->handleInput(rw, elapsed);
+	mode->update(elapsed);
 }
 
 void OverworldMode::draw(sf::RenderWindow &rw) {
@@ -68,27 +42,31 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	currentMap->drawBackground(rw);
 	drawAllBoxes(rw);
 	currentMap->drawAllObjects(rw, *playerSprite);
-	if (overWorldState == FadeOut) {
-		//fade out
-		sf::RectangleShape jankScreenFade;
-		jankScreenFade.setSize(sf::Vector2f(1000,1000));
-		jankScreenFade.setOrigin(500, 500);
-		jankScreenFade.setPosition(playerSprite->getPosition());
-		jankScreenFade.setFillColor(sf::Color(0,0,0,255*fadeProgress));
-		rw.draw(jankScreenFade);
-	} else if (overWorldState == FadeIn) {
-		//fade in
-		sf::RectangleShape jankScreenFade;
-		jankScreenFade.setSize(sf::Vector2f(1000,1000));
-		jankScreenFade.setOrigin(500, 500);
-		jankScreenFade.setPosition(playerSprite->getPosition());
-		jankScreenFade.setFillColor(sf::Color(0,0,0,255 - 255 * fadeProgress));
-		rw.draw(jankScreenFade);
-	}
+	mode->draw();
 	rw.display();
 }
 
 ActionID OverworldMode::handleEvent() {
+	ActionID action = mode->handleEvent();
+	switch(action) {
+	case FadeOutEnd:
+		//find out which exitZone we intersect with and change the map accordingly
+		mode = new fadeIn();
+		break;
+		
+	case FadeInEnd:
+		mode = new freeRoam();
+		break;
+		
+	case FadeOutBegin:
+		mode = new fadeOut();
+		break;
+		
+	case FadeInBegin:
+		mode = new fadeIn();
+		break;
+	}
+	
 	return checkTriggers();
 }
 
@@ -123,13 +101,8 @@ void OverworldMode::checkExits()
 {
 	for (const auto & exit: currentMap->getExitList()) {
 		if (exit.intersects(playerSprite->getAbsBox())) {
-			if (overWorldState == Normal) {
-				std::cout << "Exit detected, fading out now\n";
-				overWorldState = FadeOut;
-			} else if (overWorldState == FadeOut) {
-				std::cout << "This is going to flood the console\n";
-				return;
-			} else if (overWorldState == FadeIn) {
+			mode = new fadeOut();
+			
 				auto nextZone = exit.getNextZone();
 				if (nextZone != currentMap->ID) {
 					//change maps
