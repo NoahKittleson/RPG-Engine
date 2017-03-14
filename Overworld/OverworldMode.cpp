@@ -31,9 +31,10 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 		sprite.update(elapsed);
 	}
 	//handleInput
-	
 	mode->handleInput(rw, elapsed);
 	mode->update(elapsed);
+	//only needs to be done if there is movement or zone change.
+	updateView();
 }
 
 void OverworldMode::draw(sf::RenderWindow &rw) {
@@ -51,6 +52,12 @@ ActionID OverworldMode::handleEvent() {
 	switch(action) {
 		case Mode::FadeOutEnd:
 			//find out which exitZone we intersect with and change the map accordingly
+			for (const auto & exit: currentMap->getExitList()) {
+				if (exit.intersects(playerSprite->getAbsBox())) {
+					changeMap(exit);
+				}
+			}
+			//change mode
 			delete mode;
 			mode = new Fade(true);
 			break;
@@ -76,6 +83,31 @@ ActionID OverworldMode::handleEvent() {
 	}
 	
 	return checkTriggers();
+}
+
+void OverworldMode::changeMap(ZoneExit exit) {
+	MapID nextZone = exit.getNextZone();
+	if (nextZone != currentMap->ID) {
+		//change maps
+		delete currentMap;
+		switch (nextZone) {
+			case MapID::Starting:
+				currentMap = new StartingZone(resources);
+				break;
+				
+			case MapID::BigField:
+				currentMap = new BigField(resources);
+				break;
+						
+			default:
+				//just in case.  It's better than a game crash.
+				currentMap = new StartingZone(resources);
+				break;
+		}
+	}
+	sf::Vector2f transitionOffset = exit.getMoveOffset();
+	playerSprite->move(transitionOffset.x, transitionOffset.y);
+	view.move(transitionOffset);
 }
 
 void OverworldMode::handleMovement(float elapsed, sf::Vector2f moveVec)
@@ -110,29 +142,6 @@ void OverworldMode::checkExits()
 	for (const auto & exit: currentMap->getExitList()) {
 		if (exit.intersects(playerSprite->getAbsBox())) {
 			mode = new Fade(false);
-			
-			auto nextZone = exit.getNextZone();
-			if (nextZone != currentMap->ID) {
-				//change maps
-				delete currentMap;
-				switch (nextZone) {
-					case MapID::Starting:
-						currentMap = new StartingZone(resources);
-						break;
-							
-					case MapID::BigField:
-						currentMap = new BigField(resources);
-						break;
-							
-					default:
-						//just in case.  It's better than a game crash.
-						currentMap = new StartingZone(resources);
-						break;
-				}
-			}
-			sf::Vector2f transitionOffset = exit.getMoveOffset();
-			playerSprite->move(transitionOffset.x, transitionOffset.y);
-			view.move(transitionOffset);
 			return;
 		}
 	}
@@ -200,16 +209,6 @@ void OverworldMode::handleInput(sf::RenderWindow &rw, float elapsed)
 		moveVec.x += 100;
 	}
 	handleMovement(elapsed, moveVec);
-}
-
-void OverworldMode::handleInputFade(sf::RenderWindow &rw, float elapsed) {
-	//I don't really want to handleInput at all to be honest.  And it's probably a good idea to change checkExits
-	checkExits();
-	updateView();
-}
-
-void OverworldMode::handleInputDialogue(sf::RenderWindow &rw, float elapsed) {
-	//this isn't a real thing yet.
 }
 
 void OverworldMode::drawPlayerCollision(sf::RenderWindow &rw)

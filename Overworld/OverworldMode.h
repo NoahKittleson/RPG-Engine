@@ -30,6 +30,7 @@ private:
 	void handleMovement(float elapsed, sf::Vector2f moveVec);
 	void handlePlayerCollision(sf::Vector2f);
 	void checkExits();
+	void changeMap(ZoneExit);
 	ActionID checkTriggers();
 	void checkForInteraction(sf::RenderWindow &rw);
 	void handleInput(sf::RenderWindow &rw, float elapsed);
