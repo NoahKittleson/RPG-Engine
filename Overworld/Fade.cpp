@@ -11,12 +11,19 @@
 Fade::Fade(bool inOut, float time) : totalDuration(time) {
     inOrOut = inOut;
     jankScreenFade.setSize(sf::Vector2f(2000,2000));
+    auto color = sf::Color::Black;
+    inOrOut ? color.a = 255 : color.a = 0;
+    jankScreenFade.setFillColor(color);
     std::cout << "Fade Created\n";
 }
 
 void Fade::update(float elapsed) {
     fadeProgress += elapsed;
-    sf::Color color  = inOrOut ? sf::Color(0, 0, 0, 255 - 255 * fadeProgress) : sf::Color(0, 0, 0, 255 * fadeProgress);
+    if (fadeProgress > totalDuration) {
+        fadeProgress = totalDuration;
+    }
+    sf::Color color = jankScreenFade.getFillColor();
+    inOrOut ? color.a = 255 - 255 * fadeProgress : color.a = 255 * fadeProgress;
     jankScreenFade.setFillColor(color);
 }
 
@@ -25,7 +32,6 @@ void Fade::draw(sf::RenderWindow &rw) {
     rw.setView(rw.getDefaultView());
     jankScreenFade.setPosition(0,0);
     rw.draw(jankScreenFade);
-//    jankScreenFade.getFillColor()
 }
 
 void Fade::handleInput(sf::RenderWindow &rw, float elapsed) {
@@ -36,7 +42,7 @@ void Fade::handleInput(sf::RenderWindow &rw, float elapsed) {
 }
 
 Mode::modeAction Fade::handleEvent() {
-    if (fadeProgress > totalDuration) {
+    if (fadeProgress >= totalDuration) {
         return inOrOut ? modeAction::FadeInEnd : modeAction::FadeOutEnd;
     }
     return modeAction::None;
