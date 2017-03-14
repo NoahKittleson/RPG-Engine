@@ -23,7 +23,7 @@ public:
     
 private:
     const float totalDuration;
-    float fadeProgress = 0.f;
+    float fadePercent = 0.f;
     bool inOrOut;
     sf::RectangleShape jankScreenFade;
 };

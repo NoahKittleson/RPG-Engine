@@ -18,12 +18,12 @@ Fade::Fade(bool inOut, float time) : totalDuration(time) {
 }
 
 void Fade::update(float elapsed) {
-    fadeProgress += elapsed;
-    if (fadeProgress > totalDuration) {
-        fadeProgress = totalDuration;
+    fadePercent += elapsed / totalDuration;
+    if (fadePercent > 1.0f) {
+        fadePercent = 1.0f;
     }
     sf::Color color = jankScreenFade.getFillColor();
-    inOrOut ? color.a = 255 - 255 * fadeProgress : color.a = 255 * fadeProgress;
+    inOrOut ? color.a = 255 - 255 * fadePercent : color.a = 255 * fadePercent;
     jankScreenFade.setFillColor(color);
 }
 
@@ -42,7 +42,7 @@ void Fade::handleInput(sf::RenderWindow &rw, float elapsed) {
 }
 
 Mode::modeAction Fade::handleEvent() {
-    if (fadeProgress >= totalDuration) {
+    if (fadePercent >= 1.0) {
         return inOrOut ? modeAction::FadeInEnd : modeAction::FadeOutEnd;
     }
     return modeAction::None;
