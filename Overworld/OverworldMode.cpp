@@ -31,8 +31,12 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 		sprite.update(elapsed);
 	}
 	//handleInput
-	mode->handleInput(rw, elapsed);
-	mode->update(elapsed);
+	if (mode) {
+		mode->handleInput(rw, elapsed);
+		mode->update(elapsed);
+	} else {
+		handleInput(rw, elapsed);
+	}
 	//only needs to be done if there is movement or zone change.
 	updateView();
 }
@@ -43,12 +47,17 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	currentMap->drawBackground(rw);
 	drawAllBoxes(rw);
 	currentMap->drawAllObjects(rw, *playerSprite);
-	mode->draw(rw);
+	if (mode) {
+		mode->draw(rw);
+	}
 	rw.display();
 }
 
 ActionID OverworldMode::handleEvent() {
-	Mode::modeAction action = mode->handleEvent();
+	Mode::modeAction action;
+	if (mode) {
+		action = mode->handleEvent();
+	} else action = Mode::modeAction::None;
 	switch(action) {
 		case Mode::FadeOutEnd:
 			//find out which exitZone we intersect with and change the map accordingly
@@ -64,7 +73,7 @@ ActionID OverworldMode::handleEvent() {
 		
 		case Mode::FadeInEnd:
 			delete mode;
-			mode = new FreeRoam();
+			mode = nullptr;
 			break;
 		
 		case Mode::FadeOutBegin:

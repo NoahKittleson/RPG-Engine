@@ -42,7 +42,7 @@ private:
 	void addDialogueState(DNode*, sf::RenderWindow &rw);
 	
 	sf::View view;
-	Mode* mode;
+	Mode* mode = nullptr;
 	
 };
 
