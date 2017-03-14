@@ -18,5 +18,5 @@ public:
     virtual void update(float elapsed) = 0;
     virtual void draw(sf::RenderWindow &rw) = 0;
     virtual void handleInput(sf::RenderWindow &rw, float elapsed) = 0;
-    virtual modeAction handleEvent();
+    virtual modeAction handleEvent() = 0;
 };
