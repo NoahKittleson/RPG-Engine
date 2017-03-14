@@ -57,40 +57,39 @@ ActionID OverworldMode::handleEvent() {
 	Mode::modeAction action;
 	if (mode) {
 		action = mode->handleEvent();
-	} else action = Mode::modeAction::None;
-	switch(action) {
-		case Mode::FadeOutEnd:
-			//find out which exitZone we intersect with and change the map accordingly
-			for (const auto & exit: currentMap->getExitList()) {
-				if (exit.intersects(playerSprite->getAbsBox())) {
-					changeMap(exit);
+		switch(action) {
+			case Mode::FadeOutEnd:
+				//find out which exitZone we intersect with and change the map accordingly
+				for (const auto & exit: currentMap->getExitList()) {
+					if (exit.intersects(playerSprite->getAbsBox())) {
+						changeMap(exit);
+					}
 				}
-			}
-			//change mode
-			delete mode;
-			mode = new Fade(true);
-			break;
-		
-		case Mode::FadeInEnd:
-			delete mode;
-			mode = nullptr;
-			break;
-		
-		case Mode::FadeOutBegin:
-			delete mode;
-			mode = new Fade(false);
-			break;
-		
-		case Mode::FadeInBegin:
-			delete mode;
-			mode = new Fade(true);
-			break;
-
-		case Mode::None:
-		default:
-			break;
+				//change mode
+				delete mode;
+				mode = new Fade(true, 1.f);
+				break;
+				
+			case Mode::FadeInEnd:
+				delete mode;
+				mode = nullptr;
+				break;
+				
+			case Mode::FadeOutBegin:
+				delete mode;
+				mode = new Fade(false, 1.f);
+				break;
+				
+			case Mode::FadeInBegin:
+				delete mode;
+				mode = new Fade(true, 1.f);
+				break;
+				
+			case Mode::None:
+			default:
+				break;
+		}
 	}
-	
 	return checkTriggers();
 }
 
@@ -150,7 +149,7 @@ void OverworldMode::checkExits()
 {
 	for (const auto & exit: currentMap->getExitList()) {
 		if (exit.intersects(playerSprite->getAbsBox())) {
-			mode = new Fade(false);
+			mode = new Fade(false, 1.f);
 			return;
 		}
 	}

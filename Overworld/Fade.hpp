@@ -11,13 +11,18 @@
 
 class Fade : public Mode {
 public:
-    Fade(bool inOut);                                   //fade in true, fade out false... Yes I realize this is terrible
+    ~Fade() {
+        std::cout << "Fade destroyed\n";
+    }
+    
+    Fade(bool inOut, float duration);                //fade in true, fade out false... Yes I realize this is terrible
     void update(float elapsed) override;
     void draw(sf::RenderWindow &rw) override;
     void handleInput(sf::RenderWindow &rw, float elapsed) override;
     modeAction handleEvent() override;
     
 private:
+    const float totalDuration;
     float fadeProgress = 0.f;
     bool inOrOut;
     sf::RectangleShape jankScreenFade;
