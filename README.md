@@ -1,7 +1,7 @@
-#RPG Engine
+# RPG Engine
 A game engine built in C++ that uses SFML (Simple Fast Multimedia Library).  The engine is for a turn-based role playing game that I am making in my spare time for fun.  Currently the game consists of an over-world where users walk around and talk to Non-player characters and a battle system using turn-based combat.
 
-##About the Project
+## About the Project
 This is I project I started in 2015 in order to teach myself C++ and general program architecture by developing real code for something that I would be motivated to work on.  I have restructured the project several times after learning more about proper programming patterns, but the engine currently runs on a state-based system.  But what exactly does that mean?
 
 Each state represents a mode of the game, and by default contains all the necessary game information that every game mode is going to need, like the clock, the window, the player party, the current map, etc.
@@ -10,19 +10,19 @@ The game starts by creating an overworld mode game-state, which let's you walk a
 
 Each state shares the same base class so that they can inherit common functionality so that the game doesn't need to worry about what state it's in, it just needs to let whatever state is on top do its thing.  Specifically, every state implements it's own versions of the update(), draw(), and handleEvent() methods so that it can function as it's own state.
 
-##Installation
+## Installation
 While this code is up here for mostly demonstrational purposes, it is possible to download and play what I have, although the process may be annoying difficult on anything but a Mac.
 1. [Download and install Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
 2. [Download and install SFML for Xcode](http://www.sfml-dev.org/tutorials/2.4/start-osx.php)
 3. Clone this repository
 4. Open with Xcode!
 
-##TO DO
+## TO DO
 * Game save capabilities
 * Game loading capabilities
 * Create non-placeholder art
 
-##License
+## License
 The MIT License (MIT)
 
 Copyright (c) 2017 - Noah Kittleson
