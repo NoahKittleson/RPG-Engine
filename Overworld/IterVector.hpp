@@ -10,11 +10,15 @@
 #include <vector>
 #include <exception>
 
+//itervector is an ordered container that has only one available element at a time.  Cycle through the list with
+// ++ or --, use .get() to grab current element.
+
+
 template <typename T>
 class IterVector : public std::vector<T>
 {
 public:
-    IterVector (bool = true);
+    IterVector (bool looping = true);
     IterVector& operator++();
     IterVector& operator--();
     
@@ -28,7 +32,7 @@ public:
     
     void setLooping(bool);
     void forAll(void (*funcPtr)(T));
-    void reset();
+    void reset();                           //sets index to 0
     void removeCurrent();
     
 private:

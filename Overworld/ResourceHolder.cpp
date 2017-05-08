@@ -10,9 +10,11 @@
 
 ResourceHolder::ResourceHolder()
 {
+    //assure there is only ever one ResourceHolder
     assert(!instantiated);
     instantiated = true;
     
+    //Whenever you add a new texture, add to this list
     std::list<sf::String> IDList;
     IDList.push_back("Mountains.jpg");
     IDList.push_back("Stickmaniac.png");
@@ -33,6 +35,7 @@ ResourceHolder::ResourceHolder()
     }
     
     IDList.clear();
+    //Whenever you add a new font, add to this list
     IDList.push_back("sansation.ttf");
     
     for (auto && ID: IDList) {
@@ -40,11 +43,15 @@ ResourceHolder::ResourceHolder()
     }
     
     IDList.clear();
+    //Whenever you add a new sound file, add to this list
     IDList.push_back("nice_music.ogg");
     for (auto && ID: IDList) {
         musicMap[ID].openFromFile(resourcePath() + ID);
     }
 }
+
+//Get a texture/sound/font by giving the full file name.
+//If nothing is found returns the first result in IDList
 
 const sf::Texture& ResourceHolder::getTexture(sf::String ID) const
 {
