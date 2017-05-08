@@ -25,7 +25,7 @@ public:
     virtual ActionID handleEvent() = 0;
 
     void addToStack(State*);
-    void addToStackAndBreak(State*);
+//    void addToStackAndBreak(State*);
     bool checkDeletion();
     
     void load();    //this is a very janky version of how this will eventually work
@@ -42,8 +42,6 @@ protected:
     sf::Music musicPlayer;
     
     bool deletionOrder = false;
-    //I don't think looping actually does anything.
-    bool looping = true;
     
     static StateStack* stack;
 private:
@@ -53,9 +51,8 @@ private:
 
 
 //Things to do:
-//1.find out if looping does something
-//2.Create LoadState for initialization of values
-//3.Create GameInfo class for map, party, player, others?
-//4.Give ability to save game
+//1.Create LoadState for initialization of values
+//2.Create GameInfo class for map, party, player, others?
+//3.Give ability to save game
 
 

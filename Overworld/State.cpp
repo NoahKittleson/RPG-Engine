@@ -27,13 +27,6 @@ void State::addToStack(State* addMe)
     stack->addState(addMe);
 }
 
-void State::addToStackAndBreak(State *addMe)
-{
-    looping = false;
-    stack->addState(addMe);
-}
-
-
 bool State::checkDeletion()
 {
     return deletionOrder;
