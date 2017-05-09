@@ -352,7 +352,8 @@ void Character::drawAllStats(sf::RenderWindow &rw)
 
 void Character::drawSprite(sf::RenderWindow &rw)
 {
-    _sprite.draw(rw);
+    //_sprite.draw(rw);
+    rw.draw(_sprite);
 }
 
 void Character::updateStatusEffects()

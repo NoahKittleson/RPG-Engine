@@ -12,13 +12,13 @@
 AnimatedSprite::AnimatedSprite(const sf::Vector2i& FrameSize, float TimePerFrame, const sf::Texture& texture)
 : _frameSize(sf::IntRect(0, 0, FrameSize.x, FrameSize.y)), _timePerFrame(TimePerFrame)
 {
-    _sprite.setTexture(texture);
-    _sprite.setTextureRect(_frameSize);
-    _sprite.setOrigin(FrameSize.x/2, FrameSize.y/2);
+    this->setTexture(texture);
+    this->setTextureRect(_frameSize);
+    setOrigin(FrameSize.x/2, FrameSize.y/2);
 }
 
 AnimatedSprite::AnimatedSprite(const AnimatedSprite& other)
-: _sprite(other._sprite), _frameSize(other._frameSize), _nextAnimation(other._nextAnimation),
+: _frameSize(other._frameSize), _nextAnimation(other._nextAnimation),
 _timePerFrame(other._timePerFrame), _totalelapsed(other._totalelapsed)
 {
     
@@ -35,47 +35,25 @@ void AnimatedSprite::animate(float elapsed)       //non looped animation stays o
 
 void AnimatedSprite::next_frame()
 {
-    if (_sprite.getTextureRect().left + _frameSize.width >= _sprite.getTexture()->getSize().x) {
-        _sprite.setTextureRect(_frameSize);
+    if (getTextureRect().left + _frameSize.width >= getTexture()->getSize().x) {
+        setTextureRect(_frameSize);
         if (_nextAnimation) {
             setTexture(*_nextAnimation);
         }
     }
     else
-        _sprite.setTextureRect(sf::IntRect(_sprite.getTextureRect().left + _frameSize.width,
-                                           _sprite.getTextureRect().top,
-                                           _sprite.getTextureRect().width,
-                                           _sprite.getTextureRect().height ));
+        setTextureRect(sf::IntRect(getTextureRect().left + _frameSize.width,
+                                   getTextureRect().top,
+                                   getTextureRect().width,
+                                   getTextureRect().height ));
 }
 
 void AnimatedSprite::setTexture(const sf::Texture& texture)
 {
-    _sprite.setTexture(texture);
-    _sprite.setTextureRect(_frameSize);
-    
-    while (_totalelapsed > _timePerFrame) {
-        _totalelapsed -= _timePerFrame;
-    }
-}
+    //will this cause infinite loop?  I only want to call base class setTexture
+    sf::Sprite::setTexture(texture);
+    setTextureRect(_frameSize);
 
-void AnimatedSprite::setScale(float xfactor, float yfactor)
-{
-    _sprite.setScale(xfactor, yfactor);
-}
-
-void AnimatedSprite::move(sf::Vector2f coor)
-{
-    _sprite.move(coor);
-}
-
-void AnimatedSprite::setPosition(float x, float y)
-{
-    _sprite.setPosition(x, y);
-}
-
-sf::Vector2f AnimatedSprite::getPosition()
-{
-    return _sprite.getPosition();
 }
 
 void AnimatedSprite::setNextAnimation(const sf::Texture& next)
@@ -85,7 +63,7 @@ void AnimatedSprite::setNextAnimation(const sf::Texture& next)
 
 bool AnimatedSprite::compare(const sf::Texture* other)            //compares addresses.
 {
-    if (other == _sprite.getTexture()) {
+    if (other == getTexture()) {
         return true;
     }
     return false;
@@ -93,12 +71,7 @@ bool AnimatedSprite::compare(const sf::Texture* other)            //compares add
 
 char AnimatedSprite::isOnFrame()        //first frame = 0
 {
-    return _sprite.getTextureRect().left/_frameSize.width;
-}
-
-void AnimatedSprite::draw(sf::RenderWindow &rw)
-{
-    rw.draw(_sprite);
+    return getTextureRect().left/_frameSize.width;
 }
 
 
