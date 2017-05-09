@@ -34,18 +34,19 @@ public:
     ~BattleMode();
     void update(sf::RenderWindow&rw, sf::Clock& timer) override;
     //fill these next two out later....
-    void draw(sf::RenderWindow&) override {};
-    ActionID handleEvent() override { return ActionID::None; };
+    void draw(sf::RenderWindow&) override;
+    ActionID handleEvent() override;
     
 private:
     void runChoice(sf::RenderWindow &rw, float elapsed /*input*/);
     void nextTurn();
-    void drawAll(sf::RenderWindow& rw, float elapsed);
+    void drawAll(sf::RenderWindow& rw);
     
-    void Animate(sf::RenderWindow &rw, float elapsed);
+    void animateAndDraw(sf::RenderWindow &rw, float elapsed);
+    void updateSprites(float elapsed);
     float calculateDmg();
     
-    enum class Mode {StartChoice, PickAbility, PickTarget, Animating};
+    enum class Mode { StartChoice, PickAbility, PickTarget, Animating };
     IterVector<Character*> combatants;
     IterVector<Character*> targetSelectVec;
     //std::vector<Character>::iterator currentChar { enemyVec.begin() };

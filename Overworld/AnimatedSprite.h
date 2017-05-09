@@ -9,13 +9,13 @@
 #pragma once
 #include "PrefixHeader.pch"
 
-class AnimatedSprite            //shouldn't this extend from sprite?
+class AnimatedSprite //: public sf::Sprite
 {
 public:
-    AnimatedSprite(const sf::Vector2i&, float, const sf::Texture& texture);
+    AnimatedSprite(const sf::Vector2i& frameSize, float timePerFrame, const sf::Texture&);
     AnimatedSprite(const AnimatedSprite& other);
     
-    void animate(float elapsed, sf::RenderWindow &rw);
+    void animate(float elapsed);
     void setTexture(const sf::Texture&);
     void setScale(float, float);
     void setPosition(float x, float y);
@@ -36,3 +36,8 @@ private:
     const float _timePerFrame;
     float _totalelapsed = 0;
 };
+
+
+//THINGS TO DO:
+//1. Extend this out from Sprite.
+//2. Have this class (or a similar one) used by both battle sprites and map sprites (all animated sprites).

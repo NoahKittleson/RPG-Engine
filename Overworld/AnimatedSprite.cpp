@@ -24,14 +24,13 @@ _timePerFrame(other._timePerFrame), _totalelapsed(other._totalelapsed)
     
 }
 
-void AnimatedSprite::animate(float elapsed, sf::RenderWindow &rw)       //non looped animation stays on final frame
+void AnimatedSprite::animate(float elapsed)       //non looped animation stays on final frame
 {
     _totalelapsed += elapsed;
     while (_totalelapsed >= _timePerFrame) {
         _totalelapsed -= _timePerFrame;
         next_frame();
     }
-    rw.draw(_sprite);
 }
 
 void AnimatedSprite::next_frame()

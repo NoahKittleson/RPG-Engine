@@ -278,7 +278,6 @@ void OverworldMode::checkForInteraction(sf::RenderWindow &rw)
 void OverworldMode::addDialogueState(DNode* thread, sf::RenderWindow &rw)
 {
 	auto ptr = new DialogueMode(thread, rw);								//danger danger Will Robinson.
-//	addToStackAndBreak(ptr);
 	addToStack(ptr);
 }
 

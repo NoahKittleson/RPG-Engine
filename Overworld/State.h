@@ -25,7 +25,6 @@ public:
     virtual ActionID handleEvent() = 0;
 
     void addToStack(State*);
-//    void addToStackAndBreak(State*);
     bool checkDeletion();
     
     void load();    //this is a very janky version of how this will eventually work

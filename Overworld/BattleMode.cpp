@@ -33,6 +33,7 @@ BattleMode::BattleMode(std::vector<Character*>& enemies) : StartOptions(true)
 }
 
 BattleMode::~BattleMode() {
+    //All characters are dynamically allocated
     for (auto && it : combatants) {
         if (it->_NPC) {
             delete it;
@@ -40,14 +41,29 @@ BattleMode::~BattleMode() {
     }
 }
 
-void BattleMode::update(sf::RenderWindow &rw, sf::Clock& timer)
+void BattleMode::update(sf::RenderWindow& rw, sf::Clock& timer)
 {
     rw.setView(rw.getDefaultView());
     float elapsed = timer.restart().asSeconds();
     rw.clear(sf::Color::White);
     runChoice(rw, elapsed);
-    drawAll(rw, elapsed);
+}
+
+void BattleMode::draw(sf::RenderWindow& rw)
+{
+    drawAll(rw);
     rw.display();
+}
+
+ActionID BattleMode::handleEvent()
+{
+    return ActionID::None;
+}
+
+void BattleMode::updateSprites(float elapsed) {
+    for (auto && it: combatants) {
+        it->animate(elapsed);
+    }
 }
 
 void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
@@ -90,7 +106,7 @@ void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
             break;
         }
         case Mode::Animating:
-            Animate(rw, elapsed);
+            animateAndDraw(rw, elapsed);
             nextTurn();
             break;
             
@@ -151,7 +167,7 @@ void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
     }
 }
 
-void BattleMode::Animate(sf::RenderWindow &rw, float elapsed)
+void BattleMode::animateAndDraw(sf::RenderWindow &rw, float elapsed)
 {
     chosenTarget->takeDamage(*chosenAbil, *combatants.get());
     //this is gonna be the really hard one
@@ -174,10 +190,9 @@ void BattleMode::positionStats() {
     }
 }
 
-void BattleMode::drawAll(sf::RenderWindow &rw, float elapsed)
+void BattleMode::drawAll(sf::RenderWindow &rw)
 {
     for (auto && it: combatants) {
-        it->animate(rw, elapsed);
         it->drawAllStats(rw);
         it->drawSprite(rw);
     }

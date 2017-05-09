@@ -38,7 +38,7 @@ public:
     void setColor(sf::Color);                             //Sets item's color in an option menu
     void setFont(const sf::Font &font);
     
-    void animate(sf::RenderWindow &rw, float elapased);
+    void animate(float elapased);
     //void UseRecovery();
     //void UseRecovery(Character* target);					//there has got to be a better way to do damaging recoveries...
     //void setIdle();

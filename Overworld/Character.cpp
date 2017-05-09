@@ -528,8 +528,8 @@ void Character::setColor(sf::Color color)
     _name.setColor(color);
 }
 
-void Character::animate(sf::RenderWindow &rw, float elapsed) {
-    _sprite.animate(elapsed, rw);
+void Character::animate(float elapsed) {
+    _sprite.animate(elapsed);
 }
 
 
