@@ -530,7 +530,7 @@ void Character::setColor(sf::Color color)
 }
 
 void Character::animate(float elapsed) {
-    _sprite.animate(elapsed);
+    _sprite.update(elapsed);
 }
 
 

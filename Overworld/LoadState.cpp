@@ -44,6 +44,7 @@ void LoadState::update(sf::RenderWindow&, sf::Clock&) {
     //nothing yet... eventually loading bar?
 }
 
-void LoadState::draw(sf::RenderWindow&) {
+void LoadState::draw(sf::RenderWindow& rw) {
+    rw.clear(sf::Color::Black);
     //nothing yet... eventually loading bar?
 }

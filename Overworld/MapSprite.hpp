@@ -9,20 +9,31 @@
 #pragma once
 #include "PrefixHeader.pch"
 
-class MapSprite : public sf::Sprite
+//class MapSprite : public sf::Sprite
+//{
+//public:
+//    MapSprite(sf::IntRect, float timePerFrame = 0);
+//    
+//    int getBase() const;
+//    void drawBase(sf::RenderWindow &rw) const;
+//    virtual void update(float elapsed);
+//    
+//protected:
+//    void animate(float elapsed);
+//    void nextFrame();
+//    
+//    float timePerFrame;
+//    float totalElapsed;
+//    sf::IntRect frameSize;
+//};
+
+#include "AnimatedSprite.h"
+
+class MapSprite : public AnimatedSprite
 {
 public:
-    MapSprite(sf::IntRect, float timePerFrame = 0);
-    
+    MapSprite(sf::Vector2i frameSize, float timePerFrame, const sf::Texture& texture);
+
     int getBase() const;
     void drawBase(sf::RenderWindow &rw) const;
-    virtual void update(float elapsed);
-    
-protected:
-    void animate(float elapsed);
-    void nextFrame();
-    
-    float timePerFrame;
-    float totalElapsed;
-    sf::IntRect frameSize;
 };

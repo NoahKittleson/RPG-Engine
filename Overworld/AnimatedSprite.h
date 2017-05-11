@@ -15,13 +15,13 @@ public:
     AnimatedSprite(const sf::Vector2i& frameSize, float timePerFrame, const sf::Texture&);
     AnimatedSprite(const AnimatedSprite& other);
     
-    void animate(float elapsed);
+    void update(float elapsed);
     void setTexture(const sf::Texture&);
     void setNextAnimation(const sf::Texture&);
     bool compare(const sf::Texture*);                         //true if same texture, false if not.
     char isOnFrame();
     
-private:
+protected:
     void next_frame();
     
     const sf::IntRect _frameSize;

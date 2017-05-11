@@ -27,7 +27,7 @@ protected:
     TriggerVec triggers;
     const std::string musicFilename;
     
-    void addObject(InteractableSprite&);
+    //void addObject(InteractableSprite&);
 
     
 public:

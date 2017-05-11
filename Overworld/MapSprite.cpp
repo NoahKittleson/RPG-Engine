@@ -8,9 +8,9 @@
 
 #include "MapSprite.hpp"
 
-MapSprite::MapSprite(sf::IntRect frameSize, float timePerFrame)
-: frameSize(frameSize), timePerFrame(timePerFrame) {
-    totalElapsed = 0.f;
+MapSprite::MapSprite(sf::Vector2i frameSize, float timePerFrame, const sf::Texture& texture)
+: AnimatedSprite(frameSize, timePerFrame, texture) {
+
 }
 
 int MapSprite::getBase() const {
@@ -24,26 +24,26 @@ void MapSprite::drawBase(sf::RenderWindow &rw) const {
     rw.draw(rect);
 }
 
-void MapSprite::update(float elapsed) {
-    if (timePerFrame > 0) {
-        animate(elapsed);
-    }
-}
-
-void MapSprite::animate(float elapsed) {
-    totalElapsed+= elapsed;
-    while (totalElapsed >= timePerFrame) {
-        totalElapsed -= timePerFrame;
-        nextFrame();
-    }
-}
-
-void MapSprite::nextFrame() {
-    if (getTextureRect().left + frameSize.width >= getTexture()->getSize().x) {
-        setTextureRect(frameSize);
-    }
-    else setTextureRect(sf::IntRect(getTextureRect().left + frameSize.width,
-                                    getTextureRect().top,
-                                    getTextureRect().width,
-                                    getTextureRect().height ));
-}
+//void MapSprite::update(float elapsed) {
+//    if (timePerFrame > 0) {
+//        animate(elapsed);
+//    }
+//}
+//
+//void MapSprite::animate(float elapsed) {
+//    totalElapsed+= elapsed;
+//    while (totalElapsed >= timePerFrame) {
+//        totalElapsed -= timePerFrame;
+//        nextFrame();
+//    }
+//}
+//
+//void MapSprite::nextFrame() {
+//    if (getTextureRect().left + frameSize.width >= getTexture()->getSize().x) {
+//        setTextureRect(frameSize);
+//    }
+//    else setTextureRect(sf::IntRect(getTextureRect().left + frameSize.width,
+//                                    getTextureRect().top,
+//                                    getTextureRect().width,
+//                                    getTextureRect().height ));
+//}

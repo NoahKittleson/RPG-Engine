@@ -24,7 +24,7 @@ _timePerFrame(other._timePerFrame), _totalelapsed(other._totalelapsed)
     
 }
 
-void AnimatedSprite::animate(float elapsed)       //non looped animation stays on final frame
+void AnimatedSprite::update(float elapsed)       //non looped animation stays on final frame
 {
     _totalelapsed += elapsed;
     while (_totalelapsed >= _timePerFrame) {

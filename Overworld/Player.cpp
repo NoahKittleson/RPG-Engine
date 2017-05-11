@@ -11,15 +11,15 @@
 //Player Constructor is very hacky, but will work for now.
 //Later, have it initialized with a sprite from ResourceHolder
 Player::Player(const ResourceHolder& resources)
-    : MapSprite(sf::IntRect(0,0,16,16), 0.1f), walkingState(Stand),
+    : MapSprite(sf::Vector2i(16,16), 0.1f, resources.getTexture("PlayerWalkingDown.png")), walkingState(Stand),
     walkUp(&resources.getTexture("PlayerWalkingUp.png")), walkDown(&resources.getTexture("PlayerWalkingDown.png")),
     walkLeft(&resources.getTexture("PlayerWalkingLeft.png")), walkRight(&resources.getTexture("PlayerWalkingRight.png"))
 {
     setTexture(*walkDown);
     int textureHeight = walkDown->getSize().y;
     
-    frameSize = sf::IntRect(0,0,textureHeight, textureHeight);
-    setTextureRect(frameSize);
+    //_frameSize = sf::Vector2i(textureHeight, textureHeight);
+    setTextureRect(_frameSize);
     setOrigin(textureHeight/2, textureHeight/2);
     box = sf::IntRect(-textureHeight/4, -textureHeight/2,
                         textureHeight/2, textureHeight);
@@ -53,7 +53,7 @@ void Player::update(sf::Vector2f moveVec, float elapsed) {
     } else if (moveVec.x > 0) {
         changeState(Right);
     }
-    animate(elapsed);
+    AnimatedSprite::update(elapsed);
 }
 
 void Player::changeState(Player::Direction newDir) {
