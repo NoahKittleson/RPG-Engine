@@ -12,13 +12,13 @@
 #define NO_OF_OPTIONNODES 1
 
 StartingZone::StartingZone(const ResourceHolder& resources)
-: MapSection(MapID::Starting, "nice_music.ogg"), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),
-                optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
+: MapSection(MapID::Starting, "nice_music.ogg"), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
+	
     std::vector<sf::IntRect> emptyList;
     background.setTexture(resources.getTexture("cute_image.jpg"));
     
     //Set up Non-interactable wheat field
-    InteractableSprite WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100), emptyList, nullptr, 0.4);
+    InteractableSprite WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100), emptyList, nullptr, 0.4f);
     WheatField.setScale(3.0f, 3.0f);
     char rows = 6;
     char columns = 4;
@@ -93,5 +93,11 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     exits.emplace_back(sf::IntRect(-100,0,100,totalArea.y), sf::Vector2f(totalArea.x-50.f,0), zoneID);
     exits.emplace_back(sf::IntRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(50.f-totalArea.x,0), zoneID);
     exits.emplace_back(sf::IntRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,70.f-totalArea.y), zoneID);
+					
+//	for (auto && sprite : sprites) {
+//		if (sprite.getTexture()) {
+//			std::cout << "initialized with ptr\n";
+//		} else std::cout << "initialized with NULLptr\n";
+//	}
     
 }
