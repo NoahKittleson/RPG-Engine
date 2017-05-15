@@ -22,6 +22,9 @@ public:
 protected:
     void next_frame();
     
+    bool atEnd();
+    bool waiting = false;
+    
     const sf::IntRect _frameSize;
     const float repeatDelay = 0.f;
     

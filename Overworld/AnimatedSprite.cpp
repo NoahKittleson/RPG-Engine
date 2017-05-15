@@ -38,21 +38,36 @@ void AnimatedSprite::update(float elapsed)       //non looped animation stays on
         return;
     }
     _totalelapsed += elapsed;
-    while (_totalelapsed >= _timePerFrame) {
-        _totalelapsed -= _timePerFrame;
-        next_frame();
+    
+    if (!waiting || _totalelapsed >= repeatDelay) {
+        waiting = false;
+        while (_totalelapsed >= _timePerFrame) {
+            _totalelapsed -= _timePerFrame;
+            if (repeatDelay && atEnd()) {
+                waiting = true;
+                return;
+            }
+            next_frame();
+        }
     }
 }
 
 void AnimatedSprite::next_frame()
 {
-    if (getTextureRect().left + _frameSize.width >= getTexture()->getSize().x) {
+    if (atEnd()) {
         setTextureRect(_frameSize);
     }
     else setTextureRect(sf::IntRect(getTextureRect().left + _frameSize.width,
                                     getTextureRect().top,
                                     getTextureRect().width,
                                     getTextureRect().height ));
+}
+
+bool AnimatedSprite::atEnd() {
+    if (getTextureRect().left + _frameSize.width >= getTexture()->getSize().x) {
+        return true;
+    }
+    return false;
 }
 
 bool AnimatedSprite::compare(const sf::Texture* other)            //compares addresses.
