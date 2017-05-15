@@ -57,6 +57,8 @@ void Player::update(sf::Vector2f moveVec, float elapsed) {
 }
 
 void Player::changeState(Player::Direction newDir) {
+    static int counter (0);
+    counter++;
     if (walkingState == newDir) {
         return;
     }
@@ -81,4 +83,5 @@ void Player::changeState(Player::Direction newDir) {
             //right now this catches Stand.  Create case Stand if I add idle animation.
             break;
     }
+    walkingState = newDir;
 }
