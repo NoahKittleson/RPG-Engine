@@ -9,8 +9,8 @@
 #include "AnimatedSprite.h"
 
 
-AnimatedSprite::AnimatedSprite(const sf::Vector2i& FrameSize, float TimePerFrame, const sf::Texture& texture)
-: _frameSize(sf::IntRect(0, 0, FrameSize.x, FrameSize.y)), _timePerFrame(TimePerFrame)
+AnimatedSprite::AnimatedSprite(const sf::Vector2i& FrameSize, float TimePerFrame, const sf::Texture& texture, float repeatDelay)
+: _frameSize(sf::IntRect(0, 0, FrameSize.x, FrameSize.y)), _timePerFrame(TimePerFrame), repeatDelay(repeatDelay)
 {
     this->setTexture(texture);
 //    if (getTexture()) {
@@ -23,7 +23,7 @@ AnimatedSprite::AnimatedSprite(const sf::Vector2i& FrameSize, float TimePerFrame
 
 
 AnimatedSprite::AnimatedSprite(const AnimatedSprite& other)
-: _frameSize(other._frameSize), _nextAnimation(other._nextAnimation),
+: _frameSize(other._frameSize), repeatDelay(other.repeatDelay),
 _timePerFrame(other._timePerFrame), _totalelapsed(other._totalelapsed)
 {
     setTexture(*other.getTexture());
@@ -48,19 +48,11 @@ void AnimatedSprite::next_frame()
 {
     if (getTextureRect().left + _frameSize.width >= getTexture()->getSize().x) {
         setTextureRect(_frameSize);
-        if (_nextAnimation) {
-            setTexture(*_nextAnimation);
-        }
     }
     else setTextureRect(sf::IntRect(getTextureRect().left + _frameSize.width,
                                     getTextureRect().top,
                                     getTextureRect().width,
                                     getTextureRect().height ));
-}
-
-void AnimatedSprite::setNextAnimation(const sf::Texture& next)
-{
-    _nextAnimation = &next;
 }
 
 bool AnimatedSprite::compare(const sf::Texture* other)            //compares addresses.

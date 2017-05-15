@@ -12,11 +12,10 @@
 class AnimatedSprite : public sf::Sprite
 {
 public:
-    AnimatedSprite(const sf::Vector2i& frameSize, float timePerFrame, const sf::Texture&);
+    AnimatedSprite(const sf::Vector2i& frameSize, float timePerFrame, const sf::Texture&, float repeatDelay = 0.f);
     AnimatedSprite(const AnimatedSprite& other);
     
     void update(float elapsed);
-    void setNextAnimation(const sf::Texture&);
     bool compare(const sf::Texture*);                         //true if same texture, false if not.
     char isOnFrame();
     
@@ -24,7 +23,7 @@ protected:
     void next_frame();
     
     const sf::IntRect _frameSize;
-    const sf::Texture* _nextAnimation = nullptr;  //nullptr: loops, ptr = non-looping, change to this after animation ends.
+    const float repeatDelay = 0.f;
     
     const float _timePerFrame;
     float _totalelapsed = 0;
