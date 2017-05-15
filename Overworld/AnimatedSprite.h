@@ -16,7 +16,6 @@ public:
     AnimatedSprite(const AnimatedSprite& other);
     
     void update(float elapsed);
-    void setTexture(const sf::Texture&);
     void setNextAnimation(const sf::Texture&);
     bool compare(const sf::Texture*);                         //true if same texture, false if not.
     char isOnFrame();
