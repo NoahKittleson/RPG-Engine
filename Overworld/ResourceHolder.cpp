@@ -22,6 +22,7 @@ ResourceHolder::ResourceHolder()
     IDList.push_back("BadAttackAnimation.png");
     IDList.push_back("GetHitAnimation.png");
     IDList.push_back("RollingWheat.png");
+    IDList.push_back("Scarecrow.png");
     IDList.push_back("cute_image.jpg");
     IDList.push_back("icon.png");
     IDList.push_back("tree.png");

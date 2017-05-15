@@ -32,7 +32,7 @@
 class MapSprite : public AnimatedSprite
 {
 public:
-    MapSprite(sf::Vector2i frameSize, float timePerFrame, const sf::Texture& texture);
+    MapSprite(sf::Vector2i frameSize, float timePerFrame, const sf::Texture& texture, float repeatDelay = 0);
 
     int getBase() const;
     void drawBase(sf::RenderWindow &rw) const;

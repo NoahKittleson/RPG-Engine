@@ -15,7 +15,7 @@ class InteractableSprite: public MapSprite
 {
 public:
     InteractableSprite(const sf::Texture&, sf::Vector2f, const std::vector<sf::IntRect>&,
-                       DNode* text, float timePerFrame = 0);
+                       DNode* text, float timePerFrame = 0, float repeatDelay = 0);
     void addTime(float delta);      //this should be a lower level function (e.g. on the base class)
 
     void DrawCollisionBoxes(sf::RenderWindow &rw) const;

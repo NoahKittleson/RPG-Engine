@@ -8,8 +8,8 @@
 
 #include "MapSprite.hpp"
 
-MapSprite::MapSprite(sf::Vector2i frameSize, float timePerFrame, const sf::Texture& texture)
-: AnimatedSprite(frameSize, timePerFrame, texture) {
+MapSprite::MapSprite(sf::Vector2i frameSize, float timePerFrame, const sf::Texture& texture, float repeatDelay)
+: AnimatedSprite(frameSize, timePerFrame, texture, repeatDelay) {
 
 }
 

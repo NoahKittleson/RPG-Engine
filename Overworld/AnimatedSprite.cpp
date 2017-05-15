@@ -63,11 +63,9 @@ void AnimatedSprite::next_frame()
                                     getTextureRect().height ));
 }
 
-bool AnimatedSprite::atEnd() {
-    if (getTextureRect().left + _frameSize.width >= getTexture()->getSize().x) {
-        return true;
-    }
-    return false;
+bool AnimatedSprite::atEnd()
+{
+    return (getTextureRect().left + _frameSize.width >= getTexture()->getSize().x);
 }
 
 bool AnimatedSprite::compare(const sf::Texture* other)            //compares addresses.

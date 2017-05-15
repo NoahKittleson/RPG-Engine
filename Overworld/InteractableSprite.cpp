@@ -10,8 +10,8 @@
 
 
 InteractableSprite::InteractableSprite(const sf::Texture& texture, sf::Vector2f position,
-                             const std::vector<sf::IntRect>& collisionList, DNode* text, float timePerFrame)
-: MapSprite(sf::Vector2i(texture.getSize().y, texture.getSize().y), timePerFrame, texture), collisionBoxList(collisionList), whatItSays(text)  //yes, this is meant to have texture.getSize().y twice, because all my animation sheets are square
+                             const std::vector<sf::IntRect>& collisionList, DNode* text, float timePerFrame, float repeatDelay)
+: MapSprite(sf::Vector2i(texture.getSize().y, texture.getSize().y), timePerFrame, texture, repeatDelay), collisionBoxList(collisionList), whatItSays(text)  //yes, this is meant to have texture.getSize().y twice, because all my animation sheets are square
 {
     //setOrigin(_frameSize.width/2, _frameSize.height/2);
     for (auto && it : collisionBoxList) {
