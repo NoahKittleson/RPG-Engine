@@ -38,11 +38,11 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     }
 	
 	//Scarecrow
-	sprites.emplace_back(resources.getTexture("Scarecrow.png"), sf::Vector2f(300,200), emptyList, nullptr, 0.1f, 3.0f);
+	sprites.emplace_back(resources.getTexture("Scarecrow.png"), sf::Vector2f(500,250), emptyList, nullptr, 0.1f, 3.0f);
 	sprites.back().setScale(3.f, 3.f);
     
     //Set up Interactable Sprite
-    TalkNode* hey = &talkNodeHolder[0];
+    TalkNode* hey =	&talkNodeHolder[0];
     TalkNode* optionOne = &talkNodeHolder[1];
     TalkNode* optionTwo = &talkNodeHolder[2];
                     
@@ -69,6 +69,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
         //L block Icon
         boxlist.emplace_back(0, 0, 10, 50);
         boxlist.emplace_back(0, 0, 50, 10);
+		//this sprites should be added earlier if it is to be drawn in the correct order
         sprites.emplace_back(resources.getTexture("tree.png"), sf::Vector2f (600,100), boxlist, nullptr);
         sprites.back().setScale(4.0, 4.0);
         
@@ -78,7 +79,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
         int yWheat = resources.getTexture("RollingWheat.png").getSize().y/2;
         boxlist.push_back(sf::IntRect(-xWheat/2, -yWheat/2, xWheat, yWheat));
         sprites.emplace_back(InteractableSprite(resources.getTexture("RollingWheat.png"),
-                                                sf::Vector2f (300,300), boxlist, nullptr));
+                                                sf::Vector2f(300,300), boxlist, nullptr));
         
         boxlist.clear();
         boxlist.push_back(Rectangle);
@@ -103,5 +104,11 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 //			std::cout << "initialized with ptr\n";
 //		} else std::cout << "initialized with NULLptr\n";
 //	}
-    
+	
 }
+
+
+
+
+
+
