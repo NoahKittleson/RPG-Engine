@@ -24,6 +24,9 @@
 		B74213421E384C7F00090D95 /* BigField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74213401E384C7F00090D95 /* BigField.cpp */; };
 		B742D6F91C1292EA0093C785 /* ResourceHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B742D6F71C1292EA0093C785 /* ResourceHolder.cpp */; };
 		B7439C1A1ECA6D8C00724D0B /* Scarecrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B7439C191ECA6D8C00724D0B /* Scarecrow.png */; };
+		B7439C1E1ECB8DED00724D0B /* GraphicsComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C1C1ECB8DED00724D0B /* GraphicsComponent.cpp */; };
+		B7439C211ECB8F2E00724D0B /* AnimatedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C1F1ECB8F2D00724D0B /* AnimatedComponent.cpp */; };
+		B7439C241ECB983900724D0B /* DelayedAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C221ECB983900724D0B /* DelayedAnimation.cpp */; };
 		B75ABA1A1C7BD7DA00B9FFDE /* IterVector.inl in Resources */ = {isa = PBXBuildFile; fileRef = B75ABA191C7BD7DA00B9FFDE /* IterVector.inl */; };
 		B75ABA231C7BD81D00B9FFDE /* DNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75ABA1C1C7BD81D00B9FFDE /* DNode.cpp */; };
 		B75ABA241C7BD81D00B9FFDE /* OptionNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75ABA1E1C7BD81D00B9FFDE /* OptionNode.cpp */; };
@@ -83,6 +86,12 @@
 		B742D6F71C1292EA0093C785 /* ResourceHolder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceHolder.cpp; sourceTree = "<group>"; };
 		B742D6F81C1292EA0093C785 /* ResourceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceHolder.h; sourceTree = "<group>"; };
 		B7439C191ECA6D8C00724D0B /* Scarecrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scarecrow.png; sourceTree = "<group>"; };
+		B7439C1C1ECB8DED00724D0B /* GraphicsComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GraphicsComponent.cpp; sourceTree = "<group>"; };
+		B7439C1D1ECB8DED00724D0B /* GraphicsComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GraphicsComponent.hpp; sourceTree = "<group>"; };
+		B7439C1F1ECB8F2D00724D0B /* AnimatedComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedComponent.cpp; sourceTree = "<group>"; };
+		B7439C201ECB8F2E00724D0B /* AnimatedComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnimatedComponent.hpp; sourceTree = "<group>"; };
+		B7439C221ECB983900724D0B /* DelayedAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DelayedAnimation.cpp; sourceTree = "<group>"; };
+		B7439C231ECB983900724D0B /* DelayedAnimation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DelayedAnimation.hpp; sourceTree = "<group>"; };
 		B75ABA181C7BD7DA00B9FFDE /* IterVector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IterVector.hpp; sourceTree = "<group>"; };
 		B75ABA191C7BD7DA00B9FFDE /* IterVector.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IterVector.inl; sourceTree = "<group>"; };
 		B75ABA1B1C7BD81D00B9FFDE /* DNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNode.h; sourceTree = "<group>"; };
@@ -153,6 +162,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B7439C1B1ECB8D0400724D0B /* SpriteGuts */ = {
+			isa = PBXGroup;
+			children = (
+				B7D17D171E4EA12C00D71290 /* MapSprite.hpp */,
+				B7D17D161E4EA12C00D71290 /* MapSprite.cpp */,
+				B7A26C0B1C805AA30083989B /* InteractableSprite.h */,
+				B7A26C0A1C805AA30083989B /* InteractableSprite.cpp */,
+				B75F86321BACE5C10093B615 /* AnimatedSprite.h */,
+				B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */,
+				B7439C1D1ECB8DED00724D0B /* GraphicsComponent.hpp */,
+				B7439C1C1ECB8DED00724D0B /* GraphicsComponent.cpp */,
+				B7439C201ECB8F2E00724D0B /* AnimatedComponent.hpp */,
+				B7439C1F1ECB8F2D00724D0B /* AnimatedComponent.cpp */,
+				B7439C231ECB983900724D0B /* DelayedAnimation.hpp */,
+				B7439C221ECB983900724D0B /* DelayedAnimation.cpp */,
+			);
+			name = SpriteGuts;
+			sourceTree = "<group>";
+		};
 		B75F86301BACE2380093B615 /* BattleMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,8 +188,6 @@
 				B7DD37431C35DFFC0089224E /* BattleMode.cpp */,
 				B75F862B1BACE0C60093B615 /* Character.h */,
 				B75F862A1BACE0C60093B615 /* Character.cpp */,
-				B75F86321BACE5C10093B615 /* AnimatedSprite.h */,
-				B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */,
 				B75F862E1BACE0FB0093B615 /* Ability.h */,
 				B75F862D1BACE0FB0093B615 /* Ability.cpp */,
 				B77BE44B1BB5E03500F5645C /* Menu.h */,
@@ -270,16 +296,13 @@
 				B7034DA41E7298C3007288A6 /* Mode.cpp */,
 				B7C9F3801E6235D300E7A045 /* Fade.hpp */,
 				B7C9F37F1E6235D300E7A045 /* Fade.cpp */,
-				B7D17D171E4EA12C00D71290 /* MapSprite.hpp */,
-				B7D17D161E4EA12C00D71290 /* MapSprite.cpp */,
 				B77ED0FA1C82E221004046D1 /* Player.h */,
 				B77ED0F91C82E221004046D1 /* Player.cpp */,
-				B7A26C0B1C805AA30083989B /* InteractableSprite.h */,
-				B7A26C0A1C805AA30083989B /* InteractableSprite.cpp */,
 				B7A26C0E1C8061A50083989B /* Trigger.h */,
 				B7A26C0D1C8061A50083989B /* Trigger.cpp */,
 				B7A26C111C8070370083989B /* ZoneExit.h */,
 				B7A26C101C8070370083989B /* ZoneExit.cpp */,
+				B7439C1B1ECB8D0400724D0B /* SpriteGuts */,
 				B79AD8D51D4F11EE00B7C8F7 /* Maps */,
 			);
 			name = OverworldMode;
@@ -424,6 +447,7 @@
 				B77784091AE5C84D007FA840 /* Game.cpp in Sources */,
 				B7034DA61E7298C3007288A6 /* Mode.cpp in Sources */,
 				B75B77911C00723900122CCC /* StateStack.cpp in Sources */,
+				B7439C1E1ECB8DED00724D0B /* GraphicsComponent.cpp in Sources */,
 				B73219221B2111D000C41162 /* MapSection.cpp in Sources */,
 				B74213421E384C7F00090D95 /* BigField.cpp in Sources */,
 				B77ED0FB1C82E221004046D1 /* Player.cpp in Sources */,
@@ -441,6 +465,8 @@
 				B7A26C0F1C8061A50083989B /* Trigger.cpp in Sources */,
 				B75ABA241C7BD81D00B9FFDE /* OptionNode.cpp in Sources */,
 				B7023E091BB5E12F005A6F93 /* MenuItem.cpp in Sources */,
+				B7439C241ECB983900724D0B /* DelayedAnimation.cpp in Sources */,
+				B7439C211ECB8F2E00724D0B /* AnimatedComponent.cpp in Sources */,
 				B75ABA231C7BD81D00B9FFDE /* DNode.cpp in Sources */,
 				B7023E0C1BB5E16B005A6F93 /* BattleMenu.cpp in Sources */,
 				B77783F81AE5C57D007FA840 /* main.cpp in Sources */,
