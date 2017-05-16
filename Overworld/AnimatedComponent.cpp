@@ -8,6 +8,12 @@
 
 #include "AnimatedComponent.hpp"
 
+AnimatedComponent::AnimatedComponent(float timePerFrame, sf::Vector2i frame)
+: timePerFrame(timePerFrame), frameSize(0,0,frame.x, frame.y)
+{
+    
+}
+
 void AnimatedComponent::update(MapSprite& spr, float elapsed)
 {
     totalElapsed += elapsed;

@@ -8,6 +8,14 @@
 
 #pragma once
 #include "AnimatedComponent.hpp"
-#include "doesntexit.hpp"
 
-class DelayedAnimation
+class DelayedAnimation :  public AnimatedComponent
+{
+public:
+    DelayedAnimation(float timePerFrame, sf::Vector2i frame, float repeatDelay);
+    virtual void update(MapSprite& spr, float elapsed) override;
+    
+protected:
+    const float repeatDelay;
+    bool waiting;
+};
