@@ -37,8 +37,9 @@ StartingZone::StartingZone(const ResourceHolder& resources)
         WheatField.move(-verticalGap * (columns - 1) + rowOffset, horizontalGap);
     }
 	
-	//scarecrow
-	//sprites.emplace_back(resources.getTexture("Scarecrow.png"));
+	//Scarecrow
+	sprites.emplace_back(resources.getTexture("Scarecrow.png"), sf::Vector2f(300,200), emptyList, nullptr, 0.1f, 3.0f);
+	sprites.back().setScale(3.f, 3.f);
     
     //Set up Interactable Sprite
     TalkNode* hey = &talkNodeHolder[0];

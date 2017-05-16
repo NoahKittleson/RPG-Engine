@@ -40,7 +40,12 @@ void AnimatedSprite::update(float elapsed)       //non looped animation stays on
     _totalelapsed += elapsed;
     
     if (!waiting || _totalelapsed >= repeatDelay) {
-        waiting = false;
+        if (waiting) {
+            waiting = false;
+            _totalelapsed = 0;
+            next_frame();
+            return;
+        }
         while (_totalelapsed >= _timePerFrame) {
             _totalelapsed -= _timePerFrame;
             if (repeatDelay && atEnd()) {
