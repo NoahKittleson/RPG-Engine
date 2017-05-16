@@ -14,5 +14,5 @@ class GraphicsComponent
 {
 public:
     virtual ~GraphicsComponent() {}
-    virtual void update(MapSprite& spr, float elapsed) = 0;
+    virtual void update(MapSprite& spr, float elapsed);
 };
