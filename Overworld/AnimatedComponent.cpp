@@ -8,35 +8,35 @@
 
 #include "AnimatedComponent.hpp"
 
-AnimatedComponent::AnimatedComponent(float timePerFrame, sf::Vector2i frame)
-: timePerFrame(timePerFrame), frameSize(0,0,frame.x, frame.y)
+AnimatedComponent::AnimatedComponent(sf::Texture& t, sf::Vector2f pos, float timePerFrame, sf::Vector2i frame)
+: timePerFrame(timePerFrame), frameSize(0,0,frame.x, frame.y), GraphicsComponent(t, pos)
 {
     
 }
 
-void AnimatedComponent::update(MapSprite& spr, float elapsed)
+void AnimatedComponent::update(MapObject& obj, float elapsed)
 {
     totalElapsed += elapsed;
     while (totalElapsed >= timePerFrame) {
         totalElapsed -= timePerFrame;
-        nextFrame(spr);
+        nextFrame();
     }
 }
 
-void AnimatedComponent::nextFrame(MapSprite& spr)
+void AnimatedComponent::nextFrame()
 {
-    if (atEnd(spr)) {
-        spr.setTextureRect(frameSize);
+    if (atEnd()) {
+        setTextureRect(frameSize);
     }
-    else spr.setTextureRect(sf::IntRect(spr.getTextureRect().left + frameSize.width,
-                                        spr.getTextureRect().top,
-                                        spr.getTextureRect().width,
-                                        spr.getTextureRect().height ));
+    else setTextureRect(sf::IntRect(getTextureRect().left + frameSize.width,
+                                    getTextureRect().top,
+                                    getTextureRect().width,
+                                    getTextureRect().height ));
 }
 
-bool AnimatedComponent::atEnd(MapSprite& spr)
+bool AnimatedComponent::atEnd()
 {
-    return (spr.getTextureRect().left + frameSize.width >= spr.getTexture()->getSize().x);
+    return (getTextureRect().left + frameSize.width >= getTexture()->getSize().x);
 }
 
 

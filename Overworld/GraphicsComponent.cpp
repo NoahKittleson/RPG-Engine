@@ -8,7 +8,14 @@
 
 #include "GraphicsComponent.hpp"
 
-void GraphicsComponent::update(MapSprite& spr, float elapsed)
+GraphicsComponent::GraphicsComponent(sf::Texture& texture, sf::Vector2f position)
+{
+    setTexture(texture);
+    setPosition(position);
+}
+
+
+void GraphicsComponent::update(MapObject& obj, float elapsed)
 {
     return;
 }

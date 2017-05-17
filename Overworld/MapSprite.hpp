@@ -37,3 +37,9 @@ public:
     int getBase() const;
     void drawBase(sf::RenderWindow &rw) const;
 };
+
+
+
+
+
+

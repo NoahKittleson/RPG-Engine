@@ -8,13 +8,13 @@
 
 #include "DelayedAnimation.hpp"
 
-DelayedAnimation::DelayedAnimation(float timePerFrame, sf::Vector2i frame, float repeatDelay)
-: AnimatedComponent(timePerFrame, frame), repeatDelay(repeatDelay)
+DelayedAnimation::DelayedAnimation(sf::Texture& t, sf::Vector2f pos, float timePerFrame, sf::Vector2i frame, float repeatDelay)
+: AnimatedComponent(t, pos, timePerFrame, frame), repeatDelay(repeatDelay)
 {
     
 }
 
-void DelayedAnimation::update(MapSprite &spr, float elapsed)
+void DelayedAnimation::update(MapObject &obj, float elapsed)
 {
     totalElapsed += elapsed;
     if (waiting) {
@@ -25,11 +25,11 @@ void DelayedAnimation::update(MapSprite &spr, float elapsed)
     } else {
         while (totalElapsed >= timePerFrame) {
             totalElapsed -= timePerFrame;
-            if (repeatDelay && atEnd(spr)) {
+            if (repeatDelay && atEnd()) {
                 waiting = true;
                 return;
             }
-            nextFrame(spr);
+            nextFrame();
         }
     }
 }

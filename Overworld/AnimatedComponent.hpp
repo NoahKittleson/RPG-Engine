@@ -12,14 +12,14 @@
 class AnimatedComponent : public GraphicsComponent
 {
 public:
-    AnimatedComponent(float timePerFrame, sf::Vector2i frame);
-    virtual void update(MapSprite& spr, float elapsed) override;
+    AnimatedComponent(sf::Texture&, sf::Vector2f position, float timePerFrame, sf::Vector2i frame);
+    virtual void update(MapObject& obj, float elapsed) override;
     
 protected:
     float totalElapsed = 0;
     const float timePerFrame;
     sf::IntRect frameSize;
     
-    void nextFrame(MapSprite& spr);
-    bool atEnd(MapSprite& spr);
+    void nextFrame();
+    bool atEnd();
 };

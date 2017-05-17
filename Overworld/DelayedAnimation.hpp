@@ -12,8 +12,8 @@
 class DelayedAnimation :  public AnimatedComponent
 {
 public:
-    DelayedAnimation(float timePerFrame, sf::Vector2i frame, float repeatDelay);
-    virtual void update(MapSprite& spr, float elapsed) override;
+    DelayedAnimation(sf::Texture&, sf::Vector2f, float timePerFrame, sf::Vector2i frame, float repeatDelay);
+    virtual void update(MapObject& obj, float elapsed) override;
     
 protected:
     const float repeatDelay;

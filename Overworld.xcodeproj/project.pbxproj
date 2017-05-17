@@ -27,6 +27,7 @@
 		B7439C1E1ECB8DED00724D0B /* GraphicsComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C1C1ECB8DED00724D0B /* GraphicsComponent.cpp */; };
 		B7439C211ECB8F2E00724D0B /* AnimatedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C1F1ECB8F2D00724D0B /* AnimatedComponent.cpp */; };
 		B7439C241ECB983900724D0B /* DelayedAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C221ECB983900724D0B /* DelayedAnimation.cpp */; };
+		B7439C2A1ECBBD0400724D0B /* MapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C281ECBBD0400724D0B /* MapObject.cpp */; };
 		B75ABA1A1C7BD7DA00B9FFDE /* IterVector.inl in Resources */ = {isa = PBXBuildFile; fileRef = B75ABA191C7BD7DA00B9FFDE /* IterVector.inl */; };
 		B75ABA231C7BD81D00B9FFDE /* DNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75ABA1C1C7BD81D00B9FFDE /* DNode.cpp */; };
 		B75ABA241C7BD81D00B9FFDE /* OptionNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75ABA1E1C7BD81D00B9FFDE /* OptionNode.cpp */; };
@@ -92,6 +93,8 @@
 		B7439C201ECB8F2E00724D0B /* AnimatedComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnimatedComponent.hpp; sourceTree = "<group>"; };
 		B7439C221ECB983900724D0B /* DelayedAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DelayedAnimation.cpp; sourceTree = "<group>"; };
 		B7439C231ECB983900724D0B /* DelayedAnimation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DelayedAnimation.hpp; sourceTree = "<group>"; };
+		B7439C281ECBBD0400724D0B /* MapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapObject.cpp; sourceTree = "<group>"; };
+		B7439C291ECBBD0400724D0B /* MapObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MapObject.hpp; sourceTree = "<group>"; };
 		B75ABA181C7BD7DA00B9FFDE /* IterVector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IterVector.hpp; sourceTree = "<group>"; };
 		B75ABA191C7BD7DA00B9FFDE /* IterVector.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IterVector.inl; sourceTree = "<group>"; };
 		B75ABA1B1C7BD81D00B9FFDE /* DNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNode.h; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				B7A26C0A1C805AA30083989B /* InteractableSprite.cpp */,
 				B75F86321BACE5C10093B615 /* AnimatedSprite.h */,
 				B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */,
+				B7439C291ECBBD0400724D0B /* MapObject.hpp */,
+				B7439C281ECBBD0400724D0B /* MapObject.cpp */,
 				B7439C1D1ECB8DED00724D0B /* GraphicsComponent.hpp */,
 				B7439C1C1ECB8DED00724D0B /* GraphicsComponent.cpp */,
 				B7439C201ECB8F2E00724D0B /* AnimatedComponent.hpp */,
@@ -454,6 +459,7 @@
 				B75F862C1BACE0C60093B615 /* Character.cpp in Sources */,
 				B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */,
 				B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */,
+				B7439C2A1ECBBD0400724D0B /* MapObject.cpp in Sources */,
 				B742D6F91C1292EA0093C785 /* ResourceHolder.cpp in Sources */,
 				B7D17D1B1E512CDC00D71290 /* LoadState.cpp in Sources */,
 				B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */,
