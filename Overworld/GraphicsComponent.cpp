@@ -19,3 +19,8 @@ void GraphicsComponent::update(MapObject& obj, float elapsed)
 {
     return;
 }
+
+void addTime(float delta) {
+    return;
+}
+

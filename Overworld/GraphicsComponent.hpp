@@ -16,5 +16,6 @@ public:
     virtual ~GraphicsComponent() {}
     GraphicsComponent (sf::Texture& texture, sf::Vector2f position);
     virtual void update(MapObject& obj, float elapsed);         //I never use the Obj item called in.  Will I in the future?
-    
+    virtual void addTime(float delta);
+
 };

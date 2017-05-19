@@ -39,4 +39,8 @@ bool AnimatedComponent::atEnd()
     return (getTextureRect().left + frameSize.width >= getTexture()->getSize().x);
 }
 
+void AnimatedComponent::addTime(float delta)
+{
+    totalElapsed += delta;
+}
 

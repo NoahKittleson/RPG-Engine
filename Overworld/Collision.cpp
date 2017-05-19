@@ -14,7 +14,7 @@ Collision::Collision(sf::IntRect collisionBox)
     
 }
 
-void Collision::update(MapObject& obj, float elapsed)
+void Collision::update(MapObject& obj, MapSection& map)
 {
-    if
+    //if
 }

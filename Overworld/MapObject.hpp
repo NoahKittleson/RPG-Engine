@@ -12,17 +12,26 @@
 //#include "InputComponent.hpp"
 //#include "PhysicsComponent.hpp"
 
+class GraphicsComponent;
+
 class MapObject {
 public:
+    MapObject(GraphicsComponent* gc);
+    
     void setPosition(float x, float y);
     sf::Vector2f getPosition();                     //I might not want to even commit to something as simple as these...
+    int getBase() const;
+    void drawBase(sf::RenderWindow &rw) const;
+    void addTime(float delta);
+
     
     void update(float elapsed);
     void draw(sf::RenderWindow &rw);
     
 private:
     GraphicsComponent* graphics;
-    PhysicsComponent* physics;
-    InputComponent* input;      //is this useful or necessary?
+    //Maybe consider doing these later?
+    //PhysicsComponent* physics;
+    //InputComponent* input;
     
 };
