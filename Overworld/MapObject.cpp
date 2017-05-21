@@ -28,6 +28,6 @@ void MapObject::drawBase(sf::RenderWindow &rw) const {
     rw.draw(rect);
 }
 
-void addTime(float delta) {
-    
+void MapObject::addTime(float delta) {
+	graphics->addTime(delta);
 }

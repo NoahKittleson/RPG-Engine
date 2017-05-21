@@ -9,7 +9,10 @@
 #include "PhysicsComponent.hpp"
 
 
-void PhysicsComponent::update(MapObject& obj, float elapsed) {
-    return;
+bool PhysicsComponent::intersects(sf::IntRect) const {
+	return false;
 }
 
+void PhysicsComponent::collide(Player&, sf::Vector2f movement) const {
+	return;
+}

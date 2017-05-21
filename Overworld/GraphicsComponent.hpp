@@ -10,6 +10,8 @@
 #include "PrefixHeader.pch"
 #include "MapObject.hpp"
 
+class MapObject;
+
 class GraphicsComponent : public sf::Sprite                 //this might be a bad idea.  If it is then just make Sprite a member
 {
 public:

@@ -9,12 +9,13 @@
 #pragma once
 #include "PhysicsComponent.cpp"
 
-class Collision : public PhysicsComponent
+class SingleCollision : public PhysicsComponent
 {
 public:
-    Collision(sf::IntRect collisionBox);
-    virtual void update(MapObject& obj, MapSection& map) override;
-    
+    SingleCollision(sf::IntRect collisionBox);
+	virtual bool intersects(sf::IntRect) const override;
+	virtual void collide(Player&, sf::Vector2f movement) const override;
+	
 private:
     sf::IntRect collisionBox;
     
