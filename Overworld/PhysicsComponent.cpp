@@ -13,6 +13,10 @@ bool PhysicsComponent::intersects(sf::IntRect) const {
 	return false;
 }
 
-void PhysicsComponent::collide(Player&, sf::Vector2f movement) const {
+void PhysicsComponent::handleCollisionX(Player &, float movement) const {
+	return;
+}
+
+void PhysicsComponent::handleCollisionY(Player &, float movement) const {
 	return;
 }

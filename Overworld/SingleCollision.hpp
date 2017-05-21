@@ -14,7 +14,9 @@ class SingleCollision : public PhysicsComponent
 public:
     SingleCollision(sf::IntRect collisionBox);
 	virtual bool intersects(sf::IntRect) const override;
-	virtual void collide(Player&, sf::Vector2f movement) const override;
+	virtual void handleCollisionX(Player&, float movement) const override;
+	virtual void handleCollisionY(Player&, float movement) const override;
+
 	
 private:
     sf::IntRect collisionBox;

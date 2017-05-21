@@ -17,5 +17,7 @@ public:
     PhysicsComponent();
     //virtual void update(MapObject& player, MapSection& map);	//I never use the Obj item called in.  Will I in the future?
 	virtual bool intersects(sf::IntRect) const;
-	virtual void collide(Player&, sf::Vector2f movement) const;
+	virtual void handleCollisionX(Player&, float movement) const;
+	virtual void handleCollisionY(Player&, float movement) const;
+
 };

@@ -18,25 +18,32 @@ bool SingleCollision::intersects(sf::IntRect entity) const {
 	return entity.intersects(collisionBox);
 }
 
-void SingleCollision::collide(Player& PC, sf::Vector2f movement) const {
-
+void SingleCollision::handleCollisionX(Player& PC, sf::Vector2f movement) const {
 	sf::IntRect playerRect = PC.getAbsBox();
+	
 	if (playerRect.intersects(collisionBox)) {
-		if (movement.x == 0 && movement.y > 0) {			//moving down
-			PC.setPosition(PC.getPosition().x,
-						   collisionBox.top - playerRect.height/2);
+		if (movement.x > 0) {			//moving right
+			PC.setPosition(collisionBox.left - playerRect.width/2, PC.getPosition().y);
+			return;
 		}
-		else if (movement.x == 0 && movement.y < 0){		//moving up
-			PC.setPosition(PC.getPosition().x,
-						   collisionBox.top + collisionBox.height + playerRect.height/2);
+		if (movement.x < 0) {			//moving left
+			PC.setPosition(collisionBox.left + collisionBox.width + playerRect.width/2, PC.getPosition().y);
+			return;
 		}
-		else if (movement.x > 0 && movement.y == 0){		//moving right
-			PC.setPosition(collisionBox.left - playerRect.width/2,
-						   PC.getPosition().y);
+	}
+}
+
+void SingleCollision::handleCollisionY(Player& PC, sf::Vector2f movement) const {
+	sf::IntRect playerRect = PC.getAbsBox();
+	
+	if (playerRect.intersects(collisionBox)) {
+		if (movement.y > 0) {			//moving down
+			PC.setPosition(PC.getPosition().x, collisionBox.top - playerRect.height/2);
+			return;
 		}
-		else if (movement.x < 0 && movement.y == 0){		//moving left
-			PC.setPosition(collisionBox.left + collisionBox.width + playerRect.width/2,
-						   PC.getPosition().y);
+		if (movement.y < 0) {			//moving up
+			PC.setPosition(PC.getPosition().x, collisionBox.top + collisionBox.height + playerRect.height/2);
+			return;
 		}
 	}
 }
