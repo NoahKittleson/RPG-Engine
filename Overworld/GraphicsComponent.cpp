@@ -15,12 +15,11 @@ GraphicsComponent::GraphicsComponent(sf::Texture& texture, sf::Vector2f position
 }
 
 
-void GraphicsComponent::update(MapObject& obj, float elapsed)
-{
+void GraphicsComponent::update(MapObject& obj, float elapsed) {
     return;
 }
 
-void addTime(float delta) {
+void GraphicsComponent::addTime(float delta) {
     return;
 }
 

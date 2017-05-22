@@ -7,7 +7,7 @@
 //
 
 #pragma once
-#include "PhysicsComponent.cpp"
+#include "PhysicsComponent.hpp"
 
 class SingleCollision : public PhysicsComponent
 {
@@ -20,5 +20,5 @@ public:
 	
 private:
     sf::IntRect collisionBox;
-    
+	
 };
