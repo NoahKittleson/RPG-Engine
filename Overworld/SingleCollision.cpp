@@ -18,7 +18,7 @@ bool SingleCollision::intersects(sf::IntRect entity) const {
 	return entity.intersects(collisionBox);
 }
 
-void SingleCollision::handleCollisionX(Player& PC, float movement) const {
+void SingleCollision::handleCollisionX(MapObject& PC, float movement) const {
 	sf::IntRect playerRect = PC.getAbsBox();
 	
 	if (playerRect.intersects(collisionBox)) {
@@ -33,7 +33,7 @@ void SingleCollision::handleCollisionX(Player& PC, float movement) const {
 	}
 }
 
-void SingleCollision::handleCollisionY(Player& PC, float movement) const {
+void SingleCollision::handleCollisionY(MapObject& PC, float movement) const {
 	sf::IntRect playerRect = PC.getAbsBox();
 	
 	if (playerRect.intersects(collisionBox)) {

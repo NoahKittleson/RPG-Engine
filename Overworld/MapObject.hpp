@@ -9,29 +9,30 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "GraphicsComponent.hpp"
+#include "PhysicsComponent.hpp"
 //#include "InputComponent.hpp"
-//#include "PhysicsComponent.hpp"
 
 class GraphicsComponent;
+class PhysicsComponent;
 
 class MapObject {
 public:
-    MapObject(GraphicsComponent* gc);
-    
+    MapObject(GraphicsComponent* gc, PhysicsComponent* pc);
+	
     void setPosition(float x, float y);
     sf::Vector2f getPosition();                     //I might not want to even commit to something as simple as these...
     int getBase() const;
     void drawBase(sf::RenderWindow &rw) const;
     void addTime(float delta);
 
-    
+	void handleCollision(MapObject&, sf::Vector2f movement) const;
+
     void update(float elapsed);
     void draw(sf::RenderWindow &rw);
     
 private:
     GraphicsComponent* graphics;
-    //Maybe consider doing these later?
-    //PhysicsComponent* physics;
+    PhysicsComponent* physics;
     //InputComponent* input;
     
 };

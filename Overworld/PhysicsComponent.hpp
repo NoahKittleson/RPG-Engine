@@ -9,14 +9,15 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "MapObject.hpp"
-#include "MapSection.h"
+
+class MapObject;
 
 class PhysicsComponent {
 public:
     virtual ~PhysicsComponent() {}
     //virtual void update(MapObject& player, MapSection& map);	//I never use the Obj item called in.  Will I in the future?
 	virtual bool intersects(sf::IntRect) const;
-	virtual void handleCollisionX(Player&, float movement) const;
-	virtual void handleCollisionY(Player&, float movement) const;
+	virtual void handleCollisionX(MapObject&, float movement) const;			//I probably shouldn't use player...
+	virtual void handleCollisionY(MapObject&, float movement) const;
 
 };

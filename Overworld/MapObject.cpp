@@ -31,3 +31,9 @@ void MapObject::drawBase(sf::RenderWindow &rw) const {
 void MapObject::addTime(float delta) {
 	graphics->addTime(delta);
 }
+
+void MapObject::handleCollision(MapObject& player, sf::Vector2f movement) const {
+	physics->handleCollisionX(player, movement.x);
+	physics->handleCollisionY(player, movement.y);
+}
+
