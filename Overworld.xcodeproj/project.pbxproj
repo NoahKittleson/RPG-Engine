@@ -54,6 +54,7 @@
 		B7A26C0C1C805AA30083989B /* InteractableSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C0A1C805AA30083989B /* InteractableSprite.cpp */; };
 		B7A26C0F1C8061A50083989B /* Trigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C0D1C8061A50083989B /* Trigger.cpp */; };
 		B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C101C8070370083989B /* ZoneExit.cpp */; };
+		B7AAAC6F1ED54942004C4836 /* MovingObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AAAC6D1ED54942004C4836 /* MovingObject.cpp */; };
 		B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7C9F37F1E6235D300E7A045 /* Fade.cpp */; };
 		B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */; };
 		B7D17D181E4EA12C00D71290 /* MapSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7D17D161E4EA12C00D71290 /* MapSprite.cpp */; };
@@ -146,6 +147,8 @@
 		B7A26C0E1C8061A50083989B /* Trigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger.h; sourceTree = "<group>"; };
 		B7A26C101C8070370083989B /* ZoneExit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZoneExit.cpp; sourceTree = "<group>"; };
 		B7A26C111C8070370083989B /* ZoneExit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneExit.h; sourceTree = "<group>"; };
+		B7AAAC6D1ED54942004C4836 /* MovingObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovingObject.cpp; sourceTree = "<group>"; };
+		B7AAAC6E1ED54942004C4836 /* MovingObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MovingObject.hpp; sourceTree = "<group>"; };
 		B7C9F37F1E6235D300E7A045 /* Fade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fade.cpp; sourceTree = "<group>"; };
 		B7C9F3801E6235D300E7A045 /* Fade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Fade.hpp; sourceTree = "<group>"; };
 		B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingLeft.png; sourceTree = "<group>"; };
@@ -182,6 +185,8 @@
 				B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */,
 				B7439C291ECBBD0400724D0B /* MapObject.hpp */,
 				B7439C281ECBBD0400724D0B /* MapObject.cpp */,
+				B7AAAC6E1ED54942004C4836 /* MovingObject.hpp */,
+				B7AAAC6D1ED54942004C4836 /* MovingObject.cpp */,
 				B7439C2C1ECC06FC00724D0B /* PhysicsComponent.hpp */,
 				B7439C2B1ECC06FC00724D0B /* PhysicsComponent.cpp */,
 				B7439C2F1ECC0B4C00724D0B /* SingleCollision.hpp */,
@@ -487,6 +492,7 @@
 				B75ABA231C7BD81D00B9FFDE /* DNode.cpp in Sources */,
 				B7023E0C1BB5E16B005A6F93 /* BattleMenu.cpp in Sources */,
 				B77783F81AE5C57D007FA840 /* main.cpp in Sources */,
+				B7AAAC6F1ED54942004C4836 /* MovingObject.cpp in Sources */,
 				B7439C2D1ECC06FC00724D0B /* PhysicsComponent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

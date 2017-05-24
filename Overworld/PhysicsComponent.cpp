@@ -9,9 +9,15 @@
 #include "PhysicsComponent.hpp"
 
 
-bool PhysicsComponent::intersects(sf::IntRect) const {
+bool PhysicsComponent::intersects(PhysicsComponent* phys) const {
+	return false;
+
+}
+
+bool PhysicsComponent::intersects(sf::IntRect box) const {
 	return false;
 }
+
 
 void PhysicsComponent::handleCollisionX(MapObject &, float movement) const {
 	return;

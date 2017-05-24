@@ -18,6 +18,10 @@ bool SingleCollision::intersects(sf::IntRect entity) const {
 	return entity.intersects(collisionBox);
 }
 
+bool SingleCollision::intersects(PhysicsComponent* phys) const {
+	return phys->intersects(collisionBox);
+}
+
 void SingleCollision::handleCollisionX(MapObject& PC, float movement) const {
 	sf::IntRect playerRect = PC.getAbsBox();
 	
