@@ -9,7 +9,7 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "GraphicsComponent.hpp"
-#include "PhysicsComponent.hpp"
+//#include "PhysicsComponent.hpp"
 //#include "InputComponent.hpp"
 
 class GraphicsComponent;

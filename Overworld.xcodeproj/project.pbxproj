@@ -28,8 +28,6 @@
 		B7439C211ECB8F2E00724D0B /* AnimatedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C1F1ECB8F2D00724D0B /* AnimatedComponent.cpp */; };
 		B7439C241ECB983900724D0B /* DelayedAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C221ECB983900724D0B /* DelayedAnimation.cpp */; };
 		B7439C2A1ECBBD0400724D0B /* MapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C281ECBBD0400724D0B /* MapObject.cpp */; };
-		B7439C2D1ECC06FC00724D0B /* PhysicsComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C2B1ECC06FC00724D0B /* PhysicsComponent.cpp */; };
-		B7439C301ECC0B4C00724D0B /* SingleCollision.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C2E1ECC0B4C00724D0B /* SingleCollision.cpp */; };
 		B75ABA1A1C7BD7DA00B9FFDE /* IterVector.inl in Resources */ = {isa = PBXBuildFile; fileRef = B75ABA191C7BD7DA00B9FFDE /* IterVector.inl */; };
 		B75ABA231C7BD81D00B9FFDE /* DNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75ABA1C1C7BD81D00B9FFDE /* DNode.cpp */; };
 		B75ABA241C7BD81D00B9FFDE /* OptionNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75ABA1E1C7BD81D00B9FFDE /* OptionNode.cpp */; };
@@ -98,10 +96,6 @@
 		B7439C231ECB983900724D0B /* DelayedAnimation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DelayedAnimation.hpp; sourceTree = "<group>"; };
 		B7439C281ECBBD0400724D0B /* MapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapObject.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		B7439C291ECBBD0400724D0B /* MapObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MapObject.hpp; sourceTree = "<group>"; };
-		B7439C2B1ECC06FC00724D0B /* PhysicsComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsComponent.cpp; sourceTree = "<group>"; };
-		B7439C2C1ECC06FC00724D0B /* PhysicsComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PhysicsComponent.hpp; sourceTree = "<group>"; usesTabs = 1; };
-		B7439C2E1ECC0B4C00724D0B /* SingleCollision.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SingleCollision.cpp; sourceTree = "<group>"; };
-		B7439C2F1ECC0B4C00724D0B /* SingleCollision.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SingleCollision.hpp; sourceTree = "<group>"; };
 		B75ABA181C7BD7DA00B9FFDE /* IterVector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IterVector.hpp; sourceTree = "<group>"; };
 		B75ABA191C7BD7DA00B9FFDE /* IterVector.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IterVector.inl; sourceTree = "<group>"; };
 		B75ABA1B1C7BD81D00B9FFDE /* DNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DNode.h; sourceTree = "<group>"; };
@@ -187,10 +181,6 @@
 				B7439C281ECBBD0400724D0B /* MapObject.cpp */,
 				B7AAAC6E1ED54942004C4836 /* MovingObject.hpp */,
 				B7AAAC6D1ED54942004C4836 /* MovingObject.cpp */,
-				B7439C2C1ECC06FC00724D0B /* PhysicsComponent.hpp */,
-				B7439C2B1ECC06FC00724D0B /* PhysicsComponent.cpp */,
-				B7439C2F1ECC0B4C00724D0B /* SingleCollision.hpp */,
-				B7439C2E1ECC0B4C00724D0B /* SingleCollision.cpp */,
 				B7439C1D1ECB8DED00724D0B /* GraphicsComponent.hpp */,
 				B7439C1C1ECB8DED00724D0B /* GraphicsComponent.cpp */,
 				B7439C201ECB8F2E00724D0B /* AnimatedComponent.hpp */,
@@ -480,7 +470,6 @@
 				B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */,
 				B75F86331BACE5C10093B615 /* AnimatedSprite.cpp in Sources */,
 				B77844A71E25D2F7002C7555 /* PauseMenu.cpp in Sources */,
-				B7439C301ECC0B4C00724D0B /* SingleCollision.cpp in Sources */,
 				B76E02341D738EC90058D39E /* ResourcePath.mm in Sources */,
 				B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */,
 				B7DD37451C35DFFC0089224E /* BattleMode.cpp in Sources */,
@@ -493,7 +482,6 @@
 				B7023E0C1BB5E16B005A6F93 /* BattleMenu.cpp in Sources */,
 				B77783F81AE5C57D007FA840 /* main.cpp in Sources */,
 				B7AAAC6F1ED54942004C4836 /* MovingObject.cpp in Sources */,
-				B7439C2D1ECC06FC00724D0B /* PhysicsComponent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
