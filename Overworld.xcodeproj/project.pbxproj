@@ -22,6 +22,7 @@
 		B73F35061E4B096D007EC4AC /* PlayerWalkingUp.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35051E4B096D007EC4AC /* PlayerWalkingUp.png */; };
 		B742133F1E3836F300090D95 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = B742133E1E3836F300090D95 /* tree.png */; };
 		B74213421E384C7F00090D95 /* BigField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74213401E384C7F00090D95 /* BigField.cpp */; };
+		B7423AA51ED8E40200117440 /* InputComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7423AA31ED8E40200117440 /* InputComponent.cpp */; };
 		B742D6F91C1292EA0093C785 /* ResourceHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B742D6F71C1292EA0093C785 /* ResourceHolder.cpp */; };
 		B7439C1A1ECA6D8C00724D0B /* Scarecrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B7439C191ECA6D8C00724D0B /* Scarecrow.png */; };
 		B7439C1E1ECB8DED00724D0B /* GraphicsComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C1C1ECB8DED00724D0B /* GraphicsComponent.cpp */; };
@@ -84,6 +85,8 @@
 		B742133E1E3836F300090D95 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
 		B74213401E384C7F00090D95 /* BigField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BigField.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		B74213411E384C7F00090D95 /* BigField.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BigField.hpp; sourceTree = "<group>"; };
+		B7423AA31ED8E40200117440 /* InputComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputComponent.cpp; sourceTree = "<group>"; };
+		B7423AA41ED8E40200117440 /* InputComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = InputComponent.hpp; sourceTree = "<group>"; };
 		B742D6F71C1292EA0093C785 /* ResourceHolder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceHolder.cpp; sourceTree = "<group>"; };
 		B742D6F81C1292EA0093C785 /* ResourceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceHolder.h; sourceTree = "<group>"; };
 		B7439C191ECA6D8C00724D0B /* Scarecrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scarecrow.png; sourceTree = "<group>"; };
@@ -176,6 +179,8 @@
 				B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */,
 				B7439C291ECBBD0400724D0B /* MapObject.hpp */,
 				B7439C281ECBBD0400724D0B /* MapObject.cpp */,
+				B7423AA41ED8E40200117440 /* InputComponent.hpp */,
+				B7423AA31ED8E40200117440 /* InputComponent.cpp */,
 				B7439C1D1ECB8DED00724D0B /* GraphicsComponent.hpp */,
 				B7439C1C1ECB8DED00724D0B /* GraphicsComponent.cpp */,
 				B7439C201ECB8F2E00724D0B /* AnimatedComponent.hpp */,
@@ -475,6 +480,7 @@
 				B7439C211ECB8F2E00724D0B /* AnimatedComponent.cpp in Sources */,
 				B75ABA231C7BD81D00B9FFDE /* DNode.cpp in Sources */,
 				B7023E0C1BB5E16B005A6F93 /* BattleMenu.cpp in Sources */,
+				B7423AA51ED8E40200117440 /* InputComponent.cpp in Sources */,
 				B77783F81AE5C57D007FA840 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
