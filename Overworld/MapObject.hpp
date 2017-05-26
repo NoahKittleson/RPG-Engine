@@ -25,14 +25,20 @@ public:
     void drawBase(sf::RenderWindow &rw) const;
     void addTime(float delta);
 
-	void handleCollision(MapObject&, sf::Vector2f movement) const;
-
     void update(float elapsed);
     void draw(sf::RenderWindow &rw);
-    
+	
+	//physics
+	void collideX(MapObject &PC, sf::Vector2f moveVec);
+	void collideY(MapObject &PC, sf::Vector2f moveVec);
+
+	
 private:
     GraphicsComponent* graphics;
     PhysicsComponent* physics;
     //InputComponent* input;
-    
+	
+	//physics component
+	const std::vector<sf::IntRect> collisionBoxes;
+	
 };
