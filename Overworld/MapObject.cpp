@@ -8,6 +8,11 @@
 
 #include "MapObject.hpp"
 
+MapObject::MapObject(GraphicsComponent* gc, RectVec collision)
+: graphics(gc), collisionBoxes(collision)
+{
+
+}
 
 void MapObject::setPosition(float x, float y) {
     graphics->setPosition(x, y);

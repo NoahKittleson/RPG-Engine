@@ -9,24 +9,25 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "GraphicsComponent.hpp"
-//#include "PhysicsComponent.hpp"
 //#include "InputComponent.hpp"
 
+using RectVec = std::vector<sf::IntRect>;
+
 class GraphicsComponent;
-class PhysicsComponent;
 
 class MapObject {
 public:
-    MapObject(GraphicsComponent* gc, PhysicsComponent* pc);
+	MapObject(GraphicsComponent* gc, RectVec collision);
 	
     void setPosition(float x, float y);
-    sf::Vector2f getPosition();                     //I might not want to even commit to something as simple as these...
-    int getBase() const;
-    void drawBase(sf::RenderWindow &rw) const;
-    void addTime(float delta);
-
+    sf::Vector2f getPosition();
     void update(float elapsed);
+	
+	//graphics
     void draw(sf::RenderWindow &rw);
+	void addTime(float delta);
+	int getBase() const;
+	void drawBase(sf::RenderWindow &rw) const;
 	
 	//physics
 	void collideX(MapObject &PC, sf::Vector2f moveVec);
@@ -34,11 +35,12 @@ public:
 
 	
 private:
+	//graphics
     GraphicsComponent* graphics;
-    PhysicsComponent* physics;
-    //InputComponent* input;
 	
-	//physics component
-	const std::vector<sf::IntRect> collisionBoxes;
+	//physics
+	const RectVec collisionBoxes;
 	
+	//input
+	//InputComponent* input;
 };
