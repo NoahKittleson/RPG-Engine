@@ -37,7 +37,7 @@ void MapObject::collideX(MapObject &PC, sf::Vector2f moveVec) {
 	for (auto const & ourBox : collisionBoxes) {
 		for (auto const & theirBox : PC.collisionBoxes) {
 			if (theirBox.intersects(ourBox)) {
-				if (moveVec.x > 0) {		//moving right
+				if (moveVec.x > 0) {			//moving right
 					PC.setPosition(ourBox.left - theirBox.width/2, PC.getPosition().y);
 				}
 				else if (moveVec.x < 0) {		//moving left
