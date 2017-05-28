@@ -13,7 +13,7 @@ class InputComponent
 {
 public:
 	virtual ~InputComponent() {}
-	InputComponent () {}
+	//InputComponent () {}
 	virtual void move(float elapsed);
 	
 private:
