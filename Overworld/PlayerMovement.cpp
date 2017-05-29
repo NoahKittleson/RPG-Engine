@@ -9,6 +9,6 @@
 #include "PlayerMovement.hpp"
 
 
-void InputComponent::move(/*MapObject obj*/float elapsed) {
+void PlayerMovement::move(/*MapObject obj*/float elapsed) {
 	//is this a good idea?
 }

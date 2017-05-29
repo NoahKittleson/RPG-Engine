@@ -1,6 +1,7 @@
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/DialogueMode.o
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/StartingZone.o
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/State.o
+/Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/PlayerMovement.o
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/MapSprite.o
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/EffectsHandler.o
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/InteractableSprite.o
@@ -22,7 +23,6 @@
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/OverworldMode.o
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/AnimatedSprite.o
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/PauseMenu.o
-/Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/SingleCollision.o
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/ResourcePath.o
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/Fade.o
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/BattleMode.o
@@ -33,5 +33,5 @@
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/AnimatedComponent.o
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/DNode.o
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/BattleMenu.o
+/Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/InputComponent.o
 /Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/main.o
-/Users/noahkittleson/Desktop/RPG-Engine/build/Overworld.build/Release/Overworld.build/Objects-normal/x86_64/PhysicsComponent.o
