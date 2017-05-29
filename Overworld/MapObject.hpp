@@ -24,7 +24,7 @@ public:
     void update(float elapsed);
 	
 	//graphics
-    void draw(sf::RenderWindow &rw);
+    void draw(sf::RenderWindow &rw) const;
 	void addTime(float delta);
 	int getBase() const;
 	void drawBase(sf::RenderWindow &rw) const;

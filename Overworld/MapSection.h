@@ -9,27 +9,17 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "Trigger.h"
-#include "InteractableSprite.h"
+#include "MapObject.hpp"
 #include "ZoneExit.h"
 #include "Player.h"
 
 using ExitVec = std::vector<ZoneExit>;
-using SpriteVec = std::vector<InteractableSprite>;
+using SpriteVec = std::vector<MapObject>;
 using TriggerVec = std::vector<Trigger>;
 
 
 class MapSection: sf::NonCopyable
 {
-protected:
-    sf::Sprite background;
-    ExitVec exits;
-    SpriteVec sprites;
-    TriggerVec triggers;
-    const std::string musicFilename;
-    
-    //void addObject(InteractableSprite&);
-
-    
 public:
     MapSection(MapID id, std::string musicFile);
     const MapID ID;
@@ -45,5 +35,16 @@ public:
     SpriteVec& getSpriteList();
     const ExitVec& getExitList();
     const TriggerVec& getTriggerList();
+	
+protected:
+	sf::Sprite background;
+	ExitVec exits;
+	SpriteVec sprites;
+	TriggerVec triggers;
+	const std::string musicFilename;
+	
+	//void addObject(InteractableSprite&);
+	
+	
 };
 

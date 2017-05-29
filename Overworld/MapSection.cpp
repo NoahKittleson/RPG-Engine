@@ -44,7 +44,7 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, Player& player)
 			player.drawBase(rw);	//temporary, just to see where bases ACTUALLY are.
 			playerDrawn = true;
 		}
-		rw.draw(obj);
+		obj.draw(rw);
 		obj.drawBase(rw);
 	}
 	if (!playerDrawn) {
@@ -59,7 +59,6 @@ sf::Vector2u MapSection::getSize()
 	} else {
 		return sf::Vector2u(1000,1000);
 	}
-	
 }
 
 SpriteVec& MapSection::getSpriteList()

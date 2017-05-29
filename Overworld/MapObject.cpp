@@ -22,6 +22,11 @@ sf::Vector2f MapObject::getPosition() {
     return graphics->getPosition();
 }
 
+void MapObject::draw(sf::RenderWindow &rw) const {
+	rw.draw(*graphics);
+}
+
+
 int MapObject::getBase() const {
     return graphics->getPosition().y + (graphics->getTextureRect().height * graphics->getScale().y) -(graphics->getOrigin().y * graphics->getScale().y);
 }

@@ -176,12 +176,7 @@
 		B7439C1B1ECB8D0400724D0B /* SpriteGuts */ = {
 			isa = PBXGroup;
 			children = (
-				B7D17D171E4EA12C00D71290 /* MapSprite.hpp */,
-				B7D17D161E4EA12C00D71290 /* MapSprite.cpp */,
-				B7A26C0B1C805AA30083989B /* InteractableSprite.h */,
-				B7A26C0A1C805AA30083989B /* InteractableSprite.cpp */,
-				B75F86321BACE5C10093B615 /* AnimatedSprite.h */,
-				B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */,
+				B7A1EB3B1EDBB37700667423 /* Deprecated */,
 				B7439C291ECBBD0400724D0B /* MapObject.hpp */,
 				B7439C281ECBBD0400724D0B /* MapObject.cpp */,
 				B7423AA41ED8E40200117440 /* InputComponent.hpp */,
@@ -352,6 +347,19 @@
 				B74213401E384C7F00090D95 /* BigField.cpp */,
 			);
 			name = Maps;
+			sourceTree = "<group>";
+		};
+		B7A1EB3B1EDBB37700667423 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				B7D17D171E4EA12C00D71290 /* MapSprite.hpp */,
+				B7D17D161E4EA12C00D71290 /* MapSprite.cpp */,
+				B7A26C0B1C805AA30083989B /* InteractableSprite.h */,
+				B7A26C0A1C805AA30083989B /* InteractableSprite.cpp */,
+				B75F86321BACE5C10093B615 /* AnimatedSprite.h */,
+				B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */,
+			);
+			name = Deprecated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
