@@ -19,17 +19,18 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     background.setTexture(resources.getTexture("Mountains.jpg"));
     
     //Set up Non-interactable wheat field
-    InteractableSprite WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(400,100), emptyList, nullptr);
-    WheatField.setScale(3.0f, 3.0f);
+	AnimatedComponent* ptr = new AnimatedComponent(resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100), 0.2f, sf::Vector2i(32,32));
+	MapObject Wheat (ptr, emptyList);
+	Wheat.setScale(3.0f);
     for (int iii = 0; iii < 6; iii++) {
-        sprites.push_back(WheatField);
-        WheatField.move(20, 0);
-        sprites.push_back(WheatField);
-        WheatField.move(0, 20);
+        sprites.push_back(Wheat);
+        Wheat.move(20, 0);
+        sprites.push_back(Wheat);
+        Wheat.move(0, 20);
     }
     
     //Set up Interactable Sprite
-    TalkNode* hey = &talkNodeHolder[0];
+    /*TalkNode* hey = &talkNodeHolder[0];
     TalkNode* optionOne = &talkNodeHolder[1];
     TalkNode* optionTwo = &talkNodeHolder[2];
     
@@ -45,7 +46,7 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     optionTwo->addText("well fine then");
     
     choice->addText("Talk some more", optionOne);
-    choice->addText("Just leave", optionTwo);
+    choice->addText("Just leave", optionTwo);*/
     
     {
         int xIcon = resources.getTexture("tree.png").getSize().x/2;
@@ -53,24 +54,27 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
         sf::IntRect Rectangle (-xIcon/2, -yIcon/2, xIcon, yIcon);
         std::vector<sf::IntRect> boxlist;
         
-        //L block Icon
-        boxlist.emplace_back(0, 0, 10, 50);
-        boxlist.emplace_back(0, 0, 50, 10);
-        sprites.emplace_back(resources.getTexture("tree.png"), sf::Vector2f (600,100), boxlist, nullptr);
-        
-        //Collision Wheat
-        boxlist.clear();
-        int xWheat = resources.getTexture("RollingWheat.png").getSize().x/2;
-        int yWheat = resources.getTexture("RollingWheat.png").getSize().y/2;
-        boxlist.push_back(sf::IntRect(-xWheat/2, -yWheat/2, xWheat, yWheat));
-        sprites.emplace_back(InteractableSprite(resources.getTexture("RollingWheat.png"),
-                                           sf::Vector2f (300,300), boxlist, nullptr));
-        
-        boxlist.clear();
-        boxlist.push_back(Rectangle);
-        sprites.emplace_back(resources.getTexture("tree.png"), sf::Vector2f (150,400), boxlist, hey);
-    }
-    
+		//L block Icon
+		boxlist.emplace_back(0, 0, 10, 50);
+		boxlist.emplace_back(0, 0, 50, 10);
+		//this sprites should be added earlier if it is to be drawn in the correct order
+		sprites.emplace_back(new GraphicsComponent(resources.getTexture("tree.png"), sf::Vector2f(600,100)), boxlist);
+		
+		sprites.back().setScale(4.f);
+		
+		//Collision Wheat
+		boxlist.clear();
+		int xWheat = resources.getTexture("RollingWheat.png").getSize().x/2;
+		int yWheat = resources.getTexture("RollingWheat.png").getSize().y/2;
+		boxlist.push_back(sf::IntRect(-xWheat/2, -yWheat/2, xWheat, yWheat));
+		sprites.emplace_back(new GraphicsComponent(resources.getTexture("RollingWheat.png"),
+												   sf::Vector2f(300,300)), boxlist);
+		
+		boxlist.clear();
+		boxlist.push_back(Rectangle);
+		sprites.emplace_back(new GraphicsComponent(resources.getTexture("tree.png"), sf::Vector2f (150,400)), boxlist);
+		sprites.back().setScale(4.f);    }
+	
     //Set up Trigger for Fighting
     std::vector<Character> EnemyVector;
     EnemyVector.emplace_back(300, 100,  30, resources.getTexture("RollingWheat.png"),
