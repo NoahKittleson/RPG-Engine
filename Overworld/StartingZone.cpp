@@ -18,7 +18,6 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     background.setTexture(resources.getTexture("cute_image.jpg"));
     
     //Set up Non-interactable wheat field
-    //MapObject WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100), emptyList, nullptr, 0.4f);
 	MapObject Wheat (new GraphicsComponent(resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100)), emptyList);
 	
     Wheat.setScale(3.f);
@@ -34,16 +33,17 @@ StartingZone::StartingZone(const ResourceHolder& resources)
             Wheat.addTime(timeOffset);
             Wheat.move(verticalGap, 0);
         }
-        sprites.push_back(WheatField);
-        WheatField.addTime(timeOffset);
-        WheatField.move(-verticalGap * (columns - 1) + rowOffset, horizontalGap);
+        sprites.push_back(Wheat);
+        Wheat.addTime(timeOffset);
+        Wheat.move(-verticalGap * (columns - 1) + rowOffset, horizontalGap);
     }
 	
 	//Scarecrow
-	sprites.emplace_back(resources.getTexture("Scarecrow.png"), sf::Vector2f(500,250), emptyList, nullptr, 0.1f, 3.0f);
-	sprites.back().setScale(3.f, 3.f);
-    
-    //Set up Interactable Sprite
+	sprites.emplace_back(new GraphicsComponent(resources.getTexture("Scarecrow.png"), sf::Vector2f(500,250)), nullptr);
+	//scarcrow has 0.1f framerate, 3.f delay between cycles
+	sprites.back().setScale(3.f);
+	
+    //Set up Interactable Sprite				//CURRENTLY DEACTIVATED
     TalkNode* hey =	&talkNodeHolder[0];
     TalkNode* optionOne = &talkNodeHolder[1];
     TalkNode* optionTwo = &talkNodeHolder[2];
@@ -72,21 +72,22 @@ StartingZone::StartingZone(const ResourceHolder& resources)
         boxlist.emplace_back(0, 0, 10, 50);
         boxlist.emplace_back(0, 0, 50, 10);
 		//this sprites should be added earlier if it is to be drawn in the correct order
-        sprites.emplace_back(resources.getTexture("tree.png"), sf::Vector2f (600,100), boxlist, nullptr);
-        sprites.back().setScale(4.0, 4.0);
+		sprites.emplace_back(new GraphicsComponent(resources.getTexture("tree.png"), sf::Vector2f(600,100)), boxlist);
+
+        sprites.back().setScale(4.f);
         
         //Collision Wheat
         boxlist.clear();
         int xWheat = resources.getTexture("RollingWheat.png").getSize().x/2;
         int yWheat = resources.getTexture("RollingWheat.png").getSize().y/2;
         boxlist.push_back(sf::IntRect(-xWheat/2, -yWheat/2, xWheat, yWheat));
-        sprites.emplace_back(InteractableSprite(resources.getTexture("RollingWheat.png"),
-                                                sf::Vector2f(300,300), boxlist, nullptr));
+        sprites.emplace_back(new GraphicsComponent(resources.getTexture("RollingWheat.png"),
+                                                sf::Vector2f(300,300)), boxlist);
         
         boxlist.clear();
         boxlist.push_back(Rectangle);
-        sprites.emplace_back(resources.getTexture("tree.png"), sf::Vector2f (150,400), boxlist, hey);
-        sprites.back().setScale(4.0, 4.0);
+        sprites.emplace_back(new GraphicsComponent(resources.getTexture("tree.png"), sf::Vector2f (150,400)), boxlist);
+        sprites.back().setScale(4.f);
     }
     
     //Set up Trigger for Fighting
