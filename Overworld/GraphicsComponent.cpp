@@ -8,7 +8,7 @@
 
 #include "GraphicsComponent.hpp"
 
-GraphicsComponent::GraphicsComponent(sf::Texture& texture, sf::Vector2f position)
+GraphicsComponent::GraphicsComponent(const sf::Texture& texture, sf::Vector2f position)
 {
     setTexture(texture);
     setPosition(position);

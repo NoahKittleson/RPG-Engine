@@ -18,8 +18,10 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     background.setTexture(resources.getTexture("cute_image.jpg"));
     
     //Set up Non-interactable wheat field
-    InteractableSprite WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100), emptyList, nullptr, 0.4f);
-    WheatField.setScale(3.0f, 3.0f);
+    //MapObject WheatField (resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100), emptyList, nullptr, 0.4f);
+	MapObject Wheat (new GraphicsComponent(resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100)), emptyList);
+	
+    Wheat.setScale(3.f);
     char rows = 6;
     char columns = 4;
     float timeOffset = .05;
@@ -28,9 +30,9 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     int rowOffset = 20;
     for (int iii = 0; iii < rows; iii++) {
         for (int jjj = 0; jjj < columns-1; jjj++) {
-            sprites.push_back(WheatField);
-            WheatField.addTime(timeOffset);
-            WheatField.move(verticalGap, 0);
+            sprites.push_back(Wheat);
+            Wheat.addTime(timeOffset);
+            Wheat.move(verticalGap, 0);
         }
         sprites.push_back(WheatField);
         WheatField.addTime(timeOffset);

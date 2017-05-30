@@ -26,6 +26,14 @@ void MapObject::draw(sf::RenderWindow &rw) const {
 	rw.draw(*graphics);
 }
 
+void MapObject::move(float x, float y){
+	graphics->move(x, y);
+}
+
+void MapObject::move(sf::Vector2f xy){
+	graphics->move(xy);
+}
+
 
 int MapObject::getBase() const {
     return graphics->getPosition().y + (graphics->getTextureRect().height * graphics->getScale().y) -(graphics->getOrigin().y * graphics->getScale().y);
@@ -40,6 +48,10 @@ void MapObject::drawBase(sf::RenderWindow &rw) const {
 
 void MapObject::addTime(float delta) {
 	graphics->addTime(delta);
+}
+
+void MapObject::setScale(float scale) {
+	graphics->setScale(scale, scale);
 }
 
 void MapObject::collideX(MapObject &PC, sf::Vector2f moveVec) {
