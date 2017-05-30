@@ -18,6 +18,7 @@ class GraphicsComponent;
 class MapObject {
 public:
 	MapObject(GraphicsComponent* gc, RectVec collision);
+	~MapObject();
 	
     void setPosition(float x, float y);
     sf::Vector2f getPosition();

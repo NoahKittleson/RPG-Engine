@@ -8,7 +8,7 @@
 
 #include "DelayedAnimation.hpp"
 
-DelayedAnimation::DelayedAnimation(sf::Texture& t, sf::Vector2f pos, float timePerFrame, sf::Vector2i frame, float repeatDelay)
+DelayedAnimation::DelayedAnimation(const sf::Texture& t, sf::Vector2f pos, float timePerFrame, sf::Vector2i frame, float repeatDelay)
 : AnimatedComponent(t, pos, timePerFrame, frame), repeatDelay(repeatDelay)
 {
     

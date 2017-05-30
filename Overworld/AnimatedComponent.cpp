@@ -8,7 +8,7 @@
 
 #include "AnimatedComponent.hpp"
 
-AnimatedComponent::AnimatedComponent(sf::Texture& t, sf::Vector2f pos, float timePerFrame, sf::Vector2i frame)
+AnimatedComponent::AnimatedComponent(const sf::Texture& t, sf::Vector2f pos, float timePerFrame, sf::Vector2i frame)
 : timePerFrame(timePerFrame), frameSize(0,0,frame.x, frame.y), GraphicsComponent(t, pos)
 {
     

@@ -12,6 +12,8 @@
 #include "TalkNode.h"
 #include "OptionNode.h"
 #include "PrefixHeader.pch"
+#include "AnimatedComponent.hpp"
+#include "DelayedAnimation.hpp"
 
 class StartingZone: public MapSection
 {

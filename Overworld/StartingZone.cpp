@@ -18,7 +18,8 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     background.setTexture(resources.getTexture("cute_image.jpg"));
     
     //Set up Non-interactable wheat field
-	MapObject Wheat (new GraphicsComponent(resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100)), emptyList);
+	AnimatedComponent* ptr = new AnimatedComponent(resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100), 0.2f, sf::Vector2i(32,32));
+	MapObject Wheat (ptr, emptyList);
 	
     Wheat.setScale(3.f);
     char rows = 6;
@@ -39,8 +40,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     }
 	
 	//Scarecrow
-	sprites.emplace_back(new GraphicsComponent(resources.getTexture("Scarecrow.png"), sf::Vector2f(500,250)), nullptr);
-	//scarcrow has 0.1f framerate, 3.f delay between cycles
+	sprites.emplace_back(new DelayedAnimation(resources.getTexture("Scarecrow.png"), sf::Vector2f(500,250), 0.1f, sf::Vector2i(32,32), 3.0f), nullptr);
 	sprites.back().setScale(3.f);
 	
     //Set up Interactable Sprite				//CURRENTLY DEACTIVATED

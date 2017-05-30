@@ -14,6 +14,11 @@ MapObject::MapObject(GraphicsComponent* gc, RectVec collision)
 
 }
 
+MapObject::~MapObject() {
+	//consider having non-dynamic componenets if I want to double up on multiple objects with same graphics
+	delete graphics;
+}
+
 void MapObject::setPosition(float x, float y) {
     graphics->setPosition(x, y);
 }

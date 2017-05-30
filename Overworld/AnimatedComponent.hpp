@@ -12,7 +12,7 @@
 class AnimatedComponent : public GraphicsComponent
 {
 public:
-    AnimatedComponent(sf::Texture&, sf::Vector2f position, float timePerFrame, sf::Vector2i frame);
+    AnimatedComponent(const sf::Texture&, sf::Vector2f position, float timePerFrame, sf::Vector2i frame);
     virtual void update(MapObject& obj, float elapsed) override;
     virtual void addTime(float delta) override;
     
