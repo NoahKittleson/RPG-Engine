@@ -36,6 +36,7 @@ public:
 	//physics
 	void collideX(MapObject &PC, sf::Vector2f moveVec);
 	void collideY(MapObject &PC, sf::Vector2f moveVec);
+	void drawCollision(sf::RenderWindow& rw);
 
 	
 private:

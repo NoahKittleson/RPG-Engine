@@ -40,7 +40,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     }
 	
 	//Scarecrow
-	sprites.emplace_back(new DelayedAnimation(resources.getTexture("Scarecrow.png"), sf::Vector2f(500,250), 0.1f, sf::Vector2i(32,32), 3.0f), nullptr);
+	sprites.emplace_back(new DelayedAnimation(resources.getTexture("Scarecrow.png"), sf::Vector2f(500,250), 0.1f, sf::Vector2i(32,32), 3.0f), emptyList);
 	sprites.back().setScale(3.f);
 	
     //Set up Interactable Sprite				//CURRENTLY DEACTIVATED

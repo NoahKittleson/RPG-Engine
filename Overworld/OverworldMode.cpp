@@ -233,7 +233,7 @@ void OverworldMode::drawPlayerCollision(sf::RenderWindow &rw)
 void OverworldMode::drawAllBoxes(sf::RenderWindow &rw)
 {
 	for (auto && it: currentMap->getSpriteList()) {
-		it.DrawCollisionBoxes(rw);
+		it.drawCollision(rw);
 	}
 	drawPlayerCollision(rw);
 }

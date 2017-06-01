@@ -51,6 +51,16 @@ void MapObject::drawBase(sf::RenderWindow &rw) const {
     rw.draw(rect);
 }
 
+void MapObject::drawCollision(sf::RenderWindow& rw) {
+	sf::RectangleShape rectangle;
+	rectangle.setFillColor(sf::Color::Red);
+	for (auto const & it: collisionBoxes) {
+		rectangle.setSize(sf::Vector2f(it.width, it.height));
+		rectangle.setPosition(it.left, it.top);
+		rw.draw(rectangle);
+	}
+}
+
 void MapObject::addTime(float delta) {
 	graphics->addTime(delta);
 }
@@ -90,5 +100,6 @@ void MapObject::collideY(MapObject &PC, sf::Vector2f moveVec) {
 		}
 	}
 }
+
 
 
