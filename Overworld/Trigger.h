@@ -21,6 +21,7 @@ public:
     //base:
     bool intersects(sf::IntRect) const;
     ActionID proc(std::vector<Condition> conds) const;
+	sf::IntRect getArea() const;
 
 private:
     bool testConditions(std::vector<Condition> conds) const;

@@ -30,8 +30,11 @@ LoadState::LoadState(StateStack& SS) {
     party.back().addAbility(ability2);
     
     //set up player sprite
-    playerSprite = new Player(resources);
-    
+	//this is ludicrously temporary
+	std::vector<sf::IntRect> emptyList;
+	player = new MapObject(new DelayedAnimation(resources.getTexture("WalkingDown.png"), sf::Vector2f(50,50), 0.1f, sf::Vector2i(32,32), 3.0f), emptyList);
+
+	
     //load conditions into ConditionList
     //(not yet)
 }

@@ -11,6 +11,7 @@
 #include "Trigger.h"
 #include "MapObject.hpp"
 #include "ZoneExit.h"
+#include "ResourcePath.hpp"
 
 using ExitVec = std::vector<ZoneExit>;
 using SpriteVec = std::vector<MapObject>;

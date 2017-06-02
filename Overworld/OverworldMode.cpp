@@ -144,7 +144,7 @@ void OverworldMode::handleMovement(float elapsed, sf::Vector2f moveVec)
 void OverworldMode::checkExits()
 {
 	for (const auto & exit: currentMap->getExitList()) {
-		if (exit.intersects(player->getAbsBox())) {
+		if (player->intersects(exit.getArea())) {
 			mode = new Fade(false, 1.f);
 			return;
 		}
@@ -153,7 +153,7 @@ void OverworldMode::checkExits()
 
 ActionID OverworldMode::checkTriggers() {
 	for (const auto & it: currentMap->getTriggerList()) {
-		if (it.intersects(player->getAbsBox())) {
+		if (player->intersects(it.getArea())) {
 			ActionID action = it.proc(conditions);
 			switch (action) {
 				case ActionID::Fight:
@@ -217,13 +217,7 @@ void OverworldMode::handleInput(sf::RenderWindow &rw, float elapsed)
 
 void OverworldMode::drawPlayerCollision(sf::RenderWindow &rw)
 {
-	sf::RectangleShape Rectangle;
-	Rectangle.setFillColor(sf::Color(0,250,0,125));
-	Rectangle.setSize(sf::Vector2f(player->getAbsBox().width,
-								   player->getAbsBox().height));
-	Rectangle.setPosition(player->getAbsBox().left,
-						  player->getAbsBox().top );
-	rw.draw(Rectangle);
+	player->drawCollision(rw);
 }
 
 void OverworldMode::drawAllBoxes(sf::RenderWindow &rw)

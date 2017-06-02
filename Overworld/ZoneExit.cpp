@@ -22,6 +22,6 @@ sf::Vector2f ZoneExit::getMoveOffset() const {
     return transitionOffset;
 }
 
-sf::IntRect ZoneExit::getArea(){
+sf::IntRect ZoneExit::getArea() const{
 	return area;
 }

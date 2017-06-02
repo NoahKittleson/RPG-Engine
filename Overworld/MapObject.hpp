@@ -34,8 +34,8 @@ public:
 	void move(sf::Vector2f xy);
 	
 	//physics
-	void collideX(MapObject &PC, sf::Vector2f moveVec) const;
-	void collideY(MapObject &PC, sf::Vector2f moveVec) const;
+	void collideX(MapObject &PC, float x) const;
+	void collideY(MapObject &PC, float y) const;
 	void drawCollision(sf::RenderWindow& rw);
 	bool intersects(sf::IntRect);
 

@@ -34,3 +34,8 @@ bool Trigger::testConditions(std::vector<Condition> conds) const {
     }
     return true;
 }
+
+sf::IntRect Trigger::getArea() const {
+	return area;
+}
+

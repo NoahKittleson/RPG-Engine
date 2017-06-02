@@ -34,13 +34,13 @@ std::string MapSection::getMusicAddress() {
 	return resourcePath() + musicFilename;
 }
 
-void MapSection::drawAllObjects(sf::RenderWindow &rw, Player& player)
+void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player)
 {
 	bool playerDrawn = false;
 	for (const auto & obj: sprites)
 	{
 		if (!playerDrawn && (obj.getBase() > player.getBase())) {
-			rw.draw(player);
+			player.draw(rw);
 			player.drawBase(rw);	//temporary, just to see where bases ACTUALLY are.
 			playerDrawn = true;
 		}
@@ -48,7 +48,7 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, Player& player)
 		obj.drawBase(rw);
 	}
 	if (!playerDrawn) {
-		rw.draw(player);
+		player.draw(rw);
 	}
 }
 
