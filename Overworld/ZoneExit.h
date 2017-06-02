@@ -8,7 +8,7 @@
 
 #pragma once
 #include "PrefixHeader.pch"
-#include "Player.h"
+#include "MapObject.hpp"
 
 enum class MapID {Starting, BigField};
 
@@ -17,12 +17,12 @@ class ZoneExit
 public:
     ZoneExit(sf::IntRect pos, sf::Vector2f offset, MapID nextZone);
     
-    bool intersects(sf::IntRect) const;
     MapID getNextZone() const;
     sf::Vector2f getMoveOffset() const;
-    
+	sf::IntRect getArea() const;
+	
 private:
-    MapID newZone;
+    const MapID newZone;
     const sf::IntRect area;
     const sf::Vector2f transitionOffset;
 };

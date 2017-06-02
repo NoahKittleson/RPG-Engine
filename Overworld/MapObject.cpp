@@ -69,7 +69,7 @@ void MapObject::setScale(float scale) {
 	graphics->setScale(scale, scale);
 }
 
-void MapObject::collideX(MapObject &PC, sf::Vector2f moveVec) {
+void MapObject::collideX(MapObject &PC, sf::Vector2f moveVec) const {
 	
 	for (auto const & ourBox : collisionBoxes) {
 		for (auto const & theirBox : PC.collisionBoxes) {
@@ -85,7 +85,7 @@ void MapObject::collideX(MapObject &PC, sf::Vector2f moveVec) {
 	}
 }
 
-void MapObject::collideY(MapObject &PC, sf::Vector2f moveVec) {
+void MapObject::collideY(MapObject &PC, sf::Vector2f moveVec) const {
 	
 	for (auto const & ourBox : collisionBoxes) {
 		for (auto const & theirBox : PC.collisionBoxes) {
@@ -99,6 +99,15 @@ void MapObject::collideY(MapObject &PC, sf::Vector2f moveVec) {
 			}
 		}
 	}
+}
+
+bool MapObject::intersects(sf::IntRect box) {
+	for (auto && it : collisionBoxes) {
+		if (it.intersects(box)) {
+			return true;
+		}
+	}
+	return false;
 }
 
 

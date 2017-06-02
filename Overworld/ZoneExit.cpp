@@ -13,11 +13,6 @@ ZoneExit::ZoneExit(sf::IntRect pos, sf::Vector2f offset, MapID nextZone)
 {
 }
 
-bool ZoneExit::intersects(sf::IntRect rect) const
-{
-    return rect.intersects(area);
-}
-
 MapID ZoneExit::getNextZone() const
 {
     return newZone;
@@ -25,4 +20,8 @@ MapID ZoneExit::getNextZone() const
 
 sf::Vector2f ZoneExit::getMoveOffset() const {
     return transitionOffset;
+}
+
+sf::IntRect ZoneExit::getArea(){
+	return area;
 }

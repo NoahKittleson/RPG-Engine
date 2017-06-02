@@ -36,5 +36,5 @@ const ResourceHolder State::resources;
 StateStack* State::stack;
 MapSection* State::currentMap;
 std::vector<Character> State::party;
-Player* State::playerSprite;
+MapObject* State::player;
 std::vector<Condition> State::conditions;

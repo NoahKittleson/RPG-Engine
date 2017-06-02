@@ -11,7 +11,6 @@
 #include "Trigger.h"
 #include "MapObject.hpp"
 #include "ZoneExit.h"
-#include "Player.h"
 
 using ExitVec = std::vector<ZoneExit>;
 using SpriteVec = std::vector<MapObject>;
@@ -25,7 +24,7 @@ public:
     const MapID ID;
     
     void drawBackground(sf::RenderWindow &rw);
-    void drawAllObjects(sf::RenderWindow &rw, Player&);
+    void drawAllObjects(sf::RenderWindow &rw, MapObject& player);
     
     sf::Vector2u getSize();
     std::string getMusicAddress();

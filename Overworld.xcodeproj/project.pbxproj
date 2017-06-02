@@ -309,8 +309,6 @@
 				B7034DA41E7298C3007288A6 /* Mode.cpp */,
 				B7C9F3801E6235D300E7A045 /* Fade.hpp */,
 				B7C9F37F1E6235D300E7A045 /* Fade.cpp */,
-				B77ED0FA1C82E221004046D1 /* Player.h */,
-				B77ED0F91C82E221004046D1 /* Player.cpp */,
 				B7A26C0E1C8061A50083989B /* Trigger.h */,
 				B7A26C0D1C8061A50083989B /* Trigger.cpp */,
 				B7A26C111C8070370083989B /* ZoneExit.h */,
@@ -352,6 +350,8 @@
 		B7A1EB3B1EDBB37700667423 /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
+				B77ED0FA1C82E221004046D1 /* Player.h */,
+				B77ED0F91C82E221004046D1 /* Player.cpp */,
 				B7D17D171E4EA12C00D71290 /* MapSprite.hpp */,
 				B7D17D161E4EA12C00D71290 /* MapSprite.cpp */,
 				B7A26C0B1C805AA30083989B /* InteractableSprite.h */,
