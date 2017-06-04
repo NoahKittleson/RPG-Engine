@@ -55,6 +55,7 @@
 		B7A26C0C1C805AA30083989B /* InteractableSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C0A1C805AA30083989B /* InteractableSprite.cpp */; };
 		B7A26C0F1C8061A50083989B /* Trigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C0D1C8061A50083989B /* Trigger.cpp */; };
 		B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C101C8070370083989B /* ZoneExit.cpp */; };
+		B7B2778E1EE3E3470051D7C4 /* WalkingAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7B2778C1EE3E3470051D7C4 /* WalkingAnimation.cpp */; };
 		B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7C9F37F1E6235D300E7A045 /* Fade.cpp */; };
 		B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */; };
 		B7D17D181E4EA12C00D71290 /* MapSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7D17D161E4EA12C00D71290 /* MapSprite.cpp */; };
@@ -148,6 +149,8 @@
 		B7A26C0E1C8061A50083989B /* Trigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger.h; sourceTree = "<group>"; };
 		B7A26C101C8070370083989B /* ZoneExit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZoneExit.cpp; sourceTree = "<group>"; };
 		B7A26C111C8070370083989B /* ZoneExit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneExit.h; sourceTree = "<group>"; };
+		B7B2778C1EE3E3470051D7C4 /* WalkingAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WalkingAnimation.cpp; sourceTree = "<group>"; };
+		B7B2778D1EE3E3470051D7C4 /* WalkingAnimation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WalkingAnimation.hpp; sourceTree = "<group>"; };
 		B7C9F37F1E6235D300E7A045 /* Fade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fade.cpp; sourceTree = "<group>"; };
 		B7C9F3801E6235D300E7A045 /* Fade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Fade.hpp; sourceTree = "<group>"; };
 		B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingLeft.png; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				B7439C1F1ECB8F2D00724D0B /* AnimatedComponent.cpp */,
 				B7439C231ECB983900724D0B /* DelayedAnimation.hpp */,
 				B7439C221ECB983900724D0B /* DelayedAnimation.cpp */,
+				B7B2778D1EE3E3470051D7C4 /* WalkingAnimation.hpp */,
+				B7B2778C1EE3E3470051D7C4 /* WalkingAnimation.cpp */,
 			);
 			name = SpriteGuts;
 			sourceTree = "<group>";
@@ -491,6 +496,7 @@
 				B76E02341D738EC90058D39E /* ResourcePath.mm in Sources */,
 				B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */,
 				B7DD37451C35DFFC0089224E /* BattleMode.cpp in Sources */,
+				B7B2778E1EE3E3470051D7C4 /* WalkingAnimation.cpp in Sources */,
 				B7A26C0F1C8061A50083989B /* Trigger.cpp in Sources */,
 				B75ABA241C7BD81D00B9FFDE /* OptionNode.cpp in Sources */,
 				B7023E091BB5E12F005A6F93 /* MenuItem.cpp in Sources */,

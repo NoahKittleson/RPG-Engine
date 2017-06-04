@@ -22,4 +22,3 @@ void GraphicsComponent::update(MapObject& obj, float elapsed) {
 void GraphicsComponent::addTime(float delta) {
     return;
 }
-

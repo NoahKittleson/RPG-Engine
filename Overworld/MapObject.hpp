@@ -52,4 +52,8 @@ private:
 	
 	//interaction
 	//DialogueComponent* dialogue;
+	
+	
+	//where do I store the walkingState?
+	
 };
