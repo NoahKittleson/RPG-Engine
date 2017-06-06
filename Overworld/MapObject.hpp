@@ -20,6 +20,7 @@ class MapObject {
 public:
 	MapObject(GraphicsComponent* gc, RectVec collision);
 	~MapObject();
+	MapObject(const MapObject& obj);  // copy constructor
 	
     void setPosition(float x, float y);
     sf::Vector2f getPosition();

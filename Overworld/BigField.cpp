@@ -19,14 +19,13 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     background.setTexture(resources.getTexture("Mountains.jpg"));
     
     //Set up Non-interactable wheat field
-	AnimatedComponent* ptr = new AnimatedComponent(resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100), 0.2f, sf::Vector2i(32,32));
-	MapObject Wheat (ptr, emptyList);
-	Wheat.setScale(3.0f);
+	sf::Vector2f position (200,100);
+	
     for (int iii = 0; iii < 6; iii++) {
-        sprites.push_back(Wheat);
-        Wheat.move(20, 0);
-        sprites.push_back(Wheat);
-        Wheat.move(0, 20);
+        sprites.emplace_back(new AnimatedComponent(resources.getTexture("RollingWheat.png"), position, 0.2f, sf::Vector2i(32,32)), emptyList);
+		position += sf::Vector2f(20, 0);
+        sprites.emplace_back(new AnimatedComponent(resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100), 0.2f, sf::Vector2i(32,32)), emptyList);
+		position += sf::Vector2f(0, 20);
     }
     
     //Set up Interactable Sprite

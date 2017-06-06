@@ -16,6 +16,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	
     std::vector<sf::IntRect> emptyList;
     background.setTexture(resources.getTexture("cute_image.jpg"));
+	sprites.reserve(28);		//24 wheats, 1 scarecrow, 2 trees, and 1 unanimated wheat
     
     //Set up Non-interactable wheat field
 	sf::Vector2f position (200,100);

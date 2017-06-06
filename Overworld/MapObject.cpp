@@ -20,6 +20,11 @@ MapObject::~MapObject() {
 	std::cout << "graphics deleted\n";
 }
 
+MapObject::MapObject(const MapObject& obj) {
+	this->graphics = new GraphicsComponent(*obj.graphics);
+}
+
+
 void MapObject::update(float elapsed) {
 	//input->update();
 	//collision...?
