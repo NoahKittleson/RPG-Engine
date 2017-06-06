@@ -9,6 +9,7 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "GraphicsComponent.hpp"
+#include "DNode.h"
 //#include "InputComponent.hpp"
 
 using RectVec = std::vector<sf::IntRect>;
@@ -38,7 +39,9 @@ public:
 	void collideY(MapObject &PC, float y) const;
 	void drawCollision(sf::RenderWindow& rw);
 	bool intersects(sf::IntRect);
-
+	
+	//dialogue
+	DNode* getDNode() const;
 	
 private:
 	//graphics

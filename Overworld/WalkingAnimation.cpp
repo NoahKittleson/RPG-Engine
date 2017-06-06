@@ -22,19 +22,19 @@ void WalkingAnimation::changeState(Direction newDir) {
 		return;
 	}
 	else switch (newDir) {
-		case Up:
+		case Direction::Up:
 			setTexture(*walkUp);
 			break;
 			
-		case Down:
+		case Direction::Down:
 			setTexture(*walkDown);
 			break;
 			
-		case Left:
+		case Direction::Left:
 			setTexture(*walkLeft);
 			break;
 			
-		case Right:
+		case Direction::Right:
 			setTexture(*walkRight);
 			break;
 			

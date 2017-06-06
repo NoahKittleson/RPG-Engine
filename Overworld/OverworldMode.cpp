@@ -132,7 +132,7 @@ void OverworldMode::handleMovement(float elapsed, sf::Vector2f moveVec)
 		sprite.collideY(*player, moveVec.y);
 	}
 	
-	player->update(moveVec, elapsed);
+	player->update(elapsed);
 	
 	if (moveVec != sf::Vector2f(0,0)) {
 		checkExits();
@@ -250,19 +250,21 @@ void OverworldMode::updateView()
 
 void OverworldMode::checkForInteraction(sf::RenderWindow &rw)
 {
-	sf::IntRect bigCollision = player->getAbsBox();
-	bigCollision.left -= COLLISION_BOX_EXTRA;
-	bigCollision.top -= COLLISION_BOX_EXTRA;
-	bigCollision.width += COLLISION_BOX_EXTRA*2;		//X2 to make up for the left offset
-	bigCollision.height += COLLISION_BOX_EXTRA*2;
+	//disabled for now
 	
-	for (auto && obj: currentMap->getSpriteList()) {
-		auto dialoguePtr = obj.interact(bigCollision);
-		if (dialoguePtr) {
-			std::cout << "dialogueMode created\n";
-			addToStack( new DialogueMode (dialoguePtr, rw) );
-		}
-	}
+//	sf::IntRect bigCollision = player->getAbsBox();
+//	bigCollision.left -= COLLISION_BOX_EXTRA;
+//	bigCollision.top -= COLLISION_BOX_EXTRA;
+//	bigCollision.width += COLLISION_BOX_EXTRA*2;		//X2 to make up for the left offset
+//	bigCollision.height += COLLISION_BOX_EXTRA*2;
+//	
+//	for (auto && obj: currentMap->getSpriteList()) {
+//		auto dialoguePtr = obj.interact(bigCollision);
+//		if (dialoguePtr) {
+//			std::cout << "dialogueMode created\n";
+//			addToStack( new DialogueMode (dialoguePtr, rw) );
+//		}
+//	}
 }
 
 void OverworldMode::addDialogueState(DNode* thread, sf::RenderWindow &rw)

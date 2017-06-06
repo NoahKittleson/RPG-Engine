@@ -19,6 +19,13 @@ MapObject::~MapObject() {
 	delete graphics;
 }
 
+void MapObject::update(float elapsed) {
+	//input->update();
+	//collision...?
+	graphics->update(*this, elapsed);
+	//in future, graphics will need to update based on movement IF WalkingAnimation component is in play
+}
+
 void MapObject::setPosition(float x, float y) {
     graphics->setPosition(x, y);
 }
@@ -108,6 +115,13 @@ bool MapObject::intersects(sf::IntRect box) {
 		}
 	}
 	return false;
+}
+
+DNode* MapObject::getDNode() const {
+	//return dialogue;
+	
+	//disabled for now, because I have yet to design DialogueComponent
+	return nullptr;
 }
 
 
