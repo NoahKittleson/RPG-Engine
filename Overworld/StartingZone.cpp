@@ -18,10 +18,8 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     background.setTexture(resources.getTexture("cute_image.jpg"));
     
     //Set up Non-interactable wheat field
-	AnimatedComponent* ptr = new AnimatedComponent(resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100), 0.2f, sf::Vector2i(32,32));
-	MapObject Wheat (ptr, emptyList);
+	sf::Vector2f position (200,100);
 	
-    Wheat.setScale(3.f);
     char rows = 6;
     char columns = 4;
     float timeOffset = .05;
@@ -30,13 +28,14 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     int rowOffset = 20;
     for (int iii = 0; iii < rows; iii++) {
         for (int jjj = 0; jjj < columns-1; jjj++) {
-            sprites.push_back(Wheat);
-            Wheat.addTime(timeOffset);
-            Wheat.move(verticalGap, 0);
+            sprites.emplace_back(new AnimatedComponent(resources.getTexture("RollingWheat.png"), position, 0.2f, sf::Vector2i(32,32)), emptyList);
+            sprites.back().addTime(timeOffset * (iii * columns + jjj));
+			sprites.back().setScale(3.f);
+			position += sf::Vector2f(verticalGap, 0);
         }
-        sprites.push_back(Wheat);
-        Wheat.addTime(timeOffset);
-        Wheat.move(-verticalGap * (columns - 1) + rowOffset, horizontalGap);
+//        sprites.push_back(Wheat);
+//        Wheat.addTime(timeOffset);
+		position += sf::Vector2f(-verticalGap * (columns - 1) + rowOffset, horizontalGap);
     }
 	
 	//Scarecrow
