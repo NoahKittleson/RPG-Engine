@@ -31,6 +31,7 @@ public:
 	void addTime(float delta);
 	int getBase() const;
 	void drawBase(sf::RenderWindow &rw) const;
+	void drawCenter(sf::RenderWindow & rw) const;
 	void setScale(float);
 	void move(float x, float y);
 	void move(sf::Vector2f xy);

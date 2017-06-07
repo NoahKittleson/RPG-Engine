@@ -14,7 +14,7 @@ WalkingAnimation::WalkingAnimation(const sf::Texture& up, const sf::Texture& dow
 								   sf::Vector2f position, float timePerFrame)
 : GraphicsComponent(down, position), walkUp(&up), walkDown(&down), walkRight(&right), walkLeft(&left)
 {
-	
+	//setOrigin(frame.x/2, frame.y/2);
 }
 
 void WalkingAnimation::changeState(Direction newDir) {

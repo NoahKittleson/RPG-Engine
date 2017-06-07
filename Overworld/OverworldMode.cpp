@@ -50,6 +50,7 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	if (mode) {
 		mode->draw(rw);
 	}
+	player->drawCenter(rw);
 	rw.display();
 }
 

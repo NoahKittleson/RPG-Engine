@@ -10,6 +10,7 @@
 
 GraphicsComponent::GraphicsComponent(const sf::Texture& texture, sf::Vector2f position)
 {
+	setOrigin(texture.getSize().x/2, texture.getSize().y/2);
     setTexture(texture);
     setPosition(position);
 }

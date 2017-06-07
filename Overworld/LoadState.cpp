@@ -33,7 +33,7 @@ LoadState::LoadState(StateStack& SS) {
 	//this is ludicrously temporary
 	std::vector<sf::IntRect> emptyList;
 	emptyList.push_back(sf::IntRect(0,0,10,10));
-	player = new MapObject(new DelayedAnimation(resources.getTexture("PlayerWalkingDown.png"), sf::Vector2f(50,50), 0.1f, sf::Vector2i(32,32), 3.0f), emptyList);
+	player = new MapObject(new GraphicsComponent(resources.getTexture("PlayerWalkingDown.png"), sf::Vector2f(50,50)/*, 0.1f, sf::Vector2i(32,32), 3.0f*/), emptyList);
 
 	
     //load conditions into ConditionList

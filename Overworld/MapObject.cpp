@@ -15,7 +15,7 @@ MapObject::MapObject(GraphicsComponent* gc, RectVec collision)
 	for (auto && box : collision) {
 		collisionBoxes.push_back(sf::IntRect(position.x + box.left, position.y + box.top, box.width, box.height));
 	}
-	graphics->setOrigin(graphics->getLocalBounds().width/2, graphics->getLocalBounds().height);
+//	graphics->setOrigin(graphics->getLocalBounds().width/2, graphics->getLocalBounds().height/2);
 }
 
 MapObject::~MapObject() {
@@ -71,6 +71,14 @@ void MapObject::drawBase(sf::RenderWindow &rw) const {
     rect.setFillColor(sf::Color::Green);
     rect.setPosition(graphics->getPosition().x, getBase());
     rw.draw(rect);
+}
+
+void MapObject::drawCenter(sf::RenderWindow &rw) const{
+	sf::RectangleShape rect (sf::Vector2f(2,2));
+	rect.setFillColor(sf::Color::Blue);
+	rect.setPosition(graphics->getPosition().x,
+					 graphics->getPosition().y);
+	rw.draw(rect);
 }
 
 void MapObject::drawCollision(sf::RenderWindow& rw) {

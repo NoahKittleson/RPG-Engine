@@ -11,7 +11,7 @@
 AnimatedComponent::AnimatedComponent(const sf::Texture& t, sf::Vector2f pos, float timePerFrame, sf::Vector2i frame)
 : timePerFrame(timePerFrame), frameSize(0,0,frame.x, frame.y), GraphicsComponent(t, pos)
 {
-    
+	setOrigin(frame.x/2, frame.y/2);
 }
 
 void AnimatedComponent::update(MapObject& obj, float elapsed)
