@@ -49,7 +49,7 @@ private:
     GraphicsComponent* graphics;
 	
 	//physics
-	const RectVec collisionBoxes;
+	RectVec collisionBoxes;
 	
 	//input
 	//InputComponent* input;

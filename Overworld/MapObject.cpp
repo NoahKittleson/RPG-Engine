@@ -9,9 +9,13 @@
 #include "MapObject.hpp"
 
 MapObject::MapObject(GraphicsComponent* gc, RectVec collision)
-: graphics(gc), collisionBoxes(collision)
+: graphics(gc)
 {
-
+	sf::Vector2f position = gc->getPosition();
+	for (auto && box : collision) {
+		collisionBoxes.push_back(sf::IntRect(position.x + box.left, position.y + box.top, box.width, box.height));
+	}
+	graphics->setOrigin(graphics->getLocalBounds().width/2, graphics->getLocalBounds().height);
 }
 
 MapObject::~MapObject() {
@@ -46,10 +50,15 @@ void MapObject::draw(sf::RenderWindow &rw) const {
 
 void MapObject::move(float x, float y){
 	graphics->move(x, y);
+	auto position = graphics->getPosition();
+	for (auto & box : collisionBoxes) {
+		box.left = position.x;
+		box.top = position.y;
+	}
 }
 
 void MapObject::move(sf::Vector2f xy){
-	graphics->move(xy);
+	move(xy.x, xy.y);
 }
 
 

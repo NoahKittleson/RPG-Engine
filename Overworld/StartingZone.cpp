@@ -10,13 +10,14 @@
 
 #define NO_OF_TALKNODES 3
 #define NO_OF_OPTIONNODES 1
+#define NO_OF_SPRITES 28			//24 wheats, 1 scarecrow, 2 trees, and 1 unanimated wheat
 
 StartingZone::StartingZone(const ResourceHolder& resources)
 : MapSection(MapID::Starting, "nice_music.ogg"), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
 	
     std::vector<sf::IntRect> emptyList;
     background.setTexture(resources.getTexture("cute_image.jpg"));
-	sprites.reserve(28);		//24 wheats, 1 scarecrow, 2 trees, and 1 unanimated wheat
+	sprites.reserve(NO_OF_SPRITES);
     
     //Set up Non-interactable wheat field
 	sf::Vector2f position (200,100);
