@@ -36,7 +36,14 @@ void MapObject::update(float elapsed) {
 }
 
 void MapObject::setPosition(float x, float y) {
-    graphics->setPosition(x, y);
+	auto position = graphics->getPosition();
+	graphics->setPosition(x, y);
+
+	for (auto & box : collisionBoxes) {
+		sf::Vector2f offset = sf::Vector2f(box.left - position.x, box.top - position.y);
+		box.left = x + offset.x;
+		box.top = y + offset.y;
+	}
 }
 
 sf::Vector2f MapObject::getPosition() {
@@ -48,12 +55,12 @@ void MapObject::draw(sf::RenderWindow &rw) const {
 }
 
 void MapObject::move(float x, float y) {
+	auto position = graphics->getPosition();
 	graphics->move(x, y);
-	//auto position = graphics->getPosition();
 	for (auto & box : collisionBoxes) {
-		//sf::Vector2f offset = sf::Vector2f(position.x - box.left, position.y - box.top);
-		box.left += x;
-		box.top += y;
+		sf::Vector2f offset = sf::Vector2f(box.left - position.x, box.top - position.y);
+		box.left = graphics->getPosition().x + offset.x;
+		box.top = graphics->getPosition().y + offset.y;
 	}
 }
 
@@ -78,7 +85,7 @@ void MapObject::drawCenter(sf::RenderWindow &rw) const{
 	rect.setFillColor(sf::Color::Blue);
 	rect.setPosition(graphics->getPosition().x,
 					 graphics->getPosition().y);
-	std::cout << "drawing center at: " << graphics->getPosition().x << ", " << graphics->getPosition().y << "\n";
+	//std::cout << "drawing center at: " << graphics->getPosition().x << ", " << graphics->getPosition().y << "\n";
 }
 
 void MapObject::drawCollision(sf::RenderWindow& rw) {
