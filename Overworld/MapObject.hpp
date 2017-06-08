@@ -12,7 +12,7 @@
 #include "DNode.h"
 //#include "InputComponent.hpp"
 
-using RectVec = std::vector<sf::IntRect>;
+using RectVec = std::vector<sf::FloatRect>;
 
 class GraphicsComponent;
 
@@ -40,7 +40,7 @@ public:
 	void collideX(MapObject &PC, float x) const;
 	void collideY(MapObject &PC, float y) const;
 	void drawCollision(sf::RenderWindow& rw);
-	bool intersects(sf::IntRect);
+	bool intersects(sf::FloatRect);
 	
 	//dialogue
 	DNode* getDNode() const;

@@ -10,7 +10,7 @@
 
 
 
-bool Trigger::intersects(sf::IntRect box) const
+bool Trigger::intersects(sf::FloatRect box) const
 {
     return area.intersects(box);
 }
@@ -35,7 +35,7 @@ bool Trigger::testConditions(std::vector<Condition> conds) const {
     return true;
 }
 
-sf::IntRect Trigger::getArea() const {
+sf::FloatRect Trigger::getArea() const {
 	return area;
 }
 

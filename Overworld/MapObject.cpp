@@ -13,9 +13,8 @@ MapObject::MapObject(GraphicsComponent* gc, RectVec collision)
 {
 	sf::Vector2f position = gc->getPosition();
 	for (auto && box : collision) {
-		collisionBoxes.push_back(sf::IntRect(position.x + box.left, position.y + box.top, box.width, box.height));
+		collisionBoxes.push_back(sf::FloatRect(position.x + box.left, position.y + box.top, box.width, box.height));
 	}
-//	graphics->setOrigin(graphics->getLocalBounds().width/2, graphics->getLocalBounds().height/2);
 }
 
 MapObject::~MapObject() {
@@ -48,12 +47,13 @@ void MapObject::draw(sf::RenderWindow &rw) const {
 	rw.draw(*graphics);
 }
 
-void MapObject::move(float x, float y){
+void MapObject::move(float x, float y) {
 	graphics->move(x, y);
-	auto position = graphics->getPosition();
+	//auto position = graphics->getPosition();
 	for (auto & box : collisionBoxes) {
-		box.left = position.x;
-		box.top = position.y;
+		//sf::Vector2f offset = sf::Vector2f(position.x - box.left, position.y - box.top);
+		box.left += x;
+		box.top += y;
 	}
 }
 
@@ -74,11 +74,11 @@ void MapObject::drawBase(sf::RenderWindow &rw) const {
 }
 
 void MapObject::drawCenter(sf::RenderWindow &rw) const{
-	sf::RectangleShape rect (sf::Vector2f(2,2));
+	sf::RectangleShape rect (sf::Vector2f(1,1));
 	rect.setFillColor(sf::Color::Blue);
 	rect.setPosition(graphics->getPosition().x,
 					 graphics->getPosition().y);
-	rw.draw(rect);
+	std::cout << "drawing center at: " << graphics->getPosition().x << ", " << graphics->getPosition().y << "\n";
 }
 
 void MapObject::drawCollision(sf::RenderWindow& rw) {
@@ -131,7 +131,7 @@ void MapObject::collideY(MapObject &PC, float y) const {
 	}
 }
 
-bool MapObject::intersects(sf::IntRect box) {
+bool MapObject::intersects(sf::FloatRect box) {
 	for (auto && it : collisionBoxes) {
 		if (it.intersects(box)) {
 			return true;

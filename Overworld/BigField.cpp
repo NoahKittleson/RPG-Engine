@@ -15,7 +15,7 @@ BigField::BigField(const ResourceHolder& resources)
 : MapSection(MapID::BigField, ""), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),
 optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     
-    std::vector<sf::IntRect> emptyList;
+    std::vector<sf::FloatRect> emptyList;
     background.setTexture(resources.getTexture("Mountains.jpg"));
     
     //Set up Non-interactable wheat field
@@ -50,8 +50,8 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     {
         int xIcon = resources.getTexture("tree.png").getSize().x/2;
         int yIcon = resources.getTexture("tree.png").getSize().y/2;
-        sf::IntRect Rectangle (-xIcon/2, -yIcon/2, xIcon, yIcon);
-        std::vector<sf::IntRect> boxlist;
+        sf::FloatRect Rectangle (-xIcon/2, -yIcon/2, xIcon, yIcon);
+        std::vector<sf::FloatRect> boxlist;
         
 		//L block Icon
 		boxlist.emplace_back(0, 0, 10, 50);
@@ -65,7 +65,7 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
 		boxlist.clear();
 		int xWheat = resources.getTexture("RollingWheat.png").getSize().x/2;
 		int yWheat = resources.getTexture("RollingWheat.png").getSize().y/2;
-		boxlist.push_back(sf::IntRect(-xWheat/2, -yWheat/2, xWheat, yWheat));
+		boxlist.push_back(sf::FloatRect(-xWheat/2, -yWheat/2, xWheat, yWheat));
 		sprites.emplace_back(new GraphicsComponent(resources.getTexture("RollingWheat.png"),
 												   sf::Vector2f(300,300)), boxlist);
 		
@@ -85,9 +85,9 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     sf::Vector2u totalArea = background.getTexture()->getSize();
     
     MapID zoneID = MapID::Starting;
-    exits.emplace_back(sf::IntRect(0,-100,totalArea.x,100), sf::Vector2f(0,totalArea.y-150), zoneID);
-    exits.emplace_back(sf::IntRect(-100,0,100,totalArea.y), sf::Vector2f(totalArea.x-150,0), zoneID);
-    exits.emplace_back(sf::IntRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(-totalArea.x+150,0), zoneID);
-    exits.emplace_back(sf::IntRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,-totalArea.y+150), zoneID);
+    exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100), sf::Vector2f(0,totalArea.y-150), zoneID);
+    exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y), sf::Vector2f(totalArea.x-150,0), zoneID);
+    exits.emplace_back(sf::FloatRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(-totalArea.x+150,0), zoneID);
+    exits.emplace_back(sf::FloatRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,-totalArea.y+150), zoneID);
     
 }

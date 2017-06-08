@@ -8,7 +8,7 @@
 
 #include "ZoneExit.h"
 
-ZoneExit::ZoneExit(sf::IntRect pos, sf::Vector2f offset, MapID nextZone)
+ZoneExit::ZoneExit(sf::FloatRect pos, sf::Vector2f offset, MapID nextZone)
 : area(pos), transitionOffset(offset), newZone(nextZone)
 {
 }
@@ -22,6 +22,6 @@ sf::Vector2f ZoneExit::getMoveOffset() const {
     return transitionOffset;
 }
 
-sf::IntRect ZoneExit::getArea() const{
+sf::FloatRect ZoneExit::getArea() const{
 	return area;
 }

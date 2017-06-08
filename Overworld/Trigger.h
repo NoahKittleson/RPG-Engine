@@ -19,13 +19,13 @@ class Trigger
 {
 public:
     //base:
-    bool intersects(sf::IntRect) const;
+    bool intersects(sf::FloatRect) const;
     ActionID proc(std::vector<Condition> conds) const;
-	sf::IntRect getArea() const;
+	sf::FloatRect getArea() const;
 
 private:
     bool testConditions(std::vector<Condition> conds) const;
-    sf::IntRect area;
+    sf::FloatRect area;
     ActionID successAction;
     ActionID failureAction = ActionID::None;
     ConditionMap prerequisites;

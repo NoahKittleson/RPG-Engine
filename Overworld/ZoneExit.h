@@ -15,15 +15,15 @@ enum class MapID {Starting, BigField};
 class ZoneExit
 {
 public:
-    ZoneExit(sf::IntRect pos, sf::Vector2f offset, MapID nextZone);
+    ZoneExit(sf::FloatRect pos, sf::Vector2f offset, MapID nextZone);
     
     MapID getNextZone() const;
     sf::Vector2f getMoveOffset() const;
-	sf::IntRect getArea() const;
+	sf::FloatRect getArea() const;
 	
 private:
     const MapID newZone;
-    const sf::IntRect area;
+    const sf::FloatRect area;
     const sf::Vector2f transitionOffset;
 };
 

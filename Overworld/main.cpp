@@ -16,39 +16,9 @@
 
 #include "Game.h"
 
-class item {
-public:
-	item(int x) {
-		fuck = x;
-	}
-	virtual void say() {
-		std::cout << fuck;
-	}
-private:
-	int fuck;
-};
-
-class test : public item {
-public:
-	test(int x, int y) : item(x) {
-		shit = y;
-	}
-	void say() override {
-		std::cout << shit;
-		}
-	private:
-		int shit;
-		};
-
 int main(int, char const**)
 {
     Game::run();
-	item x (1);
-	test y (1, 2);
-	item* itemPtr = &x;
-	item* testPtr = &y;
-	itemPtr->say();
-	itemPtr->say();
 	
     return EXIT_SUCCESS;
 }
