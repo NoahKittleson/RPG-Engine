@@ -19,15 +19,16 @@ void DelayedAnimation::update(MapObject &obj, float elapsed)
     totalElapsed += elapsed;
     if (waiting) {
         if (totalElapsed >= repeatDelay) {
-            totalElapsed -= repeatDelay;
+			totalElapsed -= repeatDelay;
             waiting = false;
         }
     } else {
         while (totalElapsed >= timePerFrame) {
             totalElapsed -= timePerFrame;
-            if (repeatDelay && atEnd()) {
+            if (atEnd()) {
                 waiting = true;
-                return;
+				nextFrame();
+				return;
             }
             nextFrame();
         }
