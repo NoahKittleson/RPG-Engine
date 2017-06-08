@@ -112,10 +112,12 @@ void MapObject::collideX(MapObject &PC, float x) const {
 		for (auto const & theirBox : PC.collisionBoxes) {
 			if (theirBox.intersects(ourBox)) {
 				if (x > 0) {			//moving right
-					PC.setPosition(ourBox.left - theirBox.width/2, PC.getPosition().y);
+					auto offsetX = PC.getPosition().x - (theirBox.left + theirBox.width);
+					PC.setPosition(ourBox.left + offsetX, PC.getPosition().y);
 				}
 				else if (x < 0) {		//moving left
-					PC.setPosition(ourBox.left + ourBox.width + theirBox.width/2, PC.getPosition().y);
+					auto offsetX = PC.getPosition().x - theirBox.left;
+					PC.setPosition(ourBox.left + ourBox.width + offsetX, PC.getPosition().y);
 				}
 			}
 		}
@@ -128,10 +130,12 @@ void MapObject::collideY(MapObject &PC, float y) const {
 		for (auto const & theirBox : PC.collisionBoxes) {
 			if (theirBox.intersects(ourBox)) {
 				if (y > 0) {			//moving down
-					PC.setPosition(PC.getPosition().x, ourBox.top - theirBox.height/2);
+					auto offsetY = PC.getPosition().y - (theirBox.top + theirBox.height);
+					PC.setPosition(PC.getPosition().x, ourBox.top + offsetY);
 				}
 				else if (y < 0){		//moving up
-					PC.setPosition(PC.getPosition().x, ourBox.top + ourBox.height + theirBox.height/2);
+					auto offsetY = PC.getPosition().y - theirBox.top;
+					PC.setPosition(PC.getPosition().x, ourBox.top + ourBox.height + offsetY);
 				}
 			}
 		}
