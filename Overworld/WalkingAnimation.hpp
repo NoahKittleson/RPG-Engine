@@ -7,19 +7,20 @@
 //
 
 #pragma once
-#include "GraphicsComponent.hpp"
+#include "AnimatedComponent.hpp"
 
 enum class Direction {Up, Down, Left, Right, Stand};
 
 
-class WalkingAnimation : public GraphicsComponent
+class WalkingAnimation : public AnimatedComponent
 {
 public:
 	WalkingAnimation(const sf::Texture& up, const sf::Texture& down,
 					 const sf::Texture& left, const sf::Texture& right,
-					 sf::Vector2f position, float timePerFrame);
+					 sf::Vector2f position, float timePerFrame, sf::Vector2i frame);
 	//virtual void update(MapObject& obj, float elapsed) override;
 	void changeState(Direction newDir);
+	void update(MapObject& obj, float elapsed) override;
 	
 private:
 	Direction walkingState;

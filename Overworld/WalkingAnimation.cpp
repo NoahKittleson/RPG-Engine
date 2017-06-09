@@ -11,10 +11,11 @@
 
 WalkingAnimation::WalkingAnimation(const sf::Texture& up, const sf::Texture& down,
 								   const sf::Texture& left, const sf::Texture& right,
-								   sf::Vector2f position, float timePerFrame)
-: GraphicsComponent(down, position), walkUp(&up), walkDown(&down), walkRight(&right), walkLeft(&left)
+								   sf::Vector2f position, float timePerFrame, sf::Vector2i frame)
+: AnimatedComponent(down, position, timePerFrame, frame), walkUp(&up), walkDown(&down), walkRight(&right), walkLeft(&left)
 {
 	//setOrigin(frame.x/2, frame.y/2);
+	walkingState = Direction::Down;
 }
 
 void WalkingAnimation::changeState(Direction newDir) {
@@ -44,3 +45,14 @@ void WalkingAnimation::changeState(Direction newDir) {
 	}
 	walkingState = newDir;
 }
+
+void WalkingAnimation::update(MapObject& obj, float elapsed) {
+	if (/*obj.moved*/ true) {
+		totalElapsed += elapsed;
+		if (totalElapsed > timePerFrame) {
+			totalElapsed -= timePerFrame;
+			nextFrame();
+		}
+	}
+}
+
