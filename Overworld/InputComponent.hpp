@@ -15,7 +15,7 @@ class InputComponent
 public:
 	virtual ~InputComponent() {}
 	//InputComponent () {}
-	virtual void update(float elapsed);
+	virtual void update(sf::RenderWindow& rw, float elapsed);
 	
 private:
 

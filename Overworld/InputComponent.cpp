@@ -8,6 +8,6 @@
 
 #include "InputComponent.hpp"
 
-void InputComponent::update(float elapsed) {
+void InputComponent::update(sf::RenderWindow& rw, float elapsed) {
 	return;
 }

@@ -24,6 +24,8 @@ public:
 	void update(MapObject& obj, float elapsed) override;
 	
 private:
+	Direction getWalkingDirection();
+	
 	Direction walkingState;
 	bool moving;
 	

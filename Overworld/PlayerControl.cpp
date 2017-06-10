@@ -9,7 +9,24 @@
 #include "PlayerControl.hpp"
 
 
-void PlayerControl::update(float elapsed) {
+void PlayerControl::update(sf::RenderWindow & rw, float elapsed) {
+	sf::Event eventsdsd;
+	while (rw.pollEvent(eventsdsd)) {
+		//uhhhhh
+	}
 	
+//	sf::Vector2f moveVec;
+//	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+//		moveVec.y -= 100;
+//	}
+//	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+//		moveVec.y += 100;
+//	}
+//	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+//		moveVec.x -= 100;
+//	}
+//	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+//		moveVec.x += 100;
+//	}
+//	handleMovement(elapsed, moveVec);
 }
-

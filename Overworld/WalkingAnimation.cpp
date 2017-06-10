@@ -50,14 +50,41 @@ void WalkingAnimation::changeState(bool move) {
 	moving = move;
 }
 
-void WalkingAnimation::update(MapObject& obj, float elapsed) {
-	//either:
-	//	obj.direction
-	//	obj.input->direction
-	//	obj.
-	//
+Direction WalkingAnimation::getWalkingDirection()
+{
+	sf::Vector2i moveVec;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+		moveVec.y -= 100;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+		moveVec.y += 100;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+		moveVec.x -= 100;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+		moveVec.x += 100;
+	}
 	
-	if (/*obj->input.move()*/ true) {
+	Direction returnDir = Direction::Stand;
+	if (moveVec.x > 0) {
+		returnDir = Direction::Right;
+	} else if (moveVec.x < 0) {
+		returnDir = Direction::Left;
+	} else if (moveVec.y < 0) {
+		returnDir = Direction::Up;
+	} else if (moveVec.y > 0) {
+		returnDir = Direction::Down;
+	}
+	return returnDir;
+}
+
+
+void WalkingAnimation::update(MapObject& obj, float elapsed) {
+	auto dir = getWalkingDirection();
+	changeState(dir);
+	
+	if (dir != Direction::Stand) {
 		totalElapsed += elapsed;
 		if (totalElapsed > timePerFrame) {
 			totalElapsed -= timePerFrame;

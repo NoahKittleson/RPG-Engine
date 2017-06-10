@@ -9,12 +9,20 @@
 #pragma once
 #include "InputComponent.hpp"
 
+using Key = sf::Keyboard::Key;
+
 class PlayerControl : public InputComponent
 {
 public:
-	virtual void update(float elapsed) override;
+	PlayerControl(WalkingAnimation* spr, Key up, Key down, Key left, Key right);
+	virtual void update(sf::RenderWindow& rw, float elapsed) override;
 	
 private:
-	virtual void updateSprite(WalkingAnimation* spr);
-	
+	virtual void updateSprite(WalkingAnimation* spr);	//this isn't really going to be a thing
+
+	Key up;
+	Key down;
+	Key left;
+	Key right;
 };
+
