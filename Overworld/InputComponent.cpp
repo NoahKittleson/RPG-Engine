@@ -8,7 +8,6 @@
 
 #include "InputComponent.hpp"
 
-void InputComponent::move(float elapsed) {
+void InputComponent::update(float elapsed) {
 	return;
 }
-

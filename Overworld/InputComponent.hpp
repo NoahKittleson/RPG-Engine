@@ -8,14 +8,16 @@
 
 #pragma once
 #include "PrefixHeader.pch"
+#include "WalkingAnimation.hpp"
 
 class InputComponent
 {
 public:
 	virtual ~InputComponent() {}
 	//InputComponent () {}
-	virtual void move(float elapsed);
+	virtual void update(float elapsed);
 	
 private:
+
 	
 };

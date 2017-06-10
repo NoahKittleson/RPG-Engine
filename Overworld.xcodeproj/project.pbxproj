@@ -15,6 +15,7 @@
 		B7023E151BB61A4A005A6F93 /* BasicIdle.png in Resources */ = {isa = PBXBuildFile; fileRef = B7023E141BB61A4A005A6F93 /* BasicIdle.png */; };
 		B7034DA61E7298C3007288A6 /* Mode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7034DA41E7298C3007288A6 /* Mode.cpp */; };
 		B706F0781BFFE59700C95D49 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B706F0761BFFE59700C95D49 /* State.cpp */; };
+		B70E8C801EEB8F750017E524 /* PlayerControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B70E8C7E1EEB8F750017E524 /* PlayerControl.cpp */; };
 		B7172F851AF0716500C21B1C /* Mountains.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7172F841AF0716500C21B1C /* Mountains.jpg */; };
 		B73219221B2111D000C41162 /* MapSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B73219201B2111D000C41162 /* MapSection.cpp */; };
 		B73F35021E4B095B007EC4AC /* PlayerWalkingDown.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */; };
@@ -79,6 +80,8 @@
 		B7034DA51E7298C3007288A6 /* Mode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Mode.hpp; sourceTree = "<group>"; };
 		B706F0761BFFE59700C95D49 /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
 		B706F0771BFFE59700C95D49 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		B70E8C7E1EEB8F750017E524 /* PlayerControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerControl.cpp; sourceTree = "<group>"; };
+		B70E8C7F1EEB8F750017E524 /* PlayerControl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerControl.hpp; sourceTree = "<group>"; };
 		B7172F841AF0716500C21B1C /* Mountains.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mountains.jpg; sourceTree = "<group>"; };
 		B73219201B2111D000C41162 /* MapSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapSection.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		B73219211B2111D000C41162 /* MapSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSection.h; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				B7439C281ECBBD0400724D0B /* MapObject.cpp */,
 				B7423AA41ED8E40200117440 /* InputComponent.hpp */,
 				B7423AA31ED8E40200117440 /* InputComponent.cpp */,
+				B70E8C7F1EEB8F750017E524 /* PlayerControl.hpp */,
+				B70E8C7E1EEB8F750017E524 /* PlayerControl.cpp */,
 				B7423AA71ED8ED4900117440 /* PlayerMovement.hpp */,
 				B7423AA61ED8ED4900117440 /* PlayerMovement.cpp */,
 				B7439C1D1ECB8DED00724D0B /* GraphicsComponent.hpp */,
@@ -493,6 +498,7 @@
 				B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */,
 				B75F86331BACE5C10093B615 /* AnimatedSprite.cpp in Sources */,
 				B77844A71E25D2F7002C7555 /* PauseMenu.cpp in Sources */,
+				B70E8C801EEB8F750017E524 /* PlayerControl.cpp in Sources */,
 				B76E02341D738EC90058D39E /* ResourcePath.mm in Sources */,
 				B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */,
 				B7DD37451C35DFFC0089224E /* BattleMode.cpp in Sources */,

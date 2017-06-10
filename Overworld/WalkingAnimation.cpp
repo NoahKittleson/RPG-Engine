@@ -46,8 +46,18 @@ void WalkingAnimation::changeState(Direction newDir) {
 	walkingState = newDir;
 }
 
+void WalkingAnimation::changeState(bool move) {
+	moving = move;
+}
+
 void WalkingAnimation::update(MapObject& obj, float elapsed) {
-	if (/*obj.moved*/ true) {
+	//either:
+	//	obj.direction
+	//	obj.input->direction
+	//	obj.
+	//
+	
+	if (/*obj->input.move()*/ true) {
 		totalElapsed += elapsed;
 		if (totalElapsed > timePerFrame) {
 			totalElapsed -= timePerFrame;
