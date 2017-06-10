@@ -18,7 +18,7 @@ public:
 	virtual void update(sf::RenderWindow& rw, float elapsed) override;
 	
 private:
-	virtual void updateSprite(WalkingAnimation* spr);	//this isn't really going to be a thing
+	//virtual void updateSprite(WalkingAnimation* spr);	//this isn't really going to be a thing
 
 	Key up;
 	Key down;

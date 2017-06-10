@@ -46,10 +46,6 @@ void WalkingAnimation::changeState(Direction newDir) {
 	walkingState = newDir;
 }
 
-void WalkingAnimation::changeState(bool move) {
-	moving = move;
-}
-
 Direction WalkingAnimation::getWalkingDirection()
 {
 	sf::Vector2i moveVec;
@@ -84,7 +80,7 @@ void WalkingAnimation::update(MapObject& obj, float elapsed) {
 	auto dir = getWalkingDirection();
 	changeState(dir);
 	
-	if (dir != Direction::Stand) {
+	if (walkingState != Direction::Stand) {
 		totalElapsed += elapsed;
 		if (totalElapsed > timePerFrame) {
 			totalElapsed -= timePerFrame;

@@ -7,7 +7,8 @@
 //
 #pragma once
 #include "State.h"
-
+#include "WalkingAnimation.hpp"
+#include "StartingZone.h"
 
 class LoadState: public State
 {

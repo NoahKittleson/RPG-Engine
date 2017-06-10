@@ -20,7 +20,6 @@ public:
 					 sf::Vector2f position, float timePerFrame, sf::Vector2i frame);
 	//virtual void update(MapObject& obj, float elapsed) override;
 	void changeState(Direction newDir);
-	void changeState(bool moving);
 	void update(MapObject& obj, float elapsed) override;
 	
 private:

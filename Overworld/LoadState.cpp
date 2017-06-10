@@ -7,7 +7,6 @@
 //
 
 #include "LoadState.hpp"
-#include "StartingZone.h"
 
 LoadState::LoadState(StateStack& SS) {
     stack = &SS;
@@ -32,7 +31,11 @@ LoadState::LoadState(StateStack& SS) {
     //set up player sprite
 	std::vector<sf::FloatRect> emptyList;
 	emptyList.push_back(sf::FloatRect(10,10,20,20));
-	player = new MapObject(new AnimatedComponent(resources.getTexture("PlayerWalkingDown.png"), sf::Vector2f(50,50), 0.1f, sf::Vector2i(16,16)), emptyList);
+	player = new MapObject(new WalkingAnimation(resources.getTexture("PlayerWalkingUp.png"),
+												resources.getTexture("PlayerWalkingDown.png"),
+												resources.getTexture("PlayerWalkingLeft.png"),
+												resources.getTexture("PlayerWalkingRight.png"),
+												sf::Vector2f(50,50), 0.1f, sf::Vector2i(16,16)), emptyList);
 
 	
     //load conditions into ConditionList
