@@ -18,7 +18,7 @@ WalkingAnimation::WalkingAnimation(const sf::Texture& up, const sf::Texture& dow
 	walkingState = Direction::Down;
 }
 
-void WalkingAnimation::changeState(Direction newDir) {
+void WalkingAnimation::changeDirection(Direction newDir) {
 	if (walkingState == newDir) {
 		return;
 	}
@@ -48,6 +48,8 @@ void WalkingAnimation::changeState(Direction newDir) {
 
 Direction WalkingAnimation::getWalkingDirection()
 {
+	//this logic isn't going to work for any non-player sprite that walks...
+	//use something more like input->movementVec
 	sf::Vector2i moveVec;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 		moveVec.y -= 100;
@@ -78,7 +80,7 @@ Direction WalkingAnimation::getWalkingDirection()
 
 void WalkingAnimation::update(MapObject& obj, float elapsed) {
 	auto dir = getWalkingDirection();
-	changeState(dir);
+	changeDirection(dir);
 	
 	if (walkingState != Direction::Stand) {
 		totalElapsed += elapsed;

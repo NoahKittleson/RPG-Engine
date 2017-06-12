@@ -10,6 +10,7 @@
 #include "PrefixHeader.pch"
 #include "MapObject.hpp"
 
+
 class MapObject;
 
 class GraphicsComponent : public sf::Sprite                 //this might be a bad idea.  If it is then just make Sprite a member
@@ -19,5 +20,6 @@ public:
     GraphicsComponent (const sf::Texture& texture, sf::Vector2f position);
     virtual void update(MapObject& obj, float elapsed);         //I never use the Obj item called in.  Will I in the future?
     virtual void addTime(float delta);
+	
 
 };

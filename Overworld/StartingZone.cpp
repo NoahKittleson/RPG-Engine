@@ -73,7 +73,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
         boxlist.emplace_back(0, 0, 10, 50);
         boxlist.emplace_back(0, 0, 50, 10);
 		//this sprites should be added earlier if it is to be drawn in the correct order
-		sprites.emplace_back(new GraphicsComponent(resources.getTexture("tree.png"), sf::Vector2f(600,100)), boxlist);
+		sprites.emplace_back(new GraphicsComponent(resources.getTexture("tree.png"), sf::Vector2f(600,100)), boxlist, hey);
 
         sprites.back().setScale(4.f);
         

@@ -15,15 +15,15 @@ bool Trigger::intersects(sf::FloatRect box) const
     return area.intersects(box);
 }
 
-ActionID Trigger::proc(std::vector<Condition> conds) const {
+ActionID Trigger::proc(const std::vector<Condition>& conds) const {
     if (testConditions(conds)) {
         return successAction;
     } else
         return failureAction;
 }
 
-bool Trigger::testConditions(std::vector<Condition> conds) const {
-    for(auto && it : prerequisites){
+bool Trigger::testConditions(const std::vector<Condition>& conds) const {
+    for(const auto & it : prerequisites) {
         bool active = std::find(conds.begin(), conds.end(), it.first) != conds.end();
         //if the flag's existence agrees with the condition prereq
         if (active == it.second) {

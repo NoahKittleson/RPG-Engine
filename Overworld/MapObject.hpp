@@ -18,7 +18,7 @@ class GraphicsComponent;
 
 class MapObject {
 public:
-	MapObject(GraphicsComponent* gc, RectVec collision);
+	MapObject(GraphicsComponent* gc, RectVec collision, DNode* dialogue = nullptr);
 	~MapObject();
 	MapObject(const MapObject& obj);  // copy constructor
 	
@@ -29,14 +29,15 @@ public:
 	//graphics
     void draw(sf::RenderWindow &rw) const;
 	void addTime(float delta);
-	int getBase() const;
-	void drawBase(sf::RenderWindow &rw) const;
-	void drawCenter(sf::RenderWindow & rw) const;
 	void setScale(float);
 	void move(float x, float y);
 	void move(sf::Vector2f xy);
 	
 	//physics
+	int getBase() const;
+	void drawBase(sf::RenderWindow &rw) const;
+	void drawCenter(sf::RenderWindow & rw) const;
+	
 	void collideX(MapObject &PC, float x) const;
 	void collideY(MapObject &PC, float y) const;
 	void drawCollision(sf::RenderWindow& rw);
@@ -57,6 +58,7 @@ private:
 	
 	//interaction
 	//DialogueComponent* dialogue;
+	DNode* dialogue;
 	
 	
 	//where do I store the walkingState?

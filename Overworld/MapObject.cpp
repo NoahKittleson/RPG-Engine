@@ -8,8 +8,8 @@
 
 #include "MapObject.hpp"
 
-MapObject::MapObject(GraphicsComponent* gc, RectVec collision)
-: graphics(gc)
+MapObject::MapObject(GraphicsComponent* gc, RectVec collision, DNode* dia)
+: graphics(gc), dialogue(dia)
 {
 	sf::Vector2f position = gc->getPosition();
 	for (auto && box : collision) {
@@ -18,7 +18,7 @@ MapObject::MapObject(GraphicsComponent* gc, RectVec collision)
 }
 
 MapObject::~MapObject() {
-	//consider having non-dynamic componenets if I want to double up on multiple objects with same graphics
+	//consider having non-dynamic components if I want to double up on multiple objects with same graphics
 	delete graphics;
 	std::cout << "graphics deleted\n";
 }
@@ -152,10 +152,7 @@ bool MapObject::intersects(sf::FloatRect box) {
 }
 
 DNode* MapObject::getDNode() const {
-	//return dialogue;
-	
-	//disabled for now, because I have yet to design DialogueComponent
-	return nullptr;
+	return dialogue;
 }
 
 

@@ -19,7 +19,7 @@ public:
 					 const sf::Texture& left, const sf::Texture& right,
 					 sf::Vector2f position, float timePerFrame, sf::Vector2i frame);
 	//virtual void update(MapObject& obj, float elapsed) override;
-	void changeState(Direction newDir);
+	void changeDirection(Direction newDir);
 	void update(MapObject& obj, float elapsed) override;
 	
 private:
