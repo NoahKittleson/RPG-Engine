@@ -46,7 +46,7 @@ public:
 	//dialogue
 	DNode* getDNode() const;
 	
-private:
+protected:
 	//graphics
     GraphicsComponent* graphics;
 	
