@@ -11,6 +11,7 @@
 #include "StateStack.h"
 #include "MapSection.h"
 #include "ResourceHolder.h"
+#include "PlayerObject.hpp"
 //#include "SaveInfo.h"
 
 class StateStack;
@@ -35,7 +36,7 @@ protected:
     //perhaps a LOADSTATE which exists to fill ResourceHolder, currentMap, party, and playerSprite with correct values.    
     static MapSection* currentMap;
     static std::vector<Character> party;
-    static MapObject* player;               //consider boost_ptr unique pointer?
+    static PlayerObject* player;               //consider boost_ptr unique pointer?
     const static ResourceHolder resources;
     static std::vector<Condition> conditions;
     sf::Music musicPlayer;

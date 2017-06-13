@@ -31,7 +31,7 @@ LoadState::LoadState(StateStack& SS) {
     //set up player sprite
 	std::vector<sf::FloatRect> emptyList;
 	emptyList.push_back(sf::FloatRect(10,10,20,20));
-	player = new MapObject(new WalkingAnimation(resources.getTexture("PlayerWalkingUp.png"),
+	player = new PlayerObject(new WalkingAnimation(resources.getTexture("PlayerWalkingUp.png"),
 												resources.getTexture("PlayerWalkingDown.png"),
 												resources.getTexture("PlayerWalkingLeft.png"),
 												resources.getTexture("PlayerWalkingRight.png"),

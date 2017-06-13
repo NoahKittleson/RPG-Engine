@@ -252,6 +252,16 @@ void OverworldMode::updateView()
 void OverworldMode::checkForInteraction(sf::RenderWindow &rw)
 {
 	//disabled for now
+	//player->interact(world)
+	//--player goes through each Rect in world with it's own increased boxes
+	//--if player finds a collision, it'll test to see if nullptr and keep going if it is
+	//--if valid, then player returns ptr so that this function can make a DialogueMode
+	DNode* dialoguePtr = player->interact(currentMap);
+	if (dialoguePtr) {
+		std::cout << "dialogueMode created\n";
+		addToStack( new DialogueMode (dialoguePtr, rw) );
+	}
+
 	
 //	sf::IntRect bigCollision = player->getAbsBox();
 //	bigCollision.left -= COLLISION_BOX_EXTRA;

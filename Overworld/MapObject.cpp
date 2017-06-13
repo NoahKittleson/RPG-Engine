@@ -88,7 +88,7 @@ void MapObject::drawCenter(sf::RenderWindow &rw) const{
 	//std::cout << "drawing center at: " << graphics->getPosition().x << ", " << graphics->getPosition().y << "\n";
 }
 
-void MapObject::drawCollision(sf::RenderWindow& rw) {
+void MapObject::drawCollision(sf::RenderWindow& rw) const {
 	sf::RectangleShape rectangle;
 	rectangle.setFillColor(sf::Color::Red);
 	for (auto const & it: collisionBoxes) {

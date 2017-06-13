@@ -37,10 +37,10 @@ public:
 	int getBase() const;
 	void drawBase(sf::RenderWindow &rw) const;
 	void drawCenter(sf::RenderWindow & rw) const;
+	void drawCollision(sf::RenderWindow& rw) const;
 	
 	void collideX(MapObject &PC, float x) const;
 	void collideY(MapObject &PC, float y) const;
-	void drawCollision(sf::RenderWindow& rw);
 	bool intersects(sf::FloatRect);
 	
 	//dialogue
