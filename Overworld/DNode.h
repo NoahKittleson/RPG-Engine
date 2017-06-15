@@ -11,8 +11,6 @@
 #include "IterVector.hpp"
 #include "Conditions.cpp"
 
-using ConditionMap = std::map<Condition, bool>;
-
 class DNode
 {
 public:
@@ -28,7 +26,7 @@ public:
     virtual DNode* getNext() = 0;
 	
 	virtual void addCondition(Condition add);
-	virtual void resolveConditions(ConditionMap& cm) const;
+	virtual void resolveConditions(std::vector<Condition>& cv) const;
     
 protected:
     sf::Text display;

@@ -72,11 +72,12 @@ void TalkNode::handleInput(sf::Event &)         //perhaps for later?
 
 DNode* TalkNode::getNext()
 {
+	//completes text if still printing to screen
     if (text.get().getSize() != display.getString().getSize()) {
         display.setString(text.get());
         return this;
     }
-    
+    //gets next DNode if complete
     if (text.atEnd()) {
         text.reset();
         if (next) {
@@ -84,6 +85,7 @@ DNode* TalkNode::getNext()
         }
         return next;
     }
+	//shifts to next sentence and returns self
     ++text;
     clear();
     return this;

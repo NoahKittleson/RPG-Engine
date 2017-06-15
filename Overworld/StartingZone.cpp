@@ -57,6 +57,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 
     optionOne->addText("uhh....");
     optionOne->addText("well I got nothing");
+	optionOne->addCondition(Condition::First);
 
     optionTwo->addText("well fine then");
                     

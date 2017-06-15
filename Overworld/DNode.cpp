@@ -34,10 +34,12 @@ void DNode::clear() {
     display.setString("");
 }
 
-void DNode::resolveConditions(ConditionMap& cm) const
+void DNode::resolveConditions(std::vector<Condition>& cv) const
 {
 	for (auto const & it : conds) {
-		cm[it] = true;
+		if (std::find(cv.begin(), cv.end(), it) == cv.end()) {
+			cv.push_back(it);
+		}
 	}
 }
 

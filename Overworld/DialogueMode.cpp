@@ -38,7 +38,8 @@ void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
     sf::Event event;
     while (rw.pollEvent(event)) {
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::X) {
-            current = current->getNext();
+			current->resolveConditions(conditions);
+			current = current->getNext();
             if (current == nullptr) {
                 deletionOrder = true;
                 return;
