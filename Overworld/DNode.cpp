@@ -33,3 +33,15 @@ sf::Vector2f DNode::getPosition() const
 void DNode::clear() {
     display.setString("");
 }
+
+void DNode::resolveConditions(ConditionMap& cm) const
+{
+	for (auto const & it : conds) {
+		cm[it] = true;
+	}
+}
+
+void DNode::addCondition(Condition add)
+{
+	conds.push_back(add);
+}
