@@ -9,6 +9,7 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "IterVector.hpp"
+#include "Conditions.cpp"
 
 class DNode
 {
@@ -24,10 +25,10 @@ public:
     virtual void handleInput(sf::Event&) = 0;
     virtual DNode* getNext() = 0;
     
-//protected:
+protected:
     sf::Text display;
-    int testing = 420;
-    
+	std::vector<Condition> conds;
+	
     virtual std::string getText() = 0;
 
 };

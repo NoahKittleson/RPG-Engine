@@ -10,9 +10,9 @@
 #include "PrefixHeader.pch"
 #include "DNode.h"
 #include "Character.h"
+#include "Conditions.cpp"
 
 enum class ActionID {Fight, Talk, None};
-enum class Condition {First, FoughtWheat, ChangedMap, Last};
 using ConditionMap = std::map<Condition, bool>;
 
 class Trigger

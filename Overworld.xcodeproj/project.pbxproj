@@ -40,6 +40,7 @@
 		B75F862F1BACE0FB0093B615 /* Ability.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F862D1BACE0FB0093B615 /* Ability.cpp */; };
 		B75F86331BACE5C10093B615 /* AnimatedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */; };
 		B76E02341D738EC90058D39E /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = B76E02331D738EC90058D39E /* ResourcePath.mm */; };
+		B7701D831EF262EA006AB891 /* Conditions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7701D821EF262EA006AB891 /* Conditions.cpp */; };
 		B77783F81AE5C57D007FA840 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77783F71AE5C57D007FA840 /* main.cpp */; };
 		B77783FB1AE5C57D007FA840 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B77783FA1AE5C57D007FA840 /* cute_image.jpg */; };
 		B77783FD1AE5C57D007FA840 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = B77783FC1AE5C57D007FA840 /* nice_music.ogg */; };
@@ -124,6 +125,7 @@
 		B75F86321BACE5C10093B615 /* AnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedSprite.h; sourceTree = "<group>"; };
 		B76E02321D738EC90058D39E /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		B76E02331D738EC90058D39E /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
+		B7701D821EF262EA006AB891 /* Conditions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Conditions.cpp; sourceTree = "<group>"; };
 		B77783EF1AE5C57D007FA840 /* Overworld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overworld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77783F31AE5C57D007FA840 /* Overworld-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Overworld-Info.plist"; sourceTree = "<group>"; };
 		B77783F71AE5C57D007FA840 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				B75ABA271C7BE1C400B9FFDE /* DialogueMode.cpp */,
 				B75ABA1B1C7BD81D00B9FFDE /* DNode.h */,
 				B75ABA1C1C7BD81D00B9FFDE /* DNode.cpp */,
+				B7701D821EF262EA006AB891 /* Conditions.cpp */,
 				B75ABA1D1C7BD81D00B9FFDE /* OptionNode.h */,
 				B75ABA1E1C7BD81D00B9FFDE /* OptionNode.cpp */,
 				B75ABA1F1C7BD81D00B9FFDE /* TalkNode.h */,
@@ -474,6 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B75ABA291C7BE1C400B9FFDE /* DialogueMode.cpp in Sources */,
+				B7701D831EF262EA006AB891 /* Conditions.cpp in Sources */,
 				B79AD8D81D4F128200B7C8F7 /* StartingZone.cpp in Sources */,
 				B706F0781BFFE59700C95D49 /* State.cpp in Sources */,
 				B7D17D181E4EA12C00D71290 /* MapSprite.cpp in Sources */,
