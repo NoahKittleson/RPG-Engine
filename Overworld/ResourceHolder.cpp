@@ -30,7 +30,9 @@ ResourceHolder::ResourceHolder()
     IDList.push_back("PlayerWalkingDown.png");
     IDList.push_back("PlayerWalkingLeft.png");
     IDList.push_back("PlayerWalkingRight.png");
-    
+	IDList.push_back("Campfire.png");
+
+	
     for (auto ID: IDList) {
         textureMap[ID].loadFromFile(resourcePath() + ID);
     }
