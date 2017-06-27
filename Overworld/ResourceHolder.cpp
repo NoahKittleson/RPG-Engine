@@ -31,6 +31,7 @@ ResourceHolder::ResourceHolder()
     IDList.push_back("PlayerWalkingLeft.png");
     IDList.push_back("PlayerWalkingRight.png");
 	IDList.push_back("Campfire.png");
+	IDList.push_back("Yak.png");
 
 	
     for (auto ID: IDList) {

@@ -70,7 +70,7 @@ void MapObject::move(sf::Vector2f xy){
 
 
 int MapObject::getBase() const {
-    return graphics->getPosition().y + (graphics->getTextureRect().height * graphics->getScale().y) -(graphics->getOrigin().y * graphics->getScale().y);
+	return graphics->getBase();
 }
 
 void MapObject::drawBase(sf::RenderWindow &rw) const {

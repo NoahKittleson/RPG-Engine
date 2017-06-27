@@ -44,11 +44,17 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	sprites.emplace_back(new DelayedAnimation(resources.getTexture("Scarecrow.png"), sf::Vector2f(500,250), 0.1f, sf::Vector2i(32,32), 3.0f), emptyList);
 	sprites.back().setScale(3.f);
 	
+	//Yak
 	emptyList.push_back(sf::FloatRect(-30,70,50,15));		//magic numbers galore.
+	sprites.emplace_back(new AnimatedComponent(resources.getTexture("Yak.png"), sf::Vector2f(100,325), 0.1f, sf::Vector2i(40,40)), emptyList);
+	emptyList.clear();
+	sprites.back().setScale(3.f);
+	
+	//Campfire
+	emptyList.push_back(sf::FloatRect(-30,60,50,25));		//magic numbers galore.
 	sprites.emplace_back(new AnimatedComponent(resources.getTexture("Campfire.png"), sf::Vector2f(600,300), 0.1f, sf::Vector2i(32,64)), emptyList);
 	emptyList.clear();
 	sprites.back().setScale(3.f);
-
 	
     //Set up Interactable Sprite				//CURRENTLY DEACTIVATED
     TalkNode* hey =	&talkNodeHolder[0];
