@@ -49,6 +49,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	sprites.emplace_back(new AnimatedComponent(resources.getTexture("Yak.png"), sf::Vector2f(100,325), 0.1f, sf::Vector2i(40,40)), emptyList);
 	emptyList.clear();
 	sprites.back().setScale(3.f);
+	sprites.back().offsetBase(-30);
 	
 	//Campfire
 	emptyList.push_back(sf::FloatRect(-30,60,50,25));		//magic numbers galore.

@@ -73,6 +73,10 @@ int MapObject::getBase() const {
 	return graphics->getBase();
 }
 
+void MapObject::offsetBase(float x) {
+	graphics->offsetBase(x);
+}
+
 void MapObject::drawBase(sf::RenderWindow &rw) const {
     sf::RectangleShape rect (sf::Vector2f(20, 1));
     rect.setFillColor(sf::Color::Green);

@@ -32,6 +32,7 @@ public:
 	void setScale(float);
 	void move(float x, float y);
 	void move(sf::Vector2f xy);
+	void offsetBase(float x);
 	
 	//physics
 	int getBase() const;

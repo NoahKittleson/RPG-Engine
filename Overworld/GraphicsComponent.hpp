@@ -21,6 +21,7 @@ public:
     virtual void update(MapObject& obj, float elapsed);         //I never use the Obj item called in.  Will I in the future?
     virtual void addTime(float delta);
 	virtual int getBase() const;
+	virtual void offsetBase(float x);
 	
 private:
 	float baseOffset = 0.f;

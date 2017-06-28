@@ -25,6 +25,10 @@ void GraphicsComponent::addTime(float delta) {
 }
 
 int GraphicsComponent::getBase() const {
-	return getPosition().y + (getTextureRect().height * getScale().y) -(getOrigin().y * getScale().y);
+	return getPosition().y + (getTextureRect().height * getScale().y) -(getOrigin().y * getScale().y) + baseOffset;
+}
+
+void GraphicsComponent::offsetBase(float x) {
+	baseOffset += x;
 }
 
