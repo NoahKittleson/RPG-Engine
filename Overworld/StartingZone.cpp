@@ -101,6 +101,8 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	
     //Set up Trigger for Fighting
     //...nothing right now...
+	triggers.emplace_back(ActionID::Fight, sf::FloatRect(250,150,100,50));
+	
     
     //Set up Zone Exits
     sf::Vector2u totalArea = background.getTexture()->getSize();
@@ -110,12 +112,6 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y), sf::Vector2f(totalArea.x-50.f,0), zoneID);
     exits.emplace_back(sf::FloatRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(50.f-totalArea.x,0), zoneID);
     exits.emplace_back(sf::FloatRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,70.f-totalArea.y), zoneID);
-					
-//	for (auto && sprite : sprites) {
-//		if (sprite.getTexture()) {
-//			std::cout << "initialized with ptr\n";
-//		} else std::cout << "initialized with NULLptr\n";
-//	}
 	
 }
 

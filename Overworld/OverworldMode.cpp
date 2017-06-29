@@ -155,10 +155,12 @@ void OverworldMode::checkExits()
 ActionID OverworldMode::checkTriggers() {
 	for (const auto & it: currentMap->getTriggerList()) {
 		if (player->intersects(it.getArea())) {
+			std::cout << "BATTLE!\n";
+
 			ActionID action = it.proc(conditions);
 			switch (action) {
 				case ActionID::Fight:
-//					addToStack(new BattleMode (action));
+					//addToStack(new BattleMode (action));
 					//create state
 					break;
 					
@@ -223,10 +225,16 @@ void OverworldMode::drawPlayerCollision(sf::RenderWindow &rw)
 
 void OverworldMode::drawAllBoxes(sf::RenderWindow &rw)
 {
+	//collision
 	for (auto && it: currentMap->getSpriteList()) {
 		it.drawCollision(rw);
 	}
 	drawPlayerCollision(rw);
+	
+	//triggers
+	for (auto && it: currentMap->getTriggerList()) {
+		it.drawArea(rw);
+	}
 }
 
 void OverworldMode::updateView()
