@@ -26,7 +26,7 @@ public:
     bool intersects(sf::FloatRect) const;
 	
 	//this is just for testing right now.  Replace with proc later down the line
-	ActionID getAction() {return successAction;};
+	ActionID getAction() const {return successAction;};
 
 
     ActionID proc(const std::vector<Condition>& conds) const;

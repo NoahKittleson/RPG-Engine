@@ -155,18 +155,23 @@ void OverworldMode::checkExits()
 ActionID OverworldMode::checkTriggers() {
 	for (const auto & it: currentMap->getTriggerList()) {
 		if (player->intersects(it.getArea())) {
-			std::cout << "BATTLE!\n";
-
-			ActionID action = it.proc(conditions);
+			//ActionID action = it.proc(conditions);
+			ActionID action = it.getAction();
 			switch (action) {
-				case ActionID::Fight:
+				case ActionID::Fight: {
 					//addToStack(new BattleMode (action));
 					//create state
+					std::vector<Character*> list;
+					Character wheat (100, 100, 100,  resources.getTexture("RollingWheat.png"), resources.getFont("sansation.ttf"), "WheatMan", "Get 'em", true, resources.getTexture("RollingWheat.png"));
+					list.push_back(&wheat);
+					addToStack(new BattleMode(list));
 					break;
+				}
 					
-				case ActionID::Talk:
+				case ActionID::Talk: {
 //					addToStack(new DialogueMode (action));
 					break;
+				}
 					
 				default:
 					break;
