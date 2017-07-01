@@ -56,7 +56,6 @@ public:
     
 private:
     //character stats
-    //sf::Text _name;
     AnimatedSprite _sprite;
     std::string _AttackName;
     float _maxHealth;

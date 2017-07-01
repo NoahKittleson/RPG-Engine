@@ -49,7 +49,6 @@ private:
     enum class Mode { StartChoice, PickAbility, PickTarget, Animating };
     IterVector<Character*> combatants;
     IterVector<Character*> targetSelectVec;
-    //std::vector<Character>::iterator currentChar { enemyVec.begin() };
     Ability* chosenAbil {nullptr};
     Character* chosenTarget {nullptr};
     Mode Choice = Mode::StartChoice;

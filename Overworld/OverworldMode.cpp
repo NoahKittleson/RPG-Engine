@@ -162,8 +162,9 @@ ActionID OverworldMode::checkTriggers() {
 					//addToStack(new BattleMode (action));
 					//create state
 					std::vector<Character*> list;
-					Character wheat (100, 100, 100,  resources.getTexture("RollingWheat.png"), resources.getFont("sansation.ttf"), "WheatMan", "Get 'em", true, resources.getTexture("RollingWheat.png"));
-					list.push_back(&wheat);
+					Character* wheat = new Character(100, 100, 100,  resources.getTexture("RollingWheat.png"), resources.getFont("sansation.ttf"), "WheatMan", "Get 'em", true, resources.getTexture("RollingWheat.png"));
+					//this ^^^ IS leaking memory.
+					list.push_back(wheat);
 					addToStack(new BattleMode(list));
 					break;
 				}
