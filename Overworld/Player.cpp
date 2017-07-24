@@ -11,9 +11,9 @@
 //Player Constructor is very hacky, but will work for now.
 //Later, have it initialized with a sprite from ResourceHolder
 Player::Player(const ResourceHolder& resources)
-    : MapSprite(sf::Vector2i(16,16), 0.1f, resources.getTexture("PlayerWalkingDown.png")), walkingState(Stand),
-    walkUp(&resources.getTexture("PlayerWalkingUp.png")), walkDown(&resources.getTexture("PlayerWalkingDown.png")),
-    walkLeft(&resources.getTexture("PlayerWalkingLeft.png")), walkRight(&resources.getTexture("PlayerWalkingRight.png"))
+    : MapSprite(sf::Vector2i(16,16), 0.1f, resources.getTexture(Textures::PlayerWalkingDown)), walkingState(Stand),
+    walkUp(&resources.getTexture(Textures::PlayerWalkingUp)), walkDown(&resources.getTexture(Textures::PlayerWalkingDown)),
+    walkLeft(&resources.getTexture(Textures::PlayerWalkingLeft)), walkRight(&resources.getTexture(Textures::PlayerWalkingRight))
 {
     setTexture(*walkDown);
     int textureHeight = walkDown->getSize().y;

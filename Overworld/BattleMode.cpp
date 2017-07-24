@@ -11,10 +11,10 @@
 //This copies passed enemyVec.  Change if this is a problem
 BattleMode::BattleMode(std::vector<Character*>& enemies) : StartOptions(true)
 {
-    StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Attack", MenuOption::Attack);
-    StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Ability", MenuOption::Ability);
-    StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Recovery", MenuOption::Recovery);
-    StartOptions.emplace_back(resources.getFont("sansation.ttf"), "Crash Game", MenuOption::Crash);
+	StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Attack", MenuOption::Attack);
+    StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Ability", MenuOption::Ability);
+    StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Recovery", MenuOption::Recovery);
+    StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Crash Game", MenuOption::Crash);
     
     for (int iii = 0; iii < StartOptions.size(); ++iii) {
         StartOptions[iii].setPosition(100, 40 * iii);
