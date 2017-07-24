@@ -25,9 +25,9 @@ ResourceHolder::ResourceHolder()
     textureIDMap.insert(std::make_pair("GetHitAnimation.png", Textures::ID::GetHitAnimation));
     textureIDMap.insert(std::make_pair("RollingWheat.png", Textures::ID::RollingWheat));
     textureIDMap.insert(std::make_pair("Scarecrow.png", Textures::ID::Scarecrow));
-    textureIDMap.insert(std::make_pair("cute_image.jpg", Textures::ID::cute_image));
-    textureIDMap.insert(std::make_pair("icon.png", Textures::ID::icon));
-    textureIDMap.insert(std::make_pair("tree.png", Textures::ID::tree));
+    textureIDMap.insert(std::make_pair("cute_image.jpg", Textures::ID::CuteImage));
+    textureIDMap.insert(std::make_pair("icon.png", Textures::ID::Icon));
+    textureIDMap.insert(std::make_pair("tree.png", Textures::ID::Tree));
     textureIDMap.insert(std::make_pair("PlayerWalkingUp.png", Textures::ID::PlayerWalkingUp));
     textureIDMap.insert(std::make_pair("PlayerWalkingDown.png", Textures::ID::PlayerWalkingDown));
     textureIDMap.insert(std::make_pair("PlayerWalkingLeft.png", Textures::ID::PlayerWalkingLeft));
@@ -45,7 +45,6 @@ ResourceHolder::ResourceHolder()
 	std::map<sf::String, Fonts::ID> fontIDMap;
 	fontIDMap.insert(std::make_pair("sansation.ttf", Fonts::ID::Sansation));
 
-	
     for (auto && ID : fontIDMap) {
         fontMap[ID.second].loadFromFile(resourcePath() + ID.first);
 	}
@@ -53,10 +52,10 @@ ResourceHolder::ResourceHolder()
 	
     //Whenever you add a new sound file, add to this list
 	std::map<sf::String, Music::ID> musicIDMap;
-
-    IDList.push_back("nice_music.ogg");
-    for (auto && ID: IDList) {
-        musicMap[ID].openFromFile(resourcePath() + ID);
+    musicIDMap.insert(std::make_pair("nice_music.ogg", Music::NiceMusic));
+	
+    for (auto && ID: musicIDMap) {
+        musicMap[ID.second].openFromFile(resourcePath() + ID.first);
     }
 }
 

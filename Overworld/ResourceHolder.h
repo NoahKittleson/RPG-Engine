@@ -20,9 +20,9 @@ namespace Textures {
 		GetHitAnimation,
 		RollingWheat,
 		Scarecrow,
-		cute_image,
-		icon,
-		tree,
+		CuteImage,
+		Icon,
+		Tree,
 		PlayerWalkingUp,
 		PlayerWalkingDown,
 		PlayerWalkingLeft,
@@ -33,14 +33,14 @@ namespace Textures {
 }
 
 namespace Fonts {
-	enum class ID {
+	enum ID {
 		Sansation
 	};
 }
 
 namespace Music {
 	enum ID {
-		nice_music
+		NiceMusic
 	};
 }
 
@@ -57,7 +57,7 @@ private:
     static bool instantiated;
     
     std::map<Textures::ID, sf::Texture> textureMap;
-    std::map<sf::String, sf::Font> fontMap;
-    std::map<sf::String, sf::Music> musicMap;
+    std::map<Fonts::ID, sf::Font> fontMap;
+    std::map<Music::ID, sf::Music> musicMap;
 };
 
