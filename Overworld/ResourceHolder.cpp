@@ -13,41 +13,47 @@ ResourceHolder::ResourceHolder()
     //assure there is only ever one ResourceHolder
     assert(!instantiated);
     instantiated = true;
-    
+	
+	std::unique_ptr<sf::Texture> fuckIHadTheseAllAlong;
+	
     //Whenever you add a new texture, add to this list
-    std::list<sf::String> IDList;
-    IDList.push_back("Mountains.jpg");
-    IDList.push_back("Stickmaniac.png");
-    IDList.push_back("BasicIdle.png");
-    IDList.push_back("BadAttackAnimation.png");
-    IDList.push_back("GetHitAnimation.png");
-    IDList.push_back("RollingWheat.png");
-    IDList.push_back("Scarecrow.png");
-    IDList.push_back("cute_image.jpg");
-    IDList.push_back("icon.png");
-    IDList.push_back("tree.png");
-    IDList.push_back("PlayerWalkingUp.png");
-    IDList.push_back("PlayerWalkingDown.png");
-    IDList.push_back("PlayerWalkingLeft.png");
-    IDList.push_back("PlayerWalkingRight.png");
-	IDList.push_back("Campfire.png");
-	IDList.push_back("Yak.png");
+    std::map<sf::String, Textures::ID> textureIDMap;
+	textureIDMap.insert(std::make_pair("Mountains.jpg", Textures::ID::Mountains));
+    textureIDMap.insert(std::make_pair("Stickmaniac.png", Textures::ID::Stickmaniac));
+    textureIDMap.insert(std::make_pair("BasicIdle.png", Textures::ID::BasicIdle));
+    textureIDMap.insert(std::make_pair("BadAttackAnimation.png", Textures::ID::BadAttackAnimation));
+    textureIDMap.insert(std::make_pair("GetHitAnimation.png", Textures::ID::GetHitAnimation));
+    textureIDMap.insert(std::make_pair("RollingWheat.png", Textures::ID::RollingWheat));
+    textureIDMap.insert(std::make_pair("Scarecrow.png", Textures::ID::Scarecrow));
+    textureIDMap.insert(std::make_pair("cute_image.jpg", Textures::ID::cute_image));
+    textureIDMap.insert(std::make_pair("icon.png", Textures::ID::icon));
+    textureIDMap.insert(std::make_pair("tree.png", Textures::ID::tree));
+    textureIDMap.insert(std::make_pair("PlayerWalkingUp.png", Textures::ID::PlayerWalkingUp));
+    textureIDMap.insert(std::make_pair("PlayerWalkingDown.png", Textures::ID::PlayerWalkingDown));
+    textureIDMap.insert(std::make_pair("PlayerWalkingLeft.png", Textures::ID::PlayerWalkingLeft));
+    textureIDMap.insert(std::make_pair("PlayerWalkingRight.png", Textures::ID::PlayerWalkingRight));
+	textureIDMap.insert(std::make_pair("Campfire.png", Textures::ID::Campfire));
+	textureIDMap.insert(std::make_pair("Yak.png", Textures::ID::Yak));
 
 	
-    for (auto ID: IDList) {
-        textureMap[ID].loadFromFile(resourcePath() + ID);
+    for (auto ID : textureIDMap) {
+        textureMap[ID.second].loadFromFile(resourcePath() + ID.first);
     }
-    
-    IDList.clear();
+    textureIDMap.clear();
+	
     //Whenever you add a new font, add to this list
-    IDList.push_back("sansation.ttf");
-    
-    for (auto && ID: IDList) {
-        fontMap[ID].loadFromFile(resourcePath() + ID);
-    }
-    
-    IDList.clear();
+	std::map<sf::String, Fonts::ID> fontIDMap;
+	fontIDMap.insert(std::make_pair("sansation.ttf", Fonts::ID::Sansation));
+
+	
+    for (auto && ID : fontIDMap) {
+        fontMap[ID.second].loadFromFile(resourcePath() + ID.first);
+	}
+    fontIDMap.clear();
+	
     //Whenever you add a new sound file, add to this list
+	std::map<sf::String, Music::ID> musicIDMap;
+
     IDList.push_back("nice_music.ogg");
     for (auto && ID: IDList) {
         musicMap[ID].openFromFile(resourcePath() + ID);
