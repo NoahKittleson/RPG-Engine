@@ -62,7 +62,7 @@ ResourceHolder::ResourceHolder()
 //Get a texture/sound/font by giving the full file name.
 //If nothing is found returns the first result in IDList
 
-const sf::Texture& ResourceHolder::getTexture(sf::String ID) const
+const sf::Texture& ResourceHolder::getTexture(Textures::ID ID) const
 {
     assert(!textureMap.empty());
     auto find = textureMap.find(ID);
@@ -72,7 +72,7 @@ const sf::Texture& ResourceHolder::getTexture(sf::String ID) const
     else return textureMap.begin()->second;
 }
 
-const sf::Font& ResourceHolder::getFont(sf::String ID) const
+const sf::Font& ResourceHolder::getFont(Fonts::ID ID) const
 {
     assert(!fontMap.empty());
     auto find = fontMap.find(ID);
@@ -82,7 +82,7 @@ const sf::Font& ResourceHolder::getFont(sf::String ID) const
     else return fontMap.begin()->second;
 }
 
-const sf::Music& ResourceHolder::getMusic(sf::String ID) const
+const sf::Music& ResourceHolder::getMusic(Music::ID ID) const
 {
     assert(!textureMap.empty());
     auto find = musicMap.find(ID);

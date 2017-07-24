@@ -50,8 +50,8 @@ public:
     ResourceHolder();
     
     const sf::Texture& getTexture(Textures::ID ID) const;
-    const sf::Font& getFont(sf::String ID) const;
-    const sf::Music& getMusic(sf::String ID) const;
+	const sf::Font& getFont(Fonts::ID ID) const;
+	const sf::Music& getMusic(Music::ID ID) const;
     
 private:
     static bool instantiated;
