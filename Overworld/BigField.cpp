@@ -12,19 +12,19 @@
 #define NO_OF_OPTIONNODES 1
 
 BigField::BigField(const ResourceHolder& resources)
-: MapSection(MapID::BigField, ""), talkNodeHolder(NO_OF_TALKNODES, resources.getFont("sansation.ttf")),
-optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
+: MapSection(MapID::BigField, ""), talkNodeHolder(NO_OF_TALKNODES, resources.getFont(Fonts::Sansation)),
+optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont(Fonts::Sansation)) {
     
     std::vector<sf::FloatRect> emptyList;
-    background.setTexture(resources.getTexture("Mountains.jpg"));
+    background.setTexture(resources.getTexture(Textures::Mountains));
     
     //Set up Non-interactable wheat field
 	sf::Vector2f position (200,100);
 	
     for (int iii = 0; iii < 6; iii++) {
-        sprites.emplace_back(new AnimatedComponent(resources.getTexture("RollingWheat.png"), position, 0.2f, sf::Vector2i(32,32)), emptyList);
+        sprites.emplace_back(new AnimatedComponent(resources.getTexture(Textures::RollingWheat), position, 0.2f, sf::Vector2i(32,32)), emptyList);
 		position += sf::Vector2f(20, 0);
-        sprites.emplace_back(new AnimatedComponent(resources.getTexture("RollingWheat.png"), sf::Vector2f(200,100), 0.2f, sf::Vector2i(32,32)), emptyList);
+        sprites.emplace_back(new AnimatedComponent(resources.getTexture(Textures::RollingWheat), sf::Vector2f(200,100), 0.2f, sf::Vector2i(32,32)), emptyList);
 		position += sf::Vector2f(0, 20);
     }
     
@@ -48,8 +48,8 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
     choice->addText("Just leave", optionTwo);*/
     
     {
-        int xIcon = resources.getTexture("tree.png").getSize().x/2;
-        int yIcon = resources.getTexture("tree.png").getSize().y/2;
+        int xIcon = resources.getTexture(Textures::Tree).getSize().x/2;
+        int yIcon = resources.getTexture(Textures::Tree).getSize().y/2;
         sf::FloatRect Rectangle (-xIcon/2, -yIcon/2, xIcon, yIcon);
         std::vector<sf::FloatRect> boxlist;
         
@@ -57,28 +57,28 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont("sansation.ttf")) {
 		boxlist.emplace_back(0, 0, 10, 50);
 		boxlist.emplace_back(0, 0, 50, 10);
 		//this sprites should be added earlier if it is to be drawn in the correct order
-		sprites.emplace_back(new GraphicsComponent(resources.getTexture("tree.png"), sf::Vector2f(600,100)), boxlist);
+		sprites.emplace_back(new GraphicsComponent(resources.getTexture(Textures::Tree), sf::Vector2f(600,100)), boxlist);
 		
 		sprites.back().setScale(4.f);
 		
 		//Collision Wheat
 		boxlist.clear();
-		int xWheat = resources.getTexture("RollingWheat.png").getSize().x/2;
-		int yWheat = resources.getTexture("RollingWheat.png").getSize().y/2;
+		int xWheat = resources.getTexture(Textures::RollingWheat).getSize().x/2;
+		int yWheat = resources.getTexture(Textures::RollingWheat).getSize().y/2;
 		boxlist.push_back(sf::FloatRect(-xWheat/2, -yWheat/2, xWheat, yWheat));
-		sprites.emplace_back(new GraphicsComponent(resources.getTexture("RollingWheat.png"),
+		sprites.emplace_back(new GraphicsComponent(resources.getTexture(Textures::RollingWheat),
 												   sf::Vector2f(300,300)), boxlist);
 		
 		boxlist.clear();
 		boxlist.push_back(Rectangle);
-		sprites.emplace_back(new GraphicsComponent(resources.getTexture("tree.png"), sf::Vector2f (150,400)), boxlist);
+		sprites.emplace_back(new GraphicsComponent(resources.getTexture(Textures::Tree), sf::Vector2f (150,400)), boxlist);
 		sprites.back().setScale(4.f);    }
 	
     //Set up Trigger for Fighting
     std::vector<Character> EnemyVector;
-    EnemyVector.emplace_back(300, 100,  30, resources.getTexture("RollingWheat.png"),
-                             resources.getFont("sansation.ttf"), "GrainMan", ".", true,
-                             resources.getTexture("RollingWheat.png"));
+    EnemyVector.emplace_back(300, 100,  30, resources.getTexture(Textures::RollingWheat),
+							 resources.getFont(Fonts::Sansation), "GrainMan", ".", true,
+                             resources.getTexture(Textures::RollingWheat));
 
     
     //Set up Zone Exits
