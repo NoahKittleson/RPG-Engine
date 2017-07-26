@@ -11,24 +11,23 @@
 StateStack::~StateStack()
 {
     while (!gameStateStack.empty()) {
-        delete gameStateStack.top();
+        //formerly delete
     }
 }
 
 void StateStack::popTop()
 {
-    delete gameStateStack.top();
     gameStateStack.pop();
 }
 
-void StateStack::addState(State *addMe)
+void StateStack::addState(StatePtr addMe)
 {
     if (addMe) {
         gameStateStack.push(addMe);
     }
 }
 
-State* StateStack::getCurrentState()
+StatePtr& StateStack::getCurrentState()
 {
     assert(!gameStateStack.empty());
     return gameStateStack.top();

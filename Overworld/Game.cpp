@@ -25,8 +25,8 @@ void Game::run()
 	mainWindow.setVerticalSyncEnabled(true);
 
 	//add a state to the stack so I have something to run
-	auto loadMode = new LoadState(gameStack);
-	auto startMode = new OverworldMode();
+	auto loadMode = make_unique<State>(LoadState(gameStack));
+	auto startMode = make_unique<State>(OverworldMode());
 	gameStack.addState(startMode);
 	delete loadMode;
 

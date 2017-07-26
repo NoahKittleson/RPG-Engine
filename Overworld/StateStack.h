@@ -12,6 +12,8 @@
 #include <stack>
 
 class State;
+using StatePtr = std::unique_ptr<State>;
+
 
 class StateStack
 {
@@ -19,14 +21,14 @@ public:
     ~StateStack();
     
     void popTop();
-    void addState(State*);
+    void addState(StatePtr);
     //void addDialogue(DialogueThread* thread);
     //void addBattle(std::list<Character> enemies);
     //void addOverworld(MapSection*);
     
-    State* getCurrentState();
+	StatePtr& getCurrentState();
     
 private:
-    std::stack<State*> gameStateStack;
+    std::stack<StatePtr> gameStateStack;
     
 };
