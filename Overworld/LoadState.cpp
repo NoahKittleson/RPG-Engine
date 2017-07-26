@@ -11,7 +11,7 @@
 LoadState::LoadState(StateStack& SS) {
     stack = &SS;
     //I REALLY DON'T LIKE THIS - DANGER DANGER
-    currentMap = new StartingZone (resources);
+	currentMap = make_unique<MapSection>(StartingZone (resources));
     //DANGER DANGER CHANGE SOON AS POSSIBLE
     
     //set up party
@@ -31,7 +31,7 @@ LoadState::LoadState(StateStack& SS) {
     //set up player sprite
 	std::vector<sf::FloatRect> emptyList;
 	emptyList.push_back(sf::FloatRect(10,10,20,20));
-	player = new PlayerObject(new WalkingAnimation(resources.getTexture(Textures::PlayerWalkingUp),
+	player = make_unique<PlayerObject>(new WalkingAnimation(resources.getTexture(Textures::PlayerWalkingUp),
 												resources.getTexture(Textures::PlayerWalkingDown),
 												resources.getTexture(Textures::PlayerWalkingLeft),
 												resources.getTexture(Textures::PlayerWalkingRight),

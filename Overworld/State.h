@@ -25,7 +25,7 @@ public:
     virtual void draw(sf::RenderWindow&) = 0;
     virtual ActionID handleEvent() = 0;
 
-    void addToStack(State*);
+    void addToStack(StatePtr&&);
     bool checkDeletion();
     
     void load();    //this is a very janky version of how this will eventually work
@@ -34,9 +34,9 @@ protected:
     //this is effectively functioning as the gameInfo class I had considered
     //I need a way to make sure this is all initialized as correct values the first time I call ANY of the states.
     //perhaps a LOADSTATE which exists to fill ResourceHolder, currentMap, party, and playerSprite with correct values.    
-    static MapSection* currentMap;
+	static std::unique_ptr<MapSection> currentMap;
     static std::vector<Character> party;
-    static PlayerObject* player;               //consider boost_ptr unique pointer?
+	static std::unique_ptr<PlayerObject> player;               //consider boost_ptr unique pointer?
     const static ResourceHolder resources;
     static std::vector<Condition> conditions;
     sf::Music musicPlayer;
@@ -48,6 +48,12 @@ private:
     int instances = 0;
 
 };
+
+template <typename Creation, typename... ParamTypes>
+std::unique_ptr<Creation> make_unique(ParamTypes&& ... params)
+{
+	return std::unique_ptr<Creation>(new Creation(std::forward<ParamTypes>(params)...));
+}
 
 
 //Things to do:

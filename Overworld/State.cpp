@@ -22,9 +22,9 @@ State::State() {
     ++instances;
 }
 
-void State::addToStack(State* addMe)
+void State::addToStack(StatePtr&& addMe)
 {
-    stack->addState(addMe);
+	stack->addState(std::move(addMe));
 }
 
 bool State::checkDeletion()
@@ -34,7 +34,7 @@ bool State::checkDeletion()
 
 const ResourceHolder State::resources;
 StateStack* State::stack;
-MapSection* State::currentMap;
+std::unique_ptr<MapSection> State::currentMap;
 std::vector<Character> State::party;
-PlayerObject* State::player;
+std::unique_ptr<PlayerObject> State::player;
 std::vector<Condition> State::conditions;

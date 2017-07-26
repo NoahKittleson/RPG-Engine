@@ -45,11 +45,5 @@ private:
 	
 };
 
-template <typename Creation, typename... ParamTypes>
-std::unique_ptr<Creation> make_unique(ParamTypes&& ... params)
-{
-	return std::unique_ptr<Creation>(new Creation(std::forward<ParamTypes>(params)...));
-}
-
 
 
