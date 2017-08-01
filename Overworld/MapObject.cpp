@@ -146,7 +146,7 @@ void MapObject::collideY(MapObject &PC, float y) const {
 	}
 }
 
-bool MapObject::intersects(sf::FloatRect box) {
+bool MapObject::intersects(sf::FloatRect box) const {
 	for (auto && it : collisionBoxes) {
 		if (it.intersects(box)) {
 			return true;

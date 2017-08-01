@@ -27,9 +27,8 @@ void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
 {
 	float elapsed = timer.restart().asSeconds();
 	//animate
-	for (auto && sprite : currentMap->getSpriteList()) {
-		sprite.update(elapsed);
-	}
+	currentMap->update(rw, elapsed);
+	
 	//handleInput
 	if (mode) {
 		mode->handleInput(rw, elapsed);
@@ -98,19 +97,18 @@ void OverworldMode::changeMap(ZoneExit exit) {
 	MapID nextZone = exit.getNextZone();
 	if (nextZone != currentMap->ID) {
 		//change maps
-		delete currentMap;
 		switch (nextZone) {
 			case MapID::Starting:
-				currentMap = new StartingZone(resources);
+				currentMap = std::unique_ptr<MapSection>(new StartingZone(resources));
 				break;
 				
 			case MapID::BigField:
-				currentMap = new BigField(resources);
+				currentMap = std::unique_ptr<MapSection>(new BigField(resources));
 				break;
 						
 			default:
 				//just in case.  It's better than a game crash.
-				currentMap = new StartingZone(resources);
+				currentMap = std::unique_ptr<MapSection>(new StartingZone(resources));
 				break;
 		}
 	}
@@ -165,7 +163,7 @@ ActionID OverworldMode::checkTriggers() {
 					Character* wheat = new Character(100, 100, 100,  resources.getTexture(Textures::RollingWheat), resources.getFont(Fonts::Sansation), "WheatMan", "Get 'em", true, resources.getTexture(Textures::RollingWheat));
 					//this ^^^ IS leaking memory.
 					list.push_back(wheat);
-					addToStack(new BattleMode(list));
+					addToStack(std::unique_ptr<State>(new BattleMode(list)));
 					break;
 				}
 					
@@ -265,17 +263,16 @@ void OverworldMode::updateView()
 
 void OverworldMode::checkForInteraction(sf::RenderWindow &rw)
 {
-	DNode* dialoguePtr = player->interact(currentMap);
+	DNode* dialoguePtr = player->interact(*currentMap);
 	if (dialoguePtr) {
 		std::cout << "dialogueMode created\n";
-		addToStack( make_unique<State>(DialogueMode(dialoguePtr, rw)));
+		addToStack(std::unique_ptr<State>(new DialogueMode(dialoguePtr, rw)));
 	}
 }
 
 void OverworldMode::addDialogueState(DNode* thread, sf::RenderWindow &rw)
 {
-	auto ptr = new DialogueMode(thread, rw);								//danger danger Will Robinson.
-	addToStack(ptr);
+	addToStack(std::unique_ptr<State>(new DialogueMode(thread, rw)));
 }
 
 

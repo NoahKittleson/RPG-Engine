@@ -42,7 +42,7 @@ public:
 	
 	void collideX(MapObject &PC, float x) const;
 	void collideY(MapObject &PC, float y) const;
-	bool intersects(sf::FloatRect);
+	bool intersects(sf::FloatRect) const;
 	
 	//dialogue
 	DNode* getDNode() const;

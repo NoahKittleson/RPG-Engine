@@ -13,7 +13,7 @@
 class PlayerObject : public MapObject
 {
 public:
-	DNode* interact(MapSection* map);
+	DNode* interact(const MapSection& map);
 	PlayerObject(GraphicsComponent* gc, RectVec& collision);
 	
 private:

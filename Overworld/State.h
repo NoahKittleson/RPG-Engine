@@ -18,6 +18,8 @@ class StateStack;
 
 class State
 {
+	using StatePtr = std::unique_ptr<State>;
+	
 public:
     virtual ~State();
     State();

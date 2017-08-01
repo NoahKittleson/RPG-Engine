@@ -23,16 +23,19 @@ class MapSection: sf::NonCopyable
 public:
     MapSection(MapID id, std::string musicFile);
     const MapID ID;
-    
+	
+	void update(sf::RenderWindow &rw, float elapsed);
     void drawBackground(sf::RenderWindow &rw);
     void drawAllObjects(sf::RenderWindow &rw, MapObject& player);
+	
+	DNode* interact (std::vector<sf::FloatRect>) const;
     
     sf::Vector2u getSize();
     std::string getMusicAddress();
     
     //collision detection that takes callback function for when collision is detected?
     
-    SpriteVec& getSpriteList();
+    const SpriteVec& getSpriteList();
     const ExitVec& getExitList();
     const TriggerVec& getTriggerList();
 	

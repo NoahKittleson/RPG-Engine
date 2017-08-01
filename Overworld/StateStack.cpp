@@ -23,7 +23,7 @@ void StateStack::popTop()
 void StateStack::addState(StatePtr addMe)
 {
     if (addMe) {
-        gameStateStack.push(addMe);
+		gameStateStack.push(std::move(addMe));
     }
 }
 

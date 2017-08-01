@@ -52,6 +52,31 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player)
 	}
 }
 
+void MapSection::update(sf::RenderWindow &rw, float elapsed) {
+	for (auto && sprite : sprites) {
+		sprite.update(elapsed);
+
+	}
+}
+
+DNode* MapSection::interact (std::vector<sf::FloatRect> collision) const {
+	
+	//see if I intersect any other sprites with bigger collision
+	for (auto && sprite: sprites) {
+		for (auto && box: collision) {
+			if (sprite.intersects(box)) {
+				//return corresponding ptr if DNode is not nullptr
+				auto ptr = sprite.getDNode();
+				if (ptr != nullptr) {
+					return ptr;
+				}
+			}
+		}
+	}
+	return nullptr;
+}
+
+
 sf::Vector2u MapSection::getSize()
 {
 	if (background.getTexture()) {
@@ -61,7 +86,7 @@ sf::Vector2u MapSection::getSize()
 	}
 }
 
-SpriteVec& MapSection::getSpriteList()
+const SpriteVec& MapSection::getSpriteList()
 {
 	return sprites;
 }
