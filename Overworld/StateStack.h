@@ -21,7 +21,7 @@ public:
     ~StateStack();
     
     void popTop();
-    void addState(StatePtr);
+    void addState(StatePtr&&);
     //void addDialogue(DialogueThread* thread);
     //void addBattle(std::list<Character> enemies);
     //void addOverworld(MapSection*);

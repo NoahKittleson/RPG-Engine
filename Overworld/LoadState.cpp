@@ -11,7 +11,7 @@
 LoadState::LoadState(StateStack& SS) {
     stack = &SS;
     //I REALLY DON'T LIKE THIS - DANGER DANGER
-	currentMap = make_unique<MapSection>(StartingZone (resources));
+	currentMap = std::unique_ptr<MapSection>(new StartingZone (resources));
     //DANGER DANGER CHANGE SOON AS POSSIBLE
     
     //set up party

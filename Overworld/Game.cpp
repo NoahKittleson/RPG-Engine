@@ -25,10 +25,11 @@ void Game::run()
 	mainWindow.setVerticalSyncEnabled(true);
 
 	//add a state to the stack so I have something to run
-	auto loadMode = make_unique<State>(LoadState(gameStack));
-	auto startMode = make_unique<State>(OverworldMode());
-	gameStack.addState(startMode);
-	delete loadMode;
+	{
+		auto loadMode = std::unique_ptr<State>(new LoadState(gameStack));
+		//in brackets to make sure memory is released as soon as possible but loading still works.
+	}
+	gameStack.addState(std::unique_ptr<State>(new OverworldMode()));
 
 	while (mainWindow.isOpen()) {
 		//float elapsed = gameTimer.restart().asSeconds();
