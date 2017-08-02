@@ -140,7 +140,7 @@ void BattleMode::nextMenu(Ability& abil)
 void BattleMode::nextMenu(std::shared_ptr<Character> target)
 {
     Choice = Mode::Animating;
-    chosenTarget = &target;
+    chosenTarget = target;
 }
 
 void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
@@ -159,7 +159,7 @@ void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
     }
     if (type == MenuOption::Recovery) {
         chosenAbil = &combatants.get()->_basicAttack;
-        chosenTarget = &combatants.get();
+        chosenTarget = combatants.get();
         Choice = Mode::Animating;
     }
     if (type == MenuOption::Crash) {
@@ -169,7 +169,7 @@ void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
 
 void BattleMode::animateAndDraw(sf::RenderWindow &rw, float elapsed)
 {
-    (*chosenTarget)->takeDamage(*chosenAbil, *combatants.get());
+    chosenTarget->takeDamage(*chosenAbil, *combatants.get());
     //this is gonna be the really hard one
     //Animate battle
 }

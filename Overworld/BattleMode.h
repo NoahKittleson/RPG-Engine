@@ -50,7 +50,7 @@ private:
 	IterVector<std::shared_ptr<Character>> combatants;
     IterVector<std::shared_ptr<Character>> targetSelectVec;
     Ability* chosenAbil {nullptr};
-	std::shared_ptr<Character>* chosenTarget {nullptr};
+	std::shared_ptr<Character> chosenTarget {nullptr};
     Mode Choice = Mode::StartChoice;
     
     void nextMenu(Ability&);
