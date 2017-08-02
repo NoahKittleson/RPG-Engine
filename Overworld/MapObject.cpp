@@ -11,7 +11,7 @@
 MapObject::MapObject(graphicsPtr&& gc, RectVec collision, DNode* dia)
 : graphics(std::move(gc)), dialogue(dia)
 {
-	sf::Vector2f position = gc->getPosition();
+	sf::Vector2f position = graphics->getPosition();
 	for (auto && box : collision) {
 		collisionBoxes.push_back(sf::FloatRect(position.x + box.left, position.y + box.top, box.width, box.height));
 	}
