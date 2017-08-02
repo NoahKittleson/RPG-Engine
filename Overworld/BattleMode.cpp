@@ -9,7 +9,7 @@
 #include "BattleMode.h"
 
 //This copies passed enemyVec.  Change if this is a problem
-BattleMode::BattleMode(std::vector<std::unique_ptr<Character>>&& enemies) : StartOptions(true)
+BattleMode::BattleMode(std::vector<std::shared_ptr<Character>>&& enemies) : StartOptions(true)
 {
 	StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Attack", MenuOption::Attack);
     StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Ability", MenuOption::Ability);
@@ -137,10 +137,10 @@ void BattleMode::nextMenu(Ability& abil)
     chosenAbil = &abil;
 }
 
-void BattleMode::nextMenu(Character *target)
+void BattleMode::nextMenu(std::shared_ptr<Character> target)
 {
     Choice = Mode::Animating;
-    chosenTarget = target;
+    chosenTarget = &target;
 }
 
 void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
@@ -159,7 +159,7 @@ void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
     }
     if (type == MenuOption::Recovery) {
         chosenAbil = &combatants.get()->_basicAttack;
-        chosenTarget = combatants.get();
+        chosenTarget = &combatants.get();
         Choice = Mode::Animating;
     }
     if (type == MenuOption::Crash) {
@@ -169,7 +169,7 @@ void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
 
 void BattleMode::animateAndDraw(sf::RenderWindow &rw, float elapsed)
 {
-    chosenTarget->takeDamage(*chosenAbil, *combatants.get());
+    (*chosenTarget)->takeDamage(*chosenAbil, *combatants.get());
     //this is gonna be the really hard one
     //Animate battle
 }

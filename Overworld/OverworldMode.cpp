@@ -155,8 +155,8 @@ ActionID OverworldMode::checkTriggers() {
 				case ActionID::Fight: {
 					//addToStack(new BattleMode (action));
 					//create state
-					std::vector<std::unique_ptr<Character>> list;
-					list.emplace_back(std::unique_ptr<Character>(new Character(100, 100, 100,  resources.getTexture(Textures::RollingWheat), resources.getFont(Fonts::Sansation), "WheatMan", "Get 'em", true, resources.getTexture(Textures::RollingWheat))));
+					std::vector<std::shared_ptr<Character>> list;
+					list.emplace_back(std::shared_ptr<Character>(new Character(100, 100, 100,  resources.getTexture(Textures::RollingWheat), resources.getFont(Fonts::Sansation), "WheatMan", "Get 'em", true, resources.getTexture(Textures::RollingWheat))));
 					addToStack(std::unique_ptr<State>(new BattleMode(std::move(list))));
 					break;
 				}
