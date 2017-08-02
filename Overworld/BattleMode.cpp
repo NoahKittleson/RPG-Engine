@@ -9,7 +9,7 @@
 #include "BattleMode.h"
 
 //This copies passed enemyVec.  Change if this is a problem
-BattleMode::BattleMode(std::vector<Character*>& enemies) : StartOptions(true)
+BattleMode::BattleMode(std::vector<std::unique_ptr<Character>>&& enemies) : StartOptions(true)
 {
 	StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Attack", MenuOption::Attack);
     StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Ability", MenuOption::Ability);
@@ -19,12 +19,12 @@ BattleMode::BattleMode(std::vector<Character*>& enemies) : StartOptions(true)
     for (int iii = 0; iii < StartOptions.size(); ++iii) {
         StartOptions[iii].setPosition(100, 40 * iii);
     }
-    
+	
     for (auto && it : party) {
         combatants.emplace_back(&it);
     }
     for (auto && it : enemies) {
-        combatants.emplace_back(it);
+		combatants.emplace_back(std::move(it));
     }
     StartOptions.get().setColor(sf::Color::Red);
     combatants.setLooping(true);
@@ -36,7 +36,7 @@ BattleMode::~BattleMode() {
     //All characters are dynamically allocated
     for (auto && it : combatants) {
         if (it->_NPC) {
-            delete it;
+            //delete it;
         }
     }
 }

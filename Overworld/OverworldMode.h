@@ -41,7 +41,7 @@ private:
 	void addDialogueState(DNode*, sf::RenderWindow &rw);
 	
 	sf::View view;
-	Mode* mode = nullptr;
+	std::unique_ptr<Mode> mode;
 	
 };
 

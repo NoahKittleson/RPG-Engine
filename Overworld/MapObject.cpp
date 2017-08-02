@@ -8,8 +8,8 @@
 
 #include "MapObject.hpp"
 
-MapObject::MapObject(GraphicsComponent* gc, RectVec collision, DNode* dia)
-: graphics(gc), dialogue(dia)
+MapObject::MapObject(graphicsPtr&& gc, RectVec collision, DNode* dia)
+: graphics(std::move(gc)), dialogue(dia)
 {
 	sf::Vector2f position = gc->getPosition();
 	for (auto && box : collision) {
@@ -19,12 +19,11 @@ MapObject::MapObject(GraphicsComponent* gc, RectVec collision, DNode* dia)
 
 MapObject::~MapObject() {
 	//consider having non-dynamic components if I want to double up on multiple objects with same graphics
-	delete graphics;
-	std::cout << "graphics deleted\n";
+	std::cout << "MapObject deleted\n";
 }
 
 MapObject::MapObject(const MapObject& obj) {
-	this->graphics = new GraphicsComponent(*obj.graphics);
+	this->graphics = std::unique_ptr<GraphicsComponent>(new GraphicsComponent(*obj.graphics));
 }
 
 

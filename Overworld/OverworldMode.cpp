@@ -66,23 +66,19 @@ ActionID OverworldMode::handleEvent() {
 					}
 				}
 				//change mode
-				delete mode;
-				mode = new Fade(true, 1.f);
+				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
 				break;
 				
 			case Mode::FadeInEnd:
-				delete mode;
 				mode = nullptr;
 				break;
 				
 			case Mode::FadeOutBegin:
-				delete mode;
-				mode = new Fade(false, 1.f);
+				mode = std::unique_ptr<Mode>(new Fade(false, 1.f));
 				break;
 				
 			case Mode::FadeInBegin:
-				delete mode;
-				mode = new Fade(true, 1.f);
+				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
 				break;
 				
 			case Mode::None:
@@ -144,7 +140,7 @@ void OverworldMode::checkExits()
 {
 	for (const auto & exit: currentMap->getExitList()) {
 		if (player->intersects(exit.getArea())) {
-			mode = new Fade(false, 1.f);
+			mode = std::unique_ptr<Mode>(new Fade(false, 1.f));
 			return;
 		}
 	}
@@ -159,11 +155,9 @@ ActionID OverworldMode::checkTriggers() {
 				case ActionID::Fight: {
 					//addToStack(new BattleMode (action));
 					//create state
-					std::vector<Character*> list;
-					Character* wheat = new Character(100, 100, 100,  resources.getTexture(Textures::RollingWheat), resources.getFont(Fonts::Sansation), "WheatMan", "Get 'em", true, resources.getTexture(Textures::RollingWheat));
-					//this ^^^ IS leaking memory.
-					list.push_back(wheat);
-					addToStack(std::unique_ptr<State>(new BattleMode(list)));
+					std::vector<std::unique_ptr<Character>> list;
+					list.emplace_back(std::unique_ptr<Character>(new Character(100, 100, 100,  resources.getTexture(Textures::RollingWheat), resources.getFont(Fonts::Sansation), "WheatMan", "Get 'em", true, resources.getTexture(Textures::RollingWheat))));
+					addToStack(std::unique_ptr<State>(new BattleMode(std::move(list))));
 					break;
 				}
 					

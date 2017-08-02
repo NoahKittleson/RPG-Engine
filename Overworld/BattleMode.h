@@ -30,7 +30,7 @@ private:
 class BattleMode : public State
 {
 public:
-    BattleMode(std::vector<Character*>& enemies);
+	BattleMode(std::vector<std::unique_ptr<Character>>&& enemies);
     ~BattleMode();
     void update(sf::RenderWindow&rw, sf::Clock& timer) override;
     //fill these next two out later....
@@ -47,8 +47,8 @@ private:
     float calculateDmg();
     
     enum class Mode { StartChoice, PickAbility, PickTarget, Animating };
-    IterVector<Character*> combatants;
-    IterVector<Character*> targetSelectVec;
+	IterVector<std::unique_ptr<Character>> combatants;
+    IterVector<std::unique_ptr<Character>> targetSelectVec;
     Ability* chosenAbil {nullptr};
     Character* chosenTarget {nullptr};
     Mode Choice = Mode::StartChoice;

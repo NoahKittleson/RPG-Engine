@@ -10,8 +10,8 @@
 
 #define INTERACT_RANGE 10
 
-PlayerObject::PlayerObject(GraphicsComponent* gc, RectVec& collision)
-: MapObject(gc, collision, nullptr)
+PlayerObject::PlayerObject(graphicsPtr&& gc, RectVec& collision)
+: MapObject(std::move(gc), collision, nullptr)
 {
 	
 }

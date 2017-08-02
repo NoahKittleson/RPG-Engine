@@ -10,9 +10,7 @@
 
 LoadState::LoadState(StateStack& SS) {
     stack = &SS;
-    //I REALLY DON'T LIKE THIS - DANGER DANGER
 	currentMap = std::unique_ptr<MapSection>(new StartingZone (resources));
-    //DANGER DANGER CHANGE SOON AS POSSIBLE
     
     //set up party
     party.emplace_back(500, 450, 75, resources.getTexture(Textures::BasicIdle),
@@ -31,11 +29,11 @@ LoadState::LoadState(StateStack& SS) {
     //set up player sprite
 	std::vector<sf::FloatRect> emptyList;
 	emptyList.push_back(sf::FloatRect(10,10,20,20));
-	player = make_unique<PlayerObject>(new WalkingAnimation(resources.getTexture(Textures::PlayerWalkingUp),
+	player = make_unique<PlayerObject>(graphicsPtr(new WalkingAnimation(resources.getTexture(Textures::PlayerWalkingUp),
 												resources.getTexture(Textures::PlayerWalkingDown),
 												resources.getTexture(Textures::PlayerWalkingLeft),
 												resources.getTexture(Textures::PlayerWalkingRight),
-												sf::Vector2f(50,50), 0.1f, sf::Vector2i(16,16)), emptyList);
+												sf::Vector2f(50,50), 0.1f, sf::Vector2i(16,16))), emptyList);
 
 	
     //load conditions into ConditionList

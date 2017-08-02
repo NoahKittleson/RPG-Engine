@@ -12,13 +12,15 @@
 #include "DNode.h"
 //#include "InputComponent.hpp"
 
-using RectVec = std::vector<sf::FloatRect>;
-
 class GraphicsComponent;
+
+using RectVec = std::vector<sf::FloatRect>;
+using graphicsPtr = std::unique_ptr<GraphicsComponent>;
+
 
 class MapObject {
 public:
-	MapObject(GraphicsComponent* gc, RectVec collision, DNode* dialogue = nullptr);
+	MapObject(graphicsPtr&& gc, RectVec collision, DNode* dialogue = nullptr);
 	~MapObject();
 	MapObject(const MapObject& obj);  // copy constructor
 	
@@ -49,7 +51,7 @@ public:
 	
 protected:
 	//graphics
-    GraphicsComponent* graphics;
+	graphicsPtr graphics;
 	
 	//physics
 	RectVec collisionBoxes;
