@@ -27,26 +27,72 @@ void StateStack::addState(StatePtr&& addMe)
     }
 }
 
+void StateStack::clear()
+{
+	while (!gameStateStack.empty()) {
+		gameStateStack.pop();
+	}
+}
+
+StateStack::PendingChange::PendingChange(States::Action action, StatePtr&& add)
+: action (action), add(std::move(add))
+{
+	
+}
+
 StatePtr& StateStack::getCurrentState()
 {
     assert(!gameStateStack.empty());
     return gameStateStack.top();
 }
 
-//void StateStack::addDialogue(DialogueThread* thread)
-//{
-//    DialogueMode* addMe = new DialogueMode (thread);
-//    gameStateStack.push_front(addMe);
-//}
+bool StateStack::empty() const
+{
+	return gameStateStack.empty();
+}
 
-//void StateStack::addOverworld(MapSection* map)
-//{
-//    OverworldMode* addMe = new OverworldMode (map);
-//    gameStateStack.push_front(addMe);
-//}
+void StateStack::requestAdd(std::unique_ptr<State>&& add)
+{
+	pendingChanges.emplace_back(PendingChange(States::Add), add);
+}
 
-//void StateStack::addBattle(std::list<Character> enemies)
-//{
-//    BattleMenu* addMe = new BattleMenu(enemies);
-//    gameStateStack.push_front(addMe);
-//}
+void StateStack::requestClear()
+{
+	pendingChanges.emplace_back(PendingChange(States::Clear));
+}
+
+void StateStack::requestPop()
+{
+	pendingChanges.emplace_back(PendingChange(States::Pop));
+}
+
+void StateStack::applyPendingChanges()
+{
+	for (auto & change : pendingChanges) {
+		switch (change.action) {
+			case States::Add:
+				addState(std::move(change.add));
+				break;
+				
+			case States::Pop:
+				popTop();
+				break;
+				
+			case States::Clear:
+				clear();
+				break;
+				
+			default:
+				break;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+

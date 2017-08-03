@@ -24,7 +24,6 @@ void Game::run()
 	mainWindow.setFramerateLimit(60);
 	mainWindow.setVerticalSyncEnabled(true);
 
-	//add a state to the stack so I have something to run
 	{
 		auto loadMode = std::unique_ptr<State>(new LoadState(gameStack));
 		//in brackets to make sure memory is released as soon as possible but loading still works.
@@ -32,13 +31,15 @@ void Game::run()
 	gameStack.addState(std::unique_ptr<State>(new OverworldMode()));
 
 	while (mainWindow.isOpen()) {
-		//float elapsed = gameTimer.restart().asSeconds();
-		while (gameStack.getCurrentState()->checkDeletion()) {		//could run out stack?
+		while (gameStack.getCurrentState()->checkDeletion()) {
 			gameStack.popTop();
 		}
 		resolveTrigger(gameStack.getCurrentState()->handleEvent());
 		gameStack.getCurrentState()->update(mainWindow, gameTimer);
 		gameStack.getCurrentState()->draw(mainWindow);
+		if (gameStack.empty()) {
+			mainWindow.close();
+		}
 	}
 }
 

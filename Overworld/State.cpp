@@ -11,15 +11,6 @@
 
 State::~State()
 {
-    --instances;
-//    if (instances <= 0) {
-//        delete playerSprite;
-//        delete currentMap;
-//    }
-}
-
-State::State() {
-    ++instances;
 }
 
 void State::addToStack(StatePtr&& addMe)
@@ -27,10 +18,22 @@ void State::addToStack(StatePtr&& addMe)
 	stack->addState(std::move(addMe));
 }
 
-bool State::checkDeletion()
+void State::requestStackAdd(std::unique_ptr<State>&& add)
 {
-    return deletionOrder;
+	stack->requestAdd(std::move(add));
 }
+
+void State::requestStackPop()
+{
+	stack->requestPop();
+}
+
+void State::requestStateClear()
+{
+	stack->requestClear();
+}
+
+
 
 const ResourceHolder State::resources;
 StateStack* State::stack;
