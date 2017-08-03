@@ -32,8 +32,6 @@ void Game::run()
 	gameStack.applyPendingChanges();
 
 	while (mainWindow.isOpen()) {
-		
-		//resolveTrigger(gameStack.getCurrentState()->handleEvent());
 		gameStack.getCurrentState()->update(mainWindow, gameTimer);
 		gameStack.getCurrentState()->draw(mainWindow);
 		if (gameStack.empty()) {
@@ -43,20 +41,6 @@ void Game::run()
 	}
 }
 
-void Game::resolveTrigger(ActionID action) {
-	switch (action) {
-		case ActionID::Fight:
-			//addToStack(new BattleMode (action));
-			break;
-			
-		case ActionID::Talk:
-			//addToStack(new DialogueMode (action));
-			break;
-			
-		default:
-			break;
-	}
-}
 
 
 sf::RenderWindow Game::mainWindow;

@@ -38,7 +38,6 @@ private:
 	void drawPlayerCollision(sf::RenderWindow &rw);
 	void drawAllBoxes(sf::RenderWindow &rw);
 	
-	void addDialogueState(DNode*, sf::RenderWindow &rw);
 	
 	sf::View view;
 	std::unique_ptr<Mode> mode;

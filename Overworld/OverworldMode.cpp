@@ -264,10 +264,6 @@ void OverworldMode::checkForInteraction(sf::RenderWindow &rw)
 	}
 }
 
-void OverworldMode::addDialogueState(DNode* thread, sf::RenderWindow &rw)
-{
-	requestStackAdd(std::unique_ptr<State>(new DialogueMode(thread, rw)));
-}
 
 
 
