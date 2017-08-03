@@ -13,11 +13,6 @@ State::~State()
 {
 }
 
-void State::addToStack(StatePtr&& addMe)
-{
-	stack->addState(std::move(addMe));
-}
-
 void State::requestStackAdd(std::unique_ptr<State>&& add)
 {
 	stack->requestAdd(std::move(add));

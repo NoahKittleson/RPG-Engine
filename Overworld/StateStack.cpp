@@ -53,7 +53,7 @@ bool StateStack::empty() const
 
 void StateStack::requestAdd(std::unique_ptr<State>&& add)
 {
-	pendingChanges.emplace_back(PendingChange(States::Add), add);
+	pendingChanges.emplace_back(PendingChange(States::Add, std::move(add)));
 }
 
 void StateStack::requestClear()
@@ -86,6 +86,7 @@ void StateStack::applyPendingChanges()
 				break;
 		}
 	}
+	pendingChanges.clear();
 }
 
 

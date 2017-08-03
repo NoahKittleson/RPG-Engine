@@ -28,18 +28,18 @@ void Game::run()
 		auto loadMode = std::unique_ptr<State>(new LoadState(gameStack));
 		//in brackets to make sure memory is released as soon as possible but loading still works.
 	}
-	gameStack.addState(std::unique_ptr<State>(new OverworldMode()));
+	gameStack.requestAdd(std::unique_ptr<State>(new OverworldMode()));
+	gameStack.applyPendingChanges();
 
 	while (mainWindow.isOpen()) {
-		while (gameStack.getCurrentState()->checkDeletion()) {
-			gameStack.popTop();
-		}
-		resolveTrigger(gameStack.getCurrentState()->handleEvent());
+		
+		//resolveTrigger(gameStack.getCurrentState()->handleEvent());
 		gameStack.getCurrentState()->update(mainWindow, gameTimer);
 		gameStack.getCurrentState()->draw(mainWindow);
 		if (gameStack.empty()) {
 			mainWindow.close();
 		}
+		gameStack.applyPendingChanges();
 	}
 }
 

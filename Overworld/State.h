@@ -26,8 +26,6 @@ public:
     virtual void draw(sf::RenderWindow&) = 0;
     virtual ActionID handleEvent() = 0;
 
-    void addToStack(StatePtr&&);
-    bool checkDeletion();
 	
 	
 protected:

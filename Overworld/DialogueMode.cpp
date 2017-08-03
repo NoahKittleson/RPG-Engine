@@ -41,7 +41,7 @@ void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
 			current->resolveConditions(conditions);
 			current = current->getNext();
             if (current == nullptr) {
-                deletionOrder = true;
+				requestStackPop();
                 return;
             }
         }

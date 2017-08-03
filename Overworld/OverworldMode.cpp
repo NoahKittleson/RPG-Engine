@@ -157,7 +157,7 @@ ActionID OverworldMode::checkTriggers() {
 					//create state
 					std::vector<std::shared_ptr<Character>> list;
 					list.emplace_back(std::shared_ptr<Character>(new Character(100, 100, 100,  resources.getTexture(Textures::RollingWheat), resources.getFont(Fonts::Sansation), "WheatMan", "Get 'em", true, resources.getTexture(Textures::RollingWheat))));
-					addToStack(std::unique_ptr<State>(new BattleMode(std::move(list))));
+					requestStackAdd(std::unique_ptr<State>(new BattleMode(std::move(list))));
 					break;
 				}
 					
@@ -260,13 +260,13 @@ void OverworldMode::checkForInteraction(sf::RenderWindow &rw)
 	DNode* dialoguePtr = player->interact(*currentMap);
 	if (dialoguePtr) {
 		std::cout << "dialogueMode created\n";
-		addToStack(std::unique_ptr<State>(new DialogueMode(dialoguePtr, rw)));
+		requestStackAdd(std::unique_ptr<State>(new DialogueMode(dialoguePtr, rw)));
 	}
 }
 
 void OverworldMode::addDialogueState(DNode* thread, sf::RenderWindow &rw)
 {
-	addToStack(std::unique_ptr<State>(new DialogueMode(thread, rw)));
+	requestStackAdd(std::unique_ptr<State>(new DialogueMode(thread, rw)));
 }
 
 
