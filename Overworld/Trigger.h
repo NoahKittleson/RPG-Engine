@@ -39,20 +39,16 @@ private:
 };
 
 
+class State;
+using StatePtr = std::unique_ptr<State>;
+
 class NewTrigger
 {
 public:
 	virtual StatePtr proc(ConditionVec& conds) = 0;
 	
 protected:
-	//info for new state
-	ConditionMap prereqs;
-};
-
-class GroundTrigger : public NewTrigger
-{
-public:
-	virtual StatePtr proc(ConditionVec& conds) override {
+	bool meetsReqs(ConditionVec& conds){
 		bool requirementMet = true;
 		for (auto && it : prereqs) {
 			bool present = std::find(conds.begin(), conds.end(), it.first) == conds.end();
@@ -61,6 +57,44 @@ public:
 			}
 		}
 	}
+	
+	ConditionMap prereqs;
+	std::function<StatePtr()> makePtr;
+};
+
+class GroundTrigger : public NewTrigger
+{
+public:
+	virtual StatePtr proc(ConditionVec& conds) override {
+		if (meetsReqs(conds)) {
+			return makePtr();
+		}
+	}
+	
+	bool intersects(std::vector<sf::FloatRect>& collision) {
+		for (const auto & it : collision) {
+			if(it.intersects(area)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+private:
+	sf::FloatRect area;
+};
+
+//will be attached to DNodes or BattleOutcomes
+class AttachedTrigger : public NewTrigger {
+public:
+	virtual StatePtr proc(ConditionVec& conds) override {
+		if (meetsReqs(conds)) {
+			return makePtr();
+		}
+	}
+private:
+	
+	
 };
 
 
