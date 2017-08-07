@@ -8,6 +8,10 @@
 
 #include "Trigger.h"
 
+Trigger::Trigger(ActionID ID, sf::FloatRect area)
+:successAction(ID), area(area)
+{
+}
 
 
 bool Trigger::intersects(sf::FloatRect box) const
@@ -41,7 +45,7 @@ sf::FloatRect Trigger::getArea() const {
 
 void Trigger::drawArea(sf::RenderWindow& rw) const {
 	sf::RectangleShape rect;
-	rect.setFillColor(sf::Color(85,26,139, 150));		//translucent purple
+	rect.setFillColor(sf::Color(85,26,139, 150));					//translucent purple
 	rect.setSize(sf::Vector2f(area.width, area.height));
 	rect.setPosition(area.left, area.top);
 	rw.draw(rect);

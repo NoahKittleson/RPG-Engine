@@ -40,8 +40,8 @@ LoadState::LoadState(StateStack& SS) {
     //(not yet)
 }
 
-ActionID LoadState::handleEvent() {
-    return ActionID::None;
+void LoadState::handleEvent() {
+    return;
 }
 
 void LoadState::update(sf::RenderWindow&, sf::Clock&) {

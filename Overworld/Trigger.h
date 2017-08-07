@@ -12,17 +12,12 @@
 #include "Character.h"
 #include "Conditions.cpp"
 
-enum class ActionID {Fight, Talk, None};
 using ConditionMap = std::map<Condition, bool>;
 
 class Trigger
 {
 public:
-	//base:
-	Trigger(ActionID ID, sf::FloatRect area) {
-		this->area = area;
-		this->successAction = ID;
-	};
+	Trigger(ActionID ID, sf::FloatRect area);
     bool intersects(sf::FloatRect) const;
 	
 	//this is just for testing right now.  Replace with proc later down the line

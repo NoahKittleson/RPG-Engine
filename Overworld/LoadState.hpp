@@ -14,7 +14,7 @@ class LoadState: public State
 {
 public:
     LoadState(StateStack& stack);
-    ActionID handleEvent();
+    void handleEvent();
     void update(sf::RenderWindow&, sf::Clock&);
     void draw(sf::RenderWindow&);
 };

@@ -24,7 +24,7 @@ public:
     virtual ~State();
     virtual void update(sf::RenderWindow&, sf::Clock&) = 0;
     virtual void draw(sf::RenderWindow&) = 0;
-    virtual ActionID handleEvent() = 0;
+    virtual void handleEvent() = 0;
 
 	
 	

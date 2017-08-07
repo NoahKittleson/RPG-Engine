@@ -35,7 +35,7 @@ public:
     void update(sf::RenderWindow&rw, sf::Clock& timer) override;
     //fill these next two out later....
     void draw(sf::RenderWindow&) override;
-    ActionID handleEvent() override;
+    void handleEvent() override;
     
 private:
     void runChoice(sf::RenderWindow &rw, float elapsed /*input*/);

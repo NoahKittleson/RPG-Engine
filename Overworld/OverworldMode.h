@@ -24,13 +24,13 @@ public:
 	OverworldMode();
 	void update(sf::RenderWindow &rw, sf::Clock&) override;
 	void draw(sf::RenderWindow &rw) override;
-	ActionID handleEvent() override;
+	void handleEvent() override;
 	
 private:
 	void handleMovement(float elapsed, sf::Vector2f moveVec);
 	void checkExits();
 	void changeMap(ZoneExit);
-	ActionID checkTriggers();
+	void checkTriggers();
 	void checkForInteraction(sf::RenderWindow &rw);
 	void handleInput(sf::RenderWindow &rw, float elapsed);
 	

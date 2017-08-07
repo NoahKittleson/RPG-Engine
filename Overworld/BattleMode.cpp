@@ -55,9 +55,9 @@ void BattleMode::draw(sf::RenderWindow& rw)
     rw.display();
 }
 
-ActionID BattleMode::handleEvent()
+void BattleMode::handleEvent()
 {
-    return ActionID::None;
+	return;
 }
 
 void BattleMode::updateSprites(float elapsed) {

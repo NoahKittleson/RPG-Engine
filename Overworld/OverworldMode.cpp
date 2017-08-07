@@ -53,7 +53,7 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	rw.display();
 }
 
-ActionID OverworldMode::handleEvent() {
+void OverworldMode::handleEvent() {
 	Mode::modeAction action;
 	if (mode) {
 		action = mode->handleEvent();
@@ -86,7 +86,6 @@ ActionID OverworldMode::handleEvent() {
 				break;
 		}
 	}
-	return checkTriggers();
 }
 
 void OverworldMode::changeMap(ZoneExit exit) {
@@ -146,7 +145,7 @@ void OverworldMode::checkExits()
 	}
 }
 
-ActionID OverworldMode::checkTriggers() {
+void OverworldMode::checkTriggers() {
 	for (const auto & it: currentMap->getTriggerList()) {
 		if (player->intersects(it.getArea())) {
 			//ActionID action = it.proc(conditions);
@@ -171,7 +170,6 @@ ActionID OverworldMode::checkTriggers() {
 			}
 		}
 	}
-	return ActionID::None;
 }
 
 void OverworldMode::handleInput(sf::RenderWindow &rw, float elapsed)
