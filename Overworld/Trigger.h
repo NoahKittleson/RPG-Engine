@@ -13,6 +13,7 @@
 #include "Conditions.cpp"
 
 using ConditionMap = std::map<Condition, bool>;
+using ConditionVec = std::vector<Condition>;
 
 class Trigger
 {
@@ -36,6 +37,36 @@ private:
     ConditionMap prerequisites;
     
 };
+
+
+class NewTrigger
+{
+public:
+	virtual StatePtr proc(ConditionVec& conds) = 0;
+	
+protected:
+	//info for new state
+	ConditionMap prereqs;
+};
+
+class GroundTrigger : public NewTrigger
+{
+public:
+	virtual StatePtr proc(ConditionVec& conds) override {
+		bool requirementMet = true;
+		for (auto && it : prereqs) {
+			bool present = std::find(conds.begin(), conds.end(), it.first) == conds.end();
+			if((!present && it.second) || (present && !it.second)) {
+				requirementMet = false;
+			}
+		}
+	}
+};
+
+
+
+
+
 
 //Things to do:
 //1. Make Trigger a more general base class so that I can have non-area triggers
