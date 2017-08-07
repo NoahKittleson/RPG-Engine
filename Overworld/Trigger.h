@@ -97,6 +97,20 @@ private:
 	
 };
 
+//also consider using this for storing the actions that triggers need to execute:
+
+template <typename T>
+class Order
+{
+public:
+	Order(T obj, std::function<void(T&)> func) : obj(obj), func(func) {};
+	void execute() { func(obj); };
+	
+private:
+	T obj;
+	std::function<void(T&)> func;
+};
+
 
 
 
