@@ -13,7 +13,7 @@
 
 using CharPtr = std::shared_ptr<Character>;
 
-namespace Characters {
+namespace Combatant {
 	enum ID {
 		Wheat,
 		Logo
@@ -24,7 +24,7 @@ namespace Characters {
 class CharacterGenerator
 {
 public:
-	static CharPtr create(const ResourceHolder& resources, Characters::ID);
+	static CharPtr create(const ResourceHolder& resources, Combatant::ID);
 	
 private:
 	CharacterGenerator() {};

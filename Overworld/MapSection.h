@@ -15,7 +15,7 @@
 
 using ExitVec = std::vector<ZoneExit>;
 using SpriteVec = std::vector<MapObject>;
-using TriggerVec = std::vector<Trigger>;
+using TriggerVec = std::vector<GroundTrigger>;
 
 
 class MapSection: sf::NonCopyable

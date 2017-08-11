@@ -100,17 +100,15 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 
 	
     //Set up Trigger for Fighting
-    //...nothing right now...
-	//triggers.emplace_back(ActionID::Fight, sf::FloatRect(250,150,100,50));
-	
-	//feel free to delete this.
-	//Order<MapSection> test (*this, [](MapSection& map) { std::cout << map.getSpriteList().size(); });
-	std::function<StatePtr()> createBattle = [&resources]() -> StatePtr
+	std::function<State*()> createBattle = [&resources]() -> State*
 	{
 		std::vector<std::shared_ptr<Character>> enemyVec;
-		enemyVec.emplace_back (new Character(100, 100, 10, resources.getTexture(Textures::Icon), resources.getFont(Fonts::Sansation), "Evil Logo", "Kill", true, resources.getTexture(Textures::Icon)));
-		return StatePtr (new BattleMode(std::move(enemyVec)));
+		enemyVec.emplace_back(CharacterGenerator::create(resources, Combatant::Logo));
+		return new BattleMode(std::move(enemyVec));
 	};
+	ConditionMap prereqs;
+	prereqs[Condition::ChangedMap] = true;
+	GroundTrigger(prereqs, createBattle, sf::FloatRect(250,150,100,50));
 	
     
     //Set up Zone Exits

@@ -9,14 +9,14 @@
 #include "CharacterGenerator.hpp"
 
 
- CharPtr CharacterGenerator::create(const ResourceHolder& resources, Characters::ID id)
+ CharPtr CharacterGenerator::create(const ResourceHolder& resources, Combatant::ID id)
 {
 	switch (id) {
-		case Characters::Logo:
+		case Combatant::Logo:
 			return CharPtr(new Character(100, 100, 10, resources.getTexture(Textures::Icon), resources.getFont(Fonts::Sansation), "Evil Logo", "Kill", true, resources.getTexture(Textures::Icon)));
 			break;
 			
-		case Characters::Wheat:
+		case Combatant::Wheat:
 			return CharPtr(new Character(100, 100, 100,  resources.getTexture(Textures::RollingWheat), resources.getFont(Fonts::Sansation), "WheatMan", "Get 'em", true, resources.getTexture(Textures::RollingWheat)));
 		
 		default:

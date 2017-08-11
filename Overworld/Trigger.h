@@ -38,18 +38,21 @@ using ConditionVec = std::vector<Condition>;
 //    
 //};
 
-
 class State;
-using StatePtr = std::unique_ptr<State>;
+//using StatePtr = std::unique_ptr<State>;
 
 class NewTrigger
 {
 public:
-	NewTrigger(ConditionMap, std::function<StatePtr()>, sf::FloatRect);
-	virtual StatePtr proc(ConditionVec& conds) = 0;
+	NewTrigger(ConditionMap map, std::function<State*()> func)
+	:prereqs(map), makePtr(func)
+	{
+	};
+	~NewTrigger() {};
+	virtual State* proc(ConditionVec& conds) const = 0;
 	
 protected:
-	bool meetsReqs(ConditionVec& conds){
+	bool meetsReqs(ConditionVec& conds) const {
 		bool requirementMet = true;
 		for (auto && it : prereqs) {
 			bool present = std::find(conds.begin(), conds.end(), it.first) == conds.end();
@@ -61,17 +64,20 @@ protected:
 	}
 	
 	ConditionMap prereqs;
-	std::function<StatePtr()> makePtr;
+	std::function<State*()> makePtr;
 };
 
 class GroundTrigger : public NewTrigger
 {
 public:
-	GroundTrigger(ConditionMap, std::function<StatePtr()>, sf::FloatRect);
+	GroundTrigger(ConditionMap& map, std::function<State*()> func, sf::FloatRect rect)
+	: NewTrigger(map, func), area(rect)
+	{
+	}
 	
-	virtual StatePtr proc(ConditionVec& conds) override {
+	virtual State* proc(ConditionVec& conds) const override {
 		if (meetsReqs(conds)) {
-			return makePtr();
+			return makePtr();					//problem here is that you can't have unique_ptr with incomplete type
 		}
 		return nullptr;
 	}
@@ -85,6 +91,9 @@ public:
 		return false;
 	}
 	
+	operator sf::FloatRect() const {return area;};
+	
+	
 private:
 	sf::FloatRect area;
 };
@@ -92,9 +101,12 @@ private:
 //will be attached to DNodes or BattleOutcomes
 class AttachedTrigger : public NewTrigger {
 public:
-	AttachedTrigger(ConditionMap, std::function<StatePtr()>);
+	AttachedTrigger(ConditionMap map, std::function<State*()> func)
+	: NewTrigger(map, func)
+	{
+	}
 	
-	virtual StatePtr proc(ConditionVec& conds) override {
+	virtual State* proc(ConditionVec& conds) const override {
 		if (meetsReqs(conds)) {
 			return makePtr();
 		}
