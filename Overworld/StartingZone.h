@@ -14,6 +14,7 @@
 #include "PrefixHeader.pch"
 #include "AnimatedComponent.hpp"
 #include "DelayedAnimation.hpp"
+#include "BattleMode.h"
 
 class StartingZone: public MapSection
 {

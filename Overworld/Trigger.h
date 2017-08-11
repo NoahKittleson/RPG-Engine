@@ -15,28 +15,28 @@
 using ConditionMap = std::map<Condition, bool>;
 using ConditionVec = std::vector<Condition>;
 
-class Trigger
-{
-public:
-	Trigger(ActionID ID, sf::FloatRect area);
-    bool intersects(sf::FloatRect) const;
-	
-	//this is just for testing right now.  Replace with proc later down the line
-	ActionID getAction() const {return successAction;};
-
-
-    ActionID proc(const std::vector<Condition>& conds) const;
-	sf::FloatRect getArea() const;
-	void drawArea(sf::RenderWindow& rw) const;
-
-private:
-    bool testConditions(const std::vector<Condition>& conds) const;
-    sf::FloatRect area;
-    ActionID successAction;
-    ActionID failureAction = ActionID::None;
-    ConditionMap prerequisites;
-    
-};
+//class Trigger
+//{
+//public:
+//	Trigger(ActionID ID, sf::FloatRect area);
+//    bool intersects(sf::FloatRect) const;
+//	
+//	//this is just for testing right now.  Replace with proc later down the line
+//	ActionID getAction() const {return successAction;};
+//
+//
+//    ActionID proc(const std::vector<Condition>& conds) const;
+//	sf::FloatRect getArea() const;
+//	void drawArea(sf::RenderWindow& rw) const;
+//
+//private:
+//    bool testConditions(const std::vector<Condition>& conds) const;
+//    sf::FloatRect area;
+//    ActionID successAction;
+//    ActionID failureAction = ActionID::None;
+//    ConditionMap prerequisites;
+//    
+//};
 
 
 class State;
@@ -45,6 +45,7 @@ using StatePtr = std::unique_ptr<State>;
 class NewTrigger
 {
 public:
+	NewTrigger(ConditionMap, std::function<StatePtr()>, sf::FloatRect);
 	virtual StatePtr proc(ConditionVec& conds) = 0;
 	
 protected:
@@ -56,6 +57,7 @@ protected:
 				requirementMet = false;
 			}
 		}
+		return nullptr;
 	}
 	
 	ConditionMap prereqs;
@@ -65,10 +67,13 @@ protected:
 class GroundTrigger : public NewTrigger
 {
 public:
+	GroundTrigger(ConditionMap, std::function<StatePtr()>, sf::FloatRect);
+	
 	virtual StatePtr proc(ConditionVec& conds) override {
 		if (meetsReqs(conds)) {
 			return makePtr();
 		}
+		return nullptr;
 	}
 	
 	bool intersects(std::vector<sf::FloatRect>& collision) {
@@ -87,10 +92,13 @@ private:
 //will be attached to DNodes or BattleOutcomes
 class AttachedTrigger : public NewTrigger {
 public:
+	AttachedTrigger(ConditionMap, std::function<StatePtr()>);
+	
 	virtual StatePtr proc(ConditionVec& conds) override {
 		if (meetsReqs(conds)) {
 			return makePtr();
 		}
+		return nullptr;
 	}
 private:
 	
@@ -98,7 +106,6 @@ private:
 };
 
 //also consider using this for storing the actions that triggers need to execute:
-
 template <typename T>
 class Order
 {
@@ -110,6 +117,9 @@ private:
 	T obj;
 	std::function<void(T&)> func;
 };
+
+
+
 
 
 
