@@ -34,6 +34,7 @@ void Game::run()
 	while (mainWindow.isOpen()) {
 		gameStack.getCurrentState()->update(mainWindow, gameTimer);
 		gameStack.getCurrentState()->draw(mainWindow);
+		gameStack.getCurrentState()->handleEvent();
 		if (gameStack.empty()) {
 			mainWindow.close();
 		}
