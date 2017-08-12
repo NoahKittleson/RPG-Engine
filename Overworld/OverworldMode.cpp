@@ -148,8 +148,12 @@ void OverworldMode::checkExits()
 void OverworldMode::checkTriggers() {
 	for (const auto & it: currentMap->getTriggerList()) {
 		if (player->intersects(it)) {
-			std::unique_ptr<State> newState (it.proc(conditions));
-			requestStackAdd(std::move(newState));
+			State* unsafePtr = it.proc(conditions);
+			std::cout << "Trigger intersected.\n";
+			if (unsafePtr != nullptr) {
+				std::cout << "Trigger proc-ed.\n";
+				requestStackAdd(std::unique_ptr<State>(unsafePtr));
+			}
 		}
 	}
 }

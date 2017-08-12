@@ -107,9 +107,8 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 		return new BattleMode(std::move(enemyVec));
 	};
 	ConditionMap prereqs;
-	prereqs[Condition::ChangedMap] = true;
-	GroundTrigger(prereqs, createBattle, sf::FloatRect(250,150,100,50));
-	
+	//prereqs[Condition::ChangedMap] = true;
+	triggers.emplace_back(prereqs, createBattle, sf::FloatRect(250,150,100,50));
     
     //Set up Zone Exits
     sf::Vector2u totalArea = background.getTexture()->getSize();

@@ -60,7 +60,7 @@ protected:
 				requirementMet = false;
 			}
 		}
-		return nullptr;
+		return requirementMet;
 	}
 	
 	ConditionMap prereqs;
