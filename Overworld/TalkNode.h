@@ -28,7 +28,7 @@ public:
     
 private:
     DNode* next {nullptr};
-    float totalElapsed{0};
+    float totalElapsed {0};
     IterVector<sf::String> text;
     
     std::string getText() override;

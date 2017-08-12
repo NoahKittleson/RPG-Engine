@@ -33,12 +33,7 @@ BattleMode::BattleMode(std::vector<std::shared_ptr<Character>>&& enemies) : Star
 }
 
 BattleMode::~BattleMode() {
-    //All characters are dynamically allocated
-    for (auto && it : combatants) {
-        if (it->_NPC) {
-            //delete it;
-        }
-    }
+
 }
 
 void BattleMode::update(sf::RenderWindow& rw, sf::Clock& timer)

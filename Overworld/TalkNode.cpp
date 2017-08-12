@@ -80,6 +80,7 @@ DNode* TalkNode::getNext()
     //gets next DNode if complete
     if (text.atEnd()) {
         text.reset();
+		clear();
         if (next) {
             next->setPosition(getPosition());
         }

@@ -24,38 +24,35 @@ void DialogueMode::handleEvent() {
 }
 
 void DialogueMode::draw(sf::RenderWindow &rw) {
-    //nothing yet... implement later
+	rw.clear(sf::Color::White);
+	rw.setView(mapView);
+	currentMap->drawBackground(rw);
+	currentMap->drawAllObjects(rw, *player);
+	rw.setView(HUD);
+	rw.draw(messageBox);
+	current->draw(rw);
+	rw.display();
 }
 
 
 void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
 {
     float elapsed = clock.restart().asSeconds();
-    rw.clear(sf::Color::White);                                     //should this be in highest loop?
-    
+	
     //handle all input
     sf::Event event;
     while (rw.pollEvent(event)) {
         if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::X) {
 			current->resolveConditions(conditions);
-			current = current->getNext();
-            if (current == nullptr) {
+			auto next = current->getNext();
+            if (next) {
+				current = next;
+			} else {
 				requestStackPop();
-                return;
-            }
+				return;
+			}
         }
         else current->handleInput(event);
     }
     current->update(elapsed);
-    
-    //put into drawAll function?
-    rw.setView(mapView);
-    
-    currentMap->drawBackground(rw);
-    currentMap->drawAllObjects(rw, *player);
-    
-    rw.setView(HUD);
-    rw.draw(messageBox);
-    current->draw(rw);
-    rw.display();
 }
