@@ -24,7 +24,7 @@ public:
     
 private:
     MenuItem();
-    
+	
 };
 
 class NewMenuItem
@@ -38,13 +38,26 @@ public:
 	
 	virtual void draw(sf::RenderWindow &rw) = 0;
 	virtual void update(float elapsed) = 0;
-	virtual void handleInput(sf::RenderWindow& rw);
+	virtual void handleInput(sf::RenderWindow& rw) = 0;
 	virtual void select() = 0;						//select is for highlighting current option, activate for executing it
 	virtual void activate() = 0;
+	virtual void deselect() = 0;
+	virtual void deactivate() = 0;
+	virtual bool selectable() = 0;
+	bool isSelected() const {return selected;};
+	bool isActive() const {return active;};
+	
 protected:
 	sf::Text text;
 	bool selected = false;
 	bool active = false;
+	
+	//define color Types across all MenuItems
+	const sf::Color selectColor = sf::Color::Red;
+	const sf::Color defaultColor = sf::Color::Black;
+	const sf::Color unselectableColor = sf::Color(128,128,128);
+
+	
 };
 
 class MenuItemContainer : public NewMenuItem {
@@ -55,31 +68,54 @@ public:
 		
 	};
 	
-	void draw(sf::RenderWindow &rw) {
+	void draw(sf::RenderWindow &rw) override {
 		rw.draw(text);
 		//draw selected marker?
 	}
 	
-	void update(float elapsed){
+	void update(float elapsed) override {
 		//nothing yet?
 	}
 	
-	void handleInput(sf::RenderWindow& rw) {
-		if (!active) {
-			return;
+	void handleInput(sf::RenderWindow& rw) override {
+		if (options.get().isActive()) {
+			options.get().handleInput(rw);
 		}
+			
 		sf::Event event;
 		while (rw.pollEvent(event)) {
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
+				options.get().deselect();
 				++options;
+				options.get().select();
 			}
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up) {
+				options.get().deselect();
 				--options;
+				options.get().select();
 			}
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::X) {
 				options.get().activate();
 			}
 		}
+	}
+	
+	void deselect() override {
+		selected = false;
+		if (selectable()) {
+			text.setColor(defaultColor);
+		} else {
+			text.setColor(unselectableColor);
+		}
+	}
+	
+	bool selectable() override {
+		return true;
+	}
+	
+	void select() override {
+		selected = true;
+		text.setColor(selectColor);
 	}
 	
 private:
