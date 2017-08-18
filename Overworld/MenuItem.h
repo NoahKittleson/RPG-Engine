@@ -30,7 +30,7 @@ private:
 class NewMenuItem
 {
 public:
-	NewMenuItem(const sf::Font& font, std::string&& string)
+	NewMenuItem(const sf::Font& font, std::string string)
 	{
 		text.setString(string);
 		text.setFont(font);
@@ -62,8 +62,8 @@ protected:
 
 class MenuItemContainer : public NewMenuItem {
 public:
-	MenuItemContainer(const sf::Font& font, std::string&& string)
-	: NewMenuItem(font, std::move(string))
+	MenuItemContainer(const sf::Font& font, std::string string)
+	: NewMenuItem(font, string)
 	{
 		
 	};
@@ -118,6 +118,73 @@ public:
 		text.setColor(selectColor);
 	}
 	
+	void activate() override {
+		active = true;
+	}
+	
+	void deactivate() override {
+		active = false;
+	}
+	
 private:
 	IterVector<NewMenuItem> options;
 };
+
+#include "Ability.h"
+
+class AbilityMenuItem : public NewMenuItem {
+public:
+	AbilityMenuItem(const sf::Font& font, std::string string, const Ability& ability)
+	: NewMenuItem(font, string), ability(ability)
+	{
+		text.setString(ability.getName());
+	}
+	
+	virtual void draw(sf::RenderWindow &rw) override {
+		rw.draw(text);
+	}
+	
+	virtual void update(float elapsed) override {
+		//nothing yet
+	}
+	
+	void handleInput(sf::RenderWindow& rw) override {
+		//I don't think handleInput should ever be called for this type of menu
+		return;
+	}
+	
+	void deselect() override {
+		selected = false;
+		if (selectable()) {
+			text.setColor(defaultColor);
+		} else {
+			text.setColor(unselectableColor);
+		}
+	}
+	
+	bool selectable() override {
+		//this is the tricky one
+		return character->meetsRequirement(ability);
+	}
+	
+	void select() override {
+		selected = true;
+		text.setColor(selectColor);
+	}
+	
+	void activate() override {
+		active = true;
+	}
+	
+	void deactivate() override {
+		active = false;
+	}
+	
+	
+private:
+	const Ability& ability;
+	
+	
+};
+
+
