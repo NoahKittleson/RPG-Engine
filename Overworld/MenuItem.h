@@ -134,8 +134,8 @@ private:
 
 class AbilityMenuItem : public NewMenuItem {
 public:
-	AbilityMenuItem(const sf::Font& font, std::string string, const Ability& ability)
-	: NewMenuItem(font, string), ability(ability)
+	AbilityMenuItem(const sf::Font& font, std::string string, const Ability& ability, Character& character)
+	: NewMenuItem(font, string), ability(ability), character(&character)
 	{
 		text.setString(ability.getName());
 	}
@@ -164,7 +164,7 @@ public:
 	
 	bool selectable() override {
 		//this is the tricky one
-		return character->meetsRequirement(ability);
+		return character->CheckAbilityCost(ability);
 	}
 	
 	void select() override {
@@ -173,6 +173,7 @@ public:
 	}
 	
 	void activate() override {
+		//create next series of MenuOptions into a vector?
 		active = true;
 	}
 	
@@ -183,7 +184,7 @@ public:
 	
 private:
 	const Ability& ability;
-	
+	Character* character;
 	
 };
 

@@ -501,7 +501,7 @@ float Character::percentHealth()
     return _currentHealth/_maxHealth;
 }
 
-bool Character::CheckAbilityCost(Ability& abil)
+bool Character::CheckAbilityCost(const Ability& abil) const
 {
     for (const auto & it: abil.AbilityRequirements) {
         switch (it.first) {

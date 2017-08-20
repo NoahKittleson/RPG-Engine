@@ -21,7 +21,7 @@ public:
     ~Character();
     
     void addAbility(Ability&);
-    bool CheckAbilityCost(Ability&);
+    bool CheckAbilityCost(const Ability&) const;
     void PayAbilityCost(Ability&);
     float takeDamage(Ability, Character& attacker);
 
