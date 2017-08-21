@@ -65,7 +65,8 @@ public:
 	MenuItemContainer(const sf::Font& font, std::string string)
 	: NewMenuItem(font, string)
 	{
-		
+		text.setFont(font);
+		text.setString(string);
 	};
 	
 	void draw(sf::RenderWindow &rw) override {
@@ -140,6 +141,12 @@ public:
 		text.setString(ability.getName());
 	}
 	
+	AbilityMenuItem(const sf::Font& font, Ability& abil, IterVector<Character>& combatants)
+	: NewMenuItem(font, abil.getName()), ability(abil), character(&combatants.get())
+	{
+
+	}
+	
 	virtual void draw(sf::RenderWindow &rw) override {
 		rw.draw(text);
 	}
@@ -150,7 +157,26 @@ public:
 	
 	void handleInput(sf::RenderWindow& rw) override {
 		//I don't think handleInput should ever be called for this type of menu
-		return;
+		if (options.get().isActive()) {
+			options.get().handleInput(rw);
+		}
+		
+		sf::Event event;
+		while (rw.pollEvent(event)) {
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
+				options.get().deselect();
+				++options;
+				options.get().select();
+			}
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up) {
+				options.get().deselect();
+				--options;
+				options.get().select();
+			}
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::X) {
+				options.get().activate();
+			}
+		}
 	}
 	
 	void deselect() override {
@@ -163,7 +189,6 @@ public:
 	}
 	
 	bool selectable() override {
-		//this is the tricky one
 		return character->CheckAbilityCost(ability);
 	}
 	
@@ -173,12 +198,16 @@ public:
 	}
 	
 	void activate() override {
-		//create next series of MenuOptions into a vector?
+		//create next series of MenuOptions into a vector
 		active = true;
+		for (auto & it : combatants) {
+			options.emplace_back(std::unique_ptr<CharacterMenuItem>(new CharacterMenuItem(text.getFont(), it, combatants)));
+		}
 	}
 	
 	void deactivate() override {
 		active = false;
+		options.clear();
 	}
 	
 	
@@ -186,6 +215,10 @@ private:
 	const Ability& ability;
 	Character* character;
 	
+	IterVector<NewMenuItem> options;
+	IterVector<Character> combatants;
 };
 
+
+//what if I made Characters and Abilities inherit directly from NewMenuItem?
 
