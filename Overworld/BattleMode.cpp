@@ -15,6 +15,21 @@ BattleMode::BattleMode(std::vector<std::shared_ptr<Character>>&& enemies) : Star
     StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Ability", MenuOption::Ability);
     StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Recovery", MenuOption::Recovery);
     StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Crash Game", MenuOption::Crash);
+	
+	
+	menu.emplace_back("Attack", resources.getFont(Fonts::Sansation), combatants);
+	//set callback function that sets chosen attack to Attack Ability?
+	menu.emplace_back("Ability", resources.getFont(Fonts::Sansation), combatants);
+	for (auto & ability : combatants.get().getAbilityList()) {
+		menu.back().addOption("Ability", resources.getFont(Fonts::Sansation), combatants);
+		//set callback function that sets chosen attack to chosen Ability?
+	}
+	menu.emplace_back("Recovery", resources.getFont(Fonts::Sansation), combatants);
+	//set callback function that sets chosen attack to recovery Ability?
+	StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Crash Game", MenuOption::Crash);
+	//set callback function that crashed the game
+	
+	
     
     for (int iii = 0; iii < StartOptions.size(); ++iii) {
         StartOptions[iii].setPosition(100, 40 * iii);

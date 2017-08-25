@@ -134,6 +134,7 @@ protected:
 
 //#include "Ability.h"
 
+
 using MenuPtr = std::unique_ptr<NewMenuItem>;
 
 class AbilityMenuItem : public NewMenuItem {
@@ -160,24 +161,24 @@ public:
 	
 	void handleInput(sf::RenderWindow& rw) override {
 		//I don't think handleInput should ever be called for this type of menu
-		if (options.get().isActive()) {
-			options.get().handleInput(rw);
+		if (options.get()->isActive()) {
+			options.get()->handleInput(rw);
 		}
 		
 		sf::Event event;
 		while (rw.pollEvent(event)) {
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
-				options.get().deselect();
+				options.get()->deselect();
 				++options;
-				options.get().select();
+				options.get()->select();
 			}
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Up) {
-				options.get().deselect();
+				options.get()->deselect();
 				--options;
-				options.get().select();
+				options.get()->select();
 			}
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::X) {
-				options.get().activate();
+				options.get()->activate();
 			}
 		}
 	}
@@ -203,6 +204,7 @@ public:
 	void activate() override {
 		//create next series of MenuOptions into a vector
 		active = true;
+		
 		for (auto & it : combatants) {
 			options.emplace_back(std::unique_ptr<MenuItem>(new CharacterMenuItem(text.getFont(), it, combatants)));
 		}
@@ -221,6 +223,11 @@ private:
 	IterVector<MenuPtr> options;
 	IterVector<Character> combatants;
 };
+
+MenuItem.addCallback( [] () -> void
+					 {
+						 options.fillUpWithNewOptions? OR mode = animateDamage(ability, target?);
+					 });
 
 
 

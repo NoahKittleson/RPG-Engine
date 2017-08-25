@@ -33,7 +33,6 @@ public:
 	BattleMode(std::vector<std::shared_ptr<Character>>&& enemies);
     ~BattleMode();
     void update(sf::RenderWindow&rw, sf::Clock& timer) override;
-    //fill these next two out later....
     void draw(sf::RenderWindow&) override;
     void handleEvent() override;
     
