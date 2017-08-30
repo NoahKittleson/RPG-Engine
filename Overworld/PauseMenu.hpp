@@ -16,7 +16,7 @@ public:
     
     void update(sf::RenderWindow &rw, sf::Clock &clock) override;
     void draw(sf::RenderWindow&) override;
-    void handleEvent() override;
+    void handleInput(sf::RenderWindow& rw) override;
     
 private:
     IterVector<sf::Text> menuOptions;

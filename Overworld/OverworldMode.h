@@ -24,7 +24,7 @@ public:
 	OverworldMode();
 	void update(sf::RenderWindow &rw, sf::Clock&) override;
 	void draw(sf::RenderWindow &rw) override;
-	void handleEvent() override;
+	void handleInput(sf::RenderWindow& rw) override;
 	
 private:
 	void handleMovement(float elapsed, sf::Vector2f moveVec);

@@ -34,7 +34,7 @@ public:
     ~BattleMode();
     void update(sf::RenderWindow&rw, sf::Clock& timer) override;
     void draw(sf::RenderWindow&) override;
-    void handleEvent() override;
+    void handleInput(sf::RenderWindow& rw) override;
     
 private:
     void runChoice(sf::RenderWindow &rw, float elapsed /*input*/);

@@ -53,7 +53,7 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	rw.display();
 }
 
-void OverworldMode::handleEvent() {
+void OverworldMode::handleInput(sf::RenderWindow& rw) {
 	Mode::modeAction action;
 	if (mode) {
 		action = mode->handleEvent();

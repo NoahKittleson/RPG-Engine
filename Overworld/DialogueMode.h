@@ -20,7 +20,7 @@ public:
     //void update(sf::RenderWindow&, sf::Clock&) override;
     void update(sf::RenderWindow &rw, sf::Clock &clock) override;//float elapsed, sf::Event&);
     void draw(sf::RenderWindow&) override;
-    void handleEvent() override;
+    void handleInput(sf::RenderWindow& rw) override;
     
 private:
     sf::View mapView;

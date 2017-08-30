@@ -19,7 +19,7 @@ DialogueMode::DialogueMode(DNode* start, const sf::RenderWindow &rw)
     messageBox.setFillColor(sf::Color(153,76,0));
 }
 
-void DialogueMode::handleEvent() {
+void DialogueMode::handleInput(sf::RenderWindow& rw) {
     //nothing yet... implement later
 }
 

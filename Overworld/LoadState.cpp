@@ -40,7 +40,7 @@ LoadState::LoadState(StateStack& SS) {
     //(not yet)
 }
 
-void LoadState::handleEvent() {
+void LoadState::handleInput(sf::RenderWindow& rw) {
     return;
 }
 

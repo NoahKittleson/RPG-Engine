@@ -59,14 +59,12 @@ void BattleMode::update(sf::RenderWindow& rw, sf::Clock& timer)
     runChoice(rw, elapsed);
 }
 
-void BattleMode::draw(sf::RenderWindow& rw)
-{
+void BattleMode::draw(sf::RenderWindow& rw) {
     drawAll(rw);
     rw.display();
 }
 
-void BattleMode::handleEvent()
-{
+void BattleMode::handleInput(sf::RenderWindow& rw) {
 	return;
 }
 
