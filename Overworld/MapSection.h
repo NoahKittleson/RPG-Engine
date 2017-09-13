@@ -24,7 +24,7 @@ public:
     MapSection(MapID id, std::string musicFile);
     const MapID ID;
 	
-	void update(sf::RenderWindow &rw, float elapsed);
+	void update(float elapsed);
     void drawBackground(sf::RenderWindow &rw);
     void drawAllObjects(sf::RenderWindow &rw, MapObject& player);
 	

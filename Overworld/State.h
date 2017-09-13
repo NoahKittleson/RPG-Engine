@@ -22,7 +22,7 @@ class State
 	
 public:
     virtual ~State();
-    virtual void update(sf::RenderWindow&, sf::Clock&) = 0;
+    virtual void update(sf::Clock&) = 0;
     virtual void draw(sf::RenderWindow&) = 0;
 	virtual void handleInput(sf::RenderWindow&) = 0;
 

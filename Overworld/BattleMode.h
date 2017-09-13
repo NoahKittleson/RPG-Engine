@@ -32,7 +32,7 @@ class BattleMode : public State
 public:
 	BattleMode(std::vector<std::shared_ptr<Character>>&& enemies);
     ~BattleMode();
-    void update(sf::RenderWindow&rw, sf::Clock& timer) override;
+    void update(sf::Clock& timer) override;
     void draw(sf::RenderWindow&) override;
     void handleInput(sf::RenderWindow& rw) override;
     
@@ -47,7 +47,10 @@ private:
     
     enum class Mode { StartChoice, PickAbility, PickTarget, Animating };
 	IterVector<std::shared_ptr<Character>> combatants;
-    IterVector<std::shared_ptr<Character>> targetSelectVec;
+	std::vector<std::shared_ptr<Character>>::iterator currentCombatant = combatants.begin();
+	std::vector<std::shared_ptr<Character>>::iterator selectedTarget = combatants.begin();
+	
+    //IterVector<std::shared_ptr<Character>> targetSelectVec;
     Ability* chosenAbil {nullptr};
 	std::shared_ptr<Character> chosenTarget {nullptr};
     Mode Choice = Mode::StartChoice;

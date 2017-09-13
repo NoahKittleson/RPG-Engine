@@ -20,7 +20,7 @@ BattleMode::BattleMode(std::vector<std::shared_ptr<Character>>&& enemies) : Star
 	menu.emplace_back("Attack", resources.getFont(Fonts::Sansation), combatants);
 	//set callback function that sets chosen attack to Attack Ability?
 	menu.emplace_back("Ability", resources.getFont(Fonts::Sansation), combatants);
-	for (auto & ability : combatants.get().getAbilityList()) {
+	for (auto & ability : combatants.get()->getAbilityList()) {
 		menu.back().addOption("Ability", resources.getFont(Fonts::Sansation), combatants);
 		//set callback function that sets chosen attack to chosen Ability?
 	}
@@ -51,15 +51,15 @@ BattleMode::~BattleMode() {
 
 }
 
-void BattleMode::update(sf::RenderWindow& rw, sf::Clock& timer)
+void BattleMode::update(sf::Clock& timer)
 {
-    rw.setView(rw.getDefaultView());
     float elapsed = timer.restart().asSeconds();
-    rw.clear(sf::Color::White);
     runChoice(rw, elapsed);
 }
 
 void BattleMode::draw(sf::RenderWindow& rw) {
+	rw.setView(rw.getDefaultView());
+	rw.clear(sf::Color::White);
     drawAll(rw);
     rw.display();
 }
@@ -74,7 +74,7 @@ void BattleMode::updateSprites(float elapsed) {
     }
 }
 
-void BattleMode::runChoice(sf::RenderWindow &rw, float elapsed)
+void BattleMode::runChoice(sf::RenderWindow rw, float felapsed)
 {
     if (combatants.get()->_NPC) {
         //run AI logic...

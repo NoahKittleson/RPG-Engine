@@ -22,7 +22,7 @@ class OverworldMode: public State
 {
 public:
 	OverworldMode();
-	void update(sf::RenderWindow &rw, sf::Clock&) override;
+	void update(sf::Clock&) override;
 	void draw(sf::RenderWindow &rw) override;
 	void handleInput(sf::RenderWindow& rw) override;
 	

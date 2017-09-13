@@ -34,7 +34,7 @@ void Fade::draw(sf::RenderWindow &rw) {
     rw.draw(jankScreenFade);
 }
 
-void Fade::handleInput(sf::RenderWindow &rw, float elapsed) {
+void Fade::handleInput(sf::RenderWindow &rw) {
     sf::Event event;
     while (rw.pollEvent(event)) {
         return;

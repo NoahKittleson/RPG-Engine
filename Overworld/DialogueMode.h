@@ -18,7 +18,7 @@ public:
     
     
     //void update(sf::RenderWindow&, sf::Clock&) override;
-    void update(sf::RenderWindow &rw, sf::Clock &clock) override;//float elapsed, sf::Event&);
+    void update(sf::Clock &clock) override;//float elapsed, sf::Event&);
     void draw(sf::RenderWindow&) override;
     void handleInput(sf::RenderWindow& rw) override;
     
@@ -26,6 +26,6 @@ private:
     sf::View mapView;
     sf::View HUD;
     
-    DNode* current;
+    DNode* currentDNode;
     sf::RectangleShape messageBox;
 };

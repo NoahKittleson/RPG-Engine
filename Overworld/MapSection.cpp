@@ -52,10 +52,9 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player)
 	}
 }
 
-void MapSection::update(sf::RenderWindow &rw, float elapsed) {
+void MapSection::update(float elapsed) {
 	for (auto && sprite : sprites) {
 		sprite.update(elapsed);
-
 	}
 }
 

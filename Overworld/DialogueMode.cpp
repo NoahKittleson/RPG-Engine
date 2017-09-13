@@ -9,18 +9,33 @@
 #include "DialogueMode.h"
 
 DialogueMode::DialogueMode(DNode* start, const sf::RenderWindow &rw)
-: current(start), mapView(rw.getView()), HUD(rw.getDefaultView())
+: currentDNode(start), mapView(rw.getView()), HUD(rw.getDefaultView())
 {
     start->setPosition(0, HUD.getSize().y * .75f);
-    current = start;
-    current->clear();
+    currentDNode = start;
+    currentDNode->clear();
     messageBox.setPosition(0, HUD.getSize().y * .75f);
     messageBox.setSize(sf::Vector2f(HUD.getSize().x, HUD.getSize().y/4));
     messageBox.setFillColor(sf::Color(153,76,0));
 }
 
 void DialogueMode::handleInput(sf::RenderWindow& rw) {
-    //nothing yet... implement later
+	//handle all input
+	sf::Event event;
+	while (rw.pollEvent(event)) {
+		if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::X) {
+			currentDNode->resolveConditions(conditions);
+			auto next = currentDNode->getNext();
+			if (next) {
+				currentDNode = next;
+			} else {
+				requestStackPop();
+				return;
+			}
+		}
+		else currentDNode->handleInput(event);
+	}
+
 }
 
 void DialogueMode::draw(sf::RenderWindow &rw) {
@@ -30,29 +45,13 @@ void DialogueMode::draw(sf::RenderWindow &rw) {
 	currentMap->drawAllObjects(rw, *player);
 	rw.setView(HUD);
 	rw.draw(messageBox);
-	current->draw(rw);
+	currentDNode->draw(rw);
 	rw.display();
 }
 
 
-void DialogueMode::update(sf::RenderWindow &rw, sf::Clock &clock)
+void DialogueMode::update(sf::Clock &clock)
 {
     float elapsed = clock.restart().asSeconds();
-	
-    //handle all input
-    sf::Event event;
-    while (rw.pollEvent(event)) {
-        if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::X) {
-			current->resolveConditions(conditions);
-			auto next = current->getNext();
-            if (next) {
-				current = next;
-			} else {
-				requestStackPop();
-				return;
-			}
-        }
-        else current->handleInput(event);
-    }
-    current->update(elapsed);
+	currentDNode->update(elapsed);
 }

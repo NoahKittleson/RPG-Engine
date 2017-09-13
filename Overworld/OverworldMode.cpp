@@ -23,21 +23,18 @@ OverworldMode::OverworldMode()
 	//musicPlayer.play();
 }
 
-void OverworldMode::update(sf::RenderWindow &rw, sf::Clock& timer)
+void OverworldMode::update(sf::Clock& timer)
 {
 	float elapsed = timer.restart().asSeconds();
-	//animate
-	currentMap->update(rw, elapsed);
-	
-	//handleInput
 	if (mode) {
-		mode->handleInput(rw, elapsed);
 		mode->update(elapsed);
 	} else {
-		handleInput(rw, elapsed);
+		currentMap->update(elapsed);
+		updateView();
 	}
+
 	//only needs to be done if there is movement or zone change.
-	updateView();
+	//updateView();
 }
 
 void OverworldMode::draw(sf::RenderWindow &rw) {
@@ -54,6 +51,11 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 }
 
 void OverworldMode::handleInput(sf::RenderWindow& rw) {
+	if (mode) {
+		mode->handleInput(rw);
+		return;
+	}
+	
 	Mode::modeAction action;
 	if (mode) {
 		action = mode->handleEvent();
