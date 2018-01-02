@@ -54,6 +54,12 @@ BattleMode::~BattleMode() {
 void BattleMode::update(sf::Clock& timer)
 {
     float elapsed = timer.restart().asSeconds();
+	if (mode) {
+		mode->update(elapsed)
+		return;
+	} else {
+		updateSprites(elapsed);
+	}
     runChoice(rw, elapsed);
 }
 
