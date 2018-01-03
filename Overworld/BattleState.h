@@ -1,5 +1,5 @@
 //
-//  BattleMode.h
+//  BattleState.h
 //  Overworld
 //
 //  Created by Noah Kittleson on 12/31/15.
@@ -28,11 +28,11 @@ private:
 };
 
 
-class BattleMode : public State
+class BattleState : public State
 {
 public:
-	BattleMode(std::vector<std::shared_ptr<Character>>&& enemies);
-	~BattleMode();
+	BattleState(std::vector<std::shared_ptr<Character>>&& enemies);
+	~BattleState();
 	void update(sf::Clock& timer) override;
 	void draw(sf::RenderWindow&) override;
 	void handleInput(sf::RenderWindow& rw) override;
@@ -74,7 +74,7 @@ private:
 
 //////////////Definitions for Template Functions//////////////
 template <typename Item>
-void BattleMode::scroll(sf::Event &event, IterVector<Item> &list) {
+void BattleState::scroll(sf::Event &event, IterVector<Item> &list) {
 	if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Down) {
 		++list;
 	}

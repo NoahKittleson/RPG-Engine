@@ -1,15 +1,15 @@
 //
-//  BattleMode.cpp
+//  BattleState.cpp
 //  Overworld
 //
 //  Created by Noah Kittleson on 12/31/15.
 //  Copyright (c) 2015 Noah. All rights reserved.
 //
 
-#include "BattleMode.h"
+#include "BattleState.h"
 
 //This copies passed enemyVec.  Change if this is a problem
-BattleMode::BattleMode(std::vector<std::shared_ptr<Character>>&& enemies) : StartOptions(true)
+BattleState::BattleState(std::vector<std::shared_ptr<Character>>&& enemies) : StartOptions(true)
 {
 	StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Attack", MenuOption::Attack);
     StartOptions.emplace_back(resources.getFont(Fonts::Sansation), "Ability", MenuOption::Ability);
@@ -47,11 +47,11 @@ BattleMode::BattleMode(std::vector<std::shared_ptr<Character>>&& enemies) : Star
     positionStats();
 }
 
-BattleMode::~BattleMode() {
+BattleState::~BattleState() {
 
 }
 
-void BattleMode::update(sf::Clock& timer)
+void BattleState::update(sf::Clock& timer)
 {
     float elapsed = timer.restart().asSeconds();
 	if (mode) {
@@ -63,24 +63,24 @@ void BattleMode::update(sf::Clock& timer)
     runChoice(rw, elapsed);
 }
 
-void BattleMode::draw(sf::RenderWindow& rw) {
+void BattleState::draw(sf::RenderWindow& rw) {
 	rw.setView(rw.getDefaultView());
 	rw.clear(sf::Color::White);
     drawAll(rw);
     rw.display();
 }
 
-void BattleMode::handleInput(sf::RenderWindow& rw) {
+void BattleState::handleInput(sf::RenderWindow& rw) {
 	return;
 }
 
-void BattleMode::updateSprites(float elapsed) {
+void BattleState::updateSprites(float elapsed) {
     for (auto && it: combatants) {
         it->animate(elapsed);
     }
 }
 
-void BattleMode::runChoice(sf::RenderWindow rw, float felapsed)
+void BattleState::runChoice(sf::RenderWindow rw, float felapsed)
 {
     if (combatants.get()->_NPC) {
         //run AI logic...
@@ -129,7 +129,7 @@ void BattleMode::runChoice(sf::RenderWindow rw, float felapsed)
     }
 }
 
-void BattleMode::previousMenu()
+void BattleState::previousMenu()
 {
     if (Choice == Mode::StartChoice || Choice == Mode::Animating) {
         return;
@@ -144,20 +144,20 @@ void BattleMode::previousMenu()
     else Choice = Mode::StartChoice;
 }
 
-void BattleMode::nextMenu(Ability& abil)
+void BattleState::nextMenu(Ability& abil)
 {
     abil.setColor(sf::Color::Black);
     Choice = Mode::PickTarget;
     chosenAbil = &abil;
 }
 
-void BattleMode::nextMenu(std::shared_ptr<Character> target)
+void BattleState::nextMenu(std::shared_ptr<Character> target)
 {
     Choice = Mode::Animating;
     chosenTarget = target;
 }
 
-void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
+void BattleState::nextMenu(MenuOption& item)            //this is less weak...
 {
     auto type = item.Option;
     if (type == MenuOption::Attack) {
@@ -181,20 +181,20 @@ void BattleMode::nextMenu(MenuOption& item)            //this is less weak...
     }
 }
 
-void BattleMode::animateAndDraw(sf::RenderWindow &rw, float elapsed)
+void BattleState::animateAndDraw(sf::RenderWindow &rw, float elapsed)
 {
     chosenTarget->takeDamage(*chosenAbil, *combatants.get());
     //this is gonna be the really hard one
     //Animate battle
 }
 
-void BattleMode::nextTurn(){
+void BattleState::nextTurn(){
     do ++combatants; while (combatants.get()->getHealth() == 0);
     Choice = Mode::StartChoice;
     
 }
 
-void BattleMode::positionStats() {
+void BattleState::positionStats() {
     int statBarWidth = 1024 / (combatants.size() + 1);             //magic number!! Also I add +1 for padding on both sides
     int iii = 0;
     for (auto && it: combatants) {
@@ -204,7 +204,7 @@ void BattleMode::positionStats() {
     }
 }
 
-void BattleMode::drawAll(sf::RenderWindow &rw)
+void BattleState::drawAll(sf::RenderWindow &rw)
 {
     for (auto && it: combatants) {
         it->drawAllStats(rw);

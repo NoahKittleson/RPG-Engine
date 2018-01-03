@@ -14,7 +14,7 @@
 #include "BigField.hpp"
 #include "StartingZone.h"
 #include "DialogueMode.h"
-#include "BattleMode.h"
+#include "BattleState.h"
 #include "Fade.hpp"
 
 
