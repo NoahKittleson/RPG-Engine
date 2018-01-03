@@ -67,6 +67,7 @@
 		B7DD37451C35DFFC0089224E /* BattleState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DD37431C35DFFC0089224E /* BattleState.cpp */; };
 		B7DF60681EEF68BE00AB1B4F /* PlayerObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DF60661EEF68BE00AB1B4F /* PlayerObject.cpp */; };
 		B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */; };
+		B7F96FDA1FFCD21B00FAB91B /* BattleAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,6 +174,8 @@
 		B7DF60671EEF68BE00AB1B4F /* PlayerObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerObject.hpp; sourceTree = "<group>"; };
 		B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OverworldMode.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		B7E5DD491AE879C800E6EA3F /* OverworldMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverworldMode.h; sourceTree = "<group>"; usesTabs = 1; };
+		B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleAction.cpp; sourceTree = "<group>"; };
+		B7F96FD91FFCD21B00FAB91B /* BattleAction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleAction.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +226,8 @@
 				B77BE44A1BB5E03500F5645C /* Menu.cpp */,
 				B7023E081BB5E12F005A6F93 /* MenuItem.h */,
 				B7023E071BB5E12F005A6F93 /* MenuItem.cpp */,
+				B7F96FD91FFCD21B00FAB91B /* BattleAction.hpp */,
+				B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */,
 				B7023E0B1BB5E16B005A6F93 /* BattleMenu.h */,
 				B7023E0A1BB5E16B005A6F93 /* BattleMenu.cpp */,
 				B7023E0E1BB5E19F005A6F93 /* EffectsHandler.h */,
@@ -492,6 +497,7 @@
 				B7D17D181E4EA12C00D71290 /* MapSprite.cpp in Sources */,
 				B7023E0F1BB5E19F005A6F93 /* EffectsHandler.cpp in Sources */,
 				B7A26C0C1C805AA30083989B /* InteractableSprite.cpp in Sources */,
+				B7F96FDA1FFCD21B00FAB91B /* BattleAction.cpp in Sources */,
 				B75F862F1BACE0FB0093B615 /* Ability.cpp in Sources */,
 				B75ABA251C7BD81D00B9FFDE /* TalkNode.cpp in Sources */,
 				B77784091AE5C84D007FA840 /* Game.cpp in Sources */,

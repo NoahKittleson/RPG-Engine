@@ -8,16 +8,7 @@
 
 #pragma once
 #include "Mode.hpp"
-
-
-class Character;
-class Ability;
-
-struct BattleAction {
-	Character* attacker = nullptr;
-	std::vector<Character*> defenders;
-	Ability* ability = nullptr;
-};
+#include "BattleAction.hpp"
 
 class BattleMenu : public Mode
 {
