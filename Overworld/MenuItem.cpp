@@ -1,42 +1,47 @@
 //
-//  MenuItem.cpp
-//  SFML test
+//  MenuNode.cpp
+//  Overworld
 //
-//  Created by Noah Kittleson on 1/11/15.
-//  Copyright (c) 2015 Noah. All rights reserved.
+//  Created by Noah Kittleson on 1/6/18.
+//  Copyright © 2018 Noah. All rights reserved.
 //
 
-#include "MenuItem.h"
+#include "MenuItem.hpp"
 
-MenuItem::MenuItem()                            //this shouldn't even be called...
-{
-    _name.setColor(sf::Color::Black);
-    _name.setString("EMPTY. ERROR");
-    _name.setCharacterSize(50);
-    _name.setPosition(0, 0);
+
+void MenuItem::activate() {
+	if (active) {
+		child->activate();
+	} else {
+		active = true;
+		action.doIt();				//this is the missing piece
+	}
 }
 
-MenuItem::MenuItem(std::string string, const sf::Font& font, Action A, sf::Vector2f pos)
-: _action(A)
-{
-    _name.setColor(sf::Color::Black);
-    _name.setString(string);
-    _name.setFont(font);
-    _name.setCharacterSize(50);
-    _name.setPosition(pos);
+void MenuItem::deactivate() {
+	active = false;
+}
+void MenuItem::draw(sf::RenderWindow &rw) {
+	rw.draw(text);
+}
+void MenuItem::update(float elapsed){
+	//nothing?
+}
+void MenuItem::handleInput(sf::RenderWindow& rw) {
+	if (/*select button pressed*/) {
+		activate();
+	}
+	//also controls for moving around the container
+	//I don't need handleInput if this isn't a menu item container?
+}
+void MenuItem::select() {
+	text.setColor(selectColor);
+}
+void MenuItem::deselect() {
+	text.setColor(defaultColor);
+}
+bool MenuItem::selectable() {
+	return true;
+	/// This one confuses me
 }
 
-void MenuItem::draw(sf::RenderWindow &rw)
-{
-    rw.draw(_name);
-}
-
-void MenuItem::setColor(sf::Color color)
-{
-    _name.setColor(color);
-}
-
-void MenuItem::setPosition(float x, float y)
-{
-    _name.setPosition(x, y);
-}

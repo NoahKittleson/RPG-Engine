@@ -17,6 +17,6 @@ void MenuMode::draw(sf::RenderWindow &rw) {
 }
 void MenuMode::handleInput(sf::RenderWindow &rw) {
 	if (/*select key pressed*/) {
-		menu.getCurrent->activate();
+		menu->activate();
 	}
 }

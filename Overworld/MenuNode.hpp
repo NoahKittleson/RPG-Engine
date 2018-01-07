@@ -10,28 +10,10 @@
 #include "PrefixHeader.pch"
 #include "Character.h"
 
-class MenuItem
+class MenuNode
 {
 public:
-    enum Action {Attack, Ability, Recover, Nothing, Crash};
-    
-    MenuItem(std::string, const sf::Font&, Action, sf::Vector2f);
-    void draw(sf::RenderWindow &rw);
-    void setPosition(float x, float y);
-    void setColor(sf::Color color);
-    
-    Action _action;
-    sf::Text _name;
-    
-private:
-    MenuItem();
-	
-};
-
-class NewMenuItem
-{
-public:
-	NewMenuItem(const sf::Font& font, std::string string)
+	MenuNode(const sf::Font& font, std::string string)
 	{
 		text.setString(string);
 		text.setFont(font);
@@ -50,6 +32,7 @@ public:
 	
 protected:
 	sf::Text text;
+	MenuNode* child;
 	bool selected = false;
 	bool active = false;
 	

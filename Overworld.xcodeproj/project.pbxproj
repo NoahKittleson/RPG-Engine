@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B7023E091BB5E12F005A6F93 /* MenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7023E071BB5E12F005A6F93 /* MenuItem.cpp */; };
+		B7023E091BB5E12F005A6F93 /* MenuNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7023E071BB5E12F005A6F93 /* MenuNode.cpp */; };
 		B7023E0C1BB5E16B005A6F93 /* BattleMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7023E0A1BB5E16B005A6F93 /* BattleMenu.cpp */; };
 		B7023E0F1BB5E19F005A6F93 /* EffectsHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7023E0D1BB5E19F005A6F93 /* EffectsHandler.cpp */; };
 		B7023E111BB61A36005A6F93 /* GetHitAnimation.png in Resources */ = {isa = PBXBuildFile; fileRef = B7023E101BB61A36005A6F93 /* GetHitAnimation.png */; };
@@ -18,6 +18,7 @@
 		B70E8C801EEB8F750017E524 /* PlayerControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B70E8C7E1EEB8F750017E524 /* PlayerControl.cpp */; };
 		B7172F851AF0716500C21B1C /* Mountains.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7172F841AF0716500C21B1C /* Mountains.jpg */; };
 		B7262BCE2001A57E00989D70 /* MenuMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7262BCC2001A57E00989D70 /* MenuMode.cpp */; };
+		B7262BD42001B48D00989D70 /* MenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7262BD22001B48D00989D70 /* MenuItem.cpp */; };
 		B73219221B2111D000C41162 /* MapSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B73219201B2111D000C41162 /* MapSection.cpp */; };
 		B73F35021E4B095B007EC4AC /* PlayerWalkingDown.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */; };
 		B73F35041E4B0963007EC4AC /* PlayerWalkingRight.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35031E4B0963007EC4AC /* PlayerWalkingRight.png */; };
@@ -72,8 +73,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B7023E071BB5E12F005A6F93 /* MenuItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuItem.cpp; sourceTree = "<group>"; };
-		B7023E081BB5E12F005A6F93 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		B7023E071BB5E12F005A6F93 /* MenuNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuNode.cpp; sourceTree = "<group>"; };
+		B7023E081BB5E12F005A6F93 /* MenuNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MenuNode.hpp; sourceTree = "<group>"; };
 		B7023E0A1BB5E16B005A6F93 /* BattleMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleMenu.cpp; sourceTree = "<group>"; };
 		B7023E0B1BB5E16B005A6F93 /* BattleMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleMenu.h; sourceTree = "<group>"; };
 		B7023E0D1BB5E19F005A6F93 /* EffectsHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectsHandler.cpp; sourceTree = "<group>"; };
@@ -90,6 +91,8 @@
 		B7172F841AF0716500C21B1C /* Mountains.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mountains.jpg; sourceTree = "<group>"; };
 		B7262BCC2001A57E00989D70 /* MenuMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuMode.cpp; sourceTree = "<group>"; };
 		B7262BCD2001A57E00989D70 /* MenuMode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuMode.hpp; sourceTree = "<group>"; };
+		B7262BD22001B48D00989D70 /* MenuItem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuItem.cpp; sourceTree = "<group>"; };
+		B7262BD32001B48D00989D70 /* MenuItem.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuItem.hpp; sourceTree = "<group>"; };
 		B73219201B2111D000C41162 /* MapSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapSection.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		B73219211B2111D000C41162 /* MapSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSection.h; sourceTree = "<group>"; };
 		B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingDown.png; sourceTree = "<group>"; };
@@ -223,14 +226,16 @@
 				B7DD37431C35DFFC0089224E /* BattleState.cpp */,
 				B7262BCD2001A57E00989D70 /* MenuMode.hpp */,
 				B7262BCC2001A57E00989D70 /* MenuMode.cpp */,
+				B7023E081BB5E12F005A6F93 /* MenuNode.hpp */,
+				B7023E071BB5E12F005A6F93 /* MenuNode.cpp */,
+				B7262BD32001B48D00989D70 /* MenuItem.hpp */,
+				B7262BD22001B48D00989D70 /* MenuItem.cpp */,
 				B75F862B1BACE0C60093B615 /* Character.h */,
 				B75F862A1BACE0C60093B615 /* Character.cpp */,
 				B75F862E1BACE0FB0093B615 /* Ability.h */,
 				B75F862D1BACE0FB0093B615 /* Ability.cpp */,
 				B77BE44B1BB5E03500F5645C /* Menu.h */,
 				B77BE44A1BB5E03500F5645C /* Menu.cpp */,
-				B7023E081BB5E12F005A6F93 /* MenuItem.h */,
-				B7023E071BB5E12F005A6F93 /* MenuItem.cpp */,
 				B7F96FD91FFCD21B00FAB91B /* BattleAction.hpp */,
 				B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */,
 				B7023E0B1BB5E16B005A6F93 /* BattleMenu.h */,
@@ -511,6 +516,7 @@
 				B75B77911C00723900122CCC /* StateStack.cpp in Sources */,
 				B7439C1E1ECB8DED00724D0B /* GraphicsComponent.cpp in Sources */,
 				B73219221B2111D000C41162 /* MapSection.cpp in Sources */,
+				B7262BD42001B48D00989D70 /* MenuItem.cpp in Sources */,
 				B74213421E384C7F00090D95 /* BigField.cpp in Sources */,
 				B77ED0FB1C82E221004046D1 /* Player.cpp in Sources */,
 				B75F862C1BACE0C60093B615 /* Character.cpp in Sources */,
@@ -531,7 +537,7 @@
 				B78873551F3D530E00E7C725 /* CharacterGenerator.cpp in Sources */,
 				B75ABA241C7BD81D00B9FFDE /* OptionNode.cpp in Sources */,
 				B7DF60681EEF68BE00AB1B4F /* PlayerObject.cpp in Sources */,
-				B7023E091BB5E12F005A6F93 /* MenuItem.cpp in Sources */,
+				B7023E091BB5E12F005A6F93 /* MenuNode.cpp in Sources */,
 				B7439C241ECB983900724D0B /* DelayedAnimation.cpp in Sources */,
 				B7439C211ECB8F2E00724D0B /* AnimatedComponent.cpp in Sources */,
 				B75ABA231C7BD81D00B9FFDE /* DNode.cpp in Sources */,
