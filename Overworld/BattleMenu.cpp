@@ -10,7 +10,9 @@
 
 void BattleMenu::update(float elapsed) {
 	//for every combatant-
-	//animate(elapsed);
+	for (auto & it : battleState.combatants) {
+		it.animate(elapsed);
+	}
 }
 
 void BattleMenu::draw(sf::RenderWindow &rw) {

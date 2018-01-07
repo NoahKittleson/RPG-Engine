@@ -13,10 +13,11 @@
 class BattleMenu : public Mode
 {
 public:
-	virtual void update(float elapsed);
-	virtual void draw(sf::RenderWindow &rw);
-	virtual void handleInput(sf::RenderWindow &rw);
-	virtual modeAction handleEvent() { return modeAction::None; };			//this is unused and should be redone
+	virtual void update(float elapsed) override;
+	virtual void draw(sf::RenderWindow &rw) override;
+	virtual void handleInput(sf::RenderWindow &rw) override;
+	virtual modeAction handleEvent() override { return modeAction::None; };			//this is unused and should be redone
+
 private:
 	BattleAction action;
 };

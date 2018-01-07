@@ -11,6 +11,28 @@
 #include "State.h"
 #include "Mode.hpp"
 
+#include "BattleAction.hpp"
+
+struct BattleInfo {
+	std::vector<Character*> combatants;
+	BattleAction currentAction;
+	std::vector<Character*>::iterator currentChar;
+};
+
+class BattleState : public State
+{
+public:
+	void update(sf::Clock& timer) override;
+	void draw(sf::RenderWindow&) override;
+	void handleInput(sf::RenderWindow& rw) override;
+	
+private:
+	BattleInfo info;
+	void loadMenu();
+	
+};
+
+
 class MenuOption
 {
 public:
