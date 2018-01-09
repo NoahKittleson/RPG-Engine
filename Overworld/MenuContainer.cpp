@@ -9,26 +9,28 @@
 #include "MenuContainer.hpp"
 
 
-void draw(sf::RenderWindow &rw) {
+void MenuContainer::draw(sf::RenderWindow &rw) {
+	//not doing this yet, but it'll just be drawing each member MenuNode
 }
-void update(float elapsed) {
+void MenuContainer::update(float elapsed) {
+	//maybe some flicker on selected option?
+	//continue animation
+}
+void MenuContainer::handleInput(sf::RenderWindow& rw) {
+	//up and down plus select
+}
+void MenuContainer::select() {
+	text.setColor(selectColor);
+}
+void MenuContainer::activate() {
+	active = true;
+}
+void MenuContainer::deselect() {
+	text.setColor(defaultColor);
+}
+void MenuContainer::deactivate() {
 	
 }
-void handleInput(sf::RenderWindow& rw) {
-	
-}
-void select() {
-	
-}
-void activate() {
-	
-}
-void deselect() {
-	
-}
-void deactivate() {
-	
-}
-bool selectable() {
-	
+bool MenuContainer::selectable() {
+	return false;
 }

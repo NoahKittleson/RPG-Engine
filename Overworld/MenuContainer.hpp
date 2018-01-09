@@ -21,5 +21,5 @@ public:
 	virtual bool selectable() override;
 	
 private:
-	
+	std::vector<MenuNode> contents;
 }
