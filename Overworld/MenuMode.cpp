@@ -8,6 +8,9 @@
 
 #include "MenuMode.hpp"
 
+MenuMode::MenuMode() {
+	//create starting menu Node
+}
 
 void MenuMode::update(float elapsed) {
 	//menuTree update?
@@ -16,7 +19,7 @@ void MenuMode::draw(sf::RenderWindow &rw) {
 	//draw
 }
 void MenuMode::handleInput(sf::RenderWindow &rw) {
-	if (/*select key pressed*/) {
+	if (true/*select key pressed*/) {
 		menu->activate();
 	}
 }

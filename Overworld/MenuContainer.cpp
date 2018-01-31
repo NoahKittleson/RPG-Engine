@@ -10,20 +10,33 @@
 
 
 void MenuContainer::draw(sf::RenderWindow &rw) {
-	//not doing this yet, but it'll just be drawing each member MenuNode
+	if (child->isActive()) {
+		child->draw(rw);
+	} else {
+		//not doing this yet, but it'll just be drawing each member MenuNode
+	}
 }
 void MenuContainer::update(float elapsed) {
-	//maybe some flicker on selected option?
-	//continue animation
+	if (child->isActive()) {
+		child->update(elapsed);
+	} else {
+		//maybe some flicker on selected option?
+		//continue animation
+	}
 }
 void MenuContainer::handleInput(sf::RenderWindow& rw) {
-	//up and down plus select
+	if (child->isActive()) {
+		child->handleInput(rw);
+	} else {
+		//up and down plus select
+	}
 }
 void MenuContainer::select() {
 	text.setColor(selectColor);
 }
 void MenuContainer::activate() {
 	active = true;
+	//make options.
 }
 void MenuContainer::deselect() {
 	text.setColor(defaultColor);
