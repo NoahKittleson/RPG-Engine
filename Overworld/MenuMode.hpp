@@ -8,13 +8,14 @@
 
 #pragma once
 #include "Mode.hpp"
-#include "MenuNode.hpp"
+#include "MenuContainer.hpp"
+#include "MenuItem.hpp"
 
 class MenuMode: public Mode
 {
 public:
 	MenuMode();
-	virtual void update(float elapsed) override;			//all of these will just pass on to MenuNode.
+	virtual void update(float elapsed/*, combatants list?*/) override;		//all of these will just pass on to MenuNode.
 	virtual void draw(sf::RenderWindow &rw) override;
 	virtual void handleInput(sf::RenderWindow &rw) override;
 	

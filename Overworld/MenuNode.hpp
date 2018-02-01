@@ -30,9 +30,14 @@ public:
 	bool isSelected() const {return selected;};
 	bool isActive() const {return active;};
 	
+	enum MenuSubclass {Primary, Target, Ability, None};
+	MenuSubclass nextMenu = None;
+	
+	
+	
 protected:
 	sf::Text text;
-	MenuNode* child;
+	MenuItem child;
 	bool selected = false;
 	bool active = false;
 	

@@ -8,6 +8,10 @@
 
 #include "MenuItem.hpp"
 
+MenuItem::MenuItem(MenuSubclass next) {
+	nextMenu = next;
+}
+
 
 void MenuItem::activate() {
 	if (active) {

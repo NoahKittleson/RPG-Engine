@@ -11,6 +11,7 @@
 
 class MenuItem : public MenuNode {
 public:
+	MenuItem(MenuSubclass next);
 	virtual void draw(sf::RenderWindow &rw) override;
 	virtual void update(float elapsed) override;
 	virtual void handleInput(sf::RenderWindow& rw) override;
