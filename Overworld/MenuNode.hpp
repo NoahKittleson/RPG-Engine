@@ -18,13 +18,14 @@ public:
 		text.setString(string);
 		text.setFont(font);
 	};
+
+	virtual void select() = 0;						//select is for highlighting current option, activate for executing it
+	virtual void activate() = 0;
+	virtual void deselect() = 0;
 	
 	virtual void draw(sf::RenderWindow &rw) = 0;
 	virtual void update(float elapsed) = 0;
 	virtual void handleInput(sf::RenderWindow& rw) = 0;
-	virtual void select() = 0;						//select is for highlighting current option, activate for executing it
-	virtual void activate() = 0;
-	virtual void deselect() = 0;
 	virtual void deactivate() = 0;
 	virtual bool selectable() = 0;
 	bool isSelected() const {return selected;};
@@ -37,7 +38,8 @@ public:
 	
 protected:
 	sf::Text text;
-	MenuItem child;
+	IterVector<MenuItem> children;
+	IterVector<MenuSubclass> childrenEffects;
 	bool selected = false;
 	bool active = false;
 	

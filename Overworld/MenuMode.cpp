@@ -16,13 +16,30 @@ MenuMode::MenuMode() {
 }
 
 void MenuMode::update(float elapsed) {
-	//menuTree update?
+	//menu update?
 }
 void MenuMode::draw(sf::RenderWindow &rw) {
 	//draw
 }
 void MenuMode::handleInput(sf::RenderWindow &rw) {
-	if (true/*select key pressed*/) {
-		menu->activate();
+	sf::Event event;
+	while (rw.pollEvent(event)) {
+		if (event.type == sf::Event::KeyPressed) {
+			switch (event.key.code) {
+				case sf::Keyboard::X:
+					menu->activate();
+
+				case sf::Keyboard::Up:
+					menu->selectPrevious();
+					break;
+					
+				case sf::Keyboard::Down:
+					menu->selectNext();
+					break;
+					
+				default:
+					break;
+			}
+		}
 	}
 }
