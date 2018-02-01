@@ -15,6 +15,9 @@ public:
 	void update(float elapsed);
 	void handleInput(sf::RenderWindow& rw);
 	
+	bool isActive() const {return active;};
+	
 private:
-	std::vector<MenuItem> contents;
+	IterVector<MenuItem> children;
+	bool active = true;
 }

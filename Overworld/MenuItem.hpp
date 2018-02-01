@@ -11,10 +11,8 @@
 
 class MenuItem {
 public:
+	enum MenuSubclass {Primary, Target, Ability, None};
 	MenuItem(MenuSubclass next);
-//	void draw(sf::RenderWindow &rw);
-//	void update(float elapsed);
-//	void handleInput(sf::RenderWindow& rw);
 	
 	void select();						//select is for highlighting current option, activate for executing it
 	void activate();
@@ -23,14 +21,10 @@ public:
 	bool selectable();
 	
 	bool isSelected() const {return selected;};
-	bool isActive() const {return active;};
-	enum MenuSubclass {Primary, Target, Ability, None};
-	MenuSubclass nextMenu = None;
 	
 private:
 	sf::Text text;
-	IterVector<MenuItem> children;
-	IterVector<MenuSubclass> childrenEffects;
+	MenuSubclass nextMenu = None;
 	bool selected = false;
 	bool active = false;
 	

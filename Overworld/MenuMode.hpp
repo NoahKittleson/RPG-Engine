@@ -8,8 +8,8 @@
 
 #pragma once
 #include "Mode.hpp"
-#include "MenuContainer.hpp"
-#include "MenuItem.hpp"
+#include "Menu.hpp"
+#include <stack>
 
 class MenuMode: public Mode
 {
@@ -20,13 +20,5 @@ public:
 	virtual void handleInput(sf::RenderWindow &rw) override;
 	
 private:
-	MenuNode* menu;		//this will probably be a unique_ptr.
-	
-	
+	std::stack<Menu> menuSystem;
 }
-
-//class MenuNodeHolder
-//{
-//	//create all the MenuNodes and then hold them.
-//}
-
