@@ -10,22 +10,27 @@
 
 MenuMode::MenuMode() {
 	//create starting menu Node
-	MenuItem primary = MenuItem(MenuSubclass::Primary);
-	MenuItem exampleAttack ("Attack", MenuSubclass::Ability, std::vector<Character*>(or pass this in when it needs to create child));
+	Menu primary;
+	Menu target;
+	Menu ability;
+	primary.addChild("Attack", &target);
+	primary.addChild("Ability", &ability);
+	primary.addChild("Pass", nullptr);
 	
 }
 
 void MenuMode::update(float elapsed) {
-	while (!menuSystem.back().isActive()) {
-		menuSystem.pop_back();
+	while (!menuSystem.top().isActive()) {
+		menuSystem.pop();
+		menuSystem.top();
 	}
-	menuSystem.back().update(elapsed);
+	menuSystem.top().update(elapsed);
 }
 
 void MenuMode::draw(sf::RenderWindow &rw) {
-	menuSystem.back().draw(rw);
+	menuSystem.top().draw(rw);
 }
 
 void MenuMode::handleInput(sf::RenderWindow &rw) {
-	menuSystem.back().handleInput(rw);
+	menuSystem.top().handleInput(rw);
 }

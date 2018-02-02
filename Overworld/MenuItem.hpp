@@ -7,12 +7,14 @@
 //
 
 #pragma once
-#include "MenuNode.hpp"
+#include "PrefixHeader.pch"
+
+class Menu;
 
 class MenuItem {
 public:
-	enum MenuSubclass {Primary, Target, Ability, None};
-	MenuItem(MenuSubclass next);
+//	enum MenuSubclass {Primary, Target, Ability, None};
+	MenuItem(std::string text, Menu* next);
 	
 	void select();						//select is for highlighting current option, activate for executing it
 	void activate();
@@ -24,7 +26,7 @@ public:
 	
 private:
 	sf::Text text;
-	MenuSubclass nextMenu = None;
+	Menu* nextMenu = nullptr;
 	bool selected = false;
 	bool active = false;
 	
@@ -32,4 +34,4 @@ private:
 	const sf::Color selectColor = sf::Color::Red;
 	const sf::Color defaultColor = sf::Color::Black;
 	const sf::Color unselectableColor = sf::Color(128,128,128);
-}
+};

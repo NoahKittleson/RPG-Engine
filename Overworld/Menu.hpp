@@ -7,17 +7,21 @@
 //
 
 #pragma once
-#include "MenuItem.hpp"
+#include "IterVector.hpp"
+
+class MenuItem;
 
 class Menu {
 public:
+	
 	void draw(sf::RenderWindow &rw);
 	void update(float elapsed);
 	void handleInput(sf::RenderWindow& rw);
 	
 	bool isActive() const {return active;};
+	void addChild(std::string option, Menu* next);
 	
 private:
 	IterVector<MenuItem> children;
 	bool active = true;
-}
+};

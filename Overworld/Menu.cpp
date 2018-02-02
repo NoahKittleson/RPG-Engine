@@ -8,7 +8,6 @@
 
 #include "Menu.hpp"
 
-
 void Menu::draw(sf::RenderWindow &rw) {
 	if (children.get()->isActive()) {
 		children.get()->draw(rw);
@@ -51,3 +50,8 @@ void Menu::handleInput(sf::RenderWindow& rw) {
 		}
 	}
 }
+
+void Menu::addChild(std::string option, Menu* next) {
+	children.append_back(MenuItem(option, next));
+}
+

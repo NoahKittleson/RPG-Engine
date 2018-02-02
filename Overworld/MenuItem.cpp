@@ -8,8 +8,9 @@
 
 #include "MenuItem.hpp"
 
-MenuItem::MenuItem(MenuSubclass next) {
+MenuItem::MenuItem(std::string t, Menu* next) {
 	nextMenu = next;
+	text.setString(t);
 }
 
 void MenuItem::select() {

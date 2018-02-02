@@ -7,9 +7,10 @@
 //
 
 #pragma once
-#include "Mode.hpp"
-#include "Menu.hpp"
 #include <stack>
+#include "Mode.hpp"
+#include "MenuItem.hpp"
+#include "Menu.hpp"
 
 class MenuMode: public Mode
 {
@@ -21,4 +22,4 @@ public:
 	
 private:
 	std::stack<Menu> menuSystem;
-}
+};
