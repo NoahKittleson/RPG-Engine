@@ -14,6 +14,7 @@
 		B7023E151BB61A4A005A6F93 /* BasicIdle.png in Resources */ = {isa = PBXBuildFile; fileRef = B7023E141BB61A4A005A6F93 /* BasicIdle.png */; };
 		B7034DA61E7298C3007288A6 /* Mode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7034DA41E7298C3007288A6 /* Mode.cpp */; };
 		B706F0781BFFE59700C95D49 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B706F0761BFFE59700C95D49 /* State.cpp */; };
+		B70D18DD20284340000B3584 /* BattleInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B70D18DB20284340000B3584 /* BattleInfo.cpp */; };
 		B70E8C801EEB8F750017E524 /* PlayerControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B70E8C7E1EEB8F750017E524 /* PlayerControl.cpp */; };
 		B7172F851AF0716500C21B1C /* Mountains.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7172F841AF0716500C21B1C /* Mountains.jpg */; };
 		B7262BCE2001A57E00989D70 /* MenuMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7262BCC2001A57E00989D70 /* MenuMode.cpp */; };
@@ -83,6 +84,8 @@
 		B7034DA51E7298C3007288A6 /* Mode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Mode.hpp; sourceTree = "<group>"; };
 		B706F0761BFFE59700C95D49 /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
 		B706F0771BFFE59700C95D49 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		B70D18DB20284340000B3584 /* BattleInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleInfo.cpp; sourceTree = "<group>"; };
+		B70D18DC20284340000B3584 /* BattleInfo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleInfo.hpp; sourceTree = "<group>"; };
 		B70E8C7E1EEB8F750017E524 /* PlayerControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerControl.cpp; sourceTree = "<group>"; };
 		B70E8C7F1EEB8F750017E524 /* PlayerControl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerControl.hpp; sourceTree = "<group>"; };
 		B7172F841AF0716500C21B1C /* Mountains.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Mountains.jpg; sourceTree = "<group>"; };
@@ -231,6 +234,8 @@
 				B75F862A1BACE0C60093B615 /* Character.cpp */,
 				B75F862E1BACE0FB0093B615 /* Ability.h */,
 				B75F862D1BACE0FB0093B615 /* Ability.cpp */,
+				B70D18DC20284340000B3584 /* BattleInfo.hpp */,
+				B70D18DB20284340000B3584 /* BattleInfo.cpp */,
 				B7F96FD91FFCD21B00FAB91B /* BattleAction.hpp */,
 				B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */,
 				B7023E0B1BB5E16B005A6F93 /* BattleMenu.h */,
@@ -510,6 +515,7 @@
 				B7034DA61E7298C3007288A6 /* Mode.cpp in Sources */,
 				B75B77911C00723900122CCC /* StateStack.cpp in Sources */,
 				B7439C1E1ECB8DED00724D0B /* GraphicsComponent.cpp in Sources */,
+				B70D18DD20284340000B3584 /* BattleInfo.cpp in Sources */,
 				B73219221B2111D000C41162 /* MapSection.cpp in Sources */,
 				B7262BD42001B48D00989D70 /* MenuItem.cpp in Sources */,
 				B74213421E384C7F00090D95 /* BigField.cpp in Sources */,

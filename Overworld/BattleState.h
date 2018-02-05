@@ -13,12 +13,6 @@
 
 #include "BattleAction.hpp"
 
-struct BattleInfo {
-	std::vector<Character*> combatants;
-	BattleAction currentAction;
-	std::vector<Character*>::iterator currentChar;
-};
-
 class BattleState : public State
 {
 public:

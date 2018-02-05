@@ -10,13 +10,18 @@
 
 MenuMode::MenuMode() {
 	//create starting menu Node
-	Menu primary;
-	Menu target;
-	Menu ability;
-	primary.addChild("Attack", &target);
-	primary.addChild("Ability", &ability);
-	primary.addChild("Pass", nullptr);
-	
+	Menu primaryMenu;
+	Menu targetMenu;
+	Menu abilityMenu;
+	primaryMenu.addChild("Attack", &targetMenu);
+	primaryMenu.addChild("Ability", &abilityMenu);
+	primaryMenu.addChild("Pass", nullptr);
+	for (auto && target : characterList) {
+		targetMenu.addChild(target);
+	}
+	for (auto && ability : currentChar.abilityList) {
+		abilityMenu.addChild(ability);
+	}
 }
 
 void MenuMode::update(float elapsed) {
