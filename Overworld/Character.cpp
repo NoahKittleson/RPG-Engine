@@ -533,6 +533,10 @@ void Character::animate(float elapsed) {
     _sprite.update(elapsed);
 }
 
+std::string Character::getName() const {
+	return _name.getString();
+}
+
 
 
 /////////////SET FOR DELETION///////////////

@@ -34,7 +34,8 @@ public:
     void setMultiplier(DamageMultipliers, float);
     void setDamageType(DamageType);
     void setAfterEffects(AfterEffects, float);
-    
+	
+	std::string getName() const;
     void setColor(sf::Color);
     void setPosition(float x, float y);
     void setFont(const sf::Font &font);

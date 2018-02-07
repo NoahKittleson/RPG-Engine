@@ -8,6 +8,8 @@
 
 #pragma once
 #include "IterVector.hpp"
+#include "Character.h"
+#include "Ability.h"
 
 class MenuItem;
 
@@ -20,6 +22,8 @@ public:
 	
 	bool isActive() const {return active;};
 	void addChild(std::string option, Menu* next);
+	void addChild(Character* option, Menu* next);
+	void addChild(Ability& option, Menu* next);
 	
 private:
 	IterVector<MenuItem> children;

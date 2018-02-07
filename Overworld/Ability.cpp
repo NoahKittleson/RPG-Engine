@@ -136,6 +136,10 @@ void Ability::drawReqs(sf::RenderWindow &rw)
     rw.draw(Reqs);
 }
 
+std::string Ability::getName() const {
+	return _AbilityName.getString();
+}
+
 
 
 

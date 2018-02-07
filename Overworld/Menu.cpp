@@ -52,6 +52,14 @@ void Menu::handleInput(sf::RenderWindow& rw) {
 }
 
 void Menu::addChild(std::string option, Menu* next) {
-	children.append_back(MenuItem(option, next));
+	children.push_back(MenuItem(option, next));
+}
+
+void Menu::addChild(Character* option, Menu* next) {
+	children.push_back(MenuItem(option->getName(), Menu* next));
+}
+
+void Menu::addChild(Ability& option, Menu* next) {
+	children.push_back(MenuItem(option->getName(), Menu* next));
 }
 

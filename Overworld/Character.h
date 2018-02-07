@@ -34,6 +34,7 @@ public:
     float getHealth() const;
     void adjustMana(int);
     float getMana() const;
+	std::string getName() const;
     
     void setColor(sf::Color);                             //Sets item's color in an option menu
     void setFont(const sf::Font &font);
