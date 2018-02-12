@@ -15,7 +15,7 @@ class MenuItem {
 public:
 //	enum MenuSubclass {Primary, Target, Ability, None};
 	MenuItem(std::string text, Menu* next);
-	MenuItem(std::string text, void (*funcPtr)(MenuAction&));
+	MenuItem(std::string text, void (*funcPtr)());
 	
 	void select();						//select is for highlighting current option, activate for executing it
 	void activate();

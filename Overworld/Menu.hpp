@@ -22,8 +22,8 @@ public:
 	
 	bool isActive() const {return active;};
 	void addChild(std::string option, Menu* next);
-	void addChild(Character* option, Menu* next);
-	void addChild(Ability& option, Menu* next);
+	void addChild(Character* option, Menu* next, void (*callback)());
+	void addChild(Ability& option, Menu* next, void (*callback)());
 	
 private:
 	IterVector<MenuItem> children;
