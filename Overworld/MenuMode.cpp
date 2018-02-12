@@ -19,14 +19,14 @@ MenuMode::MenuMode(BattleInfo& info) {
 	primaryMenu.addChild("Ability", &abilityMenu);
 	primaryMenu.addChild("Pass", nullptr);
 	
-	for (auto && target : info.combatants) {
-		auto function = [info, target] () {
-			info.currentAction.defenders.push_back(&target);
+	for (auto & target : info.combatants) {
+		auto function = [&info, &target] () {
+			info.currentAction.defenders.push_back(target);
 		};
 		targetMenu.addChild(target, nullptr, function);
 	}
 	for (auto && ability : info.currentAction.attacker->_abilityList) {
-		auto function = [info, ability] () {
+		auto function = [&info, &ability] () {
 			info.currentAction.ability = &ability;
 		};
 		abilityMenu.addChild(ability, &targetMenu, function);
