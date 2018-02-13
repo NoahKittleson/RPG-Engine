@@ -7,29 +7,25 @@
 //
 
 #include "Menu.hpp"
+#include "MenuItem.hpp"
 
 void Menu::draw(sf::RenderWindow &rw) {
-	if (children.get()->isActive()) {
-		children.get()->draw(rw);
-	} else {
-		//not doing this yet, but it'll just be drawing each member MenuNode
-	}
+	std::function<void(MenuItem&)> drawFunction = [&rw] (MenuItem item) {item.draw(rw);};
+	children.forAll(drawFunction);
 }
+
 void Menu::update(float elapsed) {
-	if (children->isActive()) {
-		children->update(elapsed);
-	} else {
-		//maybe some flicker on selected option?
-		//continue animation
-	}
+	//maybe some flicker on selected option?
+	//continue animation
 }
+
 void Menu::handleInput(sf::RenderWindow& rw) {
 	sf::Event event;
 	while (rw.pollEvent(event)) {
 		if (event.type == sf::Event::KeyPressed) {
 			switch (event.key.code) {
 				case sf::Keyboard::X:
-					children.get()->activate();
+					children.get().activate();
 					break;
 					
 				case sf::Keyboard::Z:
@@ -55,11 +51,11 @@ void Menu::addChild(std::string option, Menu* next) {
 	children.push_back(MenuItem(option, next));
 }
 
-void Menu::addChild(Character* option, Menu* next) {
-	children.push_back(MenuItem(option->getName(), Menu* next));
+void Menu::addChild(Character* option, Menu* next, std::function<void()> callback) {
+	children.push_back(MenuItem(option->getName(), next, callback));
 }
 
-void Menu::addChild(Ability& option, Menu* next) {
-	children.push_back(MenuItem(option->getName(), Menu* next));
+void Menu::addChild(Ability& option, Menu* next, std::function<void()> callback) {
+	children.push_back(MenuItem(option.getName(), next, callback));
 }
 

@@ -13,10 +13,10 @@ class Menu;
 
 class MenuItem {
 public:
-//	enum MenuSubclass {Primary, Target, Ability, None};
 	MenuItem(std::string text, Menu* next);
-	MenuItem(std::string text, void (*funcPtr)());
+	MenuItem(std::string text, Menu* next, std::function<void()> callback);
 	
+	void draw(sf::RenderWindow& rw);
 	void select();						//select is for highlighting current option, activate for executing it
 	void activate();
 	void deselect();
@@ -28,6 +28,7 @@ public:
 private:
 	sf::Text text;
 	Menu* nextMenu = nullptr;
+	std::function<void()> callback;
 	bool selected = false;
 	bool active = false;
 	

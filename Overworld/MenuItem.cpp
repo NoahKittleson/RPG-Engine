@@ -13,6 +13,17 @@ MenuItem::MenuItem(std::string t, Menu* next) {
 	text.setString(t);
 }
 
+MenuItem::MenuItem(std::string t, Menu* next, std::function<void()> callback) {
+	nextMenu = next;
+	text.setString(t);
+	this->callback = callback;
+}
+
+void MenuItem::draw(sf::RenderWindow& rw) {
+	rw.draw(text);
+}
+
+
 void MenuItem::select() {
 	text.setColor(selectColor);
 }

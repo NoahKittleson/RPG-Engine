@@ -27,5 +27,6 @@ public:
 	
 private:
 	IterVector<MenuItem> children;
+	std::function<void()> callback;
 	bool active = true;
 };

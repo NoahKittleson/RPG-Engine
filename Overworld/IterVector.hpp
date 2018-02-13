@@ -9,6 +9,7 @@
 #pragma once
 #include <vector>
 #include <exception>
+#include <functional>
 
 //itervector is an ordered container that has only one available element at a time.  Cycle through the list with
 // ++ or --, use .get() to grab current element.
@@ -31,7 +32,7 @@ public:
     bool atEnd();
     
     void setLooping(bool);
-    void forAll(void (*funcPtr)(T));
+	void forAll(std::function<void(T&)>);
     void reset();                           //sets index to 0
     void removeCurrent();
     
