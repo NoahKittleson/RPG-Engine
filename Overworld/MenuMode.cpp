@@ -10,26 +10,25 @@
 
 MenuMode::MenuMode(BattleInfo& info) {
 	//create starting menu Node
-	Menu primaryMenu;
-	Menu targetMenu;
-	Menu abilityMenu;
-	//THESE ONLY LIVE IN THIS SCOPE^^^^^
+	Menu* primaryMenu = &menuStorage[1];
+	Menu* targetMenu = &menuStorage[2];
+	Menu* abilityMenu = &menuStorage[3];
 	
-	primaryMenu.addChild("Attack", &targetMenu);
-	primaryMenu.addChild("Ability", &abilityMenu);
-	primaryMenu.addChild("Pass", nullptr);
+	primaryMenu->addChild("Attack", targetMenu);
+	primaryMenu->addChild("Ability", abilityMenu);
+	primaryMenu->addChild("Pass", nullptr);
 	
 	for (auto & target : info.combatants) {
 		auto function = [&info, &target] () {
 			info.currentAction.defenders.push_back(target);
 		};
-		targetMenu.addChild(target, nullptr, function);
+		targetMenu->addChild(target, nullptr, function);
 	}
 	for (auto && ability : info.currentAction.attacker->_abilityList) {
 		auto function = [&info, &ability] () {
 			info.currentAction.ability = &ability;
 		};
-		abilityMenu.addChild(ability, &targetMenu, function);
+		abilityMenu->addChild(ability, targetMenu, function);
 	}
 }
 

@@ -8,9 +8,11 @@
 
 #pragma once
 #include "BattleAction.hpp"
+#include "IterVector.hpp"
 
 struct BattleInfo {
-	std::vector<Character*> combatants;
+	IterVector<Character*> combatants;
+	std::vector<Character*> NPCs;
+	std::vector<Character*> PCs;
 	BattleAction currentAction;
-	std::vector<Character*>::iterator currentChar;
 };

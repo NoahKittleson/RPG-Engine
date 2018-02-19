@@ -23,4 +23,5 @@ public:
 	
 private:
 	std::stack<Menu> menuSystem;
+	Menu menuStorage [3];
 };

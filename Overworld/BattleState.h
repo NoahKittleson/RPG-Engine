@@ -11,7 +11,7 @@
 #include "State.h"
 #include "Mode.hpp"
 
-#include "BattleAction.hpp"
+#include "BattleInfo.hpp"
 
 class BattleState : public State
 {
@@ -27,24 +27,6 @@ private:
 	void loadMenu();
 	void drawAll(sf::RenderWindow &rw);
 };
-
-
-//class MenuOption
-//{
-//public:
-//	enum OptionType{Attack, Recovery, Ability, Crash};
-//	OptionType Option;
-//
-//	MenuOption(const sf::Font&, std::string, OptionType);
-//	void setPosition(float x, float y);
-//	void draw(sf::RenderWindow& rw);
-//	void setColor(sf::Color);
-//
-//
-//private:
-//	sf::Text display;
-//};
-
 
 //class BattleState : public State
 //{

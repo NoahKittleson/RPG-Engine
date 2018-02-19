@@ -13,9 +13,11 @@ BattleState::BattleState(std::vector<std::shared_ptr<Character>>&& enemies)
 {
     for (auto && it : party) {
         info.combatants.emplace_back(&it);
+		info.PCs.push_back(info.combatants.back());
     }
     for (auto && it : enemies) {
 		info.combatants.emplace_back(std::move(it));
+		info.NPCs.push_back(info.combatants.back());
     }
     info.combatants.setLooping(true);
     //positionStats();
