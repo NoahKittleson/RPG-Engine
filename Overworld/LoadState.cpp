@@ -44,7 +44,7 @@ void LoadState::handleInput(sf::RenderWindow& rw) {
     return;
 }
 
-void LoadState::update(sf::RenderWindow&, sf::Clock&) {
+void LoadState::update(sf::Clock&) {
     //nothing yet... eventually loading bar?
 }
 

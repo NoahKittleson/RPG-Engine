@@ -12,6 +12,9 @@
 void Menu::draw(sf::RenderWindow &rw) {
 	std::function<void(MenuItem&)> drawFunction = [&rw] (MenuItem item) {item.draw(rw);};
 	children.forAll(drawFunction);
+//	for (int iii = 0; iii < children.size(); iii++) {
+//		children[iii].draw(rw);
+//	}
 }
 
 void Menu::update(float elapsed) {

@@ -45,7 +45,7 @@ void IterVector<T>::setLooping(bool Loop)
 template <typename T>
 void IterVector<T>::forAll(std::function<void(T&)> func) {
     for (int iii = 0; iii < this->size(); iii++) {
-        func(this[iii]);
+        func((*this)[iii]);
     }
 }
 
