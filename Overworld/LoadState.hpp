@@ -15,7 +15,7 @@ class LoadState: public State
 public:
     LoadState(StateStack& stack);
 	void handleInput(sf::RenderWindow& rw) override;
-    void update(sf::RenderWindow&, sf::Clock&) override;
+    void update(sf::Clock&) override;
     void draw(sf::RenderWindow&) override;
 };
 

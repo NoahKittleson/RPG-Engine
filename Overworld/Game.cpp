@@ -32,9 +32,9 @@ void Game::run()
 	gameStack.applyPendingChanges();
 
 	while (mainWindow.isOpen()) {
-		gameStack.getCurrentState()->update(mainWindow, gameTimer);
+		gameStack.getCurrentState()->update(gameTimer);
 		gameStack.getCurrentState()->draw(mainWindow);
-		gameStack.getCurrentState()->handleEvent();
+		gameStack.getCurrentState()->handleInput(mainWindow);
 		if (gameStack.empty()) {
 			mainWindow.close();
 		}

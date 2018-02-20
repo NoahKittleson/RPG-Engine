@@ -104,7 +104,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	{
 		std::vector<std::shared_ptr<Character>> enemyVec;
 		enemyVec.emplace_back(CharacterGenerator::create(resources, Combatant::Logo));
-		return new BattleMode(std::move(enemyVec));
+		return new BattleState(std::move(enemyVec));
 	};
 	ConditionMap prereqs;
 	//prereqs[Condition::ChangedMap] = true;

@@ -11,7 +11,7 @@
 #include "ResourceHolder.h"
 #include "AnimatedComponent.hpp"
 #include "DelayedAnimation.hpp"
-#include "BattleMode.h"
+#include "BattleState.h"
 #include "TalkNode.h"
 #include "OptionNode.h"
 #include "CharacterGenerator.hpp"
