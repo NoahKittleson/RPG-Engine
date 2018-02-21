@@ -13,7 +13,7 @@
 //^Is this going to cause a circular dependency?
 
 struct BattleAction {	
-	Character* attacker = nullptr;
-	std::vector<Character*> defenders;
+	std::shared_ptr<Character> attacker = nullptr;
+	std::vector<std::shared_ptr<Character>> defenders;
 	Ability* ability = nullptr;
 };

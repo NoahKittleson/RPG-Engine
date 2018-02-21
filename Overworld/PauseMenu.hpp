@@ -14,7 +14,7 @@ class PauseMenu: public State {
 public:
     PauseMenu();
     
-    void update(sf::RenderWindow &rw, sf::Clock &clock) override;
+    void update(sf::Clock &clock) override;
     void draw(sf::RenderWindow&) override;
     void handleInput(sf::RenderWindow& rw) override;
     

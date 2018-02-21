@@ -11,8 +11,8 @@
 #include "IterVector.hpp"
 
 struct BattleInfo {
-	IterVector<Character*> combatants;
-	std::vector<Character*> NPCs;
-	std::vector<Character*> PCs;
+	IterVector<std::shared_ptr<Character>> combatants;
+	std::vector<std::shared_ptr<Character>> NPCs;
+	std::vector<std::shared_ptr<Character>> PCs;
 	BattleAction currentAction;
 };

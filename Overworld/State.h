@@ -31,7 +31,7 @@ public:
 protected:
     //this is effectively functioning as the gameInfo class I had considered 
 	static std::unique_ptr<MapSection> currentMap;
-    static std::vector<Character> party;
+	static std::vector<std::shared_ptr<Character>> party;
 	static std::unique_ptr<PlayerObject> player;
     const static ResourceHolder resources;
 	static StateStack* stack;
