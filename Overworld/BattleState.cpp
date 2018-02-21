@@ -12,7 +12,7 @@
 BattleState::BattleState(std::vector<std::shared_ptr<Character>>&& enemies)
 {
     for (auto && it : party) {
-        info.combatants.emplace_back(&it);
+        info.combatants.push_back(it);
     }
 
     for (auto && it : enemies) {

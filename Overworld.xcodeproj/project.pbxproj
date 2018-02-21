@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B7023E0C1BB5E16B005A6F93 /* BattleMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7023E0A1BB5E16B005A6F93 /* BattleMenu.cpp */; };
 		B7023E0F1BB5E19F005A6F93 /* EffectsHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7023E0D1BB5E19F005A6F93 /* EffectsHandler.cpp */; };
 		B7023E111BB61A36005A6F93 /* GetHitAnimation.png in Resources */ = {isa = PBXBuildFile; fileRef = B7023E101BB61A36005A6F93 /* GetHitAnimation.png */; };
 		B7023E131BB61A43005A6F93 /* BadAttackAnimation.png in Resources */ = {isa = PBXBuildFile; fileRef = B7023E121BB61A43005A6F93 /* BadAttackAnimation.png */; };
@@ -73,8 +72,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B7023E0A1BB5E16B005A6F93 /* BattleMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleMenu.cpp; sourceTree = "<group>"; };
-		B7023E0B1BB5E16B005A6F93 /* BattleMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleMenu.h; sourceTree = "<group>"; };
 		B7023E0D1BB5E19F005A6F93 /* EffectsHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectsHandler.cpp; sourceTree = "<group>"; };
 		B7023E0E1BB5E19F005A6F93 /* EffectsHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectsHandler.h; sourceTree = "<group>"; };
 		B7023E101BB61A36005A6F93 /* GetHitAnimation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GetHitAnimation.png; sourceTree = "<group>"; };
@@ -238,8 +235,6 @@
 				B70D18DB20284340000B3584 /* BattleInfo.cpp */,
 				B7F96FD91FFCD21B00FAB91B /* BattleAction.hpp */,
 				B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */,
-				B7023E0B1BB5E16B005A6F93 /* BattleMenu.h */,
-				B7023E0A1BB5E16B005A6F93 /* BattleMenu.cpp */,
 				B7023E0E1BB5E19F005A6F93 /* EffectsHandler.h */,
 				B7023E0D1BB5E19F005A6F93 /* EffectsHandler.cpp */,
 			);
@@ -541,7 +536,6 @@
 				B7439C241ECB983900724D0B /* DelayedAnimation.cpp in Sources */,
 				B7439C211ECB8F2E00724D0B /* AnimatedComponent.cpp in Sources */,
 				B75ABA231C7BD81D00B9FFDE /* DNode.cpp in Sources */,
-				B7023E0C1BB5E16B005A6F93 /* BattleMenu.cpp in Sources */,
 				B7423AA51ED8E40200117440 /* InputComponent.cpp in Sources */,
 				B77783F81AE5C57D007FA840 /* main.cpp in Sources */,
 			);

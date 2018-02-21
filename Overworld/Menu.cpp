@@ -54,7 +54,7 @@ void Menu::addChild(std::string option, Menu* next) {
 	children.push_back(MenuItem(option, next));
 }
 
-void Menu::addChild(Character* option, Menu* next, std::function<void()> callback) {
+void Menu::addChild(std::shared_ptr<Character> option, Menu* next, std::function<void()> callback) {
 	children.push_back(MenuItem(option->getName(), next, callback));
 }
 
