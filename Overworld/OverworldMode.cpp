@@ -54,8 +54,15 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 	if (mode) {
 		mode->handleInput(rw);
 		return;
+	} else {
+		sf::Event event;
+		while (rw.pollEvent(event)) {
+			//so it doesn't freeze
+			return;
+		}
 	}
 	
+	//this will never be reached...?
 	Mode::modeAction action;
 	if (mode) {
 		action = mode->handleEvent();

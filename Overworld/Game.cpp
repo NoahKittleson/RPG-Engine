@@ -34,11 +34,7 @@ void Game::run()
 	while (mainWindow.isOpen()) {
 		gameStack.getCurrentState()->update(gameTimer);
 		gameStack.getCurrentState()->draw(mainWindow);
-//		gameStack.getCurrentState()->handleInput(mainWindow);
-		sf::Event event;
-		while (mainWindow.pollEvent(event)) {
-			std::cout << "Test";
-		}
+		gameStack.getCurrentState()->handleInput(mainWindow);
 		if (gameStack.empty()) {
 			mainWindow.close();
 		}

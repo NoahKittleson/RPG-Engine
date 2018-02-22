@@ -45,5 +45,6 @@ void MenuMode::draw(sf::RenderWindow &rw) {
 }
 
 void MenuMode::handleInput(sf::RenderWindow &rw) {
+	assert(menuSystem.size() > 0);
 	menuSystem.top().handleInput(rw);
 }
