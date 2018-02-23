@@ -36,11 +36,15 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 					//to prevent events caused from key release
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::X)) {
 						CommandQueue.push_back(X);
+						//maybe this fits more in update, but I need RenderWindow...
+						checkForInteraction(rw);
 					}
 					break;
 					
 				case sf::Keyboard::Z:
-					CommandQueue.push_back(Z);
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
+						CommandQueue.push_back(Z);
+					}
 					break;
 					
 				case sf::Keyboard::Escape:
@@ -49,12 +53,6 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 
 				default:
 					break;
-			}
-			//maybe this fits more in update, but I need RenderWindow...
-			for (char iii = 0; iii < CommandQueue.size(); iii++) {
-				if (CommandQueue[iii] == X) {
-					checkForInteraction(rw);
-				}
 			}
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
