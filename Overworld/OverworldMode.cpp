@@ -33,7 +33,10 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 		while (rw.pollEvent(event)) {
 			switch (event.key.code) {
 				case sf::Keyboard::X:
-					CommandQueue.push_back(X);
+					//to prevent events caused from key release
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::X)) {
+						CommandQueue.push_back(X);
+					}
 					break;
 					
 				case sf::Keyboard::Z:
@@ -185,8 +188,7 @@ bool OverworldMode::handleMovement(float elapsed) {
 	player->update(elapsed);
 	if (moveVec == sf::Vector2f(0,0)) {
 		return false;
-	}
-	return true;
+	} else return true;
 }
 
 bool OverworldMode::checkExits()
