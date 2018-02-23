@@ -27,12 +27,11 @@ public:
 	void draw(sf::RenderWindow &rw) override;
 	
 private:
-	void handleMovement(float elapsed);
-	void checkExits();
+	bool handleMovement(float elapsed);
+	bool checkExits();
 	void changeMap(ZoneExit);
 	void checkTriggers();
 	void checkForInteraction(sf::RenderWindow &rw);
-	void handleInput(sf::RenderWindow &rw, float elapsed);
 	
 	void updateView();
 	void drawPlayerCollision(sf::RenderWindow &rw);

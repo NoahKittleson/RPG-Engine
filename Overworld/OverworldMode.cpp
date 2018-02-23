@@ -59,7 +59,12 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
 				CommandQueue.push_back(Right);
 			}
-
+			//maybe this fits more in update, but I need RenderWindow...
+			for (char iii = 0; iii < CommandQueue.size(); iii++) {
+				if (CommandQueue[iii] == X) {
+					checkForInteraction(rw);
+				}
+			}
 			return;
 		}
 	}
@@ -104,16 +109,10 @@ void OverworldMode::update(sf::Clock& timer) {
 	if (mode) {
 		mode->update(elapsed);
 	} else {
-		handleMovement(elapsed);
-		if (CommandQueue.contains(X)) {
-			checkForInteraction(rw);
+		if (handleMovement(elapsed) || checkExits()) {
+			updateView();
 		}
-		currentMap->update(elapsed);
-		updateView();
 	}
-
-	//only needs to be done if there is movement or zone change.
-	//updateView();
 }
 
 void OverworldMode::draw(sf::RenderWindow &rw) {
@@ -153,7 +152,7 @@ void OverworldMode::changeMap(ZoneExit exit) {
 	view.move(transitionOffset);
 }
 
-void OverworldMode::handleMovement(float elapsed) {
+bool OverworldMode::handleMovement(float elapsed) {
 	sf::Vector2f moveVec (0,0);
 	for (int iii = 0; iii > CommandQueue.size(); iii++) {
 		switch (CommandQueue[iii]) {
@@ -184,24 +183,22 @@ void OverworldMode::handleMovement(float elapsed) {
 	for (auto const & sprite: currentMap->getSpriteList()) {
 		sprite.collideY(*player, moveVec.y);
 	}
-	
 	player->update(elapsed);
-	
-	if (moveVec != sf::Vector2f(0,0)) {
-		checkExits();
-		checkTriggers();
-		updateView();			//applicable if player moves OR if zone is changed.
+	if (moveVec == sf::Vector2f(0,0)) {
+		return false;
 	}
+	return true;
 }
 
-void OverworldMode::checkExits()
+bool OverworldMode::checkExits()
 {
 	for (const auto & exit: currentMap->getExitList()) {
 		if (player->intersects(exit.getArea())) {
 			mode = std::unique_ptr<Mode>(new Fade(false, 1.f));
-			return;
+			return true;
 		}
 	}
+	return false;
 }
 
 void OverworldMode::checkTriggers() {
@@ -210,32 +207,6 @@ void OverworldMode::checkTriggers() {
 			State* unsafePtr = it.proc(conditions);
 			if (unsafePtr != nullptr) {
 				requestStackAdd(std::unique_ptr<State>(unsafePtr));
-			}
-		}
-	}
-}
-
-void OverworldMode::handleInput(sf::RenderWindow &rw, float elapsed)
-{
-	//Logic for Key PRESS Events
-	sf::Event event;
-	while (rw.pollEvent(event)) {
-		if (event.type == sf::Event::Closed) {
-			rw.close();
-		}
-		if (event.type == sf::Event::KeyPressed) {
-			switch (event.key.code) {
-				case sf::Keyboard::X:
-					std::cout << "X key pressed\n";
-					checkForInteraction(rw);
-					break;
-					
-				case sf::Keyboard::Escape:
-					rw.close();
-					break;
-					
-				default:
-					break;
 			}
 		}
 	}
