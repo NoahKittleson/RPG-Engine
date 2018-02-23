@@ -22,12 +22,12 @@ class OverworldMode: public State
 {
 public:
 	OverworldMode();
+	void handleInput(sf::RenderWindow& rw) override;
 	void update(sf::Clock&) override;
 	void draw(sf::RenderWindow &rw) override;
-	void handleInput(sf::RenderWindow& rw) override;
 	
 private:
-	void handleMovement(float elapsed, sf::Vector2f moveVec);
+	void handleMovement(float elapsed);
 	void checkExits();
 	void changeMap(ZoneExit);
 	void checkTriggers();
@@ -41,7 +41,9 @@ private:
 	
 	sf::View view;
 	std::unique_ptr<Mode> mode;
-	
+	//if Commands get complicated, make them their own class, rather than just an enum
+	enum Command {Left, Right, Up, Down, X, Z};
+	std::vector<Command> CommandQueue;
 };
 
 

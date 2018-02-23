@@ -23,46 +23,48 @@ OverworldMode::OverworldMode()
 	//musicPlayer.play();
 }
 
-void OverworldMode::update(sf::Clock& timer)
-{
-	float elapsed = timer.restart().asSeconds();
-	if (mode) {
-		mode->update(elapsed);
-	} else {
-		currentMap->update(elapsed);
-		updateView();
-	}
-
-	//only needs to be done if there is movement or zone change.
-	//updateView();
-}
-
-void OverworldMode::draw(sf::RenderWindow &rw) {
-	rw.clear(sf::Color::White);
-	rw.setView(view);
-	currentMap->drawBackground(rw);
-	drawAllBoxes(rw);
-	currentMap->drawAllObjects(rw, *player);
-	if (mode) {
-		mode->draw(rw);
-	}
-	player->drawCenter(rw);
-	rw.display();
-}
-
 void OverworldMode::handleInput(sf::RenderWindow& rw) {
+	CommandQueue.clear();
 	if (mode) {
 		mode->handleInput(rw);
 		return;
 	} else {
 		sf::Event event;
 		while (rw.pollEvent(event)) {
-			//so it doesn't freeze
+			switch (event.key.code) {
+				case sf::Keyboard::X:
+					CommandQueue.push_back(X);
+					break;
+					
+				case sf::Keyboard::Z:
+					CommandQueue.push_back(Z);
+					break;
+					
+				case sf::Keyboard::Escape:
+					rw.close();
+					break;
+
+				default:
+					break;
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+				CommandQueue.push_back(Up);
+			} else
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+				CommandQueue.push_back(Down);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+				CommandQueue.push_back(Left);
+			} else
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+				CommandQueue.push_back(Right);
+			}
+
 			return;
 		}
 	}
 	
-	//this will never be reached...?
+	//this will never be reached...
 	Mode::modeAction action;
 	if (mode) {
 		action = mode->handleEvent();
@@ -97,6 +99,36 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 	}
 }
 
+void OverworldMode::update(sf::Clock& timer) {
+	float elapsed = timer.restart().asSeconds();
+	if (mode) {
+		mode->update(elapsed);
+	} else {
+		handleMovement(elapsed);
+		if (CommandQueue.contains(X)) {
+			checkForInteraction(rw);
+		}
+		currentMap->update(elapsed);
+		updateView();
+	}
+
+	//only needs to be done if there is movement or zone change.
+	//updateView();
+}
+
+void OverworldMode::draw(sf::RenderWindow &rw) {
+	rw.clear(sf::Color::White);
+	rw.setView(view);
+	currentMap->drawBackground(rw);
+	drawAllBoxes(rw);
+	currentMap->drawAllObjects(rw, *player);
+	if (mode) {
+		mode->draw(rw);
+	}
+	player->drawCenter(rw);
+	rw.display();
+}
+
 void OverworldMode::changeMap(ZoneExit exit) {
 	MapID nextZone = exit.getNextZone();
 	if (nextZone != currentMap->ID) {
@@ -121,8 +153,26 @@ void OverworldMode::changeMap(ZoneExit exit) {
 	view.move(transitionOffset);
 }
 
-void OverworldMode::handleMovement(float elapsed, sf::Vector2f moveVec)
-{
+void OverworldMode::handleMovement(float elapsed) {
+	sf::Vector2f moveVec (0,0);
+	for (int iii = 0; iii > CommandQueue.size(); iii++) {
+		switch (CommandQueue[iii]) {
+			case Up:
+				moveVec.y -= 100;
+				break;
+			case Down:
+				moveVec.y += 100;
+				break;
+			case Left:
+				moveVec.x -= 100;
+				break;
+			case Right:
+				moveVec.x += 100;
+				break;
+			default:
+				break;
+		}
+	}
 	moveVec *= elapsed;
 	//handle movement on X axis
 	player->move(moveVec.x, 0);
@@ -189,22 +239,6 @@ void OverworldMode::handleInput(sf::RenderWindow &rw, float elapsed)
 			}
 		}
 	}
-	
-	//Logic for Key HOLDING
-	sf::Vector2f moveVec;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-		moveVec.y -= 100;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-		moveVec.y += 100;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-		moveVec.x -= 100;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-		moveVec.x += 100;
-	}
-	handleMovement(elapsed, moveVec);
 }
 
 void OverworldMode::drawPlayerCollision(sf::RenderWindow &rw)
