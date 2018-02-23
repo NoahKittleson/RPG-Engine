@@ -27,6 +27,7 @@ public:
 	void draw(sf::RenderWindow &rw) override;
 	
 private:
+	//return true if movement occurs
 	bool handleMovement(float elapsed);
 	bool checkExits();
 	void changeMap(ZoneExit);

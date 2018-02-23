@@ -47,26 +47,25 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 				default:
 					break;
 			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-				CommandQueue.push_back(Up);
-			} else
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-				CommandQueue.push_back(Down);
-			}
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-				CommandQueue.push_back(Left);
-			} else
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-				CommandQueue.push_back(Right);
-			}
 			//maybe this fits more in update, but I need RenderWindow...
 			for (char iii = 0; iii < CommandQueue.size(); iii++) {
 				if (CommandQueue[iii] == X) {
 					checkForInteraction(rw);
 				}
 			}
-			return;
 		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+			CommandQueue.push_back(Up);
+		} else
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+				CommandQueue.push_back(Down);
+			}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+			CommandQueue.push_back(Left);
+		} else
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+				CommandQueue.push_back(Right);
+			}
 	}
 	
 	//this will never be reached...
@@ -153,20 +152,20 @@ void OverworldMode::changeMap(ZoneExit exit) {
 }
 
 bool OverworldMode::handleMovement(float elapsed) {
-	sf::Vector2f moveVec (0,0);
-	for (int iii = 0; iii > CommandQueue.size(); iii++) {
+	sf::Vector2f moveVec (0.f, 0.f);
+	for (int iii = 0; iii < CommandQueue.size(); iii++) {
 		switch (CommandQueue[iii]) {
 			case Up:
-				moveVec.y -= 100;
+				moveVec.y -= 100.f;
 				break;
 			case Down:
-				moveVec.y += 100;
+				moveVec.y += 100.f;
 				break;
 			case Left:
-				moveVec.x -= 100;
+				moveVec.x -= 100.f;
 				break;
 			case Right:
-				moveVec.x += 100;
+				moveVec.x += 100.f;
 				break;
 			default:
 				break;
