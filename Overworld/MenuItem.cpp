@@ -21,6 +21,10 @@ MenuItem::MenuItem(std::string t, Menu* next, const sf::Font& font, std::functio
 	this->callback = callback;
 }
 
+//MenuItem::MenuItem(MenuItem&& other)  {
+//	text.setFont(*other.text.getFont());
+//}
+
 void MenuItem::draw(sf::RenderWindow& rw) {
 	rw.draw(text);
 }

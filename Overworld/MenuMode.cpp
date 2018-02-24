@@ -10,9 +10,9 @@
 
 MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) {
 	//create starting menu Node
-	Menu* primaryMenu = &menuStorage[1];
-	Menu* targetMenu = &menuStorage[2];
-	Menu* abilityMenu = &menuStorage[3];
+	Menu* primaryMenu = &menuStorage[0];
+	Menu* targetMenu = &menuStorage[1];
+	Menu* abilityMenu = &menuStorage[2];
 	
 	primaryMenu->addChild(MenuItem("Attack", targetMenu, font));
 	primaryMenu->addChild(MenuItem("Ability", abilityMenu, font));
@@ -31,6 +31,7 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) {
 		};
 		abilityMenu->addChild(MenuItem(ability.getName(), targetMenu, font, function));
 	}
+	menuSystem.push(menuStorage[0]);
 }
 
 void MenuMode::update(float elapsed) {

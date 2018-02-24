@@ -21,10 +21,9 @@ public:
 	void handleInput(sf::RenderWindow& rw);
 	
 	bool isActive() const {return active;};
-	void addChild(MenuItem&& item);
+	void addChild(MenuItem item);
 	
 private:
 	IterVector<MenuItem> children;
-	std::function<void()> callback;
 	bool active = true;
 };

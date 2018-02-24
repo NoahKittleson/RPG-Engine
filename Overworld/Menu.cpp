@@ -10,11 +10,11 @@
 #include "MenuItem.hpp"
 
 void Menu::draw(sf::RenderWindow &rw) {
-	std::function<void(MenuItem&)> drawFunction = [&rw] (MenuItem item) {item.draw(rw);};
-	children.forAll(drawFunction);
-//	for (int iii = 0; iii < children.size(); iii++) {
-//		children[iii].draw(rw);
-//	}
+//	std::function<void(MenuItem&)> drawFunction = [&rw] (MenuItem item) {item.draw(rw);};
+//	children.forAll(drawFunction);
+	for (int iii = 0; iii < children.size(); iii++) {
+		children[iii].draw(rw);
+	}
 }
 
 void Menu::update(float elapsed) {
@@ -50,8 +50,10 @@ void Menu::handleInput(sf::RenderWindow& rw) {
 	}
 }
 
-void Menu::addChild(MenuItem &&item) {
-	children.emplace_back(std::move(item));
+void Menu::addChild(MenuItem item) {
+	//^^^this item handed in is somehow whack.
+	std::cout << "item: " << item.getName() << "\n";
+	children.push_back(item);
 	children.back().setPosition(100, 100+children.size()*50);
 }
 

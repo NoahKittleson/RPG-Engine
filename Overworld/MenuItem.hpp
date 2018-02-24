@@ -15,6 +15,7 @@ class MenuItem {
 public:
 	MenuItem(std::string text, Menu* next, const sf::Font& font);
 	MenuItem(std::string text, Menu* next, const sf::Font& font,  std::function<void()> callback);
+	//MenuItem(MenuItem&& other);
 	
 	void draw(sf::RenderWindow& rw);
 	void select();						//select is for highlighting current option, activate for executing it
@@ -25,7 +26,8 @@ public:
 	
 	bool isSelected() const {return selected;};
 	void setPosition(int x, int y);
-	
+	std::string getName() {return text.getString();};
+
 private:
 	sf::Text text;
 	Menu* nextMenu = nullptr;
