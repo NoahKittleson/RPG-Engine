@@ -21,9 +21,7 @@ public:
 	void handleInput(sf::RenderWindow& rw);
 	
 	bool isActive() const {return active;};
-	void addChild(std::string option, Menu* next);
-	void addChild(std::shared_ptr<Character> option, Menu* next, std::function<void()>);
-	void addChild(Ability& option, Menu* next, std::function<void()>);
+	void addChild(MenuItem&& item);
 	
 private:
 	IterVector<MenuItem> children;

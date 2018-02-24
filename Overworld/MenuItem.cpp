@@ -8,14 +8,16 @@
 
 #include "MenuItem.hpp"
 
-MenuItem::MenuItem(std::string t, Menu* next) {
+MenuItem::MenuItem(std::string t, Menu* next, sf::Font font) {
 	nextMenu = next;
 	text.setString(t);
+	text.setFont(font);
 }
 
-MenuItem::MenuItem(std::string t, Menu* next, std::function<void()> callback) {
+MenuItem::MenuItem(std::string t, Menu* next, sf::Font font, std::function<void()> callback) {
 	nextMenu = next;
 	text.setString(t);
+	text.setFont(font);
 	this->callback = callback;
 }
 
@@ -43,4 +45,8 @@ void MenuItem::deactivate() {
 bool MenuItem::selectable() {
 	return true;
 	//only until I put in requirements
+}
+
+void MenuItem::setPosition(int x, int y) {
+	text.setPosition(x, y);
 }

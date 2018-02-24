@@ -13,8 +13,8 @@ class Menu;
 
 class MenuItem {
 public:
-	MenuItem(std::string text, Menu* next);
-	MenuItem(std::string text, Menu* next, std::function<void()> callback);
+	MenuItem(std::string text, Menu* next, sf::Font font);
+	MenuItem(std::string text, Menu* next, sf::Font font,  std::function<void()> callback);
 	
 	void draw(sf::RenderWindow& rw);
 	void select();						//select is for highlighting current option, activate for executing it
@@ -24,6 +24,7 @@ public:
 	bool selectable();
 	
 	bool isSelected() const {return selected;};
+	void setPosition(int x, int y);
 	
 private:
 	sf::Text text;

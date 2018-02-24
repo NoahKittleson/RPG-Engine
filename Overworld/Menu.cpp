@@ -50,15 +50,8 @@ void Menu::handleInput(sf::RenderWindow& rw) {
 	}
 }
 
-void Menu::addChild(std::string option, Menu* next) {
-	children.push_back(MenuItem(option, next));
-}
-
-void Menu::addChild(std::shared_ptr<Character> option, Menu* next, std::function<void()> callback) {
-	children.push_back(MenuItem(option->getName(), next, callback));
-}
-
-void Menu::addChild(Ability& option, Menu* next, std::function<void()> callback) {
-	children.push_back(MenuItem(option.getName(), next, callback));
+void Menu::addChild(MenuItem &&item) {
+	children.emplace_back(std::move(item));
+	children.back().setPosition(100, 100+children.size()*50);
 }
 

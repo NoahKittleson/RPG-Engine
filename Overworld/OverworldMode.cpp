@@ -111,6 +111,7 @@ void OverworldMode::update(sf::Clock& timer) {
 	} else {
 		if (handleMovement(elapsed) || checkExits()) {
 			updateView();
+			checkTriggers();
 		}
 		currentMap->update(elapsed);
 	}

@@ -14,12 +14,12 @@ BattleState::BattleState(std::vector<std::shared_ptr<Character>>&& enemies)
     for (auto && it : party) {
         info.combatants.push_back(it);
     }
-
     for (auto && it : enemies) {
 		info.combatants.emplace_back(std::move(it));
     }
 	info.NPCs = std::move(enemies);
 	info.PCs = party;
+	mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Sansation));
 	
     info.combatants.setLooping(true);
     //positionStats();
@@ -42,7 +42,14 @@ void BattleState::draw(sf::RenderWindow& rw) {
 }
 
 void BattleState::handleInput(sf::RenderWindow& rw) {
-	mode->handleInput(rw);
+	if (mode) {
+		mode->handleInput(rw);
+	} else {
+		sf::Event event;
+		while (rw.pollEvent(event)) {
+			//nothing
+		}
+	}
 }
 
 void BattleState::drawAll(sf::RenderWindow &rw)

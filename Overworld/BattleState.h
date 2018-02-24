@@ -10,6 +10,7 @@
 #include "PrefixHeader.pch"
 #include "State.h"
 #include "Mode.hpp"
+#include "MenuMode.hpp"
 
 #include "BattleInfo.hpp"
 

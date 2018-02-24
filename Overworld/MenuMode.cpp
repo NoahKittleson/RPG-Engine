@@ -8,27 +8,28 @@
 
 #include "MenuMode.hpp"
 
-MenuMode::MenuMode(BattleInfo& info) {
+MenuMode::MenuMode(BattleInfo& info, sf::Font font) {
 	//create starting menu Node
 	Menu* primaryMenu = &menuStorage[1];
 	Menu* targetMenu = &menuStorage[2];
 	Menu* abilityMenu = &menuStorage[3];
 	
-	primaryMenu->addChild("Attack", targetMenu);
-	primaryMenu->addChild("Ability", abilityMenu);
-	primaryMenu->addChild("Pass", nullptr);
+	primaryMenu->addChild(MenuItem("Attack", targetMenu, font));
+	primaryMenu->addChild(MenuItem("Ability", abilityMenu, font));
+	primaryMenu->addChild(MenuItem("Pass", nullptr, font));
+	
 	
 	for (auto & target : info.combatants) {
 		auto function = [&info, &target] () {
 			info.currentAction.defenders.push_back(target);
 		};
-		targetMenu->addChild(target, nullptr, function);
+		targetMenu->addChild(MenuItem(target->getName(), nullptr, font, function));
 	}
 	for (auto && ability : info.currentAction.attacker->_abilityList) {
 		auto function = [&info, &ability] () {
 			info.currentAction.ability = &ability;
 		};
-		abilityMenu->addChild(ability, targetMenu, function);
+		abilityMenu->addChild(MenuItem(ability.getName(), targetMenu, font, function));
 	}
 }
 
