@@ -19,7 +19,7 @@ public:
     void update(float elapsed) override;
     void draw(sf::RenderWindow &rw) override;
     void handleInput(sf::RenderWindow &rw) override;
-    modeAction handleEvent() override;
+    //modeAction handleEvent() override;
     
 private:
     const float totalDuration;

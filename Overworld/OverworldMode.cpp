@@ -70,38 +70,38 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 	}
 	
 	//this will never be reached...
-	Mode::modeAction action;
-	if (mode) {
-		action = mode->handleEvent();
-		switch(action) {
-			case Mode::FadeOutEnd:
-				//find out which exitZone we intersect with and change the map accordingly
-				for (const auto & exit: currentMap->getExitList()) {
-					if (player->intersects(exit.getArea())) {
-						changeMap(exit);
-					}
-				}
-				//change mode
-				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
-				break;
-				
-			case Mode::FadeInEnd:
-				mode = nullptr;
-				break;
-				
-			case Mode::FadeOutBegin:
-				mode = std::unique_ptr<Mode>(new Fade(false, 1.f));
-				break;
-				
-			case Mode::FadeInBegin:
-				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
-				break;
-				
-			case Mode::None:
-			default:
-				break;
-		}
-	}
+//	Mode::modeAction action;
+//	if (mode) {
+//		action = mode->handleEvent();
+//		switch(action) {
+//			case Mode::FadeOutEnd:
+//				//find out which exitZone we intersect with and change the map accordingly
+//				for (const auto & exit: currentMap->getExitList()) {
+//					if (player->intersects(exit.getArea())) {
+//						changeMap(exit);
+//					}
+//				}
+//				//change mode
+//				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
+//				break;
+//
+//			case Mode::FadeInEnd:
+//				mode = nullptr;
+//				break;
+//
+//			case Mode::FadeOutBegin:
+//				mode = std::unique_ptr<Mode>(new Fade(false, 1.f));
+//				break;
+//
+//			case Mode::FadeInBegin:
+//				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
+//				break;
+//
+//			case Mode::None:
+//			default:
+//				break;
+//		}
+//	}
 }
 
 void OverworldMode::update(sf::Clock& timer) {
@@ -208,6 +208,7 @@ void OverworldMode::checkTriggers() {
 			State* unsafePtr = it.proc(conditions);
 			if (unsafePtr != nullptr) {
 				requestStackAdd(std::unique_ptr<State>(unsafePtr));
+				std::cout << "Battlestate created.\n";
 			}
 		}
 	}

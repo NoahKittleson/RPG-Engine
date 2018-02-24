@@ -41,9 +41,10 @@ void Fade::handleInput(sf::RenderWindow &rw) {
     }
 }
 
-Mode::modeAction Fade::handleEvent() {
-    if (fadePercent >= 1.0) {
-        return inOrOut ? modeAction::FadeInEnd : modeAction::FadeOutEnd;
-    }
-    return modeAction::None;
-}
+//Mode::modeAction Fade::handleEvent() {
+//    if (fadePercent >= 1.0) {
+//        return inOrOut ? modeAction::FadeInEnd : modeAction::FadeOutEnd;
+//    }
+//    return modeAction::None;
+//}
+

@@ -17,6 +17,7 @@ BattleState::BattleState(std::vector<std::shared_ptr<Character>>&& enemies)
     for (auto && it : enemies) {
 		info.combatants.emplace_back(std::move(it));
     }
+	info.currentAction.attacker = info.combatants[0];
 	info.NPCs = std::move(enemies);
 	info.PCs = party;
 	mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Sansation));

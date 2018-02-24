@@ -10,7 +10,7 @@
 #include "BattleAction.hpp"
 #include "IterVector.hpp"
 
-struct BattleInfo {
+struct BattleInfo : sf::NonCopyable {
 	IterVector<std::shared_ptr<Character>> combatants;
 	std::vector<std::shared_ptr<Character>> NPCs;
 	std::vector<std::shared_ptr<Character>> PCs;
