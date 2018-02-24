@@ -8,7 +8,7 @@
 
 #include "MenuMode.hpp"
 
-MenuMode::MenuMode(BattleInfo& info, sf::Font font) {
+MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) {
 	//create starting menu Node
 	Menu* primaryMenu = &menuStorage[1];
 	Menu* targetMenu = &menuStorage[2];

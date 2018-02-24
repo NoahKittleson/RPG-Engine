@@ -8,13 +8,13 @@
 
 #include "MenuItem.hpp"
 
-MenuItem::MenuItem(std::string t, Menu* next, sf::Font font) {
+MenuItem::MenuItem(std::string t, Menu* next, const sf::Font& font) {
 	nextMenu = next;
 	text.setString(t);
 	text.setFont(font);
 }
 
-MenuItem::MenuItem(std::string t, Menu* next, sf::Font font, std::function<void()> callback) {
+MenuItem::MenuItem(std::string t, Menu* next, const sf::Font& font, std::function<void()> callback) {
 	nextMenu = next;
 	text.setString(t);
 	text.setFont(font);
