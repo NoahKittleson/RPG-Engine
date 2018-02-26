@@ -23,6 +23,7 @@ public:
 	void deselect();
 	void deactivate();
 	bool selectable();
+	Menu* getNext() {return nextMenu;};
 	
 	bool isSelected() const {return selected;};
 	void setPosition(int x, int y);

@@ -23,6 +23,5 @@ public:
 	virtual void handleInput(sf::RenderWindow &rw) override;
 	
 private:
-	std::stack<Menu> menuSystem;
 	Menu menuStorage [3];
 };

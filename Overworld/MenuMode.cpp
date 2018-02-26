@@ -31,22 +31,26 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) {
 		};
 		abilityMenu->addChild(MenuItem(ability.getName(), targetMenu, font, function));
 	}
-	menuSystem.push(menuStorage[0]);
+	
+	//menuSystem should not be a thing.  Just go off of the original active/non-active system.  MenuItems don't have any way to add themselves to the MenuStack;
 }
 
 void MenuMode::update(float elapsed) {
-	while (!menuSystem.top().isActive()) {
-		menuSystem.pop();
-		menuSystem.top();
-	}
-	menuSystem.top().update(elapsed);
+//	while (!menuSystem.top().isActive()) {
+//		menuSystem.pop();
+//		menuSystem.top();
+//	}
+//	menuSystem.top().update(elapsed);
+	menuStorage[0].update(elapsed);
 }
 
 void MenuMode::draw(sf::RenderWindow &rw) {
-	menuSystem.top().draw(rw);
+//	menuSystem.top().draw(rw);
+	menuStorage[0].draw(rw);
 }
 
 void MenuMode::handleInput(sf::RenderWindow &rw) {
-	assert(menuSystem.size() > 0);
-	menuSystem.top().handleInput(rw);
+//	assert(menuStorage.size() > 0);
+	menuStorage[0].handleInput(rw);
+//	menuSystem.top().handleInput(rw);
 }
