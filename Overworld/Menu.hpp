@@ -21,9 +21,10 @@ public:
 	void handleInput(sf::RenderWindow& rw);
 	
 	bool isActive() const {return active;};
+	void activate() {active = true;};
 	void addChild(MenuItem item);
 	
 private:
 	IterVector<MenuItem> children;
-	bool active = true;
+	bool active = false;
 };

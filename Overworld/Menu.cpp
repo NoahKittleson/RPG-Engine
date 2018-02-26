@@ -12,7 +12,7 @@
 void Menu::draw(sf::RenderWindow &rw) {
 //	std::function<void(MenuItem&)> drawFunction = [&rw] (MenuItem item) {item.draw(rw);};
 //	children.forAll(drawFunction);
-	if (children.get().getNext()->isActive()) {
+	if (children.get().getNext() && children.get().getNext()->isActive()) {
 		children.get().getNext()->draw(rw);
 	} else {
 		for (int iii = 0; iii < children.size(); iii++) {
@@ -22,7 +22,7 @@ void Menu::draw(sf::RenderWindow &rw) {
 }
 
 void Menu::update(float elapsed) {
-	if (children.get().getNext()->isActive()) {
+	if (children.get().getNext() && children.get().getNext()->isActive()) {
 		children.get().getNext()->update(elapsed);
 	} else {
 		//maybe some flicker on selected option?
@@ -31,7 +31,7 @@ void Menu::update(float elapsed) {
 }
 
 void Menu::handleInput(sf::RenderWindow& rw) {
-	if (children.get().getNext()->isActive()) {
+	if (children.get().getNext() && children.get().getNext()->isActive()) {
 		children.get().getNext()->handleInput(rw);
 	} else {
 		sf::Event event;
