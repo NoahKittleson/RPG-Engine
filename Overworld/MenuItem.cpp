@@ -12,6 +12,8 @@ MenuItem::MenuItem(std::string t, Menu* next, const sf::Font& font) {
 	nextMenu = next;
 	text.setString(t);
 	text.setFont(font);
+	text.setColor(sf::Color::Black);
+
 }
 
 MenuItem::MenuItem(std::string t, Menu* next, const sf::Font& font, std::function<void()> callback) {
@@ -19,11 +21,8 @@ MenuItem::MenuItem(std::string t, Menu* next, const sf::Font& font, std::functio
 	text.setString(t);
 	text.setFont(font);
 	this->callback = callback;
+	text.setColor(sf::Color::Black);
 }
-
-//MenuItem::MenuItem(MenuItem&& other)  {
-//	text.setFont(*other.text.getFont());
-//}
 
 void MenuItem::draw(sf::RenderWindow& rw) {
 	rw.draw(text);

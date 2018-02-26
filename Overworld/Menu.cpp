@@ -10,8 +10,6 @@
 #include "MenuItem.hpp"
 
 void Menu::draw(sf::RenderWindow &rw) {
-//	std::function<void(MenuItem&)> drawFunction = [&rw] (MenuItem item) {item.draw(rw);};
-//	children.forAll(drawFunction);
 	if (children.get().getNext() && children.get().getNext()->isActive()) {
 		children.get().getNext()->draw(rw);
 	} else {
@@ -63,7 +61,6 @@ void Menu::handleInput(sf::RenderWindow& rw) {
 }
 
 void Menu::addChild(MenuItem item) {
-	//^^^this item handed in is somehow whack.
 	std::cout << "item: " << item.getName() << "\n";
 	children.push_back(item);
 	children.back().setPosition(100, 100+children.size()*50);

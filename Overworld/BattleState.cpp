@@ -39,6 +39,11 @@ void BattleState::draw(sf::RenderWindow& rw) {
 	rw.setView(rw.getDefaultView());
 	rw.clear(sf::Color::White);
 	drawAll(rw);
+	if (mode) {
+		mode->draw(rw);
+	} else {
+		//anything?
+	}
     rw.display();
 }
 
