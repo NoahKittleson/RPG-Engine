@@ -28,21 +28,16 @@ void MenuItem::draw(sf::RenderWindow& rw) {
 	rw.draw(text);
 }
 
-
 void MenuItem::select() {
 	text.setColor(selectColor);
 }
 
 void MenuItem::activate() {
-	active = true;
+	callback();
 }
 
 void MenuItem::deselect() {
 	text.setColor(defaultColor);
-}
-
-void MenuItem::deactivate() {
-	active = false;
 }
 
 bool MenuItem::selectable() {

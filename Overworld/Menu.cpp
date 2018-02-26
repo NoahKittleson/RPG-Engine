@@ -37,6 +37,7 @@ void Menu::handleInput(sf::RenderWindow& rw) {
 			if (event.type == sf::Event::KeyPressed) {
 				switch (event.key.code) {
 					case sf::Keyboard::X:
+						children.get().getNext()->activate();
 						children.get().activate();
 						break;
 						
@@ -45,11 +46,15 @@ void Menu::handleInput(sf::RenderWindow& rw) {
 						break;
 						
 					case sf::Keyboard::Up:
+						children.get().deselect();
 						--children;
+						children.get().select();
 						break;
 						
 					case sf::Keyboard::Down:
+						children.get().deselect();
 						++children;
+						children.get().select();
 						break;
 						
 					default:
@@ -63,6 +68,9 @@ void Menu::handleInput(sf::RenderWindow& rw) {
 void Menu::addChild(MenuItem item) {
 	std::cout << "item: " << item.getName() << "\n";
 	children.push_back(item);
+	if (children.size() == 1) {
+		children[0].select();
+	}
 	children.back().setPosition(100, 100+children.size()*50);
 }
 

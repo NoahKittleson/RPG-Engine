@@ -21,7 +21,6 @@ public:
 	void select();						//select is for highlighting current option, activate for executing it
 	void activate();
 	void deselect();
-	void deactivate();
 	bool selectable();
 	Menu* getNext() {return nextMenu;};
 	
@@ -32,9 +31,8 @@ public:
 private:
 	sf::Text text;
 	Menu* nextMenu = nullptr;
-	std::function<void()> callback;
+	std::function<void()> callback = []{return;};
 	bool selected = false;
-	bool active = false;
 	
 	//define color Types across all MenuItems
 	const sf::Color selectColor = sf::Color::Red;
