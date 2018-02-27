@@ -42,6 +42,9 @@ void MenuMode::update(float elapsed) {
 //	}
 //	menuSystem.top().update(elapsed);
 	menuStorage[0].update(elapsed);
+	if (menuStorage[0].isDone()) {
+		done = true;
+	}
 }
 
 void MenuMode::draw(sf::RenderWindow &rw) {

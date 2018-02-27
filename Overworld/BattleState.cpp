@@ -33,6 +33,9 @@ void BattleState::update(sf::Clock& timer)
 		mode->update(elapsed);
 	}
 	//updateSprites(elapsed);
+	if (mode->isDone()) {
+		//make next
+	}
 }
 
 void BattleState::draw(sf::RenderWindow& rw) {

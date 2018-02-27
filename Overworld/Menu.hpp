@@ -21,7 +21,8 @@ public:
 	void handleInput(sf::RenderWindow& rw);
 	
 	bool isActive() const {return active;};
-	void activate() {active = true;};
+	void activate();
+	bool isDone() const;
 	void addChild(MenuItem item);
 	
 private:

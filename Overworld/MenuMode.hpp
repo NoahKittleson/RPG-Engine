@@ -23,5 +23,5 @@ public:
 	virtual void handleInput(sf::RenderWindow &rw) override;
 	
 private:
-	Menu menuStorage [3];
+	Menu menuStorage [3];	
 };

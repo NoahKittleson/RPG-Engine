@@ -28,6 +28,10 @@ void Menu::update(float elapsed) {
 	}
 }
 
+void Menu::activate() {
+	active = true;
+}
+
 void Menu::handleInput(sf::RenderWindow& rw) {
 	if (children.get().getNext() && children.get().getNext()->isActive()) {
 		children.get().getNext()->handleInput(rw);
@@ -37,7 +41,9 @@ void Menu::handleInput(sf::RenderWindow& rw) {
 			if (event.type == sf::Event::KeyPressed) {
 				switch (event.key.code) {
 					case sf::Keyboard::X:
-						children.get().getNext()->activate();
+						if(children.get().getNext()) {
+							children.get().getNext()->activate();
+						}
 						children.get().activate();
 						break;
 						
@@ -72,5 +78,13 @@ void Menu::addChild(MenuItem item) {
 		children[0].select();
 	}
 	children.back().setPosition(100, 100+children.size()*50);
+}
+
+bool Menu::isDone() const {
+	if (children.get().getNext() && children.get().getNext()->isActive()) {
+		return children.get().getNext()->isDone();
+	} else {
+		return children.get().getNext();
+	}
 }
 
