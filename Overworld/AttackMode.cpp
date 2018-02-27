@@ -21,7 +21,9 @@ AttackMode::AttackMode(BattleInfo& info) : info(info) {
 
 void AttackMode::update(float elapsed) {
 	for (auto & item : destinationMap) {
-		item.first->move(sf::Vector2f(item.second.x/40, item.second.y/40));				//40 is a magic number
+		item.first->move(sf::Vector2f(item.second.x*2*elapsed, item.second.y*2*elapsed));			//2 is a magic number
+		sf::Vector2f movementGap (item.second.x - originalPosMap[item.first].x,
+								  item.second.y - originalPosMap[item.first].y);
 	}
 }
 

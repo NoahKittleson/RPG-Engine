@@ -42,6 +42,8 @@ void BattleState::update(sf::Clock& timer)
 				
 			case attack:
 				++info.combatants;
+				info.clear();
+				info.currentAction.attacker = info.combatants.get();
 				mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Sansation));
 				break;
 				

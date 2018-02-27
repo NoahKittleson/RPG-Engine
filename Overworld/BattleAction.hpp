@@ -16,4 +16,6 @@ struct BattleAction {
 	std::shared_ptr<Character> attacker = nullptr;
 	std::vector<std::shared_ptr<Character>> defenders;
 	Ability* ability = nullptr;
+	
+	void clear();
 };

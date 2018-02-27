@@ -7,3 +7,11 @@
 //
 
 #include "BattleInfo.hpp"
+
+
+void BattleInfo::clear() {
+	combatants.clear();
+	NPCs.clear();
+	PCs.clear();
+	currentAction.clear();
+}
