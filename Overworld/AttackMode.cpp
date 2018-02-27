@@ -20,10 +20,22 @@ AttackMode::AttackMode(BattleInfo& info) : info(info) {
 }
 
 void AttackMode::update(float elapsed) {
-	for (auto & item : destinationMap) {
-		item.first->move(sf::Vector2f(item.second.x*2*elapsed, item.second.y*2*elapsed));			//2 is a magic number
-		sf::Vector2f movementGap (item.second.x - originalPosMap[item.first].x,
-								  item.second.y - originalPosMap[item.first].y);
+	switch (currentPhase) {
+		case moveTo:
+			moveToUpdate(elapsed);
+			break;
+			
+		case animate:
+			animateUpdate(elapsed);
+			break;
+			
+		case moveBack:
+			moveBackUpdate(elapsed);
+			break;
+			
+		default:
+			std::cout << "Somthing is wrong.  Incorrect phase";
+			break;
 	}
 }
 
@@ -36,5 +48,37 @@ void AttackMode::handleInput(sf::RenderWindow &rw) {
 	sf::Event event;
 	while (rw.pollEvent(event)) {
 		return;
+	}
+}
+
+void AttackMode::moveToUpdate(float elapsed) {
+	for (auto & item : destinationMap) {
+		sf::Vector2f movementGap (item.second.x - originalPosMap[item.first].x,
+								  item.second.y - originalPosMap[item.first].y);
+		item.first->move(sf::Vector2f(movementGap.x*2*elapsed, movementGap.y*2*elapsed));			//2 is a magic number
+		sf::Vector2f distanceMoved (item.first->getSpritePosition().x - originalPosMap[item.first].x,
+									item.first->getSpritePosition().y - originalPosMap[item.first].y);
+		if (abs(distanceMoved.x) > abs(movementGap.x) || abs(distanceMoved.y) > abs(movementGap.y)) {
+			item.first->setSpritePosition(item.second.x, item.second.y);
+			currentPhase = animate;
+		}
+	}
+}
+
+void AttackMode::animateUpdate(float elapsed) {
+	//play hitAnimation and getHitAnimation
+}
+
+void AttackMode::moveBackUpdate(float elapsed) {
+	for (auto & item : originalPosMap) {
+		sf::Vector2f movementGap (item.second.x - destinationMap[item.first].x,
+								  item.second.y - destinationMap[item.first].y);
+		item.first->move(sf::Vector2f(movementGap.x*2*elapsed, movementGap.y*2*elapsed));			//2 is a magic number
+		sf::Vector2f distanceMoved (item.first->getSpritePosition().x - destinationMap[item.first].x,
+									item.first->getSpritePosition().y - destinationMap[item.first].y);
+		if (abs(distanceMoved.x) > abs(movementGap.x) || abs(distanceMoved.y) > abs(movementGap.y)) {
+			item.first->setSpritePosition(item.second.x, item.second.y);
+			done = true;
+		}
 	}
 }

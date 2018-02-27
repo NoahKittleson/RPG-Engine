@@ -22,4 +22,11 @@ private:
 	BattleInfo& info;
 	std::map<std::shared_ptr<Character>, sf::Vector2f> originalPosMap;
 	std::map<std::shared_ptr<Character>, sf::Vector2f> destinationMap;
+	
+	enum phase {moveTo, animate, moveBack};
+	phase currentPhase = moveTo;
+	
+	void moveToUpdate(float elapsed);
+	void animateUpdate(float elapsed);
+	void moveBackUpdate(float elapsed);
 };
