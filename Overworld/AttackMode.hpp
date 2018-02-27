@@ -20,5 +20,6 @@ public:
 	
 private:
 	BattleInfo& info;
-	
+	std::map<std::shared_ptr<Character>, sf::Vector2f> originalPosMap;
+	std::map<std::shared_ptr<Character>, sf::Vector2f> destinationMap;
 };

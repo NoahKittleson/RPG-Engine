@@ -27,6 +27,8 @@ public:
 
     void setStatPosition(int x, int y);
     void setSpritePosition(int x, int y);
+	sf::Vector2f getSpritePosition() {return _sprite.getPosition();};
+	void move(sf::Vector2f movement) { _sprite.move(movement);};
     void drawAllStats(sf::RenderWindow&);
     void drawSprite(sf::RenderWindow&);
 

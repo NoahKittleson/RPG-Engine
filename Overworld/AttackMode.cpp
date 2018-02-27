@@ -7,3 +7,32 @@
 //
 
 #include "AttackMode.hpp"
+
+
+AttackMode::AttackMode(BattleInfo& info) : info(info) {
+	//right now the destination for each sprite is just 100 up from where it was originally
+	originalPosMap.emplace(info.currentAction.attacker, info.currentAction.attacker->getSpritePosition());
+	destinationMap.emplace(info.currentAction.attacker, info.currentAction.attacker->getSpritePosition() + sf::Vector2f(-100,0));
+	for (auto & character : info.currentAction.defenders) {
+		originalPosMap.emplace(character, character->getSpritePosition());
+		destinationMap.emplace(character, character->getSpritePosition()+ sf::Vector2f(-100,0));	//100 is a magic number
+	}
+}
+
+void AttackMode::update(float elapsed) {
+	for (auto & item : destinationMap) {
+		item.first->move(sf::Vector2f(item.second.x/40, item.second.y/40));				//40 is a magic number
+	}
+}
+
+void AttackMode::draw(sf::RenderWindow &rw) {
+	//set the proper views
+	//draw all the sprites
+}
+
+void AttackMode::handleInput(sf::RenderWindow &rw) {
+	sf::Event event;
+	while (rw.pollEvent(event)) {
+		return;
+	}
+}
