@@ -53,6 +53,7 @@
 		B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77BE44A1BB5E03500F5645C /* Menu.cpp */; };
 		B77ED0FB1C82E221004046D1 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77ED0F91C82E221004046D1 /* Player.cpp */; };
 		B78873551F3D530E00E7C725 /* CharacterGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */; };
+		B797796F2044DBF7000870C2 /* AttackMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B797796D2044DBF7000870C2 /* AttackMode.cpp */; };
 		B79AD8D81D4F128200B7C8F7 /* StartingZone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */; };
 		B79E29881BA0E1C80020BA93 /* RollingWheat.png in Resources */ = {isa = PBXBuildFile; fileRef = B79E29871BA0E1C80020BA93 /* RollingWheat.png */; };
 		B7A1EB3A1EDA9F5100667423 /* Yak.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A1EB391EDA9F5100667423 /* Yak.png */; };
@@ -151,6 +152,8 @@
 		B77ED0FA1C82E221004046D1 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; usesTabs = 1; };
 		B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterGenerator.cpp; sourceTree = "<group>"; };
 		B78873541F3D530E00E7C725 /* CharacterGenerator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterGenerator.hpp; sourceTree = "<group>"; };
+		B797796D2044DBF7000870C2 /* AttackMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AttackMode.cpp; sourceTree = "<group>"; };
+		B797796E2044DBF7000870C2 /* AttackMode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AttackMode.hpp; sourceTree = "<group>"; };
 		B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartingZone.cpp; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; };
 		B79AD8D71D4F128200B7C8F7 /* StartingZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartingZone.h; sourceTree = "<group>"; };
 		B79E29871BA0E1C80020BA93 /* RollingWheat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RollingWheat.png; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 				B7262BD22001B48D00989D70 /* MenuItem.cpp */,
 				B7262BD620035BBC00989D70 /* Menu.hpp */,
 				B77BE44A1BB5E03500F5645C /* Menu.cpp */,
+				B797796E2044DBF7000870C2 /* AttackMode.hpp */,
+				B797796D2044DBF7000870C2 /* AttackMode.cpp */,
 				B75F862B1BACE0C60093B615 /* Character.h */,
 				B75F862A1BACE0C60093B615 /* Character.cpp */,
 				B75F862E1BACE0FB0093B615 /* Ability.h */,
@@ -519,6 +524,7 @@
 				B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */,
 				B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */,
 				B7439C2A1ECBBD0400724D0B /* MapObject.cpp in Sources */,
+				B797796F2044DBF7000870C2 /* AttackMode.cpp in Sources */,
 				B742D6F91C1292EA0093C785 /* ResourceHolder.cpp in Sources */,
 				B7D17D1B1E512CDC00D71290 /* LoadState.cpp in Sources */,
 				B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */,

@@ -11,7 +11,7 @@
 #include "State.h"
 #include "Mode.hpp"
 #include "MenuMode.hpp"
-
+#include "AttackMode.hpp"
 #include "BattleInfo.hpp"
 
 class BattleState : public State
@@ -24,6 +24,8 @@ public:
 	
 private:
 	std::unique_ptr<Mode> mode;
+	enum ModeType {menu, attack};
+	ModeType currentMode;
 	BattleInfo info;
 	void loadMenu();
 	void drawAll(sf::RenderWindow &rw);

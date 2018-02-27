@@ -34,7 +34,21 @@ void BattleState::update(sf::Clock& timer)
 	}
 	//updateSprites(elapsed);
 	if (mode->isDone()) {
-		//make next
+		switch (currentMode) {
+			case menu:
+				mode = make_unique<AttackMode>(info);
+				//mode.reset(make_unique<AttackMode>(info));
+				break;
+				
+			case attack:
+				++info.combatants;
+				mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Sansation));
+				break;
+				
+			default:
+				std::cout << "Mode unaccounted for.\n";
+				break;
+		}
 	}
 }
 

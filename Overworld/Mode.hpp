@@ -19,7 +19,7 @@ public:
     virtual void draw(sf::RenderWindow &rw) = 0;
     virtual void handleInput(sf::RenderWindow &rw) = 0;
 	
-	bool isDone() const;
+	bool isDone();
 	
 protected:
 	bool done;
