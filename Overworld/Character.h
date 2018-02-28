@@ -24,7 +24,12 @@ public:
     bool CheckAbilityCost(const Ability&) const;
     void PayAbilityCost(Ability&);
     float takeDamage(Ability, Character& attacker);
-
+	
+	//NEW AND BAD//
+	bool isIdle() {return _sprite.getTexture() == _IdleTexture;};
+	void setAnimation(sf::Texture* texture) {_sprite.setTexture(*texture);};
+	//NEW AND BAD//
+	
     void setStatPosition(int x, int y);
     void setSpritePosition(int x, int y);
 	sf::Vector2f getSpritePosition() {return _sprite.getPosition();};
@@ -42,14 +47,7 @@ public:
     void setFont(const sf::Font &font);
     
     void animate(float elapased);
-    //void UseRecovery();
-    //void UseRecovery(Character* target);					//there has got to be a better way to do damaging recoveries...
-    //void setIdle();
-    //void setIdleNext();
-    //void setGetHit();
-    //bool isIdle();
-    //void drawName(sf::RenderWindow&);
-    
+
 public:
     Ability _basicAttack;
     Ability _recoveryAbility;

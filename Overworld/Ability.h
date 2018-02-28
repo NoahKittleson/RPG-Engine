@@ -70,27 +70,6 @@ private:
 };
 
 
-//class NewAbility : public NewMenuItem {
-//public:
-//	virtual void draw(sf::RenderWindow &rw) override;			//draw text & desc
-//	virtual void update(float elapsed) override;				//nothing?
-//	virtual void handleInput(sf::RenderWindow& rw) override;	//scroll up and down IF active and there are options
-//	virtual void select() override;								//select = true, highlight
-//	virtual void activate() override;							//active = true, create options
-//	virtual void deselect() override;							//select = false, unhighlight
-//	virtual void deactivate() override;							//active = false
-//	virtual bool selectable() override;							//NEED to know who the Character is
-//	void setPosition(float x, float y);							//need one for Name, one for Description
-//	
-//	void setCallback(std::function<void()> callback);			//setter;
-//	
-//private:
-//	//sf::Text
-//	sf::Text description;
-//	std::function<void()> callback;
-//};
-
-
 
 
 

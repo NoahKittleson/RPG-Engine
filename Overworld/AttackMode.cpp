@@ -66,13 +66,44 @@ void AttackMode::moveToUpdate(float elapsed) {
 }
 
 void AttackMode::animateUpdate(float elapsed) {
-	bool allDone = info.currentAction.attacker->playAttackAnimation();
+	static bool attackStarted (false);
+	static bool getHitStarted (false);
+	static int totalElapsed (0);
+	if (!attackStarted) {
+		info.currentAction.attacker->setAnimation(info.currentAction.ability);
+		attackStarted = true;
+	}
+	info.currentAction.attacker->animate(elapsed);
+	bool allDone = info.currentAction.attacker->isIdle();
+	if (!getHitStarted && (totalElapsed > info.currentAction.ability->hitsOnFrame * 0.1)) {		//magic number 0.1
+		for (auto & it : info.currentAction.defenders) {
+			it->startGetHitAnimation();
+		}
+		getHitStarted = true;
+	}
+	info.currentAction.attacker->animate(elapsed);
 	for (auto & it : info.currentAction.defenders) {
-		allDone = allDone && it->playGetHit();
+		it->animate(elapsed);
+		allDone = allDone && it->isIdle();
 	}
-	if (allDone) {
+	if (attackStarted && getHitStarted && allDone) {
 		currentPhase = moveBack;
+		attackStarted = false;
+		getHitStarted = false;
+		totalElapsed = 0;
 	}
+//
+//	bool allDone = info.currentAction.attacker->playAttackAnimation();
+//	char hitOnFrame = info.currentAction.ability->hitsOnFrame;
+//	totalElapsed += elapsed;
+//	if (hitOnFrame * 0.1 <= totalElapsed) {						//0.1 is a magic number, also the animation frame rate
+//		for (auto & it : info.currentAction.defenders) {
+//			allDone = allDone && it->playGetHit();
+//		}
+//	}
+//	if (allDone) {
+//		currentPhase = moveBack;
+//	}
 }
 
 void AttackMode::moveBackUpdate(float elapsed) {
