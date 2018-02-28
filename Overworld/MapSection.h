@@ -9,8 +9,8 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "Trigger.h"
-#include "MapObject.hpp"
 #include "ZoneExit.h"
+#include "MapObject.hpp"
 #include "ResourcePath.hpp"
 
 using ExitVec = std::vector<ZoneExit>;

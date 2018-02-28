@@ -8,10 +8,7 @@
 
 #pragma once
 #include "PrefixHeader.pch"
-#include "MapObject.hpp"
 
-
-class MapObject;
 
 class GraphicsComponent : public sf::Sprite
 {

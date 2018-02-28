@@ -51,6 +51,8 @@
 		B78873551F3D530E00E7C725 /* CharacterGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */; };
 		B797796F2044DBF7000870C2 /* AttackMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B797796D2044DBF7000870C2 /* AttackMode.cpp */; };
 		B79779722046713D000870C2 /* BattleSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B79779702046713D000870C2 /* BattleSprite.cpp */; };
+		B79779742046762A000870C2 /* MapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B79779732046762A000870C2 /* MapObject.cpp */; };
+		B7977978204676D4000870C2 /* PlayerObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7977976204676D4000870C2 /* PlayerObject.cpp */; };
 		B79AD8D81D4F128200B7C8F7 /* StartingZone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */; };
 		B79E29881BA0E1C80020BA93 /* RollingWheat.png in Resources */ = {isa = PBXBuildFile; fileRef = B79E29871BA0E1C80020BA93 /* RollingWheat.png */; };
 		B7A1EB3A1EDA9F5100667423 /* Yak.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A1EB391EDA9F5100667423 /* Yak.png */; };
@@ -142,6 +144,10 @@
 		B797796E2044DBF7000870C2 /* AttackMode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AttackMode.hpp; sourceTree = "<group>"; };
 		B79779702046713D000870C2 /* BattleSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleSprite.cpp; sourceTree = "<group>"; };
 		B79779712046713D000870C2 /* BattleSprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleSprite.hpp; sourceTree = "<group>"; };
+		B79779732046762A000870C2 /* MapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapObject.cpp; sourceTree = "<group>"; };
+		B797797520467632000870C2 /* MapObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MapObject.hpp; sourceTree = "<group>"; };
+		B7977976204676D4000870C2 /* PlayerObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerObject.cpp; sourceTree = "<group>"; };
+		B7977977204676D4000870C2 /* PlayerObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayerObject.hpp; sourceTree = "<group>"; };
 		B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartingZone.cpp; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; };
 		B79AD8D71D4F128200B7C8F7 /* StartingZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartingZone.h; sourceTree = "<group>"; };
 		B79E29871BA0E1C80020BA93 /* RollingWheat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RollingWheat.png; sourceTree = "<group>"; };
@@ -347,6 +353,10 @@
 		B79AD8D51D4F11EE00B7C8F7 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				B7977976204676D4000870C2 /* PlayerObject.cpp */,
+				B7977977204676D4000870C2 /* PlayerObject.hpp */,
+				B797797520467632000870C2 /* MapObject.hpp */,
+				B79779732046762A000870C2 /* MapObject.cpp */,
 				B73219211B2111D000C41162 /* MapSection.h */,
 				B73219201B2111D000C41162 /* MapSection.cpp */,
 				B79AD8D71D4F128200B7C8F7 /* StartingZone.h */,
@@ -491,6 +501,7 @@
 				B75F862C1BACE0C60093B615 /* Character.cpp in Sources */,
 				B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */,
 				B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */,
+				B7977978204676D4000870C2 /* PlayerObject.cpp in Sources */,
 				B797796F2044DBF7000870C2 /* AttackMode.cpp in Sources */,
 				B742D6F91C1292EA0093C785 /* ResourceHolder.cpp in Sources */,
 				B7D17D1B1E512CDC00D71290 /* LoadState.cpp in Sources */,
@@ -501,6 +512,7 @@
 				B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */,
 				B7DD37451C35DFFC0089224E /* BattleState.cpp in Sources */,
 				B7B2778E1EE3E3470051D7C4 /* WalkingAnimation.cpp in Sources */,
+				B79779742046762A000870C2 /* MapObject.cpp in Sources */,
 				B7A26C0F1C8061A50083989B /* Trigger.cpp in Sources */,
 				B78873551F3D530E00E7C725 /* CharacterGenerator.cpp in Sources */,
 				B75ABA241C7BD81D00B9FFDE /* OptionNode.cpp in Sources */,
