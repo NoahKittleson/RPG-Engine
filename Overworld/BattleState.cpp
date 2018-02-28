@@ -23,7 +23,7 @@ BattleState::BattleState(std::vector<std::shared_ptr<Character>>&& enemies)
 	mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Sansation));
 	
     info.combatants.setLooping(true);
-    //positionStats();
+	positionSpritesAndStats();
 }
 
 void BattleState::update(sf::Clock& timer)
@@ -86,6 +86,19 @@ void BattleState::drawAll(sf::RenderWindow &rw)
 		it->drawSprite(rw);
 	}
 }
+
+void BattleState::positionSpritesAndStats() {
+	sf::Vector2f windowSize (1024, 768);											//1024, 768 is a magic number
+	float xSpacing = windowSize.x/(info.combatants.size()+1);						//the +1 is for padding on either side
+	float ySpacing = 70;															//70 is a magic number
+	sf::Vector2f position(xSpacing, windowSize.y*3/4);								//*3/4 semi-magic?
+	for (char iii = 0; iii < info.combatants.size(); ++iii) {
+		info.combatants[iii]->setStatPosition(position.x + xSpacing * iii, position.y);
+		info.combatants[iii]->setSpritePosition(position.x + xSpacing * iii, position.y - ySpacing);
+	}
+}
+
+
 
 //void BattleState::updateSprites(float elapsed) {
 //    for (auto && it: combatants) {

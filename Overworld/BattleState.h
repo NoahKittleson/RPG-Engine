@@ -29,6 +29,8 @@ private:
 	BattleInfo info;
 	void loadMenu();
 	void drawAll(sf::RenderWindow &rw);
+	void positionSpritesAndStats();
+	
 };
 
 //class BattleState : public State
