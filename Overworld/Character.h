@@ -27,7 +27,8 @@ public:
 	
 	//NEW AND BAD//
 	bool isIdle() {return _sprite.getTexture() == _IdleTexture;};
-	void setAnimation(sf::Texture* texture) {_sprite.setTexture(*texture);};
+	void setAnimation(const sf::Texture* texture) {_sprite.setTexture(*texture);};
+	void startGetHitAnimation() {_sprite.setTexture(*_IdleTexture);};
 	//NEW AND BAD//
 	
     void setStatPosition(int x, int y);

@@ -70,7 +70,7 @@ void AttackMode::animateUpdate(float elapsed) {
 	static bool getHitStarted (false);
 	static int totalElapsed (0);
 	if (!attackStarted) {
-		info.currentAction.attacker->setAnimation(info.currentAction.ability);
+		info.currentAction.attacker->setAnimation(info.currentAction.ability->hitAnimation);
 		attackStarted = true;
 	}
 	info.currentAction.attacker->animate(elapsed);

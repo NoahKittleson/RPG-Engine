@@ -29,7 +29,7 @@ protected:
     const float repeatDelay = 0.f;
     
     const float _timePerFrame;
-    float _totalelapsed = 0;
+    float _totalElapsed = 0;
 };
 
 

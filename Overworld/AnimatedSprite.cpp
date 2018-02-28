@@ -24,7 +24,7 @@ AnimatedSprite::AnimatedSprite(const sf::Vector2i& FrameSize, float TimePerFrame
 
 AnimatedSprite::AnimatedSprite(const AnimatedSprite& other)
 : _frameSize(other._frameSize), repeatDelay(other.repeatDelay),
-_timePerFrame(other._timePerFrame), _totalelapsed(other._totalelapsed)
+_timePerFrame(other._timePerFrame), _totalElapsed(other._totalElapsed)
 {
     setTexture(*other.getTexture());
     setPosition(other.getPosition());
@@ -37,17 +37,17 @@ void AnimatedSprite::update(float elapsed)       //non looped animation stays on
     if (_timePerFrame <= 0) {
         return;
     }
-    _totalelapsed += elapsed;
+    _totalElapsed += elapsed;
     
-    if (!waiting || _totalelapsed >= repeatDelay) {
+    if (!waiting || _totalElapsed >= repeatDelay) {
         if (waiting) {
             waiting = false;
-            _totalelapsed = 0;
+            _totalElapsed = 0;
             next_frame();
             return;
         }
-        while (_totalelapsed >= _timePerFrame) {
-            _totalelapsed -= _timePerFrame;
+        while (_totalElapsed >= _timePerFrame) {
+            _totalElapsed -= _timePerFrame;
             if (repeatDelay && atEnd()) {
                 waiting = true;
                 return;
