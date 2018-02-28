@@ -20,7 +20,7 @@ public:
 					 sf::Vector2f position, float timePerFrame, sf::Vector2i frame);
 	//virtual void update(MapObject& obj, float elapsed) override;
 	void changeDirection(Direction newDir);
-	void update(MapObject& obj, float elapsed) override;
+	void update(float elapsed) override;
 	
 private:
 	Direction getWalkingDirection();
