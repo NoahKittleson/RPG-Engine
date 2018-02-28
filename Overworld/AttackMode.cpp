@@ -15,7 +15,7 @@ AttackMode::AttackMode(BattleInfo& info) : info(info) {
 	destinationMap.emplace(info.currentAction.attacker, info.currentAction.attacker->getSpritePosition() + sf::Vector2f(-100,0));
 	for (auto & character : info.currentAction.defenders) {
 		originalPosMap.emplace(character, character->getSpritePosition());
-		destinationMap.emplace(character, character->getSpritePosition()+ sf::Vector2f(-100,0));	//100 is a magic number
+		destinationMap.emplace(character, character->getSpritePosition()+ sf::Vector2f(0,-100));	//100 is a magic number
 	}
 }
 
@@ -66,7 +66,13 @@ void AttackMode::moveToUpdate(float elapsed) {
 }
 
 void AttackMode::animateUpdate(float elapsed) {
-	//play hitAnimation and getHitAnimation
+	bool allDone = info.currentAction.attacker->playAttackAnimation();
+	for (auto & it : info.currentAction.defenders) {
+		allDone = allDone && it->playGetHit();
+	}
+	if (allDone) {
+		currentPhase = moveBack;
+	}
 }
 
 void AttackMode::moveBackUpdate(float elapsed) {
