@@ -37,7 +37,8 @@ void BattleState::update(sf::Clock& timer)
 		switch (currentMode) {
 			case menu:
 				mode = make_unique<AttackMode>(info);
-				//mode.reset(make_unique<AttackMode>(info));
+				currentMode = attack;
+				std::cout << "Mode changed to attack.\n";
 				break;
 				
 			case attack:
@@ -45,6 +46,7 @@ void BattleState::update(sf::Clock& timer)
 				info.clear();
 				info.currentAction.attacker = info.combatants.get();
 				mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Sansation));
+				std::cout << "Mode changed to menu.\n";
 				break;
 				
 			default:

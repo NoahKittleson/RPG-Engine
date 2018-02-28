@@ -28,4 +28,5 @@ public:
 private:
 	IterVector<MenuItem> children;
 	bool active = false;
+	static bool done;
 };

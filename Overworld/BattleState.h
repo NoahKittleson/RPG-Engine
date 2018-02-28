@@ -25,7 +25,7 @@ public:
 private:
 	std::unique_ptr<Mode> mode;
 	enum ModeType {menu, attack};
-	ModeType currentMode;
+	ModeType currentMode = menu;
 	BattleInfo info;
 	void loadMenu();
 	void drawAll(sf::RenderWindow &rw);

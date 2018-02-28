@@ -19,5 +19,5 @@ public:
 	bool isDone() const;
 	
 protected:
-	bool done;
+	bool done = false;
 };

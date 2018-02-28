@@ -20,6 +20,7 @@ public:
 	void draw(sf::RenderWindow& rw);
 	void select();						//select is for highlighting current option, activate for executing it
 	void activate();
+	bool isActive() const;
 	void deselect();
 	bool selectable();
 	Menu* getNext() const {return nextMenu;};

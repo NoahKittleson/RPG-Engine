@@ -48,3 +48,5 @@ bool MenuItem::selectable() {
 void MenuItem::setPosition(int x, int y) {
 	text.setPosition(x, y);
 }
+
+

@@ -43,7 +43,7 @@ void Menu::handleInput(sf::RenderWindow& rw) {
 					case sf::Keyboard::X:
 						if(children.get().getNext()) {
 							children.get().getNext()->activate();
-						}
+						} else done = true;
 						children.get().activate();
 						break;
 						
@@ -81,10 +81,8 @@ void Menu::addChild(MenuItem item) {
 }
 
 bool Menu::isDone() const {
-	if (children.get().getNext() && children.get().getNext()->isActive()) {
-		return children.get().getNext()->isDone();
-	} else {
-		return children.get().getNext();
-	}
+	return done;
 }
+
+bool Menu::done = false;
 
