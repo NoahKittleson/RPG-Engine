@@ -43,9 +43,10 @@ void BattleState::update(sf::Clock& timer)
 				
 			case attack:
 				++info.combatants;
-				info.clear();
+				info.currentAction.clear();
 				info.currentAction.attacker = info.combatants.get();
 				mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Sansation));
+				currentMode = menu;
 				std::cout << "Mode changed to menu.\n";
 				break;
 				

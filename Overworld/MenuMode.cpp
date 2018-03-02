@@ -14,7 +14,12 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) {
 	Menu* targetMenu = &menuStorage[1];
 	Menu* abilityMenu = &menuStorage[2];
 	
-	primaryMenu->addChild(MenuItem("Attack", targetMenu, font));
+	Ability autoAttack = info.currentAction.attacker->_basicAttack;
+	auto attackFunc = [&info, &autoAttack] () {
+		info.currentAction.ability = &autoAttack;
+	};
+	
+	primaryMenu->addChild(MenuItem("Attack", targetMenu, font, attackFunc));
 	primaryMenu->addChild(MenuItem("Ability", abilityMenu, font));
 	primaryMenu->addChild(MenuItem("Pass", nullptr, font));
 	

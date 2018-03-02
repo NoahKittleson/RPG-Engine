@@ -12,7 +12,7 @@
 AttackMode::AttackMode(BattleInfo& info) : info(info) {
 	//right now the destination for each sprite is just 100 up from where it was originally
 	originalPosMap.emplace(info.currentAction.attacker, info.currentAction.attacker->getSpritePosition());
-	destinationMap.emplace(info.currentAction.attacker, info.currentAction.attacker->getSpritePosition() + sf::Vector2f(-100,0));
+	destinationMap.emplace(info.currentAction.attacker, info.currentAction.attacker->getSpritePosition() + sf::Vector2f(0,-100));																		//100 is a magic number
 	for (auto & character : info.currentAction.defenders) {
 		originalPosMap.emplace(character, character->getSpritePosition());
 		destinationMap.emplace(character, character->getSpritePosition()+ sf::Vector2f(0,-100));	//100 is a magic number
@@ -70,7 +70,9 @@ void AttackMode::animateUpdate(float elapsed) {
 	static bool getHitStarted (false);
 	static int totalElapsed (0);
 	if (!attackStarted) {
-		info.currentAction.attacker->setAnimation(info.currentAction.ability->hitAnimation);
+		if (info.currentAction.ability->hitAnimation) {
+			info.currentAction.attacker->setAnimation(info.currentAction.ability->hitAnimation);
+		}
 		attackStarted = true;
 	}
 	info.currentAction.attacker->animate(elapsed);
