@@ -18,4 +18,5 @@ struct BattleAction {
 	Ability* ability = nullptr;
 	
 	void clear();
+	bool complete() const;
 };

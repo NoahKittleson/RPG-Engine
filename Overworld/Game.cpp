@@ -20,7 +20,7 @@ Game::~Game()
 void Game::run()
 {
 	//load everything...
-	mainWindow.create(sf::VideoMode (1024, 768, 32), "ViewMaker");
+	mainWindow.create(sf::VideoMode (1024, 768, 32), "It's a Game");
 	mainWindow.setFramerateLimit(60);
 	mainWindow.setVerticalSyncEnabled(true);
 

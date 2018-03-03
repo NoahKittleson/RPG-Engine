@@ -24,5 +24,6 @@ public:
 	
 	
 private:
-	Menu menuStorage [3];	
+	Menu menuStorage [3];
+	BattleInfo& info;
 };

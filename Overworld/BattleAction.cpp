@@ -14,3 +14,10 @@ void BattleAction::clear() {
 	ability = nullptr;
 }
 
+bool BattleAction::complete() const {
+	if (ability && attacker && defenders.size()) {
+		return true;
+	} else return false;
+}
+
+

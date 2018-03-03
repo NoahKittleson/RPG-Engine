@@ -8,7 +8,7 @@
 
 #include "MenuMode.hpp"
 
-MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) {
+MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info) {
 	//create starting menu Node
 	Menu* primaryMenu = &menuStorage[0];
 	Menu* targetMenu = &menuStorage[1];
@@ -46,7 +46,7 @@ void MenuMode::update(float elapsed) {
 //	}
 //	menuSystem.top().update(elapsed);
 	menuStorage[0].update(elapsed);
-	if (menuStorage[0].isDone()) {
+	if (info.currentAction.complete()) {
 		done = true;
 	}
 }
