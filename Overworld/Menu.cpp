@@ -13,6 +13,10 @@ void Menu::draw(sf::RenderWindow &rw) {
 	if (children.get().getNext() && children.get().getNext()->isActive()) {
 		children.get().getNext()->draw(rw);
 	} else {
+		if (!children.size()) {
+			std::cout << "nothing to draw\n";
+			return;
+		}
 		for (int iii = 0; iii < children.size(); iii++) {
 			children[iii].draw(rw);
 		}
