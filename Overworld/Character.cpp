@@ -352,8 +352,8 @@ void Character::drawAllStats(sf::RenderWindow &rw)
 
 void Character::drawSprite(sf::RenderWindow &rw)
 {
-    //_sprite.draw(rw);
-    rw.draw(_sprite);
+	//this line is breaking things during the second loop and battleAnimation... Probably has no attack animation.
+	rw.draw(_sprite);
 }
 
 void Character::updateStatusEffects()

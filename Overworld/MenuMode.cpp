@@ -40,11 +40,6 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info) {
 }
 
 void MenuMode::update(float elapsed) {
-//	while (!menuSystem.top().isActive()) {
-//		menuSystem.pop();
-//		menuSystem.top();
-//	}
-//	menuSystem.top().update(elapsed);
 	menuStorage[0].update(elapsed);
 	if (info.currentAction.complete()) {
 		done = true;
@@ -52,12 +47,9 @@ void MenuMode::update(float elapsed) {
 }
 
 void MenuMode::draw(sf::RenderWindow &rw) {
-//	menuSystem.top().draw(rw);
 	menuStorage[0].draw(rw);
 }
 
 void MenuMode::handleInput(sf::RenderWindow &rw) {
-//	assert(menuStorage.size() > 0);
 	menuStorage[0].handleInput(rw);
-//	menuSystem.top().handleInput(rw);
 }
