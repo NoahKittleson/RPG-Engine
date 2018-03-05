@@ -15,26 +15,26 @@
 
 
 
-Character::Character(const Character& other)					//is this necessary? Doesn't _spr already point to original?
-:_IdleTexture(other._IdleTexture), _maxMana(other._maxMana), _maxHealth(other._maxHealth), _NPC(other._NPC),
-_currentHealth(other._currentHealth), _currentMana(other._currentMana), _sprite(other._sprite), _name(other._name),
-_HPText(other._HPText), _MPText(other._MPText), _AttackName(other._AttackName), _recoveryAbility(other._recoveryAbility),
-_basicAttack(other._basicAttack), _abilityList(other._abilityList), _getHitTexture(other._getHitTexture),
-_HPBar(other._HPBar), _MPBar(other._MPBar), _BarOutline(other._BarOutline)
-{
-    std::cout << "alert: character copied. Name: " << other._name.getString().toAnsiString() << "\n";
-    //setFont(*other._name.getFont());
-    _sprite.setTexture(*_IdleTexture);
-}
+//Character::Character(const Character& other)					//is this necessary? Doesn't _spr already point to original?
+//:_IdleTexture(other._IdleTexture), _maxMana(other._maxMana), _maxHealth(other._maxHealth), _NPC(other._NPC),
+//_currentHealth(other._currentHealth), _currentMana(other._currentMana), _sprite(other._sprite), _name(other._name),
+//_HPText(other._HPText), _MPText(other._MPText), _AttackName(other._AttackName), _recoveryAbility(other._recoveryAbility),
+//_basicAttack(other._basicAttack), _abilityList(other._abilityList), _getHitTexture(other._getHitTexture),
+//_HPBar(other._HPBar), _MPBar(other._MPBar), _BarOutline(other._BarOutline)
+//{
+//    std::cout << "alert: character copied. Name: " << other._name.getString().toAnsiString() << "\n";
+//    //setFont(*other._name.getFont());
+//    _sprite.setTexture(*_IdleTexture);
+//}
 
 Character::~Character() {
     std::cout << "Character destroyed.  Name: " << this->_name.getString().toAnsiString() << "\n";
 }
 
-Character::Character(int MaxHealth, int MaxMana, int BAdmg, const sf::Texture &texture, const sf::Font& font,
+Character::Character(int MaxHealth, int MaxMana, int BAdmg, const sf::Texture &idle, const sf::Font& font,
                      std::string name, std::string attackName, bool NPC, const sf::Texture& getHit)
-: _maxMana(MaxMana), _maxHealth(MaxHealth), _IdleTexture(&texture), _NPC(NPC),
-_sprite(AnimatedSprite(sf::Vector2i(texture.getSize().y,texture.getSize().y), 0.2, texture)), _getHitTexture(&getHit),
+: _maxMana(MaxMana), _maxHealth(MaxHealth), _IdleTexture(&idle), _NPC(NPC),
+_sprite(AnimatedSprite(sf::Vector2i(idle.getSize().y,idle.getSize().y), 0.2, idle)), _getHitTexture(&getHit),
 _currentHealth(MaxHealth), _currentMana(MaxMana)
 {
     //This needs to be cleaned up//
@@ -71,8 +71,8 @@ _currentHealth(MaxHealth), _currentMana(MaxMana)
     _MPText.setCharacterSize(FONT_SIZE_STAT_DISPLAY);
     
     _AttackName = attackName;
-    _recoveryAbility = Ability("Recover", "Restores all Mana", 0, 0, 0, *_IdleTexture);				//placeholder texture
-    _basicAttack = Ability("ATTACK", "Does Basic Damage", BAdmg, 0, 0, *_IdleTexture);				//placeholder texture
+    _recoveryAbility = Ability("Recover", "Restores all Mana", 0, 0, 0, idle);				//placeholder texture
+    _basicAttack = Ability("ATTACK", "Does Basic Damage", BAdmg, 0, 0, idle);				//placeholder texture
     if (_NPC) {
         _basicAttack._allyPrimaryTarget = true;
     }

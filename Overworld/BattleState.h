@@ -17,7 +17,7 @@
 class BattleState : public State
 {
 public:
-	BattleState(std::vector<std::shared_ptr<Character>>&& enemies);
+	BattleState(std::vector<std::shared_ptr<Character>>& enemies);
 	void update(sf::Clock& timer) override;
 	void draw(sf::RenderWindow&) override;
 	void handleInput(sf::RenderWindow& rw) override;

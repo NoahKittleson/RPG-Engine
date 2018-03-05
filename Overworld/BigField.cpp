@@ -75,10 +75,10 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont(Fonts::Sansation)) {
 		sprites.back().setScale(4.f);    }
 	
     //Set up Trigger for Fighting
-    std::vector<Character> EnemyVector;
-    EnemyVector.emplace_back(300, 100,  30, resources.getTexture(Textures::RollingWheat),
-							 resources.getFont(Fonts::Sansation), "GrainMan", ".", true,
-                             resources.getTexture(Textures::RollingWheat));
+//    std::vector<Character> EnemyVector;
+//    EnemyVector.emplace_back(300, 100,  30, resources.getTexture(Textures::RollingWheat),
+//							 resources.getFont(Fonts::Sansation), "GrainMan", ".", true,
+//                             resources.getTexture(Textures::RollingWheat));
 
     
     //Set up Zone Exits

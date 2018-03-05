@@ -8,17 +8,16 @@
 
 #include "BattleState.h"
 
-//This moves passed enemyVec.  Change if this is a problem
-BattleState::BattleState(std::vector<std::shared_ptr<Character>>&& enemies)
+BattleState::BattleState(std::vector<std::shared_ptr<Character>>& enemies)
 {
     for (auto && it : party) {
         info.combatants.push_back(it);
     }
     for (auto && it : enemies) {
-		info.combatants.emplace_back(std::move(it));
+		info.combatants.emplace_back(it);
     }
 	info.currentAction.attacker = info.combatants[0];
-	info.NPCs = std::move(enemies);
+	info.NPCs = enemies;
 	info.PCs = party;
 	mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Sansation));
 	

@@ -14,7 +14,7 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info) {
 	Menu* targetMenu = &menuStorage[1];
 	Menu* abilityMenu = &menuStorage[2];
 	
-	Ability autoAttack = info.currentAction.attacker->_basicAttack;
+	Ability& autoAttack = info.currentAction.attacker->_basicAttack;
 	auto attackFunc = [&info, &autoAttack] () {
 		info.currentAction.ability = &autoAttack;
 	};

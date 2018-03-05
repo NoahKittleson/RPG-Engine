@@ -12,11 +12,11 @@
 #include "IterVector.hpp"
 #include "AnimatedSprite.h"
 
-class Character
+class Character : sf::NonCopyable
 {
 public:
     Character(int MaxHealth, int MaxMana, int BasicAttackDmg,  const sf::Texture& texture, const sf::Font&, std::string name, std::string Attackname, bool enemy, const sf::Texture& getHit);
-    Character(const Character& other);
+    Character(const Character& other) = delete;
     Character& operator= (const Character &other) = delete;
     ~Character();
     
