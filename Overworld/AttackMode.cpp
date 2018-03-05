@@ -71,8 +71,10 @@ void AttackMode::animateUpdate(float elapsed) {
 	static float totalElapsed (0);
 	totalElapsed += elapsed;
 	if (!attackStarted) {
-		if (info.currentAction.ability->hitAnimation) {
-			info.currentAction.attacker->setAnimation(info.currentAction.ability->hitAnimation);
+		if (info.currentAction.ability->hitAnimation != nullptr) {
+			info.currentAction.attacker->setAnimation(*info.currentAction.ability->hitAnimation);
+		} else {
+			std::cout << "FUCC\n";
 		}
 		attackStarted = true;
 	}

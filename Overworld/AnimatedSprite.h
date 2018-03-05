@@ -14,7 +14,7 @@ class AnimatedSprite : public sf::Sprite
 public:
     AnimatedSprite(const sf::Vector2i& frameSize, float timePerFrame, const sf::Texture&, float repeatDelay = 0.f);
     AnimatedSprite(const AnimatedSprite& other);
-    
+	
     void update(float elapsed);
     bool compare(const sf::Texture*);                         //true if same texture, false if not.
     char isOnFrame();

@@ -82,9 +82,11 @@ void BattleState::handleInput(sf::RenderWindow& rw) {
 
 void BattleState::drawAll(sf::RenderWindow &rw)
 {
+	int fuck = 0;
 	for (auto && it: info.combatants) {
 		it->drawAllStats(rw);
 		it->drawSprite(rw);
+		++fuck;
 	}
 }
 

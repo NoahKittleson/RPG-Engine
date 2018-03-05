@@ -536,3 +536,8 @@ void Character::animate(float elapsed) {
 std::string Character::getName() const {
 	return _name.getString();
 }
+
+void Character::setAnimation(const sf::Texture& texture) {
+	_sprite.setTexture(texture);
+}
+

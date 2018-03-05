@@ -27,7 +27,7 @@ Ability::Ability(std::string name, std::string desc, float BaseDmg, bool multiTa
     _AbilityName.setPosition(0, 0);
     _AbilityDescription.setString(desc);
     _AbilityDescription.setColor(sf::Color::Black);
-    
+	std::cout << "Ability copied.\n";
     _AbilityDescription.setPosition(600, 100);
 }
 

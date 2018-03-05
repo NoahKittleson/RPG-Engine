@@ -27,8 +27,8 @@ public:
 	
 	//NEW AND BAD//
 	bool isIdle() {return _sprite.getTexture() == _IdleTexture;};
-	void setAnimation(const sf::Texture* texture) {_sprite.setTexture(*texture);};
-	void startGetHitAnimation() {_sprite.setTexture(*_IdleTexture);};
+	void setAnimation(const sf::Texture& texture);
+	void startGetHitAnimation() {if (_IdleTexture) {_sprite.setTexture(*_IdleTexture);}};
 	//NEW AND BAD//
 	
     void setStatPosition(int x, int y);
@@ -68,8 +68,8 @@ private:
     std::map<Ability::Properties, float> StatusEffects;			//or any modifier applied each turn
     
 private:
-    const sf::Texture* _IdleTexture;
-    const sf::Texture* _getHitTexture;
+    const sf::Texture* _IdleTexture = nullptr;
+    const sf::Texture* _getHitTexture = nullptr;
     
     void addPoison(int);
     void addAdditiveProperty(float, Ability::Properties);

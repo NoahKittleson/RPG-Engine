@@ -26,6 +26,7 @@ AnimatedSprite::AnimatedSprite(const AnimatedSprite& other)
 : _frameSize(other._frameSize), repeatDelay(other.repeatDelay),
 _timePerFrame(other._timePerFrame), _totalElapsed(other._totalElapsed)
 {
+	std::cout  << "Sprite copied.\n";
     setTexture(*other.getTexture());
     setPosition(other.getPosition());
     setScale(other.getScale());

@@ -47,7 +47,7 @@ public:
     void toggleGray(bool gray);
     bool isGrayedOut();
     
-    const sf::Texture* hitAnimation;
+    const sf::Texture* hitAnimation = nullptr;
     
 private:
     //passive abilities should be different and hard programmed into characters?????
