@@ -9,11 +9,12 @@
 #pragma once
 #include "MapSection.h"
 #include "ResourceHolder.h"
-#include "TalkNode.h"
-#include "OptionNode.h"
-#include "PrefixHeader.pch"
 #include "AnimatedComponent.hpp"
 #include "DelayedAnimation.hpp"
+#include "BattleState.h"
+#include "TalkNode.h"
+#include "OptionNode.h"
+#include "CharacterGenerator.hpp"
 
 class BigField: public MapSection
 {

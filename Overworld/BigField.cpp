@@ -22,9 +22,9 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont(Fonts::Sansation)) {
 	sf::Vector2f position (200,100);
 	
     for (int iii = 0; iii < 6; iii++) {
-        sprites.emplace_back(graphicsPtr(new AnimatedComponent(resources.getTexture(Textures::RollingWheat), position, 0.2f, sf::Vector2i(32,32))), emptyList);
+        sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::RollingWheat), position, 0.2f, sf::Vector2i(32,32)), emptyList);
 		position += sf::Vector2f(20, 0);
-        sprites.emplace_back(graphicsPtr(new AnimatedComponent(resources.getTexture(Textures::RollingWheat), sf::Vector2f(200,100), 0.2f, sf::Vector2i(32,32))), emptyList);
+        sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::RollingWheat), sf::Vector2f(200,100), 0.2f, sf::Vector2i(32,32)), emptyList);
 		position += sf::Vector2f(0, 20);
     }
     
@@ -57,7 +57,7 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont(Fonts::Sansation)) {
 		boxlist.emplace_back(0, 0, 10, 50);
 		boxlist.emplace_back(0, 0, 50, 10);
 		//this sprites should be added earlier if it is to be drawn in the correct order
-		sprites.emplace_back(graphicsPtr(new GraphicsComponent(resources.getTexture(Textures::Tree), sf::Vector2f(600,100))), boxlist);
+		sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f(600,100)), boxlist);
 		
 		sprites.back().setScale(4.f);
 		
@@ -66,12 +66,12 @@ optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont(Fonts::Sansation)) {
 		int xWheat = resources.getTexture(Textures::RollingWheat).getSize().x/2;
 		int yWheat = resources.getTexture(Textures::RollingWheat).getSize().y/2;
 		boxlist.push_back(sf::FloatRect(-xWheat/2, -yWheat/2, xWheat, yWheat));
-		sprites.emplace_back(graphicsPtr(new GraphicsComponent(resources.getTexture(Textures::RollingWheat),
-												   sf::Vector2f(300,300))), boxlist);
+		sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::RollingWheat),
+												   sf::Vector2f(300,300)), boxlist);
 		
 		boxlist.clear();
 		boxlist.push_back(Rectangle);
-		sprites.emplace_back(graphicsPtr(new GraphicsComponent(resources.getTexture(Textures::Tree), sf::Vector2f (150,400))), boxlist);
+		sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f (150,400)), boxlist);
 		sprites.back().setScale(4.f);    }
 	
     //Set up Trigger for Fighting
