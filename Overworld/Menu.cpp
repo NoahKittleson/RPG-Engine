@@ -45,10 +45,12 @@ void Menu::handleInput(sf::RenderWindow& rw) {
 			if (event.type == sf::Event::KeyPressed) {
 				switch (event.key.code) {
 					case sf::Keyboard::X:
-						if(children.get().getNext()) {
-							children.get().getNext()->activate();
-						} else done = true;
-						children.get().activate();
+						if (children.get().isSelectable()) {
+							if(children.get().getNext()) {
+								children.get().getNext()->activate();
+							} else done = true;
+							children.get().activate();
+						}
 						break;
 						
 					case sf::Keyboard::Z:

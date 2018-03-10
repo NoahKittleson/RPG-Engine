@@ -22,7 +22,7 @@ public:
 	void activate();
 	bool isActive() const;
 	void deselect();
-	bool selectable();
+	bool isSelectable();
 	Menu* getNext() const {return nextMenu;};
 	void setSelect(bool selectable);
 	

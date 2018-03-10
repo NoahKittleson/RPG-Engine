@@ -20,7 +20,11 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info) {
 	};
 	
 	primaryMenu->addChild(MenuItem("Attack", targetMenu, font, attackFunc));
-	primaryMenu->addChild(MenuItem("Ability", abilityMenu, font));
+	MenuItem abilityOption ("Ability", abilityMenu, font);
+	if (info.currentAction.attacker->_abilityList.size() == 0) {
+		abilityOption.setSelect(false);
+	}
+	primaryMenu->addChild(abilityOption);
 	primaryMenu->addChild(MenuItem("Pass", nullptr, font));
 	
 	

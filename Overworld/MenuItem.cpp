@@ -33,14 +33,20 @@ void MenuItem::select() {
 }
 
 void MenuItem::activate() {
-	callback();
+	if (possible) {
+		callback();
+	}
 }
 
 void MenuItem::deselect() {
-	text.setColor(defaultColor);
+	if (possible) {
+		text.setColor(defaultColor);
+	} else {
+		text.setColor(unselectableColor);
+	}
 }
 
-bool MenuItem::selectable() {
+bool MenuItem::isSelectable() {
 	return possible;
 }
 
@@ -50,6 +56,11 @@ void MenuItem::setPosition(int x, int y) {
 
 void MenuItem::setSelect(bool selectable) {
 	possible = selectable;
+	if (possible) {
+		text.setColor(defaultColor);
+	} else {
+		text.setColor(unselectableColor);
+	}
 }
 
 
