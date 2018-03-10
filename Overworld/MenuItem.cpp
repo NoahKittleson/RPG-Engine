@@ -41,12 +41,16 @@ void MenuItem::deselect() {
 }
 
 bool MenuItem::selectable() {
-	return true;
-	//only until I put in requirements
+	return possible;
 }
 
 void MenuItem::setPosition(int x, int y) {
 	text.setPosition(x, y);
 }
+
+void MenuItem::setSelect(bool selectable) {
+	possible = selectable;
+}
+
 
 

@@ -24,16 +24,18 @@ public:
 	void deselect();
 	bool selectable();
 	Menu* getNext() const {return nextMenu;};
+	void setSelect(bool selectable);
 	
 	bool isSelected() const {return selected;};
 	void setPosition(int x, int y);
 	std::string getName() {return text.getString();};
 
-private:
+protected:
 	sf::Text text;
 	Menu* nextMenu = nullptr;
 	std::function<void()> callback = []{return;};
 	bool selected = false;
+	bool possible = true;
 	
 	//define color Types across all MenuItems
 	const sf::Color selectColor = sf::Color::Red;

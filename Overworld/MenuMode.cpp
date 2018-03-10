@@ -34,7 +34,11 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info) {
 		auto function = [&info, &ability] () {
 			info.currentAction.ability = &ability;
 		};
-		abilityMenu->addChild(MenuItem(ability.getName(), targetMenu, font, function));
+		MenuItem addMe (ability.getName(), targetMenu, font, function);
+		if (info.combatants.get()->CheckAbilityCost(ability)) {
+			addMe.setSelect(true);
+		}
+		abilityMenu->addChild(addMe);
 	}
 	menuStorage[0].activate();
 }
