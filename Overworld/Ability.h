@@ -16,57 +16,52 @@ public:
     Ability();
     Ability(std::string name, std::string desc, float BaseDmg, bool multiTarget, bool AllyTarget, const sf::Texture&);
     friend class Character;
-    
-    float _baseDamage = 0;
-    char hitsOnFrame = 2;
-    
-    enum Properties {Poison, Bleed, Stun, Heal, DeathMark, SelfShieldPercent, FlatDmgBuff, PercentManaRecovery,
+
+    enum Property {Poison, Bleed, Stun, Heal, DeathMark, SelfShieldPercent, FlatDmgBuff, PercentManaRecovery,
                     PoisonHeal, AntidotePercent, GiveMana, SelfHeal, SelfStun, Clear};
     //Props to display onscreen: Poison, Bleed, Stun, Deathmark, Shield, Buff, (Curse?), (Blind?)
     
-    enum Requirements {ManaCost, HealthCost, };
-    enum DamageMultipliers {VSUndead, WhilePoisoned, VSHealthy, VSUnhealthy, VSFullHealth};	//if fulfills name, apply number multiplier
-    enum DamageType {Physical, Earth, Air, Fire, Water, Dark, Light};	//oh baby it's Mardek...
-    enum AfterEffects {LifeDrain, ManaDrain};							//things calculated after all damage has been dealt
+    enum Requirement {ManaCost, HealthCost, };
+    enum DamageMultiplier {VSUndead, WhilePoisoned, VSHealthy, VSUnhealthy, VSFullHealth};
+    enum DamageType {Physical, Earth, Air, Fire, Water, Dark, Light};
+    enum AfterEffect {LifeDrain, ManaDrain};							//things calculated after all damage has been dealt
     
-    void setProperties(Properties, float);
-    void setReq(Requirements, float);
-    void setMultiplier(DamageMultipliers, float);
-    void setDamageType(DamageType);
-    void setAfterEffects(AfterEffects, float);
-	
+    void addProperty(Property, float, bool onSelf);
+    void addReq(Requirement, float);
+    void addAfterEffect(AfterEffect, float);
+	void setMultiplier(DamageMultiplier, float);
+	void setDamageType(DamageType);
+	void setColor(sf::Color);
+	void setPosition(float x, float y);
+	void setFont(const sf::Font &font);
 	std::string getName() const;
-    void setColor(sf::Color);
-    void setPosition(float x, float y);
-    void setFont(const sf::Font &font);
     void draw(sf::RenderWindow &rw);
     void drawDesc(sf::RenderWindow &rw);
     
-    bool _allyPrimaryTarget;			//true = ally, false = enemy as primary target
-    bool hasProperty(const Properties& type) const;
+    bool hasProperty(const Property& type) const;
     void toggleGray(bool gray);
     bool isGrayedOut();
-    
-    const sf::Texture* hitAnimation = nullptr;
-    
+	
 private:
-    //passive abilities should be different and hard programmed into characters?????
     void drawReqs(sf::RenderWindow &rw);
     
-    bool _multiTarget;
+    bool multiTarget;
+	float baseDamage = 0;
+	char hitsOnFrame = 2;
+	const sf::Texture* hitAnimation = nullptr;
+	bool allyTargetPref;			//true = ally, false = enemy as primary target
+	
+    sf::Text abilityName;
+    sf::Text abilityDescription;
     
+    std::map<Property, float> properties;
+    std::map<Property, float> selfProperties;
+    std::map<Requirement, float> requirements;
+    std::map<AfterEffect, float> afterEffects;
     
-    sf::Text _AbilityName;
-    sf::Text _AbilityDescription;
+    std::pair<DamageMultiplier, float> dmgMulti;
     
-    std::map<Properties, float> AbilityProperties;
-    //std::map<Properties, float> AbilitySelfProperties;				//consider properly implementing this??
-    std::map<Requirements, float> AbilityRequirements;
-    std::map<AfterEffects, float> AbilityAfterEffects;
-    
-    std::pair<DamageMultipliers, float> AbilityDmgMulti;
-    
-    DamageType _dmgType;
+    DamageType dmgType;
 };
 
 

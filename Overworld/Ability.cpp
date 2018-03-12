@@ -11,80 +11,84 @@
 
 Ability::Ability()
 {
-    _AbilityName.setString("EMPTY");
-    _AbilityName.setColor(sf::Color::Black);
-    _AbilityName.setPosition(0, 0);
-    _AbilityDescription.setString("EMPTY");
-    _AbilityDescription.setColor(sf::Color::Black);
-    _AbilityDescription.setPosition(0, 0);
+    abilityName.setString("EMPTY");
+    abilityName.setColor(sf::Color::Black);
+    abilityName.setPosition(0, 0);
+    abilityDescription.setString("EMPTY");
+    abilityDescription.setColor(sf::Color::Black);
+    abilityDescription.setPosition(0, 0);
 }
 
 Ability::Ability(std::string name, std::string desc, float BaseDmg, bool multiTarg, bool AllyTarget, const sf::Texture& tex)
-: hitAnimation(&tex), _multiTarget(multiTarg), _allyPrimaryTarget(AllyTarget), _baseDamage(BaseDmg)
+: hitAnimation(&tex), multiTarget(multiTarg), allyTargetPref(AllyTarget), baseDamage(BaseDmg)
 {
-    _AbilityName.setString(name);
-    _AbilityName.setColor(sf::Color::Black);
-    _AbilityName.setPosition(0, 0);
-    _AbilityDescription.setString(desc);
-    _AbilityDescription.setColor(sf::Color::Black);
-    _AbilityDescription.setPosition(600, 100);
+    abilityName.setString(name);
+    abilityName.setColor(sf::Color::Black);
+    abilityName.setPosition(0, 0);
+    abilityDescription.setString(desc);
+    abilityDescription.setColor(sf::Color::Black);
+    abilityDescription.setPosition(600, 100);
 }
 
 void Ability::draw(sf::RenderWindow &rw)
 {
-    rw.draw(_AbilityName);
+    rw.draw(abilityName);
 }
 
 void Ability::drawDesc(sf::RenderWindow &rw)
 {
-    rw.draw(_AbilityDescription);
+    rw.draw(abilityDescription);
     drawReqs(rw);
 }
 
 void Ability::setColor(sf::Color color)
 {
-    _AbilityName.setColor(color);
+    abilityName.setColor(color);
 }
 
 void Ability::setPosition(float x, float y)
 {
-    _AbilityName.setPosition(x, y);
+    abilityName.setPosition(x, y);
 }
 
-void Ability::setProperties(Ability::Properties prop, float num)
+void Ability::addProperty(Ability::Property prop, float num, bool onSelf)
 {
-    AbilityProperties.insert(std::pair<Ability::Properties, float>(prop, num));
+	if (onSelf) {
+		selfProperties.emplace(std::pair<Ability::Property, float>(prop, num));
+	} else {
+    	properties.emplace(std::pair<Ability::Property, float>(prop, num));
+	}
 }
 
-void Ability::setReq(Ability::Requirements req, float num)
+void Ability::addReq(Ability::Requirement req, float num)
 {
-    AbilityRequirements.insert(std::pair<Ability::Requirements, float>(req, num));
+    requirements.emplace(std::pair<Ability::Requirement, float>(req, num));
 }
 
-void Ability::setMultiplier(Ability::DamageMultipliers multi, float percent)
+void Ability::setMultiplier(Ability::DamageMultiplier multi, float percent)
 {
-    AbilityDmgMulti = (std::pair<Ability::DamageMultipliers, float>(multi, percent));
+    dmgMulti = (std::pair<Ability::DamageMultiplier, float>(multi, percent));
 }
 
 void Ability::setDamageType(Ability::DamageType type)
 {
-    _dmgType = type;
+    dmgType = type;
 }
 
 void Ability::setFont(const sf::Font &font)
 {
-    _AbilityDescription.setFont(font);
-    _AbilityName.setFont(font);
+    abilityDescription.setFont(font);
+    abilityName.setFont(font);
 }
 
-void Ability::setAfterEffects(Ability::AfterEffects effect, float percent)
+void Ability::addAfterEffect(Ability::AfterEffect effect, float percent)
 {
-    AbilityAfterEffects.insert(std::pair<Ability::AfterEffects, float>(effect, percent));
+    afterEffects.emplace(std::pair<Ability::AfterEffect, float>(effect, percent));
 }
 
-bool Ability::hasProperty(const Ability::Properties &type) const
+bool Ability::hasProperty(const Ability::Property &type) const
 {
-    if (AbilityProperties.find(type) != AbilityProperties.end()) {
+    if (properties.find(type) != properties.end()) {
         return true;
     }
     return false;
@@ -93,17 +97,17 @@ bool Ability::hasProperty(const Ability::Properties &type) const
 void Ability::toggleGray(bool gray)
 {
     if (gray) {
-        _AbilityName.setColor(sf::Color(128,128,128));
-        _AbilityDescription.setColor(sf::Color(128,128,128));
+        abilityName.setColor(sf::Color(128,128,128));
+        abilityDescription.setColor(sf::Color(128,128,128));
         return;
     }
-    _AbilityName.setColor(sf::Color::Black);
-    _AbilityDescription.setColor(sf::Color::Black);
+    abilityName.setColor(sf::Color::Black);
+    abilityDescription.setColor(sf::Color::Black);
 }
 
 bool Ability::isGrayedOut()
 {
-    if (_AbilityDescription.getColor() == sf::Color(128,128,128)) {
+    if (abilityDescription.getColor() == sf::Color(128,128,128)) {
         return true;
     }
     else return false;
@@ -112,12 +116,12 @@ bool Ability::isGrayedOut()
 
 void Ability::drawReqs(sf::RenderWindow &rw)
 {
-    sf::Text Reqs = _AbilityDescription;
+    sf::Text Reqs = abilityDescription;
     Reqs.move(0, -100);
     
     std::ostringstream ss;
     
-    for (const auto & it: AbilityRequirements) {
+    for (const auto & it: requirements) {
         switch (it.first) {
             case ManaCost:
                 ss << "ManaCost: " << it.second << "\n";
@@ -132,11 +136,12 @@ void Ability::drawReqs(sf::RenderWindow &rw)
         }
     }
     Reqs.setString(ss.str());
+	Reqs.setFont(*abilityName.getFont());
     rw.draw(Reqs);
 }
 
 std::string Ability::getName() const {
-	return _AbilityName.getString();
+	return abilityName.getString();
 }
 
 
