@@ -34,13 +34,12 @@ public:
 	void setColor(sf::Color);
 	void setPosition(float x, float y);
 	void setFont(const sf::Font &font);
-	std::string getName() const;
     void draw(sf::RenderWindow &rw);
     void drawDesc(sf::RenderWindow &rw);
-    
+	std::string getName() const;
     bool hasProperty(const Property& type) const;
-    void toggleGray(bool gray);
-    bool isGrayedOut();
+	bool isAttackSpell() const;
+
 	
 private:
     void drawReqs(sf::RenderWindow &rw);

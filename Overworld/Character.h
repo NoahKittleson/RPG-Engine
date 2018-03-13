@@ -65,14 +65,14 @@ private:
     float _maxMana;
     float _currentMana;
     
-    std::map<Ability::Properties, float> StatusEffects;			//or any modifier applied each turn
+    std::map<Ability::Property, float> StatusEffects;			//or any modifier applied each turn
     
 private:
     const sf::Texture* _IdleTexture = nullptr;
     const sf::Texture* _getHitTexture = nullptr;
     
     void addPoison(int);
-    void addAdditiveProperty(float, Ability::Properties);
+    void addAdditiveProperty(float, Ability::Property);
     void addStun(int);
     void addMark();
     void addSelfShield(float);

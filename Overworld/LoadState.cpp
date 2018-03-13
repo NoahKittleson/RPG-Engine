@@ -16,13 +16,13 @@ LoadState::LoadState(StateStack& SS) {
 	party.emplace_back(std::make_shared<Character>(500, 450, 75, resources.getTexture(Textures::BasicIdle),
 					   resources.getFont(Fonts::Sansation), "Pringus", "CLASH", false,
                        resources.getTexture(Textures::GetHitAnimation)));
-    party.back()->_recoveryAbility.setProperties(Ability::Heal, 100);
+    party.back()->_recoveryAbility.addProperty(Ability::Heal, 100, false);
     Ability ability1 ("BigPunch", "Makes a big punch", 100, false, false,
                       resources.getTexture(Textures::BadAttackAnimation));
-    ability1.setReq(Ability::ManaCost, 100);
+    ability1.addReq(Ability::ManaCost, 100);
     Ability ability2 ("SmallPunch", "Makes a smaller punch" , 50, false, false,
                       resources.getTexture(Textures::BadAttackAnimation));
-    ability2.setReq(Ability::ManaCost, 50);
+    ability2.addReq(Ability::ManaCost, 50);
     party.back()->addAbility(ability1);
     party.back()->addAbility(ability2);
     

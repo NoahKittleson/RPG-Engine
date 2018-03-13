@@ -73,14 +73,10 @@ _currentHealth(MaxHealth), _currentMana(MaxMana)
     _AttackName = attackName;
     _recoveryAbility = Ability("Recover", "Restores all Mana", 0, 0, 0, idle);				//placeholder texture
     _basicAttack = Ability("ATTACK", "Does Basic Damage", BAdmg, 0, 0, idle);				//placeholder texture
-    if (_NPC) {
-        _basicAttack._allyPrimaryTarget = true;
-    }
-    else _basicAttack._allyPrimaryTarget = false;
     
-    _recoveryAbility.setProperties(Ability::PercentManaRecovery, 1.0);
+    _recoveryAbility.addProperty(Ability::PercentManaRecovery, 1.0, false);
     if (_NPC) {
-        _recoveryAbility._baseDamage = 200;
+        _recoveryAbility.baseDamage = 200;
     }
     UpdateStatDisplay();
 }
@@ -94,7 +90,7 @@ void Character::addAbility(Ability& ability)
 
 float Character::takeDamage(Ability ability, Character& attacker)
 {
-    float TOTALDAMAGE = ability._baseDamage;
+    float TOTALDAMAGE = ability.baseDamage;
     float DamageReduction = 1.0;
     float DamageMultiplier = 1.0;
     
@@ -102,7 +98,7 @@ float Character::takeDamage(Ability ability, Character& attacker)
     for (auto&& it : attacker.StatusEffects) {
         switch (it.first) {
             case Ability::FlatDmgBuff:
-                if (ability._baseDamage != 0) {
+                if (ability.baseDamage != 0) {
                     TOTALDAMAGE += it.second;
                 }
                 break;
@@ -116,35 +112,35 @@ float Character::takeDamage(Ability ability, Character& attacker)
         }
     }
     //SECOND GO THROUGH ALL ABILITY DAMAGE MULTIPLIERS
-    switch (ability.AbilityDmgMulti.first)				//only allows for one dmg mulitplier
+    switch (ability.dmgMulti.first)				//only allows for one dmg mulitplier
     {
         case Ability::WhilePoisoned:
             if (StatusEffects.find(Ability::Poison) != StatusEffects.end()) {
-                DamageMultiplier += ability.AbilityDmgMulti.second;
+                DamageMultiplier += ability.dmgMulti.second;
             }
             break;
             
         case Ability::VSUndead:					//currently doesn't work because there is no "undead"
             if (/* DISABLED CODE */ (false)) {
-                DamageMultiplier += ability.AbilityDmgMulti.second;
+                DamageMultiplier += ability.dmgMulti.second;
             }
             break;
             
         case Ability::VSHealthy:
             if (_currentHealth >= _maxHealth/2) {
-                DamageMultiplier += ability.AbilityDmgMulti.second;
+                DamageMultiplier += ability.dmgMulti.second;
             }
             break;
             
         case Ability::VSUnhealthy:
             if (_currentHealth < _maxHealth/2) {
-                DamageMultiplier += ability.AbilityDmgMulti.second;
+                DamageMultiplier += ability.dmgMulti.second;
             }
             break;
             
         case Ability::VSFullHealth:
             if (_currentHealth == _maxHealth) {
-                DamageMultiplier += ability.AbilityDmgMulti.second;
+                DamageMultiplier += ability.dmgMulti.second;
             }
             break;
             
@@ -167,7 +163,7 @@ float Character::takeDamage(Ability ability, Character& attacker)
     //FOURTH CALCULATE DAMAGE AND ALL EFFECTS THAT REQUIRE KNOWING THE DAMAGE DONE
     TOTALDAMAGE = TOTALDAMAGE * DamageMultiplier * DamageReduction;
     
-    for (auto&& it : ability.AbilityAfterEffects) {
+    for (auto&& it : ability.afterEffects) {
         switch (it.first)
         {
             case Ability::LifeDrain:
@@ -181,7 +177,7 @@ float Character::takeDamage(Ability ability, Character& attacker)
     }
     
     //FIFTH APPLY ANY STATUS EFFECTS
-    for (auto&& it : ability.AbilityProperties) {
+    for (auto&& it : ability.properties) {
         switch (it.first)
         {
             case Ability::Poison:
@@ -259,7 +255,7 @@ void Character::addPoison(int PsnAmount)	//will re-apply poison if poison amount
             return;
         }
     }
-    StatusEffects.insert(std::pair<Ability::Properties, int> (Ability::Poison, PsnAmount));
+    StatusEffects.insert(std::pair<Ability::Property, int> (Ability::Poison, PsnAmount));
 }
 
 void Character::addStun(int turns)	//will apply only if there is no active stun.
@@ -269,7 +265,7 @@ void Character::addStun(int turns)	//will apply only if there is no active stun.
             return;
         }
     }
-    StatusEffects.insert(std::pair<Ability::Properties, int> (Ability::Stun, turns));
+    StatusEffects.insert(std::pair<Ability::Property, int> (Ability::Stun, turns));
 }
 
 void Character::adjustHealth(int amount)
@@ -368,32 +364,32 @@ void Character::updateStatusEffects()
     for (auto && it: StatusEffects) {
         switch (it.first)
         {
-            case Ability::Properties::Bleed:
+            case Ability::Property::Bleed:
                 display.setColor(sf::Color::Red);               //Red
                 ss << "Bleed: " << it.second << "\n";
                 break;
                 
-            case Ability::Properties::DeathMark:
+            case Ability::Property::DeathMark:
                 display.setColor(sf::Color::Black);				//Black
                 ss << "Marks: " << it.second << "\n";
                 break;
                 
-            case Ability::Properties::FlatDmgBuff:
+            case Ability::Property::FlatDmgBuff:
                 display.setColor(sf::Color::Blue);				//Blue
                 ss << "Buff: +" << it.second << "\n";
                 break;
                 
-            case Ability::Properties::Poison:
+            case Ability::Property::Poison:
                 display.setColor(sf::Color(0,153,0));			//Green
                 ss << "Poison: " << it.second << "\n";
                 break;
                 
-            case Ability::Properties::SelfShieldPercent:
+            case Ability::Property::SelfShieldPercent:
                 display.setColor(sf::Color(100,100,100));		//Gray
                 ss << "Sheild: " << it.second * 100 << "%\n";
                 break;
                 
-            case Ability::Properties::Stun:
+            case Ability::Property::Stun:
                 display.setColor(sf::Color(200,200,0));			//Yellow
                 ss << "Stunned\n";
                 break;
@@ -429,8 +425,8 @@ void Character::setSpritePosition(int x, int y)
 
 void Character::PayAbilityCost(Ability& abil)
 {
-    if (abil.AbilityRequirements.empty()) return;
-    for (auto&& it : abil.AbilityRequirements)
+    if (abil.requirements.empty()) return;
+    for (auto&& it : abil.requirements)
     {
         switch (it.first)
         {
@@ -459,22 +455,22 @@ void Character::addMark()
             return;
         }
     }
-    StatusEffects.insert(std::pair<Ability::Properties, float> (Ability::DeathMark, 1));
+    StatusEffects.insert(std::pair<Ability::Property, float> (Ability::DeathMark, 1));
 }
 
-void Character::addAdditiveProperty(float amount, Ability::Properties property)
+void Character::addAdditiveProperty(float amount, Ability::Property property)
 {
     auto find = StatusEffects.find(property);
     if (find != StatusEffects.end())
     {
         find->second += amount;
     }
-    else StatusEffects.insert(std::pair<Ability::Properties, float>(property, amount));
+    else StatusEffects.insert(std::pair<Ability::Property, float>(property, amount));
 }
 
 void Character::addSelfShield(float percentDamageReduction)
 {
-    StatusEffects.insert(std::pair<Ability::Properties, float> (Ability::SelfShieldPercent, percentDamageReduction));
+    StatusEffects.insert(std::pair<Ability::Property, float> (Ability::SelfShieldPercent, percentDamageReduction));
 }
 
 void Character::curePoison(float percent)
@@ -503,7 +499,7 @@ float Character::percentHealth()
 
 bool Character::CheckAbilityCost(const Ability& abil) const
 {
-    for (const auto & it: abil.AbilityRequirements) {
+    for (const auto & it: abil.requirements) {
         switch (it.first) {
             case Ability::HealthCost:
                 if (it.second > _currentHealth) {

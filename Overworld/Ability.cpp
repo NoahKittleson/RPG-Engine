@@ -94,26 +94,6 @@ bool Ability::hasProperty(const Ability::Property &type) const
     return false;
 }
 
-void Ability::toggleGray(bool gray)
-{
-    if (gray) {
-        abilityName.setColor(sf::Color(128,128,128));
-        abilityDescription.setColor(sf::Color(128,128,128));
-        return;
-    }
-    abilityName.setColor(sf::Color::Black);
-    abilityDescription.setColor(sf::Color::Black);
-}
-
-bool Ability::isGrayedOut()
-{
-    if (abilityDescription.getColor() == sf::Color(128,128,128)) {
-        return true;
-    }
-    else return false;
-}
-
-
 void Ability::drawReqs(sf::RenderWindow &rw)
 {
     sf::Text Reqs = abilityDescription;
@@ -144,6 +124,9 @@ std::string Ability::getName() const {
 	return abilityName.getString();
 }
 
+bool Ability::isAttackSpell() const {
+	return allyTargetPref;
+}
 
 
 
