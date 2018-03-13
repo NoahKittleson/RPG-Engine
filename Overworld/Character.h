@@ -23,7 +23,7 @@ public:
     void addAbility(Ability&);
     bool CheckAbilityCost(const Ability&) const;
     void PayAbilityCost(Ability&);
-    float takeDamage(Ability, Character& attacker);
+	float calculateDmg(Ability, std::shared_ptr<Character> attacker);
 	
 	//NEW AND BAD//
 	bool isIdle() {return _sprite.getTexture() == _IdleTexture;};
@@ -49,7 +49,6 @@ public:
     
     void animate(float elapased);
 
-public:
     Ability _basicAttack;
     Ability _recoveryAbility;
     IterVector<Ability> _abilityList;
@@ -67,7 +66,6 @@ private:
     
     std::map<Ability::Property, float> StatusEffects;			//or any modifier applied each turn
     
-private:
     const sf::Texture* _IdleTexture = nullptr;
     const sf::Texture* _getHitTexture = nullptr;
     

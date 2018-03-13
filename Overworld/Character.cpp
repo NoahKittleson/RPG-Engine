@@ -81,21 +81,19 @@ _currentHealth(MaxHealth), _currentMana(MaxMana)
     UpdateStatDisplay();
 }
 
-void Character::addAbility(Ability& ability)
-{
+void Character::addAbility(Ability& ability) {
     ability.setFont(*_name.getFont());
     ability.setPosition(100, 30 * _abilityList.size());
     _abilityList.push_back(ability);
 }
 
-float Character::takeDamage(Ability ability, Character& attacker)
-{
+float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attacker) {
     float TOTALDAMAGE = ability.baseDamage;
     float DamageReduction = 1.0;
     float DamageMultiplier = 1.0;
     
     //FIRST GO THROUGH ALL ATTACKER DAMAGE MODIFIERS
-    for (auto&& it : attacker.StatusEffects) {
+    for (auto&& it : attacker->StatusEffects) {
         switch (it.first) {
             case Ability::FlatDmgBuff:
                 if (ability.baseDamage != 0) {
@@ -104,7 +102,7 @@ float Character::takeDamage(Ability ability, Character& attacker)
                 break;
                 
             case Ability::PercentManaRecovery:
-                attacker.adjustMana(_maxMana * it.second);
+                attacker->adjustMana(_maxMana * it.second);
                 break;
                 
             default:
@@ -167,7 +165,7 @@ float Character::takeDamage(Ability ability, Character& attacker)
         switch (it.first)
         {
             case Ability::LifeDrain:
-                attacker.adjustHealth(TOTALDAMAGE * it.second);
+                attacker->adjustHealth(TOTALDAMAGE * it.second);
                 break;
                 
             case Ability::ManaDrain:
@@ -201,7 +199,7 @@ float Character::takeDamage(Ability ability, Character& attacker)
                 break;
                 
             case Ability::SelfShieldPercent:
-                attacker.addSelfShield(it.second);
+                attacker->addSelfShield(it.second);
                 break;
                 
             case Ability::FlatDmgBuff:
@@ -210,7 +208,7 @@ float Character::takeDamage(Ability ability, Character& attacker)
                 
             case Ability::PoisonHeal:
                 if (StatusEffects.find(Ability::Poison) != StatusEffects.end()) {
-                    attacker.adjustHealth(it.second);
+                    attacker->adjustHealth(it.second);
                 }
                 break;
                 
@@ -223,11 +221,11 @@ float Character::takeDamage(Ability ability, Character& attacker)
                 break;
                 
             case Ability::SelfHeal:
-                attacker.adjustHealth(it.second);
+                attacker->adjustHealth(it.second);
                 break;
                 
             case Ability::SelfStun:
-                attacker.addStun(it.second);
+                attacker->addStun(it.second);
                 break;
                 
             case Ability::Clear:
@@ -238,15 +236,18 @@ float Character::takeDamage(Ability ability, Character& attacker)
                 break;
         }
     }
-    //SIXTH, APPLY AND RETURN THE DAMAGE DONE
+    //SIXTH, APPLY AND RETURN THE DAMAGE DONE, ALSO ANIMATIONS
     adjustHealth(-TOTALDAMAGE);
     UpdateStatDisplay();
-    attacker.UpdateStatDisplay();
+    attacker->UpdateStatDisplay();
+	if (TOTALDAMAGE > 0) {
+		startGetHitAnimation();
+	}
+	attacker->setAnimation(*ability.hitAnimation);
     return TOTALDAMAGE;
 }
 
-void Character::addPoison(int PsnAmount)	//will re-apply poison if poison amount is greater than before
-{
+void Character::addPoison(int PsnAmount) {	//will re-apply poison if poison amount is greater than before
     for (auto && it : StatusEffects) {
         if (it.first == Ability::Poison) {
             if (it.second < PsnAmount) {
@@ -258,8 +259,7 @@ void Character::addPoison(int PsnAmount)	//will re-apply poison if poison amount
     StatusEffects.insert(std::pair<Ability::Property, int> (Ability::Poison, PsnAmount));
 }
 
-void Character::addStun(int turns)	//will apply only if there is no active stun.
-{
+void Character::addStun(int turns) {	//will apply only if there is no active stun.
     for (auto && it : StatusEffects) {
         if (it.first == Ability::Stun) {
             return;
@@ -268,8 +268,7 @@ void Character::addStun(int turns)	//will apply only if there is no active stun.
     StatusEffects.insert(std::pair<Ability::Property, int> (Ability::Stun, turns));
 }
 
-void Character::adjustHealth(int amount)
-{
+void Character::adjustHealth(int amount) {
     _currentHealth += amount;
     if (_currentHealth > _maxHealth) {
         _currentHealth = _maxHealth;

@@ -33,6 +33,12 @@ void AttackMode::update(float elapsed) {
 			moveBackUpdate(elapsed);
 			break;
 			
+		case applyDamage:
+			for (auto & defender : info.currentAction.defenders) {
+				defender->calculateDmg(*info.currentAction.ability, info.currentAction.attacker);
+			}
+			break;
+			
 		default:
 			std::cout << "Somthing is wrong.  Incorrect phase";
 			break;
@@ -97,7 +103,15 @@ void AttackMode::animateUpdate(float elapsed) {
 //		getHitStarted = false;
 //		totalElapsed = 0;
 //	}
-	currentPhase = moveBack;
+	bool allDone = info.currentAction.attacker->isIdle();
+	info.currentAction.attacker->animate(elapsed);
+	for (auto & it : info.currentAction.defenders) {
+		it->animate(elapsed);
+		allDone = allDone && it->isIdle();
+	}
+	if (allDone) {
+		currentPhase = moveBack;
+	}
 }
 
 void AttackMode::moveBackUpdate(float elapsed) {
