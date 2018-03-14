@@ -515,4 +515,14 @@ bool Character::isNPC() const {
 	return NPC;
 }
 
+const IterVector<Ability> Character::getAbilityList() const {
+	return abilityList;
+}
+
+const Ability Character::getBasicAttack() const {
+	return basicAttack;
+}
+
+
+
 

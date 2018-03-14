@@ -21,6 +21,9 @@ public:
     ~Character();
 	
     void addAbility(Ability&);
+	const IterVector<Ability> getAbilityList() const;
+	const Ability getBasicAttack() const;
+
     bool checkAbilityCost(const Ability&) const;
     void payAbilityCost(Ability&);
 	float calculateDmg(Ability, std::shared_ptr<Character> attacker);

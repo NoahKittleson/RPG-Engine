@@ -14,14 +14,14 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info) {
 	Menu* targetMenu = &menuStorage[1];
 	Menu* abilityMenu = &menuStorage[2];
 	
-	Ability& autoAttack = info.currentAction.attacker->_basicAttack;
+	const Ability& autoAttack = info.currentAction.attacker->getBasicAttack();
 	auto attackFunc = [&info, &autoAttack] () {
 		info.currentAction.ability = &autoAttack;
 	};
 	
 	primaryMenu->addChild(MenuItem("Attack", targetMenu, font, attackFunc));
 	MenuItem abilityOption ("Ability", abilityMenu, font);
-	if (info.currentAction.attacker->_abilityList.size() == 0) {
+	if (info.currentAction.attacker->getAbilityList().size() == 0) {
 		abilityOption.setSelect(false);
 	}
 	primaryMenu->addChild(abilityOption);
@@ -34,12 +34,12 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info) {
 		};
 		targetMenu->addChild(MenuItem(target->getName(), nullptr, font, function));
 	}
-	for (auto && ability : info.currentAction.attacker->_abilityList) {
+	for (auto && ability : info.currentAction.attacker->getAbilityList()) {
 		auto function = [&info, &ability] () {
 			info.currentAction.ability = &ability;
 		};
 		MenuItem addMe (ability.getName(), targetMenu, font, function);
-		if (info.combatants.get()->CheckAbilityCost(ability)) {
+		if (info.combatants.get()->checkAbilityCost(ability)) {
 			addMe.setSelect(true);
 		}
 		abilityMenu->addChild(addMe);
