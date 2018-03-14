@@ -8,83 +8,83 @@
 
 #include "Character.h"
 
-#define FONT_SIZE_STAT_DISPLAY 20
-#define BAR_WIDTH 100
-#define BAR_HEIGHT 40
-#define STAT_SPACING_Y 50
+#define FONTSIZESTATDISPLAY 20
+#define BARWIDTH 100
+#define BARHEIGHT 40
+#define STATSPACINGY 50
 
 
 
-//Character::Character(const Character& other)					//is this necessary? Doesn't _spr already point to original?
-//:_IdleTexture(other._IdleTexture), _maxMana(other._maxMana), _maxHealth(other._maxHealth), _NPC(other._NPC),
-//_currentHealth(other._currentHealth), _currentMana(other._currentMana), _sprite(other._sprite), _name(other._name),
-//_HPText(other._HPText), _MPText(other._MPText), _AttackName(other._AttackName), _recoveryAbility(other._recoveryAbility),
-//_basicAttack(other._basicAttack), _abilityList(other._abilityList), _getHitTexture(other._getHitTexture),
-//_HPBar(other._HPBar), _MPBar(other._MPBar), _BarOutline(other._BarOutline)
+//Character::Character(const Character& other)					//is this necessary? Doesn't spr already point to original?
+//:IdleTexture(other.IdleTexture), maxMana(other.maxMana), maxHealth(other.maxHealth), NPC(other.NPC),
+//currentHealth(other.currentHealth), currentMana(other.currentMana), sprite(other.sprite), name(other.name),
+//HPText(other.HPText), MPText(other.MPText), AttackName(other.AttackName), recoveryAbility(other.recoveryAbility),
+//basicAttack(other.basicAttack), abilityList(other.abilityList), getHitTexture(other.getHitTexture),
+//HPBar(other.HPBar), MPBar(other.MPBar), BarOutline(other.BarOutline)
 //{
-//    std::cout << "alert: character copied. Name: " << other._name.getString().toAnsiString() << "\n";
-//    //setFont(*other._name.getFont());
-//    _sprite.setTexture(*_IdleTexture);
+//    std::cout << "alert: character copied. Name: " << other.name.getString().toAnsiString() << "\n";
+//    //setFont(*other.name.getFont());
+//    sprite.setTexture(*IdleTexture);
 //}
 
 Character::~Character() {
-    std::cout << "Character destroyed.  Name: " << this->_name.getString().toAnsiString() << "\n";
+    std::cout << "Character destroyed.  Name: " << this->name.getString().toAnsiString() << "\n";
 }
 
 Character::Character(int MaxHealth, int MaxMana, int BAdmg, const sf::Texture &idle, const sf::Font& font,
                      std::string name, std::string attackName, bool NPC, const sf::Texture& getHit)
-: _maxMana(MaxMana), _maxHealth(MaxHealth), _IdleTexture(&idle), _NPC(NPC),
-_sprite(AnimatedSprite(sf::Vector2i(idle.getSize().y,idle.getSize().y), 0.2, idle)), _getHitTexture(&getHit),
-_currentHealth(MaxHealth), _currentMana(MaxMana)
+: maxMana(MaxMana), maxHealth(MaxHealth), idleTexture(&idle), NPC(NPC),
+sprite(AnimatedSprite(sf::Vector2i(idle.getSize().y,idle.getSize().y), 0.2, idle)), getHitTexture(&getHit),
+currentHealth(MaxHealth), currentMana(MaxMana)
 {
     //This needs to be cleaned up//
     setFont(font);
     //setStatBarPositioning//
-    _HPBar.setFillColor(sf::Color::Red);
-    _HPBar.setSize(sf::Vector2f(BAR_WIDTH, BAR_HEIGHT));
-    _MPBar.setFillColor(sf::Color::Blue);
-    _MPBar.setSize(sf::Vector2f(BAR_WIDTH, BAR_HEIGHT));
+    HPBar.setFillColor(sf::Color::Red);
+    HPBar.setSize(sf::Vector2f(BARWIDTH, BARHEIGHT));
+    MPBar.setFillColor(sf::Color::Blue);
+    MPBar.setSize(sf::Vector2f(BARWIDTH, BARHEIGHT));
     
-    _BarOutline.setSize(sf::Vector2f(BAR_WIDTH, BAR_HEIGHT));
-    _BarOutline.setOutlineColor(sf::Color::Black);
-    _BarOutline.setFillColor(sf::Color(0,0,0,0));
-    _BarOutline.setOutlineThickness(3);
+    barOutline.setSize(sf::Vector2f(BARWIDTH, BARHEIGHT));
+    barOutline.setOutlineColor(sf::Color::Black);
+    barOutline.setFillColor(sf::Color(0,0,0,0));
+    barOutline.setOutlineThickness(3);
     
-    _sprite.setTexture(*_IdleTexture);
-    if (_NPC) { _sprite.setScale(-1.0f, 1.0f); }
+    sprite.setTexture(*idleTexture);
+    if (NPC) { sprite.setScale(-1.0f, 1.0f); }
     
-    _name.setString(name);
-    _name.setColor(sf::Color::Black);
-    _name.setCharacterSize(FONT_SIZE_STAT_DISPLAY+20);				//name should be slightly bigger font, hence +20.
-    _name.setPosition(0, 0);
+    this->name.setString(name);
+    this->name.setColor(sf::Color::Black);
+    this->name.setCharacterSize(FONTSIZESTATDISPLAY+20);				//name should be slightly bigger font, hence +20.
+    this->name.setPosition(0, 0);
     
-    _HPText.setString("EMPTY");
-    _MPText.setString("EMPTY");
+    HPText.setString("EMPTY");
+    MPText.setString("EMPTY");
     
-    _HPText.setPosition(100, 0);
-    _MPText.setPosition(200, 0);
+    HPText.setPosition(100, 0);
+    MPText.setPosition(200, 0);
     
-    _HPText.setColor(sf::Color::Red);
-    _MPText.setColor(sf::Color::Blue);
+    HPText.setColor(sf::Color::Red);
+    MPText.setColor(sf::Color::Blue);
     
-    _HPText.setCharacterSize(FONT_SIZE_STAT_DISPLAY);
-    _MPText.setCharacterSize(FONT_SIZE_STAT_DISPLAY);
+    HPText.setCharacterSize(FONTSIZESTATDISPLAY);
+    MPText.setCharacterSize(FONTSIZESTATDISPLAY);
     
-    _AttackName = attackName;
-    _recoveryAbility = Ability("Recover", "Restores all Mana", 0, 0, 0, idle);				//placeholder texture
-    _basicAttack = Ability("ATTACK", "Does Basic Damage", BAdmg, 0, 0, idle);				//placeholder texture
+    this->attackName = attackName;
+    recoveryAbility = Ability("Recover", "Restores all Mana", 0, 0, 0, idle);				//placeholder texture
+    basicAttack = Ability("ATTACK", "Does Basic Damage", BAdmg, 0, 0, idle);				//placeholder texture
     
-    _recoveryAbility.addProperty(Ability::PercentManaRecovery, 1.0, false);
-    if (_NPC) {
-        _recoveryAbility.baseDamage = 200;
+    recoveryAbility.addProperty(Ability::PercentManaRecovery, 1.0, false);
+    if (NPC) {
+        recoveryAbility.baseDamage = 200;
     }
     UpdateStatDisplay();
 }
 
 void Character::addAbility(Ability& ability) {
-    ability.setFont(*_name.getFont());
-    ability.setPosition(100, 30 * _abilityList.size());
-    _abilityList.push_back(ability);
+    ability.setFont(*name.getFont());
+    ability.setPosition(100, 30 * abilityList.size());
+    abilityList.push_back(ability);
 }
 
 float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attacker) {
@@ -102,7 +102,7 @@ float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attack
                 break;
                 
             case Ability::PercentManaRecovery:
-                attacker->adjustMana(_maxMana * it.second);
+                attacker->adjustMana(maxMana * it.second);
                 break;
                 
             default:
@@ -125,19 +125,19 @@ float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attack
             break;
             
         case Ability::VSHealthy:
-            if (_currentHealth >= _maxHealth/2) {
+            if (currentHealth >= maxHealth/2) {
                 DamageMultiplier += ability.dmgMulti.second;
             }
             break;
             
         case Ability::VSUnhealthy:
-            if (_currentHealth < _maxHealth/2) {
+            if (currentHealth < maxHealth/2) {
                 DamageMultiplier += ability.dmgMulti.second;
             }
             break;
             
         case Ability::VSFullHealth:
-            if (_currentHealth == _maxHealth) {
+            if (currentHealth == maxHealth) {
                 DamageMultiplier += ability.dmgMulti.second;
             }
             break;
@@ -269,40 +269,49 @@ void Character::addStun(int turns) {	//will apply only if there is no active stu
 }
 
 void Character::adjustHealth(int amount) {
-    _currentHealth += amount;
-    if (_currentHealth > _maxHealth) {
-        _currentHealth = _maxHealth;
+    currentHealth += amount;
+    if (currentHealth > maxHealth) {
+        currentHealth = maxHealth;
     }
-    if (_currentHealth < 0) {
-        _currentHealth = 0;
+    if (currentHealth < 0) {
+        currentHealth = 0;
     }
 }
 
 float Character::getHealth() const {
-    return _currentHealth;
+    return currentHealth;
 }
 
 void Character::adjustMana(int amount)
 {
-    _currentMana += amount;
-    if (_currentMana > _maxMana) {
-        _currentMana = _maxMana;
+    currentMana += amount;
+    if (currentMana > maxMana) {
+        currentMana = maxMana;
     }
-    if (_currentMana < 0) {
-        _currentMana = 0;
+    if (currentMana < 0) {
+        currentMana = 0;
     }
 }
 float Character::getMana() const {
-    return _currentMana;
+    return currentMana;
 }
+
+void Character::move(sf::Vector2f movement) {
+	sprite.move(movement);
+}
+
+sf::Vector2f Character::getSpritePosition() const {
+	return sprite.getPosition();
+};
+
 
 void Character::UpdateStatDisplay()
 {
-    _HPText.setString(GetText("HP: ", _currentHealth, _maxHealth));
-    _MPText.setString(GetText("MP: ", _currentMana, _maxMana));
+    HPText.setString(GetText("HP: ", currentHealth, maxHealth));
+    MPText.setString(GetText("MP: ", currentMana, maxMana));
     
-    _HPBar.setSize(sf::Vector2f(percentHealth()*BAR_WIDTH, BAR_HEIGHT));
-    _MPBar.setSize(sf::Vector2f(percentMana()*BAR_WIDTH, BAR_HEIGHT));
+    HPBar.setSize(sf::Vector2f(percentHealth()*BARWIDTH, BARHEIGHT));
+    MPBar.setSize(sf::Vector2f(percentMana()*BARWIDTH, BARHEIGHT));
     updateStatusEffects();
 }
 
@@ -315,50 +324,50 @@ std::string Character::GetText(std::string Description, int currentValue, int ma
 
 void Character::setStatPosition(int x, int y)
 {
-    _name.setPosition(x, y);
-    _HPText.setPosition(x, y + STAT_SPACING_Y);
-    _HPBar.setPosition(x, y + 2 * STAT_SPACING_Y);
-    _MPText.setPosition(x, y + 3 * STAT_SPACING_Y);
-    _MPBar.setPosition(x, y + 4 * STAT_SPACING_Y);
+    name.setPosition(x, y);
+    HPText.setPosition(x, y + STATSPACINGY);
+    HPBar.setPosition(x, y + 2 * STATSPACINGY);
+    MPText.setPosition(x, y + 3 * STATSPACINGY);
+    MPBar.setPosition(x, y + 4 * STATSPACINGY);
     char space = 5;
-    for (auto & it: StatusEffectDisplay) {
-        it.setPosition(x, y + space * FONT_SIZE_STAT_DISPLAY);
+    for (auto & it: statusEffectDisplay) {
+        it.setPosition(x, y + space * FONTSIZESTATDISPLAY);
         space++;
     }
 }
 
 void Character::drawAllStats(sf::RenderWindow &rw)
 {
-    rw.draw(_name);
-    rw.draw(_HPText);
-    rw.draw(_HPBar);
-    rw.draw(_MPText);
-    rw.draw(_MPBar);
+    rw.draw(name);
+    rw.draw(HPText);
+    rw.draw(HPBar);
+    rw.draw(MPText);
+    rw.draw(MPBar);
     
-    for (const auto & it: StatusEffectDisplay) {
+    for (const auto & it: statusEffectDisplay) {
         rw.draw(it);
     }
     
-    _BarOutline.setPosition(_HPBar.getPosition());
-    rw.draw(_BarOutline);
-    _BarOutline.setPosition(_MPBar.getPosition());
-    rw.draw(_BarOutline);
+    barOutline.setPosition(HPBar.getPosition());
+    rw.draw(barOutline);
+    barOutline.setPosition(MPBar.getPosition());
+    rw.draw(barOutline);
 }
 
 void Character::drawSprite(sf::RenderWindow &rw)
 {
 	//this line is breaking things during the second loop and battleAnimation... Probably has no attack animation.
-	rw.draw(_sprite);
+	rw.draw(sprite);
 }
 
 void Character::updateStatusEffects()
 {
-    StatusEffectDisplay.clear();
+    statusEffectDisplay.clear();
     std::ostringstream ss;
     sf::Text display;
-    display.setCharacterSize(FONT_SIZE_STAT_DISPLAY);
-    int yPos = _MPBar.getPosition().y + STAT_SPACING_Y;
-    display.setFont(*_name.getFont());                          //create a font member?
+    display.setCharacterSize(FONTSIZESTATDISPLAY);
+    int yPos = MPBar.getPosition().y + STATSPACINGY;
+    display.setFont(*name.getFont());                          //create a font member?
     
     for (auto && it: StatusEffects) {
         switch (it.first)
@@ -399,9 +408,9 @@ void Character::updateStatusEffects()
         }
         if (ss) {
             display.setString(ss.str());
-            display.setPosition(_MPBar.getPosition().x, yPos);
-            yPos += FONT_SIZE_STAT_DISPLAY;
-            StatusEffectDisplay.push_back(display);
+            display.setPosition(MPBar.getPosition().x, yPos);
+            yPos += FONTSIZESTATDISPLAY;
+            statusEffectDisplay.push_back(display);
             ss.str("");
         }
     }
@@ -410,16 +419,16 @@ void Character::updateStatusEffects()
 
 void Character::setFont(const sf::Font &font)
 {
-    _name.setFont(font);
-    _MPText.setFont(font);
-    _HPText.setFont(font);
-    _basicAttack.setFont(font);
-    _recoveryAbility.setFont(font);
+    name.setFont(font);
+    MPText.setFont(font);
+    HPText.setFont(font);
+    basicAttack.setFont(font);
+    recoveryAbility.setFont(font);
 }
 
 void Character::setSpritePosition(int x, int y)
 {
-    _sprite.setPosition(x, y);
+    sprite.setPosition(x, y);
 }
 
 void Character::PayAbilityCost(Ability& abil)
@@ -430,11 +439,11 @@ void Character::PayAbilityCost(Ability& abil)
         switch (it.first)
         {
             case Ability::ManaCost:
-                _currentMana -= it.second;
+                currentMana -= it.second;
                 break;
                 
             case Ability::HealthCost:
-                _currentHealth -= it.second;
+                currentHealth -= it.second;
                 break;
                 
             default:
@@ -488,12 +497,12 @@ void Character::curePoison(float percent)
 
 float Character::percentMana()
 {
-    return _currentMana/_maxMana;
+    return currentMana/maxMana;
 }
 
 float Character::percentHealth()
 {
-    return _currentHealth/_maxHealth;
+    return currentHealth/maxHealth;
 }
 
 bool Character::CheckAbilityCost(const Ability& abil) const
@@ -501,13 +510,13 @@ bool Character::CheckAbilityCost(const Ability& abil) const
     for (const auto & it: abil.requirements) {
         switch (it.first) {
             case Ability::HealthCost:
-                if (it.second > _currentHealth) {
+                if (it.second > currentHealth) {
                     return false;
                 }
                 break;
                 
             case Ability::ManaCost:
-                if (it.second > _currentMana) {
+                if (it.second > currentMana) {
                     return false;
                 }
                 break;
@@ -521,18 +530,18 @@ bool Character::CheckAbilityCost(const Ability& abil) const
 
 void Character::setColor(sf::Color color)
 {
-    _name.setColor(color);
+    name.setColor(color);
 }
 
 void Character::animate(float elapsed) {
-    _sprite.update(elapsed);
+    sprite.update(elapsed);
 }
 
 std::string Character::getName() const {
-	return _name.getString();
+	return name.getString();
 }
 
 void Character::setAnimation(const sf::Texture& texture) {
-	_sprite.setTexture(texture);
+	sprite.setTexture(texture);
 }
 

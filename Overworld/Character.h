@@ -19,22 +19,22 @@ public:
     Character(const Character& other) = delete;
     Character& operator= (const Character &other) = delete;
     ~Character();
-    
+	
     void addAbility(Ability&);
     bool CheckAbilityCost(const Ability&) const;
     void PayAbilityCost(Ability&);
 	float calculateDmg(Ability, std::shared_ptr<Character> attacker);
 	
 	//NEW AND BAD//
-	bool isIdle() {return _sprite.getTexture() == _IdleTexture;};
+	bool isIdle() {return sprite.getTexture() == IdleTexture;};
 	void setAnimation(const sf::Texture& texture);
-	void startGetHitAnimation() {if (_IdleTexture) {_sprite.setTexture(*_IdleTexture);}};
+	void startGetHitAnimation() {if (IdleTexture) {sprite.setTexture(*IdleTexture);}};
 	//NEW AND BAD//
 	
     void setStatPosition(int x, int y);
     void setSpritePosition(int x, int y);
-	sf::Vector2f getSpritePosition() {return _sprite.getPosition();};
-	void move(sf::Vector2f movement) { _sprite.move(movement);};
+	sf::Vector2f getSpritePosition() const;
+	void move(sf::Vector2f movement);
     void drawAllStats(sf::RenderWindow&);
     void drawSprite(sf::RenderWindow&);
 
@@ -48,26 +48,26 @@ public:
     void setFont(const sf::Font &font);
     
     void animate(float elapased);
-
-    Ability _basicAttack;
-    Ability _recoveryAbility;
-    IterVector<Ability> _abilityList;
-    const bool _NPC;
-    sf::Text _name;
     
 private:
+	Ability basicAttack;
+	Ability recoveryAbility;
+	IterVector<Ability> abilityList;
+	const bool NPC;
+	sf::Text name;
+	
     //character stats
-    AnimatedSprite _sprite;
-    std::string _AttackName;
-    float _maxHealth;
-    float _currentHealth;
-    float _maxMana;
-    float _currentMana;
+    AnimatedSprite sprite;
+    std::string attackName;
+    float maxHealth;
+    float currentHealth;
+    float maxMana;
+    float currentMana;
     
     std::map<Ability::Property, float> StatusEffects;			//or any modifier applied each turn
     
-    const sf::Texture* _IdleTexture = nullptr;
-    const sf::Texture* _getHitTexture = nullptr;
+    const sf::Texture* idleTexture = nullptr;
+    const sf::Texture* getHitTexture = nullptr;
     
     void addPoison(int);
     void addAdditiveProperty(float, Ability::Property);
@@ -83,12 +83,12 @@ private:
     void updateStatusEffects();
     
     std::string GetText(std::string Description, int currentValue, int maxValue);
-    sf::Text _MPText;
-    sf::Text _HPText;
-    sf::RectangleShape _MPBar;
-    sf::RectangleShape _HPBar;
-    sf::RectangleShape _BarOutline;
-    std::list<sf::Text> StatusEffectDisplay;
+    sf::Text MPText;
+    sf::Text HPText;
+    sf::RectangleShape MPBar;
+    sf::RectangleShape HPBar;
+    sf::RectangleShape barOutline;
+    std::list<sf::Text> statusEffectDisplay;
     
 };
 
