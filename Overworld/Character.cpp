@@ -14,19 +14,6 @@
 #define STATSPACINGY 50
 
 
-
-//Character::Character(const Character& other)					//is this necessary? Doesn't spr already point to original?
-//:IdleTexture(other.IdleTexture), maxMana(other.maxMana), maxHealth(other.maxHealth), NPC(other.NPC),
-//currentHealth(other.currentHealth), currentMana(other.currentMana), sprite(other.sprite), name(other.name),
-//HPText(other.HPText), MPText(other.MPText), AttackName(other.AttackName), recoveryAbility(other.recoveryAbility),
-//basicAttack(other.basicAttack), abilityList(other.abilityList), getHitTexture(other.getHitTexture),
-//HPBar(other.HPBar), MPBar(other.MPBar), BarOutline(other.BarOutline)
-//{
-//    std::cout << "alert: character copied. Name: " << other.name.getString().toAnsiString() << "\n";
-//    //setFont(*other.name.getFont());
-//    sprite.setTexture(*IdleTexture);
-//}
-
 Character::~Character() {
     std::cout << "Character destroyed.  Name: " << this->name.getString().toAnsiString() << "\n";
 }
@@ -70,15 +57,14 @@ currentHealth(MaxHealth), currentMana(MaxMana)
     HPText.setCharacterSize(FONTSIZESTATDISPLAY);
     MPText.setCharacterSize(FONTSIZESTATDISPLAY);
     
-    this->attackName = attackName;
     recoveryAbility = Ability("Recover", "Restores all Mana", 0, 0, 0, idle);				//placeholder texture
-    basicAttack = Ability("ATTACK", "Does Basic Damage", BAdmg, 0, 0, idle);				//placeholder texture
+    basicAttack = Ability(attackName, "Does Basic Damage", BAdmg, 0, 0, idle);				//placeholder texture
     
     recoveryAbility.addProperty(Ability::PercentManaRecovery, 1.0, false);
     if (NPC) {
         recoveryAbility.baseDamage = 200;
     }
-    UpdateStatDisplay();
+    updateStatDisplay();
 }
 
 void Character::addAbility(Ability& ability) {
@@ -93,7 +79,7 @@ float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attack
     float DamageMultiplier = 1.0;
     
     //FIRST GO THROUGH ALL ATTACKER DAMAGE MODIFIERS
-    for (auto&& it : attacker->StatusEffects) {
+    for (auto&& it : attacker->statusEffects) {
         switch (it.first) {
             case Ability::FlatDmgBuff:
                 if (ability.baseDamage != 0) {
@@ -113,7 +99,7 @@ float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attack
     switch (ability.dmgMulti.first)				//only allows for one dmg mulitplier
     {
         case Ability::WhilePoisoned:
-            if (StatusEffects.find(Ability::Poison) != StatusEffects.end()) {
+            if (statusEffects.find(Ability::Poison) != statusEffects.end()) {
                 DamageMultiplier += ability.dmgMulti.second;
             }
             break;
@@ -147,13 +133,13 @@ float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attack
     }
     
     //THIRD APPLY ALL DEFENDER DAMAGE MODIFIERS
-    auto find = StatusEffects.find(Ability::DeathMark);
-    if (find != StatusEffects.end()) {
+    auto find = statusEffects.find(Ability::DeathMark);
+    if (find != statusEffects.end()) {
         DamageMultiplier += (find->second);
     }
     
-    find = StatusEffects.find(Ability::SelfShieldPercent);
-    if (find != StatusEffects.end()) {
+    find = statusEffects.find(Ability::SelfShieldPercent);
+    if (find != statusEffects.end()) {
         if (find->second >= 0 && find->second <= 1.0)
         { DamageReduction *= (1.0f - find->second); }
     }
@@ -207,7 +193,7 @@ float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attack
                 break;
                 
             case Ability::PoisonHeal:
-                if (StatusEffects.find(Ability::Poison) != StatusEffects.end()) {
+                if (statusEffects.find(Ability::Poison) != statusEffects.end()) {
                     attacker->adjustHealth(it.second);
                 }
                 break;
@@ -229,7 +215,7 @@ float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attack
                 break;
                 
             case Ability::Clear:
-                StatusEffects.clear();
+                statusEffects.clear();
                 break;
                 
             default:
@@ -238,8 +224,8 @@ float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attack
     }
     //SIXTH, APPLY AND RETURN THE DAMAGE DONE, ALSO ANIMATIONS
     adjustHealth(-TOTALDAMAGE);
-    UpdateStatDisplay();
-    attacker->UpdateStatDisplay();
+    updateStatDisplay();
+    attacker->updateStatDisplay();
 	if (TOTALDAMAGE > 0) {
 		startGetHitAnimation();
 	}
@@ -248,7 +234,7 @@ float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attack
 }
 
 void Character::addPoison(int PsnAmount) {	//will re-apply poison if poison amount is greater than before
-    for (auto && it : StatusEffects) {
+    for (auto && it : statusEffects) {
         if (it.first == Ability::Poison) {
             if (it.second < PsnAmount) {
                 it.second = PsnAmount;
@@ -256,16 +242,16 @@ void Character::addPoison(int PsnAmount) {	//will re-apply poison if poison amou
             return;
         }
     }
-    StatusEffects.insert(std::pair<Ability::Property, int> (Ability::Poison, PsnAmount));
+    statusEffects.insert(std::pair<Ability::Property, int> (Ability::Poison, PsnAmount));
 }
 
 void Character::addStun(int turns) {	//will apply only if there is no active stun.
-    for (auto && it : StatusEffects) {
+    for (auto && it : statusEffects) {
         if (it.first == Ability::Stun) {
             return;
         }
     }
-    StatusEffects.insert(std::pair<Ability::Property, int> (Ability::Stun, turns));
+    statusEffects.insert(std::pair<Ability::Property, int> (Ability::Stun, turns));
 }
 
 void Character::adjustHealth(int amount) {
@@ -292,6 +278,7 @@ void Character::adjustMana(int amount)
         currentMana = 0;
     }
 }
+
 float Character::getMana() const {
     return currentMana;
 }
@@ -305,25 +292,22 @@ sf::Vector2f Character::getSpritePosition() const {
 };
 
 
-void Character::UpdateStatDisplay()
-{
-    HPText.setString(GetText("HP: ", currentHealth, maxHealth));
-    MPText.setString(GetText("MP: ", currentMana, maxMana));
+void Character::updateStatDisplay() {
+    HPText.setString(getText("HP: ", currentHealth, maxHealth));
+    MPText.setString(getText("MP: ", currentMana, maxMana));
     
     HPBar.setSize(sf::Vector2f(percentHealth()*BARWIDTH, BARHEIGHT));
     MPBar.setSize(sf::Vector2f(percentMana()*BARWIDTH, BARHEIGHT));
     updateStatusEffects();
 }
 
-std::string Character::GetText(std::string Description, int currentValue, int maxValue)
-{
+std::string Character::getText(std::string Description, int currentValue, int maxValue) {
     std::ostringstream ss;
     ss << Description << currentValue << "/" << maxValue;
     return ss.str();
 }
 
-void Character::setStatPosition(int x, int y)
-{
+void Character::setStatPosition(int x, int y) {
     name.setPosition(x, y);
     HPText.setPosition(x, y + STATSPACINGY);
     HPBar.setPosition(x, y + 2 * STATSPACINGY);
@@ -336,8 +320,7 @@ void Character::setStatPosition(int x, int y)
     }
 }
 
-void Character::drawAllStats(sf::RenderWindow &rw)
-{
+void Character::drawAllStats(sf::RenderWindow &rw) {
     rw.draw(name);
     rw.draw(HPText);
     rw.draw(HPBar);
@@ -354,14 +337,12 @@ void Character::drawAllStats(sf::RenderWindow &rw)
     rw.draw(barOutline);
 }
 
-void Character::drawSprite(sf::RenderWindow &rw)
-{
+void Character::drawSprite(sf::RenderWindow &rw) {
 	//this line is breaking things during the second loop and battleAnimation... Probably has no attack animation.
 	rw.draw(sprite);
 }
 
-void Character::updateStatusEffects()
-{
+void Character::updateStatusEffects() {
     statusEffectDisplay.clear();
     std::ostringstream ss;
     sf::Text display;
@@ -369,7 +350,7 @@ void Character::updateStatusEffects()
     int yPos = MPBar.getPosition().y + STATSPACINGY;
     display.setFont(*name.getFont());                          //create a font member?
     
-    for (auto && it: StatusEffects) {
+    for (auto && it: statusEffects) {
         switch (it.first)
         {
             case Ability::Property::Bleed:
@@ -417,8 +398,7 @@ void Character::updateStatusEffects()
 }
 
 
-void Character::setFont(const sf::Font &font)
-{
+void Character::setFont(const sf::Font &font) {
     name.setFont(font);
     MPText.setFont(font);
     HPText.setFont(font);
@@ -426,13 +406,11 @@ void Character::setFont(const sf::Font &font)
     recoveryAbility.setFont(font);
 }
 
-void Character::setSpritePosition(int x, int y)
-{
+void Character::setSpritePosition(int x, int y) {
     sprite.setPosition(x, y);
 }
 
-void Character::PayAbilityCost(Ability& abil)
-{
+void Character::payAbilityCost(Ability& abil) {
     if (abil.requirements.empty()) return;
     for (auto&& it : abil.requirements)
     {
@@ -450,12 +428,11 @@ void Character::PayAbilityCost(Ability& abil)
                 break;
         }
     }
-    UpdateStatDisplay();
+    updateStatDisplay();
 }
 
-void Character::addMark()
-{
-    for (auto && it : StatusEffects)
+void Character::addMark() {
+    for (auto && it : statusEffects)
     {
         if (it.first == Ability::DeathMark)
         {
@@ -463,50 +440,44 @@ void Character::addMark()
             return;
         }
     }
-    StatusEffects.insert(std::pair<Ability::Property, float> (Ability::DeathMark, 1));
+    statusEffects.insert(std::pair<Ability::Property, float> (Ability::DeathMark, 1));
 }
 
-void Character::addAdditiveProperty(float amount, Ability::Property property)
-{
-    auto find = StatusEffects.find(property);
-    if (find != StatusEffects.end())
+void Character::addAdditiveProperty(float amount, Ability::Property property) {
+    auto find = statusEffects.find(property);
+    if (find != statusEffects.end())
     {
         find->second += amount;
     }
-    else StatusEffects.insert(std::pair<Ability::Property, float>(property, amount));
+    else statusEffects.insert(std::pair<Ability::Property, float>(property, amount));
 }
 
-void Character::addSelfShield(float percentDamageReduction)
-{
-    StatusEffects.insert(std::pair<Ability::Property, float> (Ability::SelfShieldPercent, percentDamageReduction));
+void Character::addSelfShield(float percentDamageReduction) {
+    statusEffects.insert(std::pair<Ability::Property, float> (Ability::SelfShieldPercent, percentDamageReduction));
 }
 
-void Character::curePoison(float percent)
-{
-    auto find = StatusEffects.find(Ability::Poison);
-    if (find != StatusEffects.end())
+void Character::curePoison(float percent) {
+    auto find = statusEffects.find(Ability::Poison);
+    if (find != statusEffects.end())
     {
         (*find).second -= (*find).second*percent;
         if ((*find).second <= 0)
         {
-            StatusEffects.erase(find);
+            statusEffects.erase(find);
         }
         
     }
 }
 
-float Character::percentMana()
-{
+float Character::percentMana() {
     return currentMana/maxMana;
 }
 
-float Character::percentHealth()
-{
+float Character::percentHealth() {
     return currentHealth/maxHealth;
 }
 
-bool Character::CheckAbilityCost(const Ability& abil) const
-{
+bool Character::checkAbilityCost(const Ability& abil) const {
     for (const auto & it: abil.requirements) {
         switch (it.first) {
             case Ability::HealthCost:
@@ -528,11 +499,6 @@ bool Character::CheckAbilityCost(const Ability& abil) const
     return true;
 }
 
-void Character::setColor(sf::Color color)
-{
-    name.setColor(color);
-}
-
 void Character::animate(float elapsed) {
     sprite.update(elapsed);
 }
@@ -544,4 +510,9 @@ std::string Character::getName() const {
 void Character::setAnimation(const sf::Texture& texture) {
 	sprite.setTexture(texture);
 }
+
+bool Character::isNPC() const {
+	return NPC;
+}
+
 

@@ -21,53 +21,51 @@ public:
     ~Character();
 	
     void addAbility(Ability&);
-    bool CheckAbilityCost(const Ability&) const;
-    void PayAbilityCost(Ability&);
+    bool checkAbilityCost(const Ability&) const;
+    void payAbilityCost(Ability&);
 	float calculateDmg(Ability, std::shared_ptr<Character> attacker);
-	
-	//NEW AND BAD//
-	bool isIdle() {return sprite.getTexture() == IdleTexture;};
-	void setAnimation(const sf::Texture& texture);
-	void startGetHitAnimation() {if (IdleTexture) {sprite.setTexture(*IdleTexture);}};
-	//NEW AND BAD//
-	
-    void setStatPosition(int x, int y);
-    void setSpritePosition(int x, int y);
-	sf::Vector2f getSpritePosition() const;
 	void move(sf::Vector2f movement);
-    void drawAllStats(sf::RenderWindow&);
-    void drawSprite(sf::RenderWindow&);
-
-    void adjustHealth(int);
-    float getHealth() const;
-    void adjustMana(int);
-    float getMana() const;
+	void animate(float elapased);
+	void setStatPosition(int x, int y);
+	void setSpritePosition(int x, int y);
+	sf::Vector2f getSpritePosition() const;
+	void drawAllStats(sf::RenderWindow&);
+	void drawSprite(sf::RenderWindow&);
 	std::string getName() const;
-    
-    void setColor(sf::Color);                             //Sets item's color in an option menu
-    void setFont(const sf::Font &font);
-    
-    void animate(float elapased);
-    
-private:
-	Ability basicAttack;
-	Ability recoveryAbility;
-	IterVector<Ability> abilityList;
-	const bool NPC;
-	sf::Text name;
+	void setFont(const sf::Font &font);
+	void adjustHealth(int);
+	float getHealth() const;
+	void adjustMana(int);
+	float getMana() const;
+	bool isNPC() const;
 	
-    //character stats
-    AnimatedSprite sprite;
-    std::string attackName;
+	//NEW AND BAD//
+	bool isIdle() {return sprite.getTexture() == idleTexture;};
+	void setAnimation(const sf::Texture& texture);
+	void startGetHitAnimation() {if (idleTexture) {sprite.setTexture(*idleTexture);}};
+	//NEW AND BAD//
+
+private:
+	const bool NPC;
     float maxHealth;
     float currentHealth;
     float maxMana;
     float currentMana;
-    
-    std::map<Ability::Property, float> StatusEffects;			//or any modifier applied each turn
-    
+	Ability basicAttack;
+	Ability recoveryAbility;
+	IterVector<Ability> abilityList;
+	
+	sf::Text name;
+    std::map<Ability::Property, float> statusEffects;			//or any modifier applied each turn
+	AnimatedSprite sprite;
     const sf::Texture* idleTexture = nullptr;
     const sf::Texture* getHitTexture = nullptr;
+	sf::Text MPText;
+	sf::Text HPText;
+	sf::RectangleShape MPBar;
+	sf::RectangleShape HPBar;
+	sf::RectangleShape barOutline;
+	std::list<sf::Text> statusEffectDisplay;
     
     void addPoison(int);
     void addAdditiveProperty(float, Ability::Property);
@@ -76,20 +74,11 @@ private:
     void addSelfShield(float);
     void addFlatDmgBuff(int);
     void curePoison(float);
-    
+	std::string getText(std::string Description, int currentValue, int maxValue);
     float percentMana();
     float percentHealth();
-    void UpdateStatDisplay();
+    void updateStatDisplay();
     void updateStatusEffects();
-    
-    std::string GetText(std::string Description, int currentValue, int maxValue);
-    sf::Text MPText;
-    sf::Text HPText;
-    sf::RectangleShape MPBar;
-    sf::RectangleShape HPBar;
-    sf::RectangleShape barOutline;
-    std::list<sf::Text> statusEffectDisplay;
-    
 };
 
 
