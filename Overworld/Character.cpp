@@ -523,6 +523,18 @@ const Ability Character::getBasicAttack() const {
 	return basicAttack;
 }
 
+const Ability Character::getRecoveryAbility() const {
+	return recoveryAbility;
+}
+
+void Character::setBasicAttack(Ability& abil) {
+	basicAttack = abil;
+}
+
+void Character::setRecoveryAbility(Ability& abil) {
+	recoveryAbility = abil;
+}
+
 
 
 

@@ -22,7 +22,10 @@ public:
 	
     void addAbility(Ability&);
 	const IterVector<Ability> getAbilityList() const;
+	void setBasicAttack(Ability& abil);
+	void setRecoveryAbility(Ability& abil);
 	const Ability getBasicAttack() const;
+	const Ability getRecoveryAbility() const;
 
     bool checkAbilityCost(const Ability&) const;
     void payAbilityCost(Ability&);
