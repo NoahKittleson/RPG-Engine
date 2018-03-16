@@ -15,7 +15,7 @@ AnimatedComponent::AnimatedComponent(const sf::Texture& t, sf::Vector2f pos, flo
 	setTextureRect(frameSize);
 }
 
-void AnimatedComponent::update(MapObject& obj, float elapsed)
+void AnimatedComponent::update(float elapsed)
 {
     totalElapsed += elapsed;
     while (totalElapsed >= timePerFrame) {

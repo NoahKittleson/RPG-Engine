@@ -10,7 +10,7 @@
 #include "PrefixHeader.pch"
 #include "Ability.h"
 #include "IterVector.hpp"
-#include "AnimatedSprite.h"
+#include "AnimatedComponent.hpp"
 
 class Character : sf::NonCopyable
 {
@@ -63,7 +63,7 @@ private:
 	
 	sf::Text name;
     std::map<Ability::Property, float> statusEffects;			//or any modifier applied each turn
-	AnimatedSprite sprite;
+	AnimatedComponent sprite;
     const sf::Texture* idleTexture = nullptr;
     const sf::Texture* getHitTexture = nullptr;
 	sf::Text MPText;

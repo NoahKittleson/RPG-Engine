@@ -14,8 +14,7 @@ DelayedAnimation::DelayedAnimation(const sf::Texture& t, sf::Vector2f pos, float
 	setOrigin(frame.x/2, frame.y/2);
 }
 
-void DelayedAnimation::update(MapObject &obj, float elapsed)
-{
+void DelayedAnimation::update(float elapsed) {
     totalElapsed += elapsed;
     if (waiting) {
         if (totalElapsed >= repeatDelay) {

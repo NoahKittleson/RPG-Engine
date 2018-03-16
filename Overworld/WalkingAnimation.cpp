@@ -78,7 +78,7 @@ Direction WalkingAnimation::getWalkingDirection()
 }
 
 
-void WalkingAnimation::update(MapObject& obj, float elapsed) {
+void WalkingAnimation::update(float elapsed) {
 	auto dir = getWalkingDirection();
 	changeDirection(dir);
 	

@@ -16,7 +16,7 @@ GraphicsComponent::GraphicsComponent(const sf::Texture& texture, sf::Vector2f po
 }
 
 
-void GraphicsComponent::update(MapObject& obj, float elapsed) {
+void GraphicsComponent::update(float elapsed) {
     return;
 }
 

@@ -19,6 +19,3 @@ public:
     void update(sf::Clock&) override;
     void draw(sf::RenderWindow&) override;
 };
-
-//Things to do:
-//1. Change Map to not be dynamically allocated.  Get rid of dynamic allocation.  Currently there is memory leak- TOP PRIORITY

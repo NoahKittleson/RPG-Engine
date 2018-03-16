@@ -30,7 +30,7 @@ MapObject::MapObject(const MapObject& obj) {
 void MapObject::update(float elapsed) {
 	//input->update();
 	//collision...?
-	graphics->update(*this, elapsed);
+	graphics->update(elapsed);
 	//in future, graphics will need to update based on movement IF WalkingAnimation component is in play
 }
 

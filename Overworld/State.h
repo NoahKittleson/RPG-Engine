@@ -51,8 +51,7 @@ std::unique_ptr<Creation> make_unique(ParamTypes&& ... params)
 
 
 //Things to do:
-//1.Create LoadState for initialization of values
-//2.Create GameInfo class for map, party, player, others?
-//3.Give ability to save game
+//1.Create GameInfo class for map, party, player, others?
+//2.Give ability to save game
 
 

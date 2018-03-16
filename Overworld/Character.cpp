@@ -21,7 +21,7 @@ Character::~Character() {
 Character::Character(int MaxHealth, int MaxMana, const sf::Texture &idle, const sf::Font& font,
                      std::string name, bool NPC, const sf::Texture& getHit)
 : maxMana(MaxMana), maxHealth(MaxHealth), idleTexture(&idle), NPC(NPC),
-sprite(AnimatedSprite(sf::Vector2i(idle.getSize().y,idle.getSize().y), 0.2, idle)), getHitTexture(&getHit),
+sprite(AnimatedComponent(idle, sf::Vector2f(0,0), 0.2, sf::Vector2i(idle.getSize().y,idle.getSize().y))), getHitTexture(&getHit),
 currentHealth(MaxHealth), currentMana(MaxMana)
 {
     //This needs to be cleaned up//

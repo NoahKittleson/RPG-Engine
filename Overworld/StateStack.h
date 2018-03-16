@@ -53,7 +53,4 @@ private:
 	
     std::stack<StatePtr> gameStateStack;
 	std::vector<PendingChange> pendingChanges;
-	
-	
-
 };
