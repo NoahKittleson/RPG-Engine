@@ -60,7 +60,7 @@ currentHealth(MaxHealth), currentMana(MaxMana)
     recoveryAbility = Ability("Recover", "Restores all Mana", 0, 0, 0, idle);				//placeholder texture
     basicAttack = Ability("Attack", "Does Basic Damage", 50, 0, 0, idle);					//placeholder texture
     
-    recoveryAbility.addProperty(Ability::PercentManaRecovery, 1.0, false);
+    recoveryAbility.addProperty(Ability::PercentManaRecovery, 1.0, true);
     if (NPC) {
         recoveryAbility.baseDamage = 200;
     }

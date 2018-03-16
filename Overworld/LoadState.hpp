@@ -9,6 +9,7 @@
 #include "State.h"
 #include "WalkingAnimation.hpp"
 #include "StartingZone.h"
+#include "CharacterGenerator.hpp"
 
 class LoadState: public State
 {

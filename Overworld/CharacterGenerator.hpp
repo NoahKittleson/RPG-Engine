@@ -16,7 +16,9 @@ using CharPtr = std::shared_ptr<Character>;
 namespace Combatant {
 	enum ID {
 		Wheat,
-		Logo
+		Logo,
+		Pringus,
+		Dingus
 	};
 }
 
