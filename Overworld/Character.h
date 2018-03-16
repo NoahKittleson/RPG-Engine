@@ -15,18 +15,18 @@
 class Character : sf::NonCopyable
 {
 public:
-    Character(int MaxHealth, int MaxMana, int BasicAttackDmg,  const sf::Texture& texture, const sf::Font&, std::string name, std::string Attackname, bool enemy, const sf::Texture& getHit);
+    Character(int MaxHealth, int MaxMana, const sf::Texture& texture, const sf::Font&, std::string name, bool enemy, const sf::Texture& getHit);
     Character(const Character& other) = delete;
     Character& operator= (const Character &other) = delete;
     ~Character();
 	
     void addAbility(Ability&);
-	const IterVector<Ability> getAbilityList() const;
 	void setBasicAttack(Ability& abil);
 	void setRecoveryAbility(Ability& abil);
 	const Ability getBasicAttack() const;
 	const Ability getRecoveryAbility() const;
-
+	const IterVector<Ability> getAbilityList() const;
+	
     bool checkAbilityCost(const Ability&) const;
     void payAbilityCost(Ability&);
 	float calculateDmg(Ability, std::shared_ptr<Character> attacker);

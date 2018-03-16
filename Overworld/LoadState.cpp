@@ -16,7 +16,9 @@ LoadState::LoadState(StateStack& SS) {
 	party.emplace_back(std::make_shared<Character>(500, 450, 75, resources.getTexture(Textures::BasicIdle),
 					   resources.getFont(Fonts::Sansation), "Pringus", "CLASH", false,
                        resources.getTexture(Textures::GetHitAnimation)));
-	party.back()->getRecoveryAbility().addProperty(Ability::Heal, 100, false);
+	Ability recovery("Recover", "Heals 100 HP", 0, false, true, resources.getTexture(Textures::BadAttackAnimation));
+	recovery.addProperty(Ability::Heal, 100, false);
+	party.back()->setRecoveryAbility(recovery);
     Ability ability1 ("BigPunch", "Makes a big punch", 100, false, false,
                       resources.getTexture(Textures::BadAttackAnimation));
     ability1.addReq(Ability::ManaCost, 100);

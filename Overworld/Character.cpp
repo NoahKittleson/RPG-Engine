@@ -18,8 +18,8 @@ Character::~Character() {
     std::cout << "Character destroyed.  Name: " << this->name.getString().toAnsiString() << "\n";
 }
 
-Character::Character(int MaxHealth, int MaxMana, int BAdmg, const sf::Texture &idle, const sf::Font& font,
-                     std::string name, std::string attackName, bool NPC, const sf::Texture& getHit)
+Character::Character(int MaxHealth, int MaxMana, const sf::Texture &idle, const sf::Font& font,
+                     std::string name, bool NPC, const sf::Texture& getHit)
 : maxMana(MaxMana), maxHealth(MaxHealth), idleTexture(&idle), NPC(NPC),
 sprite(AnimatedSprite(sf::Vector2i(idle.getSize().y,idle.getSize().y), 0.2, idle)), getHitTexture(&getHit),
 currentHealth(MaxHealth), currentMana(MaxMana)
@@ -58,7 +58,7 @@ currentHealth(MaxHealth), currentMana(MaxMana)
     MPText.setCharacterSize(FONTSIZESTATDISPLAY);
     
     recoveryAbility = Ability("Recover", "Restores all Mana", 0, 0, 0, idle);				//placeholder texture
-    basicAttack = Ability(attackName, "Does Basic Damage", BAdmg, 0, 0, idle);				//placeholder texture
+    basicAttack = Ability("Attack", "Does Basic Damage", 50, 0, 0, idle);					//placeholder texture
     
     recoveryAbility.addProperty(Ability::PercentManaRecovery, 1.0, false);
     if (NPC) {
