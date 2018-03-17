@@ -23,13 +23,13 @@ public:
     void addAbility(Ability&);
 	void setBasicAttack(Ability& abil);
 	void setRecoveryAbility(Ability& abil);
-	const Ability getBasicAttack() const;
-	const Ability getRecoveryAbility() const;
+	const Ability& getBasicAttack() const;
+	const Ability& getRecoveryAbility() const;
 	const IterVector<Ability> getAbilityList() const;
 	
     bool checkAbilityCost(const Ability&) const;
-    void payAbilityCost(Ability&);
-	float calculateDmg(Ability, std::shared_ptr<Character> attacker);
+    void payAbilityCost(const Ability&);
+	float calculateDmg(const Ability&, std::shared_ptr<Character> attacker);
 	void move(sf::Vector2f movement);
 	void animate(float elapased);
 	void setStatPosition(int x, int y);

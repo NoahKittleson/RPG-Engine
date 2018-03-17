@@ -19,10 +19,9 @@ Character::~Character() {
 }
 
 Character::Character(int MaxHealth, int MaxMana, const sf::Texture &idle, const sf::Font& font,
-                     std::string name, bool NPC, const sf::Texture& getHit)
+					 std::string name, bool NPC, const sf::Texture& getHit)
 : maxMana(MaxMana), maxHealth(MaxHealth), idleTexture(&idle), NPC(NPC),
-sprite(AnimatedComponent(idle, sf::Vector2f(0,0), 0.2, sf::Vector2i(idle.getSize().y,idle.getSize().y))), getHitTexture(&getHit),
-currentHealth(MaxHealth), currentMana(MaxMana)
+sprite(AnimatedComponent(idle, sf::Vector2f(0,0), 0.2, sf::Vector2i(idle.getSize().y,idle.getSize().y))), getHitTexture(&getHit), recoveryAbility("Recover", "Restores all Mana", 0, 0, 0, idle), basicAttack("Attack", "Does Basic Damage", 50, 0, 0, idle), currentHealth(MaxHealth), currentMana(MaxMana)
 {
     //This needs to be cleaned up//
     setFont(font);
@@ -57,9 +56,6 @@ currentHealth(MaxHealth), currentMana(MaxMana)
     HPText.setCharacterSize(FONTSIZESTATDISPLAY);
     MPText.setCharacterSize(FONTSIZESTATDISPLAY);
     
-    recoveryAbility = Ability("Recover", "Restores all Mana", 0, 0, 0, idle);				//placeholder texture
-    basicAttack = Ability("Attack", "Does Basic Damage", 50, 0, 0, idle);					//placeholder texture
-    
     recoveryAbility.addProperty(Ability::PercentManaRecovery, 1.0, true);
     if (NPC) {
         recoveryAbility.baseDamage = 200;
@@ -73,13 +69,13 @@ void Character::addAbility(Ability& ability) {
     abilityList.push_back(ability);
 }
 
-float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attacker) {
+float Character::calculateDmg(const Ability& ability, std::shared_ptr<Character> attacker) {
     float TOTALDAMAGE = ability.baseDamage;
     float DamageReduction = 1.0;
     float DamageMultiplier = 1.0;
     
     //FIRST GO THROUGH ALL ATTACKER DAMAGE MODIFIERS
-    for (auto&& it : attacker->statusEffects) {
+    for (const auto & it : attacker->statusEffects) {
         switch (it.first) {
             case Ability::FlatDmgBuff:
                 if (ability.baseDamage != 0) {
@@ -147,7 +143,7 @@ float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attack
     //FOURTH CALCULATE DAMAGE AND ALL EFFECTS THAT REQUIRE KNOWING THE DAMAGE DONE
     TOTALDAMAGE = TOTALDAMAGE * DamageMultiplier * DamageReduction;
     
-    for (auto&& it : ability.afterEffects) {
+    for (const auto & it : ability.afterEffects) {
         switch (it.first)
         {
             case Ability::LifeDrain:
@@ -161,7 +157,7 @@ float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attack
     }
     
     //FIFTH APPLY ANY STATUS EFFECTS
-    for (auto&& it : ability.properties) {
+    for (const auto & it : ability.properties) {
         switch (it.first)
         {
             case Ability::Poison:
@@ -234,7 +230,7 @@ float Character::calculateDmg(Ability ability, std::shared_ptr<Character> attack
 }
 
 void Character::addPoison(int PsnAmount) {	//will re-apply poison if poison amount is greater than before
-    for (auto && it : statusEffects) {
+    for (auto & it : statusEffects) {
         if (it.first == Ability::Poison) {
             if (it.second < PsnAmount) {
                 it.second = PsnAmount;
@@ -246,7 +242,7 @@ void Character::addPoison(int PsnAmount) {	//will re-apply poison if poison amou
 }
 
 void Character::addStun(int turns) {	//will apply only if there is no active stun.
-    for (auto && it : statusEffects) {
+    for (const auto & it : statusEffects) {
         if (it.first == Ability::Stun) {
             return;
         }
@@ -350,7 +346,7 @@ void Character::updateStatusEffects() {
     int yPos = MPBar.getPosition().y + STATSPACINGY;
     display.setFont(*name.getFont());                          //create a font member?
     
-    for (auto && it: statusEffects) {
+    for (const auto & it: statusEffects) {
         switch (it.first)
         {
             case Ability::Property::Bleed:
@@ -410,9 +406,9 @@ void Character::setSpritePosition(int x, int y) {
     sprite.setPosition(x, y);
 }
 
-void Character::payAbilityCost(Ability& abil) {
+void Character::payAbilityCost(const Ability& abil) {
     if (abil.requirements.empty()) return;
-    for (auto&& it : abil.requirements)
+    for (const auto & it : abil.requirements)
     {
         switch (it.first)
         {
@@ -432,7 +428,7 @@ void Character::payAbilityCost(Ability& abil) {
 }
 
 void Character::addMark() {
-    for (auto && it : statusEffects)
+    for (auto & it : statusEffects)
     {
         if (it.first == Ability::DeathMark)
         {
@@ -519,11 +515,11 @@ const IterVector<Ability> Character::getAbilityList() const {
 	return abilityList;
 }
 
-const Ability Character::getBasicAttack() const {
+const Ability& Character::getBasicAttack() const {
 	return basicAttack;
 }
 
-const Ability Character::getRecoveryAbility() const {
+const Ability& Character::getRecoveryAbility() const {
 	return recoveryAbility;
 }
 

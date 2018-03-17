@@ -8,17 +8,6 @@
 
 #include "Ability.h"
 
-
-Ability::Ability()
-{
-    abilityName.setString("EMPTY");
-    abilityName.setColor(sf::Color::Black);
-    abilityName.setPosition(0, 0);
-    abilityDescription.setString("EMPTY");
-    abilityDescription.setColor(sf::Color::Black);
-    abilityDescription.setPosition(0, 0);
-}
-
 Ability::Ability(std::string name, std::string desc, float BaseDmg, bool multiTarg, bool AllyTarget, const sf::Texture& tex)
 : hitAnimation(&tex), multiTarget(multiTarg), allyTargetPref(AllyTarget), baseDamage(BaseDmg)
 {

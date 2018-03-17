@@ -13,7 +13,6 @@
 class Ability
 {
 public:
-    Ability();
     Ability(std::string name, std::string desc, float BaseDmg, bool multiTarget, bool AllyTarget, const sf::Texture&);
     friend class Character;
 

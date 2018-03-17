@@ -35,8 +35,14 @@ void AttackMode::update(float elapsed) {
 			
 		case applyDamage:
 			for (auto & defender : info.currentAction.defenders) {
+				std::cout << "!TEST TEST! Attacker: " << info.currentAction.attacker << "\n";
+				std::cout << "!TEST TEST! Ability: " << info.currentAction.ability << "\n";
+				std::cout << "!TEST TEST! But actually: " << &info.currentAction.attacker->getBasicAttack() << "\n";
+
+				std::cout << "Ability Name: " << info.currentAction.ability->getName() << "\n";
 				defender->calculateDmg(*info.currentAction.ability, info.currentAction.attacker);
 			}
+			currentPhase = animate;
 			break;
 			
 		default:
@@ -66,7 +72,7 @@ void AttackMode::moveToUpdate(float elapsed) {
 									item.first->getSpritePosition().y - originalPosMap[item.first].y);
 		if (abs(distanceMoved.x) > abs(movementGap.x) || abs(distanceMoved.y) > abs(movementGap.y)) {
 			item.first->setSpritePosition(item.second.x, item.second.y);
-			currentPhase = animate;
+			currentPhase = applyDamage;
 		}
 	}
 }
