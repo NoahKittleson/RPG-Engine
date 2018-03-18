@@ -8,7 +8,7 @@
 
 #pragma once
 #include "PrefixHeader.pch"
-#include "MapObject.hpp"
+
 
 enum class MapID {Starting, BigField};
 

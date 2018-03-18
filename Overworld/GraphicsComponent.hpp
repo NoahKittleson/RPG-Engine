@@ -8,17 +8,15 @@
 
 #pragma once
 #include "PrefixHeader.pch"
-#include "MapObject.hpp"
 
 
-class MapObject;
-
-class GraphicsComponent : public sf::Sprite                 //this might be a bad idea.  If it is then just make Sprite a member
+class GraphicsComponent : public sf::Sprite
 {
 public:
     virtual ~GraphicsComponent() {}
     GraphicsComponent (const sf::Texture& texture, sf::Vector2f position);
-    virtual void update(float elapsed);         //I never use the Obj item called in.  Will I in the future?
+	
+    virtual void update(float elapsed);
     virtual void addTime(float delta);
 	virtual int getBase() const;
 	virtual void offsetBase(float x);
