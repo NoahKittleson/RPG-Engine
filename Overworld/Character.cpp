@@ -142,7 +142,7 @@ float Character::calculateDmg(const Ability& ability, std::shared_ptr<Character>
     
     //FOURTH CALCULATE DAMAGE AND ALL EFFECTS THAT REQUIRE KNOWING THE DAMAGE DONE
     TOTALDAMAGE = TOTALDAMAGE * DamageMultiplier * DamageReduction;
-    
+	
     for (const auto & it : ability.afterEffects) {
         switch (it.first)
         {

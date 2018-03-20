@@ -18,6 +18,7 @@
 		B7262BCE2001A57E00989D70 /* MenuMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7262BCC2001A57E00989D70 /* MenuMode.cpp */; };
 		B7262BD42001B48D00989D70 /* MenuItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7262BD22001B48D00989D70 /* MenuItem.cpp */; };
 		B73219221B2111D000C41162 /* MapSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B73219201B2111D000C41162 /* MapSection.cpp */; };
+		B73D2DCC2060C44600E23998 /* StatusEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B73D2DCA2060C44600E23998 /* StatusEffect.cpp */; };
 		B73F35021E4B095B007EC4AC /* PlayerWalkingDown.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */; };
 		B73F35041E4B0963007EC4AC /* PlayerWalkingRight.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35031E4B0963007EC4AC /* PlayerWalkingRight.png */; };
 		B73F35061E4B096D007EC4AC /* PlayerWalkingUp.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35051E4B096D007EC4AC /* PlayerWalkingUp.png */; };
@@ -88,6 +89,8 @@
 		B7262BD620035BBC00989D70 /* Menu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Menu.hpp; sourceTree = "<group>"; };
 		B73219201B2111D000C41162 /* MapSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapSection.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		B73219211B2111D000C41162 /* MapSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSection.h; sourceTree = "<group>"; };
+		B73D2DCA2060C44600E23998 /* StatusEffect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StatusEffect.cpp; sourceTree = "<group>"; };
+		B73D2DCB2060C44600E23998 /* StatusEffect.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StatusEffect.hpp; sourceTree = "<group>"; };
 		B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingDown.png; sourceTree = "<group>"; };
 		B73F35031E4B0963007EC4AC /* PlayerWalkingRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingRight.png; sourceTree = "<group>"; };
 		B73F35051E4B096D007EC4AC /* PlayerWalkingUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingUp.png; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				B797796D2044DBF7000870C2 /* AttackMode.cpp */,
 				B75F862B1BACE0C60093B615 /* Character.h */,
 				B75F862A1BACE0C60093B615 /* Character.cpp */,
+				B73D2DCB2060C44600E23998 /* StatusEffect.hpp */,
+				B73D2DCA2060C44600E23998 /* StatusEffect.cpp */,
 				B75F862E1BACE0FB0093B615 /* Ability.h */,
 				B75F862D1BACE0FB0093B615 /* Ability.cpp */,
 				B70D18DC20284340000B3584 /* BattleInfo.hpp */,
@@ -493,6 +498,7 @@
 				B77784091AE5C84D007FA840 /* Game.cpp in Sources */,
 				B7034DA61E7298C3007288A6 /* Mode.cpp in Sources */,
 				B75B77911C00723900122CCC /* StateStack.cpp in Sources */,
+				B73D2DCC2060C44600E23998 /* StatusEffect.cpp in Sources */,
 				B7439C1E1ECB8DED00724D0B /* GraphicsComponent.cpp in Sources */,
 				B70D18DD20284340000B3584 /* BattleInfo.cpp in Sources */,
 				B73219221B2111D000C41162 /* MapSection.cpp in Sources */,
