@@ -11,3 +11,21 @@
 void StatusEffect::textify(sf::Text& text) {
 	
 }
+
+
+Stun::Stun(char duration) : StatusEffect("Stun")  {
+	displayColor = sf::Color(200,200,0);
+}
+
+Stun Stun::operator+(const Stun& other) {
+	if (other.duration > duration) {
+		duration = other.duration;
+	} return *this;
+}
+
+void Stun::textify(sf::Text& text) {
+	text.setColor(displayColor);
+	std::ostringstream ss;
+	 ss << name <<": " << duration << "\n";
+	text.setString(ss.str());
+}
