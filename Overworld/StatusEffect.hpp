@@ -14,6 +14,7 @@ class StatusEffect
 public:
 	StatusEffect(std::string str): name(str) {};
 	virtual void textify(sf::Text& text) = 0;
+
 	
 protected:
 	const std::string name;
@@ -30,4 +31,15 @@ public:
 
 private:
 	char duration;
+};
+
+class Poison : public StatusEffect
+{
+public:
+	Poison(int amount);
+	Poison operator+(const Poison& other);
+	virtual void textify(sf::Text& text) override;
+	
+private:
+	int amount;
 };

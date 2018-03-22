@@ -15,6 +15,7 @@ void StatusEffect::textify(sf::Text& text) {
 
 Stun::Stun(char duration) : StatusEffect("Stun")  {
 	displayColor = sf::Color(200,200,0);
+	buff = false;
 }
 
 Stun Stun::operator+(const Stun& other) {
