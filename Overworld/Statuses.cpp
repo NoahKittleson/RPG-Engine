@@ -8,9 +8,9 @@
 
 #include "Statuses.hpp"
 
-void Stun::tickDown() {
+void Stun::update() {
 	--amount;
-	StatusEffect::tickDown();
+	StatusEffect::update();
 }
 
 void Stun::textify(sf::Text& text) const {
@@ -20,16 +20,48 @@ void Stun::textify(sf::Text& text) const {
 	text.setString(ss.str());
 }
 
-Stun::Stun(char duration) : NonAdditiveEffect("Stun", false, duration) {
+Stun::Stun(char duration) : NonAdditiveEffect("Stun", false, duration, turnStart) {
 	displayColor = sf::Color(200,200,0);
 	buff = false;
 }
 
-Poison::Poison(int amount) : NonAdditiveEffect("Poison", false, amount) {
+Poison::Poison(int amount) : NonAdditiveEffect("Poison", false, amount, turnStart) {
 	displayColor = sf::Color(0,153,0);
 }
 
 
-Bleed::Bleed(int amount) : AdditiveEffect("Bleed", false, amount) {
+Bleed::Bleed(int amount) : AdditiveEffect("Bleed", false, amount, turnStart) {
 	displayColor = sf::Color::Red;
+}
+
+DmgMultiplier::DmgMultiplier(float mult, int length) : MultiplierEffect("Multiplier", true, length, attackDmgMult, mult) {
+	displayColor = sf::Color(150,150,150);		//this might be gray?  I don't even know
+}
+
+void DmgMultiplier::textify(sf::Text& text) const {
+	text.setColor(displayColor);
+	std::ostringstream ss;
+	ss << "+" << amount << "% Dmg Buff\n";
+	text.setString(ss.str());
+}
+
+void DmgMultiplier::update() {
+	amount--;
+	StatusEffect::update();
+}
+
+DmgVulnerability::DmgVulnerability(float mult, int length) : MultiplierEffect("Vulnerability", false, length, defendDmgMult, mult) {
+	displayColor = sf::Color::Black;			//what color to make this?
+}
+
+void DmgVulnerability::textify(sf::Text& text) const {
+	text.setColor(displayColor);
+	std::ostringstream ss;
+	ss << "+" << amount << "% Dmg Taken\n";
+	text.setString(ss.str());
+}
+
+void DmgVulnerability::update() {
+	amount--;
+	StatusEffect::update();
 }

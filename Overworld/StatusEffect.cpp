@@ -8,6 +8,11 @@
 
 #include "StatusEffect.hpp"
 
+StatusEffect::StatusEffect(std::string str, bool buff, int amount, Timing whenToApply)
+: name(str), buff(buff), amount(amount), applicationTiming(whenToApply) {
+		
+};
+
 void AdditiveEffect::textify(sf::Text& text) const {
 	text.setColor(displayColor);
 	std::ostringstream ss;
@@ -32,3 +37,8 @@ NonAdditiveEffect NonAdditiveEffect::operator+(const NonAdditiveEffect& other) {
 		amount = other.amount;
 	} return *this;
 }
+
+void MultiplierEffect::update() {
+	amount--;
+	StatusEffect::update();
+};
