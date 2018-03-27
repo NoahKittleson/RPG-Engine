@@ -30,3 +30,19 @@ void Stun::textify(sf::Text& text) {
 	 ss << name <<": " << duration << "\n";
 	text.setString(ss.str());
 }
+
+void AdditiveEffect::textify(sf::Text& text) {
+	text.setColor(displayColor);
+	std::ostringstream ss;
+	ss << name <<": " << amount << "\n";
+	text.setString(ss.str());
+}
+
+AdditiveEffect AdditiveEffect::operator+(const AdditiveEffect& other) {
+	this->amount += other.amount;
+	return *this;
+}
+
+Bleed::Bleed(int amount) : AdditiveEffect("Bleed", amount) {
+	//nothing here
+}

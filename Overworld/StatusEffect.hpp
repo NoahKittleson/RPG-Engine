@@ -43,3 +43,20 @@ public:
 private:
 	int amount;
 };
+
+class AdditiveEffect : public StatusEffect
+{
+public:
+	AdditiveEffect(std::string name, int quantity) : StatusEffect(name), amount(quantity) {};
+	virtual void textify(sf::Text& text) override;
+	virtual AdditiveEffect operator+(const AdditiveEffect& other);
+	
+protected:
+	int amount;
+};
+
+class Bleed : public AdditiveEffect
+{
+public:
+	Bleed(int amount);
+};
