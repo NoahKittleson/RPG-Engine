@@ -12,51 +12,55 @@
 class StatusEffect
 {
 public:
-	StatusEffect(std::string str): name(str) {};
-	virtual void textify(sf::Text& text) = 0;
-
+	virtual void textify(sf::Text& text) const = 0;
+	virtual void tickDown() { if(!amount) done = true; };
+	bool isDone() const {return done;};
 	
 protected:
+	StatusEffect(std::string str, bool pos, int amount): name(str), buff(pos), amount(amount) {};
 	const std::string name;
 	sf::Color displayColor = sf::Color::Black;
 	bool buff;
-};
-
-class Stun : public StatusEffect
-{
-public:
-	Stun(char duration);
-	Stun operator+(const Stun& other);
-	virtual void textify(sf::Text& text) override;
-
-private:
-	char duration;
-};
-
-class Poison : public StatusEffect
-{
-public:
-	Poison(int amount);
-	Poison operator+(const Poison& other);
-	virtual void textify(sf::Text& text) override;
-	
-private:
+	bool done = false;
 	int amount;
 };
 
 class AdditiveEffect : public StatusEffect
 {
 public:
-	AdditiveEffect(std::string name, int quantity) : StatusEffect(name), amount(quantity) {};
-	virtual void textify(sf::Text& text) override;
+	virtual void textify(sf::Text& text) const override;
 	virtual AdditiveEffect operator+(const AdditiveEffect& other);
 	
 protected:
-	int amount;
+	AdditiveEffect(std::string name, bool pos, int quantity) : StatusEffect(name, pos, quantity) {};
+};
+
+class NonAdditiveEffect : public StatusEffect
+{
+public:
+	virtual void textify(sf::Text& text) const override;
+	virtual NonAdditiveEffect operator+(const NonAdditiveEffect& other);
+	
+protected:
+	NonAdditiveEffect(std::string name, bool pos, int quantity) : StatusEffect(name, pos, quantity) {};
 };
 
 class Bleed : public AdditiveEffect
 {
 public:
 	Bleed(int amount);
+};
+
+class Stun : public NonAdditiveEffect
+{
+public:
+	Stun(char duration);
+	virtual void textify(sf::Text& text) const override;
+	virtual void tickDown() override;
+};
+
+class Poison : public NonAdditiveEffect
+{
+public:
+	Poison(int amount);
 };

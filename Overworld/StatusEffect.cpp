@@ -8,30 +8,7 @@
 
 #include "StatusEffect.hpp"
 
-void StatusEffect::textify(sf::Text& text) {
-	
-}
-
-
-Stun::Stun(char duration) : StatusEffect("Stun")  {
-	displayColor = sf::Color(200,200,0);
-	buff = false;
-}
-
-Stun Stun::operator+(const Stun& other) {
-	if (other.duration > duration) {
-		duration = other.duration;
-	} return *this;
-}
-
-void Stun::textify(sf::Text& text) {
-	text.setColor(displayColor);
-	std::ostringstream ss;
-	 ss << name <<": " << duration << "\n";
-	text.setString(ss.str());
-}
-
-void AdditiveEffect::textify(sf::Text& text) {
+void AdditiveEffect::textify(sf::Text& text) const {
 	text.setColor(displayColor);
 	std::ostringstream ss;
 	ss << name <<": " << amount << "\n";
@@ -43,6 +20,41 @@ AdditiveEffect AdditiveEffect::operator+(const AdditiveEffect& other) {
 	return *this;
 }
 
-Bleed::Bleed(int amount) : AdditiveEffect("Bleed", amount) {
-	//nothing here
+void NonAdditiveEffect::textify(sf::Text& text) const {
+	text.setColor(displayColor);
+	std::ostringstream ss;
+	ss << name <<": " << amount << "\n";
+	text.setString(ss.str());
+}
+
+NonAdditiveEffect NonAdditiveEffect::operator+(const NonAdditiveEffect& other) {
+	if (other.amount > this->amount) {
+		amount = other.amount;
+	} return *this;
+}
+
+void Stun::tickDown() {
+	--amount;
+	StatusEffect::tickDown();
+}
+
+void Stun::textify(sf::Text& text) const {
+	text.setColor(displayColor);
+	std::ostringstream ss;
+	ss << "Stunned: " << amount << " turns\n";
+	text.setString(ss.str());
+}
+
+Stun::Stun(char duration) : NonAdditiveEffect("Stun", false, duration) {
+	displayColor = sf::Color(200,200,0);
+	buff = false;
+}
+
+Poison::Poison(int amount) : NonAdditiveEffect("Poison", false, amount) {
+	displayColor = sf::Color(0,153,0);
+}
+
+
+Bleed::Bleed(int amount) : AdditiveEffect("Bleed", false, amount) {
+	displayColor = sf::Color::Red;
 }
