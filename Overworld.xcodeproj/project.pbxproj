@@ -48,6 +48,7 @@
 		B77784011AE5C57D007FA840 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B77784001AE5C57D007FA840 /* icon.png */; };
 		B77784091AE5C84D007FA840 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77784071AE5C84D007FA840 /* Game.cpp */; };
 		B77844A71E25D2F7002C7555 /* PauseMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77844A51E25D2F7002C7555 /* PauseMenu.cpp */; };
+		B77A1BDF206A3B3300CD87DF /* Statuses.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77A1BDD206A3B3300CD87DF /* Statuses.cpp */; };
 		B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77BE44A1BB5E03500F5645C /* Menu.cpp */; };
 		B78873551F3D530E00E7C725 /* CharacterGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */; };
 		B797796F2044DBF7000870C2 /* AttackMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B797796D2044DBF7000870C2 /* AttackMode.cpp */; };
@@ -140,6 +141,8 @@
 		B777840D1AE5D332007FA840 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		B77844A51E25D2F7002C7555 /* PauseMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseMenu.cpp; sourceTree = "<group>"; };
 		B77844A61E25D2F7002C7555 /* PauseMenu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PauseMenu.hpp; sourceTree = "<group>"; };
+		B77A1BDD206A3B3300CD87DF /* Statuses.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Statuses.cpp; sourceTree = "<group>"; };
+		B77A1BDE206A3B3300CD87DF /* Statuses.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Statuses.hpp; sourceTree = "<group>"; };
 		B77BE44A1BB5E03500F5645C /* Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
 		B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterGenerator.cpp; sourceTree = "<group>"; };
 		B78873541F3D530E00E7C725 /* CharacterGenerator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterGenerator.hpp; sourceTree = "<group>"; };
@@ -221,6 +224,8 @@
 				B75F862A1BACE0C60093B615 /* Character.cpp */,
 				B73D2DCB2060C44600E23998 /* StatusEffect.hpp */,
 				B73D2DCA2060C44600E23998 /* StatusEffect.cpp */,
+				B77A1BDE206A3B3300CD87DF /* Statuses.hpp */,
+				B77A1BDD206A3B3300CD87DF /* Statuses.cpp */,
 				B75F862E1BACE0FB0093B615 /* Ability.h */,
 				B75F862D1BACE0FB0093B615 /* Ability.cpp */,
 				B70D18DC20284340000B3584 /* BattleInfo.hpp */,
@@ -494,6 +499,7 @@
 				B7F96FDA1FFCD21B00FAB91B /* BattleAction.cpp in Sources */,
 				B75F862F1BACE0FB0093B615 /* Ability.cpp in Sources */,
 				B7262BCE2001A57E00989D70 /* MenuMode.cpp in Sources */,
+				B77A1BDF206A3B3300CD87DF /* Statuses.cpp in Sources */,
 				B75ABA251C7BD81D00B9FFDE /* TalkNode.cpp in Sources */,
 				B77784091AE5C84D007FA840 /* Game.cpp in Sources */,
 				B7034DA61E7298C3007288A6 /* Mode.cpp in Sources */,

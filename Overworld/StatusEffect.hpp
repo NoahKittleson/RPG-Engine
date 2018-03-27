@@ -45,22 +45,3 @@ protected:
 	NonAdditiveEffect(std::string name, bool pos, int quantity) : StatusEffect(name, pos, quantity) {};
 };
 
-class Bleed : public AdditiveEffect
-{
-public:
-	Bleed(int amount);
-};
-
-class Stun : public NonAdditiveEffect
-{
-public:
-	Stun(char duration);
-	virtual void textify(sf::Text& text) const override;
-	virtual void tickDown() override;
-};
-
-class Poison : public NonAdditiveEffect
-{
-public:
-	Poison(int amount);
-};
