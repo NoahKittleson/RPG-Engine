@@ -42,3 +42,10 @@ void MultiplierEffect::update() {
 	amount--;
 	StatusEffect::update();
 };
+
+void MultiplierEffect::textify(sf::Text &text) const {
+	text.setColor(displayColor);
+	std::ostringstream ss;
+	ss << name <<": +" << amount << "%\n";
+	text.setString(ss.str());
+};

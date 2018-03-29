@@ -14,6 +14,7 @@ class Bleed : public AdditiveEffect
 {
 public:
 	Bleed(int amount);
+	void effect(std::shared_ptr<Character> character) const override;
 };
 
 //~~~~~~~~~~~Stun~~~~~~~~~~~~//
@@ -30,6 +31,7 @@ class Poison : public NonAdditiveEffect
 {
 public:
 	Poison(int amount);
+	void effect(std::shared_ptr<Character> character) const override;
 };
 
 //~~~~~~~~~DmgMultiplier~~~~~~~~~//
@@ -49,6 +51,13 @@ public:
 	virtual void textify(sf::Text& text) const override;
 	virtual void update() override;
 };
+
+//complications-
+//--Are damage multipliers really even statuseffects?
+//--Use enums instead of text strings for better checking later? Also, are the strings ever used in a real way?
+//--effect() seems like it is only very useful for things that change health or mana.  Not for stun 
+
+
 
 
 

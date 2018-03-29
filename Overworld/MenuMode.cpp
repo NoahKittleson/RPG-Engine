@@ -58,6 +58,9 @@ void MenuMode::update(float elapsed) {
 	if (info.currentAction.complete()) {
 		done = true;
 	}
+	for (const auto & it : info.combatants) {
+		it->animate(elapsed);
+	}
 }
 
 void MenuMode::draw(sf::RenderWindow &rw) {

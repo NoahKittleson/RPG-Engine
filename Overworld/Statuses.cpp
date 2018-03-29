@@ -29,9 +29,16 @@ Poison::Poison(int amount) : NonAdditiveEffect("Poison", false, amount, turnStar
 	displayColor = sf::Color(0,153,0);
 }
 
+void Poison::effect(std::shared_ptr<Character> character) const {
+	character->adjustHealth(amount);
+}
 
 Bleed::Bleed(int amount) : AdditiveEffect("Bleed", false, amount, turnStart) {
 	displayColor = sf::Color::Red;
+}
+
+void Bleed::effect(std::shared_ptr<Character> character) const {
+	character->adjustHealth(amount);
 }
 
 DmgMultiplier::DmgMultiplier(float mult, int length) : MultiplierEffect("Multiplier", true, length, attackDmgMult, mult) {

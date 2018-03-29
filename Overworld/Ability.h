@@ -44,7 +44,7 @@ private:
     void drawReqs(sf::RenderWindow &rw);
     
     bool multiTarget;
-	float baseDamage = 0;
+	float baseDamage = 420;
 	char hitsOnFrame = 2;
 	const sf::Texture* hitAnimation = nullptr;
 	bool allyTargetPref;			//true = ally, false = enemy as primary target

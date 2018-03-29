@@ -8,12 +8,16 @@
 
 #pragma once
 #include "PrefixHeader.pch"
+#include "Character.h"
 
 class StatusEffect
 {
 public:
+//	enum Type {Poison, Bleed, Stun, DmgBuff};
+//	virtual Type getType() const = 0;
 	virtual void textify(sf::Text& text) const = 0;
 	virtual void update() { if(!amount) done = true; };
+	virtual void effect(std::shared_ptr<Character> character) const { return; };
 	bool isDone() const {return done;};
 	
 protected:
