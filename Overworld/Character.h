@@ -25,7 +25,7 @@ public:
 	void setRecoveryAbility(Ability& abil);
 	const Ability& getBasicAttack() const;
 	const Ability& getRecoveryAbility() const;
-	const IterVector<Ability> getAbilityList() const;
+	const IterVector<Ability>& getAbilityList() const;
 	
     bool checkAbilityCost(const Ability&) const;
     void payAbilityCost(const Ability&);

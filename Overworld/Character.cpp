@@ -511,7 +511,7 @@ bool Character::isNPC() const {
 	return NPC;
 }
 
-const IterVector<Ability> Character::getAbilityList() const {
+const IterVector<Ability>& Character::getAbilityList() const {
 	return abilityList;
 }
 

@@ -19,9 +19,6 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info) {
 		info.currentAction.ability = &autoAttack;
 		std::cout << "Ability set: " << autoAttack.getName() << "\n";
 	};
-	std::cout << "!TEST TEST! Character: " << info.currentAction.attacker << "\n";
-	std::cout << "!TEST TEST! Ability: " << &autoAttack << "\n";
-
 	
 	primaryMenu->addChild(MenuItem("Attack", targetMenu, font, attackFunc));
 	MenuItem abilityOption ("Ability", abilityMenu, font);
@@ -38,17 +35,22 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info) {
 		};
 		targetMenu->addChild(MenuItem(target->getName(), nullptr, font, function));
 	}
+	int iii = 0;
 	for (const auto & ability : info.currentAction.attacker->getAbilityList()) {
 		auto function = [&info, &ability] () {
-			//none of this is proccing, so I think I need to make this a shared_ptr
 			info.currentAction.ability = &ability;
-			std::cout << "Ability set: " << ability.getName() << "\n";
 		};
+		std::cout << "Ability set: " << ability.getName() << "\n";
+		std::cout << "ABILITY ADDRESS:" << &ability << "\n";
+		std::cout << "Ability should be: " << info.currentAction.attacker->getAbilityList()[0].getName() << "\n";
+		std::cout << "ABILITY ADDRESS should be: " << &info.currentAction.attacker->getAbilityList()[0] << "\n";
+
 		MenuItem addMe (ability.getName(), targetMenu, font, function);
 		if (info.combatants.get()->checkAbilityCost(ability)) {
 			addMe.setSelect(true);
 		}
 		abilityMenu->addChild(addMe);
+		iii++;
 	}
 	menuStorage[0].activate();
 }
