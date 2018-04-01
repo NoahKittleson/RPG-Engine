@@ -35,18 +35,13 @@ void AttackMode::update(float elapsed) {
 			
 		case applyDamage:
 			for (auto & defender : info.currentAction.defenders) {
-				std::cout << "!TEST TEST! Attacker: " << info.currentAction.attacker << "\n";
-				std::cout << "!TEST TEST! Ability: " << info.currentAction.ability << "\n";
-				std::cout << "!TEST TEST! But actually: " << &info.currentAction.attacker->getBasicAttack() << "\n";
-
-				std::cout << "Ability Name: " << info.currentAction.ability->getName() << "\n";
 				defender->calculateDmg(*info.currentAction.ability, info.currentAction.attacker);
 			}
 			currentPhase = animate;
 			break;
 			
 		default:
-			std::cout << "Somthing is wrong.  Incorrect phase";
+			std::cout << "Somthing is wrong.  Incorrect phase\n";
 			break;
 	}
 }

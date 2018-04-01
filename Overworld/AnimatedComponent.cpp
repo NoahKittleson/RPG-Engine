@@ -45,3 +45,9 @@ void AnimatedComponent::addTime(float delta)
     totalElapsed += delta;
 }
 
+void AnimatedComponent::setTexture(const sf::Texture& texture) {
+	Sprite::setTexture(texture);
+	setTextureRect(frameSize);
+}
+
+

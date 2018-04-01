@@ -496,6 +496,9 @@ bool Character::checkAbilityCost(const Ability& abil) const {
 }
 
 void Character::animate(float elapsed) {
+	if (sprite.atEnd()) {
+		sprite.setTexture(*idleTexture);
+	}
     sprite.update(elapsed);
 }
 

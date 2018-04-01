@@ -15,6 +15,8 @@ public:
     AnimatedComponent(const sf::Texture&, sf::Vector2f position, float timePerFrame, sf::Vector2i frame);
     virtual void update(float elapsed) override;
     virtual void addTime(float delta) override;
+	bool atEnd();
+	void setTexture(const sf::Texture& texture);
     
 protected:
     float totalElapsed = 0;
@@ -22,5 +24,5 @@ protected:
     sf::IntRect frameSize;
     
     void nextFrame();
-    bool atEnd();
+	
 };
