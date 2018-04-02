@@ -11,12 +11,12 @@
 BattleEndMode::BattleEndMode() {
 	screenFade.setSize(sf::Vector2f(1000,1000));
 	screenFade.setPosition(0, 0);
-	screenFade.setFillColor(sf::Color(255,255,255,0));
+	screenFade.setFillColor(sf::Color(0,0,0,0));
 }
 
 void BattleEndMode::update(float elapsed) {
 	alpha += elapsed * 255;												//255 is a magic number
-	screenFade.setFillColor(sf::Color(255,255,255,alpha));
+	screenFade.setFillColor(sf::Color(0,0,0,alpha));
 	if (alpha > 255) {
 		done = true;
 	}

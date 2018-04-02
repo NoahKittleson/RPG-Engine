@@ -54,6 +54,11 @@ void BattleState::update(sf::Clock& timer)
 				break;
 				}
 				
+			case victory:
+			case defeat:
+				requestStackPop();
+				break;
+				
 			default:
 				std::cout << "Mode unaccounted for.\n";
 				break;
