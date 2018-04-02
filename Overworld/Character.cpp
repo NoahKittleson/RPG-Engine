@@ -514,6 +514,11 @@ bool Character::isNPC() const {
 	return NPC;
 }
 
+bool Character::isIncapped() const {
+	return currentHealth <= 0;
+}
+
+
 const IterVector<Ability>& Character::getAbilityList() const {
 	return abilityList;
 }

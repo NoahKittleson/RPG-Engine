@@ -9,14 +9,12 @@
 #include "AnimatedComponent.hpp"
 
 AnimatedComponent::AnimatedComponent(const sf::Texture& t, sf::Vector2f pos, float timePerFrame, sf::Vector2i frame)
-: timePerFrame(timePerFrame), frameSize(0,0,frame.x, frame.y), GraphicsComponent(t, pos)
-{
+: timePerFrame(timePerFrame), frameSize(0,0,frame.x, frame.y), GraphicsComponent(t, pos) {
 	setOrigin(frame.x/2, frame.y/2);
 	setTextureRect(frameSize);
 }
 
-void AnimatedComponent::update(float elapsed)
-{
+void AnimatedComponent::update(float elapsed) {
     totalElapsed += elapsed;
     while (totalElapsed >= timePerFrame) {
         totalElapsed -= timePerFrame;
@@ -24,8 +22,7 @@ void AnimatedComponent::update(float elapsed)
     }
 }
 
-void AnimatedComponent::nextFrame()
-{
+void AnimatedComponent::nextFrame() {
     if (atEnd()) {
         setTextureRect(frameSize);
     }
@@ -35,13 +32,11 @@ void AnimatedComponent::nextFrame()
                                     getTextureRect().height ));
 }
 
-bool AnimatedComponent::atEnd()
-{
+bool AnimatedComponent::atEnd() {
     return (getTextureRect().left + frameSize.width >= getTexture()->getSize().x);
 }
 
-void AnimatedComponent::addTime(float delta)
-{
+void AnimatedComponent::addTime(float delta) {
     totalElapsed += delta;
 }
 

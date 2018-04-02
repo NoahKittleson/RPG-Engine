@@ -13,6 +13,7 @@
 #include "MenuMode.hpp"
 #include "AttackMode.hpp"
 #include "BattleInfo.hpp"
+#include "BattleEndMode.hpp"
 
 class BattleState : public State
 {
@@ -24,12 +25,13 @@ public:
 	
 private:
 	std::unique_ptr<Mode> mode;
-	enum ModeType {menu, attack};
+	enum ModeType {menu, attack, victory, defeat};
 	ModeType currentMode = menu;
 	BattleInfo info;
 	void loadMenu();
 	void drawAll(sf::RenderWindow &rw);
 	void positionSpritesAndStats();
+	bool checkBattleOver();
 	
 };
 

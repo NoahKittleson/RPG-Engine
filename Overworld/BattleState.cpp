@@ -41,6 +41,10 @@ void BattleState::update(sf::Clock& timer)
 				break;
 				
 			case attack:
+				if (checkBattleOver()) {		//positioning it here might make dying by poison on last guy wonky
+					mode = make_unique<BattleEndMode>();
+					break;
+				} else {
 				++info.combatants;
 				info.currentAction.clear();
 				info.currentAction.attacker = info.combatants.get();
@@ -48,6 +52,7 @@ void BattleState::update(sf::Clock& timer)
 				currentMode = menu;
 				std::cout << "Mode changed to menu.\n";
 				break;
+				}
 				
 			default:
 				std::cout << "Mode unaccounted for.\n";
@@ -98,6 +103,26 @@ void BattleState::positionSpritesAndStats() {
 		info.combatants[iii]->setStatPosition(position.x + xSpacing * iii, position.y);
 		info.combatants[iii]->setSpritePosition(position.x + xSpacing * iii, position.y - ySpacing);
 	}
+}
+
+bool BattleState::checkBattleOver() {
+	bool playersDead = true;
+	bool enemiesDead = true;
+	for (auto const & character : info.combatants) {
+		if (character->isNPC()) {
+			enemiesDead = character->isIncapped() && enemiesDead;
+		} else {
+			playersDead = character->isIncapped() && playersDead;
+		}
+	}
+	if (playersDead) {
+		currentMode = defeat;
+		return true;
+	} else if (enemiesDead) {
+		currentMode = victory;
+		return true;
+	}
+	return false;
 }
 
 

@@ -44,6 +44,7 @@ public:
 	void adjustMana(int);
 	float getMana() const;
 	bool isNPC() const;
+	bool isIncapped() const;
 	
 	//NEW AND BAD//
 	bool isIdle() {return sprite.getTexture() == idleTexture;};
