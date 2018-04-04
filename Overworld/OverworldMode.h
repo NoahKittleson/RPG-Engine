@@ -38,7 +38,8 @@ private:
 	void drawPlayerCollision(sf::RenderWindow &rw);
 	void drawAllBoxes(sf::RenderWindow &rw);
 	
-	
+	enum ModeType { fadeIn, fadeOut, normal };
+	ModeType currentMode;
 	sf::View view;
 	std::unique_ptr<Mode> mode;
 	//if Commands get complicated, make them their own class, rather than just an enum

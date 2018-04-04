@@ -17,6 +17,10 @@ Fade::Fade(bool inOut, float time) : totalDuration(time) {
     std::cout << "Fade Created\n";
 }
 
+Fade::~Fade() {
+	std::cout << "Fade destroyed\n";
+}
+
 void Fade::update(float elapsed) {
     fadePercent += elapsed / totalDuration;
     if (fadePercent > 1.0f) {
@@ -25,6 +29,9 @@ void Fade::update(float elapsed) {
     sf::Color color = jankScreenFade.getFillColor();
     inOrOut ? color.a = 255 - 255 * fadePercent : color.a = 255 * fadePercent;
     jankScreenFade.setFillColor(color);
+	if ((!inOrOut && color.a >= 255) || (inOrOut && color.a <= 0)) {
+		done = true;
+	}
 }
 
 void Fade::draw(sf::RenderWindow &rw) {

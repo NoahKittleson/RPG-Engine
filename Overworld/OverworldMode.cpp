@@ -114,6 +114,28 @@ void OverworldMode::update(sf::Clock& timer) {
 			checkTriggers();
 		}
 		currentMap->update(elapsed);
+	} if (mode && mode->isDone()) {
+		switch (currentMode) {
+			case fadeIn:
+				currentMode = normal;
+				mode = nullptr;
+				std::cout << "Mode changed to normal.\n";
+				break;
+				
+			case fadeOut:
+				currentMode = fadeIn;
+				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
+				std::cout << "Fade In begun.\n";
+				break;
+				
+			case normal:
+				std::cout << "Something has gone horribly wrong... \n";
+				break;
+				
+			default:
+				std::cout << "Mode unaccounted for.\n";
+				break;
+		}
 	}
 }
 
@@ -195,6 +217,7 @@ bool OverworldMode::checkExits()
 {
 	for (const auto & exit: currentMap->getExitList()) {
 		if (player->intersects(exit.getArea())) {
+			currentMode = fadeOut;
 			mode = std::unique_ptr<Mode>(new Fade(false, 1.f));
 			return true;
 		}
@@ -209,6 +232,7 @@ void OverworldMode::checkTriggers() {
 			if (unsafePtr != nullptr) {
 				currentMap->popTriggerAt(iii);					//I should find a better way to pop triggers
 				requestStackAdd(std::unique_ptr<State>(unsafePtr));
+				currentMode = fadeIn;
 				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
 				std::cout << "Battlestate created.\n";
 			}
