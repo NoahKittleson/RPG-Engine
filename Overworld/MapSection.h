@@ -39,6 +39,8 @@ public:
     const ExitVec& getExitList();
     const TriggerVec& getTriggerList();
 	
+	void popTriggerAt(int index);
+	
 protected:
 	sf::Sprite background;
 	ExitVec exits;

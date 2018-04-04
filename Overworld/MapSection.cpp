@@ -100,6 +100,11 @@ const TriggerVec& MapSection::getTriggerList()
 	return triggers;
 }
 
+void MapSection::popTriggerAt(int index) {
+	triggers.erase(triggers.begin()+index);
+}
+
+
 
 
 

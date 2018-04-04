@@ -203,11 +203,13 @@ bool OverworldMode::checkExits()
 }
 
 void OverworldMode::checkTriggers() {
-	for (const auto & it: currentMap->getTriggerList()) {
-		if (player->intersects(it)) {
-			State* unsafePtr = it.proc(conditions);
+	for (int iii = 0; iii < currentMap->getTriggerList().size(); iii++) {
+		if (player->intersects(currentMap->getTriggerList()[iii])) {
+			State* unsafePtr = currentMap->getTriggerList()[iii].proc(conditions);
 			if (unsafePtr != nullptr) {
+				currentMap->popTriggerAt(iii);					//I should find a better way to pop triggers
 				requestStackAdd(std::unique_ptr<State>(unsafePtr));
+				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
 				std::cout << "Battlestate created.\n";
 			}
 		}
