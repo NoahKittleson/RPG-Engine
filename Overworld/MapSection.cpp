@@ -79,7 +79,9 @@ DNode* MapSection::interact (std::vector<sf::FloatRect> collision) const {
 sf::Vector2u MapSection::getSize()
 {
 	if (background.getTexture()) {
-		return background.getTexture()->getSize();
+		sf::Vector2u area = background.getTexture()->getSize();
+		area = sf::Vector2u(area.x * background.getScale().x, area.y * background.getScale().x);
+		return area;
 	} else {
 		return sf::Vector2u(1000,1000);
 	}

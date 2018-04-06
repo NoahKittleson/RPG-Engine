@@ -112,7 +112,8 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	triggers.emplace_back(prereqs, createBattle, sf::FloatRect(250,150,100,50));
     
     //Set up Zone Exits
-	sf::Vector2u totalArea = sf::Vector2u(1000, 1000);
+    sf::Vector2u totalArea = background.getTexture()->getSize();
+	totalArea = sf::Vector2u(totalArea.x * background.getScale().x, totalArea.y * background.getScale().y);
 
     MapID zoneID = MapID::BigField;
     exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100), sf::Vector2f(0,totalArea.y-70.f), zoneID);
