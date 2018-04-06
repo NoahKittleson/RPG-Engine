@@ -17,13 +17,13 @@ LoadState::LoadState(StateStack& SS) {
 	party.push_back(CharacterGenerator::create(resources, Combatant::Dingus));
     
     //set up player sprite
-	std::vector<sf::FloatRect> emptyList;
-	emptyList.push_back(sf::FloatRect(10,10,20,20));
+	std::vector<sf::FloatRect> collisionList;
+	collisionList.push_back(sf::FloatRect(-10,25,20,5));				//magic numbers all round
 	player = make_unique<PlayerObject>(graphicsPtr(new WalkingAnimation(resources.getTexture(Textures::PlayerWalkingUp),
 												resources.getTexture(Textures::PlayerWalkingDown),
 												resources.getTexture(Textures::PlayerWalkingLeft),
 												resources.getTexture(Textures::PlayerWalkingRight),
-												sf::Vector2f(50,50), 0.1f, sf::Vector2i(16,16))), emptyList);
+												sf::Vector2f(50,50), 0.1f, sf::Vector2i(16,16))), collisionList);
 
 	
     //load conditions into ConditionList

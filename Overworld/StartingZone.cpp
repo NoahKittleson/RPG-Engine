@@ -41,10 +41,9 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	choice->addText("Just leave", optionTwo);
 	
 	
-	//L block Tree
+	//Top-right Tree
 	std::vector<sf::FloatRect> boxlist;
-	boxlist.emplace_back(0, 0, 10, 50);
-	boxlist.emplace_back(0, 0, 50, 10);
+	boxlist.emplace_back(-5, 57, 10, 5);
 	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f(600,90)), boxlist, hey);
 	sprites.back().setScale(4.f);
 	
@@ -67,25 +66,28 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     }
 	
 	//Scarecrow
+	emptyList.emplace_back(-8, 45, 8, 2);
 	sprites.emplace_back(make_unique<DelayedAnimation>(resources.getTexture(Textures::Scarecrow), sf::Vector2f(500,250), 0.1f, sf::Vector2i(32,32), 3.0f), emptyList);
+	emptyList.clear();
 	sprites.back().setScale(3.f);
 	
 	//Collision Wheat
-	boxlist.clear();
-	int xWheat = resources.getTexture(Textures::RollingWheat).getSize().x/2;
-	int yWheat = resources.getTexture(Textures::RollingWheat).getSize().y/2;
-	boxlist.emplace_back(-xWheat/2, -yWheat/2, xWheat, yWheat);
-	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::RollingWheat), sf::Vector2f(300,300)), boxlist);
+//	boxlist.clear();
+//	int xWheat = resources.getTexture(Textures::RollingWheat).getSize().x/2;
+//	int yWheat = resources.getTexture(Textures::RollingWheat).getSize().y/2;
+//	boxlist.emplace_back(-xWheat/2, -yWheat/2, xWheat, yWheat);
+//	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::RollingWheat), sf::Vector2f(300,300)), boxlist);
 	
 	//Yak
-	emptyList.push_back(sf::FloatRect(-30,70,50,15));		//magic numbers galore.
+	emptyList.push_back(sf::FloatRect(-30,15,50,15));		//magic numbers galore.
 	sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::Yak), sf::Vector2f(100,325), 0.1f, sf::Vector2i(40,40)), emptyList);
 	emptyList.clear();
 	sprites.back().setScale(3.f);
 	sprites.back().offsetBase(-30);
 	
 	//Campfire
-	emptyList.push_back(sf::FloatRect(-30,60,50,25));		//magic numbers galore.
+	emptyList.push_back(sf::FloatRect(-30,70,50,25));		//magic numbers galore.
+	emptyList.push_back(sf::FloatRect(-40,80,70,10));		//magic numbers galore.
 	sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::Campfire), sf::Vector2f(600,300), 0.1f, sf::Vector2i(32,64)), emptyList);
 	emptyList.clear();
 	sprites.back().setScale(3.f);
@@ -93,9 +95,8 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	
 	//Another Tree
 	boxlist.clear();
-	int xIcon = resources.getTexture(Textures::Tree).getSize().x/2;
-	int yIcon = resources.getTexture(Textures::Tree).getSize().y/2;
-	boxlist.emplace_back(-xIcon/2, -yIcon/2, xIcon, yIcon);
+	sf::Vector2u size = resources.getTexture(Textures::Tree).getSize();
+	boxlist.emplace_back(-size.x, -size.y, size.x, size.y);
 	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f (150,400)), boxlist);
 	sprites.back().setScale(4.f);
 
