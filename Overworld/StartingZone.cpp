@@ -16,7 +16,8 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 : MapSection(MapID::Starting, "nice_music.ogg"), talkNodeHolder(NO_OF_TALKNODES, resources.getFont(Fonts::Sansation)),optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont(Fonts::Sansation)) {
 	
     std::vector<sf::FloatRect> emptyList;
-    background.setTexture(resources.getTexture(Textures::CuteImage));
+    background.setTexture(resources.getTexture(Textures::TestBackground));
+	background.setScale(4, 4);
 	sprites.reserve(NO_OF_SPRITES);
 	
 	//Set up Dialogues
@@ -111,7 +112,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	triggers.emplace_back(prereqs, createBattle, sf::FloatRect(250,150,100,50));
     
     //Set up Zone Exits
-    sf::Vector2u totalArea = background.getTexture()->getSize();
+	sf::Vector2u totalArea = sf::Vector2u(1000, 1000);
 
     MapID zoneID = MapID::BigField;
     exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100), sf::Vector2f(0,totalArea.y-70.f), zoneID);

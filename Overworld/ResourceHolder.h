@@ -28,7 +28,8 @@ namespace Textures {
 		PlayerWalkingLeft,
 		PlayerWalkingRight,
 		Campfire,
-		Yak
+		Yak,
+		TestBackground
 	};
 }
 

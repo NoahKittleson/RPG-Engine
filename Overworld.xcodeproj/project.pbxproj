@@ -68,6 +68,7 @@
 		B7DD37451C35DFFC0089224E /* BattleState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DD37431C35DFFC0089224E /* BattleState.cpp */; };
 		B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */; };
 		B7EE61632071DEAD00AA376E /* BattleEndMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7EE61612071DEAD00AA376E /* BattleEndMode.cpp */; };
+		B7EE61652077AEE700AA376E /* testbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EE61642077AEE700AA376E /* testbackground.png */; };
 		B7F96FDA1FFCD21B00FAB91B /* BattleAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */; };
 /* End PBXBuildFile section */
 
@@ -177,6 +178,7 @@
 		B7E5DD491AE879C800E6EA3F /* OverworldMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverworldMode.h; sourceTree = "<group>"; usesTabs = 1; };
 		B7EE61612071DEAD00AA376E /* BattleEndMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleEndMode.cpp; sourceTree = "<group>"; };
 		B7EE61622071DEAD00AA376E /* BattleEndMode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleEndMode.hpp; sourceTree = "<group>"; };
+		B7EE61642077AEE700AA376E /* testbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testbackground.png; sourceTree = "<group>"; };
 		B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleAction.cpp; sourceTree = "<group>"; };
 		B7F96FD91FFCD21B00FAB91B /* BattleAction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleAction.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -308,6 +310,7 @@
 		B77783F91AE5C57D007FA840 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B7EE61642077AEE700AA376E /* testbackground.png */,
 				B7701D841EF4740D006AB891 /* Campfire.png */,
 				B7023E121BB61A43005A6F93 /* BadAttackAnimation.png */,
 				B7023E141BB61A4A005A6F93 /* BasicIdle.png */,
@@ -463,6 +466,7 @@
 				B77783FF1AE5C57D007FA840 /* sansation.ttf in Resources */,
 				B73F35041E4B0963007EC4AC /* PlayerWalkingRight.png in Resources */,
 				B7701D851EF4740D006AB891 /* Campfire.png in Resources */,
+				B7EE61652077AEE700AA376E /* testbackground.png in Resources */,
 				B79E29881BA0E1C80020BA93 /* RollingWheat.png in Resources */,
 				B77783FD1AE5C57D007FA840 /* nice_music.ogg in Resources */,
 				B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */,

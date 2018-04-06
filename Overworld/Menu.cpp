@@ -78,7 +78,6 @@ void Menu::handleInput(sf::RenderWindow& rw) {
 }
 
 void Menu::addChild(MenuItem item) {
-	std::cout << "item: " << item.getName() << "\n";
 	children.push_back(item);
 	if (children.size() == 1) {
 		children[0].select();

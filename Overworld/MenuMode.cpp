@@ -17,7 +17,6 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info) {
 	const Ability& autoAttack = info.currentAction.attacker->getBasicAttack();
 	auto attackFunc = [&info, &autoAttack] () {
 		info.currentAction.ability = &autoAttack;
-		std::cout << "Ability set: " << autoAttack.getName() << "\n";
 	};
 	
 	primaryMenu->addChild(MenuItem("Attack", targetMenu, font, attackFunc));
@@ -40,11 +39,6 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info) {
 		auto function = [&info, &ability] () {
 			info.currentAction.ability = &ability;
 		};
-		std::cout << "Ability set: " << ability.getName() << "\n";
-		std::cout << "ABILITY ADDRESS:" << &ability << "\n";
-		std::cout << "Ability should be: " << info.currentAction.attacker->getAbilityList()[0].getName() << "\n";
-		std::cout << "ABILITY ADDRESS should be: " << &info.currentAction.attacker->getAbilityList()[0] << "\n";
-
 		MenuItem addMe (ability.getName(), targetMenu, font, function);
 		if (info.combatants.get()->checkAbilityCost(ability)) {
 			addMe.setSelect(true);
