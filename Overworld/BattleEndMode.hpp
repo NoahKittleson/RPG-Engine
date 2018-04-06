@@ -22,4 +22,5 @@ private:
 	sf::RectangleShape screenFade;
 	float alpha = 0;
 	sf::Text youDied;
+	float lingerTime = 1.f;			//kinda magic number...
 };
