@@ -8,7 +8,14 @@
 
 #include "BattleEndMode.hpp"
 
-BattleEndMode::BattleEndMode() {
+BattleEndMode::BattleEndMode(bool victory, const sf::Font& font)
+: victory(victory)
+{
+	youDied.setFont(font);
+	victory ? youDied.setString("You Defeated") : youDied.setString("You Died");
+	youDied.setCharacterSize(100);
+	youDied.setOrigin(youDied.getLocalBounds().width/2, youDied.getLocalBounds().height/2);
+	youDied.setPosition(500, 350);										//these are cheating magic numbers
 	screenFade.setSize(sf::Vector2f(1000,1000));
 	screenFade.setPosition(0, 0);
 	screenFade.setFillColor(sf::Color(0,0,0,0));
@@ -24,6 +31,7 @@ void BattleEndMode::update(float elapsed) {
 
 void BattleEndMode::draw(sf::RenderWindow &rw) {
 	rw.draw(screenFade);
+	rw.draw(youDied);
 }
 
 void BattleEndMode::handleInput(sf::RenderWindow &rw) {

@@ -42,7 +42,6 @@ void BattleState::update(sf::Clock& timer)
 				
 			case attack:
 				if (checkBattleOver()) {		//positioning it here might make dying by poison on last guy wonky
-					mode = make_unique<BattleEndMode>();
 					break;
 				} else {
 				++info.combatants;
@@ -122,9 +121,11 @@ bool BattleState::checkBattleOver() {
 	}
 	if (playersDead) {
 		currentMode = defeat;
+		mode = make_unique<BattleEndMode>(false, resources.getFont(Fonts::Sansation));
 		return true;
 	} else if (enemiesDead) {
 		currentMode = victory;
+		mode = make_unique<BattleEndMode>(true, resources.getFont(Fonts::Sansation));
 		return true;
 	}
 	return false;
