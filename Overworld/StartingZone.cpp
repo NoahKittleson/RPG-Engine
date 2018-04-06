@@ -15,7 +15,7 @@
 StartingZone::StartingZone(const ResourceHolder& resources)
 : MapSection(MapID::Starting, "nice_music.ogg"), talkNodeHolder(NO_OF_TALKNODES, resources.getFont(Fonts::Sansation)),optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont(Fonts::Sansation)) {
 	
-    std::vector<sf::FloatRect> emptyList;
+	std::vector<sf::FloatRect> boxList;
     background.setTexture(resources.getTexture(Textures::TestBackground));
 	background.setScale(4, 4);
 	sprites.reserve(NO_OF_SPRITES);
@@ -46,6 +46,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	boxlist.emplace_back(-5, 57, 10, 5);
 	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f(600,90)), boxlist, hey);
 	sprites.back().setScale(4.f);
+	boxList.clear();
 	
     //Set up Non-interactable wheat field
 	sf::Vector2f position (200,100);
@@ -57,7 +58,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     int rowOffset = 20;
     for (int iii = 0; iii < rows; iii++) {
         for (int jjj = 0; jjj < columns-1; jjj++) {
-            sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::RollingWheat), position, 0.2f, sf::Vector2i(32,32)), emptyList);
+            sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::RollingWheat), position, 0.2f, sf::Vector2i(32,32)), boxList);
             sprites.back().addTime(timeOffset * (iii * columns + jjj));
 			sprites.back().setScale(3.f);
 			position += sf::Vector2f(verticalGap, 0);
@@ -66,10 +67,10 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     }
 	
 	//Scarecrow
-	emptyList.emplace_back(-8, 45, 8, 2);
-	sprites.emplace_back(make_unique<DelayedAnimation>(resources.getTexture(Textures::Scarecrow), sf::Vector2f(500,250), 0.1f, sf::Vector2i(32,32), 3.0f), emptyList);
-	emptyList.clear();
+	boxList.emplace_back(-8, 45, 8, 2);
+	sprites.emplace_back(make_unique<DelayedAnimation>(resources.getTexture(Textures::Scarecrow), sf::Vector2f(500,250), 0.1f, sf::Vector2i(32,32), 3.0f), boxList);
 	sprites.back().setScale(3.f);
+	boxList.clear();
 	
 	//Collision Wheat
 //	boxlist.clear();
@@ -79,26 +80,25 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 //	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::RollingWheat), sf::Vector2f(300,300)), boxlist);
 	
 	//Yak
-	emptyList.push_back(sf::FloatRect(-30,15,50,15));		//magic numbers galore.
-	sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::Yak), sf::Vector2f(100,325), 0.1f, sf::Vector2i(40,40)), emptyList);
-	emptyList.clear();
+	boxList.push_back(sf::FloatRect(-30,15,50,15));		//magic numbers galore.
+	sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::Yak), sf::Vector2f(100,325), 0.1f, sf::Vector2i(40,40)), boxList);
 	sprites.back().setScale(3.f);
 	sprites.back().offsetBase(-30);
+	boxList.clear();
 	
 	//Campfire
-	emptyList.push_back(sf::FloatRect(-30,70,50,25));		//magic numbers galore.
-	emptyList.push_back(sf::FloatRect(-40,80,70,10));		//magic numbers galore.
-	sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::Campfire), sf::Vector2f(600,300), 0.1f, sf::Vector2i(32,64)), emptyList);
-	emptyList.clear();
+	boxList.push_back(sf::FloatRect(-30,70,50,25));		//magic numbers galore.
+	boxList.push_back(sf::FloatRect(-40,80,70,10));		//magic numbers galore.
+	sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::Campfire), sf::Vector2f(600,300), 0.1f, sf::Vector2i(32,64)), boxList);
 	sprites.back().setScale(3.f);
+	boxList.clear();
 	
 	
 	//Another Tree
-	boxlist.clear();
-	sf::Vector2u size = resources.getTexture(Textures::Tree).getSize();
-	boxlist.emplace_back(-size.x, -size.y, size.x, size.y);
-	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f (150,400)), boxlist);
+	boxList.emplace_back(-5, 57, 10, 5);
+	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f (150,400)), boxList);
 	sprites.back().setScale(4.f);
+	boxList.clear();
 
 	
     //Set up Trigger for Fighting
