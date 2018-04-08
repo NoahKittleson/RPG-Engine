@@ -106,6 +106,17 @@ void MapSection::popTriggerAt(int index) {
 	triggers.erase(triggers.begin()+index);
 }
 
+void MapSection::drawExits(sf::RenderWindow &rw) const {
+	for (auto & exit : exits) {
+		sf::FloatRect area = exit.getArea();
+		sf::RectangleShape visibleExit (sf::Vector2f(area.top, area.left));
+		visibleExit.setSize(sf::Vector2f(area.width, area.height));
+		visibleExit.setFillColor(sf::Color(0,0,0,100));
+		rw.draw(visibleExit);
+	}
+}
+
+
 
 
 

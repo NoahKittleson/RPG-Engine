@@ -72,13 +72,6 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	sprites.back().setScale(3.f);
 	boxList.clear();
 	
-	//Collision Wheat
-//	boxlist.clear();
-//	int xWheat = resources.getTexture(Textures::RollingWheat).getSize().x/2;
-//	int yWheat = resources.getTexture(Textures::RollingWheat).getSize().y/2;
-//	boxlist.emplace_back(-xWheat/2, -yWheat/2, xWheat, yWheat);
-//	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::RollingWheat), sf::Vector2f(300,300)), boxlist);
-	
 	//Yak
 	boxList.push_back(sf::FloatRect(-30,15,50,15));		//magic numbers galore.
 	sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::Yak), sf::Vector2f(100,325), 0.1f, sf::Vector2i(40,40)), boxList);
@@ -113,14 +106,15 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	triggers.emplace_back(prereqs, createBattle, sf::FloatRect(250,150,100,50));
     
     //Set up Zone Exits
-    sf::Vector2u totalArea = background.getTexture()->getSize();
-	totalArea = sf::Vector2u(totalArea.x * background.getScale().x, totalArea.y * background.getScale().y);
+	sf::Vector2u totalArea = sf::Vector2u(background.getTexture()->getSize().x * background.getScale().x,
+										  background.getTexture()->getSize().y * background.getScale().y);
 
-    MapID zoneID = MapID::BigField;
-    exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100), sf::Vector2f(0,totalArea.y-70.f), zoneID);
-    exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y), sf::Vector2f(totalArea.x-50.f,0), zoneID);
-    exits.emplace_back(sf::FloatRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(50.f-totalArea.x,0), zoneID);
-    exits.emplace_back(sf::FloatRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,70.f-totalArea.y), zoneID);
+	std::cout << "Size of area: " << totalArea.x << ", " << totalArea.y << "\n";
+	exits.emplace_back(sf::FloatRect(-100,0,totalArea.x,100), sf::Vector2f(0,totalArea.y-70.f), MapID::BigField);
+//    exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100), sf::Vector2f(0,totalArea.y-70.f), MapID::BigField);
+//    exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y), sf::Vector2f(totalArea.x-50.f,0), MapID::BigField);
+//    exits.emplace_back(sf::FloatRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(50.f-totalArea.x,0), MapID::BigField);
+//    exits.emplace_back(sf::FloatRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,70.f-totalArea.y), MapID::BigField);
 	
 }
 

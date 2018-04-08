@@ -65,5 +65,4 @@ protected:
 	
 	
 	//where do I store the walkingState?
-	
 };

@@ -39,6 +39,8 @@ public:
     const ExitVec& getExitList();
     const TriggerVec& getTriggerList();
 	
+	void drawExits(sf::RenderWindow &rw) const;
+	
 	void popTriggerAt(int index);
 	
 protected:
