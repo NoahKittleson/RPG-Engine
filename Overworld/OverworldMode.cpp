@@ -110,8 +110,8 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	rw.setView(view);
 	currentMap->drawBackground(rw);
 	drawAllBoxes(rw);
-	currentMap->drawAllObjects(rw, *player);
 	currentMap->drawExits(rw);
+	currentMap->drawAllObjects(rw, *player);
 	if (mode) {
 		mode->draw(rw);
 	}
