@@ -75,7 +75,11 @@ void OverworldMode::update(sf::Clock& timer) {
 	if (mode) {
 		mode->update(elapsed);
 	} else {
-		if (checkExits() || handleMovement(elapsed)) {
+		int index = checkExits();
+		if (index >= 0) {
+			currentMode = fadeOut;
+			mode = std::unique_ptr<Mode>(new Fade(false, 1.f));
+		} else if (handleMovement(elapsed)) {
 			updateView();
 			checkTriggers();
 		}
@@ -88,10 +92,17 @@ void OverworldMode::update(sf::Clock& timer) {
 				std::cout << "Mode changed to normal.\n";
 				break;
 				
-			case fadeOut:
+			case fadeOut: {
 				currentMode = fadeIn;
+				int exitIndex = checkExits();
+				if (exitIndex >= 0) {
+					sf::Vector2f movement = currentMap->getExitList()[exitIndex].getMoveOffset();
+					player->move(movement);
+					updateView();
+				}
 				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
 				std::cout << "Fade In begun.\n";
+			}
 				break;
 				
 			case normal:
@@ -180,16 +191,14 @@ bool OverworldMode::handleMovement(float elapsed) {
 	} else return true;
 }
 
-bool OverworldMode::checkExits()
+int OverworldMode::checkExits()
 {
-	for (const auto & exit: currentMap->getExitList()) {
-		if (player->intersects(exit.getArea())) {
-			currentMode = fadeOut;
-			mode = std::unique_ptr<Mode>(new Fade(false, 1.f));
-			return true;
+	for (int iii = 0; iii < currentMap->getExitList().size(); iii++) {
+		if (player->intersects(currentMap->getExitList()[iii].getArea())) {
+			return iii;
 		}
 	}
-	return false;
+	return -1;
 }
 
 void OverworldMode::checkTriggers() {
