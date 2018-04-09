@@ -75,7 +75,7 @@ void OverworldMode::update(sf::Clock& timer) {
 	if (mode) {
 		mode->update(elapsed);
 	} else {
-		if (handleMovement(elapsed) || checkExits()) {
+		if (checkExits() || handleMovement(elapsed)) {
 			updateView();
 			checkTriggers();
 		}
