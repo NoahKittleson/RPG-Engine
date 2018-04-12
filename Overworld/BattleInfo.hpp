@@ -15,7 +15,4 @@ struct BattleInfo : sf::NonCopyable {
 	std::vector<std::shared_ptr<Character>> NPCs;
 	std::vector<std::shared_ptr<Character>> PCs;
 	BattleAction currentAction;
-	
-	//why did I think this was a useful method?
-	//void clear();
 };

@@ -88,12 +88,11 @@ void MapObject::drawCenter(sf::RenderWindow &rw) const{
 	rect.setFillColor(sf::Color::Blue);
 	rect.setPosition(graphics->getPosition().x,
 					 graphics->getPosition().y);
-	//std::cout << "drawing center at: " << graphics->getPosition().x << ", " << graphics->getPosition().y << "\n";
 }
 
 void MapObject::drawCollision(sf::RenderWindow& rw) const {
 	sf::RectangleShape rectangle;
-	rectangle.setFillColor(sf::Color::Red);
+	rectangle.setFillColor(sf::Color(255,0,0,200));				//partially opaque red
 	for (auto const & it: collisionBoxes) {
 		rectangle.setSize(sf::Vector2f(it.width, it.height));
 		rectangle.setPosition(it.left, it.top);
