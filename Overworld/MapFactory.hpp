@@ -8,13 +8,11 @@
 
 #pragma once
 #include "MapSection.h"
+#include "BigField.hpp"
+#include "StartingZone.h"
 
 class MapFactory {
 public:
 	enum SectionName { StartingZone, BigField };
-	static MapSection create();
-	
-private:
-	
-	
+	static std::unique_ptr<MapSection> create(SectionName toCreate, ResourceHolder& resources);
 };
