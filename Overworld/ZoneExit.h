@@ -9,8 +9,8 @@
 #pragma once
 #include "PrefixHeader.pch"
 
-
-enum class MapID {Starting, BigField};
+//make sure enum names are camel-case so it doesn't get confused with identical class names
+enum class MapID {StartingZone, BigField};
 
 class ZoneExit
 {

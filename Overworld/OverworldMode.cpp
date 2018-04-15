@@ -133,21 +133,7 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 void OverworldMode::changeMap(ZoneExit exit) {
 	MapID nextZone = exit.getNextZone();
 	if (nextZone != currentMap->ID) {
-		//change maps
-		switch (nextZone) {
-			case MapID::Starting:
-				currentMap = std::unique_ptr<MapSection>(new StartingZone(resources));
-				break;
-				
-			case MapID::BigField:
-				currentMap = std::unique_ptr<MapSection>(new BigField(resources));
-				break;
-						
-			default:
-				//just in case.  It's better than a game crash.
-				currentMap = std::unique_ptr<MapSection>(new StartingZone(resources));
-				break;
-		}
+		currentMap = MapFactory::create(nextZone, resources);
 	}
 	sf::Vector2f transitionOffset = exit.getMoveOffset();
 	player->move(transitionOffset.x, transitionOffset.y);

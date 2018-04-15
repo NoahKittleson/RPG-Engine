@@ -9,13 +9,13 @@
 #include "MapFactory.hpp"
 
 
-std::unique_ptr<MapSection> MapFactory::create(SectionName toCreate, ResourceHolder& resources) {
+std::unique_ptr<MapSection> MapFactory::create(MapID toCreate, const ResourceHolder& resources) {
 	switch (toCreate) {
-		case BigField:
+		case MapID::BigField:
 			return make_unique<BigField>(resources);
 			break;
 			
-		case StartingZone:
+		case MapID::StartingZone:
 			return make_unique<StartingZone>(resources);
 			break;
 			

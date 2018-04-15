@@ -13,6 +13,6 @@
 
 class MapFactory {
 public:
-	enum SectionName { StartingZone, BigField };
-	static std::unique_ptr<MapSection> create(SectionName toCreate, ResourceHolder& resources);
+	//MapID list can be found in ZoneExit for whatever reason
+	static std::unique_ptr<MapSection> create(MapID toCreate, const ResourceHolder& resources);
 };

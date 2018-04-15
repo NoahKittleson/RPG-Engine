@@ -16,6 +16,7 @@
 #include "DialogueMode.h"
 #include "BattleState.h"
 #include "Fade.hpp"
+#include "MapFactory.hpp"
 
 
 class OverworldMode: public State
