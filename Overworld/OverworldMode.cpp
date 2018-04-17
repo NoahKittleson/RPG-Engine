@@ -11,8 +11,7 @@
 #define COLLISION_BOX_EXTRA 10
 
 
-OverworldMode::OverworldMode()
-{
+OverworldMode::OverworldMode() {
 	view.setSize(sf::Vector2f(1024,768));			//this is very much cheating but I don't want to figure this out right now.
 	view.zoom(0.5);
 	view.setCenter(player->getPosition());
@@ -177,8 +176,7 @@ bool OverworldMode::handleMovement(float elapsed) {
 	} else return true;
 }
 
-int OverworldMode::checkExits()
-{
+int OverworldMode::checkExits() {
 	for (int iii = 0; iii < currentMap->getExitList().size(); iii++) {
 		if (player->intersects(currentMap->getExitList()[iii].getArea())) {
 			return iii;
@@ -202,13 +200,11 @@ void OverworldMode::checkTriggers() {
 	}
 }
 
-void OverworldMode::drawPlayerCollision(sf::RenderWindow &rw)
-{
+void OverworldMode::drawPlayerCollision(sf::RenderWindow &rw) {
 	player->drawCollision(rw);
 }
 
-void OverworldMode::drawAllBoxes(sf::RenderWindow &rw)
-{
+void OverworldMode::drawAllBoxes(sf::RenderWindow &rw) {
 	//collision
 	for (auto && it: currentMap->getSpriteList()) {
 		it.drawCollision(rw);
@@ -221,8 +217,7 @@ void OverworldMode::drawAllBoxes(sf::RenderWindow &rw)
 	}
 }
 
-void OverworldMode::updateView()
-{
+void OverworldMode::updateView() {
 	sf::Vector2f NewPosition = player->getPosition();
 	int viewWidth = view.getSize().x;
 	int viewHeight = view.getSize().y;
@@ -241,8 +236,7 @@ void OverworldMode::updateView()
 	view.setCenter(NewPosition);
 }
 
-void OverworldMode::checkForInteraction(sf::RenderWindow &rw)
-{
+void OverworldMode::checkForInteraction(sf::RenderWindow &rw) {
 	DNode* dialoguePtr = player->interact(*currentMap);
 	if (dialoguePtr) {
 		std::cout << "dialogueMode created\n";

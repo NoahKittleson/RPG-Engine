@@ -10,17 +10,15 @@
 #include "PrefixHeader.pch"
 #include "GraphicsComponent.hpp"
 #include "DNode.h"
-//#include "InputComponent.hpp"
 
 class GraphicsComponent;
 
 using RectVec = std::vector<sf::FloatRect>;
 using graphicsPtr = std::unique_ptr<GraphicsComponent>;
 
-
 class MapObject {
 public:
-	MapObject(graphicsPtr&& gc, RectVec collision, DNode* dialogue = nullptr);
+	MapObject(graphicsPtr&& gc, RectVec collision);
 	~MapObject();
 	MapObject(const MapObject& obj);  // copy constructor
 	
@@ -48,6 +46,7 @@ public:
 	
 	//dialogue
 	DNode* getDNode() const;
+	void addDialogue(std::unique_ptr<DNode> toAdd);
 	
 protected:
 	//graphics
@@ -56,13 +55,12 @@ protected:
 	//physics
 	RectVec collisionBoxes;
 	
-	//input
-	//InputComponent* input;
-	
 	//interaction
 	//DialogueComponent* dialogue;
-	DNode* dialogue;
-	
+	//DNode* dialogue;
+	std::vector<std::unique_ptr<DNode>> dialogues;
+	//what if I instead had the whole list of DialogueNodes that this guy will use?
 	
 	//where do I store the walkingState?
 };
+

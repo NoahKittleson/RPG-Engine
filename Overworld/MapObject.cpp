@@ -8,8 +8,8 @@
 
 #include "MapObject.hpp"
 
-MapObject::MapObject(graphicsPtr&& gc, RectVec collision, DNode* dia)
-: graphics(std::move(gc)), dialogue(dia)
+MapObject::MapObject(graphicsPtr&& gc, RectVec collision)
+: graphics(std::move(gc))
 {
 	sf::Vector2f position = graphics->getPosition();
 	for (auto && box : collision) {
@@ -154,8 +154,13 @@ bool MapObject::intersects(sf::FloatRect box) const {
 }
 
 DNode* MapObject::getDNode() const {
-	return dialogue;
+	return &dialogues[0];
 }
+
+void MapObject::addDialogue(std::unique_ptr<DNode> toAdd) {
+	
+}
+
 
 
 
