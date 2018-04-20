@@ -22,7 +22,7 @@ public:
     void update(float elapsed) override;
     void draw(sf::RenderWindow &rw) override;
     void handleInput(sf::Event&) override;
-    DNode* getNext() override;
+	virtual std::unique_ptr<DNode> getNext() override;
     
 private:
     IterVector<std::pair<sf::String, DNode*>> text;

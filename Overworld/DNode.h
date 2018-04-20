@@ -23,7 +23,7 @@ public:
     virtual void update(float) = 0;
     virtual void draw(sf::RenderWindow &rw) = 0;
     virtual void handleInput(sf::Event&) = 0;
-    virtual DNode* getNext() = 0;
+	virtual std::unique_ptr<DNode> getNext() = 0;
 	
 	virtual void addCondition(Condition add);
 	virtual void resolveConditions(std::vector<Condition>& cv) const;

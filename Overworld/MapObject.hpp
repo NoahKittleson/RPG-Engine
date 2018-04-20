@@ -46,7 +46,7 @@ public:
 	
 	//dialogue
 	DNode* getDNode() const;
-	void addDialogue(std::unique_ptr<DNode> toAdd);
+	void addDialogue(std::shared_ptr<DNode> toAdd);
 	
 protected:
 	//graphics
@@ -58,7 +58,7 @@ protected:
 	//interaction
 	//DialogueComponent* dialogue;
 	//DNode* dialogue;
-	std::vector<std::unique_ptr<DNode>> dialogues;
+	std::vector<std::shared_ptr<DNode>> dialogues;
 	//what if I instead had the whole list of DialogueNodes that this guy will use?
 	
 	//where do I store the walkingState?

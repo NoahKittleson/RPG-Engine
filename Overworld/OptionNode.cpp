@@ -54,7 +54,7 @@ void OptionNode::handleInput(sf::Event &event)
     }
 }
 
-DNode* OptionNode::getNext()
+std::unique_ptr<DNode> OptionNode::getNext();
 {
     DNode* returnVal = text.get().second;
     text.reset();
