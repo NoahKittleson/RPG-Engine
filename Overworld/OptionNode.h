@@ -17,14 +17,16 @@ public:
     OptionNode(const sf::Font& font);
     ~OptionNode();
     
-    void addText(sf::String&&, DNode*);
+    void addText(sf::String&&, NodePtr);
     
     void update(float elapsed) override;
     void draw(sf::RenderWindow &rw) override;
     void handleInput(sf::Event&) override;
-	virtual std::unique_ptr<DNode> getNext() override;
+	NodePtr getNext() const override;
+	void attachNext(NodePtr next) override;
+
     
 private:
-    IterVector<std::pair<sf::String, DNode*>> text;
+    IterVector<std::pair<sf::String, NodePtr>> text;
     std::string getText() override;
 };

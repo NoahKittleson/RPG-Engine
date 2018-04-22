@@ -360,9 +360,9 @@
 			children = (
 				B75ABA281C7BE1C400B9FFDE /* DialogueMode.h */,
 				B75ABA271C7BE1C400B9FFDE /* DialogueMode.cpp */,
+				B7701D821EF262EA006AB891 /* Conditions.cpp */,
 				B75ABA1B1C7BD81D00B9FFDE /* DNode.h */,
 				B75ABA1C1C7BD81D00B9FFDE /* DNode.cpp */,
-				B7701D821EF262EA006AB891 /* Conditions.cpp */,
 				B75ABA1D1C7BD81D00B9FFDE /* OptionNode.h */,
 				B75ABA1E1C7BD81D00B9FFDE /* OptionNode.cpp */,
 				B75ABA1F1C7BD81D00B9FFDE /* TalkNode.h */,
