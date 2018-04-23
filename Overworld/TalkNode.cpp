@@ -8,19 +8,16 @@
 
 #include "TalkNode.h"
 
-TalkNode::~TalkNode()
-{
+TalkNode::~TalkNode() {
     std::cout << "TalkNode deleted. Text:" << getText() << "\n";
 }
 
 
-void TalkNode::setNext(DNode *ptr)
-{
-    next = ptr;
-}
+//void TalkNode::setNext(NodePtr ptr) {
+//    next = ptr;
+//}
 
-std::string TalkNode::getText()
-{
+std::string TalkNode::getText() {
     if (text.size()) {
         return text[0];
     }
@@ -28,18 +25,15 @@ std::string TalkNode::getText()
 }
 
 TalkNode::TalkNode(const sf::Font &font)
-: DNode(font)
-{
+: DNode(font) {
     text.setLooping(false);
 }
 
-void TalkNode::addText(sf::String&& add)
-{
+void TalkNode::addText(sf::String&& add) {
     text.push_back(add);
 }
 
-void TalkNode::update(float elapsed)
-{
+void TalkNode::update(float elapsed) {
     auto displayString = display.getString();
     totalElapsed += elapsed;
     
@@ -55,8 +49,7 @@ void TalkNode::update(float elapsed)
 }
 
 
-void TalkNode::draw(sf::RenderWindow &rw)
-{
+void TalkNode::draw(sf::RenderWindow &rw) {
     rw.draw(display);
 }
 
@@ -65,13 +58,11 @@ void TalkNode::clear() {
     totalElapsed = 0;
 }
 
-void TalkNode::handleInput(sf::Event &)         //perhaps for later?
-{
+void TalkNode::handleInput(sf::Event &) {        //perhaps for later?
     return;
 }
 
-DNode* TalkNode::getNext()
-{
+NodePtr TalkNode::getNext() {
 	//completes text if still printing to screen
     if (text.get().getSize() != display.getString().getSize()) {
         display.setString(text.get());

@@ -22,7 +22,7 @@ public:
     void update(float elapsed) override;
     void draw(sf::RenderWindow &rw) override;
     void handleInput(sf::Event&) override;
-	NodePtr getNext() const override;
+	NodePtr getNext() override;
 	void attachNext(NodePtr next) override;
 
     

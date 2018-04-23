@@ -17,17 +17,17 @@ public:
     ~TalkNode();
     
     void addText(sf::String&&);
-    void setNext(DNode *ptr);
-    
+    //void setNext(NodePtr ptr);
+	
     void clear() override;
-    
     void update(float elapsed) override;
     void draw(sf::RenderWindow &rw) override;
     void handleInput(sf::Event&) override;
-    DNode* getNext() override;
-    
+    NodePtr getNext() override;
+	void attachNext(NodePtr next) override;
+
 private:
-    DNode* next {nullptr};
+    NodePtr next {nullptr};
     float totalElapsed {0};
     IterVector<sf::String> text;
     

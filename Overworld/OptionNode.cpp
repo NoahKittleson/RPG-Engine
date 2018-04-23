@@ -49,9 +49,9 @@ void OptionNode::handleInput(sf::Event &event) {
     }
 }
 
-NodePtr OptionNode::getNext() const {
-    DNode* returnVal = text.get().second;
-    text.reset();
+NodePtr OptionNode::getNext() {
+	NodePtr returnVal = std::make_shared<DNode>(text.get().second);
+	text.reset();
     if (returnVal) {
         returnVal->setPosition(getPosition());
     }
@@ -64,3 +64,8 @@ std::string OptionNode::getText() {
     }
     return "EMPTY TEXT";
 }
+
+void OptionNode::attachNext(NodePtr next) {
+	
+}
+
