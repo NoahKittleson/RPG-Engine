@@ -28,7 +28,6 @@ public:
     virtual void draw(sf::RenderWindow &rw) = 0;
     virtual void handleInput(sf::Event&) = 0;
 	virtual NodePtr getNext() = 0;
-	virtual void attachNext(NodePtr next) = 0;
 	
 	virtual void addCondition(Condition add);
 	virtual void resolveConditions(std::vector<Condition>& cv) const;

@@ -23,7 +23,7 @@ public:
     void draw(sf::RenderWindow &rw) override;
     void handleInput(sf::Event&) override;
 	NodePtr getNext() override;
-	void attachNext(NodePtr next) override;
+	void attachNext(NodePtr next);
 
     
 private:
