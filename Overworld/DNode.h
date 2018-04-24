@@ -29,13 +29,16 @@ public:
     virtual void handleInput(sf::Event&) = 0;
 	virtual NodePtr getNext() = 0;
 	
-	virtual void addCondition(Condition add);
+	virtual void addPreReq(Condition add);
+	virtual void addConsequence(Condition add);
 	virtual void resolveConditions(std::vector<Condition>& cv) const;
+	virtual bool checkConditions(const std::vector<Condition>& cv) const;
+
     
 protected:
     sf::Text display;
-	std::vector<Condition> conds;
+	std::vector<Condition> preReqs;
+	std::vector<Condition> consequences;
 	
     virtual std::string getText() = 0;
-
 };

@@ -30,14 +30,28 @@ void DNode::clear() {
     display.setString("");
 }
 
+void DNode::addConsequence(Condition add) {
+	consequences.push_back(add);
+}
+
+void DNode::addPreReq(Condition add) {
+	consequences.push_back(add);
+}
+
 void DNode::resolveConditions(std::vector<Condition>& cv) const {
-	for (auto const & it : conds) {
+	for (auto const & it : consequences) {
 		if (std::find(cv.begin(), cv.end(), it) == cv.end()) {
 			cv.push_back(it);
 		}
 	}
 }
 
-void DNode::addCondition(Condition add) {
-	conds.push_back(add);
+bool DNode::checkConditions(const std::vector<Condition>& cv) const {
+	for (auto const & it : preReqs) {
+		if (std::find(cv.begin(), cv.end(), it) == cv.end()) {
+			return false;
+		}
+	}
+	return true;
 }
+
