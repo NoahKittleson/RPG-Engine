@@ -10,13 +10,13 @@
 #include "TalkNode.h"
 #include "OptionNode.h"
 #include "ResourceHolder.h"
+#include "DialogueIDs.cpp"
 
 class DialogueFactory
 {
 public:
-	DialogueFactory() = 0;
-	enum ID { Error, None, Test001, Test002, };
-	static NodePtr create(ID toCreate, const ResourceHolder& rh);
+	DialogueFactory() = delete;
+	static NodePtr create(Dialogue::ID toCreate, const ResourceHolder& rh);
 	
 private:
 	

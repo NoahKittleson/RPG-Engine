@@ -10,6 +10,7 @@
 #include "PrefixHeader.pch"
 #include "IterVector.hpp"
 #include "Conditions.cpp"
+#include "DialogueIDs.cpp"
 
 class DNode;
 
@@ -34,7 +35,6 @@ public:
 	virtual void resolveConditions(std::vector<Condition>& cv) const;
 	virtual bool checkConditions(const std::vector<Condition>& cv) const;
 
-    
 protected:
     sf::Text display;
 	std::vector<Condition> preReqs;
