@@ -10,15 +10,14 @@
 #include "TalkNode.h"
 #include "OptionNode.h"
 #include "State.h"
+#include "DialogueFactory.hpp"
 
 class DialogueMode : public State
 {
 public:
-    DialogueMode(DNode* start, const sf::RenderWindow&rw);
-    
-    
-    //void update(sf::RenderWindow&, sf::Clock&) override;
-    void update(sf::Clock &clock) override;//float elapsed, sf::Event&);
+    DialogueMode(NodePtr start, const sf::RenderWindow&rw);
+	
+	void update(sf::Clock &clock) override;
     void draw(sf::RenderWindow&) override;
     void handleInput(sf::RenderWindow& rw) override;
     

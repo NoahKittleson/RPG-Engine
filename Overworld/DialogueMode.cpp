@@ -26,8 +26,8 @@ void DialogueMode::handleInput(sf::RenderWindow& rw) {
 		if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::X) {
 			currentDNode->resolveConditions(conditions);
 			auto next = currentDNode->getNext();
-			if (next) {
-				currentDNode = next;
+			if (next != Dialogue::None) {
+				currentDNode = DialogueFactory::create(next, resources);
 			} else {
 				requestStackPop();
 				return;

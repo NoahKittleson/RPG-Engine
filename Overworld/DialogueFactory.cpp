@@ -8,28 +8,28 @@
 
 #include "DialogueFactory.hpp"
 
-NodePtr DialogueFactory::create(ID toCreate, const ResourceHolder& rh) {
+NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh) {
 	switch (toCreate) {
-		case Error: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Sansation), ID::None);
+		case Dialogue::Error: {
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Sansation), Dialogue::None);
 			node->addText("An Unexpected Error has occured.");
 			node->addText("As if There are expected errors?");
 			node->addText("Anyway, sorry about that.");
 			return node;
 		}
 			
-		case None: {
+		case Dialogue::None: {
 			return nullptr;
 		}
 			
-		case Test001: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Sansation), ID::Test002);
+		case Dialogue::Test001: {
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Sansation), Dialogue::Test002);
 			node->addText("This is a test of the non-emergency systems.");
 			return node;
 		}
 			
-		case Test002: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Sansation), ID::None);
+		case Dialogue::Test002: {
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Sansation), Dialogue::None);
 			node->addText("Thank you for your cooperation.");
 			return node;
 		}
