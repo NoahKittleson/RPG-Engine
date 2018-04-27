@@ -62,23 +62,29 @@ void TalkNode::handleInput(sf::Event &) {        //perhaps for later?
     return;
 }
 
-NodePtr TalkNode::getNext() {
-	//completes text if still printing to screen
-    if (text.get().getSize() != display.getString().getSize()) {
-        display.setString(text.get());
-        return this;
-    }
-    //gets next DNode if complete
-    if (text.atEnd()) {
-        text.reset();
-		clear();
-        if (next) {
-            next->setPosition(getPosition());
-        }
-        return next;
-    }
-	//shifts to next sentence and returns self
-    ++text;
-    clear();
-    return this;
+Dialogue::ID TalkNode::getNext() {
+	return next;
 }
+
+
+//Dialogue::ID TalkNode::getNext() {
+//	//completes text if still printing to screen
+//    if (text.get().getSize() != display.getString().getSize()) {
+//        display.setString(text.get());
+//        return this;
+//    }
+//    //gets next DNode if complete
+//    if (text.atEnd()) {
+//        text.reset();
+//		clear();
+//        if (next) {
+//            next->setPosition(getPosition());
+//        }
+//        return next;
+//    }
+//	//shifts to next sentence and returns self
+//    ++text;
+//    clear();
+//    return this;
+//}
+

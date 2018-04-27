@@ -22,10 +22,10 @@ public:
     void update(float elapsed) override;
     void draw(sf::RenderWindow &rw) override;
     void handleInput(sf::Event&) override;
-    NodePtr getNext() override;
+    Dialogue::ID getNext() override;
 
 private:
-    NodePtr next { nullptr };
+	Dialogue::ID next { Dialogue::None };
     float totalElapsed {0};
     IterVector<sf::String> text;
     

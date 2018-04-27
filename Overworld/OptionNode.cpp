@@ -20,8 +20,8 @@ OptionNode::~OptionNode() {
     std::cout << "OptionNode deleted. Text:" << getText() << "\n";
 }
 
-void OptionNode::addText(sf::String&& rString, NodePtr ptr) {
-    text.emplace_back(std::pair<sf::String, NodePtr>(rString, ptr));
+void OptionNode::addText(sf::String&& rString, Dialogue::ID next) {
+    text.emplace_back(std::pair<sf::String, Dialogue::ID>(rString, next));
 }
 
 void OptionNode::update(float elapsed) {
@@ -49,14 +49,16 @@ void OptionNode::handleInput(sf::Event &event) {
     }
 }
 
-NodePtr OptionNode::getNext() {
-	NodePtr returnVal = std::make_shared<DNode>(text.get().second);
-	text.reset();
-    if (returnVal) {
-        returnVal->setPosition(getPosition());
-    }
-    return returnVal;
+Dialogue::ID OptionNode::getNext() {
+	return text.get().second;
 }
+//	NodePtr returnVal = std::make_shared<DNode>(text.get().second);
+//	text.reset();
+//    if (returnVal) {
+//        returnVal->setPosition(getPosition());
+//    }
+//    return returnVal;
+//}
 
 std::string OptionNode::getText() {
     if (text.size()) {
@@ -65,7 +67,4 @@ std::string OptionNode::getText() {
     return "EMPTY TEXT";
 }
 
-void OptionNode::attachNext(NodePtr next) {
-	
-}
 

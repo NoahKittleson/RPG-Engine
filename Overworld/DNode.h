@@ -14,7 +14,7 @@
 
 class DNode;
 
-using NodePtr = std::shared_ptr<DNode>;
+//using NodePtr = std::shared_ptr<DNode>;
 
 class DNode
 {
@@ -28,7 +28,7 @@ public:
     virtual void update(float) = 0;
     virtual void draw(sf::RenderWindow &rw) = 0;
     virtual void handleInput(sf::Event&) = 0;
-	virtual NodePtr getNext() = 0;
+	virtual Dialogue::ID getNext() = 0;
 	
 	virtual void addPreReq(Condition add);
 	virtual void addConsequence(Condition add);
