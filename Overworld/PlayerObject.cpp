@@ -11,12 +11,12 @@
 #define INTERACT_RANGE 10
 
 PlayerObject::PlayerObject(graphicsPtr&& gc, RectVec& collision)
-: MapObject(std::move(gc), collision, nullptr)
+: MapObject(std::move(gc), collision)
 {
 	
 }
 
-DNode* PlayerObject::interact(const MapSection& map) {
+NodePtr PlayerObject::interact(const MapSection& map) {
 	//calculate bigger collision
 	std::vector<sf::FloatRect> biggerCollision;
 	for (auto const & box: collisionBoxes) {

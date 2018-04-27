@@ -237,10 +237,10 @@ void OverworldMode::updateView() {
 }
 
 void OverworldMode::checkForInteraction(sf::RenderWindow &rw) {
-	DNode* dialoguePtr = player->interact(*currentMap);
+	NodePtr dialoguePtr = player->interact(*currentMap);
 	if (dialoguePtr) {
 		std::cout << "dialogueMode created\n";
-		requestStackAdd(std::unique_ptr<State>(new DialogueMode(dialoguePtr, rw)));
+		requestStackAdd(make_unique<DialogueMode>(dialoguePtr, rw));
 	}
 }
 

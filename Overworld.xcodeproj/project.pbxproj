@@ -382,8 +382,8 @@
 		B79AD8D51D4F11EE00B7C8F7 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				B7977976204676D4000870C2 /* PlayerObject.cpp */,
 				B7977977204676D4000870C2 /* PlayerObject.hpp */,
+				B7977976204676D4000870C2 /* PlayerObject.cpp */,
 				B797797520467632000870C2 /* MapObject.hpp */,
 				B79779732046762A000870C2 /* MapObject.cpp */,
 				B7DEE728207F2AAD00B1B97C /* MapFactory.hpp */,
