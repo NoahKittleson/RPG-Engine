@@ -153,12 +153,12 @@ bool MapObject::intersects(sf::FloatRect box) const {
 	return false;
 }
 
-DNode* MapObject::getDNode() const {
-	return &dialogues[0];
+NodePtr MapObject::getDNode() const {
+	return dialogue;
 }
 
-void MapObject::addDialogue(std::unique_ptr<DNode> toAdd) {
-	
+void MapObject::attachDialogue(NodePtr toAdd) {
+	dialogue = toAdd;
 }
 
 

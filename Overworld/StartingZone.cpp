@@ -13,7 +13,7 @@
 #define NO_OF_SPRITES 28			//24 wheats, 1 scarecrow, 2 trees, and 1 unanimated wheat
 
 StartingZone::StartingZone(const ResourceHolder& resources)
-: MapSection(MapID::Starting, "nice_music.ogg"), talkNodeHolder(NO_OF_TALKNODES, resources.getFont(Fonts::Sansation)),optionNodeHolder(NO_OF_OPTIONNODES, resources.getFont(Fonts::Sansation)) {
+: MapSection(MapID::StartingZone, "nice_music.ogg") {
 	
 	std::vector<sf::FloatRect> boxList;
     background.setTexture(resources.getTexture(Textures::TestBackground));
@@ -21,30 +21,31 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	sprites.reserve(NO_OF_SPRITES);
 	
 	//Set up Dialogues
-	TalkNode* hey =	&talkNodeHolder[0];
-	TalkNode* optionOne = &talkNodeHolder[1];
-	TalkNode* optionTwo = &talkNodeHolder[2];
-	
-	OptionNode* choice = &optionNodeHolder.back();
-	
-	hey->addText("Looky loo this thing is working!");
-	hey->addText("And there's a second text too!");
-	hey->setNext(choice);
-	
-	optionOne->addText("uhh....");
-	optionOne->addText("well I got nothing");
-	optionOne->addCondition(Condition::First);
-	
-	optionTwo->addText("well fine then");
-	
-	choice->addText("Talk some more", optionOne);
-	choice->addText("Just leave", optionTwo);
+//	TalkNode* hey =	&talkNodeHolder[0];
+//	TalkNode* optionOne = &talkNodeHolder[1];
+//	TalkNode* optionTwo = &talkNodeHolder[2];
+//
+//	OptionNode* choice = &optionNodeHolder.back();
+//
+//	hey->addText("Looky loo this thing is working!");
+//	hey->addText("And there's a second text too!");
+//	hey->setNext(choice);
+//
+//	optionOne->addText("uhh....");
+//	optionOne->addText("well I got nothing");
+//	optionOne->addCondition(Condition::First);
+//
+//	optionTwo->addText("well fine then");
+//
+//	choice->addText("Talk some more", optionOne);
+//	choice->addText("Just leave", optionTwo);
 	
 	
 	//Top-right Tree
 	std::vector<sf::FloatRect> boxlist;
 	boxlist.emplace_back(-5, 57, 10, 5);
-	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f(600,90)), boxlist, hey);
+	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f(600,90)), boxlist);
+	sprites.back().attachDialogue(DialogueFactory::create(Dialogue::Test001, resources));
 	sprites.back().setScale(4.f);
 	boxList.clear();
 	

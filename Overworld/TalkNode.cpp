@@ -24,8 +24,8 @@ std::string TalkNode::getText() {
     return "EMPTY TEXT";
 }
 
-TalkNode::TalkNode(const sf::Font &font)
-: DNode(font) {
+TalkNode::TalkNode(const sf::Font &font, Dialogue::ID id)
+: DNode(font), next(id) {
     text.setLooping(false);
 }
 

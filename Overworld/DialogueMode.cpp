@@ -8,7 +8,7 @@
 
 #include "DialogueMode.h"
 
-DialogueMode::DialogueMode(DNode* start, const sf::RenderWindow &rw)
+DialogueMode::DialogueMode(NodePtr start, const sf::RenderWindow &rw)
 : currentDNode(start), mapView(rw.getView()), HUD(rw.getDefaultView())
 {
     start->setPosition(0, HUD.getSize().y * .75f);

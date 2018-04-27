@@ -23,8 +23,5 @@ public:
     ~BigField() {std::cout << "BigField deleted.\n";}
     
 private:
-    //very temporary, see below
-    //only here so that the pointers persist until map is destructed.
-    std::vector<TalkNode> talkNodeHolder;
-    std::vector<OptionNode> optionNodeHolder;
+
 };

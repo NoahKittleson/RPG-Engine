@@ -45,8 +45,8 @@ public:
 	bool intersects(sf::FloatRect) const;
 	
 	//dialogue
-	DNode* getDNode() const;
-	void addDialogue(std::shared_ptr<DNode> toAdd);
+	NodePtr getDNode() const;
+	void attachDialogue(NodePtr toAdd);
 	
 protected:
 	//graphics
@@ -56,10 +56,7 @@ protected:
 	RectVec collisionBoxes;
 	
 	//interaction
-	//DialogueComponent* dialogue;
-	//DNode* dialogue;
-	std::vector<std::shared_ptr<DNode>> dialogues;
-	//what if I instead had the whole list of DialogueNodes that this guy will use?
+	NodePtr dialogue = nullptr;
 	
 	//where do I store the walkingState?
 };

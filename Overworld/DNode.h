@@ -14,7 +14,7 @@
 
 class DNode;
 
-//using NodePtr = std::shared_ptr<DNode>;
+using NodePtr = std::shared_ptr<DNode>;
 
 class DNode
 {

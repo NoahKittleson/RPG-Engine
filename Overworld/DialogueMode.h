@@ -25,6 +25,6 @@ private:
     sf::View mapView;
     sf::View HUD;
     
-    DNode* currentDNode;
+    NodePtr currentDNode;
     sf::RectangleShape messageBox;
 };

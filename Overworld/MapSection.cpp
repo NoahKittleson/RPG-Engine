@@ -58,8 +58,7 @@ void MapSection::update(float elapsed) {
 	}
 }
 
-DNode* MapSection::interact (std::vector<sf::FloatRect> collision) const {
-	
+NodePtr MapSection::interact (std::vector<sf::FloatRect> collision) const {
 	//see if I intersect any other sprites with bigger collision
 	for (auto && sprite: sprites) {
 		for (auto && box: collision) {

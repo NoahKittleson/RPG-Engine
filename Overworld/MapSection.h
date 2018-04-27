@@ -28,7 +28,7 @@ public:
     void drawBackground(sf::RenderWindow &rw);
     void drawAllObjects(sf::RenderWindow &rw, MapObject& player);
 	
-	DNode* interact (std::vector<sf::FloatRect>) const;
+	NodePtr interact (std::vector<sf::FloatRect>) const;
     
     sf::Vector2u getSize();
     std::string getMusicAddress();

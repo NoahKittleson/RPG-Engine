@@ -15,6 +15,7 @@
 #include "TalkNode.h"
 #include "OptionNode.h"
 #include "CharacterGenerator.hpp"
+#include "DialogueFactory.hpp"
 
 class StartingZone: public MapSection
 {
@@ -23,9 +24,6 @@ public:
     ~StartingZone() { std::cout << "StartingZone deleted.\n"; }
     
 private:
-    //these should be owned by the items that use them.
-	std::vector<TalkNode> talkNodeHolder;
-	std::vector<OptionNode> optionNodeHolder;
 	
 };
 

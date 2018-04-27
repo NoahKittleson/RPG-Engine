@@ -392,10 +392,10 @@
 				B73219201B2111D000C41162 /* MapSection.cpp */,
 				B79AD8D71D4F128200B7C8F7 /* StartingZone.h */,
 				B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */,
-				B78873541F3D530E00E7C725 /* CharacterGenerator.hpp */,
-				B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */,
 				B74213411E384C7F00090D95 /* BigField.hpp */,
 				B74213401E384C7F00090D95 /* BigField.cpp */,
+				B78873541F3D530E00E7C725 /* CharacterGenerator.hpp */,
+				B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */,
 			);
 			name = Maps;
 			sourceTree = "<group>";

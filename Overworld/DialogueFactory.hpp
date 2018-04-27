@@ -12,7 +12,7 @@
 #include "ResourceHolder.h"
 #include "DialogueIDs.cpp"
 
-using NodePtr = std::shared_ptr<DNode>;
+//using NodePtr = std::shared_ptr<DNode>;
 
 class DialogueFactory
 {
