@@ -9,8 +9,8 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "IterVector.hpp"
-#include "Conditions.cpp"
-#include "DialogueIDs.cpp"
+#include "Conditions.hpp"
+#include "DialogueIDs.hpp"
 
 class DNode;
 

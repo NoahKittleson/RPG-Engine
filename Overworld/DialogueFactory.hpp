@@ -10,7 +10,7 @@
 #include "TalkNode.h"
 #include "OptionNode.h"
 #include "ResourceHolder.h"
-#include "DialogueIDs.cpp"
+#include "DialogueIDs.hpp"
 
 //using NodePtr = std::shared_ptr<DNode>;
 

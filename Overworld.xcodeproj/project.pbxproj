@@ -39,7 +39,7 @@
 		B75F862F1BACE0FB0093B615 /* Ability.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F862D1BACE0FB0093B615 /* Ability.cpp */; };
 		B75F86331BACE5C10093B615 /* AnimatedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */; };
 		B76E02341D738EC90058D39E /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = B76E02331D738EC90058D39E /* ResourcePath.mm */; };
-		B7701D831EF262EA006AB891 /* Conditions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7701D821EF262EA006AB891 /* Conditions.cpp */; };
+		B7701D831EF262EA006AB891 /* Conditions.hpp in Resources */ = {isa = PBXBuildFile; fileRef = B7701D821EF262EA006AB891 /* Conditions.hpp */; };
 		B7701D851EF4740D006AB891 /* Campfire.png in Resources */ = {isa = PBXBuildFile; fileRef = B7701D841EF4740D006AB891 /* Campfire.png */; };
 		B77783F81AE5C57D007FA840 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77783F71AE5C57D007FA840 /* main.cpp */; };
 		B77783FB1AE5C57D007FA840 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B77783FA1AE5C57D007FA840 /* cute_image.jpg */; };
@@ -51,7 +51,7 @@
 		B77A1BDF206A3B3300CD87DF /* Statuses.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77A1BDD206A3B3300CD87DF /* Statuses.cpp */; };
 		B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77BE44A1BB5E03500F5645C /* Menu.cpp */; };
 		B77F7EAB208E825C009FEE8A /* DialogueFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77F7EA9208E825C009FEE8A /* DialogueFactory.cpp */; };
-		B77F7EAD208EB677009FEE8A /* DialogueIDs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77F7EAC208EB677009FEE8A /* DialogueIDs.cpp */; };
+		B77F7EAD208EB677009FEE8A /* DialogueIDs.hpp in Resources */ = {isa = PBXBuildFile; fileRef = B77F7EAC208EB677009FEE8A /* DialogueIDs.hpp */; };
 		B78873551F3D530E00E7C725 /* CharacterGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */; };
 		B797796F2044DBF7000870C2 /* AttackMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B797796D2044DBF7000870C2 /* AttackMode.cpp */; };
 		B79779722046713D000870C2 /* BattleSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B79779702046713D000870C2 /* BattleSprite.cpp */; };
@@ -132,7 +132,7 @@
 		B75F86321BACE5C10093B615 /* AnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedSprite.h; sourceTree = "<group>"; };
 		B76E02321D738EC90058D39E /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		B76E02331D738EC90058D39E /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
-		B7701D821EF262EA006AB891 /* Conditions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Conditions.cpp; sourceTree = "<group>"; };
+		B7701D821EF262EA006AB891 /* Conditions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Conditions.hpp; sourceTree = "<group>"; };
 		B7701D841EF4740D006AB891 /* Campfire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Campfire.png; sourceTree = "<group>"; };
 		B77783EF1AE5C57D007FA840 /* Overworld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overworld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77783F31AE5C57D007FA840 /* Overworld-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Overworld-Info.plist"; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 		B77BE44A1BB5E03500F5645C /* Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
 		B77F7EA9208E825C009FEE8A /* DialogueFactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DialogueFactory.cpp; sourceTree = "<group>"; };
 		B77F7EAA208E825C009FEE8A /* DialogueFactory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DialogueFactory.hpp; sourceTree = "<group>"; };
-		B77F7EAC208EB677009FEE8A /* DialogueIDs.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DialogueIDs.cpp; sourceTree = "<group>"; };
+		B77F7EAC208EB677009FEE8A /* DialogueIDs.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DialogueIDs.hpp; sourceTree = "<group>"; };
 		B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterGenerator.cpp; sourceTree = "<group>"; };
 		B78873541F3D530E00E7C725 /* CharacterGenerator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterGenerator.hpp; sourceTree = "<group>"; };
 		B797796D2044DBF7000870C2 /* AttackMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AttackMode.cpp; sourceTree = "<group>"; };
@@ -365,8 +365,8 @@
 			children = (
 				B75ABA281C7BE1C400B9FFDE /* DialogueMode.h */,
 				B75ABA271C7BE1C400B9FFDE /* DialogueMode.cpp */,
-				B7701D821EF262EA006AB891 /* Conditions.cpp */,
-				B77F7EAC208EB677009FEE8A /* DialogueIDs.cpp */,
+				B7701D821EF262EA006AB891 /* Conditions.hpp */,
+				B77F7EAC208EB677009FEE8A /* DialogueIDs.hpp */,
 				B77F7EAA208E825C009FEE8A /* DialogueFactory.hpp */,
 				B77F7EA9208E825C009FEE8A /* DialogueFactory.cpp */,
 				B75ABA1B1C7BD81D00B9FFDE /* DNode.h */,
@@ -466,6 +466,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7701D831EF262EA006AB891 /* Conditions.hpp in Resources */,
+				B77F7EAD208EB677009FEE8A /* DialogueIDs.hpp in Resources */,
 				B7439C1A1ECA6D8C00724D0B /* Scarecrow.png in Resources */,
 				B7023E131BB61A43005A6F93 /* BadAttackAnimation.png in Resources */,
 				B7172F851AF0716500C21B1C /* Mountains.jpg in Resources */,
@@ -513,7 +515,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B75ABA291C7BE1C400B9FFDE /* DialogueMode.cpp in Sources */,
-				B7701D831EF262EA006AB891 /* Conditions.cpp in Sources */,
 				B79AD8D81D4F128200B7C8F7 /* StartingZone.cpp in Sources */,
 				B706F0781BFFE59700C95D49 /* State.cpp in Sources */,
 				B79779722046713D000870C2 /* BattleSprite.cpp in Sources */,
@@ -534,7 +535,6 @@
 				B73219221B2111D000C41162 /* MapSection.cpp in Sources */,
 				B7262BD42001B48D00989D70 /* MenuItem.cpp in Sources */,
 				B74213421E384C7F00090D95 /* BigField.cpp in Sources */,
-				B77F7EAD208EB677009FEE8A /* DialogueIDs.cpp in Sources */,
 				B75F862C1BACE0C60093B615 /* Character.cpp in Sources */,
 				B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */,
 				B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */,

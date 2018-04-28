@@ -10,7 +10,7 @@
 #include "PrefixHeader.pch"
 #include "DNode.h"
 #include "Character.h"
-#include "Conditions.cpp"
+#include "Conditions.hpp"
 
 using ConditionMap = std::map<Condition, bool>;
 using ConditionVec = std::vector<Condition>;
