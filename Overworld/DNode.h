@@ -28,9 +28,9 @@ public:
     virtual void update(float) = 0;
     virtual void draw(sf::RenderWindow &rw) = 0;
     virtual void handleInput(sf::Event&) = 0;
-	virtual Dialogue::ID getNext() = 0;
+	virtual Dialogue::ID getNext(std::vector<Condition>& cv) = 0;
 	
-	virtual void addPreReq(Condition add);
+	//virtual void addPreReq(Condition add);
 	virtual void addConsequence(Condition add);
 	virtual void resolveConditions(std::vector<Condition>& cv) const;
 	virtual bool checkConditions(const std::vector<Condition>& cv) const;

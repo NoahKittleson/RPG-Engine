@@ -8,6 +8,7 @@
 
 #include "DialogueFactory.hpp"
 
+
 NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh) {
 	switch (toCreate) {
 		case Dialogue::Error: {
@@ -25,12 +26,21 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 		case Dialogue::Test001: {
 			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Sansation), Dialogue::Test002);
 			node->addText("This is a test of the non-emergency systems.");
+			node->addText("(Is this even going to show up?)");
+			node->addConsequence(Condition::First);
 			return node;
 		}
 			
 		case Dialogue::Test002: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Sansation), Dialogue::None);
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Sansation), Dialogue::Test003);
 			node->addText("Thank you for your cooperation.");
+			return node;
+		}
+			
+		case Dialogue::Test003: {
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Sansation), Dialogue::None);
+			node->addText("Oh wait, this all seems very familiar.");
+			node->addPreReq(Condition::First);
 			return node;
 		}
 			

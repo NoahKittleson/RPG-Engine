@@ -24,18 +24,17 @@ void DialogueMode::handleInput(sf::RenderWindow& rw) {
 	sf::Event event;
 	while (rw.pollEvent(event)) {
 		if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::X) {
-			currentDNode->resolveConditions(conditions);
 			auto next = currentDNode->getNext();
-			if (next != Dialogue::None) {
+			if (currentDNode->checkConditions(conditions) && next != Dialogue::None) {
 				currentDNode = DialogueFactory::create(next, resources);
 			} else {
+				//currentDNode->resolveConditions(conditions);
 				requestStackPop();
 				return;
 			}
 		}
 		else currentDNode->handleInput(event);
 	}
-
 }
 
 void DialogueMode::draw(sf::RenderWindow &rw) {

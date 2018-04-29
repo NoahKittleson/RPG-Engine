@@ -8,8 +8,6 @@
 
 #include "StartingZone.h"
 
-#define NO_OF_TALKNODES 3
-#define NO_OF_OPTIONNODES 1
 #define NO_OF_SPRITES 28			//24 wheats, 1 scarecrow, 2 trees, and 1 unanimated wheat
 
 StartingZone::StartingZone(const ResourceHolder& resources)
@@ -19,27 +17,6 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     background.setTexture(resources.getTexture(Textures::TestBackground));
 	background.setScale(4, 4);
 	sprites.reserve(NO_OF_SPRITES);
-	
-	//Set up Dialogues
-//	TalkNode* hey =	&talkNodeHolder[0];
-//	TalkNode* optionOne = &talkNodeHolder[1];
-//	TalkNode* optionTwo = &talkNodeHolder[2];
-//
-//	OptionNode* choice = &optionNodeHolder.back();
-//
-//	hey->addText("Looky loo this thing is working!");
-//	hey->addText("And there's a second text too!");
-//	hey->setNext(choice);
-//
-//	optionOne->addText("uhh....");
-//	optionOne->addText("well I got nothing");
-//	optionOne->addCondition(Condition::First);
-//
-//	optionTwo->addText("well fine then");
-//
-//	choice->addText("Talk some more", optionOne);
-//	choice->addText("Just leave", optionTwo);
-	
 	
 	//Top-right Tree
 	std::vector<sf::FloatRect> boxlist;

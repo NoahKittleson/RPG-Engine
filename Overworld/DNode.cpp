@@ -42,6 +42,7 @@ void DNode::resolveConditions(std::vector<Condition>& cv) const {
 	for (auto const & it : consequences) {
 		if (std::find(cv.begin(), cv.end(), it) == cv.end()) {
 			cv.push_back(it);
+			std::cout << "Condition Added\n";
 		}
 	}
 }
