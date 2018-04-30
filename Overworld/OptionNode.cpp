@@ -9,8 +9,8 @@
 #include "OptionNode.h"
 
 
-OptionNode::OptionNode(const sf::Font &font)
-: DNode(font)
+OptionNode::OptionNode(const sf::Font &font, Dialogue::ID id)
+: DNode(font, id)
 {
     text.setLooping(true);
     display.setColor(sf::Color::Black);
@@ -20,8 +20,8 @@ OptionNode::~OptionNode() {
     std::cout << "OptionNode deleted. Text:" << getText() << "\n";
 }
 
-void OptionNode::addText(sf::String&& rString, Dialogue::ID next) {
-    text.emplace_back(std::pair<sf::String, Dialogue::ID>(rString, next));
+void OptionNode::addText(sf::String&& string, std::vector<DPath> paths) {
+    text.emplace_back(string, paths);
 }
 
 void OptionNode::update(float elapsed) {
@@ -50,7 +50,12 @@ void OptionNode::handleInput(sf::Event &event) {
 }
 
 Dialogue::ID OptionNode::getNext(const std::vector<Condition>& cv) {
-	return text.get().second;
+	for (const auto & path : text.get().second) {
+		if (path.isSatisfied(cv)) {
+			return path.getNext();
+		}
+	}
+	return Dialogue::None;
 }
 //	NodePtr returnVal = std::make_shared<DNode>(text.get().second);
 //	text.reset();

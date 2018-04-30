@@ -56,3 +56,17 @@ void DNode::resolveConditions(std::vector<Condition>& cv) const {
 //	return true;
 //}
 
+
+bool DPath::isSatisfied(const std::vector<Condition> activeConds) const {
+	for (auto const & it : preReqs) {
+		if (std::find(activeConds.begin(), activeConds.end(), it) == activeConds.end()) {
+			return false;
+		}
+	}
+	return true;
+}
+
+Dialogue::ID DPath::getNext() const {
+	return next;
+}
+

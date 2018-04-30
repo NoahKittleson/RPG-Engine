@@ -14,7 +14,7 @@
 class OptionNode: public DNode
 {
 public:
-    OptionNode(const sf::Font& font);
+    OptionNode(const sf::Font& font, Dialogue::ID id);
     ~OptionNode();
     
 	void addText(sf::String&&, std::vector<DPath>);
