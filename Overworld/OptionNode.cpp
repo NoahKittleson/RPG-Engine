@@ -49,7 +49,7 @@ void OptionNode::handleInput(sf::Event &event) {
     }
 }
 
-Dialogue::ID OptionNode::getNext() {
+Dialogue::ID OptionNode::getNext(const std::vector<Condition>& cv) {
 	return text.get().second;
 }
 //	NodePtr returnVal = std::make_shared<DNode>(text.get().second);

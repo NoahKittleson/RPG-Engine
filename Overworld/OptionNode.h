@@ -22,8 +22,8 @@ public:
     void update(float elapsed) override;
     void draw(sf::RenderWindow &rw) override;
     void handleInput(sf::Event&) override;
-	Dialogue::ID getNext() override;
-    
+	Dialogue::ID getNext(const std::vector<Condition>& cv) override;
+	
 private:
     IterVector<std::pair<sf::String, Dialogue::ID>> text;
     std::string getText() override;

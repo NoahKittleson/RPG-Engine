@@ -17,12 +17,13 @@ public:
     ~TalkNode();
     
     void addText(sf::String&&);
+	void addPath(Dialogue::ID path, std::vector<Condition> conditions);
 	
     void clear() override;
     void update(float elapsed) override;
     void draw(sf::RenderWindow &rw) override;
-    void handleInput(sf::Event&) override;
-    Dialogue::ID getNext() override;
+	void handleInput(sf::Event&) override;
+	Dialogue::ID getNext(const std::vector<Condition>& cv) override;
 
 private:
 	Dialogue::ID next { Dialogue::None };

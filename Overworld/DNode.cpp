@@ -34,9 +34,9 @@ void DNode::addConsequence(Condition add) {
 	consequences.push_back(add);
 }
 
-void DNode::addPreReq(Condition add) {
-	consequences.push_back(add);
-}
+//void DNode::addPreReq(Condition add) {
+//	consequences.push_back(add);
+//}
 
 void DNode::resolveConditions(std::vector<Condition>& cv) const {
 	for (auto const & it : consequences) {
@@ -47,12 +47,12 @@ void DNode::resolveConditions(std::vector<Condition>& cv) const {
 	}
 }
 
-bool DNode::checkConditions(const std::vector<Condition>& cv) const {
-	for (auto const & it : preReqs) {
-		if (std::find(cv.begin(), cv.end(), it) == cv.end()) {
-			return false;
-		}
-	}
-	return true;
-}
+//bool DNode::checkConditions(const std::vector<Condition>& cv) const {
+//	for (auto const & it : preReqs) {
+//		if (std::find(cv.begin(), cv.end(), it) == cv.end()) {
+//			return false;
+//		}
+//	}
+//	return true;
+//}
 

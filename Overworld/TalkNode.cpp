@@ -62,7 +62,7 @@ void TalkNode::handleInput(sf::Event &) {        //perhaps for later?
     return;
 }
 
-Dialogue::ID TalkNode::getNext() {
+Dialogue::ID TalkNode::getNext(const std::vector<Condition>& cv) {
 	return next;
 }
 
