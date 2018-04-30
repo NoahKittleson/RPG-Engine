@@ -19,7 +19,7 @@ using NodePtr = std::shared_ptr<DNode>;
 class DNode
 {
 public:
-    DNode(const sf::Font&);
+	DNode(const sf::Font&, Dialogue::ID ID);
     void setPosition(float x, float y);
     void setPosition(sf::Vector2f xy);
     sf::Vector2f getPosition() const;
@@ -37,8 +37,9 @@ public:
 
 protected:
     sf::Text display;
-	std::vector<Condition> preReqs;
+	//std::vector<Condition> preReqs;
 	std::vector<Condition> consequences;
+	Dialogue::ID ID;
 	
     virtual std::string getText() = 0;
 };
@@ -48,7 +49,9 @@ struct DPath
 {
 public:
 	DPath(std::vector<Condition> preReqs, Dialogue::ID next);
-	Dialogue::ID resolvePath(const std::vector<Condition> activeConds) const;
+	bool isSatisfied(const std::vector<Condition> activeConds) const;
+	Dialogue::ID getNext() const;
+	
 private:
 	std::vector<Condition> preReqs;
 	Dialogue::ID next;

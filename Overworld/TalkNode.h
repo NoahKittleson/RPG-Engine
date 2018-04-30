@@ -17,7 +17,7 @@ public:
     ~TalkNode();
     
 	void addText(sf::String&&);
-	void addPath(DPath path);
+	void addPath(DPath path);						//paths need to be added in sequential order of priority
 	
     void clear() override;
     void update(float elapsed) override;

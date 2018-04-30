@@ -25,7 +25,7 @@ std::string TalkNode::getText() {
 }
 
 TalkNode::TalkNode(const sf::Font &font, Dialogue::ID id)
-: DNode(font), next(id) {
+: DNode(font, id) {
     text.setLooping(false);
 }
 
@@ -63,7 +63,16 @@ void TalkNode::handleInput(sf::Event &) {        //perhaps for later?
 }
 
 Dialogue::ID TalkNode::getNext(const std::vector<Condition>& cv) {
-	return next;
+	for (const auto & path : potentialPaths) {
+		if (path.isSatisfied(cv)) {
+			return path.getNext();
+		}
+	}
+	return Dialogue::None;
+}
+
+void TalkNode::addPath(DPath path) {
+	potentialPaths.push_back(path);
 }
 
 

@@ -371,10 +371,10 @@
 				B77F7EA9208E825C009FEE8A /* DialogueFactory.cpp */,
 				B75ABA1B1C7BD81D00B9FFDE /* DNode.h */,
 				B75ABA1C1C7BD81D00B9FFDE /* DNode.cpp */,
-				B75ABA1D1C7BD81D00B9FFDE /* OptionNode.h */,
-				B75ABA1E1C7BD81D00B9FFDE /* OptionNode.cpp */,
 				B75ABA1F1C7BD81D00B9FFDE /* TalkNode.h */,
 				B75ABA201C7BD81D00B9FFDE /* TalkNode.cpp */,
+				B75ABA1D1C7BD81D00B9FFDE /* OptionNode.h */,
+				B75ABA1E1C7BD81D00B9FFDE /* OptionNode.cpp */,
 			);
 			name = DialogueMode;
 			sourceTree = "<group>";
