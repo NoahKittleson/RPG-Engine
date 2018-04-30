@@ -16,8 +16,8 @@ public:
 	TalkNode(const sf::Font&, Dialogue::ID);
     ~TalkNode();
     
-    void addText(sf::String&&);
-	void addPath(Dialogue::ID path, std::vector<Condition> conditions);
+	void addText(sf::String&&);
+	void addPath(DPath path);
 	
     void clear() override;
     void update(float elapsed) override;
@@ -26,9 +26,10 @@ public:
 	Dialogue::ID getNext(const std::vector<Condition>& cv) override;
 
 private:
-	Dialogue::ID next { Dialogue::None };
+	//Dialogue::ID next { Dialogue::None };
     float totalElapsed {0};
     IterVector<sf::String> text;
+	std::vector<DPath> potentialPaths;
     
     std::string getText() override;
 };
