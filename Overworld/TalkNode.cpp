@@ -63,12 +63,26 @@ void TalkNode::handleInput(sf::Event &) {        //perhaps for later?
 }
 
 Dialogue::ID TalkNode::getNext(const std::vector<Condition>& cv) {
-	for (const auto & path : potentialPaths) {
-		if (path.isSatisfied(cv)) {
-			return path.getNext();
-		}
+	//completes text if still printing to screen
+	if (text.get().getSize() != display.getString().getSize()) {
+		display.setString(text.get());
+		return ID;
 	}
-	return Dialogue::None;
+	//gets next DNode if complete
+	if (text.atEnd()) {
+		text.reset();
+		clear();
+		for (const auto & path : potentialPaths) {
+			if (path.isSatisfied(cv)) {
+				return path.getNext();
+			}
+		}
+		return Dialogue::None;
+	}
+	//shifts to next sentence and returns self since it is not done, but not still printing to screen
+	++text;
+	clear();
+	return ID;
 }
 
 void TalkNode::addPath(DPath path) {

@@ -8,7 +8,8 @@
 
 #include "DNode.h"
 
-DNode::DNode(const sf::Font& font) {
+DNode::DNode(const sf::Font& font, Dialogue::ID id) {
+	ID = id;
     display.setFont(font);
     display.setColor(sf::Color::Black);
     display.setString("");
@@ -34,6 +35,10 @@ void DNode::addConsequence(Condition add) {
 	consequences.push_back(add);
 }
 
+Dialogue::ID DNode::getID() const {
+	return ID;
+}
+
 //void DNode::addPreReq(Condition add) {
 //	consequences.push_back(add);
 //}
@@ -55,6 +60,10 @@ void DNode::resolveConditions(std::vector<Condition>& cv) const {
 //	}
 //	return true;
 //}
+
+DPath::DPath(std::vector<Condition> preReqs, Dialogue::ID next) : preReqs(preReqs), next(next) {
+	
+}
 
 
 bool DPath::isSatisfied(const std::vector<Condition> activeConds) const {

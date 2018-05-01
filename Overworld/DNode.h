@@ -29,6 +29,7 @@ public:
     virtual void draw(sf::RenderWindow &rw) = 0;
     virtual void handleInput(sf::Event&) = 0;
 	virtual Dialogue::ID getNext(const std::vector<Condition>& cv) = 0;
+	Dialogue::ID getID() const;
 	
 	virtual void addConsequence(Condition add);
 	//virtual void addPreReq(Condition add);
