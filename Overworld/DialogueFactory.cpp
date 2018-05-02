@@ -29,10 +29,10 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 			node->addText("(Is this even going to show up?)");
 			std::vector<Condition> reqForNext;
 			reqForNext.push_back(Condition::First);
-			DPath path1 (reqForNext, Dialogue::Test002);
+			DPath path1 (reqForNext, Dialogue::Test003);
 			node->addPath(path1);
 			reqForNext.clear();
-			DPath path2 (reqForNext, Dialogue::Test003);
+			DPath path2 (reqForNext, Dialogue::Test002);
 			node->addPath(path2);
 			return node;
 		}

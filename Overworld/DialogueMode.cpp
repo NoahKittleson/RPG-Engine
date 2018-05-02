@@ -29,7 +29,10 @@ void DialogueMode::handleInput(sf::RenderWindow& rw) {
 				requestStackPop();
 				return;
 			} if (next != currentDNode->getID()) {
+				sf::Vector2f pos = currentDNode->getPosition();
+				currentDNode->resolveConditions(conditions);
 				currentDNode = DialogueFactory::create(next, resources);
+				currentDNode->setPosition(pos);
 			}
 		}
 		else currentDNode->handleInput(event);
