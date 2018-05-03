@@ -35,6 +35,7 @@ ResourceHolder::ResourceHolder()
 	textureIDMap.insert(std::make_pair("Campfire.png", Textures::ID::Campfire));
 	textureIDMap.insert(std::make_pair("Yak.png", Textures::ID::Yak));
 	textureIDMap.insert(std::make_pair("testbackground.png", Textures::ID::TestBackground));
+	textureIDMap.insert(std::make_pair("pond.png", Textures::ID::Pond));
 	
 	
     for (auto ID : textureIDMap) {

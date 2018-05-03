@@ -64,13 +64,22 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	sprites.back().setScale(3.f);
 	boxList.clear();
 	
+	//The Pond
+	boxList.emplace_back(-140,-40,280,80);
+	boxList.emplace_back(-50,-60,100,120);
+	
+	sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::Pond), sf::Vector2f(620,452), 0.3f, sf::Vector2i(80,32)), boxList);
+	sprites.back().setScale(4.f);
+	sprites.back().offsetBase(-100);
+	boxList.clear();
 	
 	//Another Tree
 	boxList.emplace_back(-5, 57, 10, 5);
 	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f (150,400)), boxList);
 	sprites.back().setScale(4.f);
 	boxList.clear();
-
+	
+	
 	
     //Set up Trigger for Fighting
 	std::function<State*()> createBattle = [&resources]() -> State*

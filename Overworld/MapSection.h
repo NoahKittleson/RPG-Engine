@@ -49,9 +49,5 @@ protected:
 	SpriteVec sprites;
 	TriggerVec triggers;
 	const std::string musicFilename;
-	
-	//void addObject(InteractableSprite&);
-	
-	
 };
 

@@ -29,7 +29,8 @@ namespace Textures {
 		PlayerWalkingRight,
 		Campfire,
 		Yak,
-		TestBackground
+		TestBackground,
+		Pond
 	};
 }
 
