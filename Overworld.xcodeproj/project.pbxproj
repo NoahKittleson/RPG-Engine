@@ -59,6 +59,7 @@
 		B7977978204676D4000870C2 /* PlayerObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7977976204676D4000870C2 /* PlayerObject.cpp */; };
 		B79AD8D81D4F128200B7C8F7 /* StartingZone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */; };
 		B79E29881BA0E1C80020BA93 /* RollingWheat.png in Resources */ = {isa = PBXBuildFile; fileRef = B79E29871BA0E1C80020BA93 /* RollingWheat.png */; };
+		B7A0D238209A886700098096 /* DPath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A0D236209A886700098096 /* DPath.cpp */; };
 		B7A1EB3A1EDA9F5100667423 /* Yak.png in Resources */ = {isa = PBXBuildFile; fileRef = B7A1EB391EDA9F5100667423 /* Yak.png */; };
 		B7A26C0F1C8061A50083989B /* Trigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C0D1C8061A50083989B /* Trigger.cpp */; };
 		B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C101C8070370083989B /* ZoneExit.cpp */; };
@@ -165,6 +166,8 @@
 		B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StartingZone.cpp; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; };
 		B79AD8D71D4F128200B7C8F7 /* StartingZone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartingZone.h; sourceTree = "<group>"; };
 		B79E29871BA0E1C80020BA93 /* RollingWheat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RollingWheat.png; sourceTree = "<group>"; };
+		B7A0D236209A886700098096 /* DPath.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DPath.cpp; sourceTree = "<group>"; };
+		B7A0D237209A886700098096 /* DPath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DPath.hpp; sourceTree = "<group>"; };
 		B7A1EB391EDA9F5100667423 /* Yak.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yak.png; sourceTree = "<group>"; };
 		B7A26C0D1C8061A50083989B /* Trigger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Trigger.cpp; sourceTree = "<group>"; };
 		B7A26C0E1C8061A50083989B /* Trigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trigger.h; sourceTree = "<group>"; };
@@ -371,6 +374,8 @@
 				B77F7EA9208E825C009FEE8A /* DialogueFactory.cpp */,
 				B75ABA1B1C7BD81D00B9FFDE /* DNode.h */,
 				B75ABA1C1C7BD81D00B9FFDE /* DNode.cpp */,
+				B7A0D237209A886700098096 /* DPath.hpp */,
+				B7A0D236209A886700098096 /* DPath.cpp */,
 				B75ABA1F1C7BD81D00B9FFDE /* TalkNode.h */,
 				B75ABA201C7BD81D00B9FFDE /* TalkNode.cpp */,
 				B75ABA1D1C7BD81D00B9FFDE /* OptionNode.h */,
@@ -544,6 +549,7 @@
 				B7D17D1B1E512CDC00D71290 /* LoadState.cpp in Sources */,
 				B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */,
 				B75F86331BACE5C10093B615 /* AnimatedSprite.cpp in Sources */,
+				B7A0D238209A886700098096 /* DPath.cpp in Sources */,
 				B77844A71E25D2F7002C7555 /* PauseMenu.cpp in Sources */,
 				B76E02341D738EC90058D39E /* ResourcePath.mm in Sources */,
 				B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */,

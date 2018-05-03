@@ -39,10 +39,6 @@ Dialogue::ID DNode::getID() const {
 	return ID;
 }
 
-//void DNode::addPreReq(Condition add) {
-//	consequences.push_back(add);
-//}
-
 void DNode::resolveConditions(std::vector<Condition>& cv) const {
 	for (auto const & it : consequences) {
 		if (std::find(cv.begin(), cv.end(), it) == cv.end()) {
@@ -52,30 +48,4 @@ void DNode::resolveConditions(std::vector<Condition>& cv) const {
 	}
 }
 
-//bool DNode::checkConditions(const std::vector<Condition>& cv) const {
-//	for (auto const & it : preReqs) {
-//		if (std::find(cv.begin(), cv.end(), it) == cv.end()) {
-//			return false;
-//		}
-//	}
-//	return true;
-//}
-
-DPath::DPath(std::vector<Condition> preReqs, Dialogue::ID next) : preReqs(preReqs), next(next) {
-	
-}
-
-
-bool DPath::isSatisfied(const std::vector<Condition> activeConds) const {
-	for (auto const & it : preReqs) {
-		if (std::find(activeConds.begin(), activeConds.end(), it) == activeConds.end()) {
-			return false;
-		}
-	}
-	return true;
-}
-
-Dialogue::ID DPath::getNext() const {
-	return next;
-}
 

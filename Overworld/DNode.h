@@ -9,8 +9,7 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include "IterVector.hpp"
-#include "Conditions.hpp"
-#include "DialogueIDs.hpp"
+#include "DPath.hpp"
 
 class DNode;
 
@@ -32,28 +31,13 @@ public:
 	Dialogue::ID getID() const;
 	
 	virtual void addConsequence(Condition add);
-	//virtual void addPreReq(Condition add);
 	virtual void resolveConditions(std::vector<Condition>& cv) const;
-	//virtual bool checkConditions(const std::vector<Condition>& cv) const;
 
 protected:
     sf::Text display;
-	//std::vector<Condition> preReqs;
 	std::vector<Condition> consequences;
 	Dialogue::ID ID;
 	
     virtual std::string getText() = 0;
 };
 
-
-struct DPath
-{
-public:
-	DPath(std::vector<Condition> preReqs, Dialogue::ID next);
-	bool isSatisfied(const std::vector<Condition> activeConds) const;
-	Dialogue::ID getNext() const;
-	
-private:
-	std::vector<Condition> preReqs;
-	Dialogue::ID next;
-};
