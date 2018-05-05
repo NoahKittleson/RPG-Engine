@@ -95,8 +95,9 @@ void OverworldMode::update(sf::Clock& timer) {
 				currentMode = fadeIn;
 				int exitIndex = checkExits();
 				if (exitIndex >= 0) {
-					sf::Vector2f movement = currentMap->getExitList()[exitIndex].getMoveOffset();
-					player->move(movement);
+					ZoneExit exit = currentMap->getExitList()[exitIndex];
+					player->move(exit.getMoveOffset());
+					currentMap = MapFactory::create(exit.getNextZone(), resources);
 					updateView();
 				}
 				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
