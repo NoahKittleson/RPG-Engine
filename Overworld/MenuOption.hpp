@@ -11,22 +11,22 @@
 
 class Menu;
 
-class MenuItem {
+class MenuOption {
 public:
-	MenuItem(std::string text, Menu* next, const sf::Font& font);
-	MenuItem(std::string text, Menu* next, const sf::Font& font,  std::function<void()> callback);
+	MenuOption(std::string text, Menu* next, const sf::Font& font);
+	MenuOption(std::string text, Menu* next, const sf::Font& font,  std::function<void()> callback);
 	
-	void draw(sf::RenderWindow& rw);
-	void select();						//select is for highlighting current option, activate for executing it
-	void activate();
-	bool isActive() const;
-	void deselect();
-	bool isSelectable();
-	Menu* getNext() const { return nextMenu; };
-	void setSelect(bool selectable);
+	virtual void draw(sf::RenderWindow& rw);
+	virtual void select();						//select is for highlighting current option, activate for executing it
+	virtual void activate();
+	virtual bool isActive() const;
+	virtual void deselect();
+	virtual bool isSelectable();
+	virtual Menu* getNext() const { return nextMenu; };
+	virtual void setSelect(bool selectable);
 	
 	void setPosition(int x, int y);
-	std::string getName() const { return text.getString(); };
+	//std::string getName() const { return text.getString(); };
 	bool isSelected() const { return selected; };
 
 protected:
@@ -36,14 +36,14 @@ protected:
 	bool selected = false;
 	bool possible = true;
 	
-	//define color Types across all MenuItems
+	//define color Types across all MenuOptions
 	const sf::Color selectColor = sf::Color::Red;
 	const sf::Color defaultColor = sf::Color::Black;
 	const sf::Color unselectableColor = sf::Color(128,128,128);
 };
 
 
-//things I need to accomplish that involve the orginal objects MenuItems are supposed to be representing-
+//things I need to accomplish that involve the orginal objects MenuOptions are supposed to be representing-
 //-Draw Requirements and Description of Ability
 //-Start TargetList on correct person (ally or enemy)
 //-Put Select marker above selected character

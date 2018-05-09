@@ -6,9 +6,9 @@
 //  Copyright © 2018 Noah. All rights reserved.
 //
 
-#include "MenuItem.hpp"
+#include "MenuOption.hpp"
 
-MenuItem::MenuItem(std::string t, Menu* next, const sf::Font& font) {
+MenuOption::MenuOption(std::string t, Menu* next, const sf::Font& font) {
 	nextMenu = next;
 	text.setString(t);
 	text.setFont(font);
@@ -16,7 +16,7 @@ MenuItem::MenuItem(std::string t, Menu* next, const sf::Font& font) {
 
 }
 
-MenuItem::MenuItem(std::string t, Menu* next, const sf::Font& font, std::function<void()> callback) {
+MenuOption::MenuOption(std::string t, Menu* next, const sf::Font& font, std::function<void()> callback) {
 	nextMenu = next;
 	text.setString(t);
 	text.setFont(font);
@@ -24,21 +24,21 @@ MenuItem::MenuItem(std::string t, Menu* next, const sf::Font& font, std::functio
 	text.setColor(sf::Color::Black);
 }
 
-void MenuItem::draw(sf::RenderWindow& rw) {
+void MenuOption::draw(sf::RenderWindow& rw) {
 	rw.draw(text);
 }
 
-void MenuItem::select() {
+void MenuOption::select() {
 	text.setColor(selectColor);
 }
 
-void MenuItem::activate() {
+void MenuOption::activate() {
 	if (possible) {
 		callback();
 	}
 }
 
-void MenuItem::deselect() {
+void MenuOption::deselect() {
 	if (possible) {
 		text.setColor(defaultColor);
 	} else {
@@ -46,15 +46,15 @@ void MenuItem::deselect() {
 	}
 }
 
-bool MenuItem::isSelectable() {
+bool MenuOption::isSelectable() {
 	return possible;
 }
 
-void MenuItem::setPosition(int x, int y) {
+void MenuOption::setPosition(int x, int y) {
 	text.setPosition(x, y);
 }
 
-void MenuItem::setSelect(bool selectable) {
+void MenuOption::setSelect(bool selectable) {
 	possible = selectable;
 	if (possible) {
 		text.setColor(defaultColor);
