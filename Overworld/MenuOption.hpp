@@ -13,8 +13,8 @@ class Menu;
 
 class MenuOption {
 public:
-	MenuOption(std::string text, Menu* next, const sf::Font& font);
-	MenuOption(std::string text, Menu* next, const sf::Font& font,  std::function<void()> callback);
+	MenuOption(std::string text, const sf::Font& font);
+	MenuOption(std::string text, const sf::Font& font,  std::function<void()> callback);
 	
 	virtual void draw(sf::RenderWindow& rw);
 	virtual void select();						//select is for highlighting current option, activate for executing it
@@ -25,6 +25,7 @@ public:
 	virtual Menu* getNext() const { return nextMenu; };
 	virtual void setSelect(bool selectable);
 	
+	void attachNext(std::shared_ptr<Menu> next);
 	void setPosition(int x, int y);
 	//std::string getName() const { return text.getString(); };
 	bool isSelected() const { return selected; };
