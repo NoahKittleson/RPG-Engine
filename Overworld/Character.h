@@ -8,7 +8,7 @@
 
 #pragma once
 #include "PrefixHeader.pch"
-#include "Ability.h"
+#include "Ability.hpp"
 #include "IterVector.hpp"
 #include "AnimatedComponent.hpp"
 

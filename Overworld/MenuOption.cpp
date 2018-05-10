@@ -8,28 +8,19 @@
 
 #include "MenuOption.hpp"
 
-MenuOption::MenuOption(std::string t, Menu* next, const sf::Font& font) {
-	nextMenu = next;
-	text.setString(t);
-	text.setFont(font);
-	text.setColor(sf::Color::Black);
-
-}
-
-MenuOption::MenuOption(std::string t, Menu* next, const sf::Font& font, std::function<void()> callback) {
-	nextMenu = next;
-	text.setString(t);
-	text.setFont(font);
+MenuOption::MenuOption(std::string text, const sf::Font& font, std::function<void()> callback) {
+	optionName.setString(text);
+	optionName.setFont(font);
 	this->callback = callback;
-	text.setColor(sf::Color::Black);
+	optionName.setColor(sf::Color::Black);
 }
 
 void MenuOption::draw(sf::RenderWindow& rw) {
-	rw.draw(text);
+	rw.draw(optionName);
 }
 
 void MenuOption::select() {
-	text.setColor(selectColor);
+	optionName.setColor(selectColor);
 }
 
 void MenuOption::activate() {
@@ -40,9 +31,9 @@ void MenuOption::activate() {
 
 void MenuOption::deselect() {
 	if (possible) {
-		text.setColor(defaultColor);
+		optionName.setColor(defaultColor);
 	} else {
-		text.setColor(unselectableColor);
+		optionName.setColor(unselectableColor);
 	}
 }
 
@@ -51,15 +42,15 @@ bool MenuOption::isSelectable() {
 }
 
 void MenuOption::setPosition(int x, int y) {
-	text.setPosition(x, y);
+	optionName.setPosition(x, y);
 }
 
 void MenuOption::setSelect(bool selectable) {
 	possible = selectable;
 	if (possible) {
-		text.setColor(defaultColor);
+		optionName.setColor(defaultColor);
 	} else {
-		text.setColor(unselectableColor);
+		optionName.setColor(unselectableColor);
 	}
 }
 

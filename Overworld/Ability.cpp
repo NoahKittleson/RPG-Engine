@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Noah. All rights reserved.
 //
 
-#include "Ability.h"
+#include "Ability.hpp"
 
 Ability::Ability(std::string name, std::string desc, float BaseDmg, bool multiTarg, bool AllyTarget, const sf::Texture& tex)
 : hitAnimation(&tex), multiTarget(multiTarg), allyTargetPref(AllyTarget), baseDamage(BaseDmg)

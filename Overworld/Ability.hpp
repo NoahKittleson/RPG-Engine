@@ -1,5 +1,5 @@
 //
-//  Ability.h
+//  Ability.hpp
 //  BattleMode
 //
 //  Created by Noah Kittleson on 1/17/15.

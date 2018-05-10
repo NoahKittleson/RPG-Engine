@@ -9,10 +9,11 @@
 #include "AbilityOption.hpp"
 
 
-AbilityOption::AbilityOption(Ability abil, const sf::Font& font, std::function<void()> callback)
-	: MenuOption(abil.getName(), nullptr, font, callback), ability(abil) {
+AbilityOption::AbilityOption(Ability abil, const sf::Font& font, std::shared_ptr<Character> actor, std::function<void()> callback)
+	: MenuOption(abil.getName(), font, callback), ability(abil)
+{
 	//determine if conditions for selection are met, and set selectability bool.
-		abilityDesc.setString(abilt);
+	setSelect(actor->checkAbilityCost(ability));
 }
 
 void AbilityOption::draw(sf::RenderWindow& rw) {

@@ -8,7 +8,7 @@
 
 #pragma once
 #include "Character.h"
-#include "Ability.h"
+#include "Ability.hpp"
 
 //^Is this going to cause a circular dependency?
 

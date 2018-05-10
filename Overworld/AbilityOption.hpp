@@ -8,12 +8,13 @@
 
 #pragma once
 #include "MenuOption.hpp"
-#include "Ability.h"
+#include "Ability.hpp"
+#include "Character.h"
 
 class AbilityOption : public MenuOption
 {
 public:
-	AbilityOption(Ability, const sf::Font& font, std::function<void()> callback = nullptr);
+	AbilityOption(Ability, const sf::Font& font, std::shared_ptr<Character> actor, std::function<void()> callback = nullptr);
 	
 	void draw(sf::RenderWindow& rw) override;
 	

@@ -9,7 +9,7 @@
 #pragma once
 #include "IterVector.hpp"
 #include "Character.h"
-#include "Ability.h"
+#include "Ability.hpp"
 
 class MenuItem;
 
