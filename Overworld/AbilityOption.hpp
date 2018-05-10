@@ -13,17 +13,11 @@
 class AbilityOption : public MenuOption
 {
 public:
-	AbilityOption(Ability, const sf::Font& font);
-	AbilityOption(Ability, const sf::Font& font, std::function<void()> callback);
+	AbilityOption(Ability, const sf::Font& font, std::function<void()> callback = nullptr);
 	
-	virtual void draw(sf::RenderWindow& rw) override;
-	virtual void select() override;				//select is for highlighting current option, activate for executing it
-	virtual void activate() override;
-	virtual bool isActive() const override;
-	virtual void deselect()override;
-	virtual bool isSelectable()override;
-	virtual Menu* getNext() const override { return nextMenu; };
-	virtual void setSelect(bool selectable) override;
+	void draw(sf::RenderWindow& rw) override;
 	
-	void attachNext(std::shared_ptr<Menu> next);
-}
+private:
+	const Ability ability;
+	sf::Text abilityDesc;
+};

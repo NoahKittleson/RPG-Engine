@@ -22,17 +22,17 @@ public:
 	virtual bool isActive() const;
 	virtual void deselect();
 	virtual bool isSelectable();
-	virtual Menu* getNext() const { return nextMenu; };
+	virtual std::shared_ptr<Menu> getNext() const { return nextMenu; };
 	virtual void setSelect(bool selectable);
 	
-	void attachNext(std::shared_ptr<Menu> next);
+	void attachNext(std::shared_ptr<Menu> next) { nextMenu = next; };
 	void setPosition(int x, int y);
 	//std::string getName() const { return text.getString(); };
 	bool isSelected() const { return selected; };
 
 protected:
 	sf::Text text;
-	Menu* nextMenu = nullptr;
+	std::shared_ptr<Menu> nextMenu = nullptr;
 	std::function<void()> callback = [] { return; };
 	bool selected = false;
 	bool possible = true;

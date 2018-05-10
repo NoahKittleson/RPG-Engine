@@ -9,10 +9,13 @@
 #include "AbilityOption.hpp"
 
 
-AbilityOption::AbilityOption(Ability abil, const sf::Font& font) : MenuOption(abil.getName(), nullptr, font) {
-	
+AbilityOption::AbilityOption(Ability abil, const sf::Font& font, std::function<void()> callback)
+	: MenuOption(abil.getName(), nullptr, font, callback), ability(abil) {
+	//determine if conditions for selection are met, and set selectability bool.
+	//set abilityDesc text
 }
 
-AbilityOption::AbilityOption(Ability, const sf::Font& font, std::function<void()> callback)  : MenuOption(abil.getName(), nullptr, font, callback) {
-	
+void AbilityOption::draw(sf::RenderWindow& rw) {
+	rw.draw(text);
+	rw.draw(abilityDesc);
 }
