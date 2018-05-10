@@ -8,31 +8,38 @@
 
 #include "MenuMode.hpp"
 
-MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info) {
-	//create starting menu Node
-	Menu* primaryMenu = &menuStorage[0];
-	Menu* targetMenu = &menuStorage[1];
-	Menu* abilityMenu = &menuStorage[2];
-	
+MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
+{
+	//startMenu has already been created...
+	std::shared_ptr<Menu> abilityMenu;
+	std::shared_ptr<Menu> targetMenu;
+
+	//set up Attack Option on Start Menu
 	const Ability& autoAttack = info.currentAction.attacker->getBasicAttack();
 	auto attackFunc = [&info, &autoAttack] () {
 		info.currentAction.ability = &autoAttack;
 	};
+	MenuOption attackOption ("Attack", font, attackFunc);
+	attackOption.attachNext(targetMenu);
+	startMenu->addChild(attackOption);
 	
-	primaryMenu->addChild(MenuItem("Attack", targetMenu, font, attackFunc));
-	MenuItem abilityOption ("Ability", abilityMenu, font);
+	//set up Ability Option on Start Menu
+	MenuOption abilityOption ("Ability", font);
+	abilityOption.attachNext(abilityMenu);
 	if (info.currentAction.attacker->getAbilityList().size() == 0) {
 		abilityOption.setSelect(false);
 	}
-	primaryMenu->addChild(abilityOption);
-	primaryMenu->addChild(MenuItem("Pass", nullptr, font));
 	
+	//set up Pass Option on Start Menu
+	MenuOption passOption ("Attack", font, attackFunc);
+	startMenu->addChild(passOption);
 	
+	//set up each option on Target Menu
 	for (auto & target : info.combatants) {
 		auto function = [&info, &target] () {
 			info.currentAction.defenders.push_back(target);
 		};
-		targetMenu->addChild(MenuItem(target->getName(), nullptr, font, function));
+		targetMenu->addChild(MenuOption(target->getName(), nullptr, font, function));
 	}
 	int iii = 0;
 	for (const auto & ability : info.currentAction.attacker->getAbilityList()) {

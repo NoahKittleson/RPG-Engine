@@ -225,7 +225,7 @@ float Character::calculateDmg(const Ability& ability, std::shared_ptr<Character>
 	if (TOTALDAMAGE > 0) {
 		startGetHitAnimation();
 	}
-	attacker->setAnimation(*Ability.hitAnimation);
+	attacker->setAnimation(*ability.hitAnimation);
     return TOTALDAMAGE;
 }
 

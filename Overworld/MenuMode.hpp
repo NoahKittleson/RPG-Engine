@@ -9,7 +9,7 @@
 #pragma once
 #include <stack>
 #include "Mode.hpp"
-#include "MenuItem.hpp"
+#include "MenuOption.hpp"
 #include "Menu.hpp"
 #include "BattleInfo.hpp"
 #include "PrefixHeader.pch"
@@ -24,6 +24,6 @@ public:
 	
 	
 private:
-	Menu menuStorage [3];
+	std::shared_ptr<Menu> startMenu;
 	BattleInfo& info;
 };

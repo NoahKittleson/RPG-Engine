@@ -11,7 +11,7 @@
 #include "Character.h"
 #include "Ability.hpp"
 
-class MenuItem;
+class MenuOption;
 
 class Menu {
 public:
@@ -23,10 +23,10 @@ public:
 	bool isActive() const {return active;};
 	void activate();
 	bool isDone() const;
-	void addChild(MenuItem item);
+	void addChild(MenuOption item);
 	
 private:
-	IterVector<MenuItem> children;
+	IterVector<MenuOption> children;
 	bool active = false;
 	static bool done;
 };

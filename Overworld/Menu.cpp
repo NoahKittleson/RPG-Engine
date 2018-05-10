@@ -7,7 +7,7 @@
 //
 
 #include "Menu.hpp"
-#include "MenuItem.hpp"
+#include "MenuOption.hpp"
 
 void Menu::draw(sf::RenderWindow &rw) {
 	if (children.get().getNext() && children.get().getNext()->isActive()) {
@@ -77,7 +77,7 @@ void Menu::handleInput(sf::RenderWindow& rw) {
 	}
 }
 
-void Menu::addChild(MenuItem item) {
+void Menu::addChild(MenuOption item) {
 	children.push_back(item);
 	if (children.size() == 1) {
 		children[0].select();
