@@ -130,7 +130,7 @@
 		B75F862A1BACE0C60093B615 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Character.cpp; sourceTree = "<group>"; };
 		B75F862B1BACE0C60093B615 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
 		B75F862D1BACE0FB0093B615 /* Ability.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ability.cpp; sourceTree = "<group>"; };
-		B75F862E1BACE0FB0093B615 /* Ability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ability.h; sourceTree = "<group>"; };
+		B75F862E1BACE0FB0093B615 /* Ability.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ability.hpp; sourceTree = "<group>"; };
 		B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedSprite.cpp; sourceTree = "<group>"; };
 		B75F86321BACE5C10093B615 /* AnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedSprite.h; sourceTree = "<group>"; };
 		B76E02321D738EC90058D39E /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 				B73D2DCA2060C44600E23998 /* StatusEffect.cpp */,
 				B77A1BDE206A3B3300CD87DF /* Statuses.hpp */,
 				B77A1BDD206A3B3300CD87DF /* Statuses.cpp */,
-				B75F862E1BACE0FB0093B615 /* Ability.h */,
+				B75F862E1BACE0FB0093B615 /* Ability.hpp */,
 				B75F862D1BACE0FB0093B615 /* Ability.cpp */,
 				B70D18DC20284340000B3584 /* BattleInfo.hpp */,
 				B70D18DB20284340000B3584 /* BattleInfo.cpp */,

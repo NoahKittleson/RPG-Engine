@@ -12,10 +12,11 @@
 AbilityOption::AbilityOption(Ability abil, const sf::Font& font, std::function<void()> callback)
 	: MenuOption(abil.getName(), nullptr, font, callback), ability(abil) {
 	//determine if conditions for selection are met, and set selectability bool.
-	//set abilityDesc text
+		abilityDesc.setString(abilt);
 }
 
 void AbilityOption::draw(sf::RenderWindow& rw) {
-	rw.draw(text);
-	rw.draw(abilityDesc);
+	ability.draw(rw);
+	//rw.draw(text);
+	ability.drawDesc(rw);
 }

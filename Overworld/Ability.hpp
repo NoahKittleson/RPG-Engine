@@ -33,15 +33,15 @@ public:
 	void setColor(sf::Color);
 	void setPosition(float x, float y);
 	void setFont(const sf::Font &font);
-    void draw(sf::RenderWindow &rw);
-    void drawDesc(sf::RenderWindow &rw);
+    void draw(sf::RenderWindow &rw) const;
+    void drawDesc(sf::RenderWindow &rw) const;
 	std::string getName() const;
     bool hasProperty(const Property& type) const;
 	bool isAttackSpell() const;
 
 	
 private:
-    void drawReqs(sf::RenderWindow &rw);
+    void determineReqs();
     
     bool multiTarget;
 	float baseDamage = 420;
@@ -51,6 +51,7 @@ private:
 	
     sf::Text abilityName;
     sf::Text abilityDescription;
+	sf::Text abilityReqs;
     
     std::map<Property, float> properties;
     std::map<Property, float> selfProperties;

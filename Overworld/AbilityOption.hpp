@@ -19,5 +19,4 @@ public:
 	
 private:
 	const Ability ability;
-	sf::Text abilityDesc;
 };

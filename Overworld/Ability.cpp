@@ -17,31 +17,27 @@ Ability::Ability(std::string name, std::string desc, float BaseDmg, bool multiTa
     abilityDescription.setString(desc);
     abilityDescription.setColor(sf::Color::Black);
     abilityDescription.setPosition(600, 100);
+	determineReqs();
 }
 
-void Ability::draw(sf::RenderWindow &rw)
-{
+void Ability::draw(sf::RenderWindow &rw) const {
     rw.draw(abilityName);
 }
 
-void Ability::drawDesc(sf::RenderWindow &rw)
-{
+void Ability::drawDesc(sf::RenderWindow &rw) const {
     rw.draw(abilityDescription);
-    drawReqs(rw);
+	rw.draw(abilityReqs);
 }
 
-void Ability::setColor(sf::Color color)
-{
+void Ability::setColor(sf::Color color) {
     abilityName.setColor(color);
 }
 
-void Ability::setPosition(float x, float y)
-{
+void Ability::setPosition(float x, float y) {
     abilityName.setPosition(x, y);
 }
 
-void Ability::addProperty(Ability::Property prop, float num, bool onSelf)
-{
+void Ability::addProperty(Ability::Property prop, float num, bool onSelf) {
 	if (onSelf) {
 		selfProperties.emplace(std::pair<Ability::Property, float>(prop, num));
 	} else {
@@ -49,47 +45,39 @@ void Ability::addProperty(Ability::Property prop, float num, bool onSelf)
 	}
 }
 
-void Ability::addReq(Ability::Requirement req, float num)
-{
+void Ability::addReq(Ability::Requirement req, float num) {
     requirements.emplace(std::pair<Ability::Requirement, float>(req, num));
 }
 
-void Ability::setMultiplier(Ability::DamageMultiplier multi, float percent)
-{
+void Ability::setMultiplier(Ability::DamageMultiplier multi, float percent) {
     dmgMulti = (std::pair<Ability::DamageMultiplier, float>(multi, percent));
 }
 
-void Ability::setDamageType(Ability::DamageType type)
-{
+void Ability::setDamageType(Ability::DamageType type) {
     dmgType = type;
 }
 
-void Ability::setFont(const sf::Font &font)
-{
+void Ability::setFont(const sf::Font &font) {
     abilityDescription.setFont(font);
     abilityName.setFont(font);
 }
 
-void Ability::addAfterEffect(Ability::AfterEffect effect, float percent)
-{
+void Ability::addAfterEffect(Ability::AfterEffect effect, float percent) {
     afterEffects.emplace(std::pair<Ability::AfterEffect, float>(effect, percent));
 }
 
-bool Ability::hasProperty(const Ability::Property &type) const
-{
+bool Ability::hasProperty(const Ability::Property &type) const {
     if (properties.find(type) != properties.end()) {
         return true;
     }
     return false;
 }
 
-void Ability::drawReqs(sf::RenderWindow &rw)
-{
-    sf::Text Reqs = abilityDescription;
-    Reqs.move(0, -100);
+void Ability::determineReqs() {
+	abilityReqs.setPosition(abilityDescription.getPosition());
+    abilityReqs.move(0, -100);
     
     std::ostringstream ss;
-    
     for (const auto & it: requirements) {
         switch (it.first) {
             case ManaCost:
@@ -104,9 +92,8 @@ void Ability::drawReqs(sf::RenderWindow &rw)
                 break;
         }
     }
-    Reqs.setString(ss.str());
-	Reqs.setFont(*abilityName.getFont());
-    rw.draw(Reqs);
+    abilityReqs.setString(ss.str());
+	abilityReqs.setFont(*abilityName.getFont());
 }
 
 std::string Ability::getName() const {
