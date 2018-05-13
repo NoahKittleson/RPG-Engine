@@ -10,9 +10,9 @@
 
 MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 {
-	//startMenu has already been created...
-	std::shared_ptr<Menu> abilityMenu;
-	std::shared_ptr<Menu> targetMenu;
+	startMenu = std::make_shared<Menu>();
+	std::shared_ptr<Menu> abilityMenu = std::make_shared<Menu>();
+	std::shared_ptr<Menu> targetMenu = std::make_shared<Menu>();
 
 	//set up Attack Option on Start Menu
 	const Ability& autoAttack = info.currentAction.attacker->getBasicAttack();
@@ -29,9 +29,11 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 	if (info.currentAction.attacker->getAbilityList().size() == 0) {
 		abilityOption.setSelect(false);
 	}
+	startMenu->addChild(abilityOption);
+
 	
 	//set up Pass Option on Start Menu
-	MenuOption passOption ("Attack", font, attackFunc);
+	MenuOption passOption ("Pass", font, attackFunc);
 	startMenu->addChild(passOption);
 	
 	//set up each option in Target Menu
@@ -39,7 +41,7 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 		auto function = [&info, &target] () {
 			info.currentAction.defenders.push_back(target);
 		};
-		TargetOption targetOption (/*Blah*/);
+		MenuOption targetOption (target->getName(), font, function);
 		//targetOption.attachNext(nullptr);
 		targetMenu->addChild(targetOption);
 	}

@@ -27,6 +27,7 @@ void MenuOption::activate() {
 	if (possible) {
 		callback();
 	}
+	//if there's a nextMenu, activate that one now...
 }
 
 void MenuOption::deselect() {
@@ -53,6 +54,7 @@ void MenuOption::setSelect(bool selectable) {
 		optionName.setColor(unselectableColor);
 	}
 }
+
 
 
 
