@@ -34,30 +34,29 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 	MenuOption passOption ("Attack", font, attackFunc);
 	startMenu->addChild(passOption);
 	
-	//set up each option on Target Menu
+	//set up each option in Target Menu
 	for (auto & target : info.combatants) {
 		auto function = [&info, &target] () {
 			info.currentAction.defenders.push_back(target);
 		};
-		targetMenu->addChild(MenuOption(target->getName(), nullptr, font, function));
+		TargetOption targetOption (/*Blah*/);
+		//targetOption.attachNext(nullptr);
+		targetMenu->addChild(targetOption);
 	}
-	int iii = 0;
+	
+	//set up each option in Ability Menu
 	for (const auto & ability : info.currentAction.attacker->getAbilityList()) {
 		auto function = [&info, &ability] () {
 			info.currentAction.ability = &ability;
 		};
-		MenuItem addMe (ability.getName(), targetMenu, font, function);
-		if (info.combatants.get()->checkAbilityCost(ability)) {
-			addMe.setSelect(true);
-		}
+		AbilityOption addMe (ability, font, info.combatants.get(), function);
 		abilityMenu->addChild(addMe);
-		iii++;
 	}
-	menuStorage[0].activate();
+	startMenu->activate();
 }
 
 void MenuMode::update(float elapsed) {
-	menuStorage[0].update(elapsed);
+	startMenu->update(elapsed);
 	if (info.currentAction.complete()) {
 		done = true;
 	}
@@ -67,9 +66,9 @@ void MenuMode::update(float elapsed) {
 }
 
 void MenuMode::draw(sf::RenderWindow &rw) {
-	menuStorage[0].draw(rw);
+	startMenu->draw(rw);
 }
 
 void MenuMode::handleInput(sf::RenderWindow &rw) {
-	menuStorage[0].handleInput(rw);
+	startMenu->handleInput(rw);
 }

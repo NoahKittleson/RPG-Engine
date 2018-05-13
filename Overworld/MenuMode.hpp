@@ -13,6 +13,7 @@
 #include "Menu.hpp"
 #include "BattleInfo.hpp"
 #include "PrefixHeader.pch"
+#include "AbilityOption.hpp"
 
 class MenuMode: public Mode
 {
