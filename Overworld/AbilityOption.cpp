@@ -23,3 +23,8 @@ void AbilityOption::draw(sf::RenderWindow& rw) {
 		ability.drawDesc(rw);
 	}
 }
+
+void AbilityOption::setPosition(int x, int y) {
+	ability.setPosition(x, y);
+}
+

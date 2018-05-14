@@ -42,7 +42,6 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 			info.currentAction.defenders.push_back(target);
 		};
 		auto targetOption = std::make_shared<MenuOption>(target->getName(), font, function);
-		//targetOption.attachNext(nullptr);
 		targetMenu->addChild(targetOption);
 	}
 	
