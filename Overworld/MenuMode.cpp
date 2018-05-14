@@ -19,12 +19,12 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 	auto attackFunc = [&info, &autoAttack] () {
 		info.currentAction.ability = &autoAttack;
 	};
-	std::shared_ptr<MenuOption> attackOption (new MenuOption("Attack", font, attackFunc));
+	auto attackOption = std::make_shared<MenuOption>("Attack", font, attackFunc);
 	attackOption->attachNext(targetMenu);
 	startMenu->addChild(attackOption);
 	
 	//set up Ability Option on Start Menu
-	std::shared_ptr<MenuOption> abilityOption (new MenuOption("Ability", font));
+	auto abilityOption = std::make_shared<MenuOption>("Ability", font);
 	abilityOption->attachNext(abilityMenu);
 	if (info.currentAction.attacker->getAbilityList().size() == 0) {
 		abilityOption->setSelect(false);
@@ -33,7 +33,7 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 
 	
 	//set up Pass Option on Start Menu
-	std::shared_ptr<MenuOption> passOption (new MenuOption("Pass", font));
+	auto passOption = std::make_shared<MenuOption>("Pass", font);
 	startMenu->addChild(passOption);
 	
 	//set up each option in Target Menu
@@ -41,7 +41,7 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 		auto function = [&info, &target] () {
 			info.currentAction.defenders.push_back(target);
 		};
-		std::shared_ptr<MenuOption> targetOption (new MenuOption(target->getName(), font, function));
+		auto targetOption = std::make_shared<MenuOption>(target->getName(), font, function);
 		//targetOption.attachNext(nullptr);
 		targetMenu->addChild(targetOption);
 	}
@@ -51,8 +51,7 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 		auto function = [&info, &ability] () {
 			info.currentAction.ability = &ability;
 		};
-		//AbilityOption addMe (ability, font, info.combatants.get(), function);
-		std::shared_ptr<MenuOption> addMe (new AbilityOption(ability, font, info.combatants.get(), function));
+		std::shared_ptr<MenuOption> addMe = std::make_shared<AbilityOption>(ability, font, info.combatants.get(), function);
 		abilityMenu->addChild(addMe);
 	}
 	startMenu->activate();
