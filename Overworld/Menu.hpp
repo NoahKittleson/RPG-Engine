@@ -23,10 +23,10 @@ public:
 	bool isActive() const {return active;};
 	void activate();
 	bool isDone() const;
-	void addChild(MenuOption item);
+	void addChild(std::shared_ptr<MenuOption>& item);
 	
 private:
-	IterVector<MenuOption> children;
+	IterVector<std::shared_ptr<MenuOption>> children;
 	bool active = false;
 	static bool done;
 };

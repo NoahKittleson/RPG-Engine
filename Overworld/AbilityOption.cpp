@@ -19,5 +19,7 @@ AbilityOption::AbilityOption(Ability abil, const sf::Font& font, std::shared_ptr
 void AbilityOption::draw(sf::RenderWindow& rw) {
 	ability.draw(rw);
 	//rw.draw(text);
-	ability.drawDesc(rw);
+	if (isSelected()) {
+		ability.drawDesc(rw);
+	}
 }

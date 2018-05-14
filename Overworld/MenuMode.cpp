@@ -19,21 +19,21 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 	auto attackFunc = [&info, &autoAttack] () {
 		info.currentAction.ability = &autoAttack;
 	};
-	MenuOption attackOption ("Attack", font, attackFunc);
-	attackOption.attachNext(targetMenu);
+	std::shared_ptr<MenuOption> attackOption (new MenuOption("Attack", font, attackFunc));
+	attackOption->attachNext(targetMenu);
 	startMenu->addChild(attackOption);
 	
 	//set up Ability Option on Start Menu
-	MenuOption abilityOption ("Ability", font);
-	abilityOption.attachNext(abilityMenu);
+	std::shared_ptr<MenuOption> abilityOption (new MenuOption("Ability", font));
+	abilityOption->attachNext(abilityMenu);
 	if (info.currentAction.attacker->getAbilityList().size() == 0) {
-		abilityOption.setSelect(false);
+		abilityOption->setSelect(false);
 	}
 	startMenu->addChild(abilityOption);
 
 	
 	//set up Pass Option on Start Menu
-	MenuOption passOption ("Pass", font, attackFunc);
+	std::shared_ptr<MenuOption> passOption (new MenuOption("Pass", font));
 	startMenu->addChild(passOption);
 	
 	//set up each option in Target Menu
@@ -41,7 +41,7 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 		auto function = [&info, &target] () {
 			info.currentAction.defenders.push_back(target);
 		};
-		MenuOption targetOption (target->getName(), font, function);
+		std::shared_ptr<MenuOption> targetOption (new MenuOption(target->getName(), font, function));
 		//targetOption.attachNext(nullptr);
 		targetMenu->addChild(targetOption);
 	}
@@ -51,7 +51,8 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 		auto function = [&info, &ability] () {
 			info.currentAction.ability = &ability;
 		};
-		AbilityOption addMe (ability, font, info.combatants.get(), function);
+		//AbilityOption addMe (ability, font, info.combatants.get(), function);
+		std::shared_ptr<MenuOption> addMe (new AbilityOption(ability, font, info.combatants.get(), function));
 		abilityMenu->addChild(addMe);
 	}
 	startMenu->activate();
