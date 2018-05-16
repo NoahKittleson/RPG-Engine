@@ -17,7 +17,6 @@ public:
 	AbilityOption(Ability, const sf::Font& font, std::shared_ptr<Character> actor, std::function<void()> callback = nullptr);
 	
 	void draw(sf::RenderWindow& rw) override;
-	void setPosition(int x, int y) override;
 
 	
 private:

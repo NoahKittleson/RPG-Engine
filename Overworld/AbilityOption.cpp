@@ -14,17 +14,15 @@ AbilityOption::AbilityOption(Ability abil, const sf::Font& font, std::shared_ptr
 {
 	//determine if conditions for selection are met, and set selectability bool.
 	setSelect(actor->checkAbilityCost(ability));
+	optionName.setString(ability.getName());
 }
 
 void AbilityOption::draw(sf::RenderWindow& rw) {
-	ability.draw(rw);
-	//rw.draw(text);
+//	ability.draw(rw);
+	rw.draw(optionName);
 	if (isSelected()) {
 		ability.drawDesc(rw);
 	}
 }
 
-void AbilityOption::setPosition(int x, int y) {
-	ability.setPosition(x, y);
-}
 

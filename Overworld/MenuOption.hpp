@@ -26,7 +26,7 @@ public:
 	void attachNext(std::shared_ptr<Menu> next) { nextMenu = next; };
 	virtual void setPosition(int x, int y);
 	sf::Vector2f getPosition() const { return optionName.getPosition(); };	//just for debugging
-	std::string getName() const { return optionName.getString(); };		//this is just for debugging
+	std::string getName() const { return optionName.getString(); };			//this is just for debugging
 	bool isSelected() const { return selected; };
 
 protected:
