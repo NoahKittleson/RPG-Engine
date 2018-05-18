@@ -12,8 +12,8 @@
 AbilityOption::AbilityOption(Ability abil, const sf::Font& font, std::shared_ptr<Character> actor, std::function<void()> callback)
 	: MenuOption(abil.getName(), font, callback), ability(abil)
 {
-	//determine if conditions for selection are met, and set selectability bool.
-	setSelect(actor->checkAbilityCost(ability));
+	//determine if conditions for selection are met, and set possibility bool.
+	setPossible(actor->checkAbilityCost(ability));
 	optionName.setString(ability.getName());
 }
 

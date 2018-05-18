@@ -21,6 +21,7 @@ void MenuOption::draw(sf::RenderWindow& rw) {
 
 void MenuOption::select() {
 	optionName.setColor(selectColor);
+	selected = true;
 }
 
 void MenuOption::activate() {
@@ -36,6 +37,7 @@ void MenuOption::deselect() {
 	} else {
 		optionName.setColor(unselectableColor);
 	}
+	selected = false;
 }
 
 bool MenuOption::isSelectable() {
@@ -46,7 +48,7 @@ void MenuOption::setPosition(int x, int y) {
 	optionName.setPosition(x, y);
 }
 
-void MenuOption::setSelect(bool selectable) {
+void MenuOption::setPossible(bool selectable) {
 	possible = selectable;
 	if (possible) {
 		optionName.setColor(defaultColor);

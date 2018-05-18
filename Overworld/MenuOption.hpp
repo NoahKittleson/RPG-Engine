@@ -21,7 +21,7 @@ public:
 	virtual void deselect();
 	virtual bool isSelectable();
 	virtual std::shared_ptr<Menu> getNext() const { return nextMenu; };
-	virtual void setSelect(bool selectable);
+	virtual void setPossible(bool selectable);
 	
 	void attachNext(std::shared_ptr<Menu> next) { nextMenu = next; };
 	virtual void setPosition(int x, int y);

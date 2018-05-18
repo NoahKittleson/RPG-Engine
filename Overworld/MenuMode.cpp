@@ -27,7 +27,7 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 	auto abilityOption = std::make_shared<MenuOption>("Ability", font);
 	abilityOption->attachNext(abilityMenu);
 	if (info.currentAction.attacker->getAbilityList().size() == 0) {
-		abilityOption->setSelect(false);
+		abilityOption->setPossible(false);
 	}
 	startMenu->addChild(abilityOption);
 
