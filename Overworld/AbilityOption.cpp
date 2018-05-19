@@ -15,6 +15,9 @@ AbilityOption::AbilityOption(Ability abil, const sf::Font& font, std::shared_ptr
 	//determine if conditions for selection are met, and set possibility bool.
 	setPossible(actor->checkAbilityCost(ability));
 	optionName.setString(ability.getName());
+	optionName.setFont(font);
+	optionName.setPosition(100, 100);
+	optionName.setColor(sf::Color::Black);
 }
 
 void AbilityOption::draw(sf::RenderWindow& rw) {

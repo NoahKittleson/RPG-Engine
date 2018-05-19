@@ -11,9 +11,9 @@
 Ability::Ability(std::string name, std::string desc, float BaseDmg, bool multiTarg, bool AllyTarget, const sf::Texture& tex)
 : hitAnimation(&tex), multiTarget(multiTarg), allyTargetPref(AllyTarget), baseDamage(BaseDmg)
 {
-//    abilityName.setString(name);
-//    abilityName.setColor(sf::Color::Black);
-//    abilityName.setPosition(0, 0);
+    abilityName.setString(name);
+    abilityName.setColor(sf::Color::Black);
+    abilityName.setPosition(0, 0);
     abilityDescription.setString(desc);
     abilityDescription.setColor(sf::Color::Black);
     abilityDescription.setPosition(600, 100);
