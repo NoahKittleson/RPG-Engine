@@ -11,9 +11,9 @@
 Ability::Ability(std::string name, std::string desc, float BaseDmg, bool multiTarg, bool AllyTarget, const sf::Texture& tex)
 : hitAnimation(&tex), multiTarget(multiTarg), allyTargetPref(AllyTarget), baseDamage(BaseDmg)
 {
-    abilityName.setString(name);
-    abilityName.setColor(sf::Color::Black);
-    abilityName.setPosition(0, 0);
+//    abilityName.setString(name);
+//    abilityName.setColor(sf::Color::Black);
+//    abilityName.setPosition(0, 0);
     abilityDescription.setString(desc);
     abilityDescription.setColor(sf::Color::Black);
     abilityDescription.setPosition(600, 100);
@@ -60,6 +60,7 @@ void Ability::setDamageType(Ability::DamageType type) {
 void Ability::setFont(const sf::Font &font) {
     abilityDescription.setFont(font);
     abilityName.setFont(font);
+	abilityReqs.setFont(font);
 }
 
 void Ability::addAfterEffect(Ability::AfterEffect effect, float percent) {
@@ -75,7 +76,13 @@ bool Ability::hasProperty(const Ability::Property &type) const {
 
 void Ability::determineReqs() {
 	abilityReqs.setPosition(abilityDescription.getPosition());
-    abilityReqs.move(0, -100);
+    abilityReqs.move(0, 50);
+	abilityReqs.setColor(sf::Color::Black);
+	
+	if (requirements.empty()) {
+		abilityReqs.setString("No cost");
+		return;
+	}
     
     std::ostringstream ss;
     for (const auto & it: requirements) {
@@ -93,7 +100,6 @@ void Ability::determineReqs() {
         }
     }
     abilityReqs.setString(ss.str());
-	abilityReqs.setFont(*abilityName.getFont());
 }
 
 std::string Ability::getName() const {
