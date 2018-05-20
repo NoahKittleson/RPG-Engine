@@ -51,6 +51,7 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 			info.currentAction.ability = &ability;
 		};
 		std::shared_ptr<MenuOption> addMe = std::make_shared<AbilityOption>(ability, font, info.combatants.get(), function);
+		addMe->attachNext(targetMenu);
 		abilityMenu->addChild(addMe);
 	}
 	startMenu->activate();
