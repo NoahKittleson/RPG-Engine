@@ -17,7 +17,12 @@ Ability::Ability(std::string name, std::string desc, float BaseDmg, bool multiTa
     abilityDescription.setString(desc);
     abilityDescription.setColor(sf::Color::Black);
     abilityDescription.setPosition(600, 100);
-	determineReqs();
+	abilityReqs.setString("No cost");
+	abilityReqs.setCharacterSize(abilityDescription.getCharacterSize()*2/3);		//magic number?
+	abilityReqs.setPosition(abilityDescription.getPosition());
+	abilityReqs.move(0, 50);
+	abilityReqs.setColor(sf::Color::Black);
+
 }
 
 void Ability::draw(sf::RenderWindow &rw) const {
@@ -47,6 +52,7 @@ void Ability::addProperty(Ability::Property prop, float num, bool onSelf) {
 
 void Ability::addReq(Ability::Requirement req, float num) {
     requirements.emplace(std::pair<Ability::Requirement, float>(req, num));
+	determineReqs();
 }
 
 void Ability::setMultiplier(Ability::DamageMultiplier multi, float percent) {
@@ -75,24 +81,15 @@ bool Ability::hasProperty(const Ability::Property &type) const {
 }
 
 void Ability::determineReqs() {
-	abilityReqs.setPosition(abilityDescription.getPosition());
-    abilityReqs.move(0, 50);
-	abilityReqs.setColor(sf::Color::Black);
-	
-	if (requirements.empty()) {
-		abilityReqs.setString("No cost");
-		return;
-	}
-    
     std::ostringstream ss;
     for (const auto & it: requirements) {
         switch (it.first) {
-            case ManaCost:
-                ss << "ManaCost: " << it.second << "\n";
+			case ManaCost:
+                ss << "Mana cost: " << it.second << "\n";
                 break;
                 
             case HealthCost:
-                ss << "HPCost: " << it.second << "\n";
+                ss << "HP cost: " << it.second << "\n";
                 break;
                 
             default:
