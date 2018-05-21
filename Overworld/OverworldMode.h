@@ -27,6 +27,7 @@ public:
 private:
 	//return true if movement occurs
 	bool handleMovement(float elapsed);
+	void handleOOB() const;
 	int checkExits();						//returns index of intersected exit, or -1 if none intersect
 	void changeMap(ZoneExit);
 	void checkTriggers();

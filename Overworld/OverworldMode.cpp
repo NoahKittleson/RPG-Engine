@@ -98,18 +98,7 @@ void OverworldMode::update(sf::Clock& timer) {
 					ZoneExit exit = currentMap->getExitList()[exitIndex];
 					player->move(exit.getMoveOffset());
 					currentMap = MapFactory::create(exit.getNextZone(), resources);
-					if (currentMap->getSize().x < player->getPosition().x) {
-						player->setPosition(currentMap->getSize().x-20, player->getPosition().y);	//magic number 20
-					}
-					if (currentMap->getSize().y < player->getPosition().y) {
-						player->setPosition(player->getPosition().x, currentMap->getSize().y-40);	//magic number 40
-					}
-					if (player->getPosition().x < 0) {
-						player->setPosition(20, player->getPosition().y);							//magic number 20
-					}
-					if (player->getPosition().x < 0) {
-						player->setPosition(player->getPosition().x, 40);							//magic number 40
-					}
+					handleOOB();
 					updateView();
 				}
 				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
@@ -254,6 +243,21 @@ void OverworldMode::checkForInteraction(sf::RenderWindow &rw) {
 	if (dialoguePtr) {
 		std::cout << "dialogueMode created\n";
 		requestStackAdd(make_unique<DialogueMode>(dialoguePtr, rw));
+	}
+}
+
+void OverworldMode::handleOOB() const {
+	if (currentMap->getSize().x < player->getPosition().x) {
+		player->setPosition(currentMap->getSize().x-20, player->getPosition().y);	//magic number 20
+	}
+	if (currentMap->getSize().y < player->getPosition().y) {
+		player->setPosition(player->getPosition().x, currentMap->getSize().y-40);	//magic number 40
+	}
+	if (player->getPosition().x < 0) {
+		player->setPosition(20, player->getPosition().y);							//magic number 20
+	}
+	if (player->getPosition().x < 0) {
+		player->setPosition(player->getPosition().x, 40);							//magic number 40
 	}
 }
 
