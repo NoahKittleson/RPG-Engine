@@ -120,6 +120,7 @@ void OverworldMode::update(sf::Clock& timer) {
 						}
 					}
 				}
+				break;
 
 				
 			case normal:

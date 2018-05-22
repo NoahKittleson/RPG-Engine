@@ -22,6 +22,7 @@
 		B73F35021E4B095B007EC4AC /* PlayerWalkingDown.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */; };
 		B73F35041E4B0963007EC4AC /* PlayerWalkingRight.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35031E4B0963007EC4AC /* PlayerWalkingRight.png */; };
 		B73F35061E4B096D007EC4AC /* PlayerWalkingUp.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35051E4B096D007EC4AC /* PlayerWalkingUp.png */; };
+		B7408AC220B3EE4A00CADF12 /* BlinkFade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7408AC020B3EE4A00CADF12 /* BlinkFade.cpp */; };
 		B742133F1E3836F300090D95 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = B742133E1E3836F300090D95 /* tree.png */; };
 		B74213421E384C7F00090D95 /* BigField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74213401E384C7F00090D95 /* BigField.cpp */; };
 		B742D6F91C1292EA0093C785 /* ResourceHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B742D6F71C1292EA0093C785 /* ResourceHolder.cpp */; };
@@ -103,6 +104,8 @@
 		B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingDown.png; sourceTree = "<group>"; };
 		B73F35031E4B0963007EC4AC /* PlayerWalkingRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingRight.png; sourceTree = "<group>"; };
 		B73F35051E4B096D007EC4AC /* PlayerWalkingUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingUp.png; sourceTree = "<group>"; };
+		B7408AC020B3EE4A00CADF12 /* BlinkFade.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BlinkFade.cpp; sourceTree = "<group>"; };
+		B7408AC120B3EE4A00CADF12 /* BlinkFade.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BlinkFade.hpp; sourceTree = "<group>"; };
 		B742133E1E3836F300090D95 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
 		B74213401E384C7F00090D95 /* BigField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BigField.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		B74213411E384C7F00090D95 /* BigField.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BigField.hpp; sourceTree = "<group>"; };
@@ -361,6 +364,8 @@
 				B7034DA41E7298C3007288A6 /* Mode.cpp */,
 				B7C9F3801E6235D300E7A045 /* Fade.hpp */,
 				B7C9F37F1E6235D300E7A045 /* Fade.cpp */,
+				B7408AC120B3EE4A00CADF12 /* BlinkFade.hpp */,
+				B7408AC020B3EE4A00CADF12 /* BlinkFade.cpp */,
 				B7A26C0E1C8061A50083989B /* Trigger.h */,
 				B7A26C0D1C8061A50083989B /* Trigger.cpp */,
 				B7A26C111C8070370083989B /* ZoneExit.h */,
@@ -562,6 +567,7 @@
 				B77844A71E25D2F7002C7555 /* PauseMenu.cpp in Sources */,
 				B76E02341D738EC90058D39E /* ResourcePath.mm in Sources */,
 				B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */,
+				B7408AC220B3EE4A00CADF12 /* BlinkFade.cpp in Sources */,
 				B7DD37451C35DFFC0089224E /* BattleState.cpp in Sources */,
 				B7B2778E1EE3E3470051D7C4 /* WalkingAnimation.cpp in Sources */,
 				B79779742046762A000870C2 /* MapObject.cpp in Sources */,
