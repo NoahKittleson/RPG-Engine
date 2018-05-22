@@ -106,6 +106,22 @@ void OverworldMode::update(sf::Clock& timer) {
 			}
 				break;
 				
+			case battleFadeOut:
+				currentMode = fadeIn;
+				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
+				//create new state from trigger
+				for (int iii = 0; iii < currentMap->getTriggerList().size(); iii++) {
+					if (player->intersects(currentMap->getTriggerList()[iii])) {
+						State* unsafePtr = currentMap->getTriggerList()[iii].proc(conditions);
+						if (unsafePtr != nullptr) {
+							currentMap->popTriggerAt(iii);					//I should find a better way to pop triggers
+							requestStackAdd(std::unique_ptr<State>(unsafePtr));
+							std::cout << "Battlestate created.\n";
+						}
+					}
+				}
+
+				
 			case normal:
 				std::cout << "Something has gone horribly wrong... \n";
 				break;
@@ -192,11 +208,9 @@ void OverworldMode::checkTriggers() {
 		if (player->intersects(currentMap->getTriggerList()[iii])) {
 			State* unsafePtr = currentMap->getTriggerList()[iii].proc(conditions);
 			if (unsafePtr != nullptr) {
-				currentMap->popTriggerAt(iii);					//I should find a better way to pop triggers
-				requestStackAdd(std::unique_ptr<State>(unsafePtr));
-				currentMode = fadeIn;
-				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
-				std::cout << "Battlestate created.\n";
+				delete unsafePtr;
+				currentMode = battleFadeOut;
+				mode = std::unique_ptr<Mode>(new Fade(false, 1.f));
 			}
 		}
 	}

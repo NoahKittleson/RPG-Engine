@@ -37,7 +37,7 @@ private:
 	void drawPlayerCollision(sf::RenderWindow &rw);
 	void drawAllBoxes(sf::RenderWindow &rw);
 	
-	enum ModeType { fadeIn, fadeOut, normal };
+	enum ModeType { fadeIn, fadeOut, battleFadeOut, normal };
 	ModeType currentMode = normal;
 	sf::View view;
 	std::unique_ptr<Mode> mode;
