@@ -14,6 +14,7 @@
 #include "BattleState.h"
 #include "Fade.hpp"
 #include "MapFactory.hpp"
+#include "BlinkFade.hpp"
 
 
 class OverworldMode: public State

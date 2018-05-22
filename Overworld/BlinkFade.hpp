@@ -11,8 +11,11 @@
 
 class BlinkFade : public Fade
 {
+public:
 	BlinkFade(bool inOut, float duration);
 	void update(float elapsed) override;
-	void draw(sf::RenderWindow &rw) override;
-	void handleInput(sf::RenderWindow &rw) override;
+	
+private:
+	bool solidBlack = true;
+	float blinkTimer = 0.f;
 };

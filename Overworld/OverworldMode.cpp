@@ -211,7 +211,7 @@ void OverworldMode::checkTriggers() {
 			if (unsafePtr != nullptr) {
 				delete unsafePtr;
 				currentMode = battleFadeOut;
-				mode = std::unique_ptr<Mode>(new Fade(false, 1.f));
+				mode = std::unique_ptr<Mode>(new BlinkFade(false, 1.5f));
 			}
 		}
 	}

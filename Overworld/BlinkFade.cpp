@@ -9,18 +9,22 @@
 #include "BlinkFade.hpp"
 
 
-BlinkFade::BlinkFade(bool inOut, float duration) {
+BlinkFade::BlinkFade(bool inOut, float duration) : Fade(inOut, duration) {
 	
 }
 
 void BlinkFade::update(float elapsed) {
-	
-}
-
-void BlinkFade::draw(sf::RenderWindow &rw) {
-	
-}
-
-void BlinkFade::handleInput(sf::RenderWindow &rw) {
-	
+	blinkTimer += elapsed;
+	fadePercent += elapsed/totalDuration;
+	if (blinkTimer > .25) {									//magic number
+		solidBlack = !solidBlack;
+		blinkTimer = 0;
+		sf::Color color = jankScreenFade.getFillColor();
+		solidBlack ? color.a = 255 - 255 : color.a = 255;
+		jankScreenFade.setFillColor(color);
+	}
+	if (fadePercent > 1.0f) {
+		done = true;
+		fadePercent = 1.0f;
+	}
 }
