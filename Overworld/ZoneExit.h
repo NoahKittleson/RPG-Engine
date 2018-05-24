@@ -10,7 +10,7 @@
 #include "PrefixHeader.pch"
 
 //make sure enum names are camel-case so it doesn't get confused with identical class names
-enum class MapID {StartingZone, BigField};
+enum class MapID {StartingZone, BigField, Beach};
 
 class ZoneExit
 {

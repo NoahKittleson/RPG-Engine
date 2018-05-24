@@ -97,7 +97,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 										  background.getTexture()->getSize().y * background.getScale().y);
 
 	exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100), sf::Vector2f(0,20), MapID::BigField);
-    exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y), sf::Vector2f(20,0), MapID::BigField);
+    exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y), sf::Vector2f(20,0), MapID::Beach);
     exits.emplace_back(sf::FloatRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(-20,0), MapID::BigField);
     exits.emplace_back(sf::FloatRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,-20), MapID::BigField);
 }

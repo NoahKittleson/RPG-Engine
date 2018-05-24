@@ -10,6 +10,7 @@
 #include "MapSection.h"
 #include "BigField.hpp"
 #include "StartingZone.h"
+#include "Beach.hpp"
 
 class MapFactory {
 public:

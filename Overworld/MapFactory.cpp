@@ -19,6 +19,10 @@ std::unique_ptr<MapSection> MapFactory::create(MapID toCreate, const ResourceHol
 			return make_unique<StartingZone>(resources);
 			break;
 			
+		case MapID::Beach:
+			return make_unique<Beach>(resources);
+			break;
+			
 		default:
 			break;
 	}
