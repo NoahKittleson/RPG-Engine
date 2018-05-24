@@ -30,7 +30,8 @@ namespace Textures {
 		Campfire,
 		Yak,
 		TestBackground,
-		Pond
+		Pond,
+		Beach
 	};
 }
 

@@ -74,6 +74,7 @@
 		B7DD37451C35DFFC0089224E /* BattleState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DD37431C35DFFC0089224E /* BattleState.cpp */; };
 		B7DEE729207F2AAD00B1B97C /* MapFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DEE727207F2AAD00B1B97C /* MapFactory.cpp */; };
 		B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */; };
+		B7E99BD820B7807800FABB99 /* Beach.png in Resources */ = {isa = PBXBuildFile; fileRef = B7E99BD720B7807800FABB99 /* Beach.png */; };
 		B7EE61632071DEAD00AA376E /* BattleEndMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7EE61612071DEAD00AA376E /* BattleEndMode.cpp */; };
 		B7EE61652077AEE700AA376E /* testbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EE61642077AEE700AA376E /* testbackground.png */; };
 		B7F96FDA1FFCD21B00FAB91B /* BattleAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */; };
@@ -195,6 +196,7 @@
 		B7DEE728207F2AAD00B1B97C /* MapFactory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MapFactory.hpp; sourceTree = "<group>"; };
 		B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OverworldMode.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		B7E5DD491AE879C800E6EA3F /* OverworldMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverworldMode.h; sourceTree = "<group>"; usesTabs = 1; };
+		B7E99BD720B7807800FABB99 /* Beach.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Beach.png; sourceTree = "<group>"; };
 		B7EE61612071DEAD00AA376E /* BattleEndMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleEndMode.cpp; sourceTree = "<group>"; };
 		B7EE61622071DEAD00AA376E /* BattleEndMode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleEndMode.hpp; sourceTree = "<group>"; };
 		B7EE61642077AEE700AA376E /* testbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testbackground.png; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				B7A0D239209BC3EF00098096 /* pond.png */,
+				B7E99BD720B7807800FABB99 /* Beach.png */,
 				B7EE61642077AEE700AA376E /* testbackground.png */,
 				B7701D841EF4740D006AB891 /* Campfire.png */,
 				B7023E121BB61A43005A6F93 /* BadAttackAnimation.png */,
@@ -491,6 +494,7 @@
 				B7172F851AF0716500C21B1C /* Mountains.jpg in Resources */,
 				B77784011AE5C57D007FA840 /* icon.png in Resources */,
 				B73F35061E4B096D007EC4AC /* PlayerWalkingUp.png in Resources */,
+				B7E99BD820B7807800FABB99 /* Beach.png in Resources */,
 				B7D3C23A1AEF869F0052DE83 /* Stickmaniac.png in Resources */,
 				B73F35021E4B095B007EC4AC /* PlayerWalkingDown.png in Resources */,
 				B75ABA1A1C7BD7DA00B9FFDE /* IterVector.inl in Resources */,
