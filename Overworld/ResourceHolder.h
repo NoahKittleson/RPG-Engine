@@ -31,7 +31,8 @@ namespace Textures {
 		Yak,
 		TestBackground,
 		Pond,
-		Beach
+		Beach,
+		Bush
 	};
 }
 

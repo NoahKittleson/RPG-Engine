@@ -50,6 +50,11 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	sprites.back().setScale(3.f);
 	boxList.clear();
 	
+	//A Bush
+	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::Bush), sf::Vector2f (350,310)), boxList);
+	sprites.back().setScale(4.f);
+	boxList.clear();
+	
 	//Yak
 	boxList.push_back(sf::FloatRect(-30,15,50,15));		//magic numbers galore.
 	sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::Yak), sf::Vector2f(100,325), 0.1f, sf::Vector2i(40,40)), boxList);

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Overworld.xcodeproj">
+      location = "group:/Users/noahkittleson/Desktop/RPG-Engine/Overworld/bush.png">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

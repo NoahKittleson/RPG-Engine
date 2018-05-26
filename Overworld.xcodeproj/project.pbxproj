@@ -67,6 +67,7 @@
 		B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C101C8070370083989B /* ZoneExit.cpp */; };
 		B7A58FD620A2D0030002A47F /* AbilityOption.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A58FD420A2D0030002A47F /* AbilityOption.cpp */; };
 		B7B2778E1EE3E3470051D7C4 /* WalkingAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7B2778C1EE3E3470051D7C4 /* WalkingAnimation.cpp */; };
+		B7BE058320B938D8008D6537 /* bush.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE058220B938D8008D6537 /* bush.png */; };
 		B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7C9F37F1E6235D300E7A045 /* Fade.cpp */; };
 		B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */; };
 		B7D17D1B1E512CDC00D71290 /* LoadState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7D17D191E512CDC00D71290 /* LoadState.cpp */; };
@@ -185,6 +186,7 @@
 		B7A58FD520A2D0030002A47F /* AbilityOption.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AbilityOption.hpp; sourceTree = "<group>"; };
 		B7B2778C1EE3E3470051D7C4 /* WalkingAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WalkingAnimation.cpp; sourceTree = "<group>"; };
 		B7B2778D1EE3E3470051D7C4 /* WalkingAnimation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WalkingAnimation.hpp; sourceTree = "<group>"; };
+		B7BE058220B938D8008D6537 /* bush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bush.png; sourceTree = "<group>"; };
 		B7C9F37F1E6235D300E7A045 /* Fade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fade.cpp; sourceTree = "<group>"; };
 		B7C9F3801E6235D300E7A045 /* Fade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Fade.hpp; sourceTree = "<group>"; };
 		B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingLeft.png; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				B7E99BD720B7807800FABB99 /* Beach.png */,
 				B7EE61642077AEE700AA376E /* testbackground.png */,
 				B7701D841EF4740D006AB891 /* Campfire.png */,
+				B7BE058220B938D8008D6537 /* bush.png */,
 				B7023E121BB61A43005A6F93 /* BadAttackAnimation.png */,
 				B7023E141BB61A4A005A6F93 /* BasicIdle.png */,
 				B77783FA1AE5C57D007FA840 /* cute_image.jpg */,
@@ -493,6 +496,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7701D831EF262EA006AB891 /* Conditions.hpp in Resources */,
+				B7BE058320B938D8008D6537 /* bush.png in Resources */,
 				B77F7EAD208EB677009FEE8A /* DialogueIDs.hpp in Resources */,
 				B7439C1A1ECA6D8C00724D0B /* Scarecrow.png in Resources */,
 				B7023E131BB61A43005A6F93 /* BadAttackAnimation.png in Resources */,
