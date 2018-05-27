@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B7023E0F1BB5E19F005A6F93 /* EffectsHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7023E0D1BB5E19F005A6F93 /* EffectsHandler.cpp */; };
 		B7023E111BB61A36005A6F93 /* GetHitAnimation.png in Resources */ = {isa = PBXBuildFile; fileRef = B7023E101BB61A36005A6F93 /* GetHitAnimation.png */; };
 		B7023E131BB61A43005A6F93 /* BadAttackAnimation.png in Resources */ = {isa = PBXBuildFile; fileRef = B7023E121BB61A43005A6F93 /* BadAttackAnimation.png */; };
 		B7023E151BB61A4A005A6F93 /* BasicIdle.png in Resources */ = {isa = PBXBuildFile; fileRef = B7023E141BB61A4A005A6F93 /* BasicIdle.png */; };
@@ -38,7 +37,6 @@
 		B75B77911C00723900122CCC /* StateStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75B778F1C00723900122CCC /* StateStack.cpp */; };
 		B75F862C1BACE0C60093B615 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F862A1BACE0C60093B615 /* Character.cpp */; };
 		B75F862F1BACE0FB0093B615 /* Ability.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F862D1BACE0FB0093B615 /* Ability.cpp */; };
-		B75F86331BACE5C10093B615 /* AnimatedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */; };
 		B76E02341D738EC90058D39E /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = B76E02331D738EC90058D39E /* ResourcePath.mm */; };
 		B7701D831EF262EA006AB891 /* Conditions.hpp in Resources */ = {isa = PBXBuildFile; fileRef = B7701D821EF262EA006AB891 /* Conditions.hpp */; };
 		B7701D851EF4740D006AB891 /* Campfire.png in Resources */ = {isa = PBXBuildFile; fileRef = B7701D841EF4740D006AB891 /* Campfire.png */; };
@@ -48,7 +46,6 @@
 		B77783FF1AE5C57D007FA840 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B77783FE1AE5C57D007FA840 /* sansation.ttf */; };
 		B77784011AE5C57D007FA840 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B77784001AE5C57D007FA840 /* icon.png */; };
 		B77784091AE5C84D007FA840 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77784071AE5C84D007FA840 /* Game.cpp */; };
-		B77844A71E25D2F7002C7555 /* PauseMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77844A51E25D2F7002C7555 /* PauseMenu.cpp */; };
 		B77A1BDF206A3B3300CD87DF /* Statuses.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77A1BDD206A3B3300CD87DF /* Statuses.cpp */; };
 		B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77BE44A1BB5E03500F5645C /* Menu.cpp */; };
 		B77F7EAB208E825C009FEE8A /* DialogueFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77F7EA9208E825C009FEE8A /* DialogueFactory.cpp */; };
@@ -83,8 +80,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B7023E0D1BB5E19F005A6F93 /* EffectsHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EffectsHandler.cpp; sourceTree = "<group>"; };
-		B7023E0E1BB5E19F005A6F93 /* EffectsHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectsHandler.h; sourceTree = "<group>"; };
 		B7023E101BB61A36005A6F93 /* GetHitAnimation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GetHitAnimation.png; sourceTree = "<group>"; };
 		B7023E121BB61A43005A6F93 /* BadAttackAnimation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BadAttackAnimation.png; sourceTree = "<group>"; };
 		B7023E141BB61A4A005A6F93 /* BasicIdle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BasicIdle.png; sourceTree = "<group>"; };
@@ -137,8 +132,6 @@
 		B75F862B1BACE0C60093B615 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
 		B75F862D1BACE0FB0093B615 /* Ability.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ability.cpp; sourceTree = "<group>"; };
 		B75F862E1BACE0FB0093B615 /* Ability.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ability.hpp; sourceTree = "<group>"; };
-		B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedSprite.cpp; sourceTree = "<group>"; };
-		B75F86321BACE5C10093B615 /* AnimatedSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedSprite.h; sourceTree = "<group>"; };
 		B76E02321D738EC90058D39E /* ResourcePath.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		B76E02331D738EC90058D39E /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		B7701D821EF262EA006AB891 /* Conditions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Conditions.hpp; sourceTree = "<group>"; };
@@ -153,8 +146,6 @@
 		B77784071AE5C84D007FA840 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		B77784081AE5C84D007FA840 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; usesTabs = 1; };
 		B777840D1AE5D332007FA840 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		B77844A51E25D2F7002C7555 /* PauseMenu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PauseMenu.cpp; sourceTree = "<group>"; };
-		B77844A61E25D2F7002C7555 /* PauseMenu.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PauseMenu.hpp; sourceTree = "<group>"; };
 		B77A1BDD206A3B3300CD87DF /* Statuses.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Statuses.cpp; sourceTree = "<group>"; };
 		B77A1BDE206A3B3300CD87DF /* Statuses.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Statuses.hpp; sourceTree = "<group>"; };
 		B77BE44A1BB5E03500F5645C /* Menu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
@@ -223,7 +214,6 @@
 		B7439C1B1ECB8D0400724D0B /* SpriteGuts */ = {
 			isa = PBXGroup;
 			children = (
-				B7A1EB3B1EDBB37700667423 /* Deprecated */,
 				B7439C1D1ECB8DED00724D0B /* GraphicsComponent.hpp */,
 				B7439C1C1ECB8DED00724D0B /* GraphicsComponent.cpp */,
 				B7439C201ECB8F2E00724D0B /* AnimatedComponent.hpp */,
@@ -267,8 +257,6 @@
 				B70D18DB20284340000B3584 /* BattleInfo.cpp */,
 				B7F96FD91FFCD21B00FAB91B /* BattleAction.hpp */,
 				B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */,
-				B7023E0E1BB5E19F005A6F93 /* EffectsHandler.h */,
-				B7023E0D1BB5E19F005A6F93 /* EffectsHandler.cpp */,
 			);
 			name = BattleMode;
 			sourceTree = "<group>";
@@ -311,12 +299,12 @@
 				B77784071AE5C84D007FA840 /* Game.cpp */,
 				B706F0771BFFE59700C95D49 /* State.h */,
 				B706F0761BFFE59700C95D49 /* State.cpp */,
+				B7034DA51E7298C3007288A6 /* Mode.hpp */,
+				B7034DA41E7298C3007288A6 /* Mode.cpp */,
 				B7D17D1A1E512CDC00D71290 /* LoadState.hpp */,
 				B7D17D191E512CDC00D71290 /* LoadState.cpp */,
 				B75B77901C00723900122CCC /* StateStack.h */,
 				B75B778F1C00723900122CCC /* StateStack.cpp */,
-				B77844A61E25D2F7002C7555 /* PauseMenu.hpp */,
-				B77844A51E25D2F7002C7555 /* PauseMenu.cpp */,
 				B770E8381C75214E00F0A688 /* Utility */,
 				B78FB2961BF950FE008A435F /* DialogueMode */,
 				B78FB2951BF950ED008A435F /* OverworldMode */,
@@ -369,8 +357,6 @@
 			children = (
 				B7E5DD491AE879C800E6EA3F /* OverworldMode.h */,
 				B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */,
-				B7034DA51E7298C3007288A6 /* Mode.hpp */,
-				B7034DA41E7298C3007288A6 /* Mode.cpp */,
 				B7C9F3801E6235D300E7A045 /* Fade.hpp */,
 				B7C9F37F1E6235D300E7A045 /* Fade.cpp */,
 				B7408AC120B3EE4A00CADF12 /* BlinkFade.hpp */,
@@ -427,15 +413,6 @@
 				B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */,
 			);
 			name = Maps;
-			sourceTree = "<group>";
-		};
-		B7A1EB3B1EDBB37700667423 /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				B75F86321BACE5C10093B615 /* AnimatedSprite.h */,
-				B75F86311BACE5C10093B615 /* AnimatedSprite.cpp */,
-			);
-			name = Deprecated;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -550,7 +527,6 @@
 				B79AD8D81D4F128200B7C8F7 /* StartingZone.cpp in Sources */,
 				B706F0781BFFE59700C95D49 /* State.cpp in Sources */,
 				B79779722046713D000870C2 /* BattleSprite.cpp in Sources */,
-				B7023E0F1BB5E19F005A6F93 /* EffectsHandler.cpp in Sources */,
 				B7F96FDA1FFCD21B00FAB91B /* BattleAction.cpp in Sources */,
 				B75F862F1BACE0FB0093B615 /* Ability.cpp in Sources */,
 				B7262BCE2001A57E00989D70 /* MenuMode.cpp in Sources */,
@@ -576,9 +552,7 @@
 				B742D6F91C1292EA0093C785 /* ResourceHolder.cpp in Sources */,
 				B7D17D1B1E512CDC00D71290 /* LoadState.cpp in Sources */,
 				B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */,
-				B75F86331BACE5C10093B615 /* AnimatedSprite.cpp in Sources */,
 				B7A0D238209A886700098096 /* DPath.cpp in Sources */,
-				B77844A71E25D2F7002C7555 /* PauseMenu.cpp in Sources */,
 				B76E02341D738EC90058D39E /* ResourcePath.mm in Sources */,
 				B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */,
 				B7408AC220B3EE4A00CADF12 /* BlinkFade.cpp in Sources */,
