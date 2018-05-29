@@ -14,16 +14,16 @@ MapSection::MapSection(MapID id, std::string musicFile) : ID(id), musicFilename(
 };
 
 
-//void MapSection::addObject(InteractableSprite& add)
-//{
-//	for (auto it = sprites.begin(); it != sprites.end(); it++) {
-//		if (add.getBase() < it->getBase()) {
-//			sprites.insert(it, add);									//perhaps this /should/ be a list...
-//			return;
-//		}
-//	}
-//	sprites.push_back(add);
-//}
+void MapSection::addObject(MapObject& add)
+{
+	for (auto it = sprites.begin(); it != sprites.end(); it++) {
+		if (add.getBase() < it->getBase()) {
+			sprites.insert(it, add);									//perhaps this /should/ be a list...
+			return;
+		}
+	}
+	sprites.push_back(add);
+}
 
 void MapSection::drawBackground(sf::RenderWindow&rw)
 {

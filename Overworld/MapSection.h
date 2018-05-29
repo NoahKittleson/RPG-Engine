@@ -44,6 +44,8 @@ public:
 	void popTriggerAt(int index);
 	
 protected:
+	void addObject(MapObject& add);
+
 	sf::Sprite background;
 	ExitVec exits;
 	SpriteVec sprites;
