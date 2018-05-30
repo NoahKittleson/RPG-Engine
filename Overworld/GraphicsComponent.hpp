@@ -13,7 +13,7 @@
 class GraphicsComponent : public sf::Sprite
 {
 public:
-    virtual ~GraphicsComponent() {}
+	virtual ~GraphicsComponent() {}
     GraphicsComponent (const sf::Texture& texture, sf::Vector2f position);
 	
     virtual void update(float elapsed);

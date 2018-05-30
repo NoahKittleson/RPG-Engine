@@ -65,8 +65,9 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	//Campfire
 	boxList.push_back(sf::FloatRect(-30,70,50,25));		//magic numbers galore.
 	boxList.push_back(sf::FloatRect(-40,80,70,10));		//magic numbers galore.
-	sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::Campfire), sf::Vector2f(600,300), 0.1f, sf::Vector2i(32,64)), boxList);
-	sprites.back().setScale(3.f);
+	MapObject campfire (make_unique<AnimatedComponent>(resources.getTexture(Textures::Campfire), sf::Vector2f(600,300), 0.1f, sf::Vector2i(32,64)), boxList);
+	campfire.setScale(3.f);
+	addObject(campfire);
 	boxList.clear();
 	
 	//The Pond

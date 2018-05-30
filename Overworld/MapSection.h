@@ -14,7 +14,7 @@
 #include "ResourcePath.hpp"
 
 using ExitVec = std::vector<ZoneExit>;
-using SpriteVec = std::vector<MapObject>;
+using SpriteVec = std::vector<std::unique_ptr<MapObject>>;
 using TriggerVec = std::vector<GroundTrigger>;
 
 

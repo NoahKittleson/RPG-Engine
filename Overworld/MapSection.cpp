@@ -17,12 +17,12 @@ MapSection::MapSection(MapID id, std::string musicFile) : ID(id), musicFilename(
 void MapSection::addObject(MapObject& add)
 {
 	for (auto it = sprites.begin(); it != sprites.end(); it++) {
-		if (add.getBase() < it->getBase()) {
-			sprites.insert(it, add);									//perhaps this /should/ be a list...
+		if (add.getBase() < (*it)->getBase()) {
+			sprites.emplace(it, std::unique_ptr<MapObject>(new MapObject (add)));
 			return;
 		}
 	}
-	sprites.push_back(add);
+	sprites.emplace_back(std::unique_ptr<MapObject>(new MapObject (add)));
 }
 
 void MapSection::drawBackground(sf::RenderWindow&rw)
@@ -39,13 +39,13 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player)
 	bool playerDrawn = false;
 	for (const auto & obj: sprites)
 	{
-		if (!playerDrawn && (obj.getBase() > player.getBase())) {
+		if (!playerDrawn && (obj->getBase() > player.getBase())) {
 			player.draw(rw);
 			player.drawBase(rw);	//temporary, just to see where bases ACTUALLY are.
 			playerDrawn = true;
 		}
-		obj.draw(rw);
-		obj.drawBase(rw);
+		obj->draw(rw);
+		obj->drawBase(rw);
 	}
 	if (!playerDrawn) {
 		player.draw(rw);
@@ -54,7 +54,7 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player)
 
 void MapSection::update(float elapsed) {
 	for (auto && sprite : sprites) {
-		sprite.update(elapsed);
+		sprite->update(elapsed);
 	}
 }
 
@@ -62,9 +62,9 @@ NodePtr MapSection::interact (std::vector<sf::FloatRect> collision) const {
 	//see if I intersect any other sprites with bigger collision
 	for (auto && sprite: sprites) {
 		for (auto && box: collision) {
-			if (sprite.intersects(box)) {
+			if (sprite->intersects(box)) {
 				//return corresponding ptr if DNode is not nullptr
-				auto ptr = sprite.getDNode();
+				auto ptr = sprite->getDNode();
 				if (ptr != nullptr) {
 					return ptr;
 				}
