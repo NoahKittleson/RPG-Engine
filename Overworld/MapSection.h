@@ -51,5 +51,9 @@ protected:
 	SpriteVec sprites;
 	TriggerVec triggers;
 	const std::string musicFilename;
+	
+//private:
+//	SpriteVec sprites;
+	
 };
 

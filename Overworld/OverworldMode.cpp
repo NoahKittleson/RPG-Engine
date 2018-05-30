@@ -182,12 +182,12 @@ bool OverworldMode::handleMovement(float elapsed) {
 	//handle movement on X axis
 	player->move(moveVec.x, 0);
 	for (auto const & sprite: currentMap->getSpriteList()) {
-		sprite.collideX(*player, moveVec.x);
+		sprite->collideX(*player, moveVec.x);
 	}
 	//handle movement on Y axis
 	player->move(0, moveVec.y);
 	for (auto const & sprite: currentMap->getSpriteList()) {
-		sprite.collideY(*player, moveVec.y);
+		sprite->collideY(*player, moveVec.y);
 	}
 	player->update(elapsed);
 	if (moveVec == sf::Vector2f(0,0)) {
@@ -223,8 +223,8 @@ void OverworldMode::drawPlayerCollision(sf::RenderWindow &rw) {
 
 void OverworldMode::drawAllBoxes(sf::RenderWindow &rw) {
 	//collision
-	for (auto && it: currentMap->getSpriteList()) {
-		it.drawCollision(rw);
+	for (auto && sprite: currentMap->getSpriteList()) {
+		sprite->drawCollision(rw);
 	}
 	drawPlayerCollision(rw);
 	
