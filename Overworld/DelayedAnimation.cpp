@@ -33,3 +33,7 @@ void DelayedAnimation::update(float elapsed) {
         }
     }
 }
+
+std::unique_ptr<GraphicsComponent> DelayedAnimation::getCopy() {
+	return std::unique_ptr<GraphicsComponent> (new DelayedAnimation (*this));
+}

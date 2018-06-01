@@ -91,3 +91,7 @@ void WalkingAnimation::update(float elapsed) {
 	}
 }
 
+std::unique_ptr<GraphicsComponent> WalkingAnimation::getCopy() {
+	return std::unique_ptr<GraphicsComponent> (new WalkingAnimation (*this));
+}
+

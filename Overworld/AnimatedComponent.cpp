@@ -45,4 +45,8 @@ void AnimatedComponent::setTexture(const sf::Texture& texture) {
 	setTextureRect(frameSize);
 }
 
+std::unique_ptr<GraphicsComponent> AnimatedComponent::getCopy() {
+	return std::unique_ptr<GraphicsComponent> (new AnimatedComponent (*this));
+}
+
 

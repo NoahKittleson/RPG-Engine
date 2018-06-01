@@ -19,7 +19,7 @@ public:
 //	GraphicsComponent(const GraphicsComponent& obj) = default;  // copy constructor
 //	GraphicsComponent& operator=(GraphicsComponent other) { return *this;};	//copy assignment constructor
 
-
+	virtual std::unique_ptr<GraphicsComponent> getCopy();
 	
     virtual void update(float elapsed);
     virtual void addTime(float delta);

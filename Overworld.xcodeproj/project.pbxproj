@@ -52,7 +52,6 @@
 		B77F7EAD208EB677009FEE8A /* DialogueIDs.hpp in Resources */ = {isa = PBXBuildFile; fileRef = B77F7EAC208EB677009FEE8A /* DialogueIDs.hpp */; };
 		B78873551F3D530E00E7C725 /* CharacterGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */; };
 		B797796F2044DBF7000870C2 /* AttackMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B797796D2044DBF7000870C2 /* AttackMode.cpp */; };
-		B79779722046713D000870C2 /* BattleSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B79779702046713D000870C2 /* BattleSprite.cpp */; };
 		B79779742046762A000870C2 /* MapObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B79779732046762A000870C2 /* MapObject.cpp */; };
 		B7977978204676D4000870C2 /* PlayerObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7977976204676D4000870C2 /* PlayerObject.cpp */; };
 		B79AD8D81D4F128200B7C8F7 /* StartingZone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B79AD8D61D4F128200B7C8F7 /* StartingZone.cpp */; };
@@ -156,8 +155,6 @@
 		B78873541F3D530E00E7C725 /* CharacterGenerator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterGenerator.hpp; sourceTree = "<group>"; };
 		B797796D2044DBF7000870C2 /* AttackMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AttackMode.cpp; sourceTree = "<group>"; };
 		B797796E2044DBF7000870C2 /* AttackMode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AttackMode.hpp; sourceTree = "<group>"; };
-		B79779702046713D000870C2 /* BattleSprite.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleSprite.cpp; sourceTree = "<group>"; };
-		B79779712046713D000870C2 /* BattleSprite.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleSprite.hpp; sourceTree = "<group>"; };
 		B79779732046762A000870C2 /* MapObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapObject.cpp; sourceTree = "<group>"; };
 		B797797520467632000870C2 /* MapObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MapObject.hpp; sourceTree = "<group>"; };
 		B7977976204676D4000870C2 /* PlayerObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerObject.cpp; sourceTree = "<group>"; };
@@ -218,8 +215,6 @@
 				B7439C1C1ECB8DED00724D0B /* GraphicsComponent.cpp */,
 				B7439C201ECB8F2E00724D0B /* AnimatedComponent.hpp */,
 				B7439C1F1ECB8F2D00724D0B /* AnimatedComponent.cpp */,
-				B79779712046713D000870C2 /* BattleSprite.hpp */,
-				B79779702046713D000870C2 /* BattleSprite.cpp */,
 				B7439C231ECB983900724D0B /* DelayedAnimation.hpp */,
 				B7439C221ECB983900724D0B /* DelayedAnimation.cpp */,
 				B7B2778D1EE3E3470051D7C4 /* WalkingAnimation.hpp */,
@@ -526,7 +521,6 @@
 				B75ABA291C7BE1C400B9FFDE /* DialogueMode.cpp in Sources */,
 				B79AD8D81D4F128200B7C8F7 /* StartingZone.cpp in Sources */,
 				B706F0781BFFE59700C95D49 /* State.cpp in Sources */,
-				B79779722046713D000870C2 /* BattleSprite.cpp in Sources */,
 				B7F96FDA1FFCD21B00FAB91B /* BattleAction.cpp in Sources */,
 				B75F862F1BACE0FB0093B615 /* Ability.cpp in Sources */,
 				B7262BCE2001A57E00989D70 /* MenuMode.cpp in Sources */,

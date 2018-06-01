@@ -15,6 +15,9 @@ GraphicsComponent::GraphicsComponent(const sf::Texture& texture, sf::Vector2f po
     setPosition(position);
 }
 
+std::unique_ptr<GraphicsComponent> GraphicsComponent::getCopy() {
+	return std::unique_ptr<GraphicsComponent> (new GraphicsComponent (*this));
+}
 
 void GraphicsComponent::update(float elapsed) {
     return;

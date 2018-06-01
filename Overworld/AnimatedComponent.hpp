@@ -13,10 +13,12 @@ class AnimatedComponent : public GraphicsComponent
 {
 public:
     AnimatedComponent(const sf::Texture&, sf::Vector2f position, float timePerFrame, sf::Vector2i frame);
+	
     virtual void update(float elapsed) override;
     virtual void addTime(float delta) override;
 	bool atEnd();
 	void setTexture(const sf::Texture& texture);
+	std::unique_ptr<GraphicsComponent> getCopy() override;
     
 protected:
     float totalElapsed = 0;

@@ -22,6 +22,9 @@ public:
 	void changeDirection(Direction newDir);
 	void update(float elapsed) override;
 	
+	std::unique_ptr<GraphicsComponent> getCopy() override;
+
+	
 private:
 	Direction getWalkingDirection();
 	
