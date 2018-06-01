@@ -22,7 +22,7 @@ public:
 	~MapObject();
 	MapObject(const MapObject& obj);  // copy constructor
 	MapObject(MapObject&&) = default;
-
+	
 	
     void setPosition(float x, float y);
     sf::Vector2f getPosition();

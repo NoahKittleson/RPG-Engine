@@ -22,8 +22,9 @@ MapObject::~MapObject() {
 	std::cout << "MapObject deleted\n";
 }
 
-MapObject::MapObject(const MapObject& obj) {
-	this->graphics = std::unique_ptr<GraphicsComponent>(new GraphicsComponent(*obj.graphics));
+MapObject::MapObject(const MapObject& obj) : {
+	//this won't work because it downgrades to a GrahpicsComponent no matter what subclass it was
+	this->graphics = std::unique_ptr<MapObject>(new MapObject (obj));
 }
 
 
