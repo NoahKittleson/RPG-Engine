@@ -22,9 +22,9 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	std::vector<sf::FloatRect> boxlist;
 	boxlist.emplace_back(-5, 57, 10, 5);
 	MapObject Tree (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f(600,90)), boxlist);
+	Tree.attachDialogue(DialogueFactory::create(Dialogue::Test001, resources));
+	Tree.setScale(4.f);
 	addObject(Tree);
-	sprites.back()->attachDialogue(DialogueFactory::create(Dialogue::Test001, resources));
-	sprites.back()->setScale(4.f);
 	boxList.clear();
 	
     //Set up Non-interactable wheat field
@@ -55,41 +55,45 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	addObject(scarecrow);
 	boxList.clear();
 	
-//	//A Bush
-//	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::Bush), sf::Vector2f (350,310)), boxList);
-//	sprites.back()->setScale(4.f);
-//	boxList.clear();
-//	
-//	//Yak
-//	boxList.push_back(sf::FloatRect(-30,15,50,15));		//magic numbers galore.
-//	sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::Yak), sf::Vector2f(100,325), 0.1f, sf::Vector2i(40,40)), boxList);
-//	sprites.back()->setScale(3.f);
-//	sprites.back()->offsetBase(-30);
-//	boxList.clear();
-//	
-//	//Campfire
-//	boxList.push_back(sf::FloatRect(-30,70,50,25));		//magic numbers galore.
-//	boxList.push_back(sf::FloatRect(-40,80,70,10));		//magic numbers galore.
-//	MapObject campfire (make_unique<AnimatedComponent>(resources.getTexture(Textures::Campfire), sf::Vector2f(600,300), 0.1f, sf::Vector2i(32,64)), boxList);
-//	campfire.setScale(3.f);
-//	addObject(campfire);
-//	boxList.clear();
-//	
-//	//The Pond
-//	boxList.emplace_back(-140,-40,280,80);
-//	boxList.emplace_back(-50,-60,100,120);
-//	
-//	sprites.emplace_back(make_unique<AnimatedComponent>(resources.getTexture(Textures::Pond), sf::Vector2f(620,452), 0.3f, sf::Vector2i(80,32)), boxList);
-//	sprites.back()->setScale(4.f);
-//	sprites.back()->offsetBase(-100);
-//	boxList.clear();
-//	
-//	//Another Tree
-//	boxList.emplace_back(-5, 57, 10, 5);
-//	sprites.emplace_back(make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f (150,400)), boxList);
-//	sprites.back()->setScale(4.f);
-//	boxList.clear();
-//	
+	//A Bush
+	MapObject bush (make_unique<GraphicsComponent>(resources.getTexture(Textures::Bush), sf::Vector2f (350,310)), boxList);
+	bush.setScale(4.f);
+	addObject(bush);
+	boxList.clear();
+	
+	//Yak
+	boxList.push_back(sf::FloatRect(-30,15,50,15));		//magic numbers galore.
+	MapObject yak (make_unique<AnimatedComponent>(resources.getTexture(Textures::Yak), sf::Vector2f(100,325), 0.1f, sf::Vector2i(40,40)), boxList);
+	yak.setScale(3.f);
+	yak.offsetBase(-30);
+	addObject(yak);
+	boxList.clear();
+	
+	//Campfire
+	boxList.push_back(sf::FloatRect(-30,70,50,25));		//magic numbers galore.
+	boxList.push_back(sf::FloatRect(-40,80,70,10));		//magic numbers galore.
+	MapObject campfire (make_unique<AnimatedComponent>(resources.getTexture(Textures::Campfire), sf::Vector2f(600,300), 0.1f, sf::Vector2i(32,64)), boxList);
+	campfire.setScale(3.f);
+	addObject(campfire);
+	boxList.clear();
+	
+	//The Pond
+	boxList.emplace_back(-140,-40,280,80);
+	boxList.emplace_back(-50,-60,100,120);
+	
+	MapObject pond (make_unique<AnimatedComponent>(resources.getTexture(Textures::Pond), sf::Vector2f(620,452), 0.3f, sf::Vector2i(80,32)), boxList);
+	pond.setScale(4.f);
+	pond.offsetBase(-100);
+	addObject(pond);
+	boxList.clear();
+	
+	//Another Tree
+	boxList.emplace_back(-5, 57, 10, 5);
+	MapObject otherTree (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f (150,400)), boxList);
+	otherTree.setScale(4.f);
+	addObject(otherTree);
+	boxList.clear();
+	
 	
 	
     //Set up Trigger for Fighting
