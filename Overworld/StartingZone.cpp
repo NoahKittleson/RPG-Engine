@@ -41,6 +41,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
         for (int jjj = 0; jjj < columns-1; jjj++) {
             Wheat.addTime(timeOffset * (iii * columns + jjj));
 			Wheat.setScale(3.f);
+			Wheat.setPosition(position.x, position.y);
 			position += sf::Vector2f(verticalGap, 0);
 			addObject(Wheat);
         }

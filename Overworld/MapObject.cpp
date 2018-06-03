@@ -18,12 +18,10 @@ MapObject::MapObject(graphicsPtr&& gc, RectVec collision)
 }
 
 MapObject::~MapObject() {
-	//consider having non-dynamic components if I want to double up on multiple objects with same graphics
 	std::cout << "MapObject deleted\n";
 }
 
 MapObject::MapObject(const MapObject& obj) {
-	//this won't work because it downgrades to a GrahpicsComponent no matter what subclass it was
 	this->graphics = obj.graphics->getCopy();
 }
 
