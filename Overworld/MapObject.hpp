@@ -21,7 +21,7 @@ public:
 	MapObject(graphicsPtr&& gc, const RectVec& collision);
 	~MapObject();
 	MapObject(const MapObject& obj);  // copy constructor
-	MapObject(MapObject&&) = default;
+	//MapObject(MapObject&&) = default;
 	
 	
     void setPosition(float x, float y);

@@ -23,13 +23,10 @@ MapObject::~MapObject() {
 
 MapObject::MapObject(const MapObject& obj) {
 	this->graphics = obj.graphics->getCopy();
-	sf::Vector2f position = graphics->getPosition();
 	for (auto & box : obj.collisionBoxes) {
-		collisionBoxes.push_back(sf::FloatRect(position.x + box.left, position.y + box.top, box.width, box.height));
+		collisionBoxes.push_back(sf::FloatRect(box.left, box.top, box.width, box.height));
 	}
-	std::cout << "collision other:" << obj.collisionBoxes.size() << "\n";
-	std::cout << "collision:" << collisionBoxes.size() << "\n";
-
+	std::cout << "MapObject copied\n";
 }
 
 
@@ -98,12 +95,11 @@ void MapObject::drawCenter(sf::RenderWindow &rw) const{
 
 void MapObject::drawCollision(sf::RenderWindow& rw) const {
 	sf::RectangleShape rectangle;
-	rectangle.setFillColor(sf::Color(255,0,0,50));				//partially opaque red
+	rectangle.setFillColor(sf::Color(255,0,0,200));				//partially opaque red
 	for (auto const & it: collisionBoxes) {
 		rectangle.setSize(sf::Vector2f(it.width, it.height));
 		rectangle.setPosition(it.left, it.top);
 		rw.draw(rectangle);
-//		std::cout << "collision:" << it.left << ", " << it.top << ", " << it.width << ", " << it.height << "\n";
 	}
 }
 
