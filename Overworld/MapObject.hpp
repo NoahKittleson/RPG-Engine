@@ -18,7 +18,7 @@ using graphicsPtr = std::unique_ptr<GraphicsComponent>;
 
 class MapObject {
 public:
-	MapObject(graphicsPtr&& gc, RectVec collision);
+	MapObject(graphicsPtr&& gc, const RectVec& collision);
 	~MapObject();
 	MapObject(const MapObject& obj);  // copy constructor
 	MapObject(MapObject&&) = default;
