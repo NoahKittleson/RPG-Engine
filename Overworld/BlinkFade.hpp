@@ -16,6 +16,7 @@ public:
 	void update(float elapsed) override;
 	
 private:
-	bool solidBlack = true;
+	bool fadeToBlack = true;
 	float blinkTimer = 0.f;
+	float blinkLength = 0.2f; 				//magic number?
 };

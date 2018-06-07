@@ -8,15 +8,12 @@
 
 #include "StartingZone.h"
 
-#define NO_OF_SPRITES 28			//24 wheats, 1 scarecrow, 2 trees, and 1 unanimated wheat
-
 StartingZone::StartingZone(const ResourceHolder& resources)
 : MapSection(MapID::StartingZone, "nice_music.ogg") {
 	
 	std::vector<sf::FloatRect> boxList;
     background.setTexture(resources.getTexture(Textures::TestBackground));
 	background.setScale(4, 4);
-	sprites.reserve(NO_OF_SPRITES);
 	
 	//Top-right Tree
 	std::vector<sf::FloatRect> boxlist;
@@ -25,6 +22,13 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	Tree.attachDialogue(DialogueFactory::create(Dialogue::Test001, resources));
 	Tree.setScale(4.f);
 	addObject(Tree);
+	boxList.clear();
+	
+	//Another Tree
+	boxList.emplace_back(-5, 57, 10, 5);
+	MapObject otherTree (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f (150,400)), boxList);
+	otherTree.setScale(4.f);
+	addObject(otherTree);
 	boxList.clear();
 	
     //Set up Non-interactable wheat field
@@ -86,15 +90,6 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	pond.offsetBase(-100);
 	addObject(pond);
 	boxList.clear();
-	
-	//Another Tree
-	boxList.emplace_back(-5, 57, 10, 5);
-	MapObject otherTree (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f (150,400)), boxList);
-	otherTree.setScale(4.f);
-	addObject(otherTree);
-	boxList.clear();
-	
-	
 	
     //Set up Trigger for Fighting
 	std::function<State*()> createBattle = [&resources]() -> State*

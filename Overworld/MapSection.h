@@ -14,7 +14,7 @@
 #include "ResourcePath.hpp"
 
 using ExitVec = std::vector<ZoneExit>;
-using SpriteVec = std::vector<std::unique_ptr<MapObject>>;
+using SpriteVec = std::list<std::unique_ptr<MapObject>>;
 using TriggerVec = std::vector<GroundTrigger>;
 
 
@@ -51,9 +51,5 @@ protected:
 	SpriteVec sprites;
 	TriggerVec triggers;
 	const std::string musicFilename;
-	
-//private:
-//	SpriteVec sprites;
-	
 };
 

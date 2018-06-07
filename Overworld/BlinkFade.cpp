@@ -10,18 +10,23 @@
 
 
 BlinkFade::BlinkFade(bool inOut, float duration) : Fade(inOut, duration) {
-	
+
 }
 
 void BlinkFade::update(float elapsed) {
 	blinkTimer += elapsed;
 	fadePercent += elapsed/totalDuration;
-	if (blinkTimer > .25) {									//magic number
-		solidBlack = !solidBlack;
+	sf::Color color = jankScreenFade.getFillColor();
+	float changeAmount = 200*elapsed/blinkLength;
+	if (fadeToBlack && changeAmount + color.a < 255) {
+		color.a += changeAmount;
+	} else if (!fadeToBlack && changeAmount < color.a) {
+		color.a -= changeAmount;
+	}
+	jankScreenFade.setFillColor(color);
+	if (blinkTimer > blinkLength) {
+		fadeToBlack = !fadeToBlack;
 		blinkTimer = 0;
-		sf::Color color = jankScreenFade.getFillColor();
-		solidBlack ? color.a = 255 - 255 : color.a = 255;
-		jankScreenFade.setFillColor(color);
 	}
 	if (fadePercent > 1.0f) {
 		done = true;
