@@ -11,11 +11,16 @@
 
 AttackMode::AttackMode(BattleInfo& info) : info(info) {
 	//right now the destination for each sprite is just 100 up from where it was originally
+	int center = 512; 	///the most magic number in the world
+	
+	
+	
 	originalPosMap.emplace(info.currentAction.attacker, info.currentAction.attacker->getSpritePosition());
-	destinationMap.emplace(info.currentAction.attacker, info.currentAction.attacker->getSpritePosition() + sf::Vector2f(0,-100));																		//100 is a magic number
+	destinationMap.emplace(info.currentAction.attacker, sf::Vector2f(center-50, info.currentAction.attacker->getSpritePosition().y-100));																		//100 is a magic number
 	for (auto & character : info.currentAction.defenders) {
 		originalPosMap.emplace(character, character->getSpritePosition());
-		destinationMap.emplace(character, character->getSpritePosition()+ sf::Vector2f(0,-100));	//100 is a magic number
+		destinationMap.emplace(character, sf::Vector2f(center, character->getSpritePosition().y-100));	//100 is a magic number
+		center += 50;
 	}
 }
 

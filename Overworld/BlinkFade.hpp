@@ -18,5 +18,5 @@ public:
 private:
 	bool fadeToBlack = true;
 	float blinkTimer = 0.f;
-	float blinkLength = 0.2f; 				//magic number?
+	float blinkLength = 0.3f; 				//magic number?
 };

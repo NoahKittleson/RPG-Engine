@@ -17,7 +17,7 @@ void BlinkFade::update(float elapsed) {
 	blinkTimer += elapsed;
 	fadePercent += elapsed/totalDuration;
 	sf::Color color = jankScreenFade.getFillColor();
-	float changeAmount = 200*elapsed/blinkLength;
+	float changeAmount = 200*elapsed/blinkLength;					//magic number
 	if (fadeToBlack && changeAmount + color.a < 255) {
 		color.a += changeAmount;
 	} else if (!fadeToBlack && changeAmount < color.a) {
