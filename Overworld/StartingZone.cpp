@@ -16,9 +16,8 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	background.setScale(4, 4);
 	
 	//Top-right Tree
-	std::vector<sf::FloatRect> boxlist;
-	boxlist.emplace_back(-5, 57, 10, 5);
-	MapObject Tree (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f(600,90)), boxlist);
+	boxList.emplace_back(-5, 57, 10, 5);
+	MapObject Tree (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f(600,90)), boxList);
 	Tree.attachDialogue(DialogueFactory::create(Dialogue::Test001, resources));
 	Tree.setScale(4.f);
 	addObject(Tree);

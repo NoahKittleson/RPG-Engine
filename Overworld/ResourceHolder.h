@@ -32,7 +32,8 @@ namespace Textures {
 		TestBackground,
 		Pond,
 		Beach,
-		Bush
+		Bush,
+		Waves
 	};
 }
 

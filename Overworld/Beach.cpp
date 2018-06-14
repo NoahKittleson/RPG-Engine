@@ -15,6 +15,19 @@ Beach::Beach(const ResourceHolder& resources)
 	background.setTexture(resources.getTexture(Textures::Beach));
 	background.setScale(4, 4);
 	
+	//Waves
+	std::vector<sf::FloatRect> boxList;
+	//boxlist.emplace_back(-5, 57, 10, 5);
+	sf::Vector2f size = sf::Vector2f(resources.getTexture(Textures::Waves).getSize().x,
+									 resources.getTexture(Textures::Waves).getSize().y);
+	MapObject Waves (make_unique<AnimatedComponent>(resources.getTexture(Textures::Waves), sf::Vector2f(size.x/2,size.y/2), 0.2, sf::Vector2i(size.x, size.y)), boxList);
+	
+	
+	Waves.offsetBase(-size.x/2);
+	Waves.setScale(4.f);
+	addObject(Waves);
+	boxList.clear();
+	
 	//Set up Zone Exits
 	sf::Vector2i totalArea = sf::Vector2i(background.getTexture()->getSize().x * background.getScale().x,
 										  background.getTexture()->getSize().y * background.getScale().y);

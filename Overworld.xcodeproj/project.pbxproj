@@ -75,6 +75,7 @@
 		B7E99BDB20B7817800FABB99 /* Beach.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E99BD920B7817800FABB99 /* Beach.cpp */; };
 		B7EE61632071DEAD00AA376E /* BattleEndMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7EE61612071DEAD00AA376E /* BattleEndMode.cpp */; };
 		B7EE61652077AEE700AA376E /* testbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EE61642077AEE700AA376E /* testbackground.png */; };
+		B7EF1BC420D246DE00CFD04E /* Waves.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EF1BC320D246DE00CFD04E /* Waves.png */; };
 		B7F96FDA1FFCD21B00FAB91B /* BattleAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */; };
 /* End PBXBuildFile section */
 
@@ -193,6 +194,7 @@
 		B7EE61612071DEAD00AA376E /* BattleEndMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleEndMode.cpp; sourceTree = "<group>"; };
 		B7EE61622071DEAD00AA376E /* BattleEndMode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleEndMode.hpp; sourceTree = "<group>"; };
 		B7EE61642077AEE700AA376E /* testbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testbackground.png; sourceTree = "<group>"; };
+		B7EF1BC320D246DE00CFD04E /* Waves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Waves.png; sourceTree = "<group>"; };
 		B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleAction.cpp; sourceTree = "<group>"; };
 		B7F96FD91FFCD21B00FAB91B /* BattleAction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleAction.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -342,6 +344,7 @@
 				B7439C191ECA6D8C00724D0B /* Scarecrow.png */,
 				B7D3C2391AEF869F0052DE83 /* Stickmaniac.png */,
 				B742133E1E3836F300090D95 /* tree.png */,
+				B7EF1BC320D246DE00CFD04E /* Waves.png */,
 				B7A1EB391EDA9F5100667423 /* Yak.png */,
 			);
 			name = Resources;
@@ -483,6 +486,7 @@
 				B7023E111BB61A36005A6F93 /* GetHitAnimation.png in Resources */,
 				B77783FF1AE5C57D007FA840 /* sansation.ttf in Resources */,
 				B73F35041E4B0963007EC4AC /* PlayerWalkingRight.png in Resources */,
+				B7EF1BC420D246DE00CFD04E /* Waves.png in Resources */,
 				B7701D851EF4740D006AB891 /* Campfire.png in Resources */,
 				B7EE61652077AEE700AA376E /* testbackground.png in Resources */,
 				B79E29881BA0E1C80020BA93 /* RollingWheat.png in Resources */,
