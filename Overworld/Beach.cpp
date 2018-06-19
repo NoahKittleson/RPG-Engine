@@ -16,14 +16,15 @@ Beach::Beach(const ResourceHolder& resources)
 	background.setScale(4, 4);
 	
 	//Waves
+	int scale = 4;
 	std::vector<sf::FloatRect> boxList;
-	//boxlist.emplace_back(-5, 57, 10, 5);
 	sf::Vector2f size = sf::Vector2f(200, 400); 						//magic number
-	MapObject Waves (make_unique<AnimatedComponent>(resources.getTexture(Textures::Waves), sf::Vector2f(size.x/2,size.y/2), 0.2, sf::Vector2i(size.x, size.y)), boxList);
+	//boxlist.emplace_back(-5, 57, 10, 5);
+
+	MapObject Waves (make_unique<AnimatedComponent>(resources.getTexture(Textures::Waves), sf::Vector2f(size.x * scale/2, size.y * scale/2), 0.2, sf::Vector2i(size.x, size.y)), boxList);
 	
-	
-	Waves.offsetBase(-size.x);
-	Waves.setScale(4.f);
+	Waves.offsetBase(-size.y * scale);
+	Waves.setScale(scale);
 	addObject(Waves);
 	boxList.clear();
 	
