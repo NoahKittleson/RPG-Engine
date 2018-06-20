@@ -19,7 +19,19 @@ Beach::Beach(const ResourceHolder& resources)
 	int scale = 4;
 	std::vector<sf::FloatRect> boxList;
 	sf::Vector2f size = sf::Vector2f(200, 400); 						//magic number
-	//boxlist.emplace_back(-5, 57, 10, 5);
+	boxList.emplace_back(-400, -800, 200, 1600);						//ho boy look how magic these numbers are
+	boxList.emplace_back(-200, -800, 30, 1200);
+	boxList.emplace_back(-200, -800, 15, 1300);
+	boxList.emplace_back(-170, -800, 30, 200);
+	boxList.emplace_back(-170, -800, 15, 300);
+	boxList.emplace_back(-140, -800, 30, 150);
+	boxList.emplace_back(-110, -800, 30, 80);
+	boxList.emplace_back(-110, -800, 15, 110);
+	boxList.emplace_back(-100, -800, 40, 50);
+	boxList.emplace_back(-60, -800, 20, 20);
+
+
+
 
 	MapObject Waves (make_unique<AnimatedComponent>(resources.getTexture(Textures::Waves), sf::Vector2f(size.x * scale/2, size.y * scale/2), 0.2, sf::Vector2i(size.x, size.y)), boxList);
 	
