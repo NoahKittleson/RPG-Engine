@@ -13,20 +13,20 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	
 	std::vector<sf::FloatRect> boxList;
     background.setTexture(resources.getTexture(Textures::TestBackground));
-	background.setScale(4, 4);
+	background.setScale(scale, scale);
 	
 	//Top-right Tree
 	boxList.emplace_back(-5, 57, 10, 5);
 	MapObject Tree (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f(600,90)), boxList);
 	Tree.attachDialogue(DialogueFactory::create(Dialogue::Test001, resources));
-	Tree.setScale(4.f);
+	Tree.setScale(scale);
 	addObject(Tree);
 	boxList.clear();
 	
 	//Another Tree
 	boxList.emplace_back(-5, 57, 10, 5);
 	MapObject otherTree (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f (150,400)), boxList);
-	otherTree.setScale(4.f);
+	otherTree.setScale(scale);
 	addObject(otherTree);
 	boxList.clear();
 	
@@ -60,7 +60,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	
 	//A Bush
 	MapObject bush (make_unique<GraphicsComponent>(resources.getTexture(Textures::Bush), sf::Vector2f (350,310)), boxList);
-	bush.setScale(4.f);
+	bush.setScale(scale);
 	addObject(bush);
 	boxList.clear();
 	
@@ -85,7 +85,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	boxList.emplace_back(-50,-60,100,120);
 	
 	MapObject pond (make_unique<AnimatedComponent>(resources.getTexture(Textures::Pond), sf::Vector2f(620,452), 0.3f, sf::Vector2i(80,32)), boxList);
-	pond.setScale(4.f);
+	pond.setScale(scale);
 	pond.offsetBase(-100);
 	addObject(pond);
 	boxList.clear();

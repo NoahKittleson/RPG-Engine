@@ -51,5 +51,7 @@ protected:
 	SpriteVec sprites;
 	TriggerVec triggers;
 	const std::string musicFilename;
+	
+	int scale = 4;
 };
 

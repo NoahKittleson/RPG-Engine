@@ -16,7 +16,6 @@ Beach::Beach(const ResourceHolder& resources)
 	background.setScale(4, 4);
 	
 	//Waves
-	int scale = 4;
 	std::vector<sf::FloatRect> boxList;
 	sf::Vector2f size = sf::Vector2f(200, 400); 						//magic number
 	boxList.emplace_back(-400, -800, 200, 1600);						//ho boy look how magic these numbers are
