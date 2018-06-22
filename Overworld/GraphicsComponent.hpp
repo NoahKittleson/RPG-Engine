@@ -27,6 +27,7 @@ public:
 	virtual void offsetBase(float x);
 	
 	virtual void drawCropped(int pixelCropX, int pixelCropY, sf::RenderWindow &rw);
+	//^^^crops from right/bottom, unless negative, in which case crops from left/top
 	
 private:
 	float baseOffset = 0.f;

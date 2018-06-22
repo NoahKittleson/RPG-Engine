@@ -36,21 +36,28 @@ std::string MapSection::getMusicAddress() {
 void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player) {
 	bool playerDrawn = false;
 	bool playerInWater = false;
-	for (const auto & zone : waterZones) {
+	for (const auto & zone : waterZones) {		//perhaps I should calculate in-water-ness during update()?
 		if (player.intersects(zone)) {
 			playerInWater = true;
 			break;
 		}
 	}
 	
-	if (waterZones.size() && playerInWater) {
-		player.drawCropped(0, -7, rw);				//cropping 3 pixels from bottom
+	//drawing feet NOW, if in water (so they can get covered by water)
+	if (playerInWater) {
+		player.move(0, 14 * 4);					//last number should be scale, but scale is 4 on player
+		player.drawCropped(0, -14, rw);
+		player.move(0, -14 * 4);				//last number should be scale, but scale is 4 on player
 	}
 	
 	for (const auto & obj: sprites)
 	{
 		if (!playerDrawn && (obj->getBase() > player.getBase())) {
-			playerInWater ? player.drawCropped(0, 7, rw) : player.draw(rw);			//cropping most of top
+			if (playerInWater) {
+				player.drawCropped(0, 2, rw);
+			} else {
+				player.draw(rw);
+			}
 			player.drawBase(rw);	//temporary, just to see where bases ACTUALLY are.
 			playerDrawn = true;
 		}
@@ -59,14 +66,10 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player) {
 	}
 	if (!playerDrawn) {
 		if (playerInWater) {
-			player.move(0, 7*scale);
-			player.drawCropped(0, 7, rw);
-			player.move(0, -7*scale);
-
+			player.drawCropped(0, 2, rw);
 		} else {
 			player.draw(rw);
 		}
-//		playerInWater ? player.drawCropped(0, 7, rw) : player.draw(rw);				//cropping most of top
 	}
 }
 
