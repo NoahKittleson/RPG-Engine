@@ -27,6 +27,7 @@ public:
 	void update(float elapsed);
     void drawBackground(sf::RenderWindow &rw);
     void drawAllObjects(sf::RenderWindow &rw, MapObject& player);
+	void drawAllBoxes(sf::RenderWindow& rw) const;
 	
 	NodePtr interact (std::vector<sf::FloatRect>) const;
     

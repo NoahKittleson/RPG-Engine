@@ -223,16 +223,8 @@ void OverworldMode::drawPlayerCollision(sf::RenderWindow &rw) {
 }
 
 void OverworldMode::drawAllBoxes(sf::RenderWindow &rw) {
-	//collision
-	for (auto && sprite: currentMap->getSpriteList()) {
-		sprite->drawCollision(rw);
-	}
+	currentMap->drawAllBoxes(rw);
 	drawPlayerCollision(rw);
-	
-	//triggers
-	for (auto && it: currentMap->getTriggerList()) {
-		it.drawArea(rw);
-	}
 }
 
 void OverworldMode::updateView() {

@@ -137,6 +137,26 @@ void MapSection::drawExits(sf::RenderWindow &rw) const {
 	}
 }
 
+void MapSection::drawAllBoxes(sf::RenderWindow &rw) const {
+	for (auto & sprite: sprites) {
+		sprite->drawCollision(rw);
+	}
+	
+	//triggers
+	for (auto & it: triggers) {
+		it.drawArea(rw);
+	}
+	
+	//water
+	for (auto & it: waterZones) {
+		sf::RectangleShape waterBox;
+		waterBox.setFillColor(sf::Color(0,250,0,50));
+		waterBox.setPosition(it.top, it.left);
+		waterBox.setSize(sf::Vector2f(it.width, it.height));
+		rw.draw(waterBox);
+	}
+}
+
 
 
 
