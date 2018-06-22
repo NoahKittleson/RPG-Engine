@@ -45,6 +45,8 @@ private:
 	//if Commands get complicated, make them their own class, rather than just an enum
 	enum Command {Left, Right, Up, Down, X, Z};
 	std::vector<Command> CommandQueue;
+	
+	bool debugMode = false;
 };
 
 

@@ -30,6 +30,9 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 	} else {
 		sf::Event event;
 		while (rw.pollEvent(event)) {
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Tab) {
+				debugMode = !debugMode;
+			}
 			switch (event.key.code) {
 				case sf::Keyboard::X:
 					//to prevent events caused from key release
@@ -45,7 +48,7 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 						CommandQueue.push_back(Z);
 					}
 					break;
-					
+
 				case sf::Keyboard::Escape:
 					rw.close();
 					break;
@@ -143,7 +146,9 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	if (mode) {
 		mode->draw(rw);
 	} else {
-		drawAllBoxes(rw);
+		if (debugMode) {
+			drawAllBoxes(rw);
+		}
 	}
 	player->drawCenter(rw);
 	rw.display();
