@@ -30,6 +30,7 @@ public:
 	
 	//graphics
     void draw(sf::RenderWindow &rw) const;
+	void drawCropped(int cropX, int cropY, sf::RenderWindow &rw);
 	void addTime(float delta);
 	void setScale(float);
 	void move(float x, float y);

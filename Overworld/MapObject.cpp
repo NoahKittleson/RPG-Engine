@@ -56,6 +56,10 @@ void MapObject::draw(sf::RenderWindow &rw) const {
 	rw.draw(*graphics);
 }
 
+void MapObject::drawCropped(int cropX, int cropY, sf::RenderWindow &rw) {
+	graphics->drawCropped(cropX, cropY, rw);
+}
+
 void MapObject::move(float x, float y) {
 	auto position = graphics->getPosition();
 	graphics->move(x, y);

@@ -13,7 +13,10 @@ Beach::Beach(const ResourceHolder& resources)
 : MapSection(MapID::Beach, "nice_music.ogg")
 {
 	background.setTexture(resources.getTexture(Textures::Beach));
-	background.setScale(4, 4);
+	background.setScale(scale, scale);
+	
+	//this is *mostly* a test....
+	waterZones.emplace_back(sf::FloatRect(0,0,500,800));
 	
 	//Waves
 	std::vector<sf::FloatRect> boxList;
@@ -28,8 +31,6 @@ Beach::Beach(const ResourceHolder& resources)
 	boxList.emplace_back(-110, -800, 15, 110);
 	boxList.emplace_back(-100, -800, 40, 50);
 	boxList.emplace_back(-60, -800, 20, 20);
-
-
 
 
 	MapObject Waves (make_unique<AnimatedComponent>(resources.getTexture(Textures::Waves), sf::Vector2f(size.x * scale/2, size.y * scale/2), 0.2, sf::Vector2i(size.x, size.y)), boxList);

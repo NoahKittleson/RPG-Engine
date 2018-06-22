@@ -25,8 +25,7 @@ void MapSection::addObject(MapObject& add)
 	sprites.emplace_back(std::unique_ptr<MapObject>(new MapObject (add)));
 }
 
-void MapSection::drawBackground(sf::RenderWindow&rw)
-{
+void MapSection::drawBackground(sf::RenderWindow&rw) {
 	rw.draw(background);
 }
 
@@ -34,13 +33,24 @@ std::string MapSection::getMusicAddress() {
 	return resourcePath() + musicFilename;
 }
 
-void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player)
-{
+void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player) {
 	bool playerDrawn = false;
+	bool playerInWater = false;
+	for (const auto & zone : waterZones) {
+		if (player.intersects(zone)) {
+			playerInWater = true;
+			break;
+		}
+	}
+	
+	if (waterZones.size() && playerInWater) {
+		player.drawCropped(0, -7, rw);				//cropping 3 pixels from bottom
+	}
+	
 	for (const auto & obj: sprites)
 	{
 		if (!playerDrawn && (obj->getBase() > player.getBase())) {
-			player.draw(rw);
+			playerInWater ? player.drawCropped(0, 7, rw) : player.draw(rw);			//cropping most of top
 			player.drawBase(rw);	//temporary, just to see where bases ACTUALLY are.
 			playerDrawn = true;
 		}
@@ -48,7 +58,15 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player)
 		obj->drawBase(rw);
 	}
 	if (!playerDrawn) {
-		player.draw(rw);
+		if (playerInWater) {
+			player.move(0, 7*scale);
+			player.drawCropped(0, 7, rw);
+			player.move(0, -7*scale);
+
+		} else {
+			player.draw(rw);
+		}
+//		playerInWater ? player.drawCropped(0, 7, rw) : player.draw(rw);				//cropping most of top
 	}
 }
 

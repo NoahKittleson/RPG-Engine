@@ -49,9 +49,10 @@ protected:
 	sf::Sprite background;
 	ExitVec exits;
 	SpriteVec sprites;
+	std::vector<sf::FloatRect> waterZones;
 	TriggerVec triggers;
 	const std::string musicFilename;
 	
-	int scale = 4;
+	int scale = 3;
 };
 

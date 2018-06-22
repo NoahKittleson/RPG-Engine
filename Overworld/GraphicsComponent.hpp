@@ -26,6 +26,8 @@ public:
 	virtual int getBase() const;
 	virtual void offsetBase(float x);
 	
+	virtual void drawCropped(int pixelCropX, int pixelCropY, sf::RenderWindow &rw);
+	
 private:
 	float baseOffset = 0.f;
 	
