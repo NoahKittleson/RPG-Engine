@@ -151,7 +151,7 @@ void MapSection::drawAllBoxes(sf::RenderWindow &rw) const {
 	for (auto & it: waterZones) {
 		sf::RectangleShape waterBox;
 		waterBox.setFillColor(sf::Color(0,250,0,50));
-		waterBox.setPosition(it.top, it.left);
+		waterBox.setPosition(it.left, it.top);
 		waterBox.setSize(sf::Vector2f(it.width, it.height));
 		rw.draw(waterBox);
 	}

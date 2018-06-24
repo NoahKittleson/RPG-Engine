@@ -81,13 +81,13 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	boxList.clear();
 	
 	//The Pond
-	boxList.emplace_back(-140,-40,280,80);
-	boxList.emplace_back(-50,-60,100,120);
-	
-	MapObject pond (make_unique<AnimatedComponent>(resources.getTexture(Textures::Pond), sf::Vector2f(620,452), 0.3f, sf::Vector2i(80,32)), boxList);
+//	boxList.emplace_back(-140,-40,280,80);
+//	boxList.emplace_back(-50,-60,100,120);
+	MapObject pond (make_unique<AnimatedComponent>(resources.getTexture(Textures::Pond), sf::Vector2f(465,339), 0.3f, sf::Vector2i(80,32)), boxList);
 	pond.setScale(scale);
 	pond.offsetBase(-100);
 	addObject(pond);
+	waterZones.emplace_back(sf::FloatRect(335,290,230,95));
 	boxList.clear();
 	
     //Set up Trigger for Fighting
