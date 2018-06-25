@@ -13,7 +13,7 @@
 PlayerObject::PlayerObject(graphicsPtr&& gc, RectVec& collision)
 : MapObject(std::move(gc), collision)
 {
-	
+	setScale(3.0f);
 }
 
 NodePtr PlayerObject::interact(const MapSection& map) {

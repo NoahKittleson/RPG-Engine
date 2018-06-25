@@ -43,7 +43,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     for (int iii = 0; iii < rows; iii++) {
         for (int jjj = 0; jjj < columns-1; jjj++) {
             Wheat.addTime(timeOffset * (iii * columns + jjj));
-			Wheat.setScale(3.f);
+			Wheat.setScale(scale);
 			Wheat.setPosition(position.x, position.y);
 			position += sf::Vector2f(verticalGap, 0);
 			addObject(Wheat);
@@ -54,7 +54,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	//Scarecrow
 	boxList.emplace_back(-8, 45, 8, 2);
 	MapObject scarecrow (make_unique<DelayedAnimation>(resources.getTexture(Textures::Scarecrow), sf::Vector2f(500,250), 0.1f, sf::Vector2i(32,32), 3.0f), boxList);
-	scarecrow.setScale(3.f);
+	scarecrow.setScale(scale);
 	addObject(scarecrow);
 	boxList.clear();
 	
@@ -67,7 +67,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	//Yak
 	boxList.push_back(sf::FloatRect(-30,15,50,15));		//magic numbers galore.
 	MapObject yak (make_unique<AnimatedComponent>(resources.getTexture(Textures::Yak), sf::Vector2f(100,325), 0.1f, sf::Vector2i(40,40)), boxList);
-	yak.setScale(3.f);
+	yak.setScale(scale);
 	yak.offsetBase(-30);
 	addObject(yak);
 	boxList.clear();
@@ -76,7 +76,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	boxList.push_back(sf::FloatRect(-30,70,50,25));		//magic numbers galore.
 	boxList.push_back(sf::FloatRect(-40,80,70,10));		//magic numbers galore.
 	MapObject campfire (make_unique<AnimatedComponent>(resources.getTexture(Textures::Campfire), sf::Vector2f(600,300), 0.1f, sf::Vector2i(32,64)), boxList);
-	campfire.setScale(3.f);
+	campfire.setScale(scale);
 	addObject(campfire);
 	boxList.clear();
 	

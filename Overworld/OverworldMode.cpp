@@ -17,7 +17,6 @@ OverworldMode::OverworldMode() {
 	view.setCenter(player->getPosition());
 	updateView();
 	
-	player->setScale(4.0f);
 	musicPlayer.openFromFile(currentMap->getMusicAddress());
 	//musicPlayer.play();
 }
