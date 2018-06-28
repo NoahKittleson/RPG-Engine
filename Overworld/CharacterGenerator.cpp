@@ -17,7 +17,7 @@
 			break;
 			
 		case Combatant::Wheat:
-			return CharPtr(new Character(100, 100, resources.getTexture(Textures::RollingWheat), resources.getFont(Fonts::Sansation), "WheatMan", true, resources.getTexture(Textures::RollingWheat)));
+			return CharPtr(new Character(100, 100, resources.getTexture(Textures::BigWheat), resources.getFont(Fonts::Sansation), "WheatMan", true, resources.getTexture(Textures::BigWheat)));
 			break;
 		
 		case Combatant::Pringus: {

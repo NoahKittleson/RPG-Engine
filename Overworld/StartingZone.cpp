@@ -39,7 +39,7 @@ StartingZone::StartingZone(const ResourceHolder& resources)
     int horizontalGap = 20;
     int rowOffset = 20;
 	
-	MapObject Wheat (make_unique<AnimatedComponent>(resources.getTexture(Textures::RollingWheat), position, 0.2f, sf::Vector2i(32,32)), boxList);
+	MapObject Wheat (make_unique<AnimatedComponent>(resources.getTexture(Textures::SmallWheat), position, 0.2f, sf::Vector2i(16,16)), boxList);
     for (int iii = 0; iii < rows; iii++) {
         for (int jjj = 0; jjj < columns-1; jjj++) {
             Wheat.addTime(timeOffset * (iii * columns + jjj));

@@ -20,10 +20,10 @@ BigField::BigField(const ResourceHolder& resources)
 	sf::Vector2f position (200,100);
 	
     for (int iii = 0; iii < 6; iii++) {
-        MapObject fuck (make_unique<AnimatedComponent>(resources.getTexture(Textures::RollingWheat), position, 0.2f, sf::Vector2i(32,32)), emptyList);
+        MapObject fuck (make_unique<AnimatedComponent>(resources.getTexture(Textures::BigWheat), position, 0.2f, sf::Vector2i(32,32)), emptyList);
 		addObject(fuck);
 		position += sf::Vector2f(20, 0);
-        MapObject shit (make_unique<AnimatedComponent>(resources.getTexture(Textures::RollingWheat), sf::Vector2f(200,100), 0.2f, sf::Vector2i(32,32)), emptyList);
+        MapObject shit (make_unique<AnimatedComponent>(resources.getTexture(Textures::BigWheat), sf::Vector2f(200,100), 0.2f, sf::Vector2i(32,32)), emptyList);
 		addObject(shit);
 		position += sf::Vector2f(0, 20);
     }

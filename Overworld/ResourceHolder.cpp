@@ -23,7 +23,7 @@ ResourceHolder::ResourceHolder()
     textureIDMap.insert(std::make_pair("BasicIdle.png", Textures::ID::BasicIdle));
     textureIDMap.insert(std::make_pair("BadAttackAnimation.png", Textures::ID::BadAttackAnimation));
     textureIDMap.insert(std::make_pair("GetHitAnimation.png", Textures::ID::GetHitAnimation));
-    textureIDMap.insert(std::make_pair("RollingWheat.png", Textures::ID::RollingWheat));
+    textureIDMap.insert(std::make_pair("RollingWheat.png", Textures::ID::BigWheat));
     textureIDMap.insert(std::make_pair("Scarecrow.png", Textures::ID::Scarecrow));
     textureIDMap.insert(std::make_pair("cute_image.jpg", Textures::ID::CuteImage));
     textureIDMap.insert(std::make_pair("icon.png", Textures::ID::Icon));
@@ -39,8 +39,7 @@ ResourceHolder::ResourceHolder()
 	textureIDMap.insert(std::make_pair("Beach.png", Textures::ID::Beach));
 	textureIDMap.insert(std::make_pair("bush.png", Textures::ID::Bush));
 	textureIDMap.insert(std::make_pair("Waves.png", Textures::ID::Waves));
-
-
+	textureIDMap.insert(std::make_pair("SmallWheat.png", Textures::ID::SmallWheat));
 
 	
 	

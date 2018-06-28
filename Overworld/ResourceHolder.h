@@ -18,7 +18,7 @@ namespace Textures {
 		BasicIdle,
 		BadAttackAnimation,
 		GetHitAnimation,
-		RollingWheat,
+		BigWheat,
 		Scarecrow,
 		CuteImage,
 		Icon,
@@ -33,7 +33,8 @@ namespace Textures {
 		Pond,
 		Beach,
 		Bush,
-		Waves
+		Waves,
+		SmallWheat,
 	};
 }
 
