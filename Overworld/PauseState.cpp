@@ -9,20 +9,19 @@
 #include "PauseState.hpp"
 
 
-void update(sf::Clock&) {
+void PauseState::update(sf::Clock&) {
 	//nothing?
 }
 
-void draw(sf::RenderWindow&) {
+void PauseState::draw(sf::RenderWindow&) {
 	//draw the pause menu
 }
 
-void handleInput(sf::RenderWindow& rw) {
-	//
+void PauseState::handleInput(sf::RenderWindow& rw) {
 	sf::Event event;
 	while (rw.pollEvent(event)) {
 		//if P or Enter is pressed pop this state;
-		if (event.KeyPressed == key.code.Enter) {
+		if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return) {
 			requestStackPop();
 		}
 	}
