@@ -11,10 +11,12 @@
 
 class PauseState : public State {
 public:
+	PauseState();
 	void update(sf::Clock&) override;
 	void draw(sf::RenderWindow&) override;
 	void handleInput(sf::RenderWindow&) override;
 	
 private:
+	sf::Text pausedText;
 	
 };

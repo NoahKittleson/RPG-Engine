@@ -8,13 +8,19 @@
 
 #include "PauseState.hpp"
 
+PauseState::PauseState() {
+	pausedText.setString("Paused");
+	pausedText.setColor(sf::Color::White);
+	pausedText.setPosition(100, 100);
+	pausedText.setFont(resources.getFont(Fonts::Sansation));
+}
 
 void PauseState::update(sf::Clock&) {
 	//nothing?
 }
 
-void PauseState::draw(sf::RenderWindow&) {
-	//draw the pause menu
+void PauseState::draw(sf::RenderWindow& rw) {
+	rw.draw(pausedText);
 }
 
 void PauseState::handleInput(sf::RenderWindow& rw) {
