@@ -15,6 +15,7 @@
 #include "Fade.hpp"
 #include "MapFactory.hpp"
 #include "BlinkFade.hpp"
+#include "PauseState.hpp"
 
 
 class OverworldMode: public State

@@ -32,6 +32,10 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Tab) {
 				debugMode = !debugMode;
 			}
+			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return) {
+				requestStackAdd(make_unique<PauseState>());
+
+			}
 			switch (event.key.code) {
 				case sf::Keyboard::X:
 					//to prevent events caused from key release

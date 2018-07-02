@@ -15,8 +15,9 @@ PauseState::PauseState() {
 	pausedText.setFont(resources.getFont(Fonts::Sansation));
 }
 
-void PauseState::update(sf::Clock&) {
+void PauseState::update(sf::Clock& timer) {
 	//nothing?
+	timer.restart();
 }
 
 void PauseState::draw(sf::RenderWindow& rw) {
