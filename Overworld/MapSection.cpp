@@ -45,9 +45,9 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player) {
 	
 	//drawing feet NOW, if in water (so they can get covered by water)
 	if (playerInWater) {
-		player.move(0, 14 * 4);					//last number should be scale, but scale is 4 on player
+		player.move(0, 14 * scale);
 		player.drawCropped(0, -14, rw);
-		player.move(0, -14 * 4);				//last number should be scale, but scale is 4 on player
+		player.move(0, -14 * scale);				
 	}
 	
 	for (const auto & obj: sprites)

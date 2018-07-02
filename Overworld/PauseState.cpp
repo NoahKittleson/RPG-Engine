@@ -13,6 +13,7 @@ PauseState::PauseState() {
 	pausedText.setColor(sf::Color::White);
 	pausedText.setPosition(100, 100);
 	pausedText.setFont(resources.getFont(Fonts::Sansation));
+
 }
 
 void PauseState::update(sf::Clock& timer) {
