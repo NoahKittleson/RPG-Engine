@@ -35,6 +35,8 @@ namespace Textures {
 		Bush,
 		Waves,
 		SmallWheat,
+		BrickHouse,
+		DeadTree
 	};
 }
 

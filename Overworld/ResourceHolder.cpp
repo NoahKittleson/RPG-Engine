@@ -40,7 +40,8 @@ ResourceHolder::ResourceHolder()
 	textureIDMap.insert(std::make_pair("bush.png", Textures::ID::Bush));
 	textureIDMap.insert(std::make_pair("Waves.png", Textures::ID::Waves));
 	textureIDMap.insert(std::make_pair("SmallWheat.png", Textures::ID::SmallWheat));
-
+	textureIDMap.insert(std::make_pair("DeadTree.png", Textures::ID::DeadTree));
+	textureIDMap.insert(std::make_pair("BrickHouse.png", Textures::ID::BrickHouse));
 	
 	
     for (auto ID : textureIDMap) {
