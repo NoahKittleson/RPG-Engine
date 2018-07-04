@@ -51,6 +51,8 @@
 		B77F7EAB208E825C009FEE8A /* DialogueFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77F7EA9208E825C009FEE8A /* DialogueFactory.cpp */; };
 		B77F7EAD208EB677009FEE8A /* DialogueIDs.hpp in Resources */ = {isa = PBXBuildFile; fileRef = B77F7EAC208EB677009FEE8A /* DialogueIDs.hpp */; };
 		B78316FE20E6EA7400740527 /* PauseState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B78316FC20E6EA7400740527 /* PauseState.cpp */; };
+		B783170020EC9C7100740527 /* BrickHouse.png in Resources */ = {isa = PBXBuildFile; fileRef = B78316FF20EC9C7100740527 /* BrickHouse.png */; };
+		B783170220EC9C7B00740527 /* DeadTree.png in Resources */ = {isa = PBXBuildFile; fileRef = B783170120EC9C7B00740527 /* DeadTree.png */; };
 		B786FF1320E4BA8E00EAE1A0 /* SmallWheat.png in Resources */ = {isa = PBXBuildFile; fileRef = B786FF1220E4BA8E00EAE1A0 /* SmallWheat.png */; };
 		B78873551F3D530E00E7C725 /* CharacterGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */; };
 		B797796F2044DBF7000870C2 /* AttackMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B797796D2044DBF7000870C2 /* AttackMode.cpp */; };
@@ -156,6 +158,8 @@
 		B77F7EAC208EB677009FEE8A /* DialogueIDs.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DialogueIDs.hpp; sourceTree = "<group>"; };
 		B78316FC20E6EA7400740527 /* PauseState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PauseState.cpp; sourceTree = "<group>"; };
 		B78316FD20E6EA7400740527 /* PauseState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PauseState.hpp; sourceTree = "<group>"; };
+		B78316FF20EC9C7100740527 /* BrickHouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrickHouse.png; sourceTree = "<group>"; };
+		B783170120EC9C7B00740527 /* DeadTree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeadTree.png; sourceTree = "<group>"; };
 		B786FF1220E4BA8E00EAE1A0 /* SmallWheat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallWheat.png; sourceTree = "<group>"; };
 		B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterGenerator.cpp; sourceTree = "<group>"; };
 		B78873541F3D530E00E7C725 /* CharacterGenerator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterGenerator.hpp; sourceTree = "<group>"; };
@@ -331,6 +335,8 @@
 			isa = PBXGroup;
 			children = (
 				B7A0D239209BC3EF00098096 /* pond.png */,
+				B783170120EC9C7B00740527 /* DeadTree.png */,
+				B78316FF20EC9C7100740527 /* BrickHouse.png */,
 				B786FF1220E4BA8E00EAE1A0 /* SmallWheat.png */,
 				B7E99BD720B7807800FABB99 /* Beach.png */,
 				B7EE61642077AEE700AA376E /* testbackground.png */,
@@ -482,12 +488,14 @@
 				B7BE058320B938D8008D6537 /* bush.png in Resources */,
 				B77F7EAD208EB677009FEE8A /* DialogueIDs.hpp in Resources */,
 				B7439C1A1ECA6D8C00724D0B /* Scarecrow.png in Resources */,
+				B783170020EC9C7100740527 /* BrickHouse.png in Resources */,
 				B786FF1320E4BA8E00EAE1A0 /* SmallWheat.png in Resources */,
 				B7023E131BB61A43005A6F93 /* BadAttackAnimation.png in Resources */,
 				B7172F851AF0716500C21B1C /* Mountains.jpg in Resources */,
 				B77784011AE5C57D007FA840 /* icon.png in Resources */,
 				B73F35061E4B096D007EC4AC /* PlayerWalkingUp.png in Resources */,
 				B7E99BD820B7807800FABB99 /* Beach.png in Resources */,
+				B783170220EC9C7B00740527 /* DeadTree.png in Resources */,
 				B7D3C23A1AEF869F0052DE83 /* Stickmaniac.png in Resources */,
 				B73F35021E4B095B007EC4AC /* PlayerWalkingDown.png in Resources */,
 				B75ABA1A1C7BD7DA00B9FFDE /* IterVector.inl in Resources */,
