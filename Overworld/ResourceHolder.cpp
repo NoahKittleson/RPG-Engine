@@ -18,14 +18,27 @@ ResourceHolder::ResourceHolder()
 	
     //Whenever you add a new texture, add to this list
     std::map<sf::String, Textures::ID> textureIDMap;
-	textureIDMap.insert(std::make_pair("Mountains.jpg", Textures::ID::Mountains));
+	//zone backgrounds//
+	textureIDMap.insert(std::make_pair("MountainWest.png", Textures::ID::MountainWest));
+	textureIDMap.insert(std::make_pair("MountainEast.png", Textures::ID::MountainEast));
+	textureIDMap.insert(std::make_pair("BeachNorth.png", Textures::ID::BeachNorth));
+	textureIDMap.insert(std::make_pair("MountainSouth.png", Textures::ID::MountainSouth));
+	textureIDMap.insert(std::make_pair("TownEast.png", Textures::ID::TownEast));
+	textureIDMap.insert(std::make_pair("BeachWest.png", Textures::ID::BeachWest));
+	textureIDMap.insert(std::make_pair("Start.png", Textures::ID::Start));
+	textureIDMap.insert(std::make_pair("SouthOfStart.png", Textures::ID::SouthOfStart));
+	textureIDMap.insert(std::make_pair("Forest.png", Textures::ID::Forest));
+	textureIDMap.insert(std::make_pair("Swamp.png", Textures::ID::Swamp));
+	textureIDMap.insert(std::make_pair("BeachSouth.png", Textures::ID::BeachSouth));
+	textureIDMap.insert(std::make_pair("TownSouth.png", Textures::ID::TownSouth));
+	textureIDMap.insert(std::make_pair("LightHouseCoast.png", Textures::ID::LightHouseCoast));
+	//props
     textureIDMap.insert(std::make_pair("Stickmaniac.png", Textures::ID::Stickmaniac));
     textureIDMap.insert(std::make_pair("BasicIdle.png", Textures::ID::BasicIdle));
     textureIDMap.insert(std::make_pair("BadAttackAnimation.png", Textures::ID::BadAttackAnimation));
     textureIDMap.insert(std::make_pair("GetHitAnimation.png", Textures::ID::GetHitAnimation));
     textureIDMap.insert(std::make_pair("RollingWheat.png", Textures::ID::BigWheat));
     textureIDMap.insert(std::make_pair("Scarecrow.png", Textures::ID::Scarecrow));
-    textureIDMap.insert(std::make_pair("cute_image.jpg", Textures::ID::CuteImage));
     textureIDMap.insert(std::make_pair("icon.png", Textures::ID::Icon));
     textureIDMap.insert(std::make_pair("tree.png", Textures::ID::Tree));
     textureIDMap.insert(std::make_pair("PlayerWalkingUp.png", Textures::ID::PlayerWalkingUp));
@@ -34,9 +47,7 @@ ResourceHolder::ResourceHolder()
     textureIDMap.insert(std::make_pair("PlayerWalkingRight.png", Textures::ID::PlayerWalkingRight));
 	textureIDMap.insert(std::make_pair("Campfire.png", Textures::ID::Campfire));
 	textureIDMap.insert(std::make_pair("Yak.png", Textures::ID::Yak));
-	textureIDMap.insert(std::make_pair("testbackground.png", Textures::ID::TestBackground));
 	textureIDMap.insert(std::make_pair("pond.png", Textures::ID::Pond));
-	textureIDMap.insert(std::make_pair("Beach.png", Textures::ID::Beach));
 	textureIDMap.insert(std::make_pair("bush.png", Textures::ID::Bush));
 	textureIDMap.insert(std::make_pair("Waves.png", Textures::ID::Waves));
 	textureIDMap.insert(std::make_pair("SmallWheat.png", Textures::ID::SmallWheat));

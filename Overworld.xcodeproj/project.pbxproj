@@ -29,7 +29,7 @@
 		B7396FC420F036EB0095DDB5 /* MountainWest.png in Resources */ = {isa = PBXBuildFile; fileRef = B7396FB720F036EB0095DDB5 /* MountainWest.png */; };
 		B7396FC520F036EB0095DDB5 /* MountainEast.png in Resources */ = {isa = PBXBuildFile; fileRef = B7396FB820F036EB0095DDB5 /* MountainEast.png */; };
 		B7396FC620F036EB0095DDB5 /* BeachSouth.png in Resources */ = {isa = PBXBuildFile; fileRef = B7396FB920F036EB0095DDB5 /* BeachSouth.png */; };
-		B7396FC720F036EB0095DDB5 /* Lighthouse.png in Resources */ = {isa = PBXBuildFile; fileRef = B7396FBA20F036EB0095DDB5 /* Lighthouse.png */; };
+		B7396FC720F036EB0095DDB5 /* LighthouseCoast.png in Resources */ = {isa = PBXBuildFile; fileRef = B7396FBA20F036EB0095DDB5 /* LighthouseCoast.png */; };
 		B73D2DCC2060C44600E23998 /* StatusEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B73D2DCA2060C44600E23998 /* StatusEffect.cpp */; };
 		B73F35021E4B095B007EC4AC /* PlayerWalkingDown.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */; };
 		B73F35041E4B0963007EC4AC /* PlayerWalkingRight.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35031E4B0963007EC4AC /* PlayerWalkingRight.png */; };
@@ -123,7 +123,7 @@
 		B7396FB720F036EB0095DDB5 /* MountainWest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MountainWest.png; sourceTree = "<group>"; };
 		B7396FB820F036EB0095DDB5 /* MountainEast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MountainEast.png; sourceTree = "<group>"; };
 		B7396FB920F036EB0095DDB5 /* BeachSouth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeachSouth.png; sourceTree = "<group>"; };
-		B7396FBA20F036EB0095DDB5 /* Lighthouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lighthouse.png; sourceTree = "<group>"; };
+		B7396FBA20F036EB0095DDB5 /* LighthouseCoast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LighthouseCoast.png; sourceTree = "<group>"; };
 		B73D2DCA2060C44600E23998 /* StatusEffect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StatusEffect.cpp; sourceTree = "<group>"; };
 		B73D2DCB2060C44600E23998 /* StatusEffect.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StatusEffect.hpp; sourceTree = "<group>"; };
 		B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingDown.png; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 			name = Audio;
 			sourceTree = "<group>";
 		};
-		B7396FAC20F018120095DDB5 /* Graphics */ = {
+		B7396FAC20F018120095DDB5 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
 				B7396FAD20F0183D0095DDB5 /* Backgrounds */,
@@ -281,25 +281,25 @@
 				B7EF1BC320D246DE00CFD04E /* Waves.png */,
 				B7A1EB391EDA9F5100667423 /* Yak.png */,
 			);
-			name = Graphics;
+			name = Textures;
 			sourceTree = "<group>";
 		};
 		B7396FAD20F0183D0095DDB5 /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				B7396FB220F036EB0095DDB5 /* BeachNorth.png */,
-				B7396FB920F036EB0095DDB5 /* BeachSouth.png */,
-				B7396FAF20F036EB0095DDB5 /* BeachWest.png */,
-				B7396FB520F036EB0095DDB5 /* Forest.png */,
-				B7396FBA20F036EB0095DDB5 /* Lighthouse.png */,
-				B7396FB820F036EB0095DDB5 /* MountainEast.png */,
-				B7396FB120F036EB0095DDB5 /* MountainSouth.png */,
 				B7396FB720F036EB0095DDB5 /* MountainWest.png */,
-				B7396FB320F036EB0095DDB5 /* SouthOfStart.png */,
-				B7396FB020F036EB0095DDB5 /* Start.png */,
-				B7396FB420F036EB0095DDB5 /* Swamp.png */,
+				B7396FB820F036EB0095DDB5 /* MountainEast.png */,
+				B7396FB220F036EB0095DDB5 /* BeachNorth.png */,
+				B7396FB120F036EB0095DDB5 /* MountainSouth.png */,
 				B7396FAE20F036EB0095DDB5 /* TownEast.png */,
+				B7396FAF20F036EB0095DDB5 /* BeachWest.png */,
+				B7396FB020F036EB0095DDB5 /* Start.png */,
+				B7396FB320F036EB0095DDB5 /* SouthOfStart.png */,
+				B7396FB520F036EB0095DDB5 /* Forest.png */,
+				B7396FB420F036EB0095DDB5 /* Swamp.png */,
+				B7396FB920F036EB0095DDB5 /* BeachSouth.png */,
 				B7396FB620F036EB0095DDB5 /* TownSouth.png */,
+				B7396FBA20F036EB0095DDB5 /* LighthouseCoast.png */,
 			);
 			name = Backgrounds;
 			sourceTree = "<group>";
@@ -419,7 +419,7 @@
 		B77783F91AE5C57D007FA840 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B7396FAC20F018120095DDB5 /* Graphics */,
+				B7396FAC20F018120095DDB5 /* Textures */,
 				B7396FAB20F017F20095DDB5 /* Audio */,
 				B7396FAA20F017E10095DDB5 /* Fonts */,
 			);
@@ -553,7 +553,7 @@
 				B7439C1A1ECA6D8C00724D0B /* Scarecrow.png in Resources */,
 				B783170020EC9C7100740527 /* BrickHouse.png in Resources */,
 				B786FF1320E4BA8E00EAE1A0 /* SmallWheat.png in Resources */,
-				B7396FC720F036EB0095DDB5 /* Lighthouse.png in Resources */,
+				B7396FC720F036EB0095DDB5 /* LighthouseCoast.png in Resources */,
 				B7023E131BB61A43005A6F93 /* BadAttackAnimation.png in Resources */,
 				B77784011AE5C57D007FA840 /* icon.png in Resources */,
 				B7396FC420F036EB0095DDB5 /* MountainWest.png in Resources */,

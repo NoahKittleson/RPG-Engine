@@ -13,8 +13,19 @@
 
 namespace Textures {
 	enum ID {
+		MountainWest,
+		MountainEast,
+		BeachNorth,
+		MountainSouth,
+		TownEast,
 		BeachWest,
 		Start,
+		SouthOfStart,
+		Forest,
+		Swamp,
+		BeachSouth,
+		TownSouth,
+		LightHouseCoast,
 		Stickmaniac,
 		BasicIdle,
 		BadAttackAnimation,
