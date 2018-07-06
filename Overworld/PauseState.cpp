@@ -22,14 +22,9 @@ void PauseState::update(sf::Clock& timer) {
 }
 
 void PauseState::draw(sf::RenderWindow& rw) {
-	rw.clear(sf::Color::Black);
-//	rw.setView(rw.getDefaultView());
+//	rw.clear(sf::Color::Black);
+	rw.setView(rw.getDefaultView());
 	rw.draw(pausedText);
-//	sf::RectangleShape rect;
-//	rect.setFillColor(sf::Color::Blue);
-//	rect.setPosition(-100, -100);
-//	rect.setSize(sf::Vector2f(1000, 1000));
-//	rw.draw(rect);
 	rw.display();
 }
 

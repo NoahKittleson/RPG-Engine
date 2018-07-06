@@ -13,14 +13,14 @@
 
 namespace Textures {
 	enum ID {
-		Mountains,
+		BeachWest,
+		Start,
 		Stickmaniac,
 		BasicIdle,
 		BadAttackAnimation,
 		GetHitAnimation,
 		BigWheat,
 		Scarecrow,
-		CuteImage,
 		Icon,
 		Tree,
 		PlayerWalkingUp,
@@ -29,9 +29,7 @@ namespace Textures {
 		PlayerWalkingRight,
 		Campfire,
 		Yak,
-		TestBackground,
 		Pond,
-		Beach,
 		Bush,
 		Waves,
 		SmallWheat,
