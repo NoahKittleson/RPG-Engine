@@ -14,7 +14,7 @@ class BeachWest : public MapSection
 {
 public:
 	BeachWest(const ResourceHolder& resources, const std::vector<Condition>& activeConds);
-	~BeachWest() { std::cout << "BeachWest deleted.\n"; }
+	~BeachWest() { std::cout << "Beach West deleted.\n"; }
 	
 private:
 	

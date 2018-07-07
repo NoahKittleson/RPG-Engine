@@ -105,7 +105,6 @@ Start::Start(const ResourceHolder& resources, const std::vector<Condition>& acti
 	sf::Vector2i totalArea = sf::Vector2i(background.getTexture()->getSize().x * background.getScale().x,
 										  background.getTexture()->getSize().y * background.getScale().y);
 
-	//offset isn't really going to work because it offsets by the length of THIS map, and map length and widths are inconsistent
 	
 	exits.emplace_back(sf::FloatRect(0, -100, 175 * scale, 100),
 					   sf::Vector2f(0, -mapClearance), MapID::BeachNorth);							//Top left

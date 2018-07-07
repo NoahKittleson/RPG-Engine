@@ -10,7 +10,7 @@
 
 
 BeachWest::BeachWest(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::BeachWest, "nice_music.ogg", sf::Vector2f(0 * scale, 350 * scale))
+: MapSection(MapID::BeachWest, "nice_music.ogg", sf::Vector2f(0, 350 * scale))
 {
 	background.setTexture(resources.getTexture(Textures::BeachWest));
 	background.setScale(scale, scale);

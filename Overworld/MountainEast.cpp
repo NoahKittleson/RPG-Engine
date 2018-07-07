@@ -10,7 +10,7 @@
 
 
 MountainEast::MountainEast(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::MountainEast, "", sf::Vector2f(500,0)) {
+: MapSection(MapID::MountainEast, "", sf::Vector2f(500 * scale,0)) {
 	background.setTexture(resources.getTexture(Textures::MountainEast));
 	background.setScale(scale, scale);
 	
