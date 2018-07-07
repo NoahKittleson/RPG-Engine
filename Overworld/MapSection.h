@@ -13,6 +13,14 @@
 #include "MapObject.hpp"
 #include "ResourcePath.hpp"
 
+#include "ResourceHolder.h"
+#include "AnimatedComponent.hpp"
+#include "DelayedAnimation.hpp"
+#include "TalkNode.h"
+#include "OptionNode.h"
+#include "CharacterGenerator.hpp"
+#include "DialogueFactory.hpp"
+
 
 using ExitVec = std::vector<ZoneExit>;
 using SpriteVec = std::list<std::unique_ptr<MapObject>>;
@@ -22,7 +30,7 @@ using TriggerVec = std::vector<GroundTrigger>;
 class MapSection: sf::NonCopyable
 {
 public:
-    MapSection(MapID id, std::string musicFile);
+	MapSection(MapID id, std::string musicFile);
     const MapID ID;
 	
 	void update(float elapsed);

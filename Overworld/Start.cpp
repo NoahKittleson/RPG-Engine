@@ -8,7 +8,7 @@
 
 #include "Start.h"
 
-Start::Start(const ResourceHolder& resources)
+Start::Start(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
 : MapSection(MapID::Start, "nice_music.ogg") {
 	
 	std::vector<sf::FloatRect> boxList;

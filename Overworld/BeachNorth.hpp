@@ -8,18 +8,12 @@
 
 #pragma once
 #include "MapSection.h"
-#include "ResourceHolder.h"
-#include "AnimatedComponent.hpp"
-#include "DelayedAnimation.hpp"
 #include "BattleState.h"
-#include "TalkNode.h"
-#include "OptionNode.h"
-#include "CharacterGenerator.hpp"
 
 class BeachNorth: public MapSection
 {
 public:
-    BeachNorth(const ResourceHolder& resources);
+    BeachNorth(const ResourceHolder& resources, const std::vector<Condition>& activeConds);
     ~BeachNorth() {std::cout << "Beach North deleted.\n";}
     
 private:

@@ -9,7 +9,7 @@
 #include "BeachNorth.hpp"
 
 
-BeachNorth::BeachNorth(const ResourceHolder& resources)
+BeachNorth::BeachNorth(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
 : MapSection(MapID::BeachNorth, "") {
     background.setTexture(resources.getTexture(Textures::BeachNorth));
 	background.setScale(scale, scale);

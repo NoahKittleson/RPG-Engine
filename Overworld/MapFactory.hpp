@@ -15,5 +15,5 @@
 class MapFactory {
 public:
 	//MapID list can be found in ZoneExit for whatever reason
-	static std::unique_ptr<MapSection> create(MapID toCreate, const ResourceHolder& resources);
+	static std::unique_ptr<MapSection> create(MapID toCreate, const ResourceHolder& resources, const std::vector<Condition>& activeConds);
 };

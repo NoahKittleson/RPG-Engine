@@ -9,7 +9,7 @@
 #include "BeachWest.hpp"
 
 
-BeachWest::BeachWest(const ResourceHolder& resources)
+BeachWest::BeachWest(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
 : MapSection(MapID::BeachWest, "nice_music.ogg")
 {
 	background.setTexture(resources.getTexture(Textures::BeachWest));

@@ -8,19 +8,12 @@
 
 #pragma once
 #include "MapSection.h"
-#include "ResourceHolder.h"
-#include "AnimatedComponent.hpp"
-#include "DelayedAnimation.hpp"
 #include "BattleState.h"
-#include "TalkNode.h"
-#include "OptionNode.h"
-#include "CharacterGenerator.hpp"
-#include "DialogueFactory.hpp"
 
 class Start: public MapSection
 {
 public:
-    Start(const ResourceHolder& resources);
+    Start(const ResourceHolder& resources, const std::vector<Condition>& activeConds);
     ~Start() { std::cout << "Start Zone deleted.\n"; }
     
 private:

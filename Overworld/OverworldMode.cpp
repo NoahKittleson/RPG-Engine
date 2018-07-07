@@ -103,7 +103,7 @@ void OverworldMode::update(sf::Clock& timer) {
 				if (exitIndex >= 0) {
 					ZoneExit exit = currentMap->getExitList()[exitIndex];
 					player->move(exit.getMoveOffset());
-					currentMap = MapFactory::create(exit.getNextZone(), resources);
+					currentMap = MapFactory::create(exit.getNextZone(), resources, conditions);
 					handleOOB();
 					updateView();
 				}
@@ -161,7 +161,7 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 void OverworldMode::changeMap(ZoneExit exit) {
 	MapID nextZone = exit.getNextZone();
 	if (nextZone != currentMap->ID) {
-		currentMap = MapFactory::create(nextZone, resources);
+		currentMap = MapFactory::create(nextZone, resources, conditions);
 	}
 	sf::Vector2f transitionOffset = exit.getMoveOffset();
 	player->move(transitionOffset.x, transitionOffset.y);
