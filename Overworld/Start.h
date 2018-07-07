@@ -17,11 +17,11 @@
 #include "CharacterGenerator.hpp"
 #include "DialogueFactory.hpp"
 
-class StartingZone: public MapSection
+class Start: public MapSection
 {
 public:
-    StartingZone(const ResourceHolder& resources);
-    ~StartingZone() { std::cout << "StartingZone deleted.\n"; }
+    Start(const ResourceHolder& resources);
+    ~Start() { std::cout << "Start Zone deleted.\n"; }
     
 private:
 	

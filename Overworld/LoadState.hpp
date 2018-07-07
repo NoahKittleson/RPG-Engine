@@ -8,7 +8,7 @@
 #pragma once
 #include "State.h"
 #include "WalkingAnimation.hpp"
-#include "StartingZone.h"
+#include "MapFactory.hpp"
 #include "CharacterGenerator.hpp"
 
 class LoadState: public State

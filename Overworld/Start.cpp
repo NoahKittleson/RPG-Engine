@@ -6,13 +6,13 @@
 //  Copyright © 2016 Noah. All rights reserved.
 //
 
-#include "StartingZone.h"
+#include "Start.h"
 
-StartingZone::StartingZone(const ResourceHolder& resources)
-: MapSection(MapID::StartingZone, "nice_music.ogg") {
+Start::Start(const ResourceHolder& resources)
+: MapSection(MapID::Start, "nice_music.ogg") {
 	
 	std::vector<sf::FloatRect> boxList;
-    background.setTexture(resources.getTexture(Textures::TestBackground));
+    background.setTexture(resources.getTexture(Textures::Start));
 	background.setScale(scale, scale);
 	
 	//Top-right Tree
@@ -105,10 +105,10 @@ StartingZone::StartingZone(const ResourceHolder& resources)
 	sf::Vector2i totalArea = sf::Vector2i(background.getTexture()->getSize().x * background.getScale().x,
 										  background.getTexture()->getSize().y * background.getScale().y);
 
-	exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100), sf::Vector2f(0,20), MapID::BigField);
-    exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y), sf::Vector2f(totalArea.x-20,0), MapID::Beach);
-    exits.emplace_back(sf::FloatRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(-20,0), MapID::BigField);
-    exits.emplace_back(sf::FloatRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,-20), MapID::BigField);
+	exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100), sf::Vector2f(0,20), MapID::BeachNorth);
+    exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y), sf::Vector2f(totalArea.x-20,0), MapID::BeachWest);
+    exits.emplace_back(sf::FloatRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(-20,0), MapID::BeachNorth);
+    exits.emplace_back(sf::FloatRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,-20), MapID::BeachNorth);
 }
 
 

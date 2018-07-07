@@ -16,11 +16,11 @@
 #include "OptionNode.h"
 #include "CharacterGenerator.hpp"
 
-class Beach : public MapSection
+class BeachWest : public MapSection
 {
 public:
-	Beach(const ResourceHolder& resources);
-	~Beach() { std::cout << "Beach deleted.\n"; }
+	BeachWest(const ResourceHolder& resources);
+	~BeachWest() { std::cout << "BeachWest deleted.\n"; }
 	
 private:
 	

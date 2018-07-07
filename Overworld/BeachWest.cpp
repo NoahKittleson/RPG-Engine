@@ -6,13 +6,13 @@
 //  Copyright © 2018 Noah. All rights reserved.
 //
 
-#include "Beach.hpp"
+#include "BeachWest.hpp"
 
 
-Beach::Beach(const ResourceHolder& resources)
-: MapSection(MapID::Beach, "nice_music.ogg")
+BeachWest::BeachWest(const ResourceHolder& resources)
+: MapSection(MapID::BeachWest, "nice_music.ogg")
 {
-	background.setTexture(resources.getTexture(Textures::Beach));
+	background.setTexture(resources.getTexture(Textures::BeachWest));
 	background.setScale(scale, scale);
 	
 	//this is *mostly* a test....
@@ -35,8 +35,8 @@ Beach::Beach(const ResourceHolder& resources)
 										  background.getTexture()->getSize().y * background.getScale().y);
 
 	//top, left, right, bottom
-	exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100), sf::Vector2f(0,20), MapID::StartingZone);
-	exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y), sf::Vector2f(20,0), MapID::StartingZone);
-	exits.emplace_back(sf::FloatRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(0-totalArea.x,0), MapID::StartingZone);
-	exits.emplace_back(sf::FloatRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,-20), MapID::StartingZone);
+	exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100), sf::Vector2f(0,20), MapID::Start);
+	exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y), sf::Vector2f(20,0), MapID::Start);
+	exits.emplace_back(sf::FloatRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(0-totalArea.x,0), MapID::Start);
+	exits.emplace_back(sf::FloatRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,-20), MapID::Start);
 }

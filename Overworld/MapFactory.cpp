@@ -11,16 +11,16 @@
 
 std::unique_ptr<MapSection> MapFactory::create(MapID toCreate, const ResourceHolder& resources) {
 	switch (toCreate) {
-		case MapID::BigField:
+		case MapID::BeachNorth:
 			return make_unique<BigField>(resources);
 			break;
-			
-		case MapID::StartingZone:
-			return make_unique<StartingZone>(resources);
+		
+		case MapID::Start:
+			return make_unique<Start>(resources);
 			break;
 			
-		case MapID::Beach:
-			return make_unique<Beach>(resources);
+		case MapID::BeachWest:
+			return make_unique<BeachWest>(resources);
 			break;
 			
 		default:

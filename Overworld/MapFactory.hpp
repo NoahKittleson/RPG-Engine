@@ -9,8 +9,8 @@
 #pragma once
 #include "MapSection.h"
 #include "BigField.hpp"
-#include "StartingZone.h"
-#include "Beach.hpp"
+#include "Start.h"
+#include "BeachWest.hpp"
 
 class MapFactory {
 public:

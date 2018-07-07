@@ -10,7 +10,7 @@
 
 LoadState::LoadState(StateStack& SS) {
     stack = &SS;
-	currentMap = std::unique_ptr<MapSection>(new StartingZone (resources));
+	currentMap = MapFactory::create(MapID::Start, resources);
     
     //set up party
 	party.push_back(CharacterGenerator::create(resources, Combatant::Pringus));

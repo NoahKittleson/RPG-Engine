@@ -12,9 +12,9 @@
 #define NO_OF_OPTIONNODES 1
 
 BigField::BigField(const ResourceHolder& resources)
-: MapSection(MapID::BigField, "") {
+: MapSection(MapID::BeachNorth, "") {
     std::vector<sf::FloatRect> emptyList;
-    background.setTexture(resources.getTexture(Textures::Mountains));
+    background.setTexture(resources.getTexture(Textures::BeachNorth));
     
     //Set up Non-interactable wheat field
 	sf::Vector2f position (200,100);
@@ -86,7 +86,7 @@ BigField::BigField(const ResourceHolder& resources)
     //Set up Zone Exits
     sf::Vector2u totalArea = background.getTexture()->getSize();
     
-    MapID zoneID = MapID::StartingZone;
+    MapID zoneID = MapID::Start;
     exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100), sf::Vector2f(0,totalArea.y-150), zoneID);
     exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y), sf::Vector2f(totalArea.x-150,0), zoneID);
     exits.emplace_back(sf::FloatRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(-totalArea.x+150,0), zoneID);
