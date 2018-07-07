@@ -35,8 +35,12 @@ BeachWest::BeachWest(const ResourceHolder& resources, const std::vector<Conditio
 										  background.getTexture()->getSize().y * background.getScale().y);
 
 	//top, left, right, bottom
-	exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100), sf::Vector2f(0,20), MapID::Start);
-	exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y), sf::Vector2f(20,0), MapID::Start);
-	exits.emplace_back(sf::FloatRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(0-totalArea.x,0), MapID::Start);
-	exits.emplace_back(sf::FloatRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,-20), MapID::Start);
+	exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100),
+					   sf::Vector2f(0, mapClearance), MapID::BeachNorth);		//top
+	exits.emplace_back(sf::FloatRect(totalArea.x,0,100,150*scale),
+					   sf::Vector2f(-mapClearance,0), MapID::Start);			//top right
+	exits.emplace_back(sf::FloatRect(totalArea.x,150*scale,100,totalArea.y-(150*scale)),
+					   sf::Vector2f(-mapClearance,0), MapID::SouthOfStart);		//bottom right
+	exits.emplace_back(sf::FloatRect(0,totalArea.y,totalArea.x,100),
+					   sf::Vector2f(0,-mapClearance), MapID::BeachSouth);		//bottom
 }
