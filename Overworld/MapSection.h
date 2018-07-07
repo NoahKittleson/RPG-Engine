@@ -64,5 +64,6 @@ protected:
 	const std::string musicFilename;
 	
 	int scale = 3;
+	int mapClearance = 20;
 };
 
