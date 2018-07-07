@@ -9,7 +9,7 @@
 #include "MapSection.h"
 
 
-MapSection::MapSection(MapID id, std::string musicFile) : ID(id), musicFilename(musicFile) {
+MapSection::MapSection(MapID id, std::string musicFile, sf::Vector2f globalPos) : ID(id), musicFilename(musicFile), globalPosition(globalPos) {
 	//should this be empty?
 };
 
@@ -156,6 +156,11 @@ void MapSection::drawAllBoxes(sf::RenderWindow &rw) const {
 		rw.draw(waterBox);
 	}
 }
+
+const sf::Vector2f MapSection::getGlobalPosition() {
+	return globalPosition;
+}
+
 
 
 

@@ -102,8 +102,10 @@ void OverworldMode::update(sf::Clock& timer) {
 				int exitIndex = checkExits();
 				if (exitIndex >= 0) {
 					ZoneExit exit = currentMap->getExitList()[exitIndex];
+					player->move(currentMap->getGlobalPosition());
 					player->move(exit.getMoveOffset());
 					currentMap = MapFactory::create(exit.getNextZone(), resources, conditions);
+					player->move(-currentMap->getGlobalPosition());
 					handleOOB();
 					updateView();
 				}

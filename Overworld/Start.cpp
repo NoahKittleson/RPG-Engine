@@ -9,7 +9,7 @@
 #include "Start.h"
 
 Start::Start(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::Start, "nice_music.ogg") {
+: MapSection(MapID::Start, "nice_music.ogg", sf::Vector2f(200 * scale, 350 * scale)) {
 	
 	std::vector<sf::FloatRect> boxList;
     background.setTexture(resources.getTexture(Textures::Start));
@@ -105,10 +105,18 @@ Start::Start(const ResourceHolder& resources, const std::vector<Condition>& acti
 	sf::Vector2i totalArea = sf::Vector2i(background.getTexture()->getSize().x * background.getScale().x,
 										  background.getTexture()->getSize().y * background.getScale().y);
 
-	exits.emplace_back(sf::FloatRect(0,-100,totalArea.x,100), sf::Vector2f(0,20), MapID::BeachNorth);
-    exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y), sf::Vector2f(totalArea.x-20,0), MapID::BeachWest);
-    exits.emplace_back(sf::FloatRect(totalArea.x,0,100,totalArea.y), sf::Vector2f(-20,0), MapID::BeachNorth);
-    exits.emplace_back(sf::FloatRect(0,totalArea.y,totalArea.x,100), sf::Vector2f(0,-20), MapID::BeachNorth);
+	//offset isn't really going to work because it offsets by the length of THIS map, and map length and widths are inconsistent
+	
+	exits.emplace_back(sf::FloatRect(0, -100, 175 * scale, 100),
+					   sf::Vector2f(0, -mapClearance), MapID::BeachNorth);							//Top left
+	exits.emplace_back(sf::FloatRect(175 * scale, -100, (totalArea.x - 175) * scale, 100),
+					   sf::Vector2f(0, -mapClearance), MapID::MountainSouth);						//Top right
+    exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y),
+					   sf::Vector2f(-mapClearance,0), MapID::BeachWest);							//left
+    exits.emplace_back(sf::FloatRect(totalArea.x, 0, 100, totalArea.y),
+					   sf::Vector2f(mapClearance, 0), MapID::Forest);								//right
+    exits.emplace_back(sf::FloatRect(0, totalArea.y, totalArea.x, 100),
+					   sf::Vector2f(0, mapClearance), MapID::BeachNorth);							//bottom
 }
 
 

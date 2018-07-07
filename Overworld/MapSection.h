@@ -30,7 +30,7 @@ using TriggerVec = std::vector<GroundTrigger>;
 class MapSection: sf::NonCopyable
 {
 public:
-	MapSection(MapID id, std::string musicFile);
+	MapSection(MapID id, std::string musicFile, sf::Vector2f globalPos);
     const MapID ID;
 	
 	void update(float elapsed);
@@ -48,6 +48,8 @@ public:
     const SpriteVec& getSpriteList();
     const ExitVec& getExitList();
     const TriggerVec& getTriggerList();
+	const sf::Vector2f getGlobalPosition();
+
 	
 	void drawExits(sf::RenderWindow &rw) const;
 	
@@ -63,7 +65,8 @@ protected:
 	TriggerVec triggers;
 	const std::string musicFilename;
 	
-	int scale = 3;
-	int mapClearance = 20;
+	static const int scale = 3;
+	const int mapClearance = 20;
+	const sf::Vector2f globalPosition;
 };
 
