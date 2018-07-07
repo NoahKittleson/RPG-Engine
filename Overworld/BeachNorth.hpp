@@ -16,11 +16,11 @@
 #include "OptionNode.h"
 #include "CharacterGenerator.hpp"
 
-class BigField: public MapSection
+class BeachNorth: public MapSection
 {
 public:
-    BigField(const ResourceHolder& resources);
-    ~BigField() {std::cout << "BigField deleted.\n";}
+    BeachNorth(const ResourceHolder& resources);
+    ~BeachNorth() {std::cout << "Beach North deleted.\n";}
     
 private:
 

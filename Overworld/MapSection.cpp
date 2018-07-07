@@ -58,11 +58,9 @@ void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player) {
 			} else {
 				player.draw(rw);
 			}
-			player.drawBase(rw);	//temporary, just to see where bases ACTUALLY are.
 			playerDrawn = true;
 		}
 		obj->draw(rw);
-		obj->drawBase(rw);
 	}
 	if (!playerDrawn) {
 		if (playerInWater) {
@@ -138,8 +136,10 @@ void MapSection::drawExits(sf::RenderWindow &rw) const {
 }
 
 void MapSection::drawAllBoxes(sf::RenderWindow &rw) const {
+	//collision boxes and bases
 	for (auto & sprite: sprites) {
 		sprite->drawCollision(rw);
+		sprite->drawBase(rw);
 	}
 	
 	//triggers

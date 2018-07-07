@@ -12,7 +12,7 @@
 std::unique_ptr<MapSection> MapFactory::create(MapID toCreate, const ResourceHolder& resources) {
 	switch (toCreate) {
 		case MapID::BeachNorth:
-			return make_unique<BigField>(resources);
+			return make_unique<BeachNorth>(resources);
 			break;
 		
 		case MapID::Start:

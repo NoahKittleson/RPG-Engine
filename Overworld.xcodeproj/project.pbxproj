@@ -36,7 +36,7 @@
 		B73F35061E4B096D007EC4AC /* PlayerWalkingUp.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35051E4B096D007EC4AC /* PlayerWalkingUp.png */; };
 		B7408AC220B3EE4A00CADF12 /* BlinkFade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7408AC020B3EE4A00CADF12 /* BlinkFade.cpp */; };
 		B742133F1E3836F300090D95 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = B742133E1E3836F300090D95 /* tree.png */; };
-		B74213421E384C7F00090D95 /* BigField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74213401E384C7F00090D95 /* BigField.cpp */; };
+		B74213421E384C7F00090D95 /* BeachNorth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74213401E384C7F00090D95 /* BeachNorth.cpp */; };
 		B742D6F91C1292EA0093C785 /* ResourceHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B742D6F71C1292EA0093C785 /* ResourceHolder.cpp */; };
 		B7439C1A1ECA6D8C00724D0B /* Scarecrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B7439C191ECA6D8C00724D0B /* Scarecrow.png */; };
 		B7439C1E1ECB8DED00724D0B /* GraphicsComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C1C1ECB8DED00724D0B /* GraphicsComponent.cpp */; };
@@ -132,8 +132,8 @@
 		B7408AC020B3EE4A00CADF12 /* BlinkFade.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BlinkFade.cpp; sourceTree = "<group>"; };
 		B7408AC120B3EE4A00CADF12 /* BlinkFade.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BlinkFade.hpp; sourceTree = "<group>"; };
 		B742133E1E3836F300090D95 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
-		B74213401E384C7F00090D95 /* BigField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BigField.cpp; sourceTree = "<group>"; usesTabs = 1; };
-		B74213411E384C7F00090D95 /* BigField.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BigField.hpp; sourceTree = "<group>"; };
+		B74213401E384C7F00090D95 /* BeachNorth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeachNorth.cpp; sourceTree = "<group>"; usesTabs = 1; };
+		B74213411E384C7F00090D95 /* BeachNorth.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BeachNorth.hpp; sourceTree = "<group>"; };
 		B742D6F71C1292EA0093C785 /* ResourceHolder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceHolder.cpp; sourceTree = "<group>"; };
 		B742D6F81C1292EA0093C785 /* ResourceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceHolder.h; sourceTree = "<group>"; };
 		B7439C191ECA6D8C00724D0B /* Scarecrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scarecrow.png; sourceTree = "<group>"; };
@@ -304,6 +304,19 @@
 			name = Backgrounds;
 			sourceTree = "<group>";
 		};
+		B7396FC820F047950095DDB5 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				B79AD8D71D4F128200B7C8F7 /* Start.h */,
+				B79AD8D61D4F128200B7C8F7 /* Start.cpp */,
+				B7E99BDA20B7817800FABB99 /* BeachWest.hpp */,
+				B7E99BD920B7817800FABB99 /* BeachWest.cpp */,
+				B74213411E384C7F00090D95 /* BeachNorth.hpp */,
+				B74213401E384C7F00090D95 /* BeachNorth.cpp */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
 		B7439C1B1ECB8D0400724D0B /* SpriteGuts */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,7 +453,7 @@
 				B7A26C111C8070370083989B /* ZoneExit.h */,
 				B7A26C101C8070370083989B /* ZoneExit.cpp */,
 				B7439C1B1ECB8D0400724D0B /* SpriteGuts */,
-				B79AD8D51D4F11EE00B7C8F7 /* Maps */,
+				B79AD8D51D4F11EE00B7C8F7 /* MapStuff */,
 			);
 			name = OverworldMode;
 			sourceTree = "<group>";
@@ -466,27 +479,22 @@
 			name = DialogueMode;
 			sourceTree = "<group>";
 		};
-		B79AD8D51D4F11EE00B7C8F7 /* Maps */ = {
+		B79AD8D51D4F11EE00B7C8F7 /* MapStuff */ = {
 			isa = PBXGroup;
 			children = (
-				B7977977204676D4000870C2 /* PlayerObject.hpp */,
-				B7977976204676D4000870C2 /* PlayerObject.cpp */,
-				B797797520467632000870C2 /* MapObject.hpp */,
-				B79779732046762A000870C2 /* MapObject.cpp */,
-				B7DEE728207F2AAD00B1B97C /* MapFactory.hpp */,
-				B7DEE727207F2AAD00B1B97C /* MapFactory.cpp */,
+				B7396FC820F047950095DDB5 /* Maps */,
 				B73219211B2111D000C41162 /* MapSection.h */,
 				B73219201B2111D000C41162 /* MapSection.cpp */,
-				B79AD8D71D4F128200B7C8F7 /* Start.h */,
-				B79AD8D61D4F128200B7C8F7 /* Start.cpp */,
-				B7E99BDA20B7817800FABB99 /* BeachWest.hpp */,
-				B7E99BD920B7817800FABB99 /* BeachWest.cpp */,
-				B74213411E384C7F00090D95 /* BigField.hpp */,
-				B74213401E384C7F00090D95 /* BigField.cpp */,
+				B7DEE728207F2AAD00B1B97C /* MapFactory.hpp */,
+				B7DEE727207F2AAD00B1B97C /* MapFactory.cpp */,
+				B797797520467632000870C2 /* MapObject.hpp */,
+				B79779732046762A000870C2 /* MapObject.cpp */,
+				B7977977204676D4000870C2 /* PlayerObject.hpp */,
+				B7977976204676D4000870C2 /* PlayerObject.cpp */,
 				B78873541F3D530E00E7C725 /* CharacterGenerator.hpp */,
 				B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */,
 			);
-			name = Maps;
+			name = MapStuff;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -631,7 +639,7 @@
 				B70D18DD20284340000B3584 /* BattleInfo.cpp in Sources */,
 				B73219221B2111D000C41162 /* MapSection.cpp in Sources */,
 				B7262BD42001B48D00989D70 /* MenuOption.cpp in Sources */,
-				B74213421E384C7F00090D95 /* BigField.cpp in Sources */,
+				B74213421E384C7F00090D95 /* BeachNorth.cpp in Sources */,
 				B75F862C1BACE0C60093B615 /* Character.cpp in Sources */,
 				B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */,
 				B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */,

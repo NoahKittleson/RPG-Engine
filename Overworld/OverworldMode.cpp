@@ -151,6 +151,7 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	} else {
 		if (debugMode) {
 			drawAllBoxes(rw);
+			player->drawBase(rw);
 		}
 	}
 	player->drawCenter(rw);
