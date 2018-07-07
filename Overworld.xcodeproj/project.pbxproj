@@ -31,6 +31,8 @@
 		B7396FC620F036EB0095DDB5 /* BeachSouth.png in Resources */ = {isa = PBXBuildFile; fileRef = B7396FB920F036EB0095DDB5 /* BeachSouth.png */; };
 		B7396FC720F036EB0095DDB5 /* LighthouseCoast.png in Resources */ = {isa = PBXBuildFile; fileRef = B7396FBA20F036EB0095DDB5 /* LighthouseCoast.png */; };
 		B7396FCB20F059540095DDB5 /* MountainWest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7396FC920F059540095DDB5 /* MountainWest.cpp */; };
+		B7396FCE20F099CF0095DDB5 /* MountainEast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7396FCC20F099CF0095DDB5 /* MountainEast.cpp */; };
+		B7396FD120F09DE10095DDB5 /* MountainSouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7396FCF20F09DE10095DDB5 /* MountainSouth.cpp */; };
 		B73D2DCC2060C44600E23998 /* StatusEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B73D2DCA2060C44600E23998 /* StatusEffect.cpp */; };
 		B73F35021E4B095B007EC4AC /* PlayerWalkingDown.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */; };
 		B73F35041E4B0963007EC4AC /* PlayerWalkingRight.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35031E4B0963007EC4AC /* PlayerWalkingRight.png */; };
@@ -127,6 +129,10 @@
 		B7396FBA20F036EB0095DDB5 /* LighthouseCoast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LighthouseCoast.png; sourceTree = "<group>"; };
 		B7396FC920F059540095DDB5 /* MountainWest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MountainWest.cpp; sourceTree = "<group>"; };
 		B7396FCA20F059540095DDB5 /* MountainWest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MountainWest.hpp; sourceTree = "<group>"; };
+		B7396FCC20F099CF0095DDB5 /* MountainEast.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MountainEast.cpp; sourceTree = "<group>"; };
+		B7396FCD20F099CF0095DDB5 /* MountainEast.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MountainEast.hpp; sourceTree = "<group>"; };
+		B7396FCF20F09DE10095DDB5 /* MountainSouth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MountainSouth.cpp; sourceTree = "<group>"; };
+		B7396FD020F09DE10095DDB5 /* MountainSouth.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MountainSouth.hpp; sourceTree = "<group>"; };
 		B73D2DCA2060C44600E23998 /* StatusEffect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StatusEffect.cpp; sourceTree = "<group>"; };
 		B73D2DCB2060C44600E23998 /* StatusEffect.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StatusEffect.hpp; sourceTree = "<group>"; };
 		B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingDown.png; sourceTree = "<group>"; };
@@ -312,6 +318,10 @@
 			children = (
 				B7396FCA20F059540095DDB5 /* MountainWest.hpp */,
 				B7396FC920F059540095DDB5 /* MountainWest.cpp */,
+				B7396FCD20F099CF0095DDB5 /* MountainEast.hpp */,
+				B7396FCC20F099CF0095DDB5 /* MountainEast.cpp */,
+				B7396FD020F09DE10095DDB5 /* MountainSouth.hpp */,
+				B7396FCF20F09DE10095DDB5 /* MountainSouth.cpp */,
 				B79AD8D71D4F128200B7C8F7 /* Start.h */,
 				B79AD8D61D4F128200B7C8F7 /* Start.cpp */,
 				B7E99BDA20B7817800FABB99 /* BeachWest.hpp */,
@@ -624,6 +634,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7396FD120F09DE10095DDB5 /* MountainSouth.cpp in Sources */,
 				B75ABA291C7BE1C400B9FFDE /* DialogueMode.cpp in Sources */,
 				B79AD8D81D4F128200B7C8F7 /* Start.cpp in Sources */,
 				B706F0781BFFE59700C95D49 /* State.cpp in Sources */,
@@ -643,6 +654,7 @@
 				B7439C1E1ECB8DED00724D0B /* GraphicsComponent.cpp in Sources */,
 				B70D18DD20284340000B3584 /* BattleInfo.cpp in Sources */,
 				B73219221B2111D000C41162 /* MapSection.cpp in Sources */,
+				B7396FCE20F099CF0095DDB5 /* MountainEast.cpp in Sources */,
 				B7262BD42001B48D00989D70 /* MenuOption.cpp in Sources */,
 				B74213421E384C7F00090D95 /* BeachNorth.cpp in Sources */,
 				B75F862C1BACE0C60093B615 /* Character.cpp in Sources */,

@@ -22,7 +22,7 @@ MountainWest::MountainWest(const ResourceHolder& resources, const std::vector<Co
 					   sf::Vector2f(mapClearance, 0), MapID::MountainEast);				//entire right
 	exits.emplace_back(sf::FloatRect(0, totalArea.y, 375 * scale, 100),
 					   sf::Vector2f(0, mapClearance), MapID::BeachNorth);				//bottom left
-	exits.emplace_back(sf::FloatRect(375 * scale, totalArea.y, (totalArea.x - 375) * scale, 100),
-					   sf::Vector2f(0, mapClearance), MapID::MountainSouth);			//bottom left
+	exits.emplace_back(sf::FloatRect(375 * scale, totalArea.y, totalArea.x - (375 * scale), 100),
+					   sf::Vector2f(0, mapClearance), MapID::MountainSouth);			//bottom right
 	
 }

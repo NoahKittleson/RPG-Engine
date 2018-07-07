@@ -109,7 +109,7 @@ Start::Start(const ResourceHolder& resources, const std::vector<Condition>& acti
 	
 	exits.emplace_back(sf::FloatRect(0, -100, 175 * scale, 100),
 					   sf::Vector2f(0, -mapClearance), MapID::BeachNorth);							//Top left
-	exits.emplace_back(sf::FloatRect(175 * scale, -100, (totalArea.x - 175) * scale, 100),
+	exits.emplace_back(sf::FloatRect(175 * scale, -100, totalArea.x - (175 * scale), 100),
 					   sf::Vector2f(0, -mapClearance), MapID::MountainSouth);						//Top right
     exits.emplace_back(sf::FloatRect(-100,0,100,totalArea.y),
 					   sf::Vector2f(-mapClearance,0), MapID::BeachWest);							//left
