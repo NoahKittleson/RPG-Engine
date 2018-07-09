@@ -36,6 +36,7 @@
 		B7396FD420F158FF0095DDB5 /* TownEast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7396FD220F158FF0095DDB5 /* TownEast.cpp */; };
 		B7396FD720F15AF50095DDB5 /* SouthOfStart.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7396FD520F15AF50095DDB5 /* SouthOfStart.cpp */; };
 		B7396FDA20F15FF20095DDB5 /* Forest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7396FD820F15FF20095DDB5 /* Forest.cpp */; };
+		B7396FDD20F162C70095DDB5 /* Swamp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7396FDB20F162C70095DDB5 /* Swamp.cpp */; };
 		B73D2DCC2060C44600E23998 /* StatusEffect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B73D2DCA2060C44600E23998 /* StatusEffect.cpp */; };
 		B73F35021E4B095B007EC4AC /* PlayerWalkingDown.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */; };
 		B73F35041E4B0963007EC4AC /* PlayerWalkingRight.png in Resources */ = {isa = PBXBuildFile; fileRef = B73F35031E4B0963007EC4AC /* PlayerWalkingRight.png */; };
@@ -84,6 +85,10 @@
 		B7A26C0F1C8061A50083989B /* Trigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C0D1C8061A50083989B /* Trigger.cpp */; };
 		B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C101C8070370083989B /* ZoneExit.cpp */; };
 		B7A58FD620A2D0030002A47F /* AbilityOption.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A58FD420A2D0030002A47F /* AbilityOption.cpp */; };
+		B7AA2BAF20F33A2E003B1F42 /* Overworld in Resources */ = {isa = PBXBuildFile; fileRef = B7AA2BAE20F33A2E003B1F42 /* Overworld */; };
+		B7AA2BB220F33A41003B1F42 /* BeachSouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AA2BB020F33A41003B1F42 /* BeachSouth.cpp */; };
+		B7AA2BB520F33B88003B1F42 /* TownSouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AA2BB320F33B88003B1F42 /* TownSouth.cpp */; };
+		B7AA2BB820F33DAB003B1F42 /* LighthouseCoast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AA2BB620F33DAB003B1F42 /* LighthouseCoast.cpp */; };
 		B7B2778E1EE3E3470051D7C4 /* WalkingAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7B2778C1EE3E3470051D7C4 /* WalkingAnimation.cpp */; };
 		B7BE058320B938D8008D6537 /* bush.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE058220B938D8008D6537 /* bush.png */; };
 		B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7C9F37F1E6235D300E7A045 /* Fade.cpp */; };
@@ -142,6 +147,8 @@
 		B7396FD620F15AF50095DDB5 /* SouthOfStart.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SouthOfStart.hpp; sourceTree = "<group>"; };
 		B7396FD820F15FF20095DDB5 /* Forest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Forest.cpp; sourceTree = "<group>"; };
 		B7396FD920F15FF20095DDB5 /* Forest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Forest.hpp; sourceTree = "<group>"; };
+		B7396FDB20F162C70095DDB5 /* Swamp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Swamp.cpp; sourceTree = "<group>"; };
+		B7396FDC20F162C70095DDB5 /* Swamp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Swamp.hpp; sourceTree = "<group>"; };
 		B73D2DCA2060C44600E23998 /* StatusEffect.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StatusEffect.cpp; sourceTree = "<group>"; };
 		B73D2DCB2060C44600E23998 /* StatusEffect.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StatusEffect.hpp; sourceTree = "<group>"; };
 		B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingDown.png; sourceTree = "<group>"; };
@@ -222,6 +229,13 @@
 		B7A26C111C8070370083989B /* ZoneExit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneExit.h; sourceTree = "<group>"; };
 		B7A58FD420A2D0030002A47F /* AbilityOption.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AbilityOption.cpp; sourceTree = "<group>"; };
 		B7A58FD520A2D0030002A47F /* AbilityOption.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AbilityOption.hpp; sourceTree = "<group>"; };
+		B7AA2BAE20F33A2E003B1F42 /* Overworld */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Overworld; sourceTree = "<group>"; };
+		B7AA2BB020F33A41003B1F42 /* BeachSouth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BeachSouth.cpp; sourceTree = "<group>"; };
+		B7AA2BB120F33A41003B1F42 /* BeachSouth.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BeachSouth.hpp; sourceTree = "<group>"; };
+		B7AA2BB320F33B88003B1F42 /* TownSouth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TownSouth.cpp; sourceTree = "<group>"; };
+		B7AA2BB420F33B88003B1F42 /* TownSouth.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TownSouth.hpp; sourceTree = "<group>"; };
+		B7AA2BB620F33DAB003B1F42 /* LighthouseCoast.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LighthouseCoast.cpp; sourceTree = "<group>"; };
+		B7AA2BB720F33DAB003B1F42 /* LighthouseCoast.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LighthouseCoast.hpp; sourceTree = "<group>"; };
 		B7B2778C1EE3E3470051D7C4 /* WalkingAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WalkingAnimation.cpp; sourceTree = "<group>"; };
 		B7B2778D1EE3E3470051D7C4 /* WalkingAnimation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WalkingAnimation.hpp; sourceTree = "<group>"; };
 		B7BE058220B938D8008D6537 /* bush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bush.png; sourceTree = "<group>"; };
@@ -343,6 +357,15 @@
 				B7396FD520F15AF50095DDB5 /* SouthOfStart.cpp */,
 				B7396FD920F15FF20095DDB5 /* Forest.hpp */,
 				B7396FD820F15FF20095DDB5 /* Forest.cpp */,
+				B7396FDC20F162C70095DDB5 /* Swamp.hpp */,
+				B7396FDB20F162C70095DDB5 /* Swamp.cpp */,
+				B7AA2BB120F33A41003B1F42 /* BeachSouth.hpp */,
+				B7AA2BB020F33A41003B1F42 /* BeachSouth.cpp */,
+				B7AA2BB420F33B88003B1F42 /* TownSouth.hpp */,
+				B7AA2BB320F33B88003B1F42 /* TownSouth.cpp */,
+				B7AA2BB720F33DAB003B1F42 /* LighthouseCoast.hpp */,
+				B7AA2BB620F33DAB003B1F42 /* LighthouseCoast.cpp */,
+				B7AA2BAE20F33A2E003B1F42 /* Overworld */,
 			);
 			name = Maps;
 			sourceTree = "<group>";
@@ -613,6 +636,7 @@
 				B7701D851EF4740D006AB891 /* Campfire.png in Resources */,
 				B7396FA920F017D40095DDB5 /* Bramble.ttf in Resources */,
 				B79E29881BA0E1C80020BA93 /* RollingWheat.png in Resources */,
+				B7AA2BAF20F33A2E003B1F42 /* Overworld in Resources */,
 				B7396FC020F036EB0095DDB5 /* SouthOfStart.png in Resources */,
 				B7396FC120F036EB0095DDB5 /* Swamp.png in Resources */,
 				B7396FBC20F036EB0095DDB5 /* BeachWest.png in Resources */,
@@ -674,8 +698,10 @@
 				B7262BD42001B48D00989D70 /* MenuOption.cpp in Sources */,
 				B74213421E384C7F00090D95 /* BeachNorth.cpp in Sources */,
 				B75F862C1BACE0C60093B615 /* Character.cpp in Sources */,
+				B7AA2BB820F33DAB003B1F42 /* LighthouseCoast.cpp in Sources */,
 				B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */,
 				B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */,
+				B7AA2BB520F33B88003B1F42 /* TownSouth.cpp in Sources */,
 				B7977978204676D4000870C2 /* PlayerObject.cpp in Sources */,
 				B797796F2044DBF7000870C2 /* AttackMode.cpp in Sources */,
 				B742D6F91C1292EA0093C785 /* ResourceHolder.cpp in Sources */,
@@ -694,11 +720,13 @@
 				B78873551F3D530E00E7C725 /* CharacterGenerator.cpp in Sources */,
 				B75ABA241C7BD81D00B9FFDE /* OptionNode.cpp in Sources */,
 				B7EE61632071DEAD00AA376E /* BattleEndMode.cpp in Sources */,
+				B7AA2BB220F33A41003B1F42 /* BeachSouth.cpp in Sources */,
 				B7439C241ECB983900724D0B /* DelayedAnimation.cpp in Sources */,
 				B7396FCB20F059540095DDB5 /* MountainWest.cpp in Sources */,
 				B7439C211ECB8F2E00724D0B /* AnimatedComponent.cpp in Sources */,
 				B75ABA231C7BD81D00B9FFDE /* DNode.cpp in Sources */,
 				B7A58FD620A2D0030002A47F /* AbilityOption.cpp in Sources */,
+				B7396FDD20F162C70095DDB5 /* Swamp.cpp in Sources */,
 				B77783F81AE5C57D007FA840 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

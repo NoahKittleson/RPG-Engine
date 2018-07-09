@@ -20,7 +20,6 @@ Forest::Forest(const ResourceHolder& resources, const std::vector<Condition>& ac
 	
 	exits.emplace_back(sf::FloatRect(0, -100, totalArea.x, 100),
 					   sf::Vector2f(0, -mapClearance), MapID::MountainSouth);		//entire top
-	
 	exits.emplace_back(sf::FloatRect(-100, 0, 100, 150 * scale),
 					   sf::Vector2f(-mapClearance, 0), MapID::Start);				//top left
 	exits.emplace_back(sf::FloatRect(-100, 150 * scale, 100, 125 * scale),
