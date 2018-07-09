@@ -85,7 +85,6 @@
 		B7A26C0F1C8061A50083989B /* Trigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C0D1C8061A50083989B /* Trigger.cpp */; };
 		B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C101C8070370083989B /* ZoneExit.cpp */; };
 		B7A58FD620A2D0030002A47F /* AbilityOption.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A58FD420A2D0030002A47F /* AbilityOption.cpp */; };
-		B7AA2BAF20F33A2E003B1F42 /* Overworld in Resources */ = {isa = PBXBuildFile; fileRef = B7AA2BAE20F33A2E003B1F42 /* Overworld */; };
 		B7AA2BB220F33A41003B1F42 /* BeachSouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AA2BB020F33A41003B1F42 /* BeachSouth.cpp */; };
 		B7AA2BB520F33B88003B1F42 /* TownSouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AA2BB320F33B88003B1F42 /* TownSouth.cpp */; };
 		B7AA2BB820F33DAB003B1F42 /* LighthouseCoast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AA2BB620F33DAB003B1F42 /* LighthouseCoast.cpp */; };
@@ -229,7 +228,6 @@
 		B7A26C111C8070370083989B /* ZoneExit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneExit.h; sourceTree = "<group>"; };
 		B7A58FD420A2D0030002A47F /* AbilityOption.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AbilityOption.cpp; sourceTree = "<group>"; };
 		B7A58FD520A2D0030002A47F /* AbilityOption.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AbilityOption.hpp; sourceTree = "<group>"; };
-		B7AA2BAE20F33A2E003B1F42 /* Overworld */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Overworld; sourceTree = "<group>"; };
 		B7AA2BB020F33A41003B1F42 /* BeachSouth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BeachSouth.cpp; sourceTree = "<group>"; };
 		B7AA2BB120F33A41003B1F42 /* BeachSouth.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BeachSouth.hpp; sourceTree = "<group>"; };
 		B7AA2BB320F33B88003B1F42 /* TownSouth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TownSouth.cpp; sourceTree = "<group>"; };
@@ -365,7 +363,6 @@
 				B7AA2BB320F33B88003B1F42 /* TownSouth.cpp */,
 				B7AA2BB720F33DAB003B1F42 /* LighthouseCoast.hpp */,
 				B7AA2BB620F33DAB003B1F42 /* LighthouseCoast.cpp */,
-				B7AA2BAE20F33A2E003B1F42 /* Overworld */,
 			);
 			name = Maps;
 			sourceTree = "<group>";
@@ -636,7 +633,6 @@
 				B7701D851EF4740D006AB891 /* Campfire.png in Resources */,
 				B7396FA920F017D40095DDB5 /* Bramble.ttf in Resources */,
 				B79E29881BA0E1C80020BA93 /* RollingWheat.png in Resources */,
-				B7AA2BAF20F33A2E003B1F42 /* Overworld in Resources */,
 				B7396FC020F036EB0095DDB5 /* SouthOfStart.png in Resources */,
 				B7396FC120F036EB0095DDB5 /* Swamp.png in Resources */,
 				B7396FBC20F036EB0095DDB5 /* BeachWest.png in Resources */,

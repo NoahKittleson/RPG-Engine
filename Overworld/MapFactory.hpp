@@ -8,9 +8,19 @@
 
 #pragma once
 #include "MapSection.h"
+#include "MountainWest.hpp"
+#include "MountainEast.hpp"
 #include "BeachNorth.hpp"
-#include "Start.h"
+#include "MountainSouth.hpp"
+#include "TownEast.hpp"
 #include "BeachWest.hpp"
+#include "Start.h"
+#include "SouthOfStart.hpp"
+#include "Forest.hpp"
+#include "Swamp.hpp"
+#include "BeachSouth.hpp"
+#include "TownSouth.hpp"
+#include "LighthouseCoast.hpp"
 
 class MapFactory {
 public:

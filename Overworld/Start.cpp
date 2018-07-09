@@ -115,7 +115,7 @@ Start::Start(const ResourceHolder& resources, const std::vector<Condition>& acti
     exits.emplace_back(sf::FloatRect(totalArea.x, 0, 100, totalArea.y),
 					   sf::Vector2f(mapClearance, 0), MapID::Forest);								//right
     exits.emplace_back(sf::FloatRect(0, totalArea.y, totalArea.x, 100),
-					   sf::Vector2f(0, mapClearance), MapID::BeachNorth);							//bottom
+					   sf::Vector2f(0, mapClearance), MapID::SouthOfStart);							//bottom
 }
 
 
