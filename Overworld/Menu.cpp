@@ -82,11 +82,7 @@ void Menu::addChild(std::shared_ptr<MenuOption>& item) {
 	if (children.size() == 1) {
 		children[0]->select();
 	}
-	children.back()->setPosition(100, 100+children.size()*50);				//magic numbers
-//	if (item->getName() == "BigPunch") {
-//		std::cout << "Added item: " << item->getPosition() << "\n";
-//
-//	}
+	children.back()->setPosition(100, 100 + children.size() * 50);				//magic numbers
 }
 
 bool Menu::isDone() const {

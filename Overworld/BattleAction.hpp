@@ -7,10 +7,12 @@
 //
 
 #pragma once
-#include "Character.h"
+//#include "Character.h"
 #include "Ability.hpp"
 
-//^Is this going to cause a circular dependency?
+//^Is this going to cause a circular dependency? YES
+
+class Character;
 
 struct BattleAction {	
 	std::shared_ptr<Character> attacker = nullptr;
@@ -20,3 +22,6 @@ struct BattleAction {
 	void clear();
 	bool complete() const;
 };
+
+#pragma once
+#include "Character.h"

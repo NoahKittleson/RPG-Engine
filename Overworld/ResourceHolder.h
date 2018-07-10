@@ -51,7 +51,8 @@ namespace Textures {
 
 namespace Fonts {
 	enum ID {
-		Sansation
+		Sansation,
+		Bramble
 	};
 }
 

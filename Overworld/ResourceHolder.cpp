@@ -63,6 +63,7 @@ ResourceHolder::ResourceHolder()
     //Whenever you add a new font, add to this list
 	std::map<sf::String, Fonts::ID> fontIDMap;
 	fontIDMap.insert(std::make_pair("sansation.ttf", Fonts::ID::Sansation));
+	fontIDMap.insert(std::make_pair("Bramble.ttf", Fonts::ID::Bramble));
 
     for (auto && ID : fontIDMap) {
         fontMap[ID.second].loadFromFile(resourcePath() + ID.first);

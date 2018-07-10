@@ -539,6 +539,15 @@ void Character::setRecoveryAbility(Ability& abil) {
 	recoveryAbility = abil;
 }
 
+void Character::fillInAction(BattleInfo& info) const {
+	BattleAction action;
+	action.attacker = info.combatants.get();		//this should always be the current character
+	action.ability = &basicAttack;
+	action.defenders.push_back(info.PCs[0]);
+	action.complete();
+}
+
+
 
 
 

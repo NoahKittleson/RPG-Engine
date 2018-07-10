@@ -11,6 +11,9 @@
 #include "Ability.hpp"
 #include "IterVector.hpp"
 #include "AnimatedComponent.hpp"
+#include "BattleInfo.hpp"
+
+class BattleInfo;
 
 class Character : sf::NonCopyable
 {
@@ -45,6 +48,8 @@ public:
 	float getMana() const;
 	bool isNPC() const;
 	bool isIncapped() const;
+	
+	void fillInAction(BattleInfo&) const;
 	
 	//NEW AND BAD//
 	bool isIdle() {return sprite.getTexture() == idleTexture;};

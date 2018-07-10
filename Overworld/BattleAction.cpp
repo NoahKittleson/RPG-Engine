@@ -8,6 +8,7 @@
 
 #include "BattleAction.hpp"
 
+
 void BattleAction::clear() {
 	attacker = nullptr;
 	defenders.clear();

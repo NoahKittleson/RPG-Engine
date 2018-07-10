@@ -121,11 +121,11 @@ bool BattleState::checkBattleOver() {
 	}
 	if (playersDead) {
 		currentMode = defeat;
-		mode = make_unique<BattleEndMode>(false, resources.getFont(Fonts::Sansation));
+		mode = make_unique<BattleEndMode>(false, resources.getFont(Fonts::Bramble));
 		return true;
 	} else if (enemiesDead) {
 		currentMode = victory;
-		mode = make_unique<BattleEndMode>(true, resources.getFont(Fonts::Sansation));
+		mode = make_unique<BattleEndMode>(true, resources.getFont(Fonts::Bramble));
 		return true;
 	}
 	return false;

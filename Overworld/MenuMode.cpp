@@ -72,5 +72,10 @@ void MenuMode::draw(sf::RenderWindow &rw) {
 }
 
 void MenuMode::handleInput(sf::RenderWindow &rw) {
+	if (info.combatants.get()->isNPC()) {
+		info.combatants.get()->fillInAction(info);
+		done = true;
+	} else
 	startMenu->handleInput(rw);
+
 }

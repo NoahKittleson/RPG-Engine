@@ -63,6 +63,6 @@ std::unique_ptr<MapSection> MapFactory::create(MapID toCreate, const ResourceHol
 			return make_unique<LighthouseCoast>(resources, activeConds);
 			break;
 	}
-	std::cout << "grave error.  Trying to load non-existant map.  Exitting out.";
+	std::cout << "grave error.  Trying to load non-existant map.  Exiting out.";
 	assert(false);				//I should change this to something that won't be removed on release version
 }

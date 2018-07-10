@@ -42,5 +42,5 @@ BeachWest::BeachWest(const ResourceHolder& resources, const std::vector<Conditio
 	exits.emplace_back(sf::FloatRect(totalArea.x,150*scale,100,totalArea.y-(150*scale)),
 					   sf::Vector2f(-mapClearance,0), MapID::SouthOfStart);		//bottom right
 	exits.emplace_back(sf::FloatRect(0,totalArea.y,totalArea.x,100),
-					   sf::Vector2f(0,-mapClearance), MapID::BeachSouth);		//bottom
+					   sf::Vector2f(0, mapClearance), MapID::BeachSouth);		//bottom
 }
