@@ -13,19 +13,16 @@ BeachNorth::BeachNorth(const ResourceHolder& resources, const std::vector<Condit
 : MapSection(MapID::BeachNorth, "", sf::Vector2f(0 * scale, 125 * scale)) {
     background.setTexture(resources.getTexture(Textures::BeachNorth));
 	background.setScale(scale, scale);
-
-    //Set up Non-interactable wheat field
-	sf::Vector2f position (200,100);
-	std::vector<sf::FloatRect> emptyList;
-
-    for (int iii = 0; iii < 6; iii++) {
-        MapObject fuck (make_unique<AnimatedComponent>(resources.getTexture(Textures::BigWheat), position, 0.2f, sf::Vector2i(32,32)), emptyList);
-		addObject(fuck);
-		position += sf::Vector2f(20, 0);
-        MapObject shit (make_unique<AnimatedComponent>(resources.getTexture(Textures::BigWheat), sf::Vector2f(200,100), 0.2f, sf::Vector2i(32,32)), emptyList);
-		addObject(shit);
-		position += sf::Vector2f(0, 20);
-    }
+	
+	std::vector<sf::FloatRect> boxList;
+	
+	//Cabin
+	boxList.emplace_back(-56 * scale, 16 * scale, 102 * scale, 16 * scale);		//magic numbers all round
+	MapObject brickHouse (make_unique<GraphicsComponent>(resources.getTexture(Textures::BrickHouse), sf::Vector2f (150 * scale, 150 * scale)), boxList);
+	brickHouse.setScale(scale);
+	addObject(brickHouse);
+	boxList.clear();
+	
 	
     //Set up Zone Exits
     sf::Vector2u totalArea = background.getTexture()->getSize();

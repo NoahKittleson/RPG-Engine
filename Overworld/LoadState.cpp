@@ -20,7 +20,7 @@ LoadState::LoadState(StateStack& SS) {
     
     //set up player sprite
 	std::vector<sf::FloatRect> collisionList;
-	collisionList.push_back(sf::FloatRect(-10,25,20,5));				//magic numbers all round
+	collisionList.push_back(sf::FloatRect(-10,20,20,5));				//magic numbers all round
 	player = make_unique<PlayerObject>(graphicsPtr(new WalkingAnimation(resources.getTexture(Textures::PlayerWalkingUp),
 												resources.getTexture(Textures::PlayerWalkingDown),
 												resources.getTexture(Textures::PlayerWalkingLeft),

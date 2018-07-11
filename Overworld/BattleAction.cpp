@@ -18,7 +18,8 @@ void BattleAction::clear() {
 bool BattleAction::complete() const {
 	if (ability && attacker && defenders.size()) {
 		return true;
-	} else return false;
+	} else
+		return false;
 }
 
 
