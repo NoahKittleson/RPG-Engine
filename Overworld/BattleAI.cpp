@@ -17,5 +17,21 @@ void OpportunisticAI::FillAction(BattleInfo& info) {
 			}
 		}
 	}
+	info.currentAction.defenders.push_back(lowestHealthPC);
+	info.currentAction.ability = &info.currentAction.attacker->getBasicAttack();
+}
+
+void RandomAI::FillAction(BattleInfo &info) {
+	//get random ability
+	if (info.currentAction.attacker->getAbilityList().size()) {
+		int randomNumber = std::rand() % info.currentAction.attacker->getAbilityList().size();
+		info.currentAction.ability = &info.currentAction.attacker->getAbilityList()[randomNumber];
+	} else {
+		info.currentAction.ability = &info.currentAction.attacker->getBasicAttack();
+	}
+	
+	//get random defender
+	int randomNumber = std::rand() % info.PCs.size();
+	info.currentAction.defenders.push_back(info.PCs[randomNumber]);
 }
 

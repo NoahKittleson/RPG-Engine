@@ -24,4 +24,4 @@ struct BattleAction {
 };
 
 #pragma once
-#include "Character.h"
+#include "Character.h"			//putting this down here avoids a circular dependency issue

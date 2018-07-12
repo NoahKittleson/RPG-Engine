@@ -18,5 +18,9 @@ class OpportunisticAI : BattleAI {
 	void FillAction(BattleInfo& info) override;
 };
 
+class RandomAI : BattleAI {
+	void FillAction(BattleInfo& info) override;
+};
+
 
 
