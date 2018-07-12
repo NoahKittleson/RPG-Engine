@@ -12,8 +12,10 @@
 #include "IterVector.hpp"
 #include "AnimatedComponent.hpp"
 #include "BattleInfo.hpp"
+#include "BattleAI.hpp"
 
 class BattleInfo;
+class BattleAI;
 
 class Character : sf::NonCopyable
 {
@@ -78,6 +80,7 @@ private:
 	sf::RectangleShape HPBar;
 	sf::RectangleShape barOutline;
 	std::list<sf::Text> statusEffectDisplay;
+	std::unique_ptr<BattleAI> AI = nullptr;
     
     void addPoison(int);
     void addAdditiveProperty(float, Ability::Property);
@@ -92,7 +95,6 @@ private:
     void updateStatDisplay();
     void updateStatusEffects();
 };
-
 
 
 

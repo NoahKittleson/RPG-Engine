@@ -59,8 +59,10 @@ sprite(AnimatedComponent(idle, sf::Vector2f(0,0), 0.2, sf::Vector2i(idle.getSize
     recoveryAbility.addProperty(Ability::PercentManaRecovery, 1.0, true);
     if (NPC) {
         recoveryAbility.baseDamage = 200;
+		AI = std::unique_ptr<BattleAI>(new RandomAI());
     }
     updateStatDisplay();
+	
 }
 
 void Character::addAbility(Ability& ability) {
@@ -540,12 +542,23 @@ void Character::setRecoveryAbility(Ability& abil) {
 }
 
 void Character::fillInAction(BattleInfo& info) const {
-	BattleAction action;
-	action.attacker = info.combatants.get();		//this should always be the current character
-	action.ability = &basicAttack;
-	action.defenders.push_back(info.PCs[0]);
-	action.complete();
+	AI->FillAction(info);
+	if (!info.currentAction.ability) {
+		info.currentAction.ability = &basicAttack;
+		std::cout << "No Action Chosen.\n";
+	}
+	if (!info.currentAction.defenders.size()) {
+		info.currentAction.defenders.push_back(info.PCs[0]);
+		std::cout << "No Defenders Chosen.\n";
+	}
+	if (!info.currentAction.attacker) {
+		info.currentAction.attacker = info.combatants.get();
+		std::cout << "No Attacker Chosen. How did this happen?\n";
+	}
+	info.currentAction.complete();
 }
+
+
 
 
 
