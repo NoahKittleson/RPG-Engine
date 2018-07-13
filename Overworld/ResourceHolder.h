@@ -45,7 +45,9 @@ namespace Textures {
 		Waves,
 		SmallWheat,
 		BrickHouse,
-		DeadTree
+		DeadTree,
+		DialogueBar,
+		
 	};
 }
 

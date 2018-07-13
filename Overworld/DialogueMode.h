@@ -24,6 +24,7 @@ public:
 private:
     sf::View mapView;
     sf::View HUD;
+	sf::Sprite dialogueBar;
     
     NodePtr currentDNode;
     sf::RectangleShape messageBox;

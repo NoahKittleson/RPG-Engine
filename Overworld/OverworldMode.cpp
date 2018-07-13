@@ -262,7 +262,7 @@ void OverworldMode::checkForInteraction(sf::RenderWindow &rw) {
 	if (dialoguePtr) {
 		std::cout << "dialogueMode created\n";
 		requestStackAdd(make_unique<DialogueMode>(dialoguePtr, rw));
-	}
+	} else std::cout << "Nothing found to talk with.\n";
 }
 
 void OverworldMode::handleOOB() const {

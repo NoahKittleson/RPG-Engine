@@ -17,6 +17,10 @@ DialogueMode::DialogueMode(NodePtr start, const sf::RenderWindow &rw)
     messageBox.setPosition(0, HUD.getSize().y * .75f);
     messageBox.setSize(sf::Vector2f(HUD.getSize().x, HUD.getSize().y/4));
     messageBox.setFillColor(sf::Color(153,76,0));
+	
+	dialogueBar.setTexture(resources.getTexture(Textures::DialogueBar));
+	dialogueBar.setScale(3, 3);			//should be scale
+	dialogueBar.setPosition(50, 400);
 }
 
 void DialogueMode::handleInput(sf::RenderWindow& rw) {
@@ -46,7 +50,10 @@ void DialogueMode::draw(sf::RenderWindow &rw) {
 	currentMap->drawBackground(rw);
 	currentMap->drawAllObjects(rw, *player);
 	rw.setView(HUD);
-	rw.draw(messageBox);
+	
+//	rw.draw(messageBox);
+	rw.draw(dialogueBar);
+	
 	currentDNode->draw(rw);
 	rw.display();
 }

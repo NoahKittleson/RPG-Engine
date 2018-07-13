@@ -91,6 +91,7 @@
 		B7AA2BB820F33DAB003B1F42 /* LighthouseCoast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AA2BB620F33DAB003B1F42 /* LighthouseCoast.cpp */; };
 		B7B2778E1EE3E3470051D7C4 /* WalkingAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7B2778C1EE3E3470051D7C4 /* WalkingAnimation.cpp */; };
 		B7BE058320B938D8008D6537 /* bush.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE058220B938D8008D6537 /* bush.png */; };
+		B7C00F1E20F95A36006CEEA4 /* DialogueBar.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C00F1D20F95A36006CEEA4 /* DialogueBar.png */; };
 		B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7C9F37F1E6235D300E7A045 /* Fade.cpp */; };
 		B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */; };
 		B7D17D1B1E512CDC00D71290 /* LoadState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7D17D191E512CDC00D71290 /* LoadState.cpp */; };
@@ -240,6 +241,7 @@
 		B7B2778C1EE3E3470051D7C4 /* WalkingAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WalkingAnimation.cpp; sourceTree = "<group>"; };
 		B7B2778D1EE3E3470051D7C4 /* WalkingAnimation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WalkingAnimation.hpp; sourceTree = "<group>"; };
 		B7BE058220B938D8008D6537 /* bush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bush.png; sourceTree = "<group>"; };
+		B7C00F1D20F95A36006CEEA4 /* DialogueBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DialogueBar.png; sourceTree = "<group>"; };
 		B7C9F37F1E6235D300E7A045 /* Fade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fade.cpp; sourceTree = "<group>"; };
 		B7C9F3801E6235D300E7A045 /* Fade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Fade.hpp; sourceTree = "<group>"; };
 		B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingLeft.png; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				B7701D841EF4740D006AB891 /* Campfire.png */,
 				B783170120EC9C7B00740527 /* DeadTree.png */,
 				B7023E101BB61A36005A6F93 /* GetHitAnimation.png */,
+				B7C00F1D20F95A36006CEEA4 /* DialogueBar.png */,
 				B77784001AE5C57D007FA840 /* icon.png */,
 				B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */,
 				B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */,
@@ -618,6 +621,7 @@
 				B786FF1320E4BA8E00EAE1A0 /* SmallWheat.png in Resources */,
 				B7396FC720F036EB0095DDB5 /* LighthouseCoast.png in Resources */,
 				B7023E131BB61A43005A6F93 /* BadAttackAnimation.png in Resources */,
+				B7C00F1E20F95A36006CEEA4 /* DialogueBar.png in Resources */,
 				B77784011AE5C57D007FA840 /* icon.png in Resources */,
 				B7396FC420F036EB0095DDB5 /* MountainWest.png in Resources */,
 				B73F35061E4B096D007EC4AC /* PlayerWalkingUp.png in Resources */,
