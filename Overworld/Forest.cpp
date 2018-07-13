@@ -13,6 +13,14 @@ Forest::Forest(const ResourceHolder& resources, const std::vector<Condition>& ac
 	background.setTexture(resources.getTexture(Textures::Forest));
 	background.setScale(scale, scale);
 	
+	//A Dead Tree (or is it?)
+	std::vector<sf::FloatRect> boxList;
+	boxList.emplace_back(-9 * scale, 10 * scale, 20 * scale, 7 * scale);
+	MapObject deadTree (make_unique<GraphicsComponent>(resources.getTexture(Textures::DeadTree), sf::Vector2f (200,200)), boxList);
+	deadTree.setScale(scale);
+	addObject(deadTree);
+	boxList.clear();
+	
 	
 	//Set up Zone Exits
 	sf::Vector2u totalArea = background.getTexture()->getSize();
