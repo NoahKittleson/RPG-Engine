@@ -18,15 +18,16 @@ MapObject::MapObject(graphicsPtr&& gc, const RectVec& collision)
 }
 
 MapObject::~MapObject() {
-	std::cout << "MapObject deleted\n";
+//	std::cout << "MapObject deleted\n";
 }
 
 MapObject::MapObject(const MapObject& obj) {
 	this->graphics = obj.graphics->getCopy();
+	 dialogue = obj.dialogue;
 	for (auto & box : obj.collisionBoxes) {
 		collisionBoxes.push_back(sf::FloatRect(box.left, box.top, box.width, box.height));
 	}
-	std::cout << "MapObject copied\n";
+//	std::cout << "MapObject copied\n";
 }
 
 

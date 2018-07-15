@@ -83,6 +83,7 @@ NodePtr MapSection::interact (std::vector<sf::FloatRect> collision) const {
 		for (auto && box: collision) {
 			if (sprite->intersects(box)) {
 				//return corresponding ptr if DNode is not nullptr
+				std::cout << "Intersection Found\n";
 				auto ptr = sprite->getDNode();
 				if (ptr != nullptr) {
 					return ptr;

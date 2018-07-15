@@ -11,16 +11,16 @@
 DialogueMode::DialogueMode(NodePtr start, const sf::RenderWindow &rw)
 : currentDNode(start), mapView(rw.getView()), HUD(rw.getDefaultView())
 {
-    start->setPosition(0, HUD.getSize().y * .75f);
+    start->setPosition(90, HUD.getSize().y * .74f);
     currentDNode = start;
     currentDNode->clear();
-    messageBox.setPosition(0, HUD.getSize().y * .75f);
+    messageBox.setPosition(70, HUD.getSize().y * .7f);
     messageBox.setSize(sf::Vector2f(HUD.getSize().x, HUD.getSize().y/4));
     messageBox.setFillColor(sf::Color(153,76,0));
 	
 	dialogueBar.setTexture(resources.getTexture(Textures::DialogueBar));
 	dialogueBar.setScale(3, 3);			//should be scale
-	dialogueBar.setPosition(50, 400);
+	dialogueBar.setPosition(50, 550);
 }
 
 void DialogueMode::handleInput(sf::RenderWindow& rw) {
