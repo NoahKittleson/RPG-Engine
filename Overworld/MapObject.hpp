@@ -18,6 +18,7 @@ using graphicsPtr = std::unique_ptr<GraphicsComponent>;
 
 class MapObject {
 public:
+	MapObject(graphicsPtr&& gc);
 	MapObject(graphicsPtr&& gc, const RectVec& collision);
 	~MapObject();
 	MapObject(const MapObject& obj);  // copy constructor
@@ -39,6 +40,7 @@ public:
 	
 	//physics
 	int getBase() const;
+	void addCollisionBox(float left, float top, float width, float height);
 	void drawBase(sf::RenderWindow &rw) const;
 	void drawCenter(sf::RenderWindow & rw) const;
 	void drawCollision(sf::RenderWindow& rw) const;

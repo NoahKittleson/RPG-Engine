@@ -14,12 +14,10 @@ Forest::Forest(const ResourceHolder& resources, const std::vector<Condition>& ac
 	background.setScale(scale, scale);
 	
 	//A Dead Tree (or is it?)
-	std::vector<sf::FloatRect> boxList;
-	boxList.emplace_back(-9 * scale, 10 * scale, 20 * scale, 7 * scale);
-	MapObject deadTree (make_unique<GraphicsComponent>(resources.getTexture(Textures::DeadTree), sf::Vector2f (200,200)), boxList);
+	MapObject deadTree (make_unique<GraphicsComponent>(resources.getTexture(Textures::DeadTree), sf::Vector2f (200,200)));
 	deadTree.setScale(scale);
+	deadTree.addCollisionBox(-19 * scale, 20 * scale, 44 * scale, 11 * scale);
 	addObject(deadTree);
-	boxList.clear();
 	
 	
 	//Set up Zone Exits
