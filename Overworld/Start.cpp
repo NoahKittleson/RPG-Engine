@@ -16,7 +16,7 @@ Start::Start(const ResourceHolder& resources, const std::vector<Condition>& acti
 	background.setScale(scale, scale);
 	
 	//Top-right Tree
-	boxList.emplace_back(-5, 57, 10, 5);
+	boxList.emplace_back(-2 * scale, 15 * scale, 2 * scale, 2 * scale);
 	MapObject Tree (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f(600,90)), boxList);
 	Tree.attachDialogue(DialogueFactory::create(Dialogue::Test001, resources));
 	Tree.setScale(scale);
@@ -24,18 +24,18 @@ Start::Start(const ResourceHolder& resources, const std::vector<Condition>& acti
 	boxList.clear();
 	
 	//Another Tree
-	boxList.emplace_back(-5, 57, 10, 5);
+	boxList.emplace_back(-2 * scale, 15 * scale, 2 * scale, 2 * scale);
 	MapObject otherTree (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f (150,400)), boxList);
 	otherTree.setScale(scale);
 	addObject(otherTree);
 	boxList.clear();
 	
     //Set up Non-interactable wheat field
-	sf::Vector2f position (200,100);
+	sf::Vector2f position (150,60);
     char rows = 6;
     char columns = 4;
     float timeOffset = .05;
-    int verticalGap = 90;
+    int verticalGap = 70;
     int horizontalGap = 20;
     int rowOffset = 20;
 	
@@ -99,7 +99,7 @@ Start::Start(const ResourceHolder& resources, const std::vector<Condition>& acti
 	};
 	ConditionMap prereqs;
 	//prereqs[Condition::ChangedMap] = true;
-	triggers.emplace_back(prereqs, createBattle, sf::FloatRect(250,150,100,50));
+	triggers.emplace_back(prereqs, createBattle, sf::FloatRect(220,100,100,50));
     
     //Set up Zone Exits
 	sf::Vector2i totalArea = sf::Vector2i(background.getTexture()->getSize().x * background.getScale().x,
