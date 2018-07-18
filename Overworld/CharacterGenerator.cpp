@@ -17,12 +17,12 @@
 			break;
 			
 		case Combatant::Wheat:
-			return CharPtr(new Character(100, 100, resources.getTexture(Textures::BigWheat), resources.getFont(Fonts::Sansation), "WheatMan", true, resources.getTexture(Textures::BigWheat)));
+			return CharPtr(new Character(100, 100, resources.getTexture(Textures::BigWheat), resources.getFont(Fonts::Bramble), "WheatMan", true, resources.getTexture(Textures::BigWheat)));
 			break;
 		
 		case Combatant::Pringus: {
 			CharPtr Pringus = std::make_shared<Character> (500, 450, resources.getTexture(Textures::BasicIdle),
-										resources.getFont(Fonts::Sansation), "Pringus", false,
+										resources.getFont(Fonts::Bramble), "Pringus", false,
 										resources.getTexture(Textures::GetHitAnimation));
 			Ability recovery("Recover", "Heals 100 HP", 0, false, true, resources.getTexture(Textures::BadAttackAnimation));
 			recovery.addProperty(Ability::Heal, 100, false);
@@ -41,7 +41,7 @@
 			
 		case Combatant::Dingus: {
 			CharPtr Dingus = std::make_shared<Character> (300, 600, resources.getTexture(Textures::BasicIdle),
-														   resources.getFont(Fonts::Sansation), "Dingus", false,
+														   resources.getFont(Fonts::Bramble), "Dingus", false,
 														   resources.getTexture(Textures::GetHitAnimation));
 			Ability recovery("Recover", "Heals 200 HP", 0, false, true, resources.getTexture(Textures::BadAttackAnimation));
 			recovery.addProperty(Ability::Heal, 200, false);

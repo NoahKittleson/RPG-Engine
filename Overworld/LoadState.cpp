@@ -24,7 +24,7 @@ LoadState::LoadState(StateStack& SS) {
 												resources.getTexture(Textures::PlayerWalkingLeft2),
 												resources.getTexture(Textures::PlayerWalkingRight2),
 												sf::Vector2f(50,50), 0.1f, sf::Vector2i(24,24))));
-	player->addCollisionBox(-10,30,20,5);
+	player->addCollisionBox(-10,30,20,6);
 	
 //	player = make_unique<PlayerObject>(graphicsPtr(new WalkingAnimation(resources.getTexture(Textures::PlayerWalkingUp),
 //												resources.getTexture(Textures::PlayerWalkingDown),

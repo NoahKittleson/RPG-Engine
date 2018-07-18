@@ -19,7 +19,7 @@ BattleState::BattleState(std::vector<std::shared_ptr<Character>>& enemies)
 	info.currentAction.attacker = info.combatants[0];
 	info.NPCs = enemies;
 	info.PCs = party;
-	mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Sansation));
+	mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Bramble));
 	
     info.combatants.setLooping(true);
 	positionSpritesAndStats();
@@ -47,7 +47,7 @@ void BattleState::update(sf::Clock& timer)
 				++info.combatants;
 				info.currentAction.clear();
 				info.currentAction.attacker = info.combatants.get();
-				mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Sansation));
+				mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Bramble));
 				currentMode = menu;
 				std::cout << "Mode changed to menu.\n";
 				break;

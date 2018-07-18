@@ -56,7 +56,7 @@ public:
 	//NEW AND BAD//
 	bool isIdle() {return sprite.getTexture() == idleTexture;};
 	void setAnimation(const sf::Texture& texture);
-	void startGetHitAnimation() {if (idleTexture) {sprite.setTexture(*idleTexture);}};
+	void startGetHitAnimation() {if (getHitTexture) {sprite.setTexture(*getHitTexture);}};
 	//NEW AND BAD//
 
 private:

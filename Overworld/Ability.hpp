@@ -39,13 +39,14 @@ public:
     bool hasProperty(const Property& type) const;
 	bool isAttackSpell() const;
 
+	char hitsOnFrame = 2;
+
 	
 private:
     void determineReqs();
     
     bool multiTarget;
 	float baseDamage = 420;
-	char hitsOnFrame = 2;
 	const sf::Texture* hitAnimation = nullptr;
 	bool allyTargetPref;			//true = ally, false = enemy as primary target
 	

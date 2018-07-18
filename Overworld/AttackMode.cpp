@@ -76,38 +76,16 @@ void AttackMode::moveToUpdate(float elapsed) {
 }
 
 void AttackMode::animateUpdate(float elapsed) {
-//	static bool attackStarted (false);
-//	static bool getHitStarted (false);
-//	static float totalElapsed (0);
-//	totalElapsed += elapsed;
-//	if (!attackStarted) {
-//		if (info.currentAction.ability->hitAnimation != nullptr) {
-//			info.currentAction.attacker->setAnimation(*info.currentAction.ability->hitAnimation);
-//		} else {
-//			std::cout << "FUCC\n";
-//		}
-//		attackStarted = true;
-//	}
-//	info.currentAction.attacker->animate(elapsed);
-//	bool allDone = info.currentAction.attacker->isIdle();
-//	if (!getHitStarted && (totalElapsed > info.currentAction.ability->hitsOnFrame * 0.1)) {		//magic number 0.1
-//		for (auto & it : info.currentAction.defenders) {
-//			it->startGetHitAnimation();
-//		}
-//		getHitStarted = true;
-//	}
-//	info.currentAction.attacker->animate(elapsed);
-//	for (auto & it : info.currentAction.defenders) {
-//		it->animate(elapsed);
-//		allDone = allDone && it->isIdle();
-//	}
-//	if (attackStarted && getHitStarted && allDone) {
-//		currentPhase = moveBack;
-//		attackStarted = false;
-//		getHitStarted = false;
-//		totalElapsed = 0;
-//	}
+	static bool getHitStarted (false);
+	static float totalElapsed (0);
 	bool allDone = info.currentAction.attacker->isIdle();
+
+	if (!getHitStarted && (totalElapsed > info.currentAction.ability->hitsOnFrame * 0.1)) {		//magic number 0.1
+		for (auto & it : info.currentAction.defenders) {
+			it->startGetHitAnimation();
+		}
+		getHitStarted = true;
+	}
 	info.currentAction.attacker->animate(elapsed);
 	for (auto & it : info.currentAction.defenders) {
 		it->animate(elapsed);
@@ -115,7 +93,10 @@ void AttackMode::animateUpdate(float elapsed) {
 	}
 	if (allDone) {
 		currentPhase = moveBack;
+		totalElapsed = 0;
+		getHitStarted = false;
 	}
+	totalElapsed += elapsed;
 }
 
 void AttackMode::moveBackUpdate(float elapsed) {
