@@ -49,6 +49,7 @@
 		B7439C1E1ECB8DED00724D0B /* GraphicsComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C1C1ECB8DED00724D0B /* GraphicsComponent.cpp */; };
 		B7439C211ECB8F2E00724D0B /* AnimatedComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C1F1ECB8F2D00724D0B /* AnimatedComponent.cpp */; };
 		B7439C241ECB983900724D0B /* DelayedAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C221ECB983900724D0B /* DelayedAnimation.cpp */; };
+		B743EDA120FECCFF006DE82D /* BikiniBabe.png in Resources */ = {isa = PBXBuildFile; fileRef = B743EDA020FECCFF006DE82D /* BikiniBabe.png */; };
 		B74A245220F6BC0100F9F331 /* BattleAI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74A245020F6BC0100F9F331 /* BattleAI.cpp */; };
 		B75ABA1A1C7BD7DA00B9FFDE /* IterVector.inl in Resources */ = {isa = PBXBuildFile; fileRef = B75ABA191C7BD7DA00B9FFDE /* IterVector.inl */; };
 		B75ABA231C7BD81D00B9FFDE /* DNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75ABA1C1C7BD81D00B9FFDE /* DNode.cpp */; };
@@ -169,6 +170,7 @@
 		B7439C201ECB8F2E00724D0B /* AnimatedComponent.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnimatedComponent.hpp; sourceTree = "<group>"; };
 		B7439C221ECB983900724D0B /* DelayedAnimation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DelayedAnimation.cpp; sourceTree = "<group>"; };
 		B7439C231ECB983900724D0B /* DelayedAnimation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DelayedAnimation.hpp; sourceTree = "<group>"; };
+		B743EDA020FECCFF006DE82D /* BikiniBabe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BikiniBabe.png; sourceTree = "<group>"; };
 		B74A245020F6BC0100F9F331 /* BattleAI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleAI.cpp; sourceTree = "<group>"; };
 		B74A245120F6BC0100F9F331 /* BattleAI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleAI.hpp; sourceTree = "<group>"; };
 		B75ABA181C7BD7DA00B9FFDE /* IterVector.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IterVector.hpp; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				B7396FAD20F0183D0095DDB5 /* Backgrounds */,
 				B7023E121BB61A43005A6F93 /* BadAttackAnimation.png */,
 				B7023E141BB61A4A005A6F93 /* BasicIdle.png */,
+				B743EDA020FECCFF006DE82D /* BikiniBabe.png */,
 				B78316FF20EC9C7100740527 /* BrickHouse.png */,
 				B7BE058220B938D8008D6537 /* bush.png */,
 				B7701D841EF4740D006AB891 /* Campfire.png */,
@@ -643,6 +646,7 @@
 				B7396FA920F017D40095DDB5 /* Bramble.ttf in Resources */,
 				B79E29881BA0E1C80020BA93 /* RollingWheat.png in Resources */,
 				B7396FC020F036EB0095DDB5 /* SouthOfStart.png in Resources */,
+				B743EDA120FECCFF006DE82D /* BikiniBabe.png in Resources */,
 				B7396FC120F036EB0095DDB5 /* Swamp.png in Resources */,
 				B7396FBC20F036EB0095DDB5 /* BeachWest.png in Resources */,
 				B7396FC220F036EB0095DDB5 /* Forest.png in Resources */,

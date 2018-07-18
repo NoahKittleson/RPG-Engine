@@ -47,6 +47,7 @@ namespace Textures {
 		BrickHouse,
 		DeadTree,
 		DialogueBar,
+		BikiniBabe
 		
 	};
 }

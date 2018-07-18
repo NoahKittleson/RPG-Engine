@@ -30,6 +30,11 @@ BeachWest::BeachWest(const ResourceHolder& resources, const std::vector<Conditio
 	addObject(Waves);
 	boxList.clear();
 	
+	MapObject Girl (make_unique<GraphicsComponent>(resources.getTexture(Textures::BikiniBabe), sf::Vector2f(300,200)));
+	Girl.addCollisionBox(-4 * scale, 12 * scale, 8 * scale, 4 * scale);
+	Girl.setScale(scale);
+	addObject(Girl);
+
 	//Set up Zone Exits
 	sf::Vector2i totalArea = sf::Vector2i(background.getTexture()->getSize().x * background.getScale().x,
 										  background.getTexture()->getSize().y * background.getScale().y);
