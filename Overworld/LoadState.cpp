@@ -19,19 +19,20 @@ LoadState::LoadState(StateStack& SS) {
 	party.push_back(CharacterGenerator::create(resources, Combatant::Dingus));
     
     //set up player sprite
-	std::vector<sf::FloatRect> collisionList;
-	collisionList.push_back(sf::FloatRect(-10,20,20,5));				//magic numbers all round
 	player = make_unique<PlayerObject>(graphicsPtr(new WalkingAnimation(resources.getTexture(Textures::PlayerWalkingUp2),
 												resources.getTexture(Textures::PlayerWalkingDown2),
 												resources.getTexture(Textures::PlayerWalkingLeft2),
 												resources.getTexture(Textures::PlayerWalkingRight2),
-												sf::Vector2f(50,50), 0.1f, sf::Vector2i(24,24))), collisionList);
+												sf::Vector2f(50,50), 0.1f, sf::Vector2i(24,24))));
+	player->addCollisionBox(-10,30,20,5);
+	
 //	player = make_unique<PlayerObject>(graphicsPtr(new WalkingAnimation(resources.getTexture(Textures::PlayerWalkingUp),
 //												resources.getTexture(Textures::PlayerWalkingDown),
 //												resources.getTexture(Textures::PlayerWalkingLeft),
 //												resources.getTexture(Textures::PlayerWalkingRight),
 //												sf::Vector2f(50,50), 0.1f, sf::Vector2i(16,16))), collisionList);
-	
+//	player->addCollisionBox(-10,20,20,5);
+
 
 }
 

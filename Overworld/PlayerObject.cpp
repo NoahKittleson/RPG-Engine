@@ -10,6 +10,13 @@
 
 #define INTERACT_RANGE 10
 
+PlayerObject::PlayerObject(graphicsPtr&& gc)
+: MapObject(std::move(gc))
+{
+	setScale(3.0f);
+}
+
+
 PlayerObject::PlayerObject(graphicsPtr&& gc, RectVec& collision)
 : MapObject(std::move(gc), collision)
 {
