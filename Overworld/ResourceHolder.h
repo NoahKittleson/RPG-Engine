@@ -38,6 +38,10 @@ namespace Textures {
 		PlayerWalkingDown,
 		PlayerWalkingLeft,
 		PlayerWalkingRight,
+		PlayerWalkingUp2,
+		PlayerWalkingDown2,
+		PlayerWalkingLeft2,
+		PlayerWalkingRight2,
 		Campfire,
 		Yak,
 		Pond,
@@ -47,7 +51,7 @@ namespace Textures {
 		BrickHouse,
 		DeadTree,
 		DialogueBar,
-		BikiniBabe
+		BikiniBabe,
 		
 	};
 }
