@@ -12,18 +12,28 @@
  CharPtr CharacterGenerator::create(const ResourceHolder& resources, Combatant::ID id)
 {
 	switch (id) {
-		case Combatant::Logo:
-			return CharPtr(new Character(100, 100, resources.getTexture(Textures::Icon), resources.getFont(Fonts::Sansation), "Evil Logo", true, resources.getTexture(Textures::Icon)));
+		case Combatant::Logo: {
+			AnimationSheet sheet (resources.getTexture(Textures::Icon));
+			return CharPtr(new Character(100, 100, resources.getFont(Fonts::Bramble), "Evil Logo", true, sheet));
 			break;
+		}
 			
-		case Combatant::Wheat:
-			return CharPtr(new Character(100, 100, resources.getTexture(Textures::BigWheat), resources.getFont(Fonts::Bramble), "WheatMan", true, resources.getTexture(Textures::BigWheat)));
+			
+		case Combatant::Wheat: {
+			AnimationSheet sheet (resources.getTexture(Textures::BigWheat));
+			return CharPtr(new Character(100, 100, resources.getFont(Fonts::Bramble), "Wheat Man", true, sheet));
 			break;
+		}
+
 		
 		case Combatant::Pringus: {
-			CharPtr Pringus = std::make_shared<Character> (500, 450, resources.getTexture(Textures::BasicIdle),
-										resources.getFont(Fonts::Bramble), "Pringus", false,
-										resources.getTexture(Textures::GetHitAnimation));
+			AnimationSheet sheet;
+			sheet.setIdle(resources.getTexture(Textures::BasicIdle));
+			sheet.setDead(resources.getTexture(Textures::BasicDead));
+			sheet.setGetHit(resources.getTexture(Textures::GetHitAnimation));
+			sheet.setGetKilled(resources.getTexture(Textures::GetKilled));
+
+			CharPtr Pringus = std::make_shared<Character> (500, 450, resources.getFont(Fonts::Bramble), "Pringus", false, sheet);
 			Ability recovery("Recover", "Heals 100 HP", 0, false, true, resources.getTexture(Textures::BadAttackAnimation));
 			recovery.addProperty(Ability::Heal, 100, false);
 			Pringus->setRecoveryAbility(recovery);
@@ -40,9 +50,13 @@
 		}
 			
 		case Combatant::Dingus: {
-			CharPtr Dingus = std::make_shared<Character> (300, 600, resources.getTexture(Textures::BasicIdle),
-														   resources.getFont(Fonts::Bramble), "Dingus", false,
-														   resources.getTexture(Textures::GetHitAnimation));
+			AnimationSheet sheet;
+			sheet.setIdle(resources.getTexture(Textures::BasicIdle));
+			sheet.setDead(resources.getTexture(Textures::BasicDead));
+			sheet.setGetHit(resources.getTexture(Textures::GetHitAnimation));
+			sheet.setGetKilled(resources.getTexture(Textures::GetKilled));
+			
+			CharPtr Dingus = std::make_shared<Character> (300, 600, resources.getFont(Fonts::Bramble), "Dingus", false, sheet);
 			Ability recovery("Recover", "Heals 200 HP", 0, false, true, resources.getTexture(Textures::BadAttackAnimation));
 			recovery.addProperty(Ability::Heal, 200, false);
 			Dingus->setRecoveryAbility(recovery);

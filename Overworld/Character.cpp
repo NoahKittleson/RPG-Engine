@@ -19,7 +19,7 @@ Character::~Character() {
 }
 
 Character::Character(int MaxHealth, int MaxMana, const sf::Font& font, std::string name, bool NPC, const AnimationSheet anims)
-: maxMana(MaxMana), maxHealth(MaxHealth), NPC(NPC),
+: maxMana(MaxMana), maxHealth(MaxHealth), NPC(NPC), animations(anims),
 sprite(AnimatedComponent(*anims.getIdle(), sf::Vector2f(0,0), 0.2, sf::Vector2i(anims.getIdle()->getSize().y,anims.getIdle()->getSize().y))), recoveryAbility("Recover", "Restores all Mana", 0, 0, 0, *anims.getIdle()), basicAttack("Attack", "Does Basic Damage", 50, 0, 0, *anims.getIdle()), currentHealth(MaxHealth), currentMana(MaxMana)
 {
     //This needs to be cleaned up//

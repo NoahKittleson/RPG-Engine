@@ -21,7 +21,7 @@ class BattleAI;
 class Character : sf::NonCopyable
 {
 public:
-	Character(int MaxHealth, int MaxMana, const sf::Font&, std::string name, bool NPC, const AnimationSheet amins);
+	Character(int MaxHealth, int MaxMana, const sf::Font&, std::string name, bool NPC, const AnimationSheet anims);
     Character(const Character& other) = delete;
     Character& operator= (const Character &other) = delete;
     ~Character();
