@@ -57,7 +57,7 @@ public:
 	//NEW AND BAD//
 	bool isIdle();
 	void setIdle();
-	void startAttackAnimation(Ability& abil);
+	void startAttackAnimation(const Ability& abil);
 	void startGetHitAnimation();
 	//NEW AND BAD//
 
@@ -95,8 +95,6 @@ private:
     float percentHealth();
     void updateStatDisplay();
     void updateStatusEffects();
-	void setAnimation(const sf::Texture& texture);
-
 };
 
 

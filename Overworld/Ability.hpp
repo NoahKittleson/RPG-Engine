@@ -38,6 +38,7 @@ public:
 	std::string getName() const;
     bool hasProperty(const Property& type) const;
 	bool isAttackSpell() const;
+	const sf::Texture* getAnimation() const;
 
 	char hitsOnFrame = 2;
 

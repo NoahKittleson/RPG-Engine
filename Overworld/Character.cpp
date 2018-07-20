@@ -223,7 +223,7 @@ float Character::calculateDmg(const Ability& ability, std::shared_ptr<Character>
     adjustHealth(-TOTALDAMAGE);
     updateStatDisplay();
     attacker->updateStatDisplay();
-	attacker->setAnimation(*ability.hitAnimation);
+	attacker->startAttackAnimation(ability);
     return TOTALDAMAGE;
 }
 
@@ -510,10 +510,6 @@ std::string Character::getName() const {
 	return name.getString();
 }
 
-void Character::setAnimation(const sf::Texture& texture) {
-	sprite.setTexture(texture);
-}
-
 bool Character::isIdle() {
 	return sprite.getTexture() == animations.getIdle() || sprite.getTexture() == animations.getDead();
 }
@@ -576,11 +572,15 @@ void Character::fillInAction(BattleInfo& info) const {
 
 void Character::setIdle() {
 	if (currentHealth <= 0) {
-		
+		assert(animations.getDead());
+		sprite.setTexture(*animations.getDead());
+	} else {
+		assert(animations.getIdle());
+		sprite.setTexture(*animations.getIdle());
 	}
 }
-void Character::startAttackAnimation(Ability& abil) {
-	
+void Character::startAttackAnimation(const Ability& abil) {
+	sprite.setTexture(*abil.getAnimation());
 }
 
 

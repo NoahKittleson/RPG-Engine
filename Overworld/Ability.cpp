@@ -107,6 +107,11 @@ bool Ability::isAttackSpell() const {
 	return allyTargetPref;
 }
 
+const sf::Texture* Ability::getAnimation() const {
+	return hitAnimation;
+}
+
+
 
 
 
