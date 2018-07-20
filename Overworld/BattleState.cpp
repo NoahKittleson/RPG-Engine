@@ -44,7 +44,9 @@ void BattleState::update(sf::Clock& timer)
 				if (checkBattleOver()) {		//positioning it here might make dying by poison on last guy wonky
 					break;
 				} else {
-				++info.combatants;
+				do {
+					++info.combatants;
+				} while (info.combatants.get()->getHealth() <= 0);
 				info.currentAction.clear();
 				info.currentAction.attacker = info.combatants.get();
 				mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Bramble));
