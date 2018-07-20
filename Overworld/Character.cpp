@@ -18,10 +18,9 @@ Character::~Character() {
     std::cout << "Character destroyed.  Name: " << this->name.getString().toAnsiString() << "\n";
 }
 
-Character::Character(int MaxHealth, int MaxMana, const sf::Texture &idle, const sf::Font& font,
-					 std::string name, bool NPC, const sf::Texture& getHit)
-: maxMana(MaxMana), maxHealth(MaxHealth), idleTexture(&idle), NPC(NPC),
-sprite(AnimatedComponent(idle, sf::Vector2f(0,0), 0.2, sf::Vector2i(idle.getSize().y,idle.getSize().y))), getHitTexture(&getHit), recoveryAbility("Recover", "Restores all Mana", 0, 0, 0, idle), basicAttack("Attack", "Does Basic Damage", 50, 0, 0, idle), currentHealth(MaxHealth), currentMana(MaxMana)
+Character::Character(int MaxHealth, int MaxMana, const sf::Font& font, std::string name, bool NPC, const AnimationSheet anims)
+: maxMana(MaxMana), maxHealth(MaxHealth), NPC(NPC),
+sprite(AnimatedComponent(*anims.getIdle(), sf::Vector2f(0,0), 0.2, sf::Vector2i(anims.getIdle()->getSize().y,anims.getIdle()->getSize().y))), recoveryAbility("Recover", "Restores all Mana", 0, 0, 0, *anims.getIdle()), basicAttack("Attack", "Does Basic Damage", 50, 0, 0, *anims.getIdle()), currentHealth(MaxHealth), currentMana(MaxMana)
 {
     //This needs to be cleaned up//
     setFont(font);
@@ -36,7 +35,7 @@ sprite(AnimatedComponent(idle, sf::Vector2f(0,0), 0.2, sf::Vector2i(idle.getSize
     barOutline.setFillColor(sf::Color(0,0,0,0));
     barOutline.setOutlineThickness(3);
     
-    sprite.setTexture(*idleTexture);
+    sprite.setTexture(*anims.getIdle());
     if (NPC) { sprite.setScale(-1.0f, 1.0f); }
     
     this->name.setString(name);
@@ -496,7 +495,13 @@ bool Character::checkAbilityCost(const Ability& abil) const {
 
 void Character::animate(float elapsed) {
 	if (sprite.atEnd()) {
-		sprite.setTexture(*idleTexture);
+		if (currentHealth <= 0) {
+			assert(animations.getDead() != nullptr);
+			sprite.setTexture(*animations.getDead());
+		} else {
+			assert(animations.getIdle() != nullptr);
+			sprite.setTexture(*animations.getIdle());
+		}
 	}
     sprite.update(elapsed);
 }
@@ -507,6 +512,20 @@ std::string Character::getName() const {
 
 void Character::setAnimation(const sf::Texture& texture) {
 	sprite.setTexture(texture);
+}
+
+bool Character::isIdle() {
+	return sprite.getTexture() == animations.getIdle() || sprite.getTexture() == animations.getDead();
+}
+
+void Character::startGetHitAnimation() {
+	if (currentHealth <= 0 ) {
+		assert(animations.getGetKilled());
+		sprite.setTexture(*animations.getGetKilled());
+	} else {
+		assert(animations.getGetHit());
+		sprite.setTexture(*animations.getGetHit());
+	}
 }
 
 bool Character::isNPC() const {

@@ -8,6 +8,13 @@
 
 #include "AnimationSheet.hpp"
 
+AnimationSheet::AnimationSheet(const sf::Texture& placeholder) {
+	//this is to ensure that there are no nullptr textures
+	idle = &placeholder;
+	dead = &placeholder;
+	getHit = &placeholder;
+	getKilled = &placeholder;
+}
 
 void AnimationSheet::setIdle(const sf::Texture& texture) {
 	idle = &texture;

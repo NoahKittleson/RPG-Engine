@@ -13,6 +13,7 @@
 #include "AnimatedComponent.hpp"
 #include "BattleInfo.hpp"
 #include "BattleAI.hpp"
+#include "AnimationSheet.hpp"
 
 class BattleInfo;
 class BattleAI;
@@ -20,7 +21,7 @@ class BattleAI;
 class Character : sf::NonCopyable
 {
 public:
-	Character(int MaxHealth, int MaxMana, const sf::Texture& texture, const sf::Font&, std::string name, bool enemy, const sf::Texture& getHit);
+	Character(int MaxHealth, int MaxMana, const sf::Font&, std::string name, bool NPC, const AnimationSheet amins);
     Character(const Character& other) = delete;
     Character& operator= (const Character &other) = delete;
     ~Character();
@@ -54,9 +55,9 @@ public:
 	void fillInAction(BattleInfo&) const;
 	
 	//NEW AND BAD//
-	bool isIdle() {return sprite.getTexture() == idleTexture;};
+	bool isIdle();
 	void setAnimation(const sf::Texture& texture);
-	void startGetHitAnimation() {if (getHitTexture) {sprite.setTexture(*getHitTexture);}};
+	void startGetHitAnimation();
 	//NEW AND BAD//
 
 private:
@@ -72,8 +73,7 @@ private:
 	sf::Text name;
     std::map<Ability::Property, float> statusEffects;			//or any modifier applied each turn
 	AnimatedComponent sprite;
-    const sf::Texture* idleTexture = nullptr;
-    const sf::Texture* getHitTexture = nullptr;
+	AnimationSheet animations;
 	sf::Text MPText;
 	sf::Text HPText;
 	sf::RectangleShape MPBar;

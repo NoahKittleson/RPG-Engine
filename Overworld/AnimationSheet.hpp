@@ -11,6 +11,9 @@
 
 class AnimationSheet {
 public:
+	AnimationSheet() {};
+	AnimationSheet(const sf::Texture& placeholder);
+	
 	void setIdle(const sf::Texture&);
 	const sf::Texture* getIdle() const;
 	void setDead(const sf::Texture&);
@@ -22,7 +25,7 @@ public:
 	
 private:
 	const sf::Texture* idle = nullptr;
-	//sf::Texture* lowHealthIdle = nullptr;
+	//sf::Texture* lowHealthIdle = nullptr;		//an idea for later...
 	const sf::Texture* dead = nullptr;
 	const sf::Texture* getHit = nullptr;
 	const sf::Texture* getKilled = nullptr;
