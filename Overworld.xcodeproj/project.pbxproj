@@ -102,6 +102,8 @@
 		B7D17D1B1E512CDC00D71290 /* LoadState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7D17D191E512CDC00D71290 /* LoadState.cpp */; };
 		B7D3C23A1AEF869F0052DE83 /* Stickmaniac.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D3C2391AEF869F0052DE83 /* Stickmaniac.png */; };
 		B7DAA36C210272B700DF1E7C /* AnimationSheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DAA36A210272B700DF1E7C /* AnimationSheet.cpp */; };
+		B7DAA36E210288D200DF1E7C /* GetKilled.png in Resources */ = {isa = PBXBuildFile; fileRef = B7DAA36D210288D200DF1E7C /* GetKilled.png */; };
+		B7DAA370210288D800DF1E7C /* BasicDead.png in Resources */ = {isa = PBXBuildFile; fileRef = B7DAA36F210288D800DF1E7C /* BasicDead.png */; };
 		B7DD37451C35DFFC0089224E /* BattleState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DD37431C35DFFC0089224E /* BattleState.cpp */; };
 		B7DEE729207F2AAD00B1B97C /* MapFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DEE727207F2AAD00B1B97C /* MapFactory.cpp */; };
 		B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */; };
@@ -261,6 +263,8 @@
 		B7D3C2391AEF869F0052DE83 /* Stickmaniac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stickmaniac.png; sourceTree = "<group>"; };
 		B7DAA36A210272B700DF1E7C /* AnimationSheet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AnimationSheet.cpp; sourceTree = "<group>"; };
 		B7DAA36B210272B700DF1E7C /* AnimationSheet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AnimationSheet.hpp; sourceTree = "<group>"; };
+		B7DAA36D210288D200DF1E7C /* GetKilled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GetKilled.png; sourceTree = "<group>"; };
+		B7DAA36F210288D800DF1E7C /* BasicDead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BasicDead.png; sourceTree = "<group>"; };
 		B7DD37431C35DFFC0089224E /* BattleState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleState.cpp; sourceTree = "<group>"; };
 		B7DD37441C35DFFC0089224E /* BattleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleState.h; sourceTree = "<group>"; };
 		B7DEE727207F2AAD00B1B97C /* MapFactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapFactory.cpp; sourceTree = "<group>"; };
@@ -310,12 +314,14 @@
 				B7396FAD20F0183D0095DDB5 /* Backgrounds */,
 				B7023E121BB61A43005A6F93 /* BadAttackAnimation.png */,
 				B7023E141BB61A4A005A6F93 /* BasicIdle.png */,
+				B7DAA36F210288D800DF1E7C /* BasicDead.png */,
 				B743EDA020FECCFF006DE82D /* BikiniBabe.png */,
 				B78316FF20EC9C7100740527 /* BrickHouse.png */,
 				B7BE058220B938D8008D6537 /* bush.png */,
 				B7701D841EF4740D006AB891 /* Campfire.png */,
 				B783170120EC9C7B00740527 /* DeadTree.png */,
 				B7023E101BB61A36005A6F93 /* GetHitAnimation.png */,
+				B7DAA36D210288D200DF1E7C /* GetKilled.png */,
 				B7C00F1D20F95A36006CEEA4 /* DialogueBar.png */,
 				B77784001AE5C57D007FA840 /* icon.png */,
 				B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */,
@@ -633,6 +639,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7701D831EF262EA006AB891 /* Conditions.hpp in Resources */,
+				B7DAA370210288D800DF1E7C /* BasicDead.png in Resources */,
 				B7396FBB20F036EB0095DDB5 /* TownEast.png in Resources */,
 				B7BE058320B938D8008D6537 /* bush.png in Resources */,
 				B77F7EAD208EB677009FEE8A /* DialogueIDs.hpp in Resources */,
@@ -675,6 +682,7 @@
 				B7635BF620FF308300806279 /* PlayerWalkingLeft2.png in Resources */,
 				B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */,
 				B7396FC320F036EB0095DDB5 /* TownSouth.png in Resources */,
+				B7DAA36E210288D200DF1E7C /* GetKilled.png in Resources */,
 				B7A1EB3A1EDA9F5100667423 /* Yak.png in Resources */,
 				B742133F1E3836F300090D95 /* tree.png in Resources */,
 			);

@@ -574,6 +574,15 @@ void Character::fillInAction(BattleInfo& info) const {
 	info.currentAction.complete();
 }
 
+void Character::setIdle() {
+	if (currentHealth <= 0) {
+		
+	}
+}
+void Character::startAttackAnimation(Ability& abil) {
+	
+}
+
 
 
 

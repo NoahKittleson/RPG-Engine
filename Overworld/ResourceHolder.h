@@ -52,7 +52,9 @@ namespace Textures {
 		DeadTree,
 		DialogueBar,
 		BikiniBabe,
-		
+		BasicDead,
+		GetKilled
+	
 	};
 }
 
