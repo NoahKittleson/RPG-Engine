@@ -9,9 +9,9 @@
 #include "Character.h"
 
 #define FONTSIZESTATDISPLAY 20
-#define BARWIDTH 100
-#define BARHEIGHT 40
-#define STATSPACINGY 50
+#define BARWIDTH 150
+#define BARHEIGHT 20
+#define STATSPACINGY 30
 
 
 Character::~Character() {
@@ -303,11 +303,11 @@ std::string Character::getText(std::string Description, int currentValue, int ma
 
 void Character::setStatPosition(int x, int y) {
     name.setPosition(x, y);
-    HPText.setPosition(x, y + STATSPACINGY);
-    HPBar.setPosition(x, y + 2 * STATSPACINGY);
-    MPText.setPosition(x, y + 3 * STATSPACINGY);
-    MPBar.setPosition(x, y + 4 * STATSPACINGY);
-    char space = 5;
+    HPText.setPosition(x, y + 2 * STATSPACINGY);
+    HPBar.setPosition(x, y + 3 * STATSPACINGY);
+    MPText.setPosition(x, y + 4 * STATSPACINGY);
+    MPBar.setPosition(x, y + 5 * STATSPACINGY);
+    char space = 6;
     for (auto & it: statusEffectDisplay) {
         it.setPosition(x, y + space * FONTSIZESTATDISPLAY);
         space++;
