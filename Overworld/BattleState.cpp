@@ -16,7 +16,11 @@ BattleState::BattleState(std::vector<std::shared_ptr<Character>>& enemies)
     for (auto && it : enemies) {
 		info.combatants.emplace_back(it);
     }
-	info.currentAction.attacker = info.combatants[0];
+	while (info.combatants.get()->getHealth() <= 0) {
+		++info.combatants;
+	}
+	info.currentAction.attacker = info.combatants.get();
+
 	info.NPCs = enemies;
 	info.PCs = party;
 	mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Bramble));
