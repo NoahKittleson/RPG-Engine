@@ -53,7 +53,8 @@ namespace Textures {
 		DialogueBar,
 		BikiniBabe,
 		BasicDead,
-		GetKilled
+		GetKilled,
+		Lighthouse
 	
 	};
 }
