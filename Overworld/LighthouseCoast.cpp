@@ -15,9 +15,9 @@ LighthouseCoast::LighthouseCoast(const ResourceHolder& resources, const std::vec
 	background.setScale(scale, scale);
 	
 	//The titular lighthouse
-	MapObject lighthouse (make_unique<GraphicsComponent>(resources.getTexture(Textures::Lighthouse), sf::Vector2f (300,300)));
+	MapObject lighthouse (make_unique<GraphicsComponent>(resources.getTexture(Textures::Lighthouse), sf::Vector2f (600,420)));
 	lighthouse.setScale(scale);
-	lighthouse.addCollisionBox(-20 * scale, 40 * scale, 40 * scale, 10 * scale);
+	lighthouse.addCollisionBox(-14 * scale, 40 * scale, 28 * scale, 10 * scale);
 	addObject(lighthouse);
 	
 	//Set up Zone Exits
