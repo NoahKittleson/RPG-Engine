@@ -14,6 +14,12 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	background.setScale(scale, scale);
 	
 	
+	//A store
+	MapObject store (make_unique<GraphicsComponent>(resources.getTexture(Textures::Store1), sf::Vector2f (200,200)));
+	store.setScale(scale);
+	store.addCollisionBox(-41 * scale, 12 * scale, 80 * scale, 13 * scale);
+	addObject(store);
+	
 	//Set up Zone Exits
 	sf::Vector2u totalArea = background.getTexture()->getSize();
 	totalArea = sf::Vector2u(totalArea.x * scale, totalArea.y * scale);

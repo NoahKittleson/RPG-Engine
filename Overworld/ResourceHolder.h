@@ -54,8 +54,8 @@ namespace Textures {
 		BikiniBabe,
 		BasicDead,
 		GetKilled,
-		Lighthouse
-	
+		Lighthouse,
+		Store1,
 	};
 }
 
