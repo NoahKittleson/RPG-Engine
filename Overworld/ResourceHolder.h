@@ -26,7 +26,6 @@ namespace Textures {
 		BeachSouth,
 		TownSouth,
 		LightHouseCoast,
-		Stickmaniac,
 		BasicIdle,
 		BadAttackAnimation,
 		GetHitAnimation,
@@ -56,6 +55,9 @@ namespace Textures {
 		GetKilled,
 		Lighthouse,
 		Store1,
+		TheColonel,
+		SittingSoldier,
+		SalutingSoldier
 	};
 }
 

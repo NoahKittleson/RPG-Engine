@@ -33,7 +33,6 @@ ResourceHolder::ResourceHolder()
 	textureIDMap.insert(std::make_pair("TownSouth.png", Textures::ID::TownSouth));
 	textureIDMap.insert(std::make_pair("LightHouseCoast.png", Textures::ID::LightHouseCoast));
 	//props
-    textureIDMap.insert(std::make_pair("Stickmaniac.png", Textures::ID::Stickmaniac));
     textureIDMap.insert(std::make_pair("BasicIdle.png", Textures::ID::BasicIdle));
     textureIDMap.insert(std::make_pair("BadAttackAnimation.png", Textures::ID::BadAttackAnimation));
     textureIDMap.insert(std::make_pair("GetHitAnimation.png", Textures::ID::GetHitAnimation));
@@ -63,6 +62,10 @@ ResourceHolder::ResourceHolder()
 	textureIDMap.insert(std::make_pair("GetKilled.png", Textures::ID::GetKilled));
 	textureIDMap.insert(std::make_pair("Lighthouse.png", Textures::ID::Lighthouse));
 	textureIDMap.insert(std::make_pair("StoreOutline.png", Textures::ID::Store1));
+	textureIDMap.insert(std::make_pair("TheColonel.png", Textures::ID::TheColonel));
+	textureIDMap.insert(std::make_pair("SittingSoldier.png", Textures::ID::SittingSoldier));
+	textureIDMap.insert(std::make_pair("SalutingSoldier.png", Textures::ID::SalutingSoldier));
+
 
 	
     for (auto ID : textureIDMap) {

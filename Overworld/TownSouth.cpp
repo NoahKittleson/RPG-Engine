@@ -15,10 +15,29 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	
 	
 	//A store
-	MapObject store (make_unique<GraphicsComponent>(resources.getTexture(Textures::Store1), sf::Vector2f (200,200)));
+	MapObject store (make_unique<GraphicsComponent>(resources.getTexture(Textures::Store1), sf::Vector2f (300,300)));
 	store.setScale(scale);
 	store.addCollisionBox(-41 * scale, 12 * scale, 80 * scale, 13 * scale);
 	addObject(store);
+	
+	//Sitting Soldier
+	MapObject soldierSitting (make_unique<GraphicsComponent>(resources.getTexture(Textures::SittingSoldier), sf::Vector2f (150,200)));
+	soldierSitting.setScale(scale);
+	soldierSitting.addCollisionBox(-5 * scale, 10 * scale, 10 * scale, 2 * scale);
+	addObject(soldierSitting);
+	
+	//Saluting Soldier
+	MapObject soldierStanding (make_unique<GraphicsComponent>(resources.getTexture(Textures::SalutingSoldier), sf::Vector2f (200,200)));
+	soldierStanding.setScale(scale);
+	soldierStanding.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
+	addObject(soldierStanding);
+	
+	//Saluting Soldier
+	MapObject theColonel (make_unique<GraphicsComponent>(resources.getTexture(Textures::TheColonel), sf::Vector2f (250,200)));
+	theColonel.setScale(scale);
+	theColonel.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
+	addObject(theColonel);
+
 	
 	//Set up Zone Exits
 	sf::Vector2u totalArea = background.getTexture()->getSize();
