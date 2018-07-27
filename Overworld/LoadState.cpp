@@ -12,7 +12,7 @@ LoadState::LoadState(StateStack& SS) {
     stack = &SS;
 	//load conditions into ConditionList
 	//(not yet)
-	currentMap = MapFactory::create(MapID::Start, resources, conditions);
+	currentMap = MapFactory::create(MapID::TownSouth, resources, conditions);
     
     //set up party
 	party.push_back(CharacterGenerator::create(resources, Combatant::Pringus));
