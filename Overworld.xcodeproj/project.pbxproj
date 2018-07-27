@@ -61,6 +61,8 @@
 		B75B77911C00723900122CCC /* StateStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75B778F1C00723900122CCC /* StateStack.cpp */; };
 		B75F862C1BACE0C60093B615 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F862A1BACE0C60093B615 /* Character.cpp */; };
 		B75F862F1BACE0FB0093B615 /* Ability.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F862D1BACE0FB0093B615 /* Ability.cpp */; };
+		B7603A88210BD0B400B6B858 /* BuildingOutline2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7603A86210BD0B400B6B858 /* BuildingOutline2.png */; };
+		B7603A89210BD0B400B6B858 /* BuildingOutline3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7603A87210BD0B400B6B858 /* BuildingOutline3.png */; };
 		B7635BF320FF308300806279 /* PlayerWalkingDown2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7635BEF20FF308200806279 /* PlayerWalkingDown2.png */; };
 		B7635BF420FF308300806279 /* PlayerWalkingRight2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7635BF020FF308200806279 /* PlayerWalkingRight2.png */; };
 		B7635BF520FF308300806279 /* PlayerWalkingUp2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7635BF120FF308300806279 /* PlayerWalkingUp2.png */; };
@@ -202,6 +204,8 @@
 		B75F862B1BACE0C60093B615 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
 		B75F862D1BACE0FB0093B615 /* Ability.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ability.cpp; sourceTree = "<group>"; };
 		B75F862E1BACE0FB0093B615 /* Ability.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ability.hpp; sourceTree = "<group>"; };
+		B7603A86210BD0B400B6B858 /* BuildingOutline2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuildingOutline2.png; sourceTree = "<group>"; };
+		B7603A87210BD0B400B6B858 /* BuildingOutline3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuildingOutline3.png; sourceTree = "<group>"; };
 		B7635BEF20FF308200806279 /* PlayerWalkingDown2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingDown2.png; sourceTree = "<group>"; };
 		B7635BF020FF308200806279 /* PlayerWalkingRight2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingRight2.png; sourceTree = "<group>"; };
 		B7635BF120FF308300806279 /* PlayerWalkingUp2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingUp2.png; sourceTree = "<group>"; };
@@ -325,6 +329,8 @@
 				B7DAA36F210288D800DF1E7C /* BasicDead.png */,
 				B743EDA020FECCFF006DE82D /* BikiniBabe.png */,
 				B78316FF20EC9C7100740527 /* BrickHouse.png */,
+				B7603A86210BD0B400B6B858 /* BuildingOutline2.png */,
+				B7603A87210BD0B400B6B858 /* BuildingOutline3.png */,
 				B7BE058220B938D8008D6537 /* bush.png */,
 				B7701D841EF4740D006AB891 /* Campfire.png */,
 				B783170120EC9C7B00740527 /* DeadTree.png */,
@@ -653,6 +659,7 @@
 				B7701D831EF262EA006AB891 /* Conditions.hpp in Resources */,
 				B7DAA370210288D800DF1E7C /* BasicDead.png in Resources */,
 				B7396FBB20F036EB0095DDB5 /* TownEast.png in Resources */,
+				B7603A88210BD0B400B6B858 /* BuildingOutline2.png in Resources */,
 				B7BE058320B938D8008D6537 /* bush.png in Resources */,
 				B77F7EAD208EB677009FEE8A /* DialogueIDs.hpp in Resources */,
 				B7439C1A1ECA6D8C00724D0B /* Scarecrow.png in Resources */,
@@ -692,6 +699,7 @@
 				B7396FBC20F036EB0095DDB5 /* BeachWest.png in Resources */,
 				B7635BF520FF308300806279 /* PlayerWalkingUp2.png in Resources */,
 				B7942A96210A958B00BA2195 /* TheColonel.png in Resources */,
+				B7603A89210BD0B400B6B858 /* BuildingOutline3.png in Resources */,
 				B7396FC220F036EB0095DDB5 /* Forest.png in Resources */,
 				B7A0D23A209BC3EF00098096 /* pond.png in Resources */,
 				B77783FD1AE5C57D007FA840 /* nice_music.ogg in Resources */,

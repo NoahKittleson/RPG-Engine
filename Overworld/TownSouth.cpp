@@ -20,6 +20,18 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	store.addCollisionBox(-41 * scale, 12 * scale, 80 * scale, 13 * scale);
 	addObject(store);
 	
+	//A building outline
+	MapObject building2 (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline2), sf::Vector2f (700,300)));
+	building2.setScale(scale);
+	building2.addCollisionBox(-41 * scale, 12 * scale, 80 * scale, 13 * scale);
+	addObject(building2);
+	
+	//Another buliding outline
+	MapObject building3 (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline3), sf::Vector2f (500,700)));
+	building3.setScale(scale);
+	building3.addCollisionBox(-41 * scale, 12 * scale, 80 * scale, 13 * scale);
+	addObject(building3);
+	
 	//Sitting Soldier
 	MapObject soldierSitting (make_unique<GraphicsComponent>(resources.getTexture(Textures::SittingSoldier), sf::Vector2f (150,200)));
 	soldierSitting.setScale(scale);
@@ -38,6 +50,19 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	theColonel.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
 	addObject(theColonel);
 
+	
+//	//Set up Trigger for Fighting
+//	std::function<State*()> createDialogue = [&resources]() -> State*
+//	{
+//		std::vector<std::shared_ptr<Character>> enemyVec;
+//		enemyVec.emplace_back(CharacterGenerator::create(resources, Combatant::Logo));
+//		return new DialogueMode(nodePtr, rw);
+//	};
+//	ConditionMap prereqs;
+//	//prereqs[Condition::ChangedMap] = true;
+//	triggers.emplace_back(prereqs, createDialogue, sf::FloatRect(220,100,100,50));
+	
+	
 	
 	//Set up Zone Exits
 	sf::Vector2u totalArea = background.getTexture()->getSize();

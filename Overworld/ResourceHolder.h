@@ -57,7 +57,9 @@ namespace Textures {
 		Store1,
 		TheColonel,
 		SittingSoldier,
-		SalutingSoldier
+		SalutingSoldier,
+		BuildingOutline2,
+		BuildingOutline3
 	};
 }
 

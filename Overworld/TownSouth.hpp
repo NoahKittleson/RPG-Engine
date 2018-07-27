@@ -9,6 +9,7 @@
 #pragma once
 #include "MapSection.h"
 #include "BattleState.h"
+#include "DialogueMode.h"
 
 class TownSouth: public MapSection
 {
