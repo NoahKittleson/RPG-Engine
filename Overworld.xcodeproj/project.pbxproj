@@ -63,6 +63,11 @@
 		B75F862F1BACE0FB0093B615 /* Ability.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F862D1BACE0FB0093B615 /* Ability.cpp */; };
 		B7603A88210BD0B400B6B858 /* BuildingOutline2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7603A86210BD0B400B6B858 /* BuildingOutline2.png */; };
 		B7603A89210BD0B400B6B858 /* BuildingOutline3.png in Resources */ = {isa = PBXBuildFile; fileRef = B7603A87210BD0B400B6B858 /* BuildingOutline3.png */; };
+		B7603A8F210D9D2500B6B858 /* Baker.png in Resources */ = {isa = PBXBuildFile; fileRef = B7603A8A210D9D2400B6B858 /* Baker.png */; };
+		B7603A90210D9D2500B6B858 /* Drunk.png in Resources */ = {isa = PBXBuildFile; fileRef = B7603A8B210D9D2500B6B858 /* Drunk.png */; };
+		B7603A91210D9D2500B6B858 /* Pirate.png in Resources */ = {isa = PBXBuildFile; fileRef = B7603A8C210D9D2500B6B858 /* Pirate.png */; };
+		B7603A92210D9D2500B6B858 /* Kid.png in Resources */ = {isa = PBXBuildFile; fileRef = B7603A8D210D9D2500B6B858 /* Kid.png */; };
+		B7603A93210D9D2500B6B858 /* Fisherman.png in Resources */ = {isa = PBXBuildFile; fileRef = B7603A8E210D9D2500B6B858 /* Fisherman.png */; };
 		B7635BF320FF308300806279 /* PlayerWalkingDown2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7635BEF20FF308200806279 /* PlayerWalkingDown2.png */; };
 		B7635BF420FF308300806279 /* PlayerWalkingRight2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7635BF020FF308200806279 /* PlayerWalkingRight2.png */; };
 		B7635BF520FF308300806279 /* PlayerWalkingUp2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7635BF120FF308300806279 /* PlayerWalkingUp2.png */; };
@@ -206,6 +211,11 @@
 		B75F862E1BACE0FB0093B615 /* Ability.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Ability.hpp; sourceTree = "<group>"; };
 		B7603A86210BD0B400B6B858 /* BuildingOutline2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuildingOutline2.png; sourceTree = "<group>"; };
 		B7603A87210BD0B400B6B858 /* BuildingOutline3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuildingOutline3.png; sourceTree = "<group>"; };
+		B7603A8A210D9D2400B6B858 /* Baker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Baker.png; sourceTree = "<group>"; };
+		B7603A8B210D9D2500B6B858 /* Drunk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drunk.png; sourceTree = "<group>"; };
+		B7603A8C210D9D2500B6B858 /* Pirate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pirate.png; sourceTree = "<group>"; };
+		B7603A8D210D9D2500B6B858 /* Kid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kid.png; sourceTree = "<group>"; };
+		B7603A8E210D9D2500B6B858 /* Fisherman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fisherman.png; sourceTree = "<group>"; };
 		B7635BEF20FF308200806279 /* PlayerWalkingDown2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingDown2.png; sourceTree = "<group>"; };
 		B7635BF020FF308200806279 /* PlayerWalkingRight2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingRight2.png; sourceTree = "<group>"; };
 		B7635BF120FF308300806279 /* PlayerWalkingUp2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingUp2.png; sourceTree = "<group>"; };
@@ -325,6 +335,11 @@
 			children = (
 				B7396FAD20F0183D0095DDB5 /* Backgrounds */,
 				B7023E121BB61A43005A6F93 /* BadAttackAnimation.png */,
+				B7603A8A210D9D2400B6B858 /* Baker.png */,
+				B7603A8B210D9D2500B6B858 /* Drunk.png */,
+				B7603A8E210D9D2500B6B858 /* Fisherman.png */,
+				B7603A8D210D9D2500B6B858 /* Kid.png */,
+				B7603A8C210D9D2500B6B858 /* Pirate.png */,
 				B7023E141BB61A4A005A6F93 /* BasicIdle.png */,
 				B7DAA36F210288D800DF1E7C /* BasicDead.png */,
 				B743EDA020FECCFF006DE82D /* BikiniBabe.png */,
@@ -662,6 +677,7 @@
 				B7603A88210BD0B400B6B858 /* BuildingOutline2.png in Resources */,
 				B7BE058320B938D8008D6537 /* bush.png in Resources */,
 				B77F7EAD208EB677009FEE8A /* DialogueIDs.hpp in Resources */,
+				B7603A92210D9D2500B6B858 /* Kid.png in Resources */,
 				B7439C1A1ECA6D8C00724D0B /* Scarecrow.png in Resources */,
 				B783170020EC9C7100740527 /* BrickHouse.png in Resources */,
 				B786FF1320E4BA8E00EAE1A0 /* SmallWheat.png in Resources */,
@@ -676,11 +692,14 @@
 				B783170220EC9C7B00740527 /* DeadTree.png in Resources */,
 				B73F35021E4B095B007EC4AC /* PlayerWalkingDown.png in Resources */,
 				B747A9F821085AD6007F29EC /* StoreOutline.png in Resources */,
+				B7603A90210D9D2500B6B858 /* Drunk.png in Resources */,
 				B75ABA1A1C7BD7DA00B9FFDE /* IterVector.inl in Resources */,
+				B7603A93210D9D2500B6B858 /* Fisherman.png in Resources */,
 				B7942A95210A958B00BA2195 /* SalutingSoldier.png in Resources */,
 				B7396FBF20F036EB0095DDB5 /* BeachNorth.png in Resources */,
 				B7023E151BB61A4A005A6F93 /* BasicIdle.png in Resources */,
 				B7023E111BB61A36005A6F93 /* GetHitAnimation.png in Resources */,
+				B7603A8F210D9D2500B6B858 /* Baker.png in Resources */,
 				B7635BF420FF308300806279 /* PlayerWalkingRight2.png in Resources */,
 				B77783FF1AE5C57D007FA840 /* sansation.ttf in Resources */,
 				B73F35041E4B0963007EC4AC /* PlayerWalkingRight.png in Resources */,
@@ -704,6 +723,7 @@
 				B7A0D23A209BC3EF00098096 /* pond.png in Resources */,
 				B77783FD1AE5C57D007FA840 /* nice_music.ogg in Resources */,
 				B7635BF620FF308300806279 /* PlayerWalkingLeft2.png in Resources */,
+				B7603A91210D9D2500B6B858 /* Pirate.png in Resources */,
 				B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */,
 				B7396FC320F036EB0095DDB5 /* TownSouth.png in Resources */,
 				B7DAA36E210288D200DF1E7C /* GetKilled.png in Resources */,
