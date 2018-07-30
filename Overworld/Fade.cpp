@@ -36,9 +36,11 @@ void Fade::update(float elapsed) {
 
 void Fade::draw(sf::RenderWindow &rw) {
     //draw fade box
+	sf::View originalView = rw.getView();
     rw.setView(rw.getDefaultView());
     jankScreenFade.setPosition(0,0);
     rw.draw(jankScreenFade);
+	rw.setView(originalView);								//this is a very jank way to preserve the original View
 }
 
 void Fade::handleInput(sf::RenderWindow &rw) {

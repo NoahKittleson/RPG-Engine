@@ -226,7 +226,6 @@ void OverworldMode::checkTriggers() {
 				//what if instead...
 				//cueUpChange(blinkFade);
 				//cueUpChange(triggerList[iii]);
-				//cueUpChange()
 			}
 		}
 	}

@@ -24,5 +24,5 @@ public:
 private:
 	sf::Sprite dialogueBar;
     NodePtr currentDNode;
-	
+		
 };
