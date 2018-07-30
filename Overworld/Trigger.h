@@ -47,9 +47,9 @@ public:
 	Trigger(ConditionMap map, std::function<State*()> func);
 	~Trigger() {};
 	virtual State* proc(ConditionVec& conds) const = 0;
+	bool meetsReqs(ConditionVec& conds) const;
 	
 protected:
-	bool meetsReqs(ConditionVec& conds) const;
 	
 	ConditionMap prereqs;
 	std::function<State*()> makePtr;

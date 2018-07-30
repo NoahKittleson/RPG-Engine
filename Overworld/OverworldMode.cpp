@@ -219,11 +219,14 @@ int OverworldMode::checkExits() {
 void OverworldMode::checkTriggers() {
 	for (int iii = 0; iii < currentMap->getTriggerList().size(); iii++) {
 		if (player->intersects(currentMap->getTriggerList()[iii])) {
-			State* unsafePtr = currentMap->getTriggerList()[iii].proc(conditions);
-			if (unsafePtr != nullptr) {
-				delete unsafePtr;
+			if (currentMap->getTriggerList()[iii].meetsReqs(conditions)) {
 				currentMode = battleFadeOut;
 				mode = std::unique_ptr<Mode>(new BlinkFade(false, 1.5f));
+				
+				//what if instead...
+				//cueUpChange(blinkFade);
+				//cueUpChange(triggerList[iii]);
+				//cueUpChange()
 			}
 		}
 	}
