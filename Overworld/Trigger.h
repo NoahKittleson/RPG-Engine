@@ -15,42 +15,17 @@
 using ConditionMap = std::map<Condition, bool>;
 using ConditionVec = std::vector<Condition>;
 
-//class Trigger
-//{
-//public:
-//	Trigger(ActionID ID, sf::FloatRect area);
-//    bool intersects(sf::FloatRect) const;
-//	
-//	//this is just for testing right now.  Replace with proc later down the line
-//	ActionID getAction() const {return successAction;};
-//
-//
-//    ActionID proc(const std::vector<Condition>& conds) const;
-//	sf::FloatRect getArea() const;
-//	void drawArea(sf::RenderWindow& rw) const;
-//
-//private:
-//    bool testConditions(const std::vector<Condition>& conds) const;
-//    sf::FloatRect area;
-//    ActionID successAction;
-//    ActionID failureAction = ActionID::None;
-//    ConditionMap prerequisites;
-//    
-//};
-
 class State;
-//using StatePtr = std::unique_ptr<State>;
 
 class Trigger
 {
 public:
 	Trigger(ConditionMap map, std::function<State*()> func);
 	~Trigger() {};
-	virtual State* proc(ConditionVec& conds) const = 0;
+	virtual State* proc(ConditionVec& conds) const;
 	bool meetsReqs(ConditionVec& conds) const;
 	
 protected:
-	
 	ConditionMap prereqs;
 	std::function<State*()> makePtr;
 };
@@ -61,7 +36,6 @@ class GroundTrigger : public Trigger
 {
 public:
 	GroundTrigger(ConditionMap& map, std::function<State*()> func, sf::FloatRect rect);
-	virtual State* proc(ConditionVec& conds) const override;
 	bool intersects(std::vector<sf::FloatRect>& collision);
 	operator sf::FloatRect() const;
 	void drawArea(sf::RenderWindow& rw) const;
@@ -76,7 +50,6 @@ private:
 class AttachedTrigger : public Trigger {
 public:
 	AttachedTrigger(ConditionMap map, std::function<State*()> func);
-	virtual State* proc(ConditionVec& conds) const override;
 
 };
 

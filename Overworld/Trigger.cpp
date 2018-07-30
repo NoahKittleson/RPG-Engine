@@ -29,7 +29,7 @@ GroundTrigger::GroundTrigger(ConditionMap& map, std::function<State*()> func, sf
 {
 }
 
-State* GroundTrigger::proc(ConditionVec& conds) const {
+State* Trigger::proc(ConditionVec& conds) const {
 	if (meetsReqs(conds)) {
 		return makePtr();					//problem here is that you can't have unique_ptr with incomplete type
 	}
@@ -58,14 +58,6 @@ AttachedTrigger::AttachedTrigger(ConditionMap map, std::function<State*()> func)
 : Trigger(map, func)
 {
 }
-
-State* AttachedTrigger::proc(ConditionVec& conds) const {
-	if (meetsReqs(conds)) {
-		return makePtr();
-	}
-	return nullptr;
-}
-
 
 
 
