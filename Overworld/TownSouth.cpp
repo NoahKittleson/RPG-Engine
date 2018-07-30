@@ -51,16 +51,16 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	addObject(theColonel);
 
 	
-//	//Set up Trigger for Fighting
-//	std::function<State*()> createDialogue = [&resources]() -> State*
-//	{
-//		std::vector<std::shared_ptr<Character>> enemyVec;
-//		enemyVec.emplace_back(CharacterGenerator::create(resources, Combatant::Logo));
-//		return new DialogueMode(nodePtr, rw);
-//	};
-//	ConditionMap prereqs;
-//	//prereqs[Condition::ChangedMap] = true;
-//	triggers.emplace_back(prereqs, createDialogue, sf::FloatRect(220,100,100,50));
+	//Set up Trigger for Fighting
+	std::function<State*()> createDialogue = [&resources]() -> State*
+	{
+		auto dialogue = DialogueFactory::create(Dialogue::Test001, resources);
+		return new DialogueMode(dialogue);
+	};
+	
+	ConditionMap prereqs;
+	//prereqs[Condition::ChangedMap] = true;
+	triggers.emplace_back(prereqs, createDialogue, sf::FloatRect(220,100,100,50));
 	
 	
 	

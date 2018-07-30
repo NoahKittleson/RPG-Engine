@@ -45,14 +45,18 @@ bool GroundTrigger::intersects(std::vector<sf::FloatRect>& collision) {
 	return false;
 }
 
-GroundTrigger::operator sf::FloatRect() const {return area;};
+GroundTrigger::operator sf::FloatRect() const {
+	return area;
+	
+}
+
 void GroundTrigger::drawArea(sf::RenderWindow& rw) const {
 	sf::RectangleShape rect;
 	rect.setFillColor(sf::Color(85,26,139, 150));					//translucent purple
 	rect.setSize(sf::Vector2f(area.width, area.height));
 	rect.setPosition(area.left, area.top);
 	rw.draw(rect);
-};
+}
 
 AttachedTrigger::AttachedTrigger(ConditionMap map, std::function<State*()> func)
 : Trigger(map, func)

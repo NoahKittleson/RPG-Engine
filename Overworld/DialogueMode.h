@@ -15,17 +15,14 @@
 class DialogueMode : public State
 {
 public:
-    DialogueMode(NodePtr start, const sf::RenderWindow&rw);
+    DialogueMode(NodePtr start);
 	
 	void update(sf::Clock &clock) override;
     void draw(sf::RenderWindow&) override;
     void handleInput(sf::RenderWindow& rw) override;
     
 private:
-    sf::View mapView;
-    sf::View HUD;
 	sf::Sprite dialogueBar;
-    
     NodePtr currentDNode;
-    sf::RectangleShape messageBox;
+	
 };

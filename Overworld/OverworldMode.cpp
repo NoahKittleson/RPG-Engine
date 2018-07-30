@@ -264,7 +264,7 @@ void OverworldMode::checkForInteraction(sf::RenderWindow &rw) {
 	NodePtr dialoguePtr = player->interact(*currentMap);
 	if (dialoguePtr) {
 		std::cout << "dialogueMode created\n";
-		requestStackAdd(make_unique<DialogueMode>(dialoguePtr, rw));
+		requestStackAdd(make_unique<DialogueMode>(dialoguePtr));
 	} else std::cout << "Nothing found to talk with.\n";
 }
 

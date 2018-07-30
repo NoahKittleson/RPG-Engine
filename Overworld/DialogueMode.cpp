@@ -8,18 +8,15 @@
 
 #include "DialogueMode.h"
 
-DialogueMode::DialogueMode(NodePtr start, const sf::RenderWindow &rw)
-: currentDNode(start), mapView(rw.getView()), HUD(rw.getDefaultView())
+DialogueMode::DialogueMode(NodePtr start)
+: currentDNode(start)
 {
-    start->setPosition(90, HUD.getSize().y * .74f);
+    start->setPosition(90, 1024 * .74f);					//magic number
     currentDNode = start;
     currentDNode->clear();
-    messageBox.setPosition(70, HUD.getSize().y * .7f);
-    messageBox.setSize(sf::Vector2f(HUD.getSize().x, HUD.getSize().y/4));
-    messageBox.setFillColor(sf::Color(153,76,0));
 	
 	dialogueBar.setTexture(resources.getTexture(Textures::DialogueBar));
-	dialogueBar.setScale(3, 3);			//should be scale
+	dialogueBar.setScale(3, 3);								//should be scale
 	dialogueBar.setPosition(50, 550);
 }
 
@@ -46,15 +43,15 @@ void DialogueMode::handleInput(sf::RenderWindow& rw) {
 
 void DialogueMode::draw(sf::RenderWindow &rw) {
 	rw.clear(sf::Color::White);
-	rw.setView(mapView);
+	sf::View mapView = rw.getView();
 	currentMap->drawBackground(rw);
 	currentMap->drawAllObjects(rw, *player);
-	rw.setView(HUD);
 	
-//	rw.draw(messageBox);
+	rw.setView(rw.getDefaultView());
 	rw.draw(dialogueBar);
-	
 	currentDNode->draw(rw);
+	
+	rw.setView(mapView);
 	rw.display();
 }
 
