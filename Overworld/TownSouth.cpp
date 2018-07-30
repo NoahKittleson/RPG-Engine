@@ -51,7 +51,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	addObject(theColonel);
 
 	
-	//Set up Trigger for Fighting
+	//Set up Trigger for Talking
 	std::function<State*()> createDialogue = [&resources]() -> State*
 	{
 		auto dialogue = DialogueFactory::create(Dialogue::Test001, resources);

@@ -11,7 +11,7 @@
 DialogueMode::DialogueMode(NodePtr start)
 : currentDNode(start)
 {
-    start->setPosition(90, 1024 * .74f);					//magic number
+    start->setPosition(90, 768 * .74f);					//magic number
     currentDNode = start;
     currentDNode->clear();
 	
