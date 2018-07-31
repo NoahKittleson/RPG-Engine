@@ -11,6 +11,7 @@
 
 class ViewManager {
 public:
+	ViewManager(sf::View& HUD, sf::View& mapView, bool onHUD = false);
 	void ViewToMap(sf::RenderWindow& rw);
 	void ViewToHUD(sf::RenderWindow& rw);
 	
