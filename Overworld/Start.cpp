@@ -100,6 +100,7 @@ Start::Start(const ResourceHolder& resources, const std::vector<Condition>& acti
 	ConditionMap prereqs;
 	//prereqs[Condition::ChangedMap] = true;
 	triggers.emplace_back(prereqs, createBattle, sf::FloatRect(220,100,100,50));
+	triggers.back().setEffect(GroundTrigger::blink);
     
     //Set up Zone Exits
 	sf::Vector2i totalArea = sf::Vector2i(background.getTexture()->getSize().x * background.getScale().x,

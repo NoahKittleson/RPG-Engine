@@ -28,6 +28,9 @@ void Trigger::setEffect(Effect effect) {
 	effectOnProc = effect;
 }
 
+Trigger::Effect Trigger::getEffect() const {
+	return effectOnProc;
+}
 
 GroundTrigger::GroundTrigger(ConditionMap& map, std::function<State*()> func, sf::FloatRect rect)
 : Trigger(map, func), area(rect)

@@ -220,8 +220,29 @@ void OverworldMode::checkTriggers() {
 	for (int iii = 0; iii < currentMap->getTriggerList().size(); iii++) {
 		if (player->intersects(currentMap->getTriggerList()[iii])) {
 			if (currentMap->getTriggerList()[iii].meetsReqs(conditions)) {
-				currentMode = battleFadeOut;
-				mode = std::unique_ptr<Mode>(new BlinkFade(false, 1.5f));
+				switch (currentMap->getTriggerList()[iii].getEffect()) {
+					case GroundTrigger::blink:
+						currentMode = battleFadeOut;
+						mode = std::unique_ptr<Mode>(new BlinkFade(false, 1.5f));
+						break;
+						
+					case GroundTrigger::fade:
+						//this might be wonky.  Ye be warned.
+						currentMode = fadeOut;
+						mode = std::unique_ptr<Mode>(new Fade(false, 1.5f));
+						break;
+						
+					case GroundTrigger::none:
+						State* unsafePtr = currentMap->getTriggerList()[iii].proc(conditions);
+						if (unsafePtr != nullptr) {
+							currentMap->popTriggerAt(iii);					//I should find a better way to pop triggers
+							requestStackAdd(std::unique_ptr<State>(unsafePtr));
+							std::cout << "New State created.\n";
+						} else {
+							delete unsafePtr;
+						}
+						break;
+				}
 				
 				//what if instead...
 				//cueUpChange(blinkFade);

@@ -27,6 +27,7 @@ public:
 	
 	enum Effect {fade, blink, none};
 	void setEffect(Effect);
+	Effect getEffect() const;
 	
 protected:
 	ConditionMap prereqs;
