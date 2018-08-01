@@ -32,6 +32,12 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	building3.addCollisionBox(-41 * scale, 12 * scale, 80 * scale, 13 * scale);
 	addObject(building3);
 	
+	//And Another buliding outline
+	MapObject building4 (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline5), sf::Vector2f (200,700)));
+	building4.setScale(scale);
+	building4.addCollisionBox(-41 * scale, 12 * scale, 80 * scale, 13 * scale);
+	addObject(building4);
+	
 	//Sitting Soldier
 	MapObject soldierSitting (make_unique<GraphicsComponent>(resources.getTexture(Textures::SittingSoldier), sf::Vector2f (150,200)));
 	soldierSitting.setScale(scale);
