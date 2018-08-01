@@ -58,10 +58,12 @@ namespace Textures {
 		TheColonel,
 		SittingSoldier,
 		SalutingSoldier,
+		Clocktower,
 		BuildingOutline2,
 		BuildingOutline3,
 		BuildingOutline4,
-		BuildingOutline5
+		BuildingOutline5,
+		BuildingOutline6
 	};
 }
 
