@@ -11,7 +11,6 @@
 #include "OverworldMode.h"
 #include "Start.h"
 #include "LoadState.hpp"
-#include "Screen.hpp"
 
 class Game
 {

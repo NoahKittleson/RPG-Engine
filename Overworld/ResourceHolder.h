@@ -59,7 +59,9 @@ namespace Textures {
 		SittingSoldier,
 		SalutingSoldier,
 		BuildingOutline2,
-		BuildingOutline3
+		BuildingOutline3,
+		BuildingOutline4,
+		BuildingOutline5
 	};
 }
 
