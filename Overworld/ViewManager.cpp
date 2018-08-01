@@ -8,12 +8,12 @@
 
 #include "ViewManager.hpp"
 
-ViewManager::ViewManager(sf::View& hud, sf::View& map, bool onhud)
+Screen::Screen(sf::View& hud, sf::View& map, bool onhud)
 : HUD(hud), mapView(map), onHUD(onhud)
 {
 }
 
-void ViewManager::ViewToMap(sf::RenderWindow& rw) {
+void Screen::ViewToMap(sf::RenderWindow& rw) {
 	if (!onHUD) {
 		return;
 	} else {
@@ -23,7 +23,7 @@ void ViewManager::ViewToMap(sf::RenderWindow& rw) {
 	}
 }
 
-void ViewManager::ViewToHUD(sf::RenderWindow& rw) {
+void Screen::ViewToHUD(sf::RenderWindow& rw) {
 	if (onHUD) {
 		return;
 	} else {

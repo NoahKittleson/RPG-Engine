@@ -9,9 +9,9 @@
 #pragma once
 #include "PrefixHeader.pch"
 
-class ViewManager {
+class Screen : public sf::RenderWindow {
 public:
-	ViewManager(sf::View& HUD, sf::View& mapView, bool onHUD = false);
+	Screen(sf::View& HUD, sf::View& mapView, bool onHUD = false);
 	void ViewToMap(sf::RenderWindow& rw);
 	void ViewToHUD(sf::RenderWindow& rw);
 	
