@@ -63,7 +63,8 @@ namespace Textures {
 		BuildingOutline3,
 		BuildingOutline4,
 		BuildingOutline5,
-		BuildingOutline6
+		BuildingOutline6,
+		Fountain
 	};
 }
 

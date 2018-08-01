@@ -15,34 +15,41 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	
 	
 	//A store
-	MapObject store (make_unique<GraphicsComponent>(resources.getTexture(Textures::Store1), sf::Vector2f (600,300)));
+	MapObject store (make_unique<GraphicsComponent>(resources.getTexture(Textures::Store1), sf::Vector2f (700,375)));
 	store.setScale(scale);
 	store.addCollisionBox(-41 * scale, 12 * scale, 80 * scale, 13 * scale);
 	addObject(store);
 	
 	//A smith shop
-	MapObject building2 (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline6), sf::Vector2f (170,550)));
-	building2.setScale(scale);
-	building2.addCollisionBox(-55 * scale, 10 * scale, 110 * scale, 20 * scale);
-	addObject(building2);
+	MapObject smith (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline6), sf::Vector2f (100,550)));
+	smith.setScale(scale);
+	smith.addCollisionBox(-55 * scale, 10 * scale, 110 * scale, 20 * scale);
+	addObject(smith);
 	
 	//A Chapel
-	MapObject building3 (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline4), sf::Vector2f (500,700)));
-	building3.setScale(scale);
-	building3.addCollisionBox(-53 * scale, 10 * scale, 106 * scale, 40 * scale);
-	addObject(building3);
+	MapObject chapel (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline4), sf::Vector2f (500,700)));
+	chapel.setScale(scale);
+	chapel.addCollisionBox(-53 * scale, 10 * scale, 106 * scale, 40 * scale);
+	addObject(chapel);
 	
 	//An Inn
-	MapObject building4 (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline5), sf::Vector2f (360,300)));
-	building4.setScale(scale);
-	building4.addCollisionBox(-55 * scale, 10 * scale, 100 * scale, 20 * scale);
-	addObject(building4);
+	MapObject Inn (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline5), sf::Vector2f (500,250)));
+	Inn.setScale(scale);
+	Inn.addCollisionBox(-55 * scale, 10 * scale, 100 * scale, 20 * scale);
+	//Inn.offsetBase(-7 * scale);
+	addObject(Inn);
 	
 	//The Clocktower
 	MapObject clocktower (make_unique<GraphicsComponent>(resources.getTexture(Textures::Clocktower), sf::Vector2f (700,500)));
 	clocktower.setScale(scale);
 	clocktower.addCollisionBox(-20 * scale, -50 * scale, 40 * scale, 110 * scale);
 	addObject(clocktower);
+	
+	//The Fountain
+	MapObject fountain (make_unique<GraphicsComponent>(resources.getTexture(Textures::Fountain), sf::Vector2f (400,500)));
+	fountain.setScale(scale);
+	fountain.addCollisionBox(-15 * scale, 10 * scale, 29 * scale, 6 * scale);
+	addObject(fountain);
 	
 	//Sitting Soldier
 	MapObject soldierSitting (make_unique<GraphicsComponent>(resources.getTexture(Textures::SittingSoldier), sf::Vector2f (150,200)));
@@ -51,13 +58,13 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	addObject(soldierSitting);
 	
 	//Saluting Soldier
-	MapObject soldierStanding (make_unique<GraphicsComponent>(resources.getTexture(Textures::SalutingSoldier), sf::Vector2f (200,200)));
+	MapObject soldierStanding (make_unique<GraphicsComponent>(resources.getTexture(Textures::SalutingSoldier), sf::Vector2f (360,360)));
 	soldierStanding.setScale(scale);
 	soldierStanding.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
 	addObject(soldierStanding);
 	
-	//Saluting Soldier
-	MapObject theColonel (make_unique<GraphicsComponent>(resources.getTexture(Textures::TheColonel), sf::Vector2f (250,200)));
+	//The Colonel
+	MapObject theColonel (make_unique<GraphicsComponent>(resources.getTexture(Textures::TheColonel), sf::Vector2f (400,360)));
 	theColonel.setScale(scale);
 	theColonel.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
 	addObject(theColonel);
