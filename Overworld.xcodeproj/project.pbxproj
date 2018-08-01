@@ -45,7 +45,7 @@
 		B7408AC220B3EE4A00CADF12 /* BlinkFade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7408AC020B3EE4A00CADF12 /* BlinkFade.cpp */; };
 		B742133F1E3836F300090D95 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = B742133E1E3836F300090D95 /* tree.png */; };
 		B74213421E384C7F00090D95 /* BeachNorth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B74213401E384C7F00090D95 /* BeachNorth.cpp */; };
-		B742B0852110F26100C05D98 /* ViewManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B742B0832110F26100C05D98 /* ViewManager.cpp */; };
+		B742B0852110F26100C05D98 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B742B0832110F26100C05D98 /* Screen.cpp */; };
 		B742D6F91C1292EA0093C785 /* ResourceHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B742D6F71C1292EA0093C785 /* ResourceHolder.cpp */; };
 		B7439C1A1ECA6D8C00724D0B /* Scarecrow.png in Resources */ = {isa = PBXBuildFile; fileRef = B7439C191ECA6D8C00724D0B /* Scarecrow.png */; };
 		B7439C1E1ECB8DED00724D0B /* GraphicsComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7439C1C1ECB8DED00724D0B /* GraphicsComponent.cpp */; };
@@ -181,8 +181,8 @@
 		B742133E1E3836F300090D95 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
 		B74213401E384C7F00090D95 /* BeachNorth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BeachNorth.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		B74213411E384C7F00090D95 /* BeachNorth.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BeachNorth.hpp; sourceTree = "<group>"; };
-		B742B0832110F26100C05D98 /* ViewManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ViewManager.cpp; sourceTree = "<group>"; };
-		B742B0842110F26100C05D98 /* ViewManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ViewManager.hpp; sourceTree = "<group>"; };
+		B742B0832110F26100C05D98 /* Screen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Screen.cpp; sourceTree = "<group>"; };
+		B742B0842110F26100C05D98 /* Screen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Screen.hpp; sourceTree = "<group>"; };
 		B742D6F71C1292EA0093C785 /* ResourceHolder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceHolder.cpp; sourceTree = "<group>"; };
 		B742D6F81C1292EA0093C785 /* ResourceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceHolder.h; sourceTree = "<group>"; };
 		B7439C191ECA6D8C00724D0B /* Scarecrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Scarecrow.png; sourceTree = "<group>"; };
@@ -495,8 +495,8 @@
 				B742D6F81C1292EA0093C785 /* ResourceHolder.h */,
 				B742D6F71C1292EA0093C785 /* ResourceHolder.cpp */,
 				B777840D1AE5D332007FA840 /* PrefixHeader.pch */,
-				B742B0842110F26100C05D98 /* ViewManager.hpp */,
-				B742B0832110F26100C05D98 /* ViewManager.cpp */,
+				B742B0842110F26100C05D98 /* Screen.hpp */,
+				B742B0832110F26100C05D98 /* Screen.cpp */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -760,7 +760,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B742B0852110F26100C05D98 /* ViewManager.cpp in Sources */,
+				B742B0852110F26100C05D98 /* Screen.cpp in Sources */,
 				B7396FD120F09DE10095DDB5 /* MountainSouth.cpp in Sources */,
 				B75ABA291C7BE1C400B9FFDE /* DialogueMode.cpp in Sources */,
 				B79AD8D81D4F128200B7C8F7 /* Start.cpp in Sources */,

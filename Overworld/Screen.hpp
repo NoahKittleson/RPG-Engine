@@ -1,5 +1,5 @@
 //
-//  ViewManager.hpp
+//  Screen.hpp
 //  Overworld
 //
 //  Created by Noah Kittleson on 7/31/18.
@@ -11,9 +11,9 @@
 
 class Screen : public sf::RenderWindow {
 public:
-	Screen(sf::View& HUD, sf::View& mapView, bool onHUD = false);
-	void ViewToMap(sf::RenderWindow& rw);
-	void ViewToHUD(sf::RenderWindow& rw);
+	Screen();
+	void ViewToMap();
+	void ViewToHUD();
 	
 private:
 	sf::View HUD;
