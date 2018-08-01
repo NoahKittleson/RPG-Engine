@@ -25,9 +25,13 @@ public:
 	virtual State* proc(ConditionVec& conds) const;
 	bool meetsReqs(ConditionVec& conds) const;
 	
+	enum Effect {fade, blink, none};
+	void setEffect(Effect);
+	
 protected:
 	ConditionMap prereqs;
 	std::function<State*()> makePtr;
+	Effect effectOnProc = none;
 };
 
 

@@ -24,6 +24,11 @@ bool Trigger::meetsReqs(ConditionVec& conds) const {
 	return requirementMet;
 }
 
+void Trigger::setEffect(Effect effect) {
+	effectOnProc = effect;
+}
+
+
 GroundTrigger::GroundTrigger(ConditionMap& map, std::function<State*()> func, sf::FloatRect rect)
 : Trigger(map, func), area(rect)
 {
