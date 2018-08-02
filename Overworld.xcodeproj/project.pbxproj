@@ -16,6 +16,7 @@
 		B706A6D5211253AA009DC84D /* Clocktower.png in Resources */ = {isa = PBXBuildFile; fileRef = B706A6D3211253AA009DC84D /* Clocktower.png */; };
 		B706A6D6211253AA009DC84D /* BuildingOutline6.png in Resources */ = {isa = PBXBuildFile; fileRef = B706A6D4211253AA009DC84D /* BuildingOutline6.png */; };
 		B706A6D8211262FC009DC84D /* Fountain.png in Resources */ = {isa = PBXBuildFile; fileRef = B706A6D7211262FC009DC84D /* Fountain.png */; };
+		B706A6DA211280DC009DC84D /* Booth.png in Resources */ = {isa = PBXBuildFile; fileRef = B706A6D9211280DC009DC84D /* Booth.png */; };
 		B706F0781BFFE59700C95D49 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B706F0761BFFE59700C95D49 /* State.cpp */; };
 		B70D18DD20284340000B3584 /* BattleInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B70D18DB20284340000B3584 /* BattleInfo.cpp */; };
 		B7215CE72107FEE000D7A6B6 /* Lighthouse.png in Resources */ = {isa = PBXBuildFile; fileRef = B7215CE62107FEE000D7A6B6 /* Lighthouse.png */; };
@@ -140,6 +141,7 @@
 		B706A6D3211253AA009DC84D /* Clocktower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clocktower.png; sourceTree = "<group>"; };
 		B706A6D4211253AA009DC84D /* BuildingOutline6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuildingOutline6.png; sourceTree = "<group>"; };
 		B706A6D7211262FC009DC84D /* Fountain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fountain.png; sourceTree = "<group>"; };
+		B706A6D9211280DC009DC84D /* Booth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Booth.png; sourceTree = "<group>"; };
 		B706F0761BFFE59700C95D49 /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
 		B706F0771BFFE59700C95D49 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
 		B70D18DB20284340000B3584 /* BattleInfo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleInfo.cpp; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				B7DAA36F210288D800DF1E7C /* BasicDead.png */,
 				B7023E141BB61A4A005A6F93 /* BasicIdle.png */,
 				B743EDA020FECCFF006DE82D /* BikiniBabe.png */,
+				B706A6D9211280DC009DC84D /* Booth.png */,
 				B78316FF20EC9C7100740527 /* BrickHouse.png */,
 				B7603A86210BD0B400B6B858 /* BuildingOutline2.png */,
 				B7603A87210BD0B400B6B858 /* BuildingOutline3.png */,
@@ -742,6 +745,7 @@
 				B7A0D23A209BC3EF00098096 /* pond.png in Resources */,
 				B77783FD1AE5C57D007FA840 /* nice_music.ogg in Resources */,
 				B7635BF620FF308300806279 /* PlayerWalkingLeft2.png in Resources */,
+				B706A6DA211280DC009DC84D /* Booth.png in Resources */,
 				B7603A91210D9D2500B6B858 /* Pirate.png in Resources */,
 				B706A6D8211262FC009DC84D /* Fountain.png in Resources */,
 				B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */,

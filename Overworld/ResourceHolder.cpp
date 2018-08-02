@@ -72,6 +72,7 @@ ResourceHolder::ResourceHolder()
 	textureIDMap.insert(std::make_pair("BuildingOutline5.png", Textures::ID::BuildingOutline5));
 	textureIDMap.insert(std::make_pair("BuildingOutline6.png", Textures::ID::BuildingOutline6));
 	textureIDMap.insert(std::make_pair("Fountain.png", Textures::ID::Fountain));
+	textureIDMap.insert(std::make_pair("Booth.png", Textures::ID::Booth));
 
 	
 	

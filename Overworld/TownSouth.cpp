@@ -15,13 +15,13 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	
 	
 	//A store
-	MapObject store (make_unique<GraphicsComponent>(resources.getTexture(Textures::Store1), sf::Vector2f (700,375)));
+	MapObject store (make_unique<GraphicsComponent>(resources.getTexture(Textures::Store1), sf::Vector2f (150,550)));
 	store.setScale(scale);
 	store.addCollisionBox(-41 * scale, 12 * scale, 80 * scale, 13 * scale);
 	addObject(store);
 	
 	//A smith shop
-	MapObject smith (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline6), sf::Vector2f (100,550)));
+	MapObject smith (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline6), sf::Vector2f (700,375)));
 	smith.setScale(scale);
 	smith.addCollisionBox(-55 * scale, 10 * scale, 110 * scale, 20 * scale);
 	addObject(smith);
@@ -29,13 +29,13 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	//A Chapel
 	MapObject chapel (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline4), sf::Vector2f (500,700)));
 	chapel.setScale(scale);
-	chapel.addCollisionBox(-53 * scale, 10 * scale, 106 * scale, 40 * scale);
+	chapel.addCollisionBox(-53 * scale, 20 * scale, 106 * scale, 30 * scale);
 	addObject(chapel);
 	
 	//An Inn
 	MapObject Inn (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline5), sf::Vector2f (500,250)));
 	Inn.setScale(scale);
-	Inn.addCollisionBox(-55 * scale, 10 * scale, 100 * scale, 20 * scale);
+	Inn.addCollisionBox(-55 * scale, 15 * scale, 100 * scale, 30 * scale);
 	//Inn.offsetBase(-7 * scale);
 	addObject(Inn);
 	
@@ -50,6 +50,12 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	fountain.setScale(scale);
 	fountain.addCollisionBox(-15 * scale, 10 * scale, 29 * scale, 6 * scale);
 	addObject(fountain);
+	
+	//The Booth
+	MapObject booth (make_unique<GraphicsComponent>(resources.getTexture(Textures::Booth), sf::Vector2f (150,700)));
+	booth.setScale(scale);
+	booth.addCollisionBox(-25 * scale, 13 * scale, 50 * scale, 12 * scale);
+	addObject(booth);
 	
 	//Sitting Soldier
 	MapObject soldierSitting (make_unique<GraphicsComponent>(resources.getTexture(Textures::SittingSoldier), sf::Vector2f (150,200)));
