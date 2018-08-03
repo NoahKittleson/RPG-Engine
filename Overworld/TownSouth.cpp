@@ -74,6 +74,12 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	theColonel.setScale(scale);
 	theColonel.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
 	addObject(theColonel);
+	
+	//The Waves
+	MapObject waves (make_unique<GraphicsComponent>(resources.getTexture(Textures::WavesSouth), sf::Vector2f (127,200)));
+	waves.setScale(scale);
+	waves.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
+	addObject(waves);
 
 	
 	//Set up Trigger for Talking
