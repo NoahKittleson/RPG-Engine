@@ -78,9 +78,23 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	//The Waves
 	MapObject waves (make_unique<AnimatedComponent>(resources.getTexture(Textures::WavesSouth), sf::Vector2f (127 * scale, 288 * scale), 0.6, sf::Vector2i(255, 175)));
 	waves.setScale(scale);
-	waves.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
+	//waves.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
 	waves.offsetBase(-300);
 	addObject(waves);
+	
+	//The Docks
+	MapObject docks (make_unique<GraphicsComponent>(resources.getTexture(Textures::docks), sf::Vector2f (127 * scale, 287 * scale)));
+	docks.setScale(scale);
+	docks.offsetBase(-290);
+	//left docks
+	docks.addCollisionBox(-28 * scale, 33 * scale, 1 * scale, 51 * scale);
+	docks.addCollisionBox(-53 * scale, 37 * scale, 1 * scale, 47 * scale);
+	docks.addCollisionBox(-53 * scale, 84 * scale, 25 * scale, 1 * scale);
+	//right docks
+	docks.addCollisionBox(2 * scale, 32 * scale, 1 * scale, 51 * scale);
+	docks.addCollisionBox(27 * scale, 29 * scale, 1 * scale, 53 * scale);
+	docks.addCollisionBox(3 * scale, 82 * scale, 24 * scale, 1 * scale);
+	addObject(docks);
 
 	
 	//Set up Trigger for Talking
