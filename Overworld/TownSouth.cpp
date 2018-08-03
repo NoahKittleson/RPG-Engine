@@ -76,9 +76,10 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	addObject(theColonel);
 	
 	//The Waves
-	MapObject waves (make_unique<GraphicsComponent>(resources.getTexture(Textures::WavesSouth), sf::Vector2f (127,200)));
+	MapObject waves (make_unique<AnimatedComponent>(resources.getTexture(Textures::WavesSouth), sf::Vector2f (127 * scale, 288 * scale), 0.6, sf::Vector2i(255, 175)));
 	waves.setScale(scale);
 	waves.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
+	waves.offsetBase(-300);
 	addObject(waves);
 
 	
