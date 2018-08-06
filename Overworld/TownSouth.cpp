@@ -83,7 +83,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	addObject(waves);
 	
 	//The Docks
-	MapObject docks (make_unique<GraphicsComponent>(resources.getTexture(Textures::docks), sf::Vector2f (127 * scale, 287 * scale)));
+	MapObject docks (make_unique<GraphicsComponent>(resources.getTexture(Textures::Docks), sf::Vector2f (127 * scale, 287 * scale)));
 	docks.setScale(scale);
 	docks.offsetBase(-290);
 	//left docks
@@ -95,6 +95,16 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	docks.addCollisionBox(27 * scale, 29 * scale, 1 * scale, 53 * scale);
 	docks.addCollisionBox(3 * scale, 82 * scale, 24 * scale, 1 * scale);
 	addObject(docks);
+	
+	//water zones
+	waterZones.emplace_back(sf::FloatRect(0,963,220,170));
+	waterZones.emplace_back(sf::FloatRect(223,1117,77,15));
+	waterZones.emplace_back(sf::FloatRect(300,960,88,170));
+	waterZones.emplace_back(sf::FloatRect(386,1111,76,170));
+	waterZones.emplace_back(sf::FloatRect(466,936,65,250));
+	waterZones.emplace_back(sf::FloatRect(531,885,130,250));
+	waterZones.emplace_back(sf::FloatRect(662,838,110,300));
+
 
 	
 	//Set up Trigger for Talking
@@ -106,7 +116,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	
 	ConditionMap prereqs;
 	//prereqs[Condition::ChangedMap] = true;
-	triggers.emplace_back(prereqs, createDialogue, sf::FloatRect(220,100,100,50));
+	triggers.emplace_back(prereqs, createDialogue, sf::FloatRect(300,100,100,50));
 	
 	
 	

@@ -67,7 +67,8 @@ namespace Textures {
 		Fountain,
 		Booth,
 		WavesSouth,
-		docks
+		Docks,
+		Point
 	};
 }
 
