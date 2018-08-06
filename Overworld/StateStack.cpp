@@ -10,9 +10,7 @@
 
 StateStack::~StateStack()
 {
-    while (!gameStateStack.empty()) {
-        //formerly delete
-    }
+
 }
 
 void StateStack::popTop()

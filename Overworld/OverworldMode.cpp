@@ -36,6 +36,15 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 				requestStackAdd(make_unique<PauseState>());
 
 			}
+			if (event.type == sf::Event::MouseButtonPressed) {
+				sf::Vector2i mousePosInWindow = sf::Mouse::getPosition(rw);
+				sf::Vector2u windowSize = rw.getSize();
+				sf::Vector2i MouseRelativeToCenter (mousePosInWindow.x - windowSize.x/2, mousePosInWindow.y - windowSize.y/2);
+				sf::Vector2f viewCenter = rw.getView().getCenter();
+				sf::Vector2f finalPos (viewCenter.x + MouseRelativeToCenter.x/2, viewCenter.y + MouseRelativeToCenter.y/2);
+				
+				std::cout << "Click Coordinates: " << finalPos.x << ", " << finalPos.y << ".\n";
+			}
 			switch (event.key.code) {
 				case sf::Keyboard::X:
 					//to prevent events caused from key release
