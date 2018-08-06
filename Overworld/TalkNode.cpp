@@ -8,14 +8,14 @@
 
 #include "TalkNode.h"
 
+TalkNode::TalkNode(const sf::Font &font, Dialogue::ID id)
+: DNode(font, id) {
+	text.setLooping(false);
+}
+
 TalkNode::~TalkNode() {
     std::cout << "TalkNode deleted. Text:" << getText() << "\n";
 }
-
-
-//void TalkNode::setNext(NodePtr ptr) {
-//    next = ptr;
-//}
 
 std::string TalkNode::getText() {
     if (text.size()) {
@@ -24,19 +24,26 @@ std::string TalkNode::getText() {
     return "EMPTY TEXT";
 }
 
-TalkNode::TalkNode(const sf::Font &font, Dialogue::ID id)
-: DNode(font, id) {
-    text.setLooping(false);
-}
-
 void TalkNode::addText(sf::String&& add) {
-    text.push_back(add);
+	text.push_back(add);
+
+	int lineBreakAfter = 50;
+	int atCharacter = 50;
+	while (text.back().getSize() > atCharacter) {
+		if (text.back()[atCharacter] == ' ') {
+			text.back()[atCharacter] = '\n';
+			atCharacter += lineBreakAfter;
+		} else {
+			++atCharacter;
+		}
+	}
+
 }
 
 void TalkNode::update(float elapsed) {
     auto displayString = display.getString();
     totalElapsed += elapsed;
-    
+	
     if (displayString.getSize() == text.get().getSize()) {
         return;
     }
@@ -89,25 +96,4 @@ void TalkNode::addPath(DPath path) {
 	potentialPaths.push_back(path);
 }
 
-
-//Dialogue::ID TalkNode::getNext() {
-//	//completes text if still printing to screen
-//    if (text.get().getSize() != display.getString().getSize()) {
-//        display.setString(text.get());
-//        return this;
-//    }
-//    //gets next DNode if complete
-//    if (text.atEnd()) {
-//        text.reset();
-//		clear();
-//        if (next) {
-//            next->setPosition(getPosition());
-//        }
-//        return next;
-//    }
-//	//shifts to next sentence and returns self
-//    ++text;
-//    clear();
-//    return this;
-//}
 

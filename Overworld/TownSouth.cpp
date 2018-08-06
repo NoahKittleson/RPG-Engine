@@ -105,18 +105,17 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	waterZones.emplace_back(sf::FloatRect(531,885,130,250));
 	waterZones.emplace_back(sf::FloatRect(662,838,110,300));
 
-
 	
 	//Set up Trigger for Talking
 	std::function<State*()> createDialogue = [&resources]() -> State*
 	{
-		auto dialogue = DialogueFactory::create(Dialogue::Test001, resources);
+		auto dialogue = DialogueFactory::create(Dialogue::GuardStop, resources);
 		return new DialogueMode(dialogue);
 	};
 	
 	ConditionMap prereqs;
 	//prereqs[Condition::ChangedMap] = true;
-	triggers.emplace_back(prereqs, createDialogue, sf::FloatRect(300,100,100,50));
+	triggers.emplace_back(prereqs, createDialogue, sf::FloatRect(243,380,20,110));
 	
 	
 	

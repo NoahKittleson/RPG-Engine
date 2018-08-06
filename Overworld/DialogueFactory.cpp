@@ -50,6 +50,16 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 			return node;
 		}
 			
+		case Dialogue::GuardStop: {
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::GuardStop);
+			node->addText("Hold it right there, ma'am.  The military is currently using this town as our base of operations.  While the rebels are stationed nearby we can't let any unauthorized personel in.");
+			node->addText("If you need to buy supplies, there's another town up to the North-east.");
+			node->addText("You don't look too threatening though.  If you want you can try talking to the Colonel and he might let you in.");
+			node->addText("He's around the side, guarding the exit to the East.");
+			node->addText("Say 'Hi' for me, will ya?");
+			return node;
+		}
+			
 //		default:					//I am specifically not going to have a default block so that I know what's missing
 //			break;
 	}

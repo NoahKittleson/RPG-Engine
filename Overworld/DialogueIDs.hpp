@@ -9,7 +9,7 @@
 #pragma once
 
 namespace Dialogue {
-	enum ID { Error, None, Test001, Test002, Test003, };
+	enum ID { Error, None, Test001, Test002, Test003, GuardStop};
 }
 
 
