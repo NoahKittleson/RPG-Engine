@@ -106,17 +106,34 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	waterZones.emplace_back(sf::FloatRect(662,838,110,300));
 
 	
-	//Set up Trigger for Talking
+	//Set up Trigger for Warning
 	std::function<State*()> createDialogue = [&resources]() -> State*
 	{
-		auto dialogue = DialogueFactory::create(Dialogue::GuardStop, resources);
+		auto dialogue = DialogueFactory::create(Dialogue::GuardStop1, resources);
 		return new DialogueMode(dialogue);
 	};
 	
 	ConditionMap prereqs;
-	//prereqs[Condition::ChangedMap] = true;
 	triggers.emplace_back(prereqs, createDialogue, sf::FloatRect(243,380,20,110));
 	
+	//Set up Trigger for Second Warning
+	std::function<State*()> warning = [&resources]() -> State*
+	{
+		auto dialogue = DialogueFactory::create(Dialogue::GuardStop2, resources);
+		return new DialogueMode(dialogue);
+	};
+	
+	triggers.emplace_back(prereqs, warning, sf::FloatRect(263,380,20,110));
+	
+	//Set up Trigger for Fighting
+	std::function<State*()> createBattle = [&resources]() -> State*
+	{
+		std::vector<std::shared_ptr<Character>> enemyVec;
+		enemyVec.emplace_back(CharacterGenerator::create(resources, Combatant::Logo));
+		return new BattleState(enemyVec);
+	};
+	triggers.emplace_back(prereqs, createBattle, sf::FloatRect(283,380,20,110));
+	triggers.back().setEffect(GroundTrigger::blink);
 	
 	
 	//Set up Zone Exits
