@@ -129,7 +129,7 @@
 		B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */; };
 		B7E99BDB20B7817800FABB99 /* BeachWest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E99BD920B7817800FABB99 /* BeachWest.cpp */; };
 		B7EE61632071DEAD00AA376E /* BattleEndMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7EE61612071DEAD00AA376E /* BattleEndMode.cpp */; };
-		B7EF1BC420D246DE00CFD04E /* Waves.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EF1BC320D246DE00CFD04E /* Waves.png */; };
+		B7EF1BC420D246DE00CFD04E /* WavesWest.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EF1BC320D246DE00CFD04E /* WavesWest.png */; };
 		B7F96FDA1FFCD21B00FAB91B /* BattleAction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */; };
 /* End PBXBuildFile section */
 
@@ -315,7 +315,7 @@
 		B7E99BDA20B7817800FABB99 /* BeachWest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BeachWest.hpp; sourceTree = "<group>"; };
 		B7EE61612071DEAD00AA376E /* BattleEndMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleEndMode.cpp; sourceTree = "<group>"; };
 		B7EE61622071DEAD00AA376E /* BattleEndMode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleEndMode.hpp; sourceTree = "<group>"; };
-		B7EF1BC320D246DE00CFD04E /* Waves.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Waves.png; sourceTree = "<group>"; };
+		B7EF1BC320D246DE00CFD04E /* WavesWest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WavesWest.png; sourceTree = "<group>"; };
 		B7F96FD81FFCD21B00FAB91B /* BattleAction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleAction.cpp; sourceTree = "<group>"; };
 		B7F96FD91FFCD21B00FAB91B /* BattleAction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleAction.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -398,7 +398,7 @@
 				B747A9F721085AD6007F29EC /* StoreOutline.png */,
 				B7942A93210A958B00BA2195 /* TheColonel.png */,
 				B742133E1E3836F300090D95 /* tree.png */,
-				B7EF1BC320D246DE00CFD04E /* Waves.png */,
+				B7EF1BC320D246DE00CFD04E /* WavesWest.png */,
 				B7A1EB391EDA9F5100667423 /* Yak.png */,
 			);
 			name = Textures;
@@ -737,7 +737,7 @@
 				B7396FBE20F036EB0095DDB5 /* MountainSouth.png in Resources */,
 				B7396FC620F036EB0095DDB5 /* BeachSouth.png in Resources */,
 				B7396FC520F036EB0095DDB5 /* MountainEast.png in Resources */,
-				B7EF1BC420D246DE00CFD04E /* Waves.png in Resources */,
+				B7EF1BC420D246DE00CFD04E /* WavesWest.png in Resources */,
 				B706A6D5211253AA009DC84D /* Clocktower.png in Resources */,
 				B7396FBD20F036EB0095DDB5 /* Start.png in Resources */,
 				B7701D851EF4740D006AB891 /* Campfire.png in Resources */,

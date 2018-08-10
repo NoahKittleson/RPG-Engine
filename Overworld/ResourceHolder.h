@@ -45,7 +45,7 @@ namespace Textures {
 		Yak,
 		Pond,
 		Bush,
-		Waves,
+		WavesWest,
 		SmallWheat,
 		BrickHouse,
 		DeadTree,

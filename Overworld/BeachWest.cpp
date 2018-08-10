@@ -16,22 +16,29 @@ BeachWest::BeachWest(const ResourceHolder& resources, const std::vector<Conditio
 	background.setScale(scale, scale);
 	
 	//this is *mostly* a test....
-	waterZones.emplace_back(sf::FloatRect(0,0,325,1600));
+	waterZones.emplace_back(sf::FloatRect(0,0,325,120));
+	waterZones.emplace_back(sf::FloatRect(0,120,260,260));
+	waterZones.emplace_back(sf::FloatRect(0,380,300,470));
+	waterZones.emplace_back(sf::FloatRect(0,850,250,120));
+	waterZones.emplace_back(sf::FloatRect(0,970,220,230));
+
 	
 	//Waves
 	std::vector<sf::FloatRect> boxList;
 	sf::Vector2f size = sf::Vector2f(200, 400); 						//magic number
 	boxList.emplace_back(-400, -800, 200, 1600);						//ho boy look how magic these numbers are
 
-	MapObject Waves (make_unique<AnimatedComponent>(resources.getTexture(Textures::Waves), sf::Vector2f(size.x * scale/2, size.y * scale/2), 0.2, sf::Vector2i(size.x, size.y)), boxList);
+	MapObject Waves (make_unique<AnimatedComponent>(resources.getTexture(Textures::WavesWest), sf::Vector2f(size.x * scale/2, size.y * scale/2), 0.2, sf::Vector2i(size.x, size.y)), boxList);
 	
 	Waves.offsetBase(-size.y * scale);
 	Waves.setScale(scale);
 	addObject(Waves);
 	boxList.clear();
 	
+	
+	//Selfie Girl
 	MapObject Girl (make_unique<GraphicsComponent>(resources.getTexture(Textures::BikiniBabe), sf::Vector2f(300,200)));
-	Girl.addCollisionBox(-4 * scale, 12 * scale, 8 * scale, 4 * scale);
+	Girl.addCollisionBox(-4 * scale, 10 * scale, 8 * scale, 2 * scale);
 	Girl.setScale(scale);
 	addObject(Girl);
 
