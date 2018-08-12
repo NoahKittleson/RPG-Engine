@@ -8,8 +8,8 @@
 
 #include "TalkNode.h"
 
-TalkNode::TalkNode(const sf::Font &font, Dialogue::ID id)
-: DNode(font, id) {
+TalkNode::TalkNode(const sf::Font &font, Dialogue::ID id, Dialogue::Speaker speaking)
+: DNode(font, id), speaker(speaking) {
 	text.setLooping(false);
 }
 
@@ -95,5 +95,19 @@ Dialogue::ID TalkNode::getNext(const std::vector<Condition>& cv) {
 void TalkNode::addPath(DPath path) {
 	potentialPaths.push_back(path);
 }
+
+sf::String TalkNode::speakerToText(Dialogue::Speaker speaker) const {
+	switch (speaker) {
+		case Dialogue::Narrator:
+			return "";
+			
+		case Dialogue::Gabriela:
+			return "Gabriela";
+			
+		case Dialogue::Marquez:
+			return "Marquez";
+	}
+}
+
 
 

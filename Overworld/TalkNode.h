@@ -13,7 +13,7 @@
 class TalkNode: public DNode
 {
 public:
-	TalkNode(const sf::Font&, Dialogue::ID);
+	TalkNode(const sf::Font&, Dialogue::ID, Dialogue::Speaker = Dialogue::Narrator);
     ~TalkNode();
     
 	void addText(sf::String&&);
@@ -26,10 +26,11 @@ public:
 	Dialogue::ID getNext(const std::vector<Condition>& cv) override;
 
 private:
-	//Dialogue::ID next { Dialogue::None };
+	Dialogue::Speaker speaker;
     float totalElapsed {0};
     IterVector<sf::String> text;
 	std::vector<DPath> potentialPaths;
     
     std::string getText() override;
+	sf::String speakerToText(Dialogue::Speaker) const;
 };

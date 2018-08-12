@@ -10,6 +10,7 @@
 
 namespace Dialogue {
 	enum ID { Error, None, Test001, Test002, Test003, GuardStop1, GuardStop2};
+	enum Speaker { Narrator, Gabriela, Marquez };
 }
 
 
