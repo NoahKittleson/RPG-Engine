@@ -18,6 +18,8 @@ public:
     
 	void addText(sf::String&&);
 	void addPath(DPath path);						//paths need to be added in sequential order of priority
+	void setPosition(sf::Vector2f xy) override;
+	void setPosition(float x, float y) override;
 	
     void clear() override;
     void update(float elapsed) override;
@@ -26,9 +28,10 @@ public:
 	Dialogue::ID getNext(const std::vector<Condition>& cv) override;
 
 private:
-	Dialogue::Speaker speaker;
+	Dialogue::Speaker speakerID;
     float totalElapsed {0};
     IterVector<sf::String> text;
+	sf::Text speakerText;
 	std::vector<DPath> potentialPaths;
     
     std::string getText() override;

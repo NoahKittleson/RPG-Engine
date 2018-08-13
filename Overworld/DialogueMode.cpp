@@ -17,7 +17,7 @@ DialogueMode::DialogueMode(NodePtr start)
 	
 	dialogueBar.setTexture(resources.getTexture(Textures::DialogueBar));
 	dialogueBar.setScale(3, 3);								//should be scale
-	dialogueBar.setPosition(50, 550);
+	dialogueBar.setPosition(50, 502);
 }
 
 void DialogueMode::handleInput(sf::RenderWindow& rw) {

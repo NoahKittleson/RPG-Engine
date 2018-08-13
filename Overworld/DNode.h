@@ -19,8 +19,8 @@ class DNode
 {
 public:
 	DNode(const sf::Font&, Dialogue::ID ID);
-    void setPosition(float x, float y);
-    void setPosition(sf::Vector2f xy);
+    virtual void setPosition(float x, float y);
+    virtual void setPosition(sf::Vector2f xy);
     sf::Vector2f getPosition() const;
     
     virtual void clear();

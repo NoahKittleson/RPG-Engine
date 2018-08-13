@@ -8,9 +8,12 @@
 
 #include "TalkNode.h"
 
-TalkNode::TalkNode(const sf::Font &font, Dialogue::ID id, Dialogue::Speaker speaking)
-: DNode(font, id), speaker(speaking) {
+TalkNode::TalkNode(const sf::Font &font, Dialogue::ID id, Dialogue::Speaker speaker)
+: DNode(font, id), speakerID(speaker) {
 	text.setLooping(false);
+	speakerText.setFont(font);
+	speakerText.setColor(sf::Color::Black);
+	speakerText.setString(speakerToText(speaker));
 }
 
 TalkNode::~TalkNode() {
@@ -58,6 +61,7 @@ void TalkNode::update(float elapsed) {
 
 void TalkNode::draw(sf::RenderWindow &rw) {
     rw.draw(display);
+	rw.draw(speakerText);
 }
 
 void TalkNode::clear() {
@@ -96,10 +100,20 @@ void TalkNode::addPath(DPath path) {
 	potentialPaths.push_back(path);
 }
 
+void TalkNode::setPosition(sf::Vector2f xy) {
+	DNode::setPosition(xy);
+	speakerText.setPosition(xy.x+540, xy.y-55);				//magic numbers
+}
+
+void TalkNode::setPosition(float x, float y) {
+	DNode::setPosition(x, y);
+	speakerText.setPosition(x+540, y-55);
+}
+
 sf::String TalkNode::speakerToText(Dialogue::Speaker speaker) const {
 	switch (speaker) {
 		case Dialogue::Narrator:
-			return "";
+			return "ThisIsATest";
 			
 		case Dialogue::Gabriela:
 			return "Gabriela";
