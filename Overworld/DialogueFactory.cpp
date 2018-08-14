@@ -51,7 +51,7 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 		}
 			
 		case Dialogue::GuardStop1: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::GuardStop1);
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::GuardStop1, Dialogue::SittingGuard);
 			node->addText("Hold it right there, ma'am.  The military is currently using this town as our base of operations.  While the rebels are stationed nearby we can't let any unauthorized personel in.");
 			node->addText("If you need to buy supplies, there's another town up to the North-east.");
 			node->addText("You don't look too threatening though.  If you want you can try talking to the Colonel and he might let you in.");
@@ -61,7 +61,7 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 		}
 			
 		case Dialogue::GuardStop2: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::GuardStop2);
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::GuardStop2, Dialogue::SittingGuard);
 			node->addText("Hey, come on lady.  I already told you.");
 			node->addText("No entry, got it?  Don't make me get up out of this chair.");
 			node->addText("If you want to make a fuss, go find to the Colonel.  He's usually at the Eastern entrance.");

@@ -113,13 +113,16 @@ void TalkNode::setPosition(float x, float y) {
 sf::String TalkNode::speakerToText(Dialogue::Speaker speaker) const {
 	switch (speaker) {
 		case Dialogue::Narrator:
-			return "ThisIsATest";
+			return "Unreliable Narrator";
 			
 		case Dialogue::Gabriela:
 			return "Gabriela";
 			
 		case Dialogue::Marquez:
 			return "Marquez";
+			
+		case Dialogue::SittingGuard:
+			return "Sitting Guard";
 	}
 }
 
