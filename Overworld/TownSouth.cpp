@@ -17,7 +17,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	//A store
 	MapObject store (make_unique<GraphicsComponent>(resources.getTexture(Textures::Store1), sf::Vector2f (150,550)));
 	store.setScale(scale);
-	store.addCollisionBox(-41 * scale, 12 * scale, 80 * scale, 13 * scale);
+	store.addCollisionBox(-41 * scale, 12 * scale, 83 * scale, 13 * scale);
 	addObject(store);
 	
 	//A smith shop
@@ -45,11 +45,11 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	clocktower.addCollisionBox(-20 * scale, -50 * scale, 40 * scale, 110 * scale);
 	addObject(clocktower);
 	
-	//The Fountain
-	MapObject fountain (make_unique<GraphicsComponent>(resources.getTexture(Textures::Fountain), sf::Vector2f (400,500)));
-	fountain.setScale(scale);
-	fountain.addCollisionBox(-15 * scale, 10 * scale, 29 * scale, 6 * scale);
-	addObject(fountain);
+	//The Fountain	[removed for now...]
+//	MapObject fountain (make_unique<GraphicsComponent>(resources.getTexture(Textures::Fountain), sf::Vector2f (400,500)));
+//	fountain.setScale(scale);
+//	fountain.addCollisionBox(-15 * scale, 10 * scale, 29 * scale, 6 * scale);
+//	addObject(fountain);
 	
 	//The Booth
 	MapObject booth (make_unique<GraphicsComponent>(resources.getTexture(Textures::Booth), sf::Vector2f (150,700)));
