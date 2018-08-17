@@ -27,7 +27,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	addObject(smith);
 	
 	//A Chapel
-	MapObject chapel (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline4), sf::Vector2f (500,700)));
+	MapObject chapel (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline4), sf::Vector2f (450,700)));
 	chapel.setScale(scale);
 	chapel.addCollisionBox(-53 * scale, 20 * scale, 106 * scale, 30 * scale);
 	addObject(chapel);
