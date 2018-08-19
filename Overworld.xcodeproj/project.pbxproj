@@ -125,6 +125,7 @@
 		B7DAA36E210288D200DF1E7C /* GetKilled.png in Resources */ = {isa = PBXBuildFile; fileRef = B7DAA36D210288D200DF1E7C /* GetKilled.png */; };
 		B7DAA370210288D800DF1E7C /* BasicDead.png in Resources */ = {isa = PBXBuildFile; fileRef = B7DAA36F210288D800DF1E7C /* BasicDead.png */; };
 		B7DAD36221293E52002E7000 /* BuildingOutline7.png in Resources */ = {isa = PBXBuildFile; fileRef = B7DAD36121293E52002E7000 /* BuildingOutline7.png */; };
+		B7DAD364212A23D3002E7000 /* BoothAnimation.png in Resources */ = {isa = PBXBuildFile; fileRef = B7DAD363212A23D3002E7000 /* BoothAnimation.png */; };
 		B7DD37451C35DFFC0089224E /* BattleState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DD37431C35DFFC0089224E /* BattleState.cpp */; };
 		B7DEE729207F2AAD00B1B97C /* MapFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DEE727207F2AAD00B1B97C /* MapFactory.cpp */; };
 		B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */; };
@@ -307,6 +308,7 @@
 		B7DAA36D210288D200DF1E7C /* GetKilled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GetKilled.png; sourceTree = "<group>"; };
 		B7DAA36F210288D800DF1E7C /* BasicDead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BasicDead.png; sourceTree = "<group>"; };
 		B7DAD36121293E52002E7000 /* BuildingOutline7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuildingOutline7.png; sourceTree = "<group>"; };
+		B7DAD363212A23D3002E7000 /* BoothAnimation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BoothAnimation.png; sourceTree = "<group>"; };
 		B7DD37431C35DFFC0089224E /* BattleState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BattleState.cpp; sourceTree = "<group>"; };
 		B7DD37441C35DFFC0089224E /* BattleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleState.h; sourceTree = "<group>"; };
 		B7DEE727207F2AAD00B1B97C /* MapFactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapFactory.cpp; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				B7DAD36121293E52002E7000 /* BuildingOutline7.png */,
 				B706A6D7211262FC009DC84D /* Fountain.png */,
 				B7BE058220B938D8008D6537 /* bush.png */,
+				B7DAD363212A23D3002E7000 /* BoothAnimation.png */,
 				B7701D841EF4740D006AB891 /* Campfire.png */,
 				B706A6D3211253AA009DC84D /* Clocktower.png */,
 				B783170120EC9C7B00740527 /* DeadTree.png */,
@@ -732,6 +735,7 @@
 				B7942A95210A958B00BA2195 /* SalutingSoldier.png in Resources */,
 				B7396FBF20F036EB0095DDB5 /* BeachNorth.png in Resources */,
 				B7023E151BB61A4A005A6F93 /* BasicIdle.png in Resources */,
+				B7DAD364212A23D3002E7000 /* BoothAnimation.png in Resources */,
 				B7023E111BB61A36005A6F93 /* GetHitAnimation.png in Resources */,
 				B7603A8F210D9D2500B6B858 /* Baker.png in Resources */,
 				B7635BF420FF308300806279 /* PlayerWalkingRight2.png in Resources */,

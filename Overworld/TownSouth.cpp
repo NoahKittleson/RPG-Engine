@@ -64,8 +64,11 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 //	addObject(fountain);
 	
 	//The Booth
-	MapObject booth (make_unique<GraphicsComponent>(resources.getTexture(Textures::Booth),
-													sf::Vector2f (50 * scale, 233 * scale)));
+//	MapObject booth (make_unique<GraphicsComponent>(resources.getTexture(Textures::Booth),
+//													sf::Vector2f (50 * scale, 233 * scale)));
+//	
+	MapObject booth (make_unique<AnimatedComponent>(resources.getTexture(Textures::BoothAnimation),
+													sf::Vector2f (50 * scale, 233 * scale), 0.6, sf::Vector2i(54, 43)));
 	booth.setScale(scale);
 	booth.addCollisionBox(-25 * scale, 13 * scale, 50 * scale, 12 * scale);
 	addObject(booth);
@@ -86,7 +89,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	
 	//The Colonel
 	MapObject theColonel (make_unique<GraphicsComponent>(resources.getTexture(Textures::TheColonel),
-														 sf::Vector2f (133 * scale, 120 * scale)));
+														 sf::Vector2f (222 * scale, 240 * scale)));
 	theColonel.setScale(scale);
 	theColonel.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
 	addObject(theColonel);

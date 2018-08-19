@@ -67,6 +67,7 @@ namespace Textures {
 		BuildingOutline7,
 		Fountain,
 		Booth,
+		BoothAnimation,
 		WavesSouth,
 		Docks,
 		Point
