@@ -103,7 +103,7 @@ void OverworldMode::update(sf::Clock& timer) {
 			case fadeIn:
 				currentMode = normal;
 				mode = nullptr;
-				std::cout << "Mode changed to normal.\n";
+				std::cout << "Mode changed back to normal.\n";
 				break;
 				
 			case fadeOut: {
@@ -119,7 +119,7 @@ void OverworldMode::update(sf::Clock& timer) {
 					updateView();
 				}
 				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
-				std::cout << "Fade In begun.\n";
+				std::cout << "Mode changed to Fade.\n";
 			}
 				break;
 				

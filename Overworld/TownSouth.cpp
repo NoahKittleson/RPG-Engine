@@ -9,7 +9,7 @@
 #include "TownSouth.hpp"
 
 TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::TownSouth, "", sf::Vector2f(475 * scale, 625 * scale)) {
+: MapSection(MapID::TownSouth, ""/*music goes here*/, sf::Vector2f(475 * scale, 625 * scale)) {
 	background.setTexture(resources.getTexture(Textures::TownSouth));
 	background.setScale(scale, scale);
 	
@@ -20,6 +20,13 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	store.setScale(scale);
 	store.addCollisionBox(-41 * scale, 12 * scale, 83 * scale, 13 * scale);
 	addObject(store);
+	
+	//Builings behind store
+	MapObject backgroundBuildings (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline7),
+													sf::Vector2f (49 * scale, 163 * scale)));
+	backgroundBuildings.setScale(scale);
+	backgroundBuildings.addCollisionBox(-50 * scale, 12 * scale, 100 * scale, 13 * scale);
+	addObject(backgroundBuildings);
 	
 	//A smith shop
 	MapObject smith (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline6),
@@ -39,7 +46,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	MapObject Inn (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline5),
 												  sf::Vector2f (166 * scale, 83 * scale)));
 	Inn.setScale(scale);
-	Inn.addCollisionBox(-55 * scale, 15 * scale, 100 * scale, 30 * scale);
+	Inn.addCollisionBox(-48 * scale, 15 * scale, 93 * scale, 30 * scale);
 	addObject(Inn);
 	
 	//The Clocktower
@@ -72,9 +79,9 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	
 	//Saluting Soldier
 	MapObject soldierStanding (make_unique<GraphicsComponent>(resources.getTexture(Textures::SalutingSoldier),
-															  sf::Vector2f (60 * scale, 240 * scale)));
+															  sf::Vector2f (60 * scale, 270 * scale)));
 	soldierStanding.setScale(scale);
-	soldierStanding.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
+	soldierStanding.addCollisionBox(-5 * scale, 10 * scale, 6 * scale, 2 * scale);
 	addObject(soldierStanding);
 	
 	//The Colonel

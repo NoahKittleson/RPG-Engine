@@ -14,11 +14,9 @@ Fade::Fade(bool inOut, float time) : totalDuration(time) {
     auto color = sf::Color::Black;
     inOrOut ? color.a = 255 : color.a = 0;
     jankScreenFade.setFillColor(color);
-    std::cout << "Fade Created\n";
 }
 
 Fade::~Fade() {
-	std::cout << "Fade destroyed\n";
 }
 
 void Fade::update(float elapsed) {

@@ -64,6 +64,7 @@ namespace Textures {
 		BuildingOutline4,
 		BuildingOutline5,
 		BuildingOutline6,
+		BuildingOutline7,
 		Fountain,
 		Booth,
 		WavesSouth,
