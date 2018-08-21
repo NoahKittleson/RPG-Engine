@@ -30,7 +30,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	
 	//A smith shop	[formerly a smith, outline 6]
 	MapObject smith (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline8),
-													sf::Vector2f (260 * scale, 100 * scale)));
+													sf::Vector2f (238 * scale, 100 * scale)));
 	smith.setScale(scale);
 	smith.addCollisionBox(-55 * scale, 10 * scale, 110 * scale, 20 * scale);
 	addObject(smith);
