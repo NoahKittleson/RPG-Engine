@@ -28,7 +28,4 @@ LighthouseCoast::LighthouseCoast(const ResourceHolder& resources, const std::vec
 					   sf::Vector2f(0, -mapClearance), MapID::Swamp);				//entire top
 	exits.emplace_back(sf::FloatRect(-100, 0, 100, totalArea.y),
 					   sf::Vector2f(-mapClearance, 0), MapID::TownSouth);			//top left
-
-	
-	
 }

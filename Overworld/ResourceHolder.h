@@ -71,7 +71,9 @@ namespace Textures {
 		BoothAnimation,
 		WavesSouth,
 		Docks,
-		Point
+		Point,
+		SittingSoldierBig,
+		
 	};
 }
 

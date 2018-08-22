@@ -18,7 +18,8 @@ namespace Combatant {
 		Wheat,
 		Logo,
 		Pringus,
-		Dingus
+		Dingus,
+		SittingSoldier
 	};
 }
 

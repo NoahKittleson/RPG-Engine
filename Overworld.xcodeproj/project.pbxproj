@@ -118,6 +118,7 @@
 		B7B2778E1EE3E3470051D7C4 /* WalkingAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7B2778C1EE3E3470051D7C4 /* WalkingAnimation.cpp */; };
 		B7BE058320B938D8008D6537 /* bush.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE058220B938D8008D6537 /* bush.png */; };
 		B7C00F1E20F95A36006CEEA4 /* DialogueBar.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C00F1D20F95A36006CEEA4 /* DialogueBar.png */; };
+		B7C3E67E212D402C004F9A73 /* SittingSoliderBig.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C3E67D212D402C004F9A73 /* SittingSoliderBig.png */; };
 		B7C7948C212B967700551E2F /* BuildingOutline8.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C7948B212B967600551E2F /* BuildingOutline8.png */; };
 		B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7C9F37F1E6235D300E7A045 /* Fade.cpp */; };
 		B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */; };
@@ -299,6 +300,7 @@
 		B7B2778D1EE3E3470051D7C4 /* WalkingAnimation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WalkingAnimation.hpp; sourceTree = "<group>"; };
 		B7BE058220B938D8008D6537 /* bush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bush.png; sourceTree = "<group>"; };
 		B7C00F1D20F95A36006CEEA4 /* DialogueBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DialogueBar.png; sourceTree = "<group>"; };
+		B7C3E67D212D402C004F9A73 /* SittingSoliderBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SittingSoliderBig.png; sourceTree = "<group>"; };
 		B7C7948B212B967600551E2F /* BuildingOutline8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuildingOutline8.png; sourceTree = "<group>"; };
 		B7C9F37F1E6235D300E7A045 /* Fade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fade.cpp; sourceTree = "<group>"; };
 		B7C9F3801E6235D300E7A045 /* Fade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Fade.hpp; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				B7942A92210A958A00BA2195 /* SalutingSoldier.png */,
 				B7439C191ECA6D8C00724D0B /* Scarecrow.png */,
 				B7942A94210A958B00BA2195 /* SittingSoldier.png */,
+				B7C3E67D212D402C004F9A73 /* SittingSoliderBig.png */,
 				B786FF1220E4BA8E00EAE1A0 /* SmallWheat.png */,
 				B747A9F721085AD6007F29EC /* StoreOutline.png */,
 				B7942A93210A958B00BA2195 /* TheColonel.png */,
@@ -774,6 +777,7 @@
 				B706A6D8211262FC009DC84D /* Fountain.png in Resources */,
 				B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */,
 				B7396FC320F036EB0095DDB5 /* TownSouth.png in Resources */,
+				B7C3E67E212D402C004F9A73 /* SittingSoliderBig.png in Resources */,
 				B7DAA36E210288D200DF1E7C /* GetKilled.png in Resources */,
 				B7A1EB3A1EDA9F5100667423 /* Yak.png in Resources */,
 				B742133F1E3836F300090D95 /* tree.png in Resources */,
