@@ -36,7 +36,8 @@ sprite(AnimatedComponent(*anims.getIdle(), sf::Vector2f(0,0), 0.2, sf::Vector2i(
     barOutline.setOutlineThickness(3);
     
     sprite.setTexture(*anims.getIdle());
-    if (NPC) { sprite.setScale(-1.0f, 1.0f); }
+    //if (NPC) { sprite.setScale(-1.0f, 1.0f); }
+	sprite.setScale(2.0f, 2.0f);
     
     this->name.setString(name);
     this->name.setColor(sf::Color::Black);

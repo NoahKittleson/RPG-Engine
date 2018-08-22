@@ -28,11 +28,11 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	backgroundBuildings.addCollisionBox(-50 * scale, 12 * scale, 100 * scale, 13 * scale);
 	addObject(backgroundBuildings);
 	
-	//A smith shop	[formerly a smith, outline 6]
-	MapObject smith (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline8),
-													sf::Vector2f (238 * scale, 100 * scale)));
+	//A Garden [formerly a smith, outline 6]
+	MapObject smith (make_unique<GraphicsComponent>(resources.getTexture(Textures::Garden),
+													sf::Vector2f (238 * scale, 113 * scale)));
 	smith.setScale(scale);
-	smith.addCollisionBox(-55 * scale, 10 * scale, 110 * scale, 20 * scale);
+	smith.addCollisionBox(-32 * scale, 2 * scale, 64 * scale, 14 * scale);
 	addObject(smith);
 	
 	//A Chapel
@@ -150,7 +150,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	std::function<State*()> createBattle = [&resources]() -> State*
 	{
 		std::vector<std::shared_ptr<Character>> enemyVec;
-		enemyVec.emplace_back(CharacterGenerator::create(resources, Combatant::Logo));
+		enemyVec.emplace_back(CharacterGenerator::create(resources, Combatant::SittingSoldier));
 		return new BattleState(enemyVec);
 	};
 	triggers.emplace_back(prereqs, createBattle, sf::FloatRect(283,380,20,110));

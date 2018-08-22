@@ -18,6 +18,11 @@
 			break;
 		}
 			
+		case Combatant::SittingSoldier: {
+			AnimationSheet sheet (resources.getTexture(Textures::SittingSoldierBig));
+			return CharPtr (new Character(100, 100, resources.getFont(Fonts::Bramble), "Sitting Soldier", true, sheet));
+			break;
+		}
 			
 		case Combatant::Wheat: {
 			AnimationSheet sheet (resources.getTexture(Textures::BigWheat));
@@ -25,7 +30,6 @@
 			break;
 		}
 
-		
 		case Combatant::Pringus: {
 			AnimationSheet sheet;
 			sheet.setIdle(resources.getTexture(Textures::BasicIdle));

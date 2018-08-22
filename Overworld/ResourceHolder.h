@@ -73,7 +73,7 @@ namespace Textures {
 		Docks,
 		Point,
 		SittingSoldierBig,
-		
+		Garden,
 	};
 }
 
