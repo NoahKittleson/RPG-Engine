@@ -37,9 +37,9 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	
 	//A Shed
 	MapObject shed (make_unique<GraphicsComponent>(resources.getTexture(Textures::Shed),
-													sf::Vector2f (230 * scale, 90 * scale)));
+													sf::Vector2f (240 * scale, 85 * scale)));
 	shed.setScale(scale);
-	//shed.addCollisionBox(-32 * scale, 2 * scale, 64 * scale, 14 * scale);
+	shed.addCollisionBox(-22 * scale, 9 * scale, 45 * scale, 12 * scale);
 	addObject(shed);
 	
 	//A Chapel
