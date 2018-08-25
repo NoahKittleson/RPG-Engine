@@ -29,11 +29,11 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	addObject(backgroundBuildings);
 	
 	//A Garden [formerly a smith, outline 6]
-	MapObject smith (make_unique<GraphicsComponent>(resources.getTexture(Textures::Garden),
+	MapObject garden (make_unique<GraphicsComponent>(resources.getTexture(Textures::Garden),
 													sf::Vector2f (238 * scale, 113 * scale)));
-	smith.setScale(scale);
-	smith.addCollisionBox(-32 * scale, 2 * scale, 64 * scale, 14 * scale);
-	addObject(smith);
+	garden.setScale(scale);
+	garden.addCollisionBox(-38 * scale, 2 * scale, 64 * scale, 14 * scale);
+	addObject(garden);
 	
 	//A Shed
 	MapObject shed (make_unique<GraphicsComponent>(resources.getTexture(Textures::Shed),
@@ -74,7 +74,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	MapObject booth (make_unique<AnimatedComponent>(resources.getTexture(Textures::BoothAnimation),
 													sf::Vector2f (50 * scale, 233 * scale), 0.6, sf::Vector2i(54, 43)));
 	booth.setScale(scale);
-	booth.addCollisionBox(-25 * scale, 13 * scale, 50 * scale, 12 * scale);
+	booth.addCollisionBox(-25 * scale, 10 * scale, 54 * scale, 12 * scale);
 	addObject(booth);
 	
 	//Sitting Soldier
