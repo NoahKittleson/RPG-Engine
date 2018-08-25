@@ -35,6 +35,13 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	smith.addCollisionBox(-32 * scale, 2 * scale, 64 * scale, 14 * scale);
 	addObject(smith);
 	
+	//A Shed
+	MapObject shed (make_unique<GraphicsComponent>(resources.getTexture(Textures::Shed),
+													sf::Vector2f (230 * scale, 90 * scale)));
+	shed.setScale(scale);
+	//shed.addCollisionBox(-32 * scale, 2 * scale, 64 * scale, 14 * scale);
+	addObject(shed);
+	
 	//A Chapel
 	MapObject chapel (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline4),
 													 sf::Vector2f (150 * scale, 233 * scale)));
@@ -64,9 +71,6 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 //	addObject(fountain);
 	
 	//The Booth
-//	MapObject booth (make_unique<GraphicsComponent>(resources.getTexture(Textures::Booth),
-//													sf::Vector2f (50 * scale, 233 * scale)));
-//	
 	MapObject booth (make_unique<AnimatedComponent>(resources.getTexture(Textures::BoothAnimation),
 													sf::Vector2f (50 * scale, 233 * scale), 0.6, sf::Vector2i(54, 43)));
 	booth.setScale(scale);

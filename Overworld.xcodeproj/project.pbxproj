@@ -121,6 +121,7 @@
 		B7C3E680212D4330004F9A73 /* SittingSoldierBig.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C3E67F212D4330004F9A73 /* SittingSoldierBig.png */; };
 		B7C7948C212B967700551E2F /* BuildingOutline8.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C7948B212B967600551E2F /* BuildingOutline8.png */; };
 		B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7C9F37F1E6235D300E7A045 /* Fade.cpp */; };
+		B7CCC8662130DFCD00CC6533 /* Shed.png in Resources */ = {isa = PBXBuildFile; fileRef = B7CCC8652130DFCD00CC6533 /* Shed.png */; };
 		B7CEB32F212E012B00E072D5 /* Garden.png in Resources */ = {isa = PBXBuildFile; fileRef = B7CEB32E212E012A00E072D5 /* Garden.png */; };
 		B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */; };
 		B7D17D1B1E512CDC00D71290 /* LoadState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7D17D191E512CDC00D71290 /* LoadState.cpp */; };
@@ -305,6 +306,7 @@
 		B7C7948B212B967600551E2F /* BuildingOutline8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuildingOutline8.png; sourceTree = "<group>"; };
 		B7C9F37F1E6235D300E7A045 /* Fade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fade.cpp; sourceTree = "<group>"; };
 		B7C9F3801E6235D300E7A045 /* Fade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Fade.hpp; sourceTree = "<group>"; };
+		B7CCC8652130DFCD00CC6533 /* Shed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shed.png; sourceTree = "<group>"; };
 		B7CEB32E212E012A00E072D5 /* Garden.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Garden.png; sourceTree = "<group>"; };
 		B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingLeft.png; sourceTree = "<group>"; };
 		B7D17D191E512CDC00D71290 /* LoadState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadState.cpp; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				B7603A8B210D9D2500B6B858 /* Drunk.png */,
 				B7603A8E210D9D2500B6B858 /* Fisherman.png */,
 				B7CEB32E212E012A00E072D5 /* Garden.png */,
+				B7CCC8652130DFCD00CC6533 /* Shed.png */,
 				B7023E101BB61A36005A6F93 /* GetHitAnimation.png */,
 				B7DAA36D210288D200DF1E7C /* GetKilled.png */,
 				B77784001AE5C57D007FA840 /* icon.png */,
@@ -717,6 +720,7 @@
 				B76CFD8C2114342D00E63EE3 /* WavesSouth.png in Resources */,
 				B76CFD8E2114FEDF00E63EE3 /* Docks.png in Resources */,
 				B7DAA370210288D800DF1E7C /* BasicDead.png in Resources */,
+				B7CCC8662130DFCD00CC6533 /* Shed.png in Resources */,
 				B7396FBB20F036EB0095DDB5 /* TownEast.png in Resources */,
 				B7603A88210BD0B400B6B858 /* BuildingOutline2.png in Resources */,
 				B7BE058320B938D8008D6537 /* bush.png in Resources */,

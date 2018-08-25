@@ -74,6 +74,7 @@ namespace Textures {
 		Point,
 		SittingSoldierBig,
 		Garden,
+		Shed,
 	};
 }
 
