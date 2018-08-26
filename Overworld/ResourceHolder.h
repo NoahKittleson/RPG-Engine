@@ -75,6 +75,7 @@ namespace Textures {
 		SittingSoldierBig,
 		Garden,
 		Shed,
+		ListeningMan
 	};
 }
 
