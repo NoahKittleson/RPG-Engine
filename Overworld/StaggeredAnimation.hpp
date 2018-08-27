@@ -10,12 +10,13 @@
 #include "AnimatedComponent.hpp"
 #include "IterVector.hpp"
 
-class StaggeredAnimation : public AnimatedComponent {
+class StaggeredAnimation : public AnimatedComponent
+{
 public:
 	StaggeredAnimation(const sf::Texture&, sf::Vector2f, IterVector<float> frameLengths, sf::Vector2i frame);
 	virtual void update(float elapsed) override;
 	std::unique_ptr<GraphicsComponent> getCopy() override;
 	
 protected:
-	const IterVector<float> frameLengths;
+	IterVector<float> frameLengths;
 };
