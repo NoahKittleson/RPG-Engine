@@ -9,18 +9,27 @@
 #include "StaggeredAnimation.hpp"
 
 
-StaggeredAnimation::StaggeredAnimation(const sf::Texture& t, sf::Vector2f pos, IterVector<float> FPS, sf::Vector2i frame) : AnimatedComponent(t, pos, 1, frame), frameLengths(FPS)  {
+StaggeredAnimation::StaggeredAnimation(const sf::Texture& t, sf::Vector2f pos, float defaultTimePerFrame, sf::Vector2i frame) : AnimatedComponent(t, pos, defaultTimePerFrame, frame)  {
 	int framesInSprite = t.getSize().x / frame.x;
-	if (frameLengths.size() != framesInSprite) {
-		std::cout << "Staggered Animation frame number mismatch. " << framesInSprite << " in texture, " << t.getSize().x << " in vector\n";
+	for (int iii = 0; iii < framesInSprite; iii++) {
+		timePerFrames.push_back(defaultTimePerFrame);
 	}
 }
 
 void StaggeredAnimation::update(float elapsed) {
 	totalElapsed += elapsed;
-	if (totalElapsed >= frameLengths.get()) {
+	if (totalElapsed >= timePerFrames.get()) {
 		nextFrame();
-		++frameLengths;
+		++timePerFrames;
+	}
+}
+
+void StaggeredAnimation::changeTimePerFrameAt(float time, int frameNo) {
+	if (frameNo < timePerFrames.size() && frameNo > 0) {
+		timePerFrames[frameNo-1] = time;
+	} else {
+		//it doesn't work
+		std::cout << "Staggered Animation: frame list not long enough.";
 	}
 }
 

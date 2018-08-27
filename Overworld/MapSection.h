@@ -16,6 +16,7 @@
 #include "ResourceHolder.h"
 #include "AnimatedComponent.hpp"
 #include "DelayedAnimation.hpp"
+#include "StaggeredAnimation.hpp"
 #include "TalkNode.h"
 #include "OptionNode.h"
 #include "CharacterGenerator.hpp"

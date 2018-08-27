@@ -92,8 +92,14 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	addObject(soldierStanding);
 	
 	//The Colonel
-	MapObject theColonel (make_unique<GraphicsComponent>(resources.getTexture(Textures::TheColonel),
-														 sf::Vector2f (222 * scale, 240 * scale)));
+	auto colonelSprite = make_unique<StaggeredAnimation>  (resources.getTexture(Textures::TheColonel),
+														   sf::Vector2f (222 * scale, 240 * scale), 0.15,
+														   sf::Vector2i(24, 24));
+	colonelSprite->changeTimePerFrameAt(0.45, 7);
+	colonelSprite->changeTimePerFrameAt(0.45, 13);
+	colonelSprite->changeTimePerFrameAt(0.45, 15);
+
+	MapObject theColonel (std::move(colonelSprite));
 	theColonel.setScale(scale);
 	theColonel.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
 	addObject(theColonel);
