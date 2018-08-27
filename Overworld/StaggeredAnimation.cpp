@@ -21,6 +21,7 @@ void StaggeredAnimation::update(float elapsed) {
 	if (totalElapsed >= timePerFrames.get()) {
 		nextFrame();
 		++timePerFrames;
+		totalElapsed = 0;
 	}
 }
 

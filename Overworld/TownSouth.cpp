@@ -104,6 +104,22 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	theColonel.addCollisionBox(-3 * scale, 10 * scale, 6 * scale, 2 * scale);
 	addObject(theColonel);
 	
+	//ListeningMan
+	auto listeningManSprite = make_unique<StaggeredAnimation>  (resources.getTexture(Textures::ListeningMan),
+														   sf::Vector2f (208 * scale, 240 * scale), 0.1,
+														   sf::Vector2i(24, 24));
+	listeningManSprite->changeTimePerFrameAt(2, 1);
+	listeningManSprite->changeTimePerFrameAt(1, 3);
+	listeningManSprite->changeTimePerFrameAt(0.3, 7);
+	listeningManSprite->changeTimePerFrameAt(0.3, 8);
+	listeningManSprite->changeTimePerFrameAt(0.3, 9);
+	listeningManSprite->changeTimePerFrameAt(0.3, 10);
+	
+	MapObject listeningMan (std::move(listeningManSprite));
+	listeningMan.setScale(scale);
+	listeningMan.addCollisionBox(-4 * scale, 10 * scale, 5 * scale, 2 * scale);
+	addObject(listeningMan);
+	
 	//The Waves
 	MapObject waves (make_unique<AnimatedComponent>(resources.getTexture(Textures::WavesSouth),
 					sf::Vector2f (127 * scale, 288 * scale), 0.6, sf::Vector2i(85 * scale, 58 * scale)));
