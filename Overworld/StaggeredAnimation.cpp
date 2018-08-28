@@ -26,11 +26,11 @@ void StaggeredAnimation::update(float elapsed) {
 }
 
 void StaggeredAnimation::changeTimePerFrameAt(float time, int frameNo) {
-	if (frameNo < timePerFrames.size() && frameNo > 0) {
+	if (frameNo <= timePerFrames.size() && frameNo > 0) {
 		timePerFrames[frameNo-1] = time;
 	} else {
 		//it doesn't work
-		std::cout << "Staggered Animation: frame list not long enough.";
+		std::cout << "Staggered Animation: frame list not long enough.\n";
 	}
 }
 

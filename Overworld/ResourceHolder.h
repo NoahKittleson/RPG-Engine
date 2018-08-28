@@ -56,7 +56,7 @@ namespace Textures {
 		Lighthouse,
 		Store1,
 		TheColonel,
-		SittingSoldier,
+		SittingSoldierAnim,
 		SalutingSoldier,
 		Clocktower,
 		BuildingOutline2,

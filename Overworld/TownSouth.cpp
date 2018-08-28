@@ -78,8 +78,14 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	addObject(booth);
 	
 	//Sitting Soldier
-	MapObject soldierSitting (make_unique<GraphicsComponent>(resources.getTexture(Textures::SittingSoldier),
-															 sf::Vector2f (120 * scale, 120 * scale)));
+	auto sittingSoldierSprite = make_unique<StaggeredAnimation>  (resources.getTexture(Textures::SittingSoldierAnim),
+														   sf::Vector2f (120 * scale, 120 * scale), 0.1,
+														   sf::Vector2i(24, 24));
+	sittingSoldierSprite->changeTimePerFrameAt(0.6, 10);
+	sittingSoldierSprite->changeTimePerFrameAt(2, 14);
+	sittingSoldierSprite->changeTimePerFrameAt(2, 17);
+	
+	MapObject soldierSitting (std::move(sittingSoldierSprite));
 	soldierSitting.setScale(scale);
 	soldierSitting.addCollisionBox(-5 * scale, 10 * scale, 10 * scale, 2 * scale);
 	addObject(soldierSitting);
@@ -93,7 +99,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	
 	//The Colonel
 	auto colonelSprite = make_unique<StaggeredAnimation>  (resources.getTexture(Textures::TheColonel),
-														   sf::Vector2f (222 * scale, 240 * scale), 0.15,
+														   sf::Vector2f (224 * scale, 240 * scale), 0.15,
 														   sf::Vector2i(24, 24));
 	colonelSprite->changeTimePerFrameAt(0.45, 7);
 	colonelSprite->changeTimePerFrameAt(0.45, 13);
