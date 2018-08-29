@@ -56,12 +56,19 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	Inn.addCollisionBox(-48 * scale, 15 * scale, 93 * scale, 30 * scale);
 	addObject(Inn);
 	
+//	//The Clocktower
+//	MapObject clocktower (make_unique<GraphicsComponent>(resources.getTexture(Textures::Clocktower),
+//														 sf::Vector2f (233 * scale, 166 * scale)));
+//	clocktower.setScale(scale);
+//	clocktower.addCollisionBox(-20 * scale, -50 * scale, 40 * scale, 110 * scale);
+//	addObject(clocktower);
+//
 	//The Clocktower
-	MapObject clocktower (make_unique<GraphicsComponent>(resources.getTexture(Textures::Clocktower),
-														 sf::Vector2f (233 * scale, 166 * scale)));
-	clocktower.setScale(scale);
-	clocktower.addCollisionBox(-20 * scale, -50 * scale, 40 * scale, 110 * scale);
-	addObject(clocktower);
+	MapObject eastBuilding (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline9),
+														 sf::Vector2f (240 * scale, 165 * scale)));
+	eastBuilding.setScale(scale);
+	eastBuilding.addCollisionBox(-20 * scale, -50 * scale, 40 * scale, 30 * scale);
+	addObject(eastBuilding);
 	
 	//The Fountain	[removed for now...]
 //	MapObject fountain (make_unique<GraphicsComponent>(resources.getTexture(Textures::Fountain),

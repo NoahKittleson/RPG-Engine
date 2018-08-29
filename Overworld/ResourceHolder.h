@@ -66,6 +66,7 @@ namespace Textures {
 		BuildingOutline6,
 		BuildingOutline7,
 		BuildingOutline8,
+		BuildingOutline9,
 		Fountain,
 		Booth,
 		BoothAnimation,
@@ -75,7 +76,7 @@ namespace Textures {
 		SittingSoldierBig,
 		Garden,
 		Shed,
-		ListeningMan
+		ListeningMan,
 	};
 }
 

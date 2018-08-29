@@ -128,6 +128,7 @@
 		B7CEB32F212E012B00E072D5 /* Garden.png in Resources */ = {isa = PBXBuildFile; fileRef = B7CEB32E212E012A00E072D5 /* Garden.png */; };
 		B7D17D151E4E958300D71290 /* PlayerWalkingLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */; };
 		B7D17D1B1E512CDC00D71290 /* LoadState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7D17D191E512CDC00D71290 /* LoadState.cpp */; };
+		B7D8CD2C213660590041A490 /* BuildingOutline9.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D8CD2B213660590041A490 /* BuildingOutline9.png */; };
 		B7DAA36C210272B700DF1E7C /* AnimationSheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DAA36A210272B700DF1E7C /* AnimationSheet.cpp */; };
 		B7DAA36E210288D200DF1E7C /* GetKilled.png in Resources */ = {isa = PBXBuildFile; fileRef = B7DAA36D210288D200DF1E7C /* GetKilled.png */; };
 		B7DAA370210288D800DF1E7C /* BasicDead.png in Resources */ = {isa = PBXBuildFile; fileRef = B7DAA36F210288D800DF1E7C /* BasicDead.png */; };
@@ -318,6 +319,7 @@
 		B7D17D141E4E958300D71290 /* PlayerWalkingLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerWalkingLeft.png; sourceTree = "<group>"; };
 		B7D17D191E512CDC00D71290 /* LoadState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadState.cpp; sourceTree = "<group>"; };
 		B7D17D1A1E512CDC00D71290 /* LoadState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LoadState.hpp; sourceTree = "<group>"; };
+		B7D8CD2B213660590041A490 /* BuildingOutline9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuildingOutline9.png; sourceTree = "<group>"; };
 		B7DAA36A210272B700DF1E7C /* AnimationSheet.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AnimationSheet.cpp; sourceTree = "<group>"; };
 		B7DAA36B210272B700DF1E7C /* AnimationSheet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AnimationSheet.hpp; sourceTree = "<group>"; };
 		B7DAA36D210288D200DF1E7C /* GetKilled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GetKilled.png; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				B706A6D4211253AA009DC84D /* BuildingOutline6.png */,
 				B7DAD36121293E52002E7000 /* BuildingOutline7.png */,
 				B7C7948B212B967600551E2F /* BuildingOutline8.png */,
+				B7D8CD2B213660590041A490 /* BuildingOutline9.png */,
 				B7CCC8682132783800CC6533 /* ColonelAnim.png */,
 				B7CCC8672132783800CC6533 /* ListeningManAnim.png */,
 				B706A6D7211262FC009DC84D /* Fountain.png */,
@@ -801,6 +804,7 @@
 				B7DAA36E210288D200DF1E7C /* GetKilled.png in Resources */,
 				B7A1EB3A1EDA9F5100667423 /* Yak.png in Resources */,
 				B742133F1E3836F300090D95 /* tree.png in Resources */,
+				B7D8CD2C213660590041A490 /* BuildingOutline9.png in Resources */,
 				B7C3E680212D4330004F9A73 /* SittingSoldierBig.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
