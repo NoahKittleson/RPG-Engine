@@ -56,6 +56,20 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	Inn.addCollisionBox(-48 * scale, 15 * scale, 93 * scale, 30 * scale);
 	addObject(Inn);
 	
+	//A Crowd outside the bar
+	MapObject crowd (make_unique<GraphicsComponent>(resources.getTexture(Textures::Crowd),
+													sf::Vector2f (200 * scale, 150 * scale)));
+	crowd.setScale(scale);
+	crowd.addCollisionBox(-4 * scale, 10 * scale, 8 * scale, 2 * scale);
+	addObject(crowd);
+	
+	//The Drunk
+	MapObject drunk (make_unique<AnimatedComponent>(resources.getTexture(Textures::TheDrunk),
+													sf::Vector2f (180 * scale, 170 * scale), 0.1, sf::Vector2i(31, 24)));
+	drunk.setScale(scale);
+	drunk.addCollisionBox(-4 * scale, 10 * scale, 8 * scale, 2 * scale);
+	addObject(drunk);
+	
 //	//The Clocktower
 //	MapObject clocktower (make_unique<GraphicsComponent>(resources.getTexture(Textures::Clocktower),
 //														 sf::Vector2f (233 * scale, 166 * scale)));
@@ -86,7 +100,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	addObject(booth);
 	
 	//Sitting Soldier
-	auto sittingSoldierSprite = make_unique<StaggeredAnimation>  (resources.getTexture(Textures::SittingSoldierAnim),
+	auto sittingSoldierSprite = make_unique<StaggeredAnimation> (resources.getTexture(Textures::SittingSoldierAnim),
 														   sf::Vector2f (120 * scale, 120 * scale), 0.1,
 														   sf::Vector2i(24, 24));
 	sittingSoldierSprite->changeTimePerFrameAt(0.6, 10);
@@ -106,7 +120,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	addObject(soldierStanding);
 	
 	//The Colonel
-	auto colonelSprite = make_unique<StaggeredAnimation>  (resources.getTexture(Textures::TheColonel),
+	auto colonelSprite = make_unique<StaggeredAnimation> (resources.getTexture(Textures::TheColonel),
 														   sf::Vector2f (224 * scale, 240 * scale), 0.15,
 														   sf::Vector2i(24, 24));
 	colonelSprite->changeTimePerFrameAt(0.45, 7);

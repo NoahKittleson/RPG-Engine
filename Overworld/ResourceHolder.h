@@ -77,6 +77,8 @@ namespace Textures {
 		Garden,
 		Shed,
 		ListeningMan,
+		TheDrunk,
+		Crowd
 	};
 }
 
