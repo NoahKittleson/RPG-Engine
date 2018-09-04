@@ -60,24 +60,33 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	MapObject Couple1 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Couple1),
 													sf::Vector2f (232 * scale, 139 * scale)));
 	Couple1.setScale(scale);
+	Couple1.addCollisionBox(-10 * scale, 10 * scale, 20 * scale, 2 * scale);
 	addObject(Couple1);
 	
 	//Couple outside bar (2)
-	MapObject Couple2 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Couple2),
-													  sf::Vector2f (212 * scale, 128 * scale)));
+	MapObject Couple2 (make_unique<AnimatedComponent>(resources.getTexture(Textures::Couple2),
+													  sf::Vector2f (212 * scale, 128 * scale), 0.6, sf::Vector2i(24,25)));
 	Couple2.setScale(scale);
+	Couple2.addCollisionBox(-8 * scale, 11 * scale, 20 * scale, 2 * scale);
 	addObject(Couple2);
 	
 	//Bystander by bar (1)
-	MapObject Bystander1 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Bystander1),
-													  sf::Vector2f (213 * scale, 148 * scale)));
+	auto Bystander1Sprite = make_unique<StaggeredAnimation> (resources.getTexture(Textures::Bystander1),
+															 sf::Vector2f (213 * scale, 148 * scale), 0.1,
+															 sf::Vector2i(24,24));
+	Bystander1Sprite->changeTimePerFrameAt(3, 1);
+	Bystander1Sprite->changeTimePerFrameAt(1, 6);
+	
+	MapObject Bystander1 (std::move(Bystander1Sprite));
 	Bystander1.setScale(scale);
+	Bystander1.addCollisionBox(-5 * scale, 10 * scale, 10 * scale, 2 * scale);
 	addObject(Bystander1);
 	
 	//Bystander by bar (2)
-	MapObject Bystander2 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Bystander2),
-														 sf::Vector2f (225 * scale, 152 * scale)));
+	MapObject Bystander2 (make_unique<AnimatedComponent>(resources.getTexture(Textures::Bystander2),
+														 sf::Vector2f (225 * scale, 152 * scale), 0.8, sf::Vector2i(24,24)));
 	Bystander2.setScale(scale);
+	Bystander2.addCollisionBox(-5 * scale, 10 * scale, 10 * scale, 2 * scale);
 	addObject(Bystander2);
 		
 	//The Drunk
