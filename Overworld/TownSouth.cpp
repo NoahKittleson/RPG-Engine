@@ -56,13 +56,30 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	Inn.addCollisionBox(-48 * scale, 15 * scale, 93 * scale, 30 * scale);
 	addObject(Inn);
 	
-	//A Crowd outside the bar
-	MapObject crowd (make_unique<GraphicsComponent>(resources.getTexture(Textures::Crowd),
-													sf::Vector2f (200 * scale, 150 * scale)));
-	crowd.setScale(scale);
-	crowd.addCollisionBox(-4 * scale, 10 * scale, 8 * scale, 2 * scale);
-	addObject(crowd);
+	//Couple outside bar (1)
+	MapObject Couple1 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Couple1),
+													sf::Vector2f (232 * scale, 139 * scale)));
+	Couple1.setScale(scale);
+	addObject(Couple1);
 	
+	//Couple outside bar (2)
+	MapObject Couple2 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Couple2),
+													  sf::Vector2f (212 * scale, 128 * scale)));
+	Couple2.setScale(scale);
+	addObject(Couple2);
+	
+	//Bystander by bar (1)
+	MapObject Bystander1 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Bystander1),
+													  sf::Vector2f (213 * scale, 148 * scale)));
+	Bystander1.setScale(scale);
+	addObject(Bystander1);
+	
+	//Bystander by bar (2)
+	MapObject Bystander2 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Bystander2),
+														 sf::Vector2f (225 * scale, 152 * scale)));
+	Bystander2.setScale(scale);
+	addObject(Bystander2);
+		
 	//The Drunk
 	MapObject drunk (make_unique<AnimatedComponent>(resources.getTexture(Textures::TheDrunk),
 													sf::Vector2f (180 * scale, 170 * scale), 0.1, sf::Vector2i(31, 24)));

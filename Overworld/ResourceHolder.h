@@ -78,7 +78,10 @@ namespace Textures {
 		Shed,
 		ListeningMan,
 		TheDrunk,
-		Crowd
+		Couple1,
+		Couple2,
+		Bystander1,
+		Bystander2
 	};
 }
 
