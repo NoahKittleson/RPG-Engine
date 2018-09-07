@@ -24,6 +24,7 @@
 		B71DA5F7213E07D70019B37F /* Bystander1.png in Resources */ = {isa = PBXBuildFile; fileRef = B71DA5F3213E07D60019B37F /* Bystander1.png */; };
 		B71DA5F8213E07D70019B37F /* Couple1.png in Resources */ = {isa = PBXBuildFile; fileRef = B71DA5F4213E07D60019B37F /* Couple1.png */; };
 		B71DA5F9213E07D70019B37F /* Bystander2.png in Resources */ = {isa = PBXBuildFile; fileRef = B71DA5F5213E07D60019B37F /* Bystander2.png */; };
+		B71DA5FD214228D40019B37F /* FishermanSitting.png in Resources */ = {isa = PBXBuildFile; fileRef = B71DA5FC214228D30019B37F /* FishermanSitting.png */; };
 		B7215CE72107FEE000D7A6B6 /* Lighthouse.png in Resources */ = {isa = PBXBuildFile; fileRef = B7215CE62107FEE000D7A6B6 /* Lighthouse.png */; };
 		B7262BCE2001A57E00989D70 /* MenuMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7262BCC2001A57E00989D70 /* MenuMode.cpp */; };
 		B7262BD42001B48D00989D70 /* MenuOption.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7262BD22001B48D00989D70 /* MenuOption.cpp */; };
@@ -169,6 +170,7 @@
 		B71DA5F3213E07D60019B37F /* Bystander1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bystander1.png; sourceTree = "<group>"; };
 		B71DA5F4213E07D60019B37F /* Couple1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Couple1.png; sourceTree = "<group>"; };
 		B71DA5F5213E07D60019B37F /* Bystander2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bystander2.png; sourceTree = "<group>"; };
+		B71DA5FC214228D30019B37F /* FishermanSitting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FishermanSitting.png; sourceTree = "<group>"; };
 		B7215CE62107FEE000D7A6B6 /* Lighthouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lighthouse.png; sourceTree = "<group>"; };
 		B7262BCC2001A57E00989D70 /* MenuMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuMode.cpp; sourceTree = "<group>"; };
 		B7262BCD2001A57E00989D70 /* MenuMode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuMode.hpp; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				B7C7948B212B967600551E2F /* BuildingOutline8.png */,
 				B7D8CD2B213660590041A490 /* BuildingOutline9.png */,
 				B7CCC8682132783800CC6533 /* ColonelAnim.png */,
+				B71DA5FC214228D30019B37F /* FishermanSitting.png */,
 				B71DA5EE2138C8AA0019B37F /* DrunkAnim.png */,
 				B71DA5F3213E07D60019B37F /* Bystander1.png */,
 				B71DA5F5213E07D60019B37F /* Bystander2.png */,
@@ -791,6 +794,7 @@
 				B7396FC620F036EB0095DDB5 /* BeachSouth.png in Resources */,
 				B7CCC86A2132783800CC6533 /* ColonelAnim.png in Resources */,
 				B7396FC520F036EB0095DDB5 /* MountainEast.png in Resources */,
+				B71DA5FD214228D40019B37F /* FishermanSitting.png in Resources */,
 				B7EF1BC420D246DE00CFD04E /* WavesWest.png in Resources */,
 				B706A6D5211253AA009DC84D /* Clocktower.png in Resources */,
 				B7396FBD20F036EB0095DDB5 /* Start.png in Resources */,

@@ -13,7 +13,6 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	background.setTexture(resources.getTexture(Textures::TownSouth));
 	background.setScale(scale, scale);
 	
-	
 	//A store
 	MapObject store (make_unique<GraphicsComponent>(resources.getTexture(Textures::Store1),
 													sf::Vector2f (50 * scale, 183 * scale)));
@@ -21,7 +20,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	store.addCollisionBox(-41 * scale, 12 * scale, 83 * scale, 13 * scale);
 	addObject(store);
 	
-	//Builings behind store
+	//Buildings behind store
 	MapObject backgroundBuildings (make_unique<GraphicsComponent>(resources.getTexture(Textures::BuildingOutline7),
 													sf::Vector2f (49 * scale, 163 * scale)));
 	backgroundBuildings.setScale(scale);
@@ -124,6 +123,14 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	booth.setScale(scale);
 	booth.addCollisionBox(-25 * scale, 10 * scale, 54 * scale, 12 * scale);
 	addObject(booth);
+	
+	//A Fisherman
+	MapObject fisherman (make_unique<GraphicsComponent>(resources.getTexture(Textures::SittingFisherman),
+												  sf::Vector2f (58 * scale, 330 * scale)));
+	fisherman.setScale(scale);
+	fisherman.addCollisionBox(18 * scale, 5 * scale, 4 * scale, 4 * scale);
+	fisherman.offsetBase(-10);
+	addObject(fisherman);
 	
 	//Sitting Soldier
 	auto sittingSoldierSprite = make_unique<StaggeredAnimation> (resources.getTexture(Textures::SittingSoldierAnim),
