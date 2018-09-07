@@ -125,8 +125,8 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	addObject(booth);
 	
 	//A Fisherman
-	MapObject fisherman (make_unique<GraphicsComponent>(resources.getTexture(Textures::SittingFisherman),
-												  sf::Vector2f (58 * scale, 330 * scale)));
+	MapObject fisherman (make_unique<AnimatedComponent>(resources.getTexture(Textures::SittingFisherman),
+														sf::Vector2f (61 * scale, 330 * scale), 0.6, sf::Vector2i(38,24)));
 	fisherman.setScale(scale);
 	fisherman.addCollisionBox(18 * scale, 5 * scale, 4 * scale, 4 * scale);
 	fisherman.offsetBase(-10);
