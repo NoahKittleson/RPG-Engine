@@ -53,6 +53,8 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 												  sf::Vector2f (166 * scale, 83 * scale)));
 	Inn.setScale(scale);
 	Inn.addCollisionBox(-48 * scale, 15 * scale, 93 * scale, 30 * scale);
+	Inn.addCollisionBox(-85 * scale, 35 * scale, 40 * scale, 10 * scale);
+	Inn.addCollisionBox(-65 * scale, 30 * scale, 20 * scale, 5 * scale);
 	addObject(Inn);
 	
 	//Couple outside bar (1)
