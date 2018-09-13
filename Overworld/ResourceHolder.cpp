@@ -14,7 +14,8 @@ ResourceHolder::ResourceHolder()
     assert(!instantiated);
     instantiated = true;
 	
-	std::unique_ptr<sf::Texture> fuckIHadTheseAllAlong;
+	//what is this ??
+	//std::unique_ptr<sf::Texture> fuckIHadTheseAllAlong;
 	
     //Whenever you add a new texture, add to this list
     std::map<sf::String, Textures::ID> textureIDMap;
