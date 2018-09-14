@@ -15,10 +15,12 @@ enum MusicID {four, five, six, whatever};
 class AudioHandler
 {
 public:
+	AudioHandler();
+	
 	void playSound(SoundID);
 	void playMusic(MusicID);
 	
 private:
-	std::vector<std::string> musicFiles;
-	std::vector<sf::SoundBuffer> sounds;
+	std::map<MusicID, std::string> musicFiles;
+	std::map<SoundID, sf::SoundBuffer> soundMap;
 };
