@@ -7,9 +7,10 @@
 //
 
 #include "AudioHandler.hpp"
+#include "ResourcePath.hpp"
 
 AudioHandler::AudioHandler() {
-	soundFiles.add(MusicID::one, "FileName.ogg");
+	musicFiles.insert(std::make_pair<MusicID, std::string>(one, "FileName.ogg"));
 }
 
 void AudioHandler::playSound(SoundID soundID) {
@@ -21,6 +22,6 @@ void AudioHandler::playSound(SoundID soundID) {
 
 void AudioHandler::playMusic(MusicID id) {
 	//this might not be necessary because music is soo simple anyway, and I'm already kinda having State handle it anyway.
-	
-	//play(resourcePath() + musicFiles[id])
+	currentSong.openFromFile(resourcePath() + musicFiles[id]);
+	currentSong.play();
 }

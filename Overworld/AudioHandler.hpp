@@ -18,9 +18,11 @@ public:
 	AudioHandler();
 	
 	void playSound(SoundID);
-	void playMusic(MusicID);
+	void playMusic(MusicID id);
 	
 private:
 	std::map<MusicID, std::string> musicFiles;
 	std::map<SoundID, sf::SoundBuffer> soundMap;
+	
+	sf::Music currentSong;
 };
