@@ -10,18 +10,31 @@
 #include "ResourcePath.hpp"
 
 AudioHandler::AudioHandler() {
-	musicFiles.insert(std::make_pair<MusicID, std::string>(one, "FileName.ogg"));
+	//this would be where I would initialize the lists of all the music and sounds like I do in ResourceHolder
+	musicFiles.insert(std::make_pair(MusicID::four, "FileName.ogg"));
+
+	std::map<SoundID, std::string> soundIDs;
+	soundIDs.insert(std::make_pair(SoundID::one, "SoundFile.ogg"));
+	
+	for (auto & it : soundIDs) {
+		soundMap[it.first].loadFromFile(resourcePath() + it.second);
+	}
 }
 
 void AudioHandler::playSound(SoundID soundID) {
-	sf::Sound channel;
-	channel.setBuffer(soundMap[soundID]);
-	channel.play();
-	//how do I make these sound channels don't expire before finishing, but do expire when done?
+	//This system uses 10 sound channels that can play simultaneously, if an 11th is played, it will overright the first.
+	sf::Sound* channel = &soundChannels[currentChannel];
+	channel->setBuffer(soundMap[soundID]);
+	channel->play();
+	++currentChannel;
+	if (currentChannel >= 10) {
+		currentChannel = 0;
+	}
 }
 
 void AudioHandler::playMusic(MusicID id) {
 	//this might not be necessary because music is soo simple anyway, and I'm already kinda having State handle it anyway.
+	currentSong.pause();
 	currentSong.openFromFile(resourcePath() + musicFiles[id]);
 	currentSong.play();
 }
