@@ -24,9 +24,11 @@ public:
 private:
 	std::map<MusicID, std::string> musicFiles;
 	std::map<SoundID, sf::SoundBuffer> soundMap;
+	bool instantiated = false;
 	
 	sf::Sound soundChannels[10];			//this is a guess, 10 may be too few, or it could be more than enough
 	int currentChannel = 0;
 	
 	sf::Music currentSong;
+
 };

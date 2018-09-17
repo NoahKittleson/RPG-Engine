@@ -10,6 +10,9 @@
 #include "ResourcePath.hpp"
 
 AudioHandler::AudioHandler() {
+	assert(!instantiated);
+	instantiated = true;
+	
 	//this would be where I would initialize the lists of all the music and sounds like I do in ResourceHolder
 	musicFiles.insert(std::make_pair(MusicID::four, "FileName.ogg"));
 

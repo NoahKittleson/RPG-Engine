@@ -12,6 +12,8 @@
 #include "MapSection.h"
 #include "ResourceHolder.h"
 #include "PlayerObject.hpp"
+#include "AudioHandler.hpp"
+
 //#include "SaveInfo.h"
 
 class StateStack;
@@ -36,8 +38,8 @@ protected:
     const static ResourceHolder resources;
 	static StateStack* stack;
     static std::vector<Condition> conditions;
-    sf::Music musicPlayer;
-    
+    //sf::Music musicPlayer;
+	AudioHandler audioPlayer;
 	void requestStackAdd(std::unique_ptr<State>&&);
 	void requestStackPop();
 	void requestStateClear();

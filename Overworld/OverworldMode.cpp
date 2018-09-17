@@ -17,8 +17,8 @@ OverworldMode::OverworldMode() {
 	view.setCenter(player->getPosition());
 	updateView();
 	
-	//musicPlayer.openFromFile(currentMap->getMusicAddress());
-	//musicPlayer.play();
+	//audioPlayer.openFromFile(currentMap->getMusicAddress());
+	//audioPlayer.play();
 }
 
 void OverworldMode::handleInput(sf::RenderWindow& rw) {
