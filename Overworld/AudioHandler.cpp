@@ -20,7 +20,11 @@ AudioHandler::AudioHandler() {
 	soundIDs.insert(std::make_pair(SoundID::one, "SoundFile.ogg"));
 	
 	for (auto & it : soundIDs) {
-		soundMap[it.first].loadFromFile(resourcePath() + it.second);
+		try {
+			soundMap[it.first].loadFromFile(resourcePath() + it.second);
+		} catch (const std::exception& e) {
+			std::cout << "Error Loading: " << e.what() << "\n";
+		}
 	}
 }
 
