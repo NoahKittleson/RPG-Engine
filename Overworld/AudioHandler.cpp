@@ -14,10 +14,10 @@ AudioHandler::AudioHandler() {
 	instantiated = true;
 	
 	//this would be where I would initialize the lists of all the music and sounds like I do in ResourceHolder
-	musicFiles.insert(std::make_pair(MusicID::four, "FileName.ogg"));
+	musicFiles.insert(std::make_pair(MusicID::four, "nice_music.ogg"));
 
 	std::map<SoundID, std::string> soundIDs;
-	soundIDs.insert(std::make_pair(SoundID::one, "SoundFile.ogg"));
+	soundIDs.insert(std::make_pair(SoundID::one, "Shout8.wav"));
 	
 	for (auto & it : soundIDs) {
 		try {
@@ -29,7 +29,7 @@ AudioHandler::AudioHandler() {
 }
 
 void AudioHandler::playSound(SoundID soundID) {
-	//This system uses 10 sound channels that can play simultaneously, if an 11th is played, it will overright the first.
+	//This system uses 10 sound channels that can play simultaneously, if an 11th is played, it will overwrite the first.
 	sf::Sound* channel = &soundChannels[currentChannel];
 	channel->setBuffer(soundMap[soundID]);
 	channel->play();

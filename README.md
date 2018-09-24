@@ -1,6 +1,11 @@
 # RPG Engine
 A game engine built in C++ that uses SFML (Simple Fast Multimedia Library).  The engine is for a turn-based role playing game that I am making in my spare time for fun.  Currently the game consists of an over-world where users walk around and talk to Non-player characters and a battle system using turn-based combat.
 
+![Shot of Town Center](ReadMeImages/Screenshot1.png)
+![Shot of The Docks](ReadMeImages/Screenshot2.png)
+![Shot of Dialogue](ReadMeImages/Screenshot3.png)
+
+
 ## About the Project
 This is I project I started in 2015 in order to teach myself C++ and general program architecture by developing real code for something that I would be motivated to work on.  I have restructured the project several times after learning more about proper programming patterns, but the engine currently runs on a state-based system.  But what exactly does that mean?
 

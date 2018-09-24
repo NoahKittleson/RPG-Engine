@@ -29,6 +29,7 @@
 		B7262BCE2001A57E00989D70 /* MenuMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7262BCC2001A57E00989D70 /* MenuMode.cpp */; };
 		B7262BD42001B48D00989D70 /* MenuOption.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7262BD22001B48D00989D70 /* MenuOption.cpp */; };
 		B73219221B2111D000C41162 /* MapSection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B73219201B2111D000C41162 /* MapSection.cpp */; };
+		B7362D1A2159A1E20017A208 /* shout8.wav in Resources */ = {isa = PBXBuildFile; fileRef = B7362D192159A1E20017A208 /* shout8.wav */; };
 		B7396FA920F017D40095DDB5 /* Bramble.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7396FA820F017D40095DDB5 /* Bramble.ttf */; };
 		B7396FBB20F036EB0095DDB5 /* TownEast.png in Resources */ = {isa = PBXBuildFile; fileRef = B7396FAE20F036EB0095DDB5 /* TownEast.png */; };
 		B7396FBC20F036EB0095DDB5 /* BeachWest.png in Resources */ = {isa = PBXBuildFile; fileRef = B7396FAF20F036EB0095DDB5 /* BeachWest.png */; };
@@ -180,6 +181,7 @@
 		B7262BD620035BBC00989D70 /* Menu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Menu.hpp; sourceTree = "<group>"; };
 		B73219201B2111D000C41162 /* MapSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapSection.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		B73219211B2111D000C41162 /* MapSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSection.h; sourceTree = "<group>"; };
+		B7362D192159A1E20017A208 /* shout8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shout8.wav; sourceTree = "<group>"; };
 		B7396FA820F017D40095DDB5 /* Bramble.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bramble.ttf; sourceTree = "<group>"; };
 		B7396FAE20F036EB0095DDB5 /* TownEast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TownEast.png; sourceTree = "<group>"; };
 		B7396FAF20F036EB0095DDB5 /* BeachWest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeachWest.png; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				B77783FC1AE5C57D007FA840 /* nice_music.ogg */,
+				B7362D192159A1E20017A208 /* shout8.wav */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -809,6 +812,7 @@
 				B706A6D0211191EB009DC84D /* BuildingOutline4.png in Resources */,
 				B79E29881BA0E1C80020BA93 /* RollingWheat.png in Resources */,
 				B7396FC020F036EB0095DDB5 /* SouthOfStart.png in Resources */,
+				B7362D1A2159A1E20017A208 /* shout8.wav in Resources */,
 				B743EDA120FECCFF006DE82D /* BikiniBabe.png in Resources */,
 				B7396FC120F036EB0095DDB5 /* Swamp.png in Resources */,
 				B7396FBC20F036EB0095DDB5 /* BeachWest.png in Resources */,
