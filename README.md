@@ -1,8 +1,11 @@
 # RPG Engine
-A game engine built in C++ that uses SFML (Simple Fast Multimedia Library).  The engine is for a turn-based role playing game that I am making in my spare time for fun.  Currently the game consists of an over-world where users walk around and talk to Non-player characters and a battle system using turn-based combat.
+A game engine built in C++ that uses SFML (Simple Fast Multimedia Library).  The engine is for a turn-based role playing game that I am making in my spare time for fun.  Currently the game consists of an over-world where users walk around and talk to non-player characters and a battle system using turn-based combat.  Here are a few pictures of what it looks like right now.
 
+A shot of the  bustling town center-
 ![Shot of Town Center](ReadMeImages/Screenshot1.png)
+Staring out over the sea-
 ![Shot of The Docks](ReadMeImages/Screenshot2.png)
+And here's what the dialogue system looks like-
 ![Shot of Dialogue](ReadMeImages/Screenshot3.png)
 
 
@@ -16,15 +19,12 @@ The game starts by creating an overworld mode game-state, which let's you walk a
 Each state shares the same base class so that they can inherit common functionality so that the game doesn't need to worry about what state it's in, it just needs to let whatever state is on top do its thing.  Specifically, every state implements it's own versions of the update(), draw(), and handleEvent() methods so that it can function as it's own state.
 
 ## Installation
-While this code is up here for mostly demonstrational purposes, it is possible to download and play what I have, although the process may be annoying difficult on anything but a Mac.
-1. [Download and install Xcode](https://itunes.apple.com/us/app/xcode/id497799835?mt=12)
-2. [Download and install SFML for Xcode](http://www.sfml-dev.org/tutorials/2.4/start-osx.php)
-3. Clone this repository
-4. Open with Xcode!
+While it's possible to look through all the code that I've written, it's not currently possible to download and play anything.  I have purposefully not included any of the art assets that I have created for this game, so that the entire game cannot be stolen if I someday decide to monetize it.  However, at some point in the future I'll set up an itch.io link where you can play whatever tech demo I have available.
 
 ## TO DO
 * Game save capabilities
 * Game loading capabilities
+* Integrate an audio system
 * Create non-placeholder art
 
 ## License
