@@ -39,7 +39,7 @@ protected:
 	static StateStack* stack;
     static std::vector<Condition> conditions;
     //sf::Music musicPlayer;
-	AudioHandler audioPlayer;
+	static AudioHandler audioPlayer;
 	void requestStackAdd(std::unique_ptr<State>&&);
 	void requestStackPop();
 	void requestStateClear();

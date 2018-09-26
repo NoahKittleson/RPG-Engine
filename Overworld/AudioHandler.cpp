@@ -45,3 +45,5 @@ void AudioHandler::playMusic(MusicID id) {
 	currentSong.openFromFile(resourcePath() + musicFiles[id]);
 	currentSong.play();
 }
+
+bool AudioHandler::instantiated = false;

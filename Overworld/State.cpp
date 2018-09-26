@@ -36,3 +36,5 @@ std::unique_ptr<MapSection> State::currentMap;
 std::vector<std::shared_ptr<Character>> State::party;
 std::unique_ptr<PlayerObject> State::player;
 std::vector<Condition> State::conditions;
+AudioHandler State::audioPlayer;
+
