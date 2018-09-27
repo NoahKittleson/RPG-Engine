@@ -9,7 +9,7 @@
 #include "SouthOfStart.hpp"
 
 SouthOfStart::SouthOfStart(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::SouthOfStart, "", sf::Vector2f(200 * scale, 500 * scale)) {
+: MapSection(MapID::SouthOfStart, None, sf::Vector2f(200 * scale, 500 * scale)) {
 	background.setTexture(resources.getTexture(Textures::SouthOfStart));
 	background.setScale(scale, scale);
 	

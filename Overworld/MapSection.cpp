@@ -9,7 +9,7 @@
 #include "MapSection.h"
 
 
-MapSection::MapSection(MapID id, std::string musicFile, sf::Vector2f globalPos) : ID(id), musicFilename(musicFile), globalPosition(globalPos) {
+MapSection::MapSection(MapID mapID, MusicID musicID, sf::Vector2f globalPos) : ID(mapID), music(musicID), globalPosition(globalPos) {
 	//should this be empty?
 };
 
@@ -27,10 +27,6 @@ void MapSection::addObject(MapObject& add)
 
 void MapSection::drawBackground(sf::RenderWindow&rw) {
 	rw.draw(background);
-}
-
-std::string MapSection::getMusicAddress() {
-	return resourcePath() + musicFilename;
 }
 
 void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player) {

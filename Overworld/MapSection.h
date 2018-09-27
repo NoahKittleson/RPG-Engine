@@ -21,6 +21,7 @@
 #include "OptionNode.h"
 #include "CharacterGenerator.hpp"
 #include "DialogueFactory.hpp"
+#include "AudioIDs.hpp"
 
 
 using ExitVec = std::vector<ZoneExit>;
@@ -31,7 +32,7 @@ using TriggerVec = std::vector<GroundTrigger>;
 class MapSection: sf::NonCopyable
 {
 public:
-	MapSection(MapID id, std::string musicFile, sf::Vector2f globalPos);
+	MapSection(MapID mapID, MusicID musicID, sf::Vector2f globalPos);
     const MapID ID;
 	
 	void update(float elapsed);
@@ -42,7 +43,7 @@ public:
 	NodePtr interact (std::vector<sf::FloatRect>) const;
     
     sf::Vector2u getSize();
-    std::string getMusicAddress();
+    MusicID music;
     
     //collision detection that takes callback function for when collision is detected?
     
@@ -64,7 +65,6 @@ protected:
 	SpriteVec sprites;
 	std::vector<sf::FloatRect> waterZones;
 	TriggerVec triggers;
-	const std::string musicFilename;
 	
 	static const int scale = 3;
 	const int mapClearance = 20;

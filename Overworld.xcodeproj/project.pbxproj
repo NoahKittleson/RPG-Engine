@@ -182,6 +182,7 @@
 		B73219201B2111D000C41162 /* MapSection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MapSection.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		B73219211B2111D000C41162 /* MapSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapSection.h; sourceTree = "<group>"; };
 		B7362D192159A1E20017A208 /* shout8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shout8.wav; sourceTree = "<group>"; };
+		B7362D1C215D90620017A208 /* AudioIDs.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AudioIDs.hpp; sourceTree = "<group>"; };
 		B7396FA820F017D40095DDB5 /* Bramble.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bramble.ttf; sourceTree = "<group>"; };
 		B7396FAE20F036EB0095DDB5 /* TownEast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TownEast.png; sourceTree = "<group>"; };
 		B7396FAF20F036EB0095DDB5 /* BeachWest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeachWest.png; sourceTree = "<group>"; };
@@ -574,6 +575,7 @@
 				B75ABA191C7BD7DA00B9FFDE /* IterVector.inl */,
 				B742D6F81C1292EA0093C785 /* ResourceHolder.h */,
 				B742D6F71C1292EA0093C785 /* ResourceHolder.cpp */,
+				B7362D1C215D90620017A208 /* AudioIDs.hpp */,
 				B7BA9F4B214A3FD5008FB058 /* AudioHandler.hpp */,
 				B7BA9F4A214A3FD5008FB058 /* AudioHandler.cpp */,
 				B777840D1AE5D332007FA840 /* PrefixHeader.pch */,

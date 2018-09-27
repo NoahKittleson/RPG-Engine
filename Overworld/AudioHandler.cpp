@@ -14,10 +14,10 @@ AudioHandler::AudioHandler() {
 	instantiated = true;
 	
 	//this would be where I would initialize the lists of all the music and sounds like I do in ResourceHolder
-	musicMap.insert(std::make_pair(MusicID::four, "nice_music.ogg"));
+	musicMap.insert(std::make_pair(MusicID::NiceMusic, "nice_music.ogg"));
 
 	std::map<SoundID, std::string> soundIDs;
-	soundIDs.insert(std::make_pair(SoundID::one, "Shout8.wav"));
+	soundIDs.insert(std::make_pair(SoundID::fox, "Shout8.wav"));
 	
 	for (auto & it : soundIDs) {
 		try {
@@ -47,6 +47,10 @@ void AudioHandler::playSound(SoundID soundID) {
 }
 
 void AudioHandler::playMusic(MusicID id) {
+	if (id == None) {
+		currentSong.stop();
+		return;
+	}
 	try {
 		musicMap.at(id);							//see if the file even exists. If not, out_of_range exception thrown.
 	} catch (const std::exception& e) {

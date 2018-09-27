@@ -9,7 +9,7 @@
 #include "Forest.hpp"
 
 Forest::Forest(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::Forest, "", sf::Vector2f(550 * scale, 350 * scale)) {
+: MapSection(MapID::Forest, None, sf::Vector2f(550 * scale, 350 * scale)) {
 	background.setTexture(resources.getTexture(Textures::Forest));
 	background.setScale(scale, scale);
 	

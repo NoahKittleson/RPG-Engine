@@ -8,10 +8,7 @@
 
 #pragma once
 #include "PrefixHeader.pch"
-
-//these IDs may need to be in a separate folder down the line
-enum SoundID {one, two, three, etc};
-enum MusicID {four, five, six, whatever};
+#include "AudioIDs.hpp"
 
 class AudioHandler
 {

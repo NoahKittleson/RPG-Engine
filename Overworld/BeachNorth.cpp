@@ -10,7 +10,7 @@
 
 
 BeachNorth::BeachNorth(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::BeachNorth, "", sf::Vector2f(0 * scale, 125 * scale)) {
+: MapSection(MapID::BeachNorth, None, sf::Vector2f(0 * scale, 125 * scale)) {
     background.setTexture(resources.getTexture(Textures::BeachNorth));
 	background.setScale(scale, scale);
 	

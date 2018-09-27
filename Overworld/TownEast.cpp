@@ -10,7 +10,7 @@
 
 
 TownEast::TownEast(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::TownEast, "", sf::Vector2f(730 * scale, 125 * scale)) {
+: MapSection(MapID::TownEast, None, sf::Vector2f(730 * scale, 125 * scale)) {
 	background.setTexture(resources.getTexture(Textures::TownEast));
 	background.setScale(scale, scale);
 	

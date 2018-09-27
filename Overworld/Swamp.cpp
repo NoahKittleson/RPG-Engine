@@ -9,7 +9,7 @@
 #include "Swamp.hpp"
 
 Swamp::Swamp(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::Swamp, "", sf::Vector2f(730 * scale, 415 * scale)) {
+: MapSection(MapID::Swamp, None, sf::Vector2f(730 * scale, 415 * scale)) {
 	background.setTexture(resources.getTexture(Textures::Swamp));
 	background.setScale(scale, scale);
 	

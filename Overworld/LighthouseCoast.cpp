@@ -10,7 +10,7 @@
 
 
 LighthouseCoast::LighthouseCoast(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::LighthouseCoast, "", sf::Vector2f(730 * scale, 720 * scale)) {
+: MapSection(MapID::LighthouseCoast, None, sf::Vector2f(730 * scale, 720 * scale)) {
 	background.setTexture(resources.getTexture(Textures::LightHouseCoast));
 	background.setScale(scale, scale);
 	

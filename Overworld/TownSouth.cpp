@@ -9,7 +9,7 @@
 #include "TownSouth.hpp"
 
 TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::TownSouth, ""/*music goes here*/, sf::Vector2f(475 * scale, 625 * scale)) {
+: MapSection(MapID::TownSouth, NiceMusic, sf::Vector2f(475 * scale, 625 * scale)) {
 	background.setTexture(resources.getTexture(Textures::TownSouth));
 	background.setScale(scale, scale);
 	
