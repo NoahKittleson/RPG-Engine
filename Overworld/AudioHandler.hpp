@@ -22,7 +22,7 @@ public:
 	void playMusic(MusicID id);
 	
 private:
-	std::map<MusicID, std::string> musicFiles;
+	std::map<MusicID, std::string> musicMap;
 	std::map<SoundID, sf::SoundBuffer> soundMap;
 	static bool instantiated;
 	

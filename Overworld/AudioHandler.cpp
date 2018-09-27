@@ -14,7 +14,7 @@ AudioHandler::AudioHandler() {
 	instantiated = true;
 	
 	//this would be where I would initialize the lists of all the music and sounds like I do in ResourceHolder
-	musicFiles.insert(std::make_pair(MusicID::four, "nice_music.ogg"));
+	musicMap.insert(std::make_pair(MusicID::four, "nice_music.ogg"));
 
 	std::map<SoundID, std::string> soundIDs;
 	soundIDs.insert(std::make_pair(SoundID::one, "Shout8.wav"));
@@ -29,6 +29,13 @@ AudioHandler::AudioHandler() {
 }
 
 void AudioHandler::playSound(SoundID soundID) {
+	try {
+		soundMap.at(soundID);							//see if the file even exists. If not, out_of_range exception thrown.
+	} catch (const std::exception& e) {
+		std::cout << "Requested sound ID not mapped to file.\n";
+		return;
+	}
+	
 	//This system uses 10 sound channels that can play simultaneously, if an 11th is played, it will overwrite the first.
 	sf::Sound* channel = &soundChannels[currentChannel];
 	channel->setBuffer(soundMap[soundID]);
@@ -40,9 +47,14 @@ void AudioHandler::playSound(SoundID soundID) {
 }
 
 void AudioHandler::playMusic(MusicID id) {
-	//this might not be necessary because music is soo simple anyway, and I'm already kinda having State handle it anyway.
+	try {
+		musicMap.at(id);							//see if the file even exists. If not, out_of_range exception thrown.
+	} catch (const std::exception& e) {
+		std::cout << "Requested music ID not mapped to file.\n";
+		return;
+	}
 	currentSong.pause();
-	currentSong.openFromFile(resourcePath() + musicFiles[id]);
+	currentSong.openFromFile(resourcePath() + musicMap[id]);
 	currentSong.play();
 }
 
