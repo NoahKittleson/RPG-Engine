@@ -23,6 +23,10 @@ OverworldMode::OverworldMode() {
 
 void OverworldMode::handleInput(sf::RenderWindow& rw) {
 	CommandQueue.clear();
+	if (!rw.hasFocus()) {
+		requestStackAdd(make_unique<PauseState>());
+		return;
+	}
 	if (mode) {
 		mode->handleInput(rw);
 		return;
