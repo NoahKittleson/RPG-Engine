@@ -13,7 +13,7 @@ class BlinkFade : public Fade
 {
 public:
 	BlinkFade(bool inOut, float duration);
-	void update(float elapsed) override;
+	void update(float elapsed, State* context) override;
 	
 private:
 	bool fadeToBlack = true;

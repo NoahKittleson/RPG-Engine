@@ -90,7 +90,7 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 void OverworldMode::update(sf::Clock& timer) {
 	float elapsed = timer.restart().asSeconds();
 	if (mode) {
-		mode->update(elapsed);
+		mode->update(elapsed, this);
 	} else {
 		int index = checkExits();
 		if (index >= 0) {

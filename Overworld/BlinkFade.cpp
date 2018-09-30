@@ -13,7 +13,7 @@ BlinkFade::BlinkFade(bool inOut, float duration) : Fade(inOut, duration) {
 
 }
 
-void BlinkFade::update(float elapsed) {
+void BlinkFade::update(float elapsed, State* context) {
 	blinkTimer += elapsed;
 	fadePercent += elapsed/totalDuration;
 	sf::Color color = jankScreenFade.getFillColor();

@@ -57,7 +57,7 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 	startMenu->activate();
 }
 
-void MenuMode::update(float elapsed) {
+void MenuMode::update(float elapsed, State* context) {
 	startMenu->update(elapsed);
 	if (info.currentAction.complete()) {
 		done = true;

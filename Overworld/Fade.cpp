@@ -19,7 +19,7 @@ Fade::Fade(bool inOut, float time) : totalDuration(time) {
 Fade::~Fade() {
 }
 
-void Fade::update(float elapsed) {
+void Fade::update(float elapsed, State* context) {
     fadePercent += elapsed / totalDuration;
     if (fadePercent > 1.0f) {
         fadePercent = 1.0f;

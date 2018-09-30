@@ -33,7 +33,7 @@ void BattleState::update(sf::Clock& timer)
 {
     float elapsed = timer.restart().asSeconds();
 	if (mode) {
-		mode->update(elapsed);
+		mode->update(elapsed, this);
 	}
 	//updateSprites(elapsed);
 	if (mode->isDone()) {
@@ -86,7 +86,6 @@ void BattleState::draw(sf::RenderWindow& rw) {
 void BattleState::handleInput(sf::RenderWindow& rw) {
 	if (mode) {
 		mode->handleInput(rw);
-		mode->uselessFunction(this);
 	} else {
 		sf::Event event;
 		while (rw.pollEvent(event)) {

@@ -23,7 +23,7 @@ BattleEndMode::BattleEndMode(bool victory, const sf::Font& font)
 	screenFade.setFillColor(sf::Color(0,0,0,0));
 }
 
-void BattleEndMode::update(float elapsed) {
+void BattleEndMode::update(float elapsed, State* context) {
 	if (alpha < 250) {
 		alpha += elapsed * 250;												//250 is a magic number
 		screenFade.setFillColor(sf::Color(0,0,0,alpha));

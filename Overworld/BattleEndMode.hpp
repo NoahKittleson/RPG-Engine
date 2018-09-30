@@ -13,7 +13,7 @@ class BattleEndMode : public Mode
 {
 public:
 	BattleEndMode(bool victory, const sf::Font& font);
-	virtual void update(float elapsed) override;
+	virtual void update(float elapsed, State* context) override;
 	virtual void draw(sf::RenderWindow &rw) override;
 	virtual void handleInput(sf::RenderWindow &rw) override;
 	

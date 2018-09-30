@@ -13,7 +13,7 @@ class Fade : public Mode {
 public:
     Fade(bool inOut, float duration);                //fade in true, fade out false... Yes I realize this is terrible
 	~Fade();
-	void update(float elapsed) override;
+	void update(float elapsed, State* context) override;
 	void draw(sf::RenderWindow &rw) override;
 	void handleInput(sf::RenderWindow &rw) override;
     

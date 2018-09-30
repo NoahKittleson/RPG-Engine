@@ -22,7 +22,7 @@ AttackMode::AttackMode(BattleInfo& info) : info(info) {
 	}
 }
 
-void AttackMode::update(float elapsed) {
+void AttackMode::update(float elapsed, State* context) {
 	switch (currentPhase) {
 		case moveTo:
 			moveToUpdate(elapsed);
