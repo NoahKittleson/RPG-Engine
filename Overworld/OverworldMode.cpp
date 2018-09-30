@@ -120,6 +120,7 @@ void OverworldMode::update(sf::Clock& timer) {
 					player->move(-currentMap->getGlobalPosition());
 					handleOOB();
 					updateView();
+					audioPlayer.playMusic(currentMap->music);
 				}
 				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
 				std::cout << "Mode changed to Fade.\n";
@@ -180,6 +181,7 @@ void OverworldMode::changeMap(ZoneExit exit) {
 	sf::Vector2f transitionOffset = exit.getMoveOffset();
 	player->move(transitionOffset.x, transitionOffset.y);
 	view.move(transitionOffset);
+	audioPlayer.playMusic(currentMap->music);
 }
 
 bool OverworldMode::handleMovement(float elapsed) {

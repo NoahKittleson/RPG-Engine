@@ -17,6 +17,7 @@
 //#include "SaveInfo.h"
 
 class StateStack;
+class Mode;
 
 class State
 {
@@ -43,6 +44,9 @@ protected:
 	void requestStackAdd(std::unique_ptr<State>&&);
 	void requestStackPop();
 	void requestStateClear();
+	
+private:
+	friend class Mode;
 };
 
 template <typename Creation, typename... ParamTypes>

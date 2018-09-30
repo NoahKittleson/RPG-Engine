@@ -8,6 +8,7 @@
 
 #pragma once
 #include "PrefixHeader.pch"
+#include "State.h"
 
 class Mode {	
 public:
@@ -17,6 +18,9 @@ public:
     virtual void handleInput(sf::RenderWindow &rw) = 0;
 	
 	virtual bool isDone() const;
+	
+	//this is a test
+	void uselessFunction(State* whatever) { return;};
 	
 protected:
 	bool done = false;

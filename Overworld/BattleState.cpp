@@ -86,6 +86,7 @@ void BattleState::draw(sf::RenderWindow& rw) {
 void BattleState::handleInput(sf::RenderWindow& rw) {
 	if (mode) {
 		mode->handleInput(rw);
+		mode->uselessFunction(this);
 	} else {
 		sf::Event event;
 		while (rw.pollEvent(event)) {

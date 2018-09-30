@@ -10,7 +10,6 @@
 
 Mode::~Mode() {
     /*just for derived classes*/
-    //I would've put in header but I hate empty files
 }
 
 bool Mode::isDone() const {
