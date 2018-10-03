@@ -12,8 +12,10 @@ PauseState::PauseState() {
 	pausedText.setString("Paused");
 	pausedText.setColor(sf::Color::White);
 	pausedText.setPosition(100, 100);
-	pausedText.setFont(resources.getFont(Fonts::Sansation));
-
+	pausedText.setFont(resources.getFont(Fonts::Bramble));
+	rect.setFillColor(sf::Color::Black);
+	rect.setSize(sf::Vector2f(105,37));
+	rect.setPosition(90, 100);
 }
 
 void PauseState::update(sf::Clock& timer) {
@@ -22,8 +24,11 @@ void PauseState::update(sf::Clock& timer) {
 }
 
 void PauseState::draw(sf::RenderWindow& rw) {
+	//pause music
+	//pause sounds??
 //	rw.clear(sf::Color::Black);
 	rw.setView(rw.getDefaultView());
+	rw.draw(rect);
 	rw.draw(pausedText);
 	rw.display();
 }
@@ -34,6 +39,7 @@ void PauseState::handleInput(sf::RenderWindow& rw) {
 		//if P or Enter is pressed pop this state;
 		if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return) {
 			requestStackPop();
+			//unpause music
 		}
 	}
 }

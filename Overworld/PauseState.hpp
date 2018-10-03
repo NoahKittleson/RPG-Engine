@@ -18,5 +18,6 @@ public:
 	
 private:
 	sf::Text pausedText;
+	sf::RectangleShape rect;
 	
 };
