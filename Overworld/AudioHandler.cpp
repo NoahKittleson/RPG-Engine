@@ -62,4 +62,18 @@ void AudioHandler::playMusic(MusicID id) {
 	currentSong.play();
 }
 
+void AudioHandler::pauseMusic() {
+	currentSong.pause();
+}
+
+void AudioHandler::resumeMusic() {
+	currentSong.play();
+}
+
+void AudioHandler::pauseSound() {
+	//
+	//stop all soundChannels....
+}
+
+
 bool AudioHandler::instantiated = false;

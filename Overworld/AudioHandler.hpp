@@ -16,7 +16,10 @@ public:
 	AudioHandler();
 	
 	void playSound(SoundID id);
+	void pauseSound();
 	void playMusic(MusicID id);
+	void pauseMusic();
+	void resumeMusic();
 	
 private:
 	std::map<MusicID, std::string> musicMap;
