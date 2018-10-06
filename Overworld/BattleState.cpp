@@ -8,8 +8,7 @@
 
 #include "BattleState.h"
 
-BattleState::BattleState(std::vector<std::shared_ptr<Character>>& enemies)
-{
+BattleState::BattleState(std::vector<std::shared_ptr<Character>>& enemies) {
     for (auto && it : party) {
         info.combatants.push_back(it);
     }
@@ -29,8 +28,7 @@ BattleState::BattleState(std::vector<std::shared_ptr<Character>>& enemies)
 	positionSpritesAndStats();
 }
 
-void BattleState::update(sf::Clock& timer)
-{
+void BattleState::update(sf::Clock& timer) {
     float elapsed = timer.restart().asSeconds();
 	if (mode) {
 		mode->update(elapsed, this);
@@ -94,8 +92,7 @@ void BattleState::handleInput(sf::RenderWindow& rw) {
 	}
 }
 
-void BattleState::drawAll(sf::RenderWindow &rw)
-{
+void BattleState::drawAll(sf::RenderWindow &rw) {
 	int fuck = 0;
 	for (auto && it: info.combatants) {
 		it->drawAllStats(rw);

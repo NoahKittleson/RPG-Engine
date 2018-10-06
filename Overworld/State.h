@@ -29,7 +29,9 @@ public:
     virtual void draw(sf::RenderWindow&) = 0;
 	virtual void handleInput(sf::RenderWindow&) = 0;
 
-	
+	//can I get this to be not public?  I want to have some encapsulation here.
+	static AudioHandler audioPlayer;
+
 	
 protected:
     //this is effectively functioning as the gameInfo class I had considered 
@@ -40,13 +42,9 @@ protected:
 	static StateStack* stack;
     static std::vector<Condition> conditions;
     //sf::Music musicPlayer;
-	static AudioHandler audioPlayer;
 	void requestStackAdd(std::unique_ptr<State>&&);
 	void requestStackPop();
 	void requestStateClear();
-	
-private:
-	friend class Mode;
 };
 
 template <typename Creation, typename... ParamTypes>

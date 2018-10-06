@@ -61,6 +61,7 @@ void MenuMode::update(float elapsed, State* context) {
 	startMenu->update(elapsed);
 	if (info.currentAction.complete()) {
 		done = true;
+		context->audioPlayer.playSound(SoundID::fox);
 	}
 	for (const auto & it : info.combatants) {
 		it->animate(elapsed);
