@@ -59,9 +59,22 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 
 void MenuMode::update(float elapsed, State* context) {
 	startMenu->update(elapsed, CommandVec);
+	for (Command& command : CommandVec) {
+		switch (command) {
+			case Command::CursorUp:
+			case Command::CursorDown:
+				context->audioPlayer.playSound(SoundID::fox);
+				break;
+				
+			case Command::Back:
+				break;
+				
+			case Command::Select:
+				break;
+		}
+	}
 	if (info.currentAction.complete()) {
 		done = true;
-		context->audioPlayer.playSound(SoundID::fox);
 	}
 	for (const auto & it : info.combatants) {
 		it->animate(elapsed);
@@ -98,7 +111,7 @@ void MenuMode::handleInput(sf::RenderWindow &rw) {
 
 				case sf::Keyboard::Down:
 				case sf::Keyboard::Left:
-					CommandVec.push_back(Command::Select);
+					CommandVec.push_back(Command::CursorDown);
 					break;
 
 				default:
