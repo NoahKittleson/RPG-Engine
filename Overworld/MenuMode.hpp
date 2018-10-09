@@ -23,8 +23,9 @@ public:
 	virtual void draw(sf::RenderWindow &rw) override;
 	virtual void handleInput(sf::RenderWindow &rw) override;
 	
-	
 private:
 	std::shared_ptr<Menu> startMenu;
 	BattleInfo& info;
+	
+	std::vector<Command> CommandVec;
 };

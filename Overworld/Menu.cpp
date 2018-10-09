@@ -23,10 +23,39 @@ void Menu::draw(sf::RenderWindow &rw) {
 	}
 }
 
-void Menu::update(float elapsed) {
+void Menu::update(float elapsed, std::vector<Command> commandVec) {
 	if (children.get()->getNext() && children.get()->getNext()->isActive()) {
-		children.get()->getNext()->update(elapsed);
+		children.get()->getNext()->update(elapsed, commandVec);
 	} else {
+		for (Command& command : commandVec) {
+			switch (command) {
+				case Command::Select:
+					if (children.get()->isSelectable()) {
+						if(children.get()->getNext()) {
+							children.get()->getNext()->activate();
+						} else done = true;
+						children.get()->activate();
+					}
+					break;
+					
+				case Command::Back:
+					active = false;
+					break;
+					
+				case Command::CursorUp:
+					children.get()->deselect();
+					--children;
+					children.get()->select();
+					break;
+					
+				case Command::CursorDown:
+					children.get()->deselect();
+					++children;
+					children.get()->select();
+					break;
+
+			}
+		}
 		//maybe some flicker on selected option?
 		//continue animation
 	}
@@ -34,47 +63,6 @@ void Menu::update(float elapsed) {
 
 void Menu::activate() {
 	active = true;
-}
-
-void Menu::handleInput(sf::RenderWindow& rw) {
-	if (children.get()->getNext() && children.get()->getNext()->isActive()) {
-		children.get()->getNext()->handleInput(rw);
-	} else {
-		sf::Event event;
-		while (rw.pollEvent(event)) {
-			if (event.type == sf::Event::KeyPressed) {
-				switch (event.key.code) {
-					case sf::Keyboard::X:
-						if (children.get()->isSelectable()) {
-							if(children.get()->getNext()) {
-								children.get()->getNext()->activate();
-							} else done = true;
-							children.get()->activate();
-						}
-						break;
-						
-					case sf::Keyboard::Z:
-						active = false;
-						break;
-						
-					case sf::Keyboard::Up:
-						children.get()->deselect();
-						--children;
-						children.get()->select();
-						break;
-						
-					case sf::Keyboard::Down:
-						children.get()->deselect();
-						++children;
-						children.get()->select();
-						break;
-						
-					default:
-						break;
-				}
-			}
-		}
-	}
 }
 
 void Menu::addChild(std::shared_ptr<MenuOption>& item) {

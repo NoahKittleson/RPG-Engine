@@ -58,7 +58,7 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 }
 
 void MenuMode::update(float elapsed, State* context) {
-	startMenu->update(elapsed);
+	startMenu->update(elapsed, CommandVec);
 	if (info.currentAction.complete()) {
 		done = true;
 		context->audioPlayer.playSound(SoundID::fox);
@@ -76,7 +76,35 @@ void MenuMode::handleInput(sf::RenderWindow &rw) {
 	if (info.combatants.get()->isNPC()) {
 		info.combatants.get()->fillInAction(info);
 		done = true;
-	} else
-	startMenu->handleInput(rw);
+		return;
+	}
+	CommandVec.clear();
+	sf::Event event;
+	while (rw.pollEvent(event)) {
+		if (event.type == sf::Event::KeyPressed) {
+			switch (event.key.code) {
+				case sf::Keyboard::X:
+					CommandVec.push_back(Command::Select);
+					break;
+					
+				case sf::Keyboard::Z:
+					CommandVec.push_back(Command::Back);
+					break;
+					
+				case sf::Keyboard::Up:
+				case sf::Keyboard::Right:
+					CommandVec.push_back(Command::CursorUp);
+					break;
 
+				case sf::Keyboard::Down:
+				case sf::Keyboard::Left:
+					CommandVec.push_back(Command::Select);
+					break;
+
+				default:
+					//std::cout << "Hey, don't press that key.  It doesn't do anything.\n";
+					break;
+			}
+		}
+	}
 }

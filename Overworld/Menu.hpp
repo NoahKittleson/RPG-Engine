@@ -12,13 +12,12 @@
 #include "Ability.hpp"
 
 class MenuOption;
+enum class Command {CursorUp, CursorDown, Select, Back};
 
 class Menu {
 public:
-	
 	void draw(sf::RenderWindow &rw);
-	void update(float elapsed);
-	void handleInput(sf::RenderWindow& rw);
+	void update(float elapsed, std::vector<Command> commandVec);
 	
 	bool isActive() const {return active;};
 	void activate();
