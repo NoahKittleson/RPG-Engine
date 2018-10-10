@@ -58,7 +58,7 @@ MenuMode::MenuMode(BattleInfo& info, const sf::Font& font) : info(info)
 }
 
 void MenuMode::update(float elapsed, State* context) {
-	startMenu->update(elapsed, CommandVec);
+	startMenu->update(elapsed, context, CommandVec);
 	for (Command& command : CommandVec) {
 		switch (command) {
 			case Command::CursorUp:

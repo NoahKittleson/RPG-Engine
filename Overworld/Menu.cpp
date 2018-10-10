@@ -23,9 +23,9 @@ void Menu::draw(sf::RenderWindow &rw) {
 	}
 }
 
-void Menu::update(float elapsed, std::vector<Command> commandVec) {
+void Menu::update(float elapsed, State* context, std::vector<Command> commandVec) {
 	if (children.get()->getNext() && children.get()->getNext()->isActive()) {
-		children.get()->getNext()->update(elapsed, commandVec);
+		children.get()->getNext()->update(elapsed, context, commandVec);
 	} else {
 		for (Command& command : commandVec) {
 			switch (command) {
@@ -35,6 +35,8 @@ void Menu::update(float elapsed, std::vector<Command> commandVec) {
 							children.get()->getNext()->activate();
 						} else done = true;
 						children.get()->activate();
+					} else {
+						context->audioPlayer.playSound(SoundID::fox);
 					}
 					break;
 					

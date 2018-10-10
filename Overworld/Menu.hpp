@@ -10,6 +10,9 @@
 #include "IterVector.hpp"
 #include "Character.h"
 #include "Ability.hpp"
+#include "State.h"
+
+class State;
 
 class MenuOption;
 enum class Command {CursorUp, CursorDown, Select, Back};
@@ -17,7 +20,7 @@ enum class Command {CursorUp, CursorDown, Select, Back};
 class Menu {
 public:
 	void draw(sf::RenderWindow &rw);
-	void update(float elapsed, std::vector<Command> commandVec);
+	void update(float elapsed, State* context, std::vector<Command> commandVec);
 	
 	bool isActive() const {return active;};
 	void activate();
