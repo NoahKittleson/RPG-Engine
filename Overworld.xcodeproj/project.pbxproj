@@ -119,6 +119,7 @@
 		B7A26C0F1C8061A50083989B /* Trigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C0D1C8061A50083989B /* Trigger.cpp */; };
 		B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A26C101C8070370083989B /* ZoneExit.cpp */; };
 		B7A58FD620A2D0030002A47F /* AbilityOption.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A58FD420A2D0030002A47F /* AbilityOption.cpp */; };
+		B7A936B421707274003B4DD5 /* foxshine.wav in Resources */ = {isa = PBXBuildFile; fileRef = B7A936B321707273003B4DD5 /* foxshine.wav */; };
 		B7AA2BB220F33A41003B1F42 /* BeachSouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AA2BB020F33A41003B1F42 /* BeachSouth.cpp */; };
 		B7AA2BB520F33B88003B1F42 /* TownSouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AA2BB320F33B88003B1F42 /* TownSouth.cpp */; };
 		B7AA2BB820F33DAB003B1F42 /* LighthouseCoast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AA2BB620F33DAB003B1F42 /* LighthouseCoast.cpp */; };
@@ -312,6 +313,7 @@
 		B7A26C111C8070370083989B /* ZoneExit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoneExit.h; sourceTree = "<group>"; };
 		B7A58FD420A2D0030002A47F /* AbilityOption.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AbilityOption.cpp; sourceTree = "<group>"; };
 		B7A58FD520A2D0030002A47F /* AbilityOption.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AbilityOption.hpp; sourceTree = "<group>"; };
+		B7A936B321707273003B4DD5 /* foxshine.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = foxshine.wav; sourceTree = "<group>"; };
 		B7AA2BB020F33A41003B1F42 /* BeachSouth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BeachSouth.cpp; sourceTree = "<group>"; };
 		B7AA2BB120F33A41003B1F42 /* BeachSouth.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BeachSouth.hpp; sourceTree = "<group>"; };
 		B7AA2BB320F33B88003B1F42 /* TownSouth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TownSouth.cpp; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 			children = (
 				B77783FC1AE5C57D007FA840 /* nice_music.ogg */,
 				B7362D192159A1E20017A208 /* shout8.wav */,
+				B7A936B321707273003B4DD5 /* foxshine.wav */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -794,6 +797,7 @@
 				B7396FBF20F036EB0095DDB5 /* BeachNorth.png in Resources */,
 				B7023E151BB61A4A005A6F93 /* BasicIdle.png in Resources */,
 				B7DAD364212A23D3002E7000 /* BoothAnimation.png in Resources */,
+				B7A936B421707274003B4DD5 /* foxshine.wav in Resources */,
 				B7023E111BB61A36005A6F93 /* GetHitAnimation.png in Resources */,
 				B7603A8F210D9D2500B6B858 /* Baker.png in Resources */,
 				B7635BF420FF308300806279 /* PlayerWalkingRight2.png in Resources */,

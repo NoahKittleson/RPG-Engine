@@ -9,7 +9,8 @@
 #pragma once
 
 enum SoundID {
-	fox
+	fox,
+	shine,
 };
 
 enum MusicID {

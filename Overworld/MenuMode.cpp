@@ -63,13 +63,14 @@ void MenuMode::update(float elapsed, State* context) {
 		switch (command) {
 			case Command::CursorUp:
 			case Command::CursorDown:
-				context->audioPlayer.playSound(SoundID::fox);
+				context->audioPlayer.playSound(SoundID::shine);
 				break;
 				
 			case Command::Back:
 				break;
 				
 			case Command::Select:
+				context->audioPlayer.playSound(SoundID::fox);
 				break;
 		}
 	}

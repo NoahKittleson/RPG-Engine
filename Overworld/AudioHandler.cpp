@@ -18,12 +18,13 @@ AudioHandler::AudioHandler() {
 
 	std::map<SoundID, std::string> soundIDs;
 	soundIDs.insert(std::make_pair(SoundID::fox, "Shout8.wav"));
+	soundIDs.insert(std::make_pair(SoundID::shine, "foxshine.wav"));
 	
 	for (auto & it : soundIDs) {
 		try {
 			soundMap[it.first].loadFromFile(resourcePath() + it.second);
 		} catch (const std::exception& e) {
-			std::cout << "Error Loading: " << e.what() << "\n";
+			std::cout << "Error Loading: " << e.what() <<  " for " << it.second << "\n";
 		}
 	}
 }
