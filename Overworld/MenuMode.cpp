@@ -67,6 +67,7 @@ void MenuMode::update(float elapsed, State* context) {
 				break;
 				
 			case Command::Back:
+				context->audioPlayer.playSound(SoundID::airdodge);
 				break;
 				
 			case Command::Select:
