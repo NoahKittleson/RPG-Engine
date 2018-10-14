@@ -519,9 +519,11 @@ void Character::startGetHitAnimation() {
 	if (currentHealth <= 0 ) {
 		assert(animations.getGetKilled());
 		sprite.setTexture(*animations.getGetKilled());
+		audio->playSound(SoundID::foxDeath);
 	} else {
 		assert(animations.getGetHit());
 		sprite.setTexture(*animations.getGetHit());
+		audio->playSound(SoundID::foxHurt);
 	}
 }
 
@@ -584,7 +586,9 @@ void Character::startAttackAnimation(const Ability& abil) {
 	sprite.setTexture(*abil.getAnimation());
 }
 
-
+void Character::attachAudio(AudioHandler& audioPlayer) {
+	audio = &audioPlayer;
+}
 
 
 

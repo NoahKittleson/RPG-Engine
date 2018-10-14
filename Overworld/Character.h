@@ -14,6 +14,7 @@
 #include "BattleInfo.hpp"
 #include "BattleAI.hpp"
 #include "AnimationSheet.hpp"
+#include "AudioHandler.hpp"
 
 class BattleInfo;
 class BattleAI;
@@ -53,6 +54,7 @@ public:
 	bool isIncapped() const;
 	
 	void fillInAction(BattleInfo&) const;
+	void attachAudio(AudioHandler& audio);
 	
 	//NEW AND BAD//
 	bool isIdle();
@@ -82,6 +84,7 @@ private:
 	sf::RectangleShape barOutline;
 	std::list<sf::Text> statusEffectDisplay;
 	std::unique_ptr<BattleAI> AI = nullptr;
+	AudioHandler* audio = nullptr;
     
     void addPoison(int);
     void addAdditiveProperty(float, Ability::Property);

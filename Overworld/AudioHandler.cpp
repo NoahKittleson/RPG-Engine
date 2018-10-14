@@ -20,6 +20,9 @@ AudioHandler::AudioHandler() {
 	soundIDs.insert(std::make_pair(SoundID::fox, "Shout8.wav"));
 	soundIDs.insert(std::make_pair(SoundID::shine, "foxshine.wav"));
 	soundIDs.insert(std::make_pair(SoundID::airdodge, "foxairdodge.wav"));
+	soundIDs.insert(std::make_pair(SoundID::foxDeath, "foxdeath.wav"));
+	soundIDs.insert(std::make_pair(SoundID::foxHurt, "foxhurt1.wav"));
+
 	
 	for (auto & it : soundIDs) {
 		try {

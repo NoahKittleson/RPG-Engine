@@ -10,9 +10,11 @@
 
 BattleState::BattleState(std::vector<std::shared_ptr<Character>>& enemies) {
     for (auto && it : party) {
+		it->attachAudio(audioPlayer);
         info.combatants.push_back(it);
     }
     for (auto && it : enemies) {
+		it->attachAudio(audioPlayer);
 		info.combatants.emplace_back(it);
     }
 	while (info.combatants.get()->getHealth() <= 0) {

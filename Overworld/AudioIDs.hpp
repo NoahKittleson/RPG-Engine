@@ -12,6 +12,8 @@ enum SoundID {
 	fox,
 	shine,
 	airdodge,
+	foxDeath,
+	foxHurt
 };
 
 enum MusicID {

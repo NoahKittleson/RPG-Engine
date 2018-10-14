@@ -121,6 +121,7 @@
 		B7A58FD620A2D0030002A47F /* AbilityOption.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7A58FD420A2D0030002A47F /* AbilityOption.cpp */; };
 		B7A936B421707274003B4DD5 /* foxshine.wav in Resources */ = {isa = PBXBuildFile; fileRef = B7A936B321707273003B4DD5 /* foxshine.wav */; };
 		B7A936B6217073F7003B4DD5 /* foxairdodge.wav in Resources */ = {isa = PBXBuildFile; fileRef = B7A936B5217073F6003B4DD5 /* foxairdodge.wav */; };
+		B7A936B8217301E9003B4DD5 /* foxdeath.wav in Resources */ = {isa = PBXBuildFile; fileRef = B7A936B7217301E8003B4DD5 /* foxdeath.wav */; };
 		B7AA2BB220F33A41003B1F42 /* BeachSouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AA2BB020F33A41003B1F42 /* BeachSouth.cpp */; };
 		B7AA2BB520F33B88003B1F42 /* TownSouth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AA2BB320F33B88003B1F42 /* TownSouth.cpp */; };
 		B7AA2BB820F33DAB003B1F42 /* LighthouseCoast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7AA2BB620F33DAB003B1F42 /* LighthouseCoast.cpp */; };
@@ -316,6 +317,7 @@
 		B7A58FD520A2D0030002A47F /* AbilityOption.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AbilityOption.hpp; sourceTree = "<group>"; };
 		B7A936B321707273003B4DD5 /* foxshine.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = foxshine.wav; sourceTree = "<group>"; };
 		B7A936B5217073F6003B4DD5 /* foxairdodge.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = foxairdodge.wav; sourceTree = "<group>"; };
+		B7A936B7217301E8003B4DD5 /* foxdeath.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = foxdeath.wav; sourceTree = "<group>"; };
 		B7AA2BB020F33A41003B1F42 /* BeachSouth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BeachSouth.cpp; sourceTree = "<group>"; };
 		B7AA2BB120F33A41003B1F42 /* BeachSouth.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BeachSouth.hpp; sourceTree = "<group>"; };
 		B7AA2BB320F33B88003B1F42 /* TownSouth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TownSouth.cpp; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 				B7362D192159A1E20017A208 /* shout8.wav */,
 				B7A936B321707273003B4DD5 /* foxshine.wav */,
 				B7A936B5217073F6003B4DD5 /* foxairdodge.wav */,
+				B7A936B7217301E8003B4DD5 /* foxdeath.wav */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -785,6 +788,7 @@
 				B7023E131BB61A43005A6F93 /* BadAttackAnimation.png in Resources */,
 				B7635BF320FF308300806279 /* PlayerWalkingDown2.png in Resources */,
 				B7C00F1E20F95A36006CEEA4 /* DialogueBar.png in Resources */,
+				B7A936B8217301E9003B4DD5 /* foxdeath.wav in Resources */,
 				B77784011AE5C57D007FA840 /* icon.png in Resources */,
 				B76CFD9021180CA100E63EE3 /* Point.png in Resources */,
 				B7215CE72107FEE000D7A6B6 /* Lighthouse.png in Resources */,
