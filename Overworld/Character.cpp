@@ -519,11 +519,15 @@ void Character::startGetHitAnimation() {
 	if (currentHealth <= 0 ) {
 		assert(animations.getGetKilled());
 		sprite.setTexture(*animations.getGetKilled());
-		audio->playSound(SoundID::foxDeath);
+		if (audio) {
+			audio->playSound(SoundID::foxDeath);
+		}
 	} else {
 		assert(animations.getGetHit());
 		sprite.setTexture(*animations.getGetHit());
-		audio->playSound(SoundID::foxHurt);
+		if (audio) {
+			audio->playSound(SoundID::foxHurt);
+		}
 	}
 }
 
