@@ -57,3 +57,8 @@ void GraphicsComponent::offsetBase(float x) {
 	baseOffset += x;
 }
 
+void GraphicsComponent::attachAudio(AudioHandler& attachMe) {
+	audio = &attachMe;
+}
+
+

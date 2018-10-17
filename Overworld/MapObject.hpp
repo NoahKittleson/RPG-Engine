@@ -52,6 +52,7 @@ public:
 	//dialogue
 	NodePtr getDNode() const;
 	void attachDialogue(NodePtr toAdd);
+	void attachAudio(AudioHandler& audio);
 	
 protected:
 	//graphics
@@ -62,6 +63,9 @@ protected:
 	
 	//interaction
 	NodePtr dialogue = nullptr;
+	
+	//audio
+	//AudioHandler* audio = nullptr;		//for now, I'm going to see if just graphics needs it.
 	
 	//where do I store the walkingState?
 };

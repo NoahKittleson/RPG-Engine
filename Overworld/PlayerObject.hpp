@@ -17,6 +17,7 @@ public:
 	PlayerObject(graphicsPtr&& gc);
 	PlayerObject(graphicsPtr&& gc, RectVec& collision);
 	
+	
 private:
 	
 	

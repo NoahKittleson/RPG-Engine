@@ -8,6 +8,7 @@
 
 #pragma once
 #include "PrefixHeader.pch"
+#include "AudioHandler.hpp"
 
 
 class GraphicsComponent : public sf::Sprite
@@ -29,8 +30,12 @@ public:
 	virtual void drawCropped(int pixelCropX, int pixelCropY, sf::RenderWindow &rw);
 	//^^^crops from right/bottom, unless negative, in which case crops from left/top
 	
+	virtual void attachAudio(AudioHandler& audio);
+	
+protected:
+	AudioHandler* audio = nullptr;
+
 private:
 	float baseOffset = 0.f;
 	
-
 };

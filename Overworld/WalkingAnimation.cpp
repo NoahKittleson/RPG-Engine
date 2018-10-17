@@ -44,6 +44,9 @@ void WalkingAnimation::changeDirection(Direction newDir) {
 			break;
 	}
 	walkingState = newDir;
+	if (audio) {
+		audio->playSound(SoundID::shine);
+	}
 }
 
 Direction WalkingAnimation::getWalkingDirection()

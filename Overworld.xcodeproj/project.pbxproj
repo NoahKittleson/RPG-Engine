@@ -130,6 +130,7 @@
 		B7BE058320B938D8008D6537 /* bush.png in Resources */ = {isa = PBXBuildFile; fileRef = B7BE058220B938D8008D6537 /* bush.png */; };
 		B7C00F1E20F95A36006CEEA4 /* DialogueBar.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C00F1D20F95A36006CEEA4 /* DialogueBar.png */; };
 		B7C3E680212D4330004F9A73 /* SittingSoldierBig.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C3E67F212D4330004F9A73 /* SittingSoldierBig.png */; };
+		B7C6B6102176B3A30067B15E /* foxhurt1.wav in Resources */ = {isa = PBXBuildFile; fileRef = B7C6B60F2176B3A30067B15E /* foxhurt1.wav */; };
 		B7C7948C212B967700551E2F /* BuildingOutline8.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C7948B212B967600551E2F /* BuildingOutline8.png */; };
 		B7C9F3811E6235D300E7A045 /* Fade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7C9F37F1E6235D300E7A045 /* Fade.cpp */; };
 		B7CCC8662130DFCD00CC6533 /* Shed.png in Resources */ = {isa = PBXBuildFile; fileRef = B7CCC8652130DFCD00CC6533 /* Shed.png */; };
@@ -331,6 +332,7 @@
 		B7BE058220B938D8008D6537 /* bush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bush.png; sourceTree = "<group>"; };
 		B7C00F1D20F95A36006CEEA4 /* DialogueBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DialogueBar.png; sourceTree = "<group>"; };
 		B7C3E67F212D4330004F9A73 /* SittingSoldierBig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SittingSoldierBig.png; sourceTree = "<group>"; };
+		B7C6B60F2176B3A30067B15E /* foxhurt1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = foxhurt1.wav; sourceTree = "<group>"; };
 		B7C7948B212B967600551E2F /* BuildingOutline8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BuildingOutline8.png; sourceTree = "<group>"; };
 		B7C9F37F1E6235D300E7A045 /* Fade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Fade.cpp; sourceTree = "<group>"; };
 		B7C9F3801E6235D300E7A045 /* Fade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Fade.hpp; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				B7362D192159A1E20017A208 /* shout8.wav */,
 				B7A936B321707273003B4DD5 /* foxshine.wav */,
 				B7A936B5217073F6003B4DD5 /* foxairdodge.wav */,
+				B7C6B60F2176B3A30067B15E /* foxhurt1.wav */,
 				B7A936B7217301E8003B4DD5 /* foxdeath.wav */,
 			);
 			name = Audio;
@@ -837,6 +840,7 @@
 				B7396FC220F036EB0095DDB5 /* Forest.png in Resources */,
 				B706A6D221119D70009DC84D /* BuildingOutline5.png in Resources */,
 				B7A0D23A209BC3EF00098096 /* pond.png in Resources */,
+				B7C6B6102176B3A30067B15E /* foxhurt1.wav in Resources */,
 				B77783FD1AE5C57D007FA840 /* nice_music.ogg in Resources */,
 				B7CCC8692132783800CC6533 /* ListeningManAnim.png in Resources */,
 				B7635BF620FF308300806279 /* PlayerWalkingLeft2.png in Resources */,

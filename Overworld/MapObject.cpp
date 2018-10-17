@@ -175,6 +175,11 @@ void MapObject::attachDialogue(NodePtr toAdd) {
 	dialogue = toAdd;
 }
 
+void MapObject::attachAudio(AudioHandler& attachMe) {
+	//audio = attachMe;
+	graphics->attachAudio(attachMe);
+}
+
 void MapObject::addCollisionBox(float left, float top, float width, float height) {
 	//collision boxes given are based on relative position, so we have to translate here...
 	sf::Vector2f position = graphics->getPosition();
