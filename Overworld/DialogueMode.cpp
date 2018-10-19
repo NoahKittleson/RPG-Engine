@@ -25,13 +25,14 @@ void DialogueMode::handleInput(sf::RenderWindow& rw) {
 	sf::Event event;
 	while (rw.pollEvent(event)) {
 		if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::X) {
-			audioPlayer.playSound(SoundID::shine);
 			auto next = currentDNode->getNext(conditions);
 			if (next == Dialogue::None) {
 				currentDNode->resolveConditions(conditions);
 				requestStackPop();
 				return;
-			} if (next != currentDNode->getID()) {
+			}
+			audioPlayer.playSound(SoundID::shine);
+			if (next != currentDNode->getID()) {
 				sf::Vector2f pos = currentDNode->getPosition();
 				currentDNode->resolveConditions(conditions);
 				currentDNode = DialogueFactory::create(next, resources);

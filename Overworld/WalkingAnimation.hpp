@@ -30,6 +30,7 @@ private:
 	
 	Direction walkingState;
 	bool moving;
+	int stepTimer = 0;
 	
 	const sf::Texture* walkUp;
 	const sf::Texture* walkDown;

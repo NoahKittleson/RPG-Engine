@@ -44,9 +44,7 @@ void WalkingAnimation::changeDirection(Direction newDir) {
 			break;
 	}
 	walkingState = newDir;
-	if (audio) {
-		audio->playSound(SoundID::shine);
-	}
+	stepTimer = 0;
 }
 
 Direction WalkingAnimation::getWalkingDirection()
@@ -90,6 +88,10 @@ void WalkingAnimation::update(float elapsed) {
 		if (totalElapsed > timePerFrame) {
 			totalElapsed -= timePerFrame;
 			nextFrame();
+			if (++stepTimer > 4 && audio) {					//4 is a magic number
+				audio->playSound(SoundID::shine);
+				stepTimer = 0;
+			}
 		}
 	}
 }
