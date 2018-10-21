@@ -22,7 +22,7 @@ public:
 	void setPosition(float x, float y) override;
 	
     void clear() override;
-    void update(float elapsed) override;
+    void update(float elapsed, AudioHandler& audio) override;
     void draw(sf::RenderWindow &rw) override;
 	void handleInput(sf::Event&) override;
 	Dialogue::ID getNext(const std::vector<Condition>& cv) override;

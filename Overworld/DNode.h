@@ -10,6 +10,7 @@
 #include "PrefixHeader.pch"
 #include "IterVector.hpp"
 #include "DPath.hpp"
+#include "AudioHandler.hpp"
 
 class DNode;
 
@@ -24,7 +25,7 @@ public:
     sf::Vector2f getPosition() const;
     
     virtual void clear();
-    virtual void update(float) = 0;
+    virtual void update(float time, AudioHandler& audio) = 0;
     virtual void draw(sf::RenderWindow &rw) = 0;
     virtual void handleInput(sf::Event&) = 0;
 	virtual Dialogue::ID getNext(const std::vector<Condition>& cv) = 0;

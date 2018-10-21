@@ -24,7 +24,7 @@ void OptionNode::addText(sf::String&& string, std::vector<DPath> paths) {
     text.emplace_back(string, paths);
 }
 
-void OptionNode::update(float elapsed) {
+void OptionNode::update(float elapsed, AudioHandler& audio) {
     return;
 }
 

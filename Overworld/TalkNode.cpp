@@ -43,7 +43,7 @@ void TalkNode::addText(sf::String&& add) {
 
 }
 
-void TalkNode::update(float elapsed) {
+void TalkNode::update(float elapsed, AudioHandler& audio) {
     auto displayString = display.getString();
     totalElapsed += elapsed;
 	
