@@ -17,7 +17,7 @@ OptionNode::OptionNode(const sf::Font &font, Dialogue::ID id)
 }
 
 OptionNode::~OptionNode() {
-    std::cout << "OptionNode deleted. Text:" << getText() << "\n";
+    std::cout << "OptionNode deleted. Text: " << getText() << "\n";
 }
 
 void OptionNode::addText(sf::String&& string, std::vector<DPath> paths) {

@@ -61,5 +61,5 @@ void DialogueMode::draw(sf::RenderWindow &rw) {
 void DialogueMode::update(sf::Clock &clock)
 {
     float elapsed = clock.restart().asSeconds();
-	currentDNode->update(elapsed, this);
+	currentDNode->update(elapsed, this->audioPlayer);
 }
