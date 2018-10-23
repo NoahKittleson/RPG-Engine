@@ -54,6 +54,7 @@ void TalkNode::update(float elapsed, AudioHandler& audio) {
     while (totalElapsed >= time_per_letter && displayString.getSize() != text.get().getSize()) {
         displayString += text.get()[displayString.getSize()];
         totalElapsed -= time_per_letter;
+		audio.playSound(SoundID::shine);
     }
     display.setString(displayString);
 }
