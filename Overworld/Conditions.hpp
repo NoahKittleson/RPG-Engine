@@ -12,6 +12,7 @@ enum class Condition {
 	First,
 	FoughtWheat,
 	ChangedMap,
-	Last
+	Last,
+	ControlsExplained,
 };
 

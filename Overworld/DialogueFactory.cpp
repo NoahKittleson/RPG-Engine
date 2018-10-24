@@ -20,8 +20,8 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 			
 		case Dialogue::Intro02: {
 			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Intro02, Dialogue::Unknown);
-			node->addText("And by the way, you can use X while walking around to try to interact with the world.");
-			node->addText("Not everyone is friendly though, and you might get into a fight.");
+			node->addText("And by the way, you can use X while walking around to interact with certain things and people.");
+			node->addText("Not everyone is friendly though.  You might get into a fight.");
 			node->addText("If you do, I'm sure you'll figure it out.  Everything is just X for select, Z to go back, and the arrow keys to move.");
 			node->addText("Anyway, have fun.");
 			return node;

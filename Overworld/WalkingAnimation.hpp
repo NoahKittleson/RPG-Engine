@@ -18,7 +18,6 @@ public:
 	WalkingAnimation(const sf::Texture& up, const sf::Texture& down,
 					 const sf::Texture& left, const sf::Texture& right,
 					 sf::Vector2f position, float timePerFrame, sf::Vector2i frame);
-	//virtual void update(MapObject& obj, float elapsed) override;
 	void changeDirection(Direction newDir);
 	void update(float elapsed) override;
 	

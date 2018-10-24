@@ -216,6 +216,9 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	waterZones.emplace_back(sf::FloatRect(662,838,110,300));
 
 	
+	
+	
+	
 	//Set up Trigger for Warning
 	std::function<State*()> createDialogue = [&resources]() -> State*
 	{
@@ -234,6 +237,25 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	};
 	
 	triggers.emplace_back(prereqs, warning, sf::FloatRect(263,380,20,110));
+	
+	//Set up Trigger for Intro text
+	if (std::find(activeConds.begin(), activeConds.end(), Condition::ControlsExplained) == activeConds.end()) {
+		std::function<State*()> intro = [&resources]() -> State*
+		{
+			auto dialogue = DialogueFactory::create(Dialogue::Intro01, resources);
+			return new DialogueMode(dialogue);
+		};
+		
+		triggers.emplace_back(prereqs, intro, sf::FloatRect(50,50,50,50));
+		
+		std::function<State*()> SecondIntro = [&resources]() -> State*
+		{
+			auto dialogue = DialogueFactory::create(Dialogue::Intro02, resources);
+			return new DialogueMode(dialogue);
+		};
+		
+		triggers.emplace_back(prereqs, SecondIntro, sf::FloatRect(100,100,50,100));
+	}
 	
 	//Set up Trigger for Fighting
 	std::function<State*()> createBattle = [&resources]() -> State*
