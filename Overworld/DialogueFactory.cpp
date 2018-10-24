@@ -11,8 +11,24 @@
 
 NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh) {
 	switch (toCreate) {
+		case Dialogue::Intro01: {
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Intro01, Dialogue::Unknown);
+			node->addText("Welcome to my game.  You can press X to continue to the next dialogue.");
+			node->addText("Use the Arrow Keys to walk around.  Go ahead and explore a little bit.");
+			return node;
+		}
+			
+		case Dialogue::Intro02: {
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Intro02, Dialogue::Unknown);
+			node->addText("And by the way, you can use X while walking around to try to interact with the world.");
+			node->addText("Not everyone is friendly though, and you might get into a fight.");
+			node->addText("If you do, I'm sure you'll figure it out.  Everything is just X for select, Z to go back, and the arrow keys to move.");
+			node->addText("Anyway, have fun.");
+			return node;
+		}
+			
 		case Dialogue::Error: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Error);
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Error, Dialogue::System);
 			node->addText("An Unexpected Error has occured.");
 			node->addText("As if There are expected errors?");
 			node->addText("Anyway, sorry about that.");
@@ -24,7 +40,7 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 		}
 			
 		case Dialogue::Test001: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Test001);
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Test001, Dialogue::Narrator);
 			node->addText("This is a test of the non-emergency systems.");
 			node->addText("(Is this even going to show up?)");
 			std::vector<Condition> reqForNext;
@@ -38,14 +54,14 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 		}
 			
 		case Dialogue::Test002: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Test002);
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Test002, Dialogue::Narrator);
 			node->addText("Thank you for your cooperation.");
 			node->addConsequence(Condition::First);
 			return node;
 		}
 			
 		case Dialogue::Test003: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Test003);
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Test003, Dialogue::Narrator);
 			node->addText("Oh wait, this all seems very familiar.");
 			return node;
 		}
@@ -72,3 +88,4 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 //			break;
 	}
 }
+

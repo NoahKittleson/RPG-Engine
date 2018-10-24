@@ -13,7 +13,7 @@ TalkNode::TalkNode(const sf::Font &font, Dialogue::ID id, Dialogue::Speaker spea
 	text.setLooping(false);
 	speakerText.setFont(font);
 	speakerText.setColor(sf::Color::Black);
-	speakerText.setString(speakerToText(speaker));
+	speakerText.setString(Dialogue::speakerToText(speaker));
 }
 
 TalkNode::~TalkNode() {
@@ -110,22 +110,5 @@ void TalkNode::setPosition(float x, float y) {
 	DNode::setPosition(x, y);
 	speakerText.setPosition(x+540, y-55);
 }
-
-sf::String TalkNode::speakerToText(Dialogue::Speaker speaker) const {
-	switch (speaker) {
-		case Dialogue::Narrator:
-			return "Unreliable Narrator";
-			
-		case Dialogue::Gabriela:
-			return "Gabriela";
-			
-		case Dialogue::Marquez:
-			return "Marquez";
-			
-		case Dialogue::SittingGuard:
-			return "Sitting Guard";
-	}
-}
-
 
 
