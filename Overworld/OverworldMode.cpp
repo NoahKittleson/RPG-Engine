@@ -16,6 +16,7 @@ OverworldMode::OverworldMode() {
 	view.zoom(0.5);
 	view.setCenter(player->getPosition());
 	updateView();
+	checkTriggers();
 	
 	audioPlayer.playMusic(currentMap->music);
 }
