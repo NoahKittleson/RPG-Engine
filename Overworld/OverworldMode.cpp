@@ -16,7 +16,6 @@ OverworldMode::OverworldMode() {
 	view.zoom(0.5);
 	view.setCenter(player->getPosition());
 	updateView();
-	checkTriggers();
 	
 	audioPlayer.playMusic(currentMap->music);
 }
@@ -93,13 +92,13 @@ void OverworldMode::update(sf::Clock& timer) {
 	if (mode) {
 		mode->update(elapsed, this);
 	} else {
+		checkTriggers();
 		int index = checkExits();
 		if (index >= 0) {
 			currentMode = fadeOut;
 			mode = std::unique_ptr<Mode>(new Fade(false, 1.f));
 		} else if (handleMovement(elapsed)) {
 			updateView();
-			checkTriggers();
 		}
 		currentMap->update(elapsed);
 	} if (mode && mode->isDone()) {

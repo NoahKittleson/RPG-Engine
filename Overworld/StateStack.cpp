@@ -22,7 +22,7 @@ void StateStack::addState(StatePtr&& addMe)
 {
     if (addMe) {
 		gameStateStack.push(std::move(addMe));
-    }
+	}
 }
 
 void StateStack::clear()
