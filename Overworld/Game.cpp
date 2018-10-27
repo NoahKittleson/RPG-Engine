@@ -28,6 +28,8 @@ void Game::run()
 		auto loadMode = std::unique_ptr<State>(new LoadState(gameStack));
 		//in brackets to make sure memory is released as soon as possible but loading still works.
 	}
+	
+	std::thread loadThread;
 	gameStack.requestAdd(std::unique_ptr<State>(new OverworldMode()));
 	gameStack.applyPendingChanges();
 

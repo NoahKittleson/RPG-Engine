@@ -18,4 +18,6 @@ public:
 	void handleInput(sf::RenderWindow& rw) override;
     void update(sf::Clock&) override;
     void draw(sf::RenderWindow&) override;
+	
+	void load(StateStack& States);
 };
