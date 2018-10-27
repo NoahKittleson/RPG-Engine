@@ -25,11 +25,21 @@ void Game::run()
 	mainWindow.setVerticalSyncEnabled(true);
 
 	{
-		auto loadMode = std::unique_ptr<State>(new LoadState(gameStack));
+		std::atomic<bool> done(false);
+		LoadState loadMode = LoadState(gameStack);
+		auto loadFunc = [&loadMode, &done]() {
+			loadMode.load();
+			done = true;
+		};
+		std::thread loadThread (loadFunc);
+		while (!done) {
+			loadMode.update(gameTimer);
+			loadMode.draw(mainWindow);
+		}
+		loadThread.join();
 		//in brackets to make sure memory is released as soon as possible but loading still works.
 	}
 	
-	std::thread loadThread;
 	gameStack.requestAdd(std::unique_ptr<State>(new OverworldMode()));
 	gameStack.applyPendingChanges();
 

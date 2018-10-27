@@ -19,5 +19,5 @@ public:
     void update(sf::Clock&) override;
     void draw(sf::RenderWindow&) override;
 	
-	void load(StateStack& States);
+	void load();
 };

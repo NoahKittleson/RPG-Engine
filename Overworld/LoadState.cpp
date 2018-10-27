@@ -26,7 +26,7 @@ void LoadState::draw(sf::RenderWindow& rw) {
     //nothing yet... eventually loading bar?
 }
 
-void LoadState::load(StateStack& States) {
+void LoadState::load() {
 	//load conditions into ConditionList
 	//(not yet)
 	currentMap = MapFactory::create(MapID::TownSouth, resources, conditions);
