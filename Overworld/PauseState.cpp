@@ -26,7 +26,7 @@ void PauseState::update(sf::Clock& timer) {
 }
 
 void PauseState::draw(sf::RenderWindow& rw) {
-//	rw.clear(sf::Color::Black);
+	rw.clear(sf::Color::White);
 	rw.setView(rw.getDefaultView());
 	rw.draw(rect);
 	rw.draw(pausedText);
@@ -36,7 +36,7 @@ void PauseState::draw(sf::RenderWindow& rw) {
 void PauseState::handleInput(sf::RenderWindow& rw) {
 	sf::Event event;
 	while (rw.pollEvent(event)) {
-		//if P or Enter is pressed pop this state;
+		//if Enter is pressed pop this state;
 		if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return) {
 			requestStackPop();
 			audioPlayer.resumeMusic();

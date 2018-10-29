@@ -23,6 +23,7 @@ void LoadState::update(sf::Clock&) {
 
 void LoadState::draw(sf::RenderWindow& rw) {
     rw.clear(sf::Color::Black);
+	rw.display();
     //nothing yet... eventually loading bar?
 }
 

@@ -25,6 +25,7 @@ void Game::run()
 	mainWindow.setVerticalSyncEnabled(true);
 
 	{
+		gameTimer.restart();
 		std::atomic<bool> done(false);
 		LoadState loadMode = LoadState(gameStack);
 		auto loadFunc = [&loadMode, &done]() {
@@ -37,6 +38,7 @@ void Game::run()
 			loadMode.draw(mainWindow);
 		}
 		loadThread.join();
+		std::cout << "Assets loaded in " << gameTimer.restart().asSeconds() << " seconds\n";
 		//in brackets to make sure memory is released as soon as possible but loading still works.
 	}
 	
