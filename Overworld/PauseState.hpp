@@ -11,7 +11,7 @@
 
 class PauseState : public State {
 public:
-	PauseState();
+	PauseState(sf::RenderWindow& rw);
 	void update(sf::Clock&) override;
 	void draw(sf::RenderWindow&) override;
 	void handleInput(sf::RenderWindow&) override;
@@ -19,5 +19,7 @@ public:
 private:
 	sf::Text pausedText;
 	sf::RectangleShape rect;
+	sf::Texture backgroundTexture;
+	sf::Sprite backgroundSprite;
 	
 };

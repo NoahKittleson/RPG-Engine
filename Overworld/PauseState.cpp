@@ -8,7 +8,7 @@
 
 #include "PauseState.hpp"
 
-PauseState::PauseState() {
+PauseState::PauseState(sf::RenderWindow& rw) {
 	pausedText.setString("Paused");
 	pausedText.setColor(sf::Color::White);
 	pausedText.setPosition(100, 100);
@@ -17,6 +17,8 @@ PauseState::PauseState() {
 	rect.setSize(sf::Vector2f(105,37));
 	rect.setPosition(90, 100);
 	audioPlayer.pauseMusic();
+	backgroundTexture.loadFromImage(rw.capture());
+	backgroundSprite.setTexture(backgroundTexture);
 	//pause sounds?
 }
 
@@ -28,6 +30,7 @@ void PauseState::update(sf::Clock& timer) {
 void PauseState::draw(sf::RenderWindow& rw) {
 	rw.clear(sf::Color::White);
 	rw.setView(rw.getDefaultView());
+	rw.draw(backgroundSprite);
 	rw.draw(rect);
 	rw.draw(pausedText);
 	rw.display();

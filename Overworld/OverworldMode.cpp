@@ -23,7 +23,7 @@ OverworldMode::OverworldMode() {
 void OverworldMode::handleInput(sf::RenderWindow& rw) {
 	CommandQueue.clear();
 	if (!rw.hasFocus()) {
-		requestStackAdd(make_unique<PauseState>());
+		requestStackAdd(make_unique<PauseState>(rw));
 		return;
 	}
 	if (mode) {
@@ -36,7 +36,7 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 				debugMode = !debugMode;
 			}
 			if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Return) {
-				requestStackAdd(make_unique<PauseState>());
+				requestStackAdd(make_unique<PauseState>(rw));
 
 			}
 			if (event.type == sf::Event::MouseButtonPressed) {
