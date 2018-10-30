@@ -91,6 +91,7 @@
 		B76E02341D738EC90058D39E /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = B76E02331D738EC90058D39E /* ResourcePath.mm */; };
 		B7701D831EF262EA006AB891 /* Conditions.hpp in Resources */ = {isa = PBXBuildFile; fileRef = B7701D821EF262EA006AB891 /* Conditions.hpp */; };
 		B7701D851EF4740D006AB891 /* Campfire.png in Resources */ = {isa = PBXBuildFile; fileRef = B7701D841EF4740D006AB891 /* Campfire.png */; };
+		B772BB432188219600A6F120 /* MainMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B772BB412188219600A6F120 /* MainMenuState.cpp */; };
 		B77783F81AE5C57D007FA840 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B77783F71AE5C57D007FA840 /* main.cpp */; };
 		B77783FD1AE5C57D007FA840 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = B77783FC1AE5C57D007FA840 /* nice_music.ogg */; };
 		B77783FF1AE5C57D007FA840 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B77783FE1AE5C57D007FA840 /* sansation.ttf */; };
@@ -273,6 +274,8 @@
 		B76E02331D738EC90058D39E /* ResourcePath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		B7701D821EF262EA006AB891 /* Conditions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Conditions.hpp; sourceTree = "<group>"; };
 		B7701D841EF4740D006AB891 /* Campfire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Campfire.png; sourceTree = "<group>"; };
+		B772BB412188219600A6F120 /* MainMenuState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuState.cpp; sourceTree = "<group>"; };
+		B772BB422188219600A6F120 /* MainMenuState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainMenuState.hpp; sourceTree = "<group>"; };
 		B77783EF1AE5C57D007FA840 /* Overworld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Overworld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77783F31AE5C57D007FA840 /* Overworld-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Overworld-Info.plist"; sourceTree = "<group>"; };
 		B77783F71AE5C57D007FA840 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -629,6 +632,8 @@
 				B78316FC20E6EA7400740527 /* PauseState.cpp */,
 				B75B77901C00723900122CCC /* StateStack.h */,
 				B75B778F1C00723900122CCC /* StateStack.cpp */,
+				B772BB422188219600A6F120 /* MainMenuState.hpp */,
+				B772BB412188219600A6F120 /* MainMenuState.cpp */,
 				B770E8381C75214E00F0A688 /* Utility */,
 				B78FB2961BF950FE008A435F /* DialogueMode */,
 				B78FB2951BF950ED008A435F /* OverworldMode */,
@@ -912,6 +917,7 @@
 				B7396FCE20F099CF0095DDB5 /* MountainEast.cpp in Sources */,
 				B7262BD42001B48D00989D70 /* MenuOption.cpp in Sources */,
 				B74213421E384C7F00090D95 /* BeachNorth.cpp in Sources */,
+				B772BB432188219600A6F120 /* MainMenuState.cpp in Sources */,
 				B75F862C1BACE0C60093B615 /* Character.cpp in Sources */,
 				B7AA2BB820F33DAB003B1F42 /* LighthouseCoast.cpp in Sources */,
 				B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */,
