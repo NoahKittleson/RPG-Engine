@@ -13,19 +13,29 @@ MainMenuState::MainMenuState() {
 //	std::shared_ptr<Menu> loadMenu = std::make_shared<Menu>();
 //	std::shared_ptr<Menu> optionsMenu = std::make_shared<Menu>();
 
-	//set up Ability Option on Start Menu
-	auto abilityOption = std::make_shared<MenuOption>("Ability", font);
-	abilityOption->attachNext(abilityMenu);
-	if (info.currentAction.attacker->getAbilityList().size() == 0) {
-		abilityOption->setPossible(false);
-	}
-	
-	
+	//New Game
 	auto function = [this] () {
 		requestStackAdd(std::unique_ptr<State>(new OverworldMode()));
 	};
-	auto targetOption = std::make_shared<MenuOption>(target->getName(), font, function);
-	mainMenu->addChild(abilityOption);
+	auto newGameOption = std::make_shared<MenuOption>("New Game", resources.getFont(Fonts::Bramble), function);
+	mainMenu->addChild(newGameOption);
+	
+	//Load
+	auto emptyFunction = [this] () {
+		return;
+	};
+	auto loadOption = std::make_shared<MenuOption>("Load", resources.getFont(Fonts::Bramble), emptyFunction);
+	loadOption->setPossible(false);
+	mainMenu->addChild(loadOption);
+
+	//Options
+//	auto emptyFunction = [this] () {
+//		return;
+//	};
+	auto optionsOption = std::make_shared<MenuOption>("Options", resources.getFont(Fonts::Bramble), emptyFunction);
+	optionsOption->setPossible(false);
+	mainMenu->addChild(optionsOption);
+	
 	mainMenu->activate();
 }
 
