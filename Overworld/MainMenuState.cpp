@@ -39,14 +39,47 @@ MainMenuState::MainMenuState() {
 	mainMenu->activate();
 }
 
-void MainMenuState::update(sf::Clock&) {
-	
+void MainMenuState::update(sf::Clock& timer) {
+	mainMenu->update(timer.restart().asSeconds(), this, commandVec);
 }
 
-void MainMenuState::draw(sf::RenderWindow&) {
-	
+void MainMenuState::draw(sf::RenderWindow& rw) {
+	rw.clear();
+	rw.draw(background);
+	mainMenu->draw(rw);
+	rw.display();
 }
 
-void MainMenuState::handleInput(sf::RenderWindow&) {
+void MainMenuState::handleInput(sf::RenderWindow& rw) {
+	//this code is exactly the same as that in BattleMode?  Perhaps find a way to extract it out and generalize it?
 	
+	commandVec.clear();
+	sf::Event event;
+	while (rw.pollEvent(event)) {
+		if (event.type == sf::Event::KeyPressed) {
+			switch (event.key.code) {
+				case sf::Keyboard::X:
+					commandVec.push_back(Command::Select);
+					break;
+					
+				case sf::Keyboard::Z:
+					commandVec.push_back(Command::Back);
+					break;
+					
+				case sf::Keyboard::Up:
+				case sf::Keyboard::Right:
+					commandVec.push_back(Command::CursorUp);
+					break;
+					
+				case sf::Keyboard::Down:
+				case sf::Keyboard::Left:
+					commandVec.push_back(Command::CursorDown);
+					break;
+					
+				default:
+					//std::cout << "Hey, don't press that key.  It doesn't do anything.\n";
+					break;
+			}
+		}
+	}
 }

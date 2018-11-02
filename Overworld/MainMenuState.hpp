@@ -21,4 +21,5 @@ public:
 private:
 	sf::Sprite background;
 	std::shared_ptr<Menu> mainMenu;
+	std::vector<Command> commandVec;
 };
