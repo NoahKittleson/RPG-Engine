@@ -44,8 +44,8 @@ void MainMenuState::update(sf::Clock& timer) {
 }
 
 void MainMenuState::draw(sf::RenderWindow& rw) {
-	rw.clear();
-	rw.draw(background);
+	rw.clear(sf::Color::White);
+	//rw.draw(background);
 	mainMenu->draw(rw);
 	rw.display();
 }

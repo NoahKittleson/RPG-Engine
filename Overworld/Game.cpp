@@ -42,7 +42,7 @@ void Game::run()
 		//in brackets to make sure memory is released as soon as possible but loading still works.
 	}
 	
-	gameStack.requestAdd(std::unique_ptr<State>(new OverworldMode()));
+	gameStack.requestAdd(std::unique_ptr<State>(new MainMenuState()));
 	gameStack.applyPendingChanges();
 
 	while (mainWindow.isOpen()) {
