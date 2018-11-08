@@ -36,6 +36,9 @@ MainMenuState::MainMenuState() {
 	optionsOption->setPossible(false);
 	mainMenu->addChild(optionsOption);
 	
+	background.setTexture(resources.getTexture(Textures::MainMenuBackground));
+	background.setScale(4, 4);
+
 	mainMenu->activate();
 }
 
@@ -45,7 +48,7 @@ void MainMenuState::update(sf::Clock& timer) {
 
 void MainMenuState::draw(sf::RenderWindow& rw) {
 	rw.clear(sf::Color::White);
-	//rw.draw(background);
+	rw.draw(background);
 	mainMenu->draw(rw);
 	rw.display();
 }

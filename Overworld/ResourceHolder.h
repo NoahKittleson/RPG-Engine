@@ -82,7 +82,8 @@ namespace Textures {
 		Couple2,
 		Bystander1,
 		Bystander2,
-		SittingFisherman
+		SittingFisherman,
+		MainMenuBackground
 	};
 }
 
