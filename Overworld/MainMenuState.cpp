@@ -9,6 +9,13 @@
 #include "MainMenuState.hpp"
 
 MainMenuState::MainMenuState() {
+	Title.setFont(resources.getFont(Fonts::Bramble));
+	Title.setCharacterSize(150);
+	Title.setColor(sf::Color(255,0,255));
+
+	Title.setPosition(300, 70);
+	Title.setString("Placeholder");
+	
 	mainMenu = std::make_shared<Menu>();
 //	std::shared_ptr<Menu> loadMenu = std::make_shared<Menu>();
 //	std::shared_ptr<Menu> optionsMenu = std::make_shared<Menu>();
@@ -49,6 +56,7 @@ void MainMenuState::update(sf::Clock& timer) {
 void MainMenuState::draw(sf::RenderWindow& rw) {
 	rw.clear(sf::Color::White);
 	rw.draw(background);
+	rw.draw(Title);
 	mainMenu->draw(rw);
 	rw.display();
 }

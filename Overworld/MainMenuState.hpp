@@ -20,6 +20,7 @@ public:
 
 private:
 	sf::Sprite background;
+	sf::Text Title;
 	std::shared_ptr<Menu> mainMenu;
 	std::vector<Command> commandVec;
 };
