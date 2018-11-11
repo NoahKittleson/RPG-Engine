@@ -22,7 +22,7 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Intro02, Dialogue::Unknown);
 			node->addText("And by the way, you can use X while walking around to interact with certain things and people.");
 			node->addText("Not everyone is friendly though.  You might get into a fight.");
-			node->addText("If you do, I'm sure you'll figure it out.  Everything is just X for select, Z to go back, and the arrow keys to move.");
+			node->addText("If you do, I'm sure you'll figure it out.  X is select, Z is go back, and the arrow keys navigate.");
 			node->addText("Anyway, have fun.");
 			return node;
 		}
@@ -81,6 +81,12 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 			node->addText("Hey, come on lady.  I already told you.");
 			node->addText("No entry, got it?  Don't make me get up out of this chair.");
 			node->addText("If you want to make a fuss, go find to the Colonel.  He's usually at the Eastern entrance.");
+			return node;
+		}
+			
+		case Dialogue::Colonel01: {
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Colonel01, Dialogue::Narrator);
+			node->addText("Hey there, ");
 			return node;
 		}
 			

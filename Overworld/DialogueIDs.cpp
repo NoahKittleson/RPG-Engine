@@ -25,6 +25,9 @@ sf::String Dialogue::speakerToText(Dialogue::Speaker speaker) {
 		case Dialogue::Unknown:
 			return "?????";
 			
+		case Dialogue::TheColonel:
+			return "The Colonel";
+			
 		case Dialogue::System:
 			return "System";
 	}

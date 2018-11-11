@@ -10,8 +10,8 @@
 #include "PrefixHeader.pch"
 
 namespace Dialogue {
-	enum ID { Intro01, Intro02, Error, None, Test001, Test002, Test003, GuardStop1, GuardStop2 };
-	enum Speaker { Narrator, Gabriela, Marquez, SittingGuard, Unknown, System };
+	enum ID { Intro01, Intro02, Error, None, Test001, Test002, Test003, GuardStop1, GuardStop2, Colonel01 };
+	enum Speaker { Narrator, Gabriela, Marquez, SittingGuard, Unknown, System, TheColonel };
 	
 	sf::String speakerToText(Dialogue::Speaker speaker);
 }
