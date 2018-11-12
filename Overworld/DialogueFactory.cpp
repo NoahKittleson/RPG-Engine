@@ -12,26 +12,26 @@
 NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh) {
 	switch (toCreate) {
 		case Dialogue::Intro01: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Intro01, Dialogue::Unknown);
-			node->addText("Welcome to my game.  You can press X to continue to the next dialogue.");
-			node->addText("Use the Arrow Keys to walk around.  Go ahead and explore a little bit.");
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Intro01);
+			node->addText("Welcome to my game.  You can press X to continue to the next dialogue.", Dialogue::Unknown);
+			node->addText("Use the Arrow Keys to walk around.  Go ahead and explore a little bit.", Dialogue::Unknown);
 			return node;
 		}
 			
 		case Dialogue::Intro02: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Intro02, Dialogue::Unknown);
-			node->addText("And by the way, you can use X while walking around to interact with certain things and people.");
-			node->addText("Not everyone is friendly though.  You might get into a fight.");
-			node->addText("If you do, I'm sure you'll figure it out.  X is select, Z is go back, and the arrow keys navigate.");
-			node->addText("Anyway, have fun.");
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Intro02);
+			node->addText("And by the way, you can use X while walking around to interact with certain things and people.", Dialogue::Unknown);
+			node->addText("Not everyone is friendly though.  You might get into a fight.", Dialogue::Unknown);
+			node->addText("If you do, I'm sure you'll figure it out.  X is select, Z is go back, and the arrow keys navigate.", Dialogue::Unknown);
+			node->addText("Anyway, have fun.", Dialogue::Unknown);
 			return node;
 		}
 			
 		case Dialogue::Error: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Error, Dialogue::System);
-			node->addText("An Unexpected Error has occured.");
-			node->addText("As if There are expected errors?");
-			node->addText("Anyway, sorry about that.");
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Error);
+			node->addText("An Unexpected Error has occured.", Dialogue::System);
+			node->addText("As if There are expected errors?", Dialogue::System);
+			node->addText("Anyway, sorry about that.", Dialogue::System);
 			return node;
 		}
 			
@@ -40,9 +40,9 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 		}
 			
 		case Dialogue::Test001: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Test001, Dialogue::Narrator);
-			node->addText("This is a test of the non-emergency systems.");
-			node->addText("(Is this even going to show up?)");
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Test001);
+			node->addText("This is a test of the non-emergency systems.", Dialogue::Narrator);
+			node->addText("(Is this even going to show up?)", Dialogue::Narrator);
 			std::vector<Condition> reqForNext;
 			reqForNext.push_back(Condition::First);
 			DPath path1 (Dialogue::Test003, reqForNext);
@@ -54,61 +54,43 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 		}
 			
 		case Dialogue::Test002: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Test002, Dialogue::Narrator);
-			node->addText("Thank you for your cooperation.");
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Test002);
+			node->addText("Thank you for your cooperation.", Dialogue::Narrator);
 			node->addConsequence(Condition::First);
 			return node;
 		}
 			
 		case Dialogue::Test003: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Test003, Dialogue::Narrator);
-			node->addText("Oh wait, this all seems very familiar.");
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Test003);
+			node->addText("Oh wait, this all seems very familiar.", Dialogue::Narrator);
 			return node;
 		}
 			
 		case Dialogue::GuardStop1: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::GuardStop1, Dialogue::SittingGuard);
-			node->addText("Hold it right there, ma'am.  The military is currently using this town as our base of operations.  While the rebels are stationed nearby we can't let any unauthorized personel in.");
-			node->addText("If you need to buy supplies, there's another town up to the North-east.");
-			node->addText("You don't look too threatening though.  If you want you can try talking to the Colonel and he might let you in.");
-			node->addText("He's around the side, guarding the exit to the East.");
-			node->addText("Say 'Hi' for me, will ya?");
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::GuardStop1);
+			node->addText("Hold it right there, ma'am.  The military is currently using this town as our base of operations.  While the rebels are stationed nearby we can't let any unauthorized personel in.", Dialogue::SittingGuard);
+			node->addText("If you need to buy supplies, there's another town up to the North-east.", Dialogue::SittingGuard);
+			node->addText("You don't look too threatening though.  If you want you can try talking to the Colonel and he might let you in.", Dialogue::SittingGuard);
+			node->addText("He's around the side, guarding the exit to the East.", Dialogue::SittingGuard);
+			node->addText("Say 'Hi' for me, will ya?", Dialogue::SittingGuard);
 			return node;
 		}
 			
 		case Dialogue::GuardStop2: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::GuardStop2, Dialogue::SittingGuard);
-			node->addText("Hey, come on lady.  I already told you.");
-			node->addText("No entry, got it?  Don't make me get up out of this chair.");
-			node->addText("If you want to make a fuss, go find to the Colonel.  He's usually at the Eastern entrance.");
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::GuardStop2);
+			node->addText("Hey, come on lady.  I already told you.", Dialogue::SittingGuard);
+			node->addText("No entry, got it?  Don't make me get up out of this chair.", Dialogue::SittingGuard);
+			node->addText("If you want to make a fuss, go find to the Colonel.  He's usually at the Eastern entrance.", Dialogue::SittingGuard);
 			return node;
 		}
 			
 		case Dialogue::ColonelGreeting01: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::ColonelGreeting01, Dialogue::TheColonel);
-			node->addText("Morning, Ma'am.  What business do you have here?");
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::ColonelGreeting01);
+			node->addText("Morning, Ma'am.  What business do you have here?", Dialogue::TheColonel);
+			node->addText("I just need to buy some vanilla", Dialogue::OldLady);
+			node->addText("Oh Vanilla. What are you making?", Dialogue::TheColonel);
+			node->addText(".....", Dialogue::OldLady);
 			node->addPath(DPath(Dialogue::ColonelGreeting02));
-			return node;
-		}
-			
-		case Dialogue::ColonelGreeting02: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::ColonelGreeting02, Dialogue::OldLady);
-			node->addText("I just need to buy some vanilla");
-			node->addPath(DPath(Dialogue::ColonelGreeting03));
-			return node;
-		}
-
-		case Dialogue::ColonelGreeting03: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::ColonelGreeting03, Dialogue::TheColonel);
-			node->addText("Oh Vanilla. What are you making?");
-			node->addPath(DPath(Dialogue::ColonelGreeting04));
-			return node;
-		}
-			
-		case Dialogue::ColonelGreeting04: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::ColonelGreeting04, Dialogue::OldLady);
-			node->addText(".....");
-			node->addPath(DPath(Dialogue::ColonelGreeting04));
 			return node;
 		}
 			

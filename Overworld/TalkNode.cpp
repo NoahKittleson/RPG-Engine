@@ -8,12 +8,12 @@
 
 #include "TalkNode.h"
 
-TalkNode::TalkNode(const sf::Font &font, Dialogue::ID id, Dialogue::Speaker speaker)
-: DNode(font, id), speakerID(speaker) {
+TalkNode::TalkNode(const sf::Font &font, Dialogue::ID id)
+: DNode(font, id){
 	text.setLooping(false);
 	speakerText.setFont(font);
 	speakerText.setColor(sf::Color::Black);
-	speakerText.setString(Dialogue::speakerToText(speaker));
+	speakerText.setString(Dialogue::speakerToText(text.get().speakerID));
 }
 
 TalkNode::~TalkNode() {
