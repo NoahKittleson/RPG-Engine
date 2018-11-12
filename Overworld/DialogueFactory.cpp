@@ -93,8 +93,22 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 			
 		case Dialogue::ColonelGreeting02: {
 			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::ColonelGreeting02, Dialogue::OldLady);
-			node->addText("I need to buy a loaf of bread.");
-			node->addPath(DPath(Dialogue::ColonelGreeting02));
+			node->addText("I just need to buy some vanilla");
+			node->addPath(DPath(Dialogue::ColonelGreeting03));
+			return node;
+		}
+
+		case Dialogue::ColonelGreeting03: {
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::ColonelGreeting03, Dialogue::TheColonel);
+			node->addText("Oh Vanilla. What are you making?");
+			node->addPath(DPath(Dialogue::ColonelGreeting04));
+			return node;
+		}
+			
+		case Dialogue::ColonelGreeting04: {
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::ColonelGreeting04, Dialogue::OldLady);
+			node->addText(".....");
+			node->addPath(DPath(Dialogue::ColonelGreeting04));
 			return node;
 		}
 			

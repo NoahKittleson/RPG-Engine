@@ -10,13 +10,19 @@
 #include "PrefixHeader.pch"
 #include "DNode.h"
 
+struct TextBox {
+public:
+	Dialogue::Speaker speakerID;
+	sf::String string;
+};
+
 class TalkNode: public DNode
 {
 public:
 	TalkNode(const sf::Font&, Dialogue::ID, Dialogue::Speaker);
     ~TalkNode();
     
-	void addText(sf::String&&);
+	void addText(sf::String&&, Dialogue::Speaker speaker);
 	void addPath(DPath path);						//paths need to be added in sequential order of priority
 	void setPosition(sf::Vector2f xy) override;
 	void setPosition(float x, float y) override;
@@ -30,9 +36,10 @@ public:
 private:
 	Dialogue::Speaker speakerID;
     float totalElapsed {0};
-    IterVector<sf::String> text;
+    IterVector<TextBox> text;
 	sf::Text speakerText;
 	std::vector<DPath> potentialPaths;
     
     std::string getText() override;
 };
+

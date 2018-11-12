@@ -22,19 +22,19 @@ TalkNode::~TalkNode() {
 
 std::string TalkNode::getText() {
     if (text.size()) {
-        return text[0];
+        return text[0].string;
     }
     return "EMPTY TEXT";
 }
 
-void TalkNode::addText(sf::String&& add) {
-	text.push_back(add);
+void TalkNode::addText(sf::String&& string, Dialogue::Speaker speaker) {
+	text.emplace_back(string, speaker);
 
 	int lineBreakAfter = 50;
 	int atCharacter = 50;
-	while (text.back().getSize() > atCharacter) {
-		if (text.back()[atCharacter] == ' ') {
-			text.back()[atCharacter] = '\n';
+	while (text.back().string.getSize() > atCharacter) {
+		if (text.back().string[atCharacter] == ' ') {
+			text.back().string[atCharacter] = '\n';
 			atCharacter += lineBreakAfter;
 		} else {
 			++atCharacter;
@@ -47,12 +47,12 @@ void TalkNode::update(float elapsed, AudioHandler& audio) {
     auto displayString = display.getString();
     totalElapsed += elapsed;
 	
-    if (displayString.getSize() == text.get().getSize()) {
+    if (displayString.getSize() == text.get().string.getSize()) {
         return;
     }
     float time_per_letter = 0.02;
-    while (totalElapsed >= time_per_letter && displayString.getSize() != text.get().getSize()) {
-        displayString += text.get()[displayString.getSize()];
+    while (totalElapsed >= time_per_letter && displayString.getSize() != text.get().string.getSize()) {
+        displayString += text.get().string[displayString.getSize()];
         totalElapsed -= time_per_letter;
 		audio.playSound(SoundID::shine);
     }
@@ -76,8 +76,9 @@ void TalkNode::handleInput(sf::Event &) {        //perhaps for later?
 
 Dialogue::ID TalkNode::getNext(const std::vector<Condition>& cv) {
 	//completes text if still printing to screen
-	if (text.get().getSize() != display.getString().getSize()) {
-		display.setString(text.get());
+	if (text.get().string.getSize() != display.getString().getSize()) {
+		display.setString(text.get().string);
+		speakerText.setString(Dialogue::speakerToText(text.get().speakerID));
 		return ID;
 	}
 	//gets next DNode if complete
