@@ -28,6 +28,9 @@ sf::String Dialogue::speakerToText(Dialogue::Speaker speaker) {
 		case Dialogue::TheColonel:
 			return "The Colonel";
 			
+		case Dialogue::OldLady:
+			return "Isabel";
+			
 		case Dialogue::System:
 			return "System";
 	}

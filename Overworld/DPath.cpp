@@ -8,7 +8,7 @@
 
 #include "DPath.hpp"
 
-DPath::DPath(std::vector<Condition> preReqs, Dialogue::ID next) : preReqs(preReqs), next(next) {
+DPath::DPath(Dialogue::ID next, std::vector<Condition> preReqs) : preReqs(preReqs), next(next) {
 	
 }
 

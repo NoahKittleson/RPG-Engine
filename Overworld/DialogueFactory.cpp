@@ -45,10 +45,10 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 			node->addText("(Is this even going to show up?)");
 			std::vector<Condition> reqForNext;
 			reqForNext.push_back(Condition::First);
-			DPath path1 (reqForNext, Dialogue::Test003);
+			DPath path1 (Dialogue::Test003, reqForNext);
 			node->addPath(path1);
 			reqForNext.clear();
-			DPath path2 (reqForNext, Dialogue::Test002);
+			DPath path2 (Dialogue::Test002, reqForNext);
 			node->addPath(path2);
 			return node;
 		}
@@ -84,9 +84,17 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 			return node;
 		}
 			
-		case Dialogue::Colonel01: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::Colonel01, Dialogue::Narrator);
-			node->addText("Hey there, ");
+		case Dialogue::ColonelGreeting01: {
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::ColonelGreeting01, Dialogue::TheColonel);
+			node->addText("Morning, Ma'am.  What business do you have here?");
+			node->addPath(DPath(Dialogue::ColonelGreeting02));
+			return node;
+		}
+			
+		case Dialogue::ColonelGreeting02: {
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::ColonelGreeting02, Dialogue::OldLady);
+			node->addText("I need to buy a loaf of bread.");
+			node->addPath(DPath(Dialogue::ColonelGreeting02));
 			return node;
 		}
 			

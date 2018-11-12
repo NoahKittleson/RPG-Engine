@@ -14,7 +14,7 @@
 struct DPath
 {
 public:
-	DPath(std::vector<Condition> preReqs, Dialogue::ID next);
+	DPath(Dialogue::ID next, std::vector<Condition> preReqs = std::vector<Condition>());
 	bool isSatisfied(const std::vector<Condition> activeConds) const;
 	Dialogue::ID getNext() const;
 	
