@@ -88,9 +88,15 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::ColonelGreeting01);
 			node->addText("Morning, Ma'am.  What business do you have here?", Dialogue::TheColonel);
 			node->addText("I just need to buy some vanilla", Dialogue::OldLady);
-			node->addText("Oh Vanilla. What are you making?", Dialogue::TheColonel);
+			node->addText("Oh, Vanilla. What are you making?", Dialogue::TheColonel);
 			node->addText(".....", Dialogue::OldLady);
-			node->addPath(DPath(Dialogue::ColonelGreeting02));
+			node->addText("I remember my grandma used to make vanilla bean cakes when we visited on Sundays.", Dialogue::TheColonel);
+			node->addText("Sometimes with lemon.  Or maybe lime?  I can't remember anymore.", Dialogue::TheColonel);
+			node->addText("I haven't had any since she died.  God knows you never eat like that in the army.", Dialogue::TheColonel);
+			node->addText("I'm not making vanilla bean cakes.", Dialogue::OldLady);
+			node->addText("Sorry.", Dialogue::OldLady);
+			node->addText("No need to apologize. You should be able to find what you need in town.  We've requisitioned most of the meat, fish, and bread but all the fancy stuff like vanilla we left.", Dialogue::TheColonel);
+			node->addText("You're clearly no threat.", Dialogue::TheColonel);
 			return node;
 		}
 			
