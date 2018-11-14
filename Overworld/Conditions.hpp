@@ -14,5 +14,6 @@ enum class Condition {
 	ChangedMap,
 	Last,
 	ControlsExplained,
+	TownSouthAccess
 };
 

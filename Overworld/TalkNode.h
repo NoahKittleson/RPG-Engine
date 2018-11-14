@@ -12,6 +12,7 @@
 
 struct TextBox {
 public:
+	TextBox (sf::String& s, Dialogue::Speaker ID) : string(s), speakerID(ID) {};
 	Dialogue::Speaker speakerID;
 	sf::String string;
 };

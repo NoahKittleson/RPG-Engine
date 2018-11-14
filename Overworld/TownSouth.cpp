@@ -267,6 +267,14 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	triggers.emplace_back(prereqs, createBattle, sf::FloatRect(283,380,20,110));
 	triggers.back().setEffect(GroundTrigger::blink);
 	
+	//Set up Trigger for Talking with Colonel
+	std::function<State*()> colonelGreeting = [&resources]() -> State*
+	{
+		auto dialogue = DialogueFactory::create(Dialogue::ColonelGreeting01, resources);
+		return new DialogueMode(dialogue);
+	};
+	triggers.emplace_back(prereqs, colonelGreeting, sf::FloatRect(300,680,20,110));
+	
 	
 	//Set up Zone Exits
 	sf::Vector2u totalArea = background.getTexture()->getSize();

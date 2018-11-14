@@ -97,6 +97,7 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 			node->addText("Sorry.", Dialogue::OldLady);
 			node->addText("No need to apologize. You should be able to find what you need in town.  We've requisitioned most of the meat, fish, and bread but all the fancy stuff like vanilla we left.", Dialogue::TheColonel);
 			node->addText("You're clearly no threat.", Dialogue::TheColonel);
+			node->addConsequence(Condition::TownSouthAccess);
 			return node;
 		}
 			

@@ -13,7 +13,6 @@ TalkNode::TalkNode(const sf::Font &font, Dialogue::ID id)
 	text.setLooping(false);
 	speakerText.setFont(font);
 	speakerText.setColor(sf::Color::Black);
-	speakerText.setString(Dialogue::speakerToText(text.get().speakerID));
 }
 
 TalkNode::~TalkNode() {
@@ -28,6 +27,9 @@ std::string TalkNode::getText() {
 }
 
 void TalkNode::addText(sf::String&& string, Dialogue::Speaker speaker) {
+	if (text.empty()) {
+		speakerText.setString(Dialogue::speakerToText(speaker));
+	}
 	text.emplace_back(string, speaker);
 
 	int lineBreakAfter = 50;
