@@ -273,7 +273,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 		auto dialogue = DialogueFactory::create(Dialogue::ColonelGreeting01, resources);
 		return new DialogueMode(dialogue);
 	};
-	triggers.emplace_back(prereqs, colonelGreeting, sf::FloatRect(300,680,20,110));
+	triggers.emplace_back(prereqs, colonelGreeting, sf::FloatRect(590,670,120,120));
 	
 	
 	//Set up Zone Exits
