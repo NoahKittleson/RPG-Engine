@@ -19,6 +19,9 @@ public:
 	void handleInput(sf::RenderWindow&) override;
 
 private:
+	float colorTimer = 0;
+	bool waxing = true;
+	
 	sf::Sprite background;
 	sf::Text Title;
 	std::shared_ptr<Menu> mainMenu;

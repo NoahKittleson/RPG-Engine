@@ -50,7 +50,20 @@ MainMenuState::MainMenuState() {
 }
 
 void MainMenuState::update(sf::Clock& timer) {
-	mainMenu->update(timer.restart().asSeconds(), this, commandVec);
+	float elapsed = timer.restart().asSeconds();
+	mainMenu->update(elapsed, this, commandVec);
+	if (waxing) {
+		colorTimer += elapsed;
+		if (colorTimer > 3) {
+			waxing = false;
+		}
+	} else {
+		colorTimer -= elapsed;
+		if (colorTimer < 0) {
+			waxing = false;
+		}
+	}
+	Title.setColor(sf::Color(255, elapsed * 40, 255));
 }
 
 void MainMenuState::draw(sf::RenderWindow& rw) {
