@@ -39,6 +39,8 @@ public:
     void drawBackground(sf::RenderWindow &rw);
     void drawAllObjects(sf::RenderWindow &rw, MapObject& player);
 	void drawAllBoxes(sf::RenderWindow& rw) const;
+	void drawLighting(sf::RenderWindow& rw) const;
+
 	
 	NodePtr interact (std::vector<sf::FloatRect>) const;
     
@@ -51,7 +53,6 @@ public:
     const ExitVec& getExitList();
     const TriggerVec& getTriggerList();
 	const sf::Vector2f getGlobalPosition();
-
 	
 	void drawExits(sf::RenderWindow &rw) const;
 	
@@ -61,6 +62,7 @@ protected:
 	void addObject(MapObject& add);
 
 	sf::Sprite background;
+	sf::Sprite lightingTexture;
 	ExitVec exits;
 	SpriteVec sprites;
 	std::vector<sf::FloatRect> waterZones;

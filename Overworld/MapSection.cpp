@@ -29,6 +29,11 @@ void MapSection::drawBackground(sf::RenderWindow&rw) {
 	rw.draw(background);
 }
 
+void MapSection::drawLighting(sf::RenderWindow& rw) const {
+	rw.draw(lightingTexture);
+}
+
+
 void MapSection::drawAllObjects(sf::RenderWindow &rw, MapObject& player) {
 	bool playerDrawn = false;
 	bool playerInWater = false;
