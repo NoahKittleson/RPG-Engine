@@ -161,6 +161,7 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	currentMap->drawBackground(rw);
 	currentMap->drawExits(rw);
 	currentMap->drawAllObjects(rw, *player);
+	currentMap->drawLighting(rw);
 	if (mode) {
 		mode->draw(rw);
 	} else {

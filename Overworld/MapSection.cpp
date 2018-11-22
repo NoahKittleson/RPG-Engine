@@ -30,7 +30,14 @@ void MapSection::drawBackground(sf::RenderWindow&rw) {
 }
 
 void MapSection::drawLighting(sf::RenderWindow& rw) const {
-	rw.draw(lightingTexture);
+	if (lightingTexture.getTexture()) {
+		rw.draw(lightingTexture);
+	}
+}
+
+void MapSection::setLighting(const sf::Texture& texture) {
+	lightingTexture.setTexture(texture);
+	lightingTexture.setScale(scale, scale);
 }
 
 

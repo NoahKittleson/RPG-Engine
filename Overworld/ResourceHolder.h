@@ -83,7 +83,8 @@ namespace Textures {
 		Bystander1,
 		Bystander2,
 		SittingFisherman,
-		MainMenuBackground
+		MainMenuBackground,
+		RandomLighting
 	};
 }
 

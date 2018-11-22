@@ -40,7 +40,6 @@ public:
     void drawAllObjects(sf::RenderWindow &rw, MapObject& player);
 	void drawAllBoxes(sf::RenderWindow& rw) const;
 	void drawLighting(sf::RenderWindow& rw) const;
-
 	
 	NodePtr interact (std::vector<sf::FloatRect>) const;
     
@@ -60,6 +59,7 @@ public:
 	
 protected:
 	void addObject(MapObject& add);
+	void setLighting(const sf::Texture& texture);
 
 	sf::Sprite background;
 	sf::Sprite lightingTexture;
