@@ -60,10 +60,10 @@ public:
 	
 protected:
 	void addObject(MapObject& add);
-	void setLighting(const sf::Texture& texture);
+	void createLighting(const sf::Texture& texture);
 
 	sf::Sprite background;
-	AnimatedComponent lighting;
+	std::unique_ptr<GraphicsComponent> lighting = nullptr;
 	ExitVec exits;
 	SpriteVec sprites;
 	std::vector<sf::FloatRect> waterZones;

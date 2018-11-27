@@ -30,14 +30,14 @@ void MapSection::drawBackground(sf::RenderWindow&rw) {
 }
 
 void MapSection::drawLighting(sf::RenderWindow& rw) const {
-	if (lightingTexture.getTexture()) {
-		rw.draw(lightingTexture);
+	if (lighting) {
+		rw.draw(*lighting);
 	}
 }
 
-void MapSection::setLighting(const sf::Texture& texture) {
-	lightingTexture.setTexture(texture);
-	lightingTexture.setScale(scale, scale);
+void MapSection::createLighting(const sf::Texture& texture) {
+	lighting = std::make_unique<AnimatedComponent>(texture, sf::Vector2f(32,32), 0.2, sf::Vector2i(background.getLocalBounds().width, background.getLocalBounds().height));
+	lighting->setScale(scale, scale);
 }
 
 
@@ -86,7 +86,7 @@ void MapSection::update(float elapsed) {
 }
 
 void MapSection::updateLighting(float elapsed) {
-	lighting->update(elapsed);
+	lighting.update(elapsed);
 }
 
 
