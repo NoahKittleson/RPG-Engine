@@ -36,6 +36,7 @@ public:
     const MapID ID;
 	
 	void update(float elapsed);
+	void updateLighting(float elapsed);
     void drawBackground(sf::RenderWindow &rw);
     void drawAllObjects(sf::RenderWindow &rw, MapObject& player);
 	void drawAllBoxes(sf::RenderWindow& rw) const;
@@ -62,7 +63,7 @@ protected:
 	void setLighting(const sf::Texture& texture);
 
 	sf::Sprite background;
-	sf::Sprite lightingTexture;
+	AnimatedComponent lighting;
 	ExitVec exits;
 	SpriteVec sprites;
 	std::vector<sf::FloatRect> waterZones;

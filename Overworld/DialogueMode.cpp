@@ -48,6 +48,7 @@ void DialogueMode::draw(sf::RenderWindow &rw) {
 	sf::View mapView = rw.getView();
 	currentMap->drawBackground(rw);
 	currentMap->drawAllObjects(rw, *player);
+	currentMap->drawLighting(rw);
 	
 	rw.setView(rw.getDefaultView());
 	rw.draw(dialogueBar);
