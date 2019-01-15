@@ -12,7 +12,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 : MapSection(MapID::TownSouth, NiceMusic, sf::Vector2f(475 * scale, 625 * scale)) {
 	background.setTexture(resources.getTexture(Textures::TownSouth));
 	background.setScale(scale, scale);
-	this->setLighting(resources.getTexture(Textures::RandomLighting));
+	this->createLighting(resources.getTexture(Textures::RandomLighting));
 	
 	//A store
 	MapObject store (make_unique<GraphicsComponent>(resources.getTexture(Textures::Store1),

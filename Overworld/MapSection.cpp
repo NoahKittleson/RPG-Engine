@@ -36,8 +36,15 @@ void MapSection::drawLighting(sf::RenderWindow& rw) const {
 }
 
 void MapSection::createLighting(const sf::Texture& texture) {
-	lighting = std::make_unique<AnimatedComponent>(texture, sf::Vector2f(32,32), 0.2, sf::Vector2i(background.getLocalBounds().width, background.getLocalBounds().height));
+	if (lighting) {
+		std::cout << "Error: lighting already exists\n";
+		return;
+	}
+	lighting = make_unique<AnimatedComponent>(texture, sf::Vector2f(0,0), 0.2, sf::Vector2i(background.getLocalBounds().width, background.getLocalBounds().height));
 	lighting->setScale(scale, scale);
+	// the -2 is because of rounding errors with ints?
+	lighting->setPosition(background.getLocalBounds().width/2*scale-2,background.getLocalBounds().height/2*scale-2);
+	
 }
 
 
@@ -86,7 +93,7 @@ void MapSection::update(float elapsed) {
 }
 
 void MapSection::updateLighting(float elapsed) {
-	lighting.update(elapsed);
+	lighting->update(elapsed);
 }
 
 

@@ -22,6 +22,7 @@
 #include "CharacterGenerator.hpp"
 #include "DialogueFactory.hpp"
 #include "AudioIDs.hpp"
+#include "MakeUnique.hpp"
 
 
 using ExitVec = std::vector<ZoneExit>;
