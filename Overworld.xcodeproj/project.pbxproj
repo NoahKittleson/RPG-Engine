@@ -108,6 +108,7 @@
 		B783170220EC9C7B00740527 /* DeadTree.png in Resources */ = {isa = PBXBuildFile; fileRef = B783170120EC9C7B00740527 /* DeadTree.png */; };
 		B786FF1320E4BA8E00EAE1A0 /* SmallWheat.png in Resources */ = {isa = PBXBuildFile; fileRef = B786FF1220E4BA8E00EAE1A0 /* SmallWheat.png */; };
 		B78873551F3D530E00E7C725 /* CharacterGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */; };
+		B78E700C21F8510A00E3F1AD /* OpeningBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B78E700B21F8510A00E3F1AD /* OpeningBackground.png */; };
 		B7942A95210A958B00BA2195 /* SalutingSoldier.png in Resources */ = {isa = PBXBuildFile; fileRef = B7942A92210A958A00BA2195 /* SalutingSoldier.png */; };
 		B7942A96210A958B00BA2195 /* TheColonel.png in Resources */ = {isa = PBXBuildFile; fileRef = B7942A93210A958B00BA2195 /* TheColonel.png */; };
 		B797796F2044DBF7000870C2 /* AttackMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B797796D2044DBF7000870C2 /* AttackMode.cpp */; };
@@ -303,6 +304,7 @@
 		B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterGenerator.cpp; sourceTree = "<group>"; };
 		B78873541F3D530E00E7C725 /* CharacterGenerator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterGenerator.hpp; sourceTree = "<group>"; };
 		B78E700721EBC9B000E3F1AD /* MakeUnique.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MakeUnique.hpp; sourceTree = "<group>"; };
+		B78E700B21F8510A00E3F1AD /* OpeningBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OpeningBackground.png; sourceTree = "<group>"; };
 		B7942A92210A958A00BA2195 /* SalutingSoldier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SalutingSoldier.png; sourceTree = "<group>"; };
 		B7942A93210A958B00BA2195 /* TheColonel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TheColonel.png; sourceTree = "<group>"; };
 		B797796D2044DBF7000870C2 /* AttackMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AttackMode.cpp; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 				B7603A8D210D9D2500B6B858 /* Kid.png */,
 				B7215CE62107FEE000D7A6B6 /* Lighthouse.png */,
 				B7250C392194EC4200F59629 /* MainMenuBackground.png */,
+				B78E700B21F8510A00E3F1AD /* OpeningBackground.png */,
 				B7603A8C210D9D2500B6B858 /* Pirate.png */,
 				B73F35011E4B095B007EC4AC /* PlayerWalkingDown.png */,
 				B7635BEF20FF308200806279 /* PlayerWalkingDown2.png */,
@@ -800,6 +803,7 @@
 				B7439C1A1ECA6D8C00724D0B /* Scarecrow.png in Resources */,
 				B783170020EC9C7100740527 /* BrickHouse.png in Resources */,
 				B786FF1320E4BA8E00EAE1A0 /* SmallWheat.png in Resources */,
+				B78E700C21F8510A00E3F1AD /* OpeningBackground.png in Resources */,
 				B7396FC720F036EB0095DDB5 /* LighthouseCoast.png in Resources */,
 				B706A6D6211253AA009DC84D /* BuildingOutline6.png in Resources */,
 				B7CEB32F212E012B00E072D5 /* Garden.png in Resources */,

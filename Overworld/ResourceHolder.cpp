@@ -91,7 +91,7 @@ ResourceHolder::ResourceHolder()
 	textureIDMap.insert(std::make_pair("Bystander1.png", Textures::ID::Bystander1));
 	textureIDMap.insert(std::make_pair("Bystander2.png", Textures::ID::Bystander2));
 	textureIDMap.insert(std::make_pair("FishermanSitting.png", Textures::ID::SittingFisherman));
-	textureIDMap.insert(std::make_pair("MainMenuBackground.png", Textures::ID::MainMenuBackground));
+	textureIDMap.insert(std::make_pair("OpeningBackground.png", Textures::ID::MainMenuBackground));
 	textureIDMap.insert(std::make_pair("RandomLighting.png", Textures::ID::RandomLighting));
 
 	

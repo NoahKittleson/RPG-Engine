@@ -8,13 +8,17 @@
 
 #include "MainMenuState.hpp"
 
-MainMenuState::MainMenuState() {
+MainMenuState::MainMenuState()
+: background(resources.getTexture(Textures::MainMenuBackground), sf::Vector2f(512, 384), 0.3, sf::Vector2i(256,192))	//magic number in position
+{
 	Title.setFont(resources.getFont(Fonts::Bramble));
 	Title.setCharacterSize(150);
 	Title.setColor(sf::Color(255,0,255));
 
 	Title.setPosition(300, 70);
 	Title.setString("Placeholder");
+	
+	background.setScale(4.0, 4.0);
 	
 	mainMenu = std::make_shared<Menu>();
 //	std::shared_ptr<Menu> loadMenu = std::make_shared<Menu>();
@@ -43,8 +47,8 @@ MainMenuState::MainMenuState() {
 	optionsOption->setPossible(false);
 	mainMenu->addChild(optionsOption);
 	
-	background.setTexture(resources.getTexture(Textures::MainMenuBackground));
-	background.setScale(4, 4);
+//	background.setTexture(resources.getTexture(Textures::MainMenuBackground));
+//	background.setScale(4, 4);
 
 	mainMenu->activate();
 }
@@ -64,6 +68,7 @@ void MainMenuState::update(sf::Clock& timer) {
 		}
 	}
 	Title.setColor(sf::Color(255, elapsed * 40, 255));
+	background.update(elapsed);
 }
 
 void MainMenuState::draw(sf::RenderWindow& rw) {

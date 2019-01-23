@@ -22,7 +22,7 @@ private:
 	float colorTimer = 0;
 	bool waxing = true;
 	
-	sf::Sprite background;
+	AnimatedComponent background;
 	sf::Text Title;
 	std::shared_ptr<Menu> mainMenu;
 	std::vector<Command> commandVec;
