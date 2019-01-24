@@ -59,65 +59,40 @@ void LoadState::loadFromDisc(std::string filename, std::map<std::string, Conditi
 	std::ifstream inputFile;
 	inputFile.open(filename, std::ios::in | std::ios::binary);
 	
-	if (inputFile) {
+	if (!inputFile) {
 		// get length of file:
-		inputFile.seekg(0, inputFile.end);
-		int length = inputFile.tellg();
-		inputFile.seekg(0, inputFile.beg);
+		std::cout << "file could not be read.\n";
+		return;
+//		inputFile.seekg(0, inputFile.end);
+//		int length = inputFile.tellg();
+//		inputFile.seekg(0, inputFile.beg);
 	}
 	
-	while (inputFile.read((char*)&tileType, sizeof(int)))
-	{
-		TileType tileType;
-		inputFile.read((char*)&tileType, sizeof(int));
-		//I'm going to have to do this way differently since there are so many conditions
-		switch(tileType)
-		{
-			default:
-			case TileType::VOID:
-			case TileType::GRASS:
-				this->tiles.push_back(tileAtlas.at("grass"));
-				break;
-			case TileType::FOREST:
-				this->tiles.push_back(tileAtlas.at("forest"));
-				break;
-			case TileType::WATER:
-				this->tiles.push_back(tileAtlas.at("water"));
-				break;
-			case TileType::RESIDENTIAL:
-				this->tiles.push_back(tileAtlas.at("residential"));
-				break;
-			case TileType::COMMERCIAL:
-				this->tiles.push_back(tileAtlas.at("commercial"));
-				break;
-			case TileType::INDUSTRIAL:
-				this->tiles.push_back(tileAtlas.at("industrial"));
-				break;
-			case TileType::ROAD:
-				this->tiles.push_back(tileAtlas.at("road"));
-				break;
-		}
-		Tile& tile = this->tiles.back();
-		inputFile.read((char*)&tile.tileVariant, sizeof(int));
-		inputFile.read((char*)&tile.regions, sizeof(int)*1);
-		inputFile.read((char*)&tile.population, sizeof(double));
-		inputFile.read((char*)&tile.storedGoods, sizeof(float));
+	Condition conditionType;
+	while (inputFile.read((char*)&conditionType, sizeof(int))) {
+		//prolly won't work but worth a try.
+		//inputFile.read((char*)&conditionType, sizeof(int));
+		conditions.push_back(conditionType);
 	}
-	
 	inputFile.close();
 }
 
 
 //this is not where save should be, but I'm putting it here for now, so that I can refer to it
 void LoadState::save(const std::string& filename) {
+	//open file and deal with errors if cannot
 	std::ofstream outputFile;
 	outputFile.open(filename, std::ios::out | std::ios::binary);
+	if (!outputFile) {
+		std::cout << "file could not be opened.\n";
+		return;
+	}
 	
 	//write current position and which map you're on
-	sf::Vector2f position = player->getPosition();
-	outputFile.write((char*)&position.x, sizeof(float));
-	outputFile.write((char*)&position.y, sizeof(float));
-	outputFile.write((char*)currentMap->ID, sizeof(int));
+//	sf::Vector2f position = player->getPosition();
+//	outputFile.write((char*)&position.x, sizeof(float));
+//	outputFile.write((char*)&position.y, sizeof(float));
+//	outputFile.write((char*)currentMap->ID, sizeof(int));
 	
 	//write all current conditions
 	for(auto condition : this->conditions) {
