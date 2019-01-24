@@ -9,11 +9,11 @@
 #pragma once
 
 enum class Condition {
-	First,
-	FoughtWheat,
-	ChangedMap,
-	Last,
-	ControlsExplained,
-	TownSouthAccess
+	First					= 0,
+	FoughtWheat				= 1,
+	ChangedMap				= 2,
+	Last					= 3,
+	ControlsExplained		= 4,
+	TownSouthAccess			= 5,
 };
 

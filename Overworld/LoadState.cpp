@@ -59,6 +59,13 @@ void LoadState::loadFromDisc(std::string filename, std::map<std::string, Conditi
 	std::ifstream inputFile;
 	inputFile.open(filename, std::ios::in | std::ios::binary);
 	
+	if (inputFile) {
+		// get length of file:
+		inputFile.seekg(0, inputFile.end);
+		int length = inputFile.tellg();
+		inputFile.seekg(0, inputFile.beg);
+	}
+	
 	while (inputFile.read((char*)&tileType, sizeof(int)))
 	{
 		TileType tileType;
@@ -98,28 +105,25 @@ void LoadState::loadFromDisc(std::string filename, std::map<std::string, Conditi
 	}
 	
 	inputFile.close();
-	
-	return;
 }
 
 
 //this is not where save should be, but I'm putting it here for now, so that I can refer to it
-void LoadState::save(const std::string& filename)
-{
+void LoadState::save(const std::string& filename) {
 	std::ofstream outputFile;
 	outputFile.open(filename, std::ios::out | std::ios::binary);
 	
-	for(auto condition : this->conditions)
-	{
-		outputFile.write((char*)&tile.tileType, sizeof(int));
-		outputFile.write((char*)&tile.tileVariant, sizeof(int));
-		outputFile.write((char*)&tile.regions, sizeof(int)*1);
-		outputFile.write((char*)&tile.population, sizeof(double));
-		outputFile.write((char*)&tile.storedGoods, sizeof(float));
+	//write current position and which map you're on
+	sf::Vector2f position = player->getPosition();
+	outputFile.write((char*)&position.x, sizeof(float));
+	outputFile.write((char*)&position.y, sizeof(float));
+	outputFile.write((char*)currentMap->ID, sizeof(int));
+	
+	//write all current conditions
+	for(auto condition : this->conditions) {
+		outputFile.write((char*)condition, sizeof(int));
 	}
 	
 	outputFile.close();
-	
-	return;
 }
 
