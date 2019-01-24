@@ -54,3 +54,72 @@ void LoadState::load() {
 	
 
 }
+
+void LoadState::loadFromDisc(std::string filename, std::map<std::string, Condition>& conditionAtlas) {
+	std::ifstream inputFile;
+	inputFile.open(filename, std::ios::in | std::ios::binary);
+	
+	while (inputFile.read((char*)&tileType, sizeof(int)))
+	{
+		TileType tileType;
+		inputFile.read((char*)&tileType, sizeof(int));
+		//I'm going to have to do this way differently since there are so many conditions
+		switch(tileType)
+		{
+			default:
+			case TileType::VOID:
+			case TileType::GRASS:
+				this->tiles.push_back(tileAtlas.at("grass"));
+				break;
+			case TileType::FOREST:
+				this->tiles.push_back(tileAtlas.at("forest"));
+				break;
+			case TileType::WATER:
+				this->tiles.push_back(tileAtlas.at("water"));
+				break;
+			case TileType::RESIDENTIAL:
+				this->tiles.push_back(tileAtlas.at("residential"));
+				break;
+			case TileType::COMMERCIAL:
+				this->tiles.push_back(tileAtlas.at("commercial"));
+				break;
+			case TileType::INDUSTRIAL:
+				this->tiles.push_back(tileAtlas.at("industrial"));
+				break;
+			case TileType::ROAD:
+				this->tiles.push_back(tileAtlas.at("road"));
+				break;
+		}
+		Tile& tile = this->tiles.back();
+		inputFile.read((char*)&tile.tileVariant, sizeof(int));
+		inputFile.read((char*)&tile.regions, sizeof(int)*1);
+		inputFile.read((char*)&tile.population, sizeof(double));
+		inputFile.read((char*)&tile.storedGoods, sizeof(float));
+	}
+	
+	inputFile.close();
+	
+	return;
+}
+
+
+//this is not where save should be, but I'm putting it here for now, so that I can refer to it
+void LoadState::save(const std::string& filename)
+{
+	std::ofstream outputFile;
+	outputFile.open(filename, std::ios::out | std::ios::binary);
+	
+	for(auto condition : this->conditions)
+	{
+		outputFile.write((char*)&tile.tileType, sizeof(int));
+		outputFile.write((char*)&tile.tileVariant, sizeof(int));
+		outputFile.write((char*)&tile.regions, sizeof(int)*1);
+		outputFile.write((char*)&tile.population, sizeof(double));
+		outputFile.write((char*)&tile.storedGoods, sizeof(float));
+	}
+	
+	outputFile.close();
+	
+	return;
+}
+
