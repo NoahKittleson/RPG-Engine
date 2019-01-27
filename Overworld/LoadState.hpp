@@ -10,7 +10,6 @@
 #include "WalkingAnimation.hpp"
 #include "MapFactory.hpp"
 #include "CharacterGenerator.hpp"
-#include <fstream>
 
 class LoadState: public State
 {
@@ -21,6 +20,4 @@ public:
     void draw(sf::RenderWindow&) override;
 	
 	void load();
-	void loadFromDisc(std::string filename, std::map<std::string, Condition>& conditionAtlas);
-	void save(const std::string& filename);
 };

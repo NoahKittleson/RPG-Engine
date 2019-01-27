@@ -32,17 +32,18 @@ MainMenuState::MainMenuState()
 	mainMenu->addChild(newGameOption);
 	
 	//Load
-	auto emptyFunction = [this] () {
-		return;
+	auto loadFunction = [this] () {
+		//this won't work because it won't load up overworld state.  And if I do then it overwrites this data.
+		//Perhaps Overworld should be created from a savefile?
+		loadFromDisc("save.bin");
 	};
-	auto loadOption = std::make_shared<MenuOption>("Load", resources.getFont(Fonts::Bramble), emptyFunction);
-	loadOption->setPossible(false);
+	auto loadOption = std::make_shared<MenuOption>("Load", resources.getFont(Fonts::Bramble), loadFunction);
 	mainMenu->addChild(loadOption);
 
 	//Options
-//	auto emptyFunction = [this] () {
-//		return;
-//	};
+	auto emptyFunction = [this] () {
+		return;
+	};
 	auto optionsOption = std::make_shared<MenuOption>("Options", resources.getFont(Fonts::Bramble), emptyFunction);
 	optionsOption->setPossible(false);
 	mainMenu->addChild(optionsOption);

@@ -29,6 +29,56 @@ void State::requestStateClear()
 }
 
 
+void State::loadFromDisc(std::string filename) {
+	std::ifstream inputFile;
+	inputFile.open(filename, std::ios::in | std::ios::binary);
+	
+	if (!inputFile) {
+		// get length of file:
+		std::cout << "file could not be read.\n";
+		return;
+		//		inputFile.seekg(0, inputFile.end);
+		//		int length = inputFile.tellg();
+		//		inputFile.seekg(0, inputFile.beg);
+	}
+	
+	Condition conditionType;
+	while (inputFile.read((char*)&conditionType, sizeof(int))) {
+		//prolly won't work but worth a try.
+		//inputFile.read((char*)&conditionType, sizeof(int));
+		conditions.push_back(conditionType);
+	}
+	inputFile.close();
+	std::cout << "Load completed successfully.\n";
+}
+
+
+//this is not where save should be, but I'm putting it here for now, so that I can refer to it
+void State::save(const std::string& filename) {
+	//open file and deal with errors if cannot
+	std::ofstream outputFile;
+	outputFile.open(filename, std::ios::out | std::ios::binary);
+	if (!outputFile) {
+		std::cout << "file could not be opened.\n";
+		return;
+	}
+	
+	//write current position and which map you're on
+	//	sf::Vector2f position = player->getPosition();
+	//	outputFile.write((char*)&position.x, sizeof(float));
+	//	outputFile.write((char*)&position.y, sizeof(float));
+	//	outputFile.write((char*)currentMap->ID, sizeof(int));
+	
+	//write all current conditions
+	for(auto condition : this->conditions) {
+		outputFile.write((char*)condition, sizeof(int));
+	}
+	
+	outputFile.close();
+	std::cout << "Save completed successfully.\n";
+}
+
+
 
 const ResourceHolder State::resources;
 StateStack* State::stack;

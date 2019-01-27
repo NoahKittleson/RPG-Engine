@@ -13,6 +13,7 @@
 #include "ResourceHolder.h"
 #include "PlayerObject.hpp"
 #include "AudioHandler.hpp"
+#include <fstream>
 
 //#include "SaveInfo.h"
 
@@ -28,6 +29,9 @@ public:
     virtual void update(sf::Clock&) = 0;
     virtual void draw(sf::RenderWindow&) = 0;
 	virtual void handleInput(sf::RenderWindow&) = 0;
+	
+	void loadFromDisc(std::string filename);
+	void save(const std::string& filename);
 
 	//can I get this to be not public?  I want to have some encapsulation here.
 	static AudioHandler audioPlayer;

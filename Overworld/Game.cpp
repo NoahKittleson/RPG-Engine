@@ -37,6 +37,7 @@ void Game::run()
 			loadMode.update(gameTimer);
 			loadMode.draw(mainWindow);
 		}
+		loadMode.save("save.bin");
 		loadThread.join();
 		std::cout << "Assets loaded in " << gameTimer.restart().asSeconds() << " seconds\n";
 		//in brackets to make sure memory is released as soon as possible but loading still works.
