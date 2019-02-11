@@ -19,6 +19,8 @@ PauseState::PauseState(sf::RenderWindow& rw) {
 	audioPlayer.pauseMusic();
 	backgroundTexture.loadFromImage(rw.capture());
 	backgroundSprite.setTexture(backgroundTexture);
+	
+	save("save.bin");
 	//pause sounds?
 }
 

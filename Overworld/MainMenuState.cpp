@@ -33,9 +33,8 @@ MainMenuState::MainMenuState()
 	
 	//Load
 	auto loadFunction = [this] () {
-		//this won't work because it won't load up overworld state.  And if I do then it overwrites this data.
-		//Perhaps Overworld should be created from a savefile?
 		loadFromDisc("save.bin");
+		requestStackAdd(std::unique_ptr<State>(new OverworldMode()));
 	};
 	auto loadOption = std::make_shared<MenuOption>("Load", resources.getFont(Fonts::Bramble), loadFunction);
 	mainMenu->addChild(loadOption);
