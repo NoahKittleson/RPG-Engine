@@ -42,12 +42,13 @@ void State::loadFromDisc(std::string filename) {
 	inputFile.read((char*)&position.x, sizeof(float));
 	inputFile.read((char*)&position.y, sizeof(float));
 	player->setPosition(position.x, position.y);
-
+	std::cout << "Position set: " << position.x << ", " << position.y << "\n";
 	
 	Condition conditionType;
 	while (inputFile.read((char*)&conditionType, sizeof(int))) {
 		//maybe won't work but worth a try.
 		conditions.push_back(conditionType);
+		std::cout << "Condition added.\n";
 	}
 	inputFile.close();
 	std::cout << "Load completed successfully.\n";
@@ -68,11 +69,12 @@ void State::save(const std::string& filename) {
 	sf::Vector2f position = player->getPosition();
 	outputFile.write((char*)&position.x, sizeof(float));
 	outputFile.write((char*)&position.y, sizeof(float));
+	std::cout << "Position recorded: " << position.x << ", " << position.y << "\n";
 	//	outputFile.write((char*)currentMap->ID, sizeof(int));
 	
 	//write all current conditions
 	for(auto condition : this->conditions) {
-		outputFile.write((char*)condition, sizeof(int));
+		outputFile.write((char*)&condition, sizeof(int));
 	}
 	
 	outputFile.close();
