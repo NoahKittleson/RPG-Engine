@@ -32,17 +32,40 @@ void TalkNode::addText(sf::String&& string, Dialogue::Speaker speaker) {
 	}
 	text.emplace_back(string, speaker);
 
-	int lineBreakAfter = 50;
-	int atCharacter = 50;
-	while (text.back().string.getSize() > atCharacter) {
-		if (text.back().string[atCharacter] == ' ') {
-			text.back().string[atCharacter] = '\n';
-			atCharacter += lineBreakAfter;
-		} else {
-			++atCharacter;
+//	int lineBreakAfter = 50;
+//	int atCharacter = 50;
+//	while (text.back().string.getSize() > atCharacter) {
+//		if (text.back().string[atCharacter] == ' ') {
+//			text.back().string[atCharacter] = '\n';
+//			atCharacter += lineBreakAfter;
+//		} else {
+//			++atCharacter;
+//		}
+//	}
+	sf::Text testText = display;
+	testText.setString("");
+	int charIndex = 0;
+	int lastSpacePos = 0;
+	int breakAtPos = 750;
+	bool spaceFoundOnLine = false;
+	while (charIndex < text.back().string.getSize()) {
+		testText.setString(text.back().string.substring(0, charIndex));
+		if (text.back().string[charIndex] == ' ') {
+			if (testText.findCharacterPos(charIndex).x < breakAtPos) {
+				lastSpacePos = charIndex;
+				spaceFoundOnLine = true;
+			} else {
+				if (!spaceFoundOnLine) {
+					text.back().string.insert(charIndex, "-\n");
+				} else {
+					std::cout << "This word is far too long.\n";
+					text.back().string[charIndex] = '\n';
+				}
+				spaceFoundOnLine = false;
+			}
 		}
+		++charIndex;
 	}
-
 }
 
 void TalkNode::update(float elapsed, AudioHandler& audio) {
