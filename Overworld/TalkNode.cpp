@@ -32,16 +32,6 @@ void TalkNode::addText(sf::String&& string, Dialogue::Speaker speaker) {
 	}
 	text.emplace_back(string, speaker);
 
-//	int lineBreakAfter = 50;
-//	int atCharacter = 50;
-//	while (text.back().string.getSize() > atCharacter) {
-//		if (text.back().string[atCharacter] == ' ') {
-//			text.back().string[atCharacter] = '\n';
-//			atCharacter += lineBreakAfter;
-//		} else {
-//			++atCharacter;
-//		}
-//	}
 	sf::Text testText = display;
 	testText.setString("");
 	int charIndex = 0;
@@ -57,8 +47,8 @@ void TalkNode::addText(sf::String&& string, Dialogue::Speaker speaker) {
 			} else {
 				if (!spaceFoundOnLine) {
 					text.back().string.insert(charIndex, "-\n");
-				} else {
 					std::cout << "This word is far too long.\n";
+				} else {
 					text.back().string[charIndex] = '\n';
 				}
 				spaceFoundOnLine = false;

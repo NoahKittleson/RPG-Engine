@@ -22,6 +22,9 @@ sf::String Dialogue::speakerToText(Dialogue::Speaker speaker) {
 		case Dialogue::SittingGuard:
 			return "Sitting Guard";
 			
+		case Dialogue::StandingGuard:
+			return "Standing Guard";
+			
 		case Dialogue::Unknown:
 			return "?????";
 			

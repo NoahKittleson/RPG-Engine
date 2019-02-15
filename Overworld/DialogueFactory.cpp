@@ -101,6 +101,15 @@ NodePtr DialogueFactory::create(Dialogue::ID toCreate, const ResourceHolder& rh)
 			return node;
 		}
 			
+		case Dialogue::StandingGuard01: {
+			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), Dialogue::StandingGuard01);
+			node->addText("Civilian, halt!", Dialogue::StandingGuard);
+			node->addText("There is to be no unauthorized personnel entering in this location at this time.", Dialogue::StandingGuard);
+			node->addText("Er.  I mean, at this location.", Dialogue::StandingGuard);
+			node->addText("Sorry.", Dialogue::StandingGuard);
+			return node;
+		}
+			
 //		default:					//I am specifically not going to have a default block so that I know what's missing
 //			break;
 	}
