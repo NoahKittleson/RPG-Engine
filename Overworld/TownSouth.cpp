@@ -223,7 +223,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	//Set up Trigger for Warning
 	std::function<State*()> createDialogue = [&resources]() -> State*
 	{
-		auto dialogue = DialogueFactory::create(Dialogue::GuardStop1, resources);
+		auto dialogue = DialogueFactory::create(Dialogue::ID::GuardStop1, resources);
 		return new DialogueMode(dialogue);
 	};
 	
@@ -233,7 +233,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	//Set up Trigger for Second Warning
 	std::function<State*()> warning = [&resources]() -> State*
 	{
-		auto dialogue = DialogueFactory::create(Dialogue::GuardStop2, resources);
+		auto dialogue = DialogueFactory::create(Dialogue::ID::GuardStop2, resources);
 		return new DialogueMode(dialogue);
 	};
 	
@@ -243,7 +243,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	if (std::find(activeConds.begin(), activeConds.end(), Condition::ControlsExplained) == activeConds.end()) {
 		std::function<State*()> intro = [&resources]() -> State*
 		{
-			auto dialogue = DialogueFactory::create(Dialogue::Intro01, resources);
+			auto dialogue = DialogueFactory::create(Dialogue::ID::Intro01, resources);
 			return new DialogueMode(dialogue);
 		};
 		
@@ -251,7 +251,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 		
 		std::function<State*()> SecondIntro = [&resources]() -> State*
 		{
-			auto dialogue = DialogueFactory::create(Dialogue::Intro02, resources);
+			auto dialogue = DialogueFactory::create(Dialogue::ID::Intro02, resources);
 			return new DialogueMode(dialogue);
 		};
 		
@@ -271,7 +271,7 @@ TownSouth::TownSouth(const ResourceHolder& resources, const std::vector<Conditio
 	//Set up Trigger for Talking with Colonel
 	std::function<State*()> colonelGreeting = [&resources]() -> State*
 	{
-		auto dialogue = DialogueFactory::create(Dialogue::ColonelGreeting01, resources);
+		auto dialogue = DialogueFactory::create(Dialogue::ID::ColonelGreeting01, resources);
 		return new DialogueMode(dialogue);
 	};
 	triggers.emplace_back(prereqs, colonelGreeting, sf::FloatRect(590,670,120,120));

@@ -55,7 +55,7 @@ Dialogue::ID OptionNode::getNext(const std::vector<Condition>& cv) {
 			return path.getNext();
 		}
 	}
-	return Dialogue::None;
+	return Dialogue::ID::None;
 }
 //	NodePtr returnVal = std::make_shared<DNode>(text.get().second);
 //	text.reset();

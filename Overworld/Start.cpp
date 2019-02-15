@@ -18,7 +18,7 @@ Start::Start(const ResourceHolder& resources, const std::vector<Condition>& acti
 	//Top-right Tree
 	boxList.emplace_back(-2 * scale, 15 * scale, 2 * scale, 2 * scale);
 	MapObject Tree (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree), sf::Vector2f(600,90)), boxList);
-	Tree.attachDialogue(DialogueFactory::create(Dialogue::Test001, resources));
+	Tree.attachDialogue(DialogueFactory::create(Dialogue::ID::Test001, resources));
 	Tree.setScale(scale);
 	addObject(Tree);
 	boxList.clear();

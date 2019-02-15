@@ -105,7 +105,7 @@ Dialogue::ID TalkNode::getNext(const std::vector<Condition>& cv) {
 				return path.getNext();
 			}
 		}
-		return Dialogue::None;
+		return Dialogue::ID::None;
 	}
 	//shifts to next sentence and returns self since it is not done, but not still printing to screen
 	++text;

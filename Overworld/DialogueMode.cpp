@@ -26,7 +26,7 @@ void DialogueMode::handleInput(sf::RenderWindow& rw) {
 	while (rw.pollEvent(event)) {
 		if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::X) {
 			auto next = currentDNode->getNext(conditions);
-			if (next == Dialogue::None) {
+			if (next == Dialogue::ID::None) {
 				currentDNode->resolveConditions(conditions);
 				requestStackPop();
 				return;

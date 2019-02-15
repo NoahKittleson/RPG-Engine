@@ -10,31 +10,31 @@
 
 sf::String Dialogue::speakerToText(Dialogue::Speaker speaker) {
 	switch (speaker) {
-		case Dialogue::Narrator:
+		case Dialogue::Speaker::Narrator:
 			return "Unreliable Narrator";
 			
-		case Dialogue::Gabriela:
+		case Dialogue::Speaker::Gabriela:
 			return "Gabriela";
 			
-		case Dialogue::Marquez:
+		case Dialogue::Speaker::Marquez:
 			return "Marquez";
 			
-		case Dialogue::SittingGuard:
+		case Dialogue::Speaker::SittingGuard:
 			return "Sitting Guard";
 			
-		case Dialogue::StandingGuard:
+		case Dialogue::Speaker::StandingGuard:
 			return "Standing Guard";
 			
-		case Dialogue::Unknown:
+		case Dialogue::Speaker::Unknown:
 			return "?????";
 			
-		case Dialogue::TheColonel:
+		case Dialogue::Speaker::TheColonel:
 			return "The Colonel";
 			
-		case Dialogue::OldLady:
+		case Dialogue::Speaker::OldLady:
 			return "Isabel";
 			
-		case Dialogue::System:
+		case Dialogue::Speaker::System:
 			return "System";
 	}
 }
