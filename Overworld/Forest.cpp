@@ -19,27 +19,27 @@ Forest::Forest(const ResourceHolder& resources, const std::vector<Condition>& ac
 	deadTree.addCollisionBox(-19 * scale, 20 * scale, 44 * scale, 11 * scale);
 	addObject(deadTree);
 	
-	MapObject Tree1 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree1), sf::Vector2f (250,250)));
+	MapObject Tree1 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree1), sf::Vector2f (80,80)));
 	Tree1.setScale(scale);
 	addObject(Tree1);
 	
-	MapObject Tree2 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree2), sf::Vector2f (150,200)));
+	MapObject Tree2 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree2), sf::Vector2f (600,400)));
 	Tree2.setScale(scale);
 	addObject(Tree2);
 	
-	MapObject Tree3 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree3), sf::Vector2f (240,120)));
+	MapObject Tree3 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree3), sf::Vector2f (700,220)));
 	Tree3.setScale(scale);
 	addObject(Tree3);
 	
-	MapObject Tree4 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree4), sf::Vector2f (260,210)));
+	MapObject Tree4 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree4), sf::Vector2f (400,120)));
 	Tree4.setScale(scale);
 	addObject(Tree4);
 	
-	MapObject Tree5 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree5), sf::Vector2f (170,210)));
+	MapObject Tree5 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree5), sf::Vector2f (400,450)));
 	Tree5.setScale(scale);
 	addObject(Tree5);
 	
-	MapObject Tree6 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree6), sf::Vector2f (170,120)));
+	MapObject Tree6 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree6), sf::Vector2f (200,500)));
 	Tree6.setScale(scale);
 	addObject(Tree6);
 	
