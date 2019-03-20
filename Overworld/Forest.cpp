@@ -9,7 +9,7 @@
 #include "Forest.hpp"
 
 Forest::Forest(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::Forest, None, sf::Vector2f(550 * scale, 350 * scale)) {
+: MapSection(MapID::Forest, NoMusic, sf::Vector2f(550 * scale, 350 * scale)) {
 	background.setTexture(resources.getTexture(Textures::Forest));
 	background.setScale(scale, scale);
 	
@@ -20,27 +20,27 @@ Forest::Forest(const ResourceHolder& resources, const std::vector<Condition>& ac
 	addObject(deadTree);
 	
 	MapObject Tree1 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree1), sf::Vector2f (250,250)));
-	deadTree.setScale(scale);
+	Tree1.setScale(scale);
 	addObject(Tree1);
 	
 	MapObject Tree2 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree2), sf::Vector2f (150,200)));
-	deadTree.setScale(scale);
+	Tree2.setScale(scale);
 	addObject(Tree2);
 	
 	MapObject Tree3 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree3), sf::Vector2f (240,120)));
-	deadTree.setScale(scale);
+	Tree3.setScale(scale);
 	addObject(Tree3);
 	
 	MapObject Tree4 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree4), sf::Vector2f (260,210)));
-	deadTree.setScale(scale);
+	Tree4.setScale(scale);
 	addObject(Tree4);
 	
 	MapObject Tree5 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree5), sf::Vector2f (170,210)));
-	deadTree.setScale(scale);
+	Tree5.setScale(scale);
 	addObject(Tree5);
 	
 	MapObject Tree6 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree6), sf::Vector2f (170,120)));
-	deadTree.setScale(scale);
+	Tree6.setScale(scale);
 	addObject(Tree6);
 	
 	

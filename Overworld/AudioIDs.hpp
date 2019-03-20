@@ -17,5 +17,5 @@ enum SoundID {
 };
 
 enum MusicID {
-	NiceMusic, None
+	NiceMusic, NoMusic
 };

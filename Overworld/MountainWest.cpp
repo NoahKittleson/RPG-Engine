@@ -9,7 +9,7 @@
 #include "MountainWest.hpp"
 
 MountainWest::MountainWest(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::MountainWest, None, sf::Vector2f(0,0)) {
+: MapSection(MapID::MountainWest, NoMusic, sf::Vector2f(0,0)) {
 	background.setTexture(resources.getTexture(Textures::MountainWest));
 	background.setScale(scale, scale);
 

@@ -9,7 +9,7 @@
 #include "Start.h"
 
 Start::Start(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::Start, None, sf::Vector2f(200 * scale, 350 * scale)) {
+: MapSection(MapID::Start, NoMusic, sf::Vector2f(200 * scale, 350 * scale)) {
 	
 	std::vector<sf::FloatRect> boxList;
     background.setTexture(resources.getTexture(Textures::Start));

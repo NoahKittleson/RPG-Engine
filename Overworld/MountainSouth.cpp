@@ -9,7 +9,7 @@
 #include "MountainSouth.hpp"
 
 MountainSouth::MountainSouth(const ResourceHolder& resources, const std::vector<Condition>& activeConds)
-: MapSection(MapID::MountainSouth, None, sf::Vector2f(375 * scale, 125 * scale)) {
+: MapSection(MapID::MountainSouth, NoMusic, sf::Vector2f(375 * scale, 125 * scale)) {
 	background.setTexture(resources.getTexture(Textures::MountainSouth));
 	background.setScale(scale, scale);
 	

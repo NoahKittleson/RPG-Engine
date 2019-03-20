@@ -52,7 +52,7 @@ void AudioHandler::playSound(SoundID soundID) {
 }
 
 void AudioHandler::playMusic(MusicID id) {
-	if (id == None) {
+	if (id == NoMusic) {
 		currentSong.stop();
 		return;
 	}
