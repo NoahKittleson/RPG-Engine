@@ -19,6 +19,30 @@ Forest::Forest(const ResourceHolder& resources, const std::vector<Condition>& ac
 	deadTree.addCollisionBox(-19 * scale, 20 * scale, 44 * scale, 11 * scale);
 	addObject(deadTree);
 	
+	MapObject Tree1 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree1), sf::Vector2f (250,250)));
+	deadTree.setScale(scale);
+	addObject(Tree1);
+	
+	MapObject Tree2 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree2), sf::Vector2f (150,200)));
+	deadTree.setScale(scale);
+	addObject(Tree2);
+	
+	MapObject Tree3 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree3), sf::Vector2f (240,120)));
+	deadTree.setScale(scale);
+	addObject(Tree3);
+	
+	MapObject Tree4 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree4), sf::Vector2f (260,210)));
+	deadTree.setScale(scale);
+	addObject(Tree4);
+	
+	MapObject Tree5 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree5), sf::Vector2f (170,210)));
+	deadTree.setScale(scale);
+	addObject(Tree5);
+	
+	MapObject Tree6 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree6), sf::Vector2f (170,120)));
+	deadTree.setScale(scale);
+	addObject(Tree6);
+	
 	
 	//Set up Zone Exits
 	sf::Vector2u totalArea = background.getTexture()->getSize();

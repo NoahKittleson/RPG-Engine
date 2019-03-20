@@ -111,18 +111,18 @@ NodePtr DialogueFactory::create(ID toCreate, const ResourceHolder& rh) {
 			return node;
 		}
 			
-		case ID::MoreDialogue: {
-			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), toCreate);
-			node->addText("Did you just come out of the forest?", Speaker::StandingGuard);
-			node->addText("Not often we get travellers who come from there.", Speaker::StandingGuard);
-			node->addText("I don't know where we came from.", Speaker::StandingGuard);
-
-			node->addText("Once when I was a kid I saw something weird out in the forest", Speaker::StandingGuard);
-			node->addText("", Speaker::StandingGuard);
-			
-			//have some dialogue that's a relative or child chiding the mom for... something??
-
-		}
+//		case ID::MoreDialogue: {
+//			std::shared_ptr<TalkNode> node = std::make_shared<TalkNode>(rh.getFont(Fonts::Bramble), toCreate);
+//			node->addText("Did you just come out of the forest?", Speaker::StandingGuard);
+//			node->addText("Not often we get travellers who come from there.", Speaker::StandingGuard);
+//			node->addText("I don't know where we came from.", Speaker::StandingGuard);
+//
+//			node->addText("Once when I was a kid I saw something weird out in the forest", Speaker::StandingGuard);
+//			node->addText("", Speaker::StandingGuard);
+//
+//			//have some dialogue that's a relative or child chiding the mom for... something??
+//
+//		}
 			
 //		default:					//I am specifically not going to have a default block so that I know what's missing
 //			break;
