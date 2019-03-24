@@ -24,10 +24,12 @@ Each state shares the same base class so that they can inherit common functional
 While it's possible to look through all the code that I've written, it's not currently possible to download and play anything.  I have purposefully not included any of the art assets that I have created for this game, so that the entire game cannot be stolen if I someday decide to monetize it.  However, at some point in the future I'll set up an itch.io link where you can play whatever tech demo I have available.
 
 ## TO DO
-* Game save capabilities
-* Game loading capabilities
-* Integrate an audio system
+* ~~Game save capabilities~~
+* ~~Game loading capabilities~~
+* ~~Integrate an audio system~~
 * Create non-placeholder art
+* Visual polish for combat system
+* Write dialogue
 
 ## License
 The MIT License (MIT)
