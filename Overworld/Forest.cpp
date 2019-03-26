@@ -24,7 +24,7 @@ Forest::Forest(const ResourceHolder& resources, const std::vector<Condition>& ac
 	MapObject Tree1 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree1), sf::Vector2f (80,80)));
 	Tree1.setScale(scale);
 	Tree1.addCollisionBox(-10 * scale, 40 * scale, 12 * scale, 7 * scale);
-	Tree1.offsetBase(-15 * scale);
+	Tree1.offsetBase(-8 * scale);
 	addObject(Tree1);
 	
 	MapObject Tree2 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree2), sf::Vector2f (600,400)));

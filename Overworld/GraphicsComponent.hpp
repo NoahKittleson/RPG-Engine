@@ -16,9 +16,6 @@ class GraphicsComponent : public sf::Sprite
 public:
 	virtual ~GraphicsComponent() {}
     GraphicsComponent (const sf::Texture& texture, sf::Vector2f position);
-//	GraphicsComponent(GraphicsComponent&&) = default;
-//	GraphicsComponent(const GraphicsComponent& obj) = default;  // copy constructor
-//	GraphicsComponent& operator=(GraphicsComponent other) { return *this;};	//copy assignment constructor
 
 	virtual std::unique_ptr<GraphicsComponent> getCopy();
 	
