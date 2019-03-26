@@ -21,7 +21,7 @@ public:
 	
     virtual void update(float elapsed);
     virtual void addTime(float delta);
-	virtual int getBase() const;
+	virtual float getBase() const;
 	virtual void offsetBase(float x);
 	
 	virtual void drawCropped(int pixelCropX, int pixelCropY, sf::RenderWindow &rw);

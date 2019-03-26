@@ -39,7 +39,7 @@ public:
 	void offsetBase(float x);
 	
 	//physics
-	int getBase() const;
+	float getBase() const;
 	void addCollisionBox(float left, float top, float width, float height);
 	void drawBase(sf::RenderWindow &rw) const;
 	void drawCenter(sf::RenderWindow & rw) const;

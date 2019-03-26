@@ -70,6 +70,7 @@ void State::save(const std::string& filename) {
 	outputFile.write((char*)&position.x, sizeof(float));
 	outputFile.write((char*)&position.y, sizeof(float));
 	std::cout << "Position recorded: " << position.x << ", " << position.y << "\n";
+	std::cout << "Player at: " << player->getBase() << "\n";
 	//	outputFile.write((char*)currentMap->ID, sizeof(int));
 	
 	//write all current conditions

@@ -82,7 +82,7 @@ void MapObject::move(sf::Vector2f xy){
 }
 
 
-int MapObject::getBase() const {
+float MapObject::getBase() const {
 	return graphics->getBase();
 }
 

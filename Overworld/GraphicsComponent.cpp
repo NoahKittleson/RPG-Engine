@@ -49,8 +49,8 @@ void GraphicsComponent::addTime(float delta) {
     return;
 }
 
-int GraphicsComponent::getBase() const {
-	return getPosition().y + (getTextureRect().height * getScale().y) -(std::floor(getOrigin().y) * getScale().y) + baseOffset;
+float GraphicsComponent::getBase() const {
+	return getPosition().y + (getTextureRect().height * getScale().y) -(getOrigin().y * getScale().y) + baseOffset;
 }
 
 void GraphicsComponent::offsetBase(float x) {
