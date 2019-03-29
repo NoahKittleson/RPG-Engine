@@ -112,6 +112,9 @@
 		B78316FE20E6EA7400740527 /* PauseState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B78316FC20E6EA7400740527 /* PauseState.cpp */; };
 		B783170020EC9C7100740527 /* BrickHouse.png in Resources */ = {isa = PBXBuildFile; fileRef = B78316FF20EC9C7100740527 /* BrickHouse.png */; };
 		B783170220EC9C7B00740527 /* DeadTree.png in Resources */ = {isa = PBXBuildFile; fileRef = B783170120EC9C7B00740527 /* DeadTree.png */; };
+		B783BF7B224DF5F2008A73C3 /* building o1.png in Resources */ = {isa = PBXBuildFile; fileRef = B783BF78224DF5F1008A73C3 /* building o1.png */; };
+		B783BF7C224DF5F2008A73C3 /* building o2.png in Resources */ = {isa = PBXBuildFile; fileRef = B783BF79224DF5F2008A73C3 /* building o2.png */; };
+		B783BF7D224DF5F2008A73C3 /* building o3.png in Resources */ = {isa = PBXBuildFile; fileRef = B783BF7A224DF5F2008A73C3 /* building o3.png */; };
 		B786FF1320E4BA8E00EAE1A0 /* SmallWheat.png in Resources */ = {isa = PBXBuildFile; fileRef = B786FF1220E4BA8E00EAE1A0 /* SmallWheat.png */; };
 		B78873551F3D530E00E7C725 /* CharacterGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */; };
 		B78E700C21F8510A00E3F1AD /* OpeningBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = B78E700B21F8510A00E3F1AD /* OpeningBackground.png */; };
@@ -312,6 +315,9 @@
 		B78316FD20E6EA7400740527 /* PauseState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PauseState.hpp; sourceTree = "<group>"; };
 		B78316FF20EC9C7100740527 /* BrickHouse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BrickHouse.png; sourceTree = "<group>"; };
 		B783170120EC9C7B00740527 /* DeadTree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DeadTree.png; sourceTree = "<group>"; };
+		B783BF78224DF5F1008A73C3 /* building o1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "building o1.png"; sourceTree = "<group>"; };
+		B783BF79224DF5F2008A73C3 /* building o2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "building o2.png"; sourceTree = "<group>"; };
+		B783BF7A224DF5F2008A73C3 /* building o3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "building o3.png"; sourceTree = "<group>"; };
 		B786FF1220E4BA8E00EAE1A0 /* SmallWheat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SmallWheat.png; sourceTree = "<group>"; };
 		B78873531F3D530E00E7C725 /* CharacterGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterGenerator.cpp; sourceTree = "<group>"; };
 		B78873541F3D530E00E7C725 /* CharacterGenerator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterGenerator.hpp; sourceTree = "<group>"; };
@@ -446,6 +452,9 @@
 				B7DAD36121293E52002E7000 /* BuildingOutline7.png */,
 				B7C7948B212B967600551E2F /* BuildingOutline8.png */,
 				B7D8CD2B213660590041A490 /* BuildingOutline9.png */,
+				B783BF78224DF5F1008A73C3 /* building o1.png */,
+				B783BF79224DF5F2008A73C3 /* building o2.png */,
+				B783BF7A224DF5F2008A73C3 /* building o3.png */,
 				B7CCC8682132783800CC6533 /* ColonelAnim.png */,
 				B71DA5FC214228D30019B37F /* FishermanSitting.png */,
 				B71DA5EE2138C8AA0019B37F /* DrunkAnim.png */,
@@ -814,6 +823,7 @@
 				B7CCC8662130DFCD00CC6533 /* Shed.png in Resources */,
 				B7396FBB20F036EB0095DDB5 /* TownEast.png in Resources */,
 				B71DA5F6213E07D70019B37F /* Couple2.png in Resources */,
+				B783BF7D224DF5F2008A73C3 /* building o3.png in Resources */,
 				B7603A88210BD0B400B6B858 /* BuildingOutline2.png in Resources */,
 				B7BE058320B938D8008D6537 /* bush.png in Resources */,
 				B77F7EAD208EB677009FEE8A /* DialogueIDs.hpp in Resources */,
@@ -845,6 +855,7 @@
 				B75ABA1A1C7BD7DA00B9FFDE /* IterVector.inl in Resources */,
 				B7603A93210D9D2500B6B858 /* Fisherman.png in Resources */,
 				B7942A95210A958B00BA2195 /* SalutingSoldier.png in Resources */,
+				B783BF7B224DF5F2008A73C3 /* building o1.png in Resources */,
 				B7396FBF20F036EB0095DDB5 /* BeachNorth.png in Resources */,
 				B7023E151BB61A4A005A6F93 /* BasicIdle.png in Resources */,
 				B7DAD364212A23D3002E7000 /* BoothAnimation.png in Resources */,
@@ -903,6 +914,7 @@
 				B7175EFB2241DB830011C565 /* Tree6.png in Resources */,
 				B7D8CD2C213660590041A490 /* BuildingOutline9.png in Resources */,
 				B7C3E680212D4330004F9A73 /* SittingSoldierBig.png in Resources */,
+				B783BF7C224DF5F2008A73C3 /* building o2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

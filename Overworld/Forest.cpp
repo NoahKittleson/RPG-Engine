@@ -18,43 +18,43 @@ Forest::Forest(const ResourceHolder& resources, const std::vector<Condition>& ac
 	deadTree.setScale(scale);
 	//deadTree.addCollisionBox(-18 * scale, 20 * scale, 42 * scale, 11 * scale);
 	deadTree.addCollisionBox(-3 * scale, 19 * scale, 14 * scale, 7 * scale);
-	deadTree.offsetBase(-13 * scale);
+	deadTree.offsetBase(-13 * scale + 1);					//added plus one to avoid weird draw order interactions with player
 	addObject(deadTree);
 	
 	MapObject Tree1 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree1), sf::Vector2f (80,80)));
 	Tree1.setScale(scale);
 	Tree1.addCollisionBox(-10 * scale, 40 * scale, 12 * scale, 7 * scale);
-	Tree1.offsetBase(-8 * scale);
+	Tree1.offsetBase(-8 * scale + 1);
 	addObject(Tree1);
 	
 	MapObject Tree2 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree2), sf::Vector2f (600,400)));
 	Tree2.setScale(scale);
 	Tree2.addCollisionBox(-9 * scale, 24 * scale, 14 * scale, 7 * scale);
-	Tree2.offsetBase(-8 * scale);
+	Tree2.offsetBase(-8 * scale + 1);
 	addObject(Tree2);
 	
 	MapObject Tree3 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree3), sf::Vector2f (700,220)));
 	Tree3.setScale(scale);
 	Tree3.addCollisionBox(-9 * scale, 23 * scale, 14 * scale, 7 * scale);
-	Tree3.offsetBase(-9 * scale);
+	Tree3.offsetBase(-9 * scale + 1);
 	addObject(Tree3);
 	
 	MapObject Tree4 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree4), sf::Vector2f (400,120)));
 	Tree4.setScale(scale);
 	Tree4.addCollisionBox(-6 * scale, 26 * scale, 10 * scale, 7 * scale);
-	Tree4.offsetBase(-6 * scale);
+	Tree4.offsetBase(-6 * scale + 1);
 	addObject(Tree4);
 	
 	MapObject Tree5 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree5), sf::Vector2f (400,450)));
 	Tree5.setScale(scale);
 	Tree5.addCollisionBox(-5 * scale, 25 * scale, 10 * scale, 5 * scale);
-	Tree5.offsetBase(-7 * scale);
+	Tree5.offsetBase(-7 * scale + 1);
 	addObject(Tree5);
 	
 	MapObject Tree6 (make_unique<GraphicsComponent>(resources.getTexture(Textures::Tree6), sf::Vector2f (200,500)));
 	Tree6.setScale(scale);
 	Tree6.addCollisionBox(-6 * scale, 25 * scale, 10 * scale, 6 * scale);
-	Tree6.offsetBase(-7 * scale);
+	Tree6.offsetBase(-7 * scale + 1);
 	addObject(Tree6);
 	
 	
