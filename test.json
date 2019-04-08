@@ -1,0 +1,26 @@
+{
+  "001": {
+  	"First": 	{
+      "speaker": "Person1",
+      "next": "Second",
+      "conditionAdd": "TextHeard",
+      "conditionNeed": "SomeThing",
+      "text": ["Hi, I'm saying the first bit of dialogue",
+              "This is the second bit of dialogue"]
+    },
+    "Second": {
+      "speaker": "Person2",
+      "next": "Option1",
+      "text": ["Hi, now I'm speaking",
+              "And here is an Option"],
+    },
+  	"Option1": [
+      {"text": "Yes", "next": "yes"},
+  		{"text": "No", "next": "no"} ],
+  	"Yes": "You said yes!",
+  	"No": "You said no!"
+  },
+  "002": {
+    //This is another text tree thread.
+  }
+}
