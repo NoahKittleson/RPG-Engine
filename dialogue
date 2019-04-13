@@ -110,11 +110,49 @@
 >Maybe you should think about it too, you know?  Keep an open mind!
 
 
-[123]
+[102]
 >Hey remember what I said last time? About the horses?
->Part of the reason it's so hard is because they're so expensive.  Every horse within at least fifty miles
+>Part of the reason it's so hard is because they're so expensive.  Every horse within at least fifty miles has been commandeered by the army.  It's at least a thousand coin, and that's if you can even find a vendor!  The only people that'll sell are black market.
+>But I've got a plan. I may not look like it, but I'm a pretty good baker.
+>One loaf of bread sells for 1 gold.  All I have to do is do that one thousand times! That'd can't be that hard, right?
+>I'll just bake my bread at home and bring it here and sell it.  Pretty smart huh?  I don't even need an establishment.
+>Hey, when I set up my shop, will you come by and buy some bread?
+*(1)Yes *(2)No
+>(1)Thanks!  I'll make sure to save you my best loaf.
+>(2)Ha! Honestly, I just love the honesty.  See ya around!
 
-
-
+[103]
+#Clara
+>Hey Isabel.  It's been a long time.
+>How is life going at the farm?
+#Isabel
+>There's nothing there for me anymore.  I can't take care of the crops anymore and they died.
+#Clara
+>So what, you just leave?  Isabel, you can't just abandon that place.  Where will you go?  What are you gonna do?
+#Isabel
+>I don't know.  But if I just stay there I'll die.
+>Clara, I know you won't understand but I just feel like that place is my grave and I'm just waiting to die.
+#Clara
+>...
+>Isabel, I know that feeling better than anyone.
+>I feel it every day.  But not just about my house, about this whole village, and this whole country.  No matter where I go I feel that way.  There's nothing I can do.  One day I'll die and I feel like they'll just bury me wherever I am.
+>That's just the way things are.
+>Tell me Isabel.  What's the biggest fear you have about death?
+*(1)The nothingness of death *(2)My regrets *(3)The act of dying
+>(1)Not much of one for the afterlife? Me neither.  I envy everyone who believes in it, I really do.
+>But no matter how hard, I just can't believe.
+>I think the capacity for belief is like a muscle.  If you don't use it, it'll atrophy and die.  Mine passed a long time ago.
+>......
+>Take care, Isabel.  If you need a place to stay, you can stay with me.
+>(2)Huh, that surprises me.  Sure, I got regrets of my own but you can bet I'll have bigger concerns when I'm looking death in the face.
+>My past may not be pretty, but I'd live it all again and make the same mistakes if it meant that I got to keep on living.
+>......
+>Isabel, if you need anything just let me know.  And you can stay here for as long as you like.
+>(3)Me too.  Why fear being dead?  You won't experience anything.  You won't do anything.  You won't be anything.
+>But those moments when I know I'm dying, those scare me more than anything.
+>Thinking about my whole life in those final moments.  Knowing that everything is about to come crashing to an end. I...
+>I....
+>Sorry Isabel, I don't feel much like talking anymore.
+>You can stay here if you want.
 
 
