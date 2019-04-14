@@ -156,3 +156,15 @@
 >You can stay here if you want.
 
 
+[103]
+#Isabel
+>Hello.
+#Malaga
+>Uh, hi.  Is there something you want?
+*(1)You look hurt *(2)No
+>(1)Yeah.  I am.
+>But you didn't answer my question.  What is it you want?
+*(3)I don't want anything *(4)I want to help
+>(3)Fine. Good.  Me too.  Looks like we can both go about our business then.
+
+>(2)Good.  Cause I don't know if you can see but I'm not really in a position where I care about what other people want.
