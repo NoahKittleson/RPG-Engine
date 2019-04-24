@@ -175,6 +175,29 @@
 >You just don't look the type, you know?  I definitely figured you for just some senile old lady who didn't care about the army coming in and ruining half the country.
 >Okay.  You know what?  Fine.  If you really care then help me up and get me out of here.  My wounds will be fine, but what might really kill me is if I'm sitting here and the wrong person comes by.
 
+//the same dialogue as above, but written with the idea that all decisions should be meaningful and explicit.  Also not being afraid to have Isabel speak on her own.
+[103]
+#Isabel
+>Hello.
+#Malaga
+>Uh, hi.  Is there something you want?
+#Isabel
+>No. I just-
+#Malaga
+>Good.  Cause I don't know if you can see but I'm not really in a position where I care about what other people want.
+#Isabel
+>Girl.  Calm yourself down.  You need medical help.
+#Malaga
+>No.  Lady, you don't get it.  I don't want you here.  You shouldn't want to be here.  The army certainly doesn't want you to be here.
+>If they knew you were helping me you'd be worse off then I am now.
+*(3)Help her *(4)Stay on good side of Army
+#Isabel
+>(4)If that's the way you want it to be then fine.
+>There's no helping some people.
+>(3)That's too bad for the army then because you going to shut up and come with me.
+#Malaga
+>Okay.  You know what?  Fine.  If you really care then help me up and get me out of here.  My wounds will be fine, but what might really kill me is if I'm sitting here and the wrong person comes by.
+
 
 
 
