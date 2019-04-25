@@ -133,28 +133,46 @@ NodePtr DialogueFactory::create(ID toCreate, const ResourceHolder& rh) {
 //This is my attempt to NOT have all the dialogue hard coded into the game, but rather have it all written out in a file and perform a lookup/parse whenever I need it.
 std::shared_ptr<DNode> DialogueFactory::loadFromFile(int DialogueID, ResourceHolder& rh) {
 	std::ifstream inputFile;
-	inputFile.open("dialogue.txt", std::ios::in | std::ios::binary);
+	inputFile.open("dialogue.txt");
 	
 	//if dialogue file cannot be read, the game cannot reasonably be played.
 	assert(inputFile);
 	
-	//this is bad.  Don't do this
-	std::string allDialogue;
-	inputFile >> allDialogue;
-	
 	//this searches lines for target dialogue ID one by one, then prints them.
 	std::string searchTerm = "[" + std::to_string(DialogueID) + "]";
 	std::string oneLine;
+	std::shared_ptr<TalkNode> node;
 	while (inputFile) {
 		getline(inputFile, oneLine);
+		//if this is true, we've found our dialogue item and it's time to start parsing
 		if (oneLine.find(searchTerm) != std::string::npos) {
-			std::cout << oneLine;
+			std::string dialogue;
+			Dialogue::Speaker  currentSpeaker = Dialogue::Speaker::Unknown;
+			do {
+				getline(inputFile, dialogue);
+				char firstChar = dialogue[0];
+				switch (firstChar) {
+					case '>':
+						//this will just be normal text.  Add it to the dialogue
+						node->addText(dialogue, currentSpeaker);
+						break;
+						
+					case '#':
+						//change who the speaker is
+						currentSpeaker = convertToSpeaker(dialogue);
+						break;
+						
+					default:
+						break;
+				}
+				node->addText(dialogue, currentSpeaker);
+			} while (dialogue.find("[") == std::string::npos);
+			break;
 		}
 	}
-	//return a dummy DNode????
-	
 	inputFile.close();
 	std::cout << "Dialogue load completed successfully.\n";
+	return node;
 }
 
 
