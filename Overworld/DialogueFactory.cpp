@@ -129,3 +129,32 @@ NodePtr DialogueFactory::create(ID toCreate, const ResourceHolder& rh) {
 	}
 }
 
+
+//This is my attempt to NOT have all the dialogue hard coded into the game, but rather have it all written out in a file and perform a lookup/parse whenever I need it.
+std::shared_ptr<DNode> DialogueFactory::loadFromFile(int DialogueID, ResourceHolder& rh) {
+	std::ifstream inputFile;
+	inputFile.open("dialogue.txt", std::ios::in | std::ios::binary);
+	
+	//if dialogue file cannot be read, the game cannot reasonably be played.
+	assert(inputFile);
+	
+	//this is bad.  Don't do this
+	std::string allDialogue;
+	inputFile >> allDialogue;
+	
+	//this searches lines for target dialogue ID one by one, then prints them.
+	std::string searchTerm = "[" + std::to_string(DialogueID) + "]";
+	std::string oneLine;
+	while (inputFile) {
+		getline(inputFile, oneLine);
+		if (oneLine.find(searchTerm) != std::string::npos) {
+			std::cout << oneLine;
+		}
+	}
+	//return a dummy DNode????
+	
+	inputFile.close();
+	std::cout << "Dialogue load completed successfully.\n";
+}
+
+

@@ -11,6 +11,7 @@
 #include "OptionNode.h"
 #include "ResourceHolder.h"
 #include "DialogueIDs.hpp"
+#include <fstream>
 
 //using NodePtr = std::shared_ptr<DNode>;
 
@@ -19,6 +20,10 @@ class DialogueFactory
 public:
 	DialogueFactory() = delete;
 	static NodePtr create(Dialogue::ID toCreate, const ResourceHolder& rh);
+	
+	std::shared_ptr<DNode> loadFromFile(int DialogueID, ResourceHolder& rh);
+	
+	
 	
 private:
 	
