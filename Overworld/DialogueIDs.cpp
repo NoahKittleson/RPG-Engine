@@ -38,3 +38,22 @@ sf::String Dialogue::speakerToText(Dialogue::Speaker speaker) {
 			return "System";
 	}
 }
+
+//Now I just need a way of having speakerMap initialized at all times
+
+Dialogue::Speaker Dialogue::textToSpeaker(std::string text) {
+	for (auto & character : speakerMap) {
+		if (character.second == text) {
+			return character.first;
+		}
+	}
+	//speaker not found
+	return Speaker::Unknown;
+}
+
+//sf::String Dialogue::speakerToText(Dialogue::Speaker speaker) {
+//	return speakerMap[speaker];
+//}
+
+
+

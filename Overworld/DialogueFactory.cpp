@@ -154,12 +154,20 @@ std::shared_ptr<DNode> DialogueFactory::loadFromFile(int DialogueID, ResourceHol
 				switch (firstChar) {
 					case '>':
 						//this will just be normal text.  Add it to the dialogue
+						if (dialogue[1] == '(') {
+							//then this is a dialogue exclusive to one path.  Perhaps rethink this approach?
+						} else
 						node->addText(dialogue, currentSpeaker);
 						break;
 						
 					case '#':
 						//change who the speaker is
 						currentSpeaker = convertToSpeaker(dialogue);
+						break;
+						
+					case '*':
+						//create an option node
+						//I need to figure out how OptionNodes work.  Or rather... how they SHOULD work.
 						break;
 						
 					default:

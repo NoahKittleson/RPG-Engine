@@ -14,7 +14,17 @@ namespace Dialogue {
 	enum class Speaker { Narrator, Gabriela, Marquez, SittingGuard, Unknown, System, TheColonel, OldLady, StandingGuard };
 	
 	sf::String speakerToText(Dialogue::Speaker speaker);
+	Dialogue::Speaker textToSpeaker(std::string text);
+	
+	static std::map<Dialogue::Speaker, std::string> speakerMap;
 }
+
+struct Character {
+	sf::String characterName;
+	Dialogue::Speaker characterID;
+	//font?
+	//art?
+};
 
 
 
