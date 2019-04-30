@@ -60,15 +60,39 @@ Here I want to list some major problems that get in the way of me actually sitti
 	-The person is otherwise unwell
 	-The person starts talking with YOU for whatever reason.
 	-The person clearly sticks out of a crowd (they're a soldier)
--While a REASON is nice to have a certain points, I don't think it's necessary in all places.  In fact, I like the freedom of not having 
+-While a REASON is nice to have a certain points, I don't think it's necessary in all places.  In fact, I like the freedom of not having a task looming over your head.  The simple act of just going around talking with people can be fun.
 
 #I don't know if there's actually going to be combat in the game.
 -Honestly, with the way things are looking right now it feels like combat just doesn't really fit into anything that I've written so far.  I don't know where it would be, and I don't know how it would fit in.  However, I still like the idea of having it in the game, so let's work under the assumption for now that:
 -The game has combat, but it is very limited.  No random encounters.  No leveling.  All of it will be story focused, and it will be mostly basic.  It's the not the center of the game.  If it ends up being bad, take it out.
 -OR, there is turn based combat, but it isn't actually COMBAT, per se.  Perhaps something cheeky, a la LISA?
 
+#Perhaps the biggest barrier is that I don't know who the characters are going to be.  Especially who is going to be a party member, or an important NPC or what.  So...
+-I think I should act under the assumption that every single character, outside of maybe some token few, are playable and recruitable depending on the path you go down.  Just think of how cool that would be.  So basically, start out assuming that they are a recruitable player, and then if it doesn't work out well, just make it not so.
+-That being said, here are some ideas for possible characters (including those that I've already made sprites or dialogue for)
+>thief girl
+>the colonel
+>minor soldiers/guards (loyal soldier, lazy/reluctant soldier, mean sold, nice sold, party sold)
+>fisherman
+>sailor
+>refugee from elsewhere
+>a talking animal (cat, owl, street dog, elk).  Multiple talking animals
+>a spirit of some sort?
+>a very old tree
+>a monk
+>a thug with a heart of hold
+>the white knight from TtLG
+>a sassy cobbler
+>an eccentric mystic hunter
+>some archaeologist engineers.
+>irreverent/party musician.  Blacky from Underground.
+>bartender Corkus with war/crime stories
+Once again, just consider that everyone you talk to can be playable, so really anyone in the town can be a potential character.
 
+>Idea: child will do something very big (like steal something and sabotage something), and unless you find their specific spot where they hide and do said thing, you won't be able to stop the outcome.
+-I feel like I need more moments like these.
 
+>Idea: just write up IDEAS for a lot of conversations, fill in the blanks later. Example: introduction to X character, talk about this, include this character's dissent, offer this choice.
 
 
 
