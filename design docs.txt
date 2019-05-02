@@ -94,8 +94,14 @@ Once again, just consider that everyone you talk to can be playable, so really a
 
 >Idea: just write up IDEAS for a lot of conversations, fill in the blanks later. Example: introduction to X character, talk about this, include this character's dissent, offer this choice.
 
+>To what extent do I want to have secret conditions for people joining the party?  I think it will be hard to do without, but it brings with it some potential pitfalls...
+>Writing these out I find myself particularly stymied by trying to think of a decision for every conversation, and putting that in writing it seems obvious to me that a decision for every conversation is not the right way to go.  Not every conversation should be long and not every conversation should end in a decision?  God I still don't know....
 
 
+The guiding principles of the conversation decisions-
+1. All decisions must be upfront about what they entail.  This is so players don't feel cheated or regret a decision they made, not realizing the results.
+2. In order to keep decisions upfront in what they entail, there must be no meaningless or inconsequential decisions, as the players won't know if their decisions matter, and then the decisions are by definition not upfront.
+3. The decisions have to be interesting.  They have to have some effect that the player will care about, and not be some generic good vs evil options.
 
 
 
