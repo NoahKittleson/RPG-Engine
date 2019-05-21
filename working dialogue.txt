@@ -1,0 +1,576 @@
+#1 //conversation with daughter
+>If it's worth doing, it's worth doing badly.  That's the principle that I'm working off of.
+
+# //opening cutscene
+>Bear with me.
+>Thirty years ago, there was a man by the name of Aethriz.  He lived close to here, and he was young and brave and very handsome.  You know the type.
+>He met a woman named Josephine.  She was also quite beautiful, if I can say so myself, and she had the willpower of an arrow in flight.  Once she was set on her path, nothing could stop her.
+>They were inseparable.  They ate together, they worked the fields together, they slept toge-  Well.  I'll skip over that for now.
+>They were happy, and they didn't have much else, but they didn't need much else.
+>One day the army came.
+>There was a rebellion to the east.  They said they needed to use this area to stage their offensive.
+
+
+>He met a woman named Josephine.  She was also quite beautiful, if I can say so myself, but she was more well known for her willpower.  She was like the sunrise, consistent and unstoppable.
+>It's easy enough to say that they loved each other.  It's much more difficult to have those words truly mean what they should.  It seems each story begins with love as a something presumed or inferred.  And this one is no different.
+>Just know that they loved each other very much, and take that for whatever you will.
+>In any case, they lived on a farm just north of here.
+>...
+>Twenty years ago, the rebellions started in the East.
+>The army came and started setting up bases.  Started taking food and supplies.
+>Twenty years later and things haven't changed.  It's only become more and more normal.
+>They may come and go, moving bases of operations forward and back.
+>But they'll always be back.  At least that's how it feels.
+>...
+>Aethriz and Josephine tried to mind their own business.  It didn't matter.
+>All good things must come to an end sometime.
+>Aethriz was drafted.  He protested but it didn't matter.
+>Three months into his service he tried to flee from his squadron.  He was caught and executed for desertion.
+
+
+
+>Rosalind, do you want anything from in town?
+>...
+>Rosalind, I'm going into town. Is there anything you-
+>Mom, I can hear you. I just don't want anything.
+
+>Oh my word.  That shawl.  That hat.  An exquisite look.  A marvelous look.  I think this is truly the essence of style.  No, not that.  Too bland, too unspecific.  Yes, that's it, I love this style precisely because it IS specific.  I simply can't explain it any other way.
+>Well thank you.
+>No no no, I understand your apology, I understand that you only wish to express gratitude for the kinds words I have given, and it's not that I find them unnecessary or insincere, it's that I don't want them.  I want you to be bold.  I want you to know and not care about my words, or better yet, to NOT know and NOT care.  Am I clear?
+>No.
+>Ha! Excellent!
+
+
+>The first thing you must do is dissuade yourself of the notion that we can, should, or do live in the best possible world.
+>Before we move on, we must agree on this sacred principle.
+>Do you agree?
+*(1)Yes *(2)No
+>(1)Very well.  Then only one step remains.
+>Take that notion, and revel in it.  Drown in it.
+>Do not make the actions that you think are better or worse.  Do not tell others only what they want to hear.  There are no better or worse outcomes.  Only outcomes that you take, and others that you don't.
+>Reality does not exist to test you on your choices.  Let it exist as a canvas on which you paint yourself through your actions.
+>Only through choosing that YOU would choose will you accomplish this.
+>Now.  Let us begin.
+>(2)I see. On which count do you take umbrage with?
+*(3)That we DO live the best possible world *(4)That we SHOULD live the best possible world *(5)That we CAN live the best possible world
+>(3)You truly think that we live in the best possible world?  That things couldn't possibly be better?
+>In some way I envy your optimism and innocence.  In most ways I do not.
+>Furthermore, do you believe that each decision you have made is for the best? That each decision you make will always be for the best?
+>Why make any decisions at all?  Why try at anything?  We will be in the best possible world regardless.
+>If you truly believe this then I see no need for you to play this game.
+>Play it or not, you will convince yourself regardless that you have chosen the best possible option.
+>But perhaps that means you are the perfect candidate for this game.  You will never feel regret over your actions.  That is my true purpose for this game.  To free you from the weight of your consequences.  To narrow down your worldview so that there are no right and wrong paths.  Just paths that you will take, and paths that you won't take.
+>The choice to play, ultimately, is yours.
+>(4)Fair enough.  But do not mistake my meaning.  I wholeheartedly believe that we should strive towards creating the best possible world.
+>But I do not believe it to be an attainable goal.
+>The argument of whether or not we should live in an impossibly perfect world seems irrelevant to me.
+>I will concede this.
+>But know this: Along your path to create the most perfect world you can, you will assuredly make choices with unintended consequences.
+>I implore you only to do this: Do not regret your actions.  Do not live in the past.  Only move forward.
+>That is all you can do.
+>(5)My my, what the optimist we have here.
+>I almost wish not to dissuade you.
+>Almost.
+>But we must live in the reality of our circumstances, not the reality of our choosing.
+>To be clear, I do not wish to stop you from trying to steer the world toward it's best possible outcome.  I encourage you.
+>What I do not wish to see is feelings of regret or failure when this is not the case.  To experience this is part of what it means to be human.
+>Try not to live in the future or the past.  Live only in the here and now.  Do not plan, do not strategize.  Accept what has happened, and feel what you must do.
+
+
+>We make decisions for one of three reasons: the present, or the future.
+>Only when we act in our present do we most resemble our true selves.  But very rarely do we act this way.
+>In our day to day, we almost exclusively act for our future.  To act for the present is considered selfish.
+>But consider this: if you knew the world was ending tomorrow, what would you do?
+>You would certainly do something, and that something would almost certainly not be what you would normally do.  Correct?
+>But that is because you would be forced to live in the present.  Completely and wholly, with absolutely no regard for the future.
+>Strangely freeing, no?
+>Yet also, this shows that there is a side of ourselves that we never see.  Decisions that we never allow ourselves to make.
+>For are we not defined by our decisions?
+>So here is my quest for you.  Find that other self.  The present self.  And let them take control.
+>Perhaps you will find the experience freeing.  Or thrilling.  Or perhaps not.
+>But either way, this is the perfect environment to test out that other self, is it not?
+
+
+[123]
+>Hey lady, I have a question for you.
+>You ever eaten horse before?
+*(1)Yes *(2)No *(3)Ew
+>(1)Wow, nice! How was it?
+*(4)Delicious *(5)Disgusting
+>(4)Aw man!  Now I gotta try it!
+>I've never had horse before, but I've always wanted to.  Don't know why.  That's just the way it is.
+>Whenever I tell people, they think I'm weird.  I'm glad you understand though.
+>(5)Damn.  That's too bad.
+>But I have to say, I've made up my mind and I'm going to stick with it.  I have to at least try it at some point.
+>Thanks for your honest opinion though.
+>(2)Yeah, me neither.  But I want to, real bad!  Listen, if you ever find horse meat, can you let me know?
+>(3)Yeah honestly, I get that a lot.
+>Listen, I don't expect you to understand, but I just really want to try horse meat.  Frankly I don't really know why either.
+>It's just something I have to do.
+>Maybe you should think about it too, you know?  Keep an open mind!
+
+
+[102]
+>Hey remember what I said last time? About the horses?
+>Part of the reason it's so hard is because they're so expensive.  Every horse within at least fifty miles has been commandeered by the army.  It's at least a thousand coin, and that's if you can even find a vendor!  The only people that'll sell are black market.
+>But I've got a plan. I may not look like it, but I'm a pretty good baker.
+>One loaf of bread sells for 1 gold.  All I have to do is do that one thousand times! That'd can't be that hard, right?
+>I'll just bake my bread at home and bring it here and sell it.  Pretty smart huh?  I don't even need an establishment.
+>Hey, when I set up my shop, will you come by and buy some bread?
+*(1)Yes *(2)No
+>(1)Thanks!  I'll make sure to save you my best loaf.
+>(2)Ha! Honestly, I just love the honesty.  See ya around!
+
+[103]
+#Clara
+>Hey Isabel.  It's been a long time.
+>How is life going at the farm?
+#Isabel
+>There's nothing there for me anymore.  I can't take care of the crops anymore and they died.
+#Clara
+>So what, you just leave?  Isabel, you can't just abandon that place.  Where will you go?  What are you gonna do?
+#Isabel
+>I don't know.  But if I just stay there I'll die.
+>Clara, I know you won't understand but I just feel like that place is my grave and I'm just waiting to die.
+#Clara
+>...
+>Isabel, I know that feeling better than anyone.
+>I feel it every day.  But not just about my house, about this whole village, and this whole country.  No matter where I go I feel that way.  There's nothing I can do.  One day I'll die and I feel like they'll just bury me wherever I am.
+>That's just the way things are.
+>Tell me Isabel.  What's the biggest fear you have about death?
+*(1)The nothingness of death *(2)My regrets *(3)The act of dying
+>(1)Not much of one for the afterlife? Me neither.  I envy everyone who believes in it, I really do.
+>But no matter how hard, I just can't believe.
+>I think the capacity for belief is like a muscle.  If you don't use it, it'll atrophy and die.  Mine passed a long time ago.
+>......
+>Take care, Isabel.  If you need a place to stay, you can stay with me.
+>(2)Huh, that surprises me.  Sure, I got regrets of my own but you can bet I'll have bigger concerns when I'm looking death in the face.
+>My past may not be pretty, but I'd live it all again and make the same mistakes if it meant that I got to keep on living.
+>......
+>Isabel, if you need anything just let me know.  And you can stay here for as long as you like.
+>(3)Me too.  Why fear being dead?  You won't experience anything.  You won't do anything.  You won't be anything.
+>But those moments when I know I'm dying, those scare me more than anything.
+>Thinking about my whole life in those final moments.  Knowing that everything is about to come crashing to an end. I...
+>I....
+>Sorry Isabel, I don't feel much like talking anymore.
+>You can stay here if you want.
+
+
+[103]
+#Isabel
+>Hello.
+#Malaga
+>Uh, hi.  Is there something you want?
+*(1)You look hurt *(2)No
+>(1)Yeah.  I am.
+>But you didn't answer my question.  What is it you want?
+*(3)I don't want anything *(4)I want to help
+>(3)Fine. Good.  Me too.  Looks like we can both go about our business then.
+
+>(2)Good.  Cause I don't know if you can see but I'm not really in a position where I care about what other people want.
+>(4)Wow.  Good for you.  I'm sure you're a model citizen.  Is that what you wanted to hear?  Is that what you thought I'd say.  You're just saying things you think I want to hear.
+>Just go away.  I don't want your help.  You shouldn't want to help me.  The army wouldn't want you helping me.
+*(5)I'm no friend of the army *(6)Just shut up and let me help you.
+>(5)Oh?  I... Well... I have to say I didn't expect that.
+>You just don't look the type, you know?  I definitely figured you for just some senile old lady who didn't care about the army coming in and ruining half the country.
+>Okay.  You know what?  Fine.  If you really care then help me up and get me out of here.  My wounds will be fine, but what might really kill me is if I'm sitting here and the wrong person comes by.
+
+//the same dialogue as above, but written with the idea that all decisions should be meaningful and explicit.  Also not being afraid to have Isabel speak on her own.
+[103]
+#Isabel
+>Hello.
+#Malaga
+>Uh, hi.  Is there something you want?
+#Isabel
+>No. I just-
+#Malaga
+>Good.  Cause I don't know if you can see but I'm not really in a position where I care about what other people want.
+#Isabel
+>Girl.  Calm yourself down.  You need medical help.
+#Malaga
+>No.  Lady, you don't get it.  I don't want you here.  You shouldn't want to be here.  The army certainly doesn't want you to be here.
+>If they knew you were helping me you'd be worse off than I am now.
+*(3)Help her *(4)Stay on good side of Army
+#Isabel
+>(4)If that's the way you want it to be then fine.
+>There's no helping some people.
+>(3)That's too bad for the army then because you going to shut up and come with me.
+#Malaga
+>Okay.  You know what?  Fine.  If you really care then help me up and get me out of here.  My wounds will be fine, but what might really kill me is if I'm sitting here and the wrong person comes by.
+
+
+
+
+
+
+#Drunk woman
+>Who are you?
+>I haven't see you around here.  You here from the south?
+>You come to profit off the war just like everyone else?
+#Isabel
+>No, I live just up north.
+#Drunk woman
+>Oh, I uhhh... I didn't realize. I just-
+>I ...
+>Sorry.  Let me buy you a beer.
+#Isabel
+>No, it's okay.  I don't really drink anymore anyway.
+#Drunk woman
+>Heh, thanks.
+#Eofor
+>The name's Eofor.  Nice ta meetcha.
+>If you're not drinking though I might as well have another.
+>Barkeep! Another one!
+#Corkus
+>I'm not giving ya anymore.
+#Eofor
+>Awwwww, come on!  I can hold my liquor.  You've seen me drink more than this before.
+#Corkus
+>I don't care about that.  Drink yourself to death for all I care.  Just pay for the beers you do drink.  You still haven't payed for that last one.
+#Eofor
+>Pssshhh.  Whatever.  Listen, it's not about the money, Corkus.  It's about customer satisfaction.
+>By refusing me a beer today, I might get so distraught that I never come back.  Maybe I'll go to a different bar.
+>You may be missing out on the money for one beer by giving it to me now, but you're risking missing out on the money for all the potential beers that I'll drink in the future.
+#Corkus
+>What other bar you gonna go to?  I'm the only place in 10 miles.
+#Eofor
+>Corkus, you're still just not getting it.  It's about the bigger picture.
+#Corkus
+>I'm not giving you another beer.
+#Eofor
+>I just-
+#Corkus
+>I'm not giving you another beer.
+#Isabel
+>I'm going to go now.
+
+//I feel like this dialogue is trying too hard to be funny.  It's not flowing naturally.  What if I tried to channel some of that Always Sunny energy?  I also don't how to end it.  I think it really loses itself when I include Corkus
+
+
+
+#Mountaineer
+>Hey! Over here!
+>You're not with the army, are you?  You certainly don't look it.
+>But more importantly, are you okay?  You don't seem like you're really dressed for the weather out here, you must be freezing.
+#Isabel
+>I'm okay. I'm actually just looking for some... uh...
+>Well it sounds ridiculous now, but I'm looking for some flax seed.
+#Mountaineer
+>Flax seed?  There's no stores up in the mountains.  Heck, I don't even think there's anyone here but us.
+>It's not exactly hospitable.
+>Here, come with me and I'll take you to our encampment.  At least you can get warm there.
+*fast travel to encampment*
+>
+
+//a conversation between the Ancient Tree and Isabel.  I like the idea of the tree just speaking in vague riddles or meaninglessly generic phrases.  Or it just being very ponderous.  But what decisions can the tree offer?  Or what can it offer at all?
+>Oh shit, what if it offered you the ability to talk with animals, but at the expense of no longer being able to talk to humans (all, or some subset, like the soldiers).
+
+//a conversation between Isabel and someone leaving the party.  Danger is approaching and they don't feel it's worth the risk to stay behind.  No choices present, this is just progress within the "story".
+
+//Introductory conversation between bartender and Isabel.  He is grouchy and terse but not  mean.  He is a former soldier or criminal and very distrustful of officers.  That could even be what his conversation is about.
+>If you have another enlisted man in your party, he joins you?  Or a child?
+
+//Introduction of Blacky from Underground.  I really think he'd be fun to have in this game. Plus a dash of Muhib.  Introduce him the same way Underground does.   With his band in tow.  At a bar could be good too.
+>Joins you once you start going against the state??  Once again I fear that this is veering too hard into a good vs evil route, with going anti-government being evil.
+>have a drunken conversation about partying and living up your life before you die.
+
+//Smarmy Cobbler has talk with Isabel where he basically just gossips about what he hears around town.  A good opportunity to introduce the player to all the different characters and what might be going on around town (nothing super hard hitting or important.  It's gossip).
+
+//A fun conversation.  Like a debate between two kids about something inconsequential.  No decisions, unless the decision is somehow clear and important.
+
+//what if Ursula was a man?  Having woman worry over lost child is trope, but man grieving over lost child less so.
+#Ursula
+>My son...  My son...  Poor Marco.  I'm sorry.
+
+#Isabel
+>Are you okay?
+#Ursula
+>No. My world is ending.  The stars have been torn from my sky.  And there's nothing left to do.  There was nothing I could do to begin with.
+#Isabel
+>Slow down.  Just tell me what happened.
+#Ursula
+>Marco was- he's my son.  And.  There must have been a terrible mistake-
+#Isabel
+>Slow down.  Take a breath and tell me from the beginning.
+#Ursula
+>... *deep breathes* ...
+>My son disappeared several days ago.  The army took all his cattle and he went to the magistrate to complain.  He never came back.
+>This is a small town.  Everyone knows everyone and it's impossible to get lost.  Nobody has seen him since he met with the magistrate.
+#Isabel
+>What about the mistake you mentioned?  You think someone made a mistake?
+#Ursula
+>Ever since the army came into town somebody has been making trouble for them.  Stealing supplies, equipment, food.  The magistrate must have assumed that Marco was the thief.
+>But that can't be true.  Marco barely even leaves our farm.  He wouldn't even have the time to do it if he wanted!
+>I've tried to talk sense into the magistrate, but he won't listen. He's already made up his mind that Marco's guilty.
+#Isabel
+@normal >Hmmm... I don't know how to help, but I'll try talking with people.
+@talkedWithMalga >I believe you.  I think I may know the person who is responsible.
+>I was just talking with a young troublemaker earlier.  She seemed to think the army was after her over the trouble she caused.  Maybe I can talk to her about it.  Or just tell the magistrate.
+#Ursula
+>What?  Please.  Please, you don't know how much this means to me.  I need you to do this.
+#Isabel
+>Alright.  I'll have a chat.
+
+
+#Marco
+>Well hey there, Isabel.  It's been a while.  How is everything back at the old farm?
+#Isabel
+>It goes.  It goes.  Although I can't say it goes too well.
+#Marco
+>Ha!  Same old Isabel.  Although I'm hardly surprised.
+>I probably shouldn't be saying this while they're in hearing range, but these soldiers aren't doing us any good.
+>They say they're here to protect us against the rebels, but I hardly see how that's true.  The rebels wouldn't have any reason to care about this place if there weren't any soldiers here.
+>All they do is eat our food, get in our way, take our stuff, and ruin the land.
+>I heard they have plans to cut down the old forest up north of here.
+>Pfft.  Bunch of know-nothing idiots.  Let 'em try!  Everyone here with any sense knows to stay away from that forest.
+>Anyway, enough of me yapping.  I assume you came for something, Isabel?  I hope it's not bread or meat, the army's cleared me out.
+>I suppose that even if they're a nuisance, they are good for business.
+#Isabel
+>I don't suppose you have any flax seed?  I've run out.
+#Marco
+>It's your lucky day, Isabel.  I've got just what you need right here.
+>Here you go, and stay safe out there.
+>I wouldn't want to have one of my favorite customers killed!
+#Isabel
+>.....
+>I'll see you later, Marco.
+
+//some middle-game stuff
+#Marco
+>Haha!  Back again, Isabel? I'm beginning to think you might fancy me.
+>Ha ha ha ha!  Oh, please excuse an old man his jokes.  I mean no harm.
+>To what do I owe the pleasure of your visit, Isabel?  What can I do you for?
+#Isabel 
+>Nothing today, Marco.  I just came to talk.
+#Marco
+>Perfect.  I was beginning to think you were only visiting me because I'm the only one in town who carries flax seed.
+>You remember what I was telling you last time we spoke? About how the army is planning to chop down the forest?
+>Looks like my info was wrong on that one.  And thank the lords for that.
+>Earlier, I was helping my men deliver some food to the army supply caravan, and I noticed something.
+>They don't have any axes!  Ha!  Forget about chopping anything.
+>Although now that I think about it, if I sold any axes, I could probably make a killing.
+>Maybe if I called some of my business contacts in Tarn....
+#Isabel
+>Marco, you know you don't want to do that.
+#Marco
+>I know, I know.  But sometimes I just think about all those coins and I stop thinking.
+>Just an old shopkeeper's habit.  Pay no mind.
+>I may find that forest creepy, but I know what not to meddle with.
+>I have no great love for the place but I respect it.  That much you can bank on.
+>Thanks for talking, Isabel, but I should be getting back to work.  There's always another order from the army that needs filling.
+#Isabel
+>No problem, Marco.  And thanks for the news.
+#Marco
+>'Til next time.
+
+
+
+//End of game, when forest is burning
+#Marco
+>What a sight huh?
+>Those bastards really did it.  I gotta give it to them.
+>The problem is that they don't really know what they've done.  They have no idea.
+>They probably never will.
+>.........
+>For what it's worth, Isabel, thanks for just being around.
+>And for coming back.
+
+//overhearing some gossip
+#Constanz
+>I hear that someone's gone missing.
+#Cinta
+>Oh?  Who?  Do you know?
+#Constanz
+>Yes, yes.  I overheard it from Ursula, she says that her son left several days ago and still hasn't-
+>Excuse us, this is a private conversation!
+*(1)Yes, and it should stay private to only the parties involved *(2)Don't worry, I won't tell *(3)Sorry *(4)@KnowMissing Ursula already told me
+
+//a talk with some foreign traders/refugees?
+#Kostu
+>Tleochu Tani?
+>Arach lem na tleuchi dannai
+#Isabel
+>Sorry, I don't understand.
+#Kostu
+>Goroni zic devli! Brazda op ar duth HETLMEGH.
+#Zerberi
+>Kostu, stop that.  This is just some old lady, There's no need to scare her.
+>I'm sorry, my sister likes to chase people away.  She knows how to speak your tongue just fine.
+>My name is Zerberi and hers is Kostu.
+#Kostu
+>Sis, let me have fun.  Scaring old woman hurts nobody.
+#Zerberi
+>It also benefits nobody.
+#Isabel
+>Also if very clearly hurts me.
+#Kostu
+>It benefits me.  I enjoy greatly.
+>Also drives away old woman.  Good for her too.  Nobody want be seen with us.
+#Isabel
+>Stop calling me 'Old woman'.  My name is Isabel.
+#Zerberi
+>Kostu, go make food.  I deal with old woman.
+#Isabel
+>It's Isabel.
+#Zerberi
+>So sorry again.  What have you come here for?
+
+//IF need flax seed
+#Isabel
+>I need flax seed.
+#Zerberi
+>Oh yes.  We have.
+>Costu!  Get the flax seed!
+#Costu
+>What?
+#Zerberi
+>Flax seed!  Szuble!  Now!
+#Isabel
+>How much do I owe you?
+#Zerberi
+>Nothing.  Zero.  Consider it gift for putting up with Costu.
+#Isabel
+>I can't let you do that.  At least let me give you a few coin.
+#Zerberi
+>No.  Back long ago, when neighbor asked for ingredient we gave.
+>Think of it like I wanting to live like that again.
+#Isabel
+>.....
+>Alright. Thank you very much.  If I can return the favor, just ask.
+
+//IF already has flax seed
+#Isabel
+>I didn't come here for anything.  I'm just wandering.
+#Zerberi
+>Well don't let us stop you.  Wander as long you like.  This countryside is beautiful.  We have seen much of it.
+#Isabel
+>Oh?  You're travelers?
+>Why come here?  With the army around, this could become a battlefield at any time.
+#Zerberi
+>We come because of army.  We were originally to north, but rebels chase us out.
+>We're not from north either.  We travel there far from east.
+>We come here to find army and escape rebels.
+#Isabel
+>That's unfortunate.  I'm sorry to hear it.
+#Zerberi
+>It's not your fault, why apologize?  There is no point.  I cannot change it.  You cannot change it.  This is just the way things are.  
+#Isabel
+>That's an awfully cynical attitude.  You never daydream about the way things could be?  
+#Zerberi
+>I used to.  That was before war.  Now I have no energy for that.  It makes my brain feel sick.
+>I focus only on where to go from here.  I cannot control others.  Only myself.
+>Believing otherwise is a luxury.
+#Isabel
+>I can't say I understand entirely, but I hope things get better for you.
+#Zerberi
+>Thank you.
+>In our language, we say: "May your future be easier than your past."
+#Isabel
+>Well, then may your future be better than your past.
+#Zerberi
+>And to you.
+
+//a conversation later on.  In a different location.  Only if given flax seed before.
+//Zerberi referred to as 'Sister'
+#Costu
+>Ah, it is lady again.  You find us.
+>What come for this time?  Here to trade?
+>Or come to collect free thing again?  I must warn you, only have so much to give away.
+#Isabel
+>It was given to me as a gift.  I tried to pay, but your sister refused.
+#Costu
+>I know what sister does.  She would cut off own arm if to keep would be rude.
+>She cares more to be polite than to live next day.  You will find me different.
+>Will receive no gifts from me.
+
+//a conversation later on.  In a different location.  Only if NOT given flax seed.
+//Zerberi referred to as 'Sister'
+#Costu
+>Ah, it is lady again.  You find us.
+>Zerberi not here.  Out buying food.
+#Isabel
+>I didn't come to talk to Zerberi.
+#Costu
+>What did come for?  You want only talk like last time?
+#Isabel
+>Is there a problem with that?  I mean you no harm, child, but you act like I'm out for blood.
+#Costu
+>It not that.  I have eyes, see you are no threat.
+>But I have no love for you either.  I no talk to one who I have no reason to talk.
+>I do not wish to spend my time like this.
+>Please leave me to be.  I have much work to do.
+
+//conversation about burning of forest
+#Costu
+>You see forest, yes?
+>It is like in North.  We see this many times on way here.
+>Sometimes just coal, sometimes still burning.
+>They do it for transport of weapon.
+>........
+>You may want speak with Zerberi.  I cannot get through.
+
+#Zerberi
+>This is what we come here to avoid.
+>.........
+>We not stay here much longer.  Rebels must come soon.  This is not our home.  No reason to die here.
+*(1)convince to stay *(2)encourage to leave
+#Isabel
+>(1)Please stay.  I'm doing everything I can in order to make things tenable here.
+>We need as many people as we can to stay and help make things better.
+#Zerberi
+>Why save this place?  Why not you leave too?
+#Isabel
+>This place is my home.
+#Zerberi
+>Yes.  And it is not ours.
+#Isabel
+>I know that.  But where is your home?
+>Is it back north? I don't think so or you would've stayed there.
+>Is it far east?  By the way you describe it, you barely remember it.
+>The truth is that you won't have a home until you settle down and build one.
+>So please stay, and help us build you a home here.
+#Zerberi
+>.........
+>I'll stay.
+>We'll stay.
+#Isabel
+>(2)I think that's the right decision.
+>Will you need help leaving?  Do you have enough supplies?
+#Zerberi
+>No, I will not be burden.
+#Costu
+>I will take supplies.
+#Zerberi
+>Costu, no.  I will not-
+#Costu
+>Zerberi, we have almost nothing.  Not near enough.  Put aside pride.
+>I will no more pretend we do not need help.
+#Zerberi
+>...........
+#Isabel
+>It's the least I can do.
+#Zerberi
+>...........
+#Costu
+>We do not need her reply.  I will take supplies.
+
+//talking with Zerberi by herself in village, having met before.
+#Zerberi
+>Ah.  Nice to see again, Isabel.
+#Isabel
+>And you too, Zerberi.  I see you've moved.  Still on the travel?
+#Zerberi
+>I can say same for you!  You go from town to town too, yes?
+>Ha! But you no worry, Costu and I are plan to stay here for more while.
+>We only move camp to stay out of way for army.
+
+
+
+
+
+
+
+
+
+
+
