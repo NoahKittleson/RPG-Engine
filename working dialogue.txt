@@ -565,7 +565,57 @@
 >We only move camp to stay out of way for army.
 
 
+//Tree spirit
+#Isabel
+>Hello?
+#Tree
+> .... hhhhrrrrrr ....
+> .... hhrRrrrHrhhhRhh .... hhhhRrrRrrhhh ....
+#Isabel
+>Oh dear.
+//change to spirit world
 
+
+
+//Wolf-like draconian commander of the army
+//This is trying to convince army to leave forest alone
+#Isabel
+>Hello.  Are you the commander here?
+#The Wolf
+>.......
+>Excuse me?  Who are you?
+>This town is off-limits to civilians.
+#Isabel
+>My name is Isabel.  I don't mean any trouble, I only wanted to talk-
+#The Wolf
+>Who let you in?
+*(1)Tell him *(2)Stand up to him
+#Isabel
+>(1)The guard to the south let me in. Now let-
+#The Wolf
+>Corporal!  Go to whoever is guarding the southern entrance and relieve them of their duty immediately.
+#Isabel
+>Look, I only meant to-
+#The Wolf
+>We have no more to discuss.
+>You are dismissed.
+*(3)Leave *(4)Persist (dangerous)
+#Isabel
+>(3)Hmph.
+#Isabel
+>(4)Absolutely not.  I did not mean any harm, and that soldier did nothing wrong.  I only came to talk about the war. 
+#The Wolf
+>That is ENOUGH.  I do not need to hear the mewling of every stray cat.
+>Do you know who I am?  I am the Wolf of the Wastes.  I have served in this army since I was a child.  Now I lead it and I serve this nation.  I do not answer to its common peasantry.
+#Isabel
+>Well good then because I don't want your answers, I want you to listen.
+>The longer your army remains here the more you drain this land and put us in danger.  The rebels would have no reason to attack here, if not for your presence.
+>And one more thing, every man and child in this area knows to stay away from the forest.  If you have any sense you'll do the same.
+#The Wolf
+>........
+>Are you finished? Have you had your fun?
+>Guards, take her away and lock her up.  I do not want this loose trash in my sight again.
+//Isabel arrested
 
 
 
