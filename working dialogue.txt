@@ -591,6 +591,20 @@
 >Who let you in?
 *(1)Tell him *(2)Stand up to him
 #Isabel
+>(2)That's not important.  I didn't come here to speak about the guards, I came to speak about the war.
+#The Wolf
+>I don't care what you came for. Who let you in?
+#Isabel
+>I won't tell you.
+#The Wolf
+>Very well.  Corporal, relieve every active guard on duty and suspend their pays for the day.
+>And while you're at it, remind them of their duties.  It seems they have forgotten what their job is supposed to be.
+#Isabel
+>That's not-
+#The Wolf
+>Remove yourself from my sight before I have you removed.
+*(3)Leave *(4)Persist
+#Isabel
 >(1)The guard to the south let me in. Now let-
 #The Wolf
 >Corporal!  Go to whoever is guarding the southern entrance and relieve them of their duty immediately.
@@ -599,7 +613,7 @@
 #The Wolf
 >We have no more to discuss.
 >You are dismissed.
-*(3)Leave *(4)Persist (dangerous)
+*(3)Leave *(4)Persist
 #Isabel
 >(3)Hmph.
 #Isabel
@@ -613,9 +627,89 @@
 >And one more thing, every man and child in this area knows to stay away from the forest.  If you have any sense you'll do the same.
 #The Wolf
 >........
->Are you finished? Have you had your fun?
->Guards, take her away and lock her up.  I do not want this loose trash in my sight again.
+>Are you finished? Have you given it your best?
+>Guards, take her and lock her up.  I do not want her in my sight again.
 //Isabel arrested
+
+
+//The military trial of Isabel
+#Corporal
+>Next case is a local who snuck into camp.
+#Isabel
+>I didn't sneak in, I was let in.
+#Corporal
+>The standard punishment for breaking into an enemy camp is 100 gold coin.
+#The Wolf
+>What is the maximum punishment?
+#Corporal
+>500 gold coin or death, if they are considered to be an enemy spy.
+#Isabel
+>This is ridiculous.  I only came to talk to the commander.
+#The Wolf
+>500 coins will be sufficient.  The amount shall be paid in full before the prisoner's release.
+#Isabel
+>I don't even have 500 coin.  I barely have 50 coin.
+#Corporal
+>Do you have a house or any property?  Surely you must live nearby, unless you ARE an enemy spy.
+#Isabel
+>Yes, of course.  I have a farm to the south.
+#The Wolf
+>It will have to do.  Send a dispatch there and take anything worth any money.  After the war, we will auction off the property to recuperate the loss.
+#Isabel
+>What?  You can't be serious.  What do you expect me to do? I'm seventy years old.  Where do you expect me to go?
+#The Wolf
+>That is of no concern to this court.  I suggest you learn your lesson and stay out of the way of the military.
+>Second offenses are not taken lightly, I assure you.
+>This court is dismissed.
+//house is taken away.  Fast travel to her house, under guard, and cannot be entered
+
+//next find The Wolf in an open field, during burning of forest
+//references taking of house, which is only one possible path.
+#Isabel
+>This is your doing.
+#The Wolf
+>Aye.  The forest was a possible hiding place for rebels.  It also blocks our view of the northern mountain pass.
+#Isabel
+>You have no clue what you've done.  That forest was not yours to destroy.
+#The Wolf
+>I am the leader of this army and I gave the order.
+>It is within my power to destroy the forest, and no one can make me pay for that decision.
+>In what way was it not mine to destroy?
+#Isabel
+>This is our valley, not yours.  We still have to live here at the end of this war.
+#The Wolf
+>Put it this way, who controls your house now?
+#Isabel
+>You do.
+#The Wolf
+>Exactly, but I didn't pay you anything for it. I didn't have any "right" to it.  I didn't even have your permission.
+>I said it was mine and I had the men to hold it from you.
+>And now it is mine.
+>Just as I had the power to destroy this forest.  And so I did.
+#Isabel
+>......
+*(1)Swear revenge (2)Tell to leave
+>(2)Whatever you've needed, I hope you've already taken it.
+>Take what you will if we can't stop you.  Take it and leave.
+>I would rather see the whole province burned if it meant there was nothing left here for you to take from us.
+>And no more reason for you to be here.
+#The Wolf
+>........
+>Then we are in agreement.
+>(1)You're right.
+>You take our food, you burn down the forest, you confiscate my home.
+>It's all because nobody can stop you from doing it.
+>So I'll do it.
+>I'll stop you.
+>In whatever way I can.  Whenever I can.  It won't be much at first.
+>But if I do things right, I'll only need to stop you once.
+>And then that'll be it.
+#The Wolf
+>......
+>..........
+>Welcome to war.
+
+
 
 
 
