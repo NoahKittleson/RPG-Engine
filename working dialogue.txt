@@ -710,7 +710,108 @@
 >Welcome to war.
 
 
+//Meeting some guy
+#Cazaco
+>Wow, can you believe everything that is happening around here?
+>I can't say I like everything that is going on, but at the very least it's an interesting time to be alive!
+>Not only is the military making a stand here, but it looks like something weird is happening in the mountains too.
+>I've heard stories about thieves around town too, but I can't actually say that's anything new.  In fact, it feels more a comfort if anything that with everything changing at least the thieves are a constant!
+#Isabel
+>Sorry, do I know you?
+#Cazaco
+>Oops!  Sorry, I guess I got a little ahead of myself.  This is all just so exciting that I got carried away.  My name is Cazaco.  I feel like I've seen you around the village before but I don't know your name.
+#Isabel
+>My name's Isabel.  I've lived in a farm to the east my entire life and come into town about once a month for supplies.  That's probably where you recognize me.
+#Cazaco
+>Yeah!  I definitely remember your face.  I've seen you at the store across from here a couple times.
+>I live up on the second floor, so I like to people watch.  To be honest, I don't leave my house much either.  I get my food delivered to me from across the street, I get paid to write, which I send through the mail, and whenever I get lonely I just watch people on the street!
+>Hey, that reminds me.  Don't you usually come here with a guy?
+#Isabel
+>No.  Or maybe, yes?  I used to come here with my husband.  But that was many years ago.
+#Cazaco
+>Oh, sorry.  I hope I didn't-
+#Isabel
+>It's okay, Cazaco.  It was a long time ago.
+#Cazaco
+>Oh.  Yeah.  Alright.  Well...
+#Isabel
+*(1)Ask about mountains *(2)Ask about army *(3)Ask about thieves
+#Isabel
+>(1)What was it you were saying about the mountains?
+#Cazaco
+>The mountains?  Hm.  Well, it's not actually anything substantial, yet.  At least not as substantial as the real physical army throughout the county.
+>But it's still big!  I heard that a group of archeologists from the far East have been meticulously searching the mountains.
+#Isabel
+>What exactly are they searching for?
+#Cazaco
+>No clue, nobody knows, but people are going crazy thinking about what it might be.  Some ruined city?  An ancient temple?  A lost treasure?
+>Frankly, I think daydreaming about what they might be up there for is more exciting than what they'll actually find.
+>And that's assuming they actually find anything at all.
+#Isabel
+>I assume you're talking about the mountains to the East?
+#Cazaco
+>Yep.  East and just a tiny bit North.  You thinking about checking it out?
+#Isabel
+>Maybe.  Maybe not.  I only just heard about it, but it's certainly interesting.
+#Cazaco
+>Well if you do meet 'em, come back and tell me about it, will ya?  I'd love to hear about it.
+#Isabel
+>(2)What was it you were saying about the army?
+#Cazaco
+>Oh, just that it's awfully exciting to have them in the county.  There might be fighting here!
+>I know it seems silly, but I'd love to see a battle!  Is there any more pure example of history being made right before your eyes?
+>I'll admit, before the army arrived I barely knew anything about the rebellion, but now I try to get any scrap of information I can about where the rebels are and what direction their moving in.
+#Isabel
+>You don't mind the soldiers commandeering food and land?
+#Cazaco
+>Oh, I spend so much time upstairs that I hardly even notice.  The food prices go up, but for now that's no problem.
+#Isabel
+>No problem for you, maybe.
+#Cazaco
+>Oh, yes.  I suppose.
+>Sorry.  I never thought about it like that.
+#Isabel
+>That's okay.  Keep going.
+#Cazaco
+>Well actually I don't really have anything else to say.
+>The army is going to be stationed here for a while so I guess I don't see any point in getting bent out of shape about it.
+>There's nothing we can do about it anyway until the rebellion either moves out or get defeated.
+#Isabel
+>(3)What was it you were saying about the thieves?
+#Cazaco
+>Thieves?  Oh yes!  I mean, this province has had a thievery problem for as long as I can remember.
+>It can be annoying but I gotta give it to them, those thieves know what they're doing!
+>I've had stuff disappear from my house every once in a while, and I practically never leave the place!  Frankly every time I notice something gone I'm more impressed than anything.
+>It's not always valuable stuff either.  For a couple months I remember having every pen I bought being stolen.
+>I tried buying pens that weren't worth anything, but that' didn't even stop them!
+#Isabel
+>How do you know that you weren't just losing your pens?
+#Cazaco
+>What!?  It was EVERY pen I bought for months!  It must have been over 100 pens.
+>Plus, I've heard of other people losing things too!  It's certainly not just me.
+>Anyway, if you plan in spending any extended period of time in town I suggest pawning off any excess pens you have.
+#Isabel
+>Thanks.  I suppose.
 
+#Elder Tree
+>I sense someone
+>A being of autonomy.  An animal with choice and will.
+#Isabel
+>Excuse me?
+>Who or what am I speaking to?
+#Elder Tree
+>Your brain denies what your eyes confirm.
+>I have no name.  No custom for that exists here.
+>But if you need a name, you may simply call me by your word for me: Elm.
+#Isabel
+>.........
+>Well.  Hello then, Elm.
+#Elder Tree
+>No humans have ventured here for a while.  Perhaps 100 years?
+>I was beginning to fear they had died out.
+>What has returned you here?
+#Isabel
+>
 
 
 
