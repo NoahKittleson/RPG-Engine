@@ -811,10 +811,63 @@
 >I was beginning to fear they had died out.
 >What has returned you here?
 #Isabel
->
+>I'm... not sure.  I fear the forest may be in danger.  There is an army nearby that may have plans to destroy it.
+>So I suppose I came to help?
+>Although I honestly don't know how.
+#Elder Tree
+>Hmmmm...
+>Hmmmmmmmmmm...
+>An intriguing idea.  I must admit, you're the first human that has ever come to me offering aid.
+>I believe I know of something that can be done.  Although it is no small sacrifice.
+>Indeed, it involves sacrificing a part that you may find intrinsic to your personhood.
+>Once you make this pact, your life will be irreversably sent down a different path.
+>I will understand if you do not wish to partake.  But I will ask you nonetheless, and I will only ask once.
+>I ask you to abandon your bond to humanity.
+*(1)Abandon Humanity *(2)Decline
+#Isabel
+>(2)I'm sorry.  I cannot.
+>I understand.  To be honest, I have the same choice before me.  In order to accept your aid, I could sacrifice my bond to the forest.  But I myself am unwilling to do so.
+>Unfortunately, in this current state our paths cannot intersect.
+>It seems we must follow our own roads to their logical conclusion.
+>I wish you the best on your travels
+#Isabel
+>And you as well.
+#Isabel
+>(1)I'll do it.
+#Elder Tree
+>Then simply speak the words.  Swear to forsake your bond to humanity.
+#Isabel
+>I forsake my bond to humanity.
+#Elder Tree
+>Then it is done.
+//Forsake humanity.  Speak with animals, cannot speak with certain humans.
 
+//Immediately after, if forsake humanity.
+#Isabel
+>What now?
+#Elder Tree
+>For now, nothing.
+>Got out and explore your world, free of humanity.
+>Find your new bonds, of the earth.
+>Talk to me again when you have obtained this new outlook.
 
-
+//let's have some dialogue from characters that are actually in the game as sprites RIGHT NOW.  Like the fisherman guy on the docks.
+#Fisherman
+>No luck today.
+>"Oh slippery dipper love, slither up on past my bait.  Jump on past the boats and oars, jump up to my dinner plate."
+#Isabel
+>Excuse me?
+#Fisherman
+>Sorry, it's just an old rhyme my mother used to say.
+>You look familiar.  I've seen you before.  You must live nearby.
+#Isabel
+>Yes.  I live on a farm to the northeast.
+>My name is Isabel.
+#Fisherman
+>Nice to meet you, Isabel.  My name is Ignacio.  Nice to meet ya.
+>It's always nice to have someone to sit and chat with while I sit here and don't catch any fish.
+>It looks like you're going somewhere though, so I won't keep ya.
+>But if you ever want to stop by and chat, I'll be here.
 
 
 
