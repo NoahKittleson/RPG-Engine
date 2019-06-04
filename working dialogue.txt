@@ -175,6 +175,7 @@
 >You just don't look the type, you know?  I definitely figured you for just some senile old lady who didn't care about the army coming in and ruining half the country.
 >Okay.  You know what?  Fine.  If you really care then help me up and get me out of here.  My wounds will be fine, but what might really kill me is if I'm sitting here and the wrong person comes by.
 
+
 //the same dialogue as above, but written with the idea that all decisions should be meaningful and explicit.  Also not being afraid to have Isabel speak on her own.
 [103]
 #Isabel
@@ -186,7 +187,7 @@
 #Malaga
 >Good.  Cause I don't know if you can see but I'm not really in a position where I care about what other people want.
 #Isabel
->Girl.  Calm yourself down.  You need medical help.
+>Calm down, girl.  Save your bile for another day, because right now you need medical help.
 #Malaga
 >No.  Lady, you don't get it.  I don't want you here.  You shouldn't want to be here.  The army certainly doesn't want you to be here.
 >If they knew you were helping me you'd be worse off than I am now.
@@ -196,9 +197,7 @@
 >There's no helping some people.
 >(3)That's too bad for the army then because you going to shut up and come with me.
 #Malaga
->Okay.  You know what?  Fine.  If you really care then help me up and get me out of here.  My wounds will be fine, but what might really kill me is if I'm sitting here and the wrong person comes by.
-
-
+>Ughhh... You know what?  Fine.  If you really care then help me up and get me out of here.  My wounds will be fine, but what might really kill me is if I'm sitting here and the wrong person comes by.
 
 
 
@@ -868,6 +867,199 @@
 >It's always nice to have someone to sit and chat with while I sit here and don't catch any fish.
 >It looks like you're going somewhere though, so I won't keep ya.
 >But if you ever want to stop by and chat, I'll be here.
+
+//I should think a little bit before I write any more about the possible structures how this game could work.
+>Are picking up plot threads for a specific character going to totally derail the narrative in that direction?
+
+//Here are some things that I want that I am not currently getting:
+>I want to have more dialogue that isn't just Isabel talking with NPCs.  I want there to be a PARTY.  Characters who get recruited and then follow Isabel around, and this would be part of what makes it more replayable.  There would be more or even different dialogue outcomes when people join up with you.
+>I think if this is the case I would need to have a strong reason why Isabel would be gathering people.  She would need to have a goal of her own.
+
+>What if at first she's just gathering people in order to go talk to the general as a community.  Then shit goes down, and depending on who is in the group and who she listens to and chooses to go along with, different things happen. 
+>This way I have partitioned the game into an introductory section, where you are going around and gathering party members, and then a stage where you are listening to the various advice and suggestions given by your group members and acting on that information.
+This second stage would also be where all the weird and big changes to the world could start happening, like flooding of valley, burning of forest, disappearance of sea, etc.
+
+>Maybe before a person joins your group, they should each give a little spiel about how what they bring to the group, as well as what the player would be giving up in order to accept them into the group (thief members will detract legitimacy and deter law abiding citizens, honorable characters will hold you to a better standard or leave, certain characters might leave you if you don't attend to your duties within a certain time frame).  In any case, this information should exist and be made clear in some way, so that accepting someone into your squad feels like an actual decision
+>This could also be the role of some NPC, telling you the pros and cons of recruiting certain civilians
+>I think in this case, I should perhaps start with 10 or NPCs that I will decide for sure are recruitable, and that can be my MVP.  This also helps me not feel overwhelmed.  SO, more for the writing/decision making exercise, if anything, here are the 10 I would choose right now:
+1. Young Mean Girl Thief (Malaga)
+2. Costu/ Zerberi
+3. The Colonel
+4. The Ancient Tree
+5. A dog?
+6. Lady Sheriff/Fortuna
+7. Fisherman
+8. Drunk
+9. Some random pig farmer
+10.Old flirty shopkeeper/smith
+
+//but really after 5 I ran out of characters that I actually care about.  For hell's sake, 5 is just (dog?) which I really like the idea of right now but I really don't know what it entails.
+
+//I think my next step should be to write out new dialogue for one of the first 5, keeping in mind what I have written about recruitment, and what that would look like for this character, with maybe some vague notes about what advice they would offer, or what pathways they would open up.
+
+//Young Mean Thief Girl.  She has been a constant throughout the whole project, so I might as well start with her, because she is one of the only ideas that I continually like enough to keep whenever I iterate.  Also her name is apparently Malaga.  lol.
+
+//I think I can still keep the introductory passage.  In fact, her dialogue really fits well with what I want, actually.  Funny how that works.
+>BUT I'm going to add a little bit more to the end here, because I love chaos:
+
+#Isabel
+>There's a doctor's office in the town to the east.  Can you make it that far?
+#Malaga
+>No. I mean yes, I could. But no, we can't go there.
+>There's a house on the coast to the southwest.  Take me there.
+#Isabel
+>What?  But that's much farther, and is there a doctor there?
+#Malaga
+>Lady, lady, PLEASE.  Listen, what is your name?
+#Isabel
+>Isabel.
+#Malaga
+>Isabel, okay.  If you take me to that town, the army will find me and they will kill me.  And then will kill you for helping me.  And then they might just burn down the whole province for housing us.  We CANNOT go to that village.
+>Same goes for if they find us here.  Same goes for if you- Ughhh... Ow ow ow.
+#Isabel
+>Are you okay?  What's happening?
+#Malaga
+>I need-  Ughhhh... We need to leave NOW.
+//fast travel to small house.  Isabel is in a room with Malaga on the bed. 
+//This would be a great time for Isabel to talk with other party members about what is happening and whether to trust this little girl.
+
+//Although I suppose this also brings up the interesting question of what it means for someone to JOIN the party. Like do they just follow you around wherever you go?  If so, the colonel JOINing the party seems a little weird.  At least, before shit hits the fan.  But I think this is way it has to be to solve the problem of my current lack of group interactions.
+//For now, I'll try to keep introductions to just Isabel and the person, unless it makes sense for somebody else to speak up as well. In fact, that could be a good thing to try writing next.
+
+//Although perhaps instead of having people who will and won't work with each other, it could be more straightforward to have an artificial limit, like a party size of 4.  So you can "court" whomever you want, but when push comes to shove you have to pick just four of them.
+>Or... The whole X won't work with Y thing doesn't feel super interesting, I think it could be better to have that be a very rare thing (like only one pair are mutually exclusive), and have most people introduce some sort of story complication with their presence (a la Malaga making the army hate you more.)  I think this is a lot more meaningful and interesting.
+
+//Alright, let's try to actually write something.  Introducing my new favorite character: Vago the pig farmer
+#Vago
+>Hullo.
+#Isabel
+>Hello.  Are you the owner of this property?
+#Vago
+>Yeah.  Why?
+>Wait, you're not from the army are you?
+>Please leave me be.  I've already given you all the food I have.
+#Isabel
+>I'm not from the army.
+>Why would they send an elderly woman in plainclothes?
+#Vago
+>Oh.  I guess I hadn't thought of that.
+>Well then what are you doing out here?
+>Actually, come on inside.  If you're not army, let's talk indoors.
+#Isabel
+>Thank you but actually I just have one question and you seem to have answered it already.
+>I was going to ask if you have had any bad dealings with the army, but it seems clear that you have.
+#Vago
+>Ha!  That's an understatement.  Every couple days they come through here and ask for something else.  I'm just glad I still got these pigs.
+#Isabel
+>Yes, they've been quite aggravating for me too.
+>I'm gathering a group of locals to go talk with whoever is in charge.  Would you like to join?  The more people I have with me and the more accounts I have of the army's strain on the county, the more success I feel we'll have.
+#Vago
+>Um... Well... Are you sure you want me with you?
+>I never been, uh... great with words.
+>I'm just a pig farmer, you know?  I don't really know much of anything about talking to magistrates or anything.
+
+//here I need to determine what the conditionals for party members who may or may be here look like.
+//Conditionals look like this: ?requiresThisCharacter !requiresThisCharacterNotBeHere
+//All conditionals are ANDS, until I find a case for ORs to be useful.
+//Only if Malaga is in party
+?Malaga
+#Malaga
+>Yeah Isabel, are you sure about this?  Why are even wasting our time on this guy?
+>I mean, look at him.  He's just some guy.
+>Actually I take that back, he's even less than some guy.  He's a nobody.
+>If I don't care what this guy has to say, why will anybody in the army?
+
+//Only if Fortuna and Malaga are both present
+?Malaga ?Fortuna
+#Fortuna
+>I have to agree with Malaga here, as much as I am loathe to admit it.
+>Appearing with such rabble could be a detriment to how we are perceived as a cause.
+#Isabel
+>Oh shush, both of you.  Don't be so disparaging.  He deserves to be heard just as much as the rest of us.
+>I'm just a farmer too, remember?  He and I aren't any different.
+#Malaga
+>You don't smell like manure.
+#Isabel
+>Well... We'll make sure he bathes before the meeting.
+#Fortuna
+>Please do.
+
+//only if Fortuna is present and Malaga is not
+?Fortuna !Malaga
+#Fortuna
+>Are you sure about this, Isabel?
+>I understand you want as many people as possible, but that doesn't mean we should bring rabble like this.  It makes us look desperate.
+#Isabel
+>That's enough, Fortuna.  He seems a decent man, even if his appearance... leaves more to be desired.
+>Plus, we are desperate.
+#Fortuna
+>Hmmm.... I see your point.
+>Very well.  I agreed to follow you and trust your judgement and so I shall.  Do as you wish.
+>Just please tell him to change into clothes that don't smell of manure when we meet the General.
+
+//only if Malaga is present and Fortuna is not. (This resolves the first conditional)
+?Malaga !Fortuna
+#Isabel
+>You will care what he has to say because he'll be part of this group.
+#Malaga
+>I never agreed to that.
+#Isabel
+>Well, you don't need to.
+>Just please don't be mean to his face.
+#Malaga
+>I never agreed to that either.
+
+//this is where the threads all meet back up.
+#Isabel
+>Vago, we would be very happy if you were to join us.
+>Don't worry about talking to the magistrate, we can handle that.
+>Simply having members of the community present to show their support is enough.
+#Vago
+>Oh, nice.  I can do that.
+#Isabel
+>Thank you very much, Vago.
+//Is Vago going to join the group whilst traveling?
+
+//only if Fortuna
+#Fortuna
+>*Ahem*
+#Isabel
+>Oh, and Vago.  Make sure to take a bath before the meeting.
+#Vago
+>Okey doke.
+
+
+//I think Isabel should be more like this throughout.  She's kind but strict, and doesn't stand for guff, kind of like a schoolteacher.  She is all about getting down to business and being fair, darn the consequences.
+
+//Here, let's introduce Fortuna now.  I already kinda have an idea for how she sounds from the above.
+//Also, Fortuna is the Lady Sheriff
+
+#Soldier
+>Ma'am, Please be reasonable.  These orders come directly from the General.
+#Fortuna
+>Good.  Then I know exactly to whom I will appeal.
+>And you can relay my response personally.
+#Soldier
+>I really don't-
+#Fortuna
+>First of all, I don't care what authority he says he has.  I am not part of the military and therefore will not take orders from him.
+>Secondly, I serve this town to protect it.  If he intends no harm to this county or its inhabitants then there is no reason for him to oppose me.
+>Frankly, the fact that he wishes me out of his way concerns me even more, and only reinforces my instinct to ignore his order.
+>And lastly, if he has any problems with me or wants to issue any more "orders" he can talk to me directly.
+>I vastly prefer it to conversing with some lackey.
+#Soldier
+>Ma'am please, I don't relay message, I just-
+#Fortuna
+>Very well.  Well, when he wants to know why I have not given up my duties, you can tell him then.
+>Either way he'll find out.
+#Soldier
+>........
+>Alright, I'll tell him.
+#Fortuna
+>Thank you soldier, very wise of you.
+
+
+
 
 
 
