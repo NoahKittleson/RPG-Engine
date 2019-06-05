@@ -1058,6 +1058,103 @@ This second stage would also be where all the weird and big changes to the world
 #Fortuna
 >Thank you soldier, very wise of you.
 
+//Once you actually talk to her
+#Isabel
+>I heard you talking with that soldier
+>I take it the army is  bothering you?
+#Fortuna
+>Hmph.  That's putting it lightly.
+>My name is Fortuna.  I don't believe we've met before, although I recognize your face.
+>I take it you live at a farm nearby?
+#Isabel
+>That's exactly right.  My name's Isabel.
+>I'm gathering people to complain to whoever is in charge of the army.  It seems that most everyone has a story about how the army has changed 
+
+
+//I think I SHOULD give people the choice not to recruit people, so they don't go around gathering everybody.  I can tell them at the beginning that once they gather 5 people, they will confront the general, so that people actually have to make the choice.
+//Although, once again, this might force people not to accept teammates until they've met EVERYONE.  So perhaps I should force people to accept or reject on the spot, with no takesy-backsies.
+//So how do we communicate this to the player, specifically? 
+
+
+//Just freaking write something
+#Soldier
+>Excuse me, Ma'am.  I'm sorry to inconvenience you.
+>I'm here from the army to inform you that we'll be pitching up camp nearby to combat the rebel forces amassing to the North.
+>As such, we need food and supplies.  The General has ordered us to come and collect what we can from the local populace.
+#Isabel
+>I can't give you anything.  I only have just enough for myself.
+>Alright, ma'am.  Well I've been authorized to search your property
+
+>I'm here from the army.  We've set up camp in this county to combat the advancements of the rebels to the north.
+>However, we need supplies and I've been given the task of taking inventory of what's available nearby.
+>Can I see your food stores?
+#Isabel
+>There's nothing here worth taking.  I live alone and only grow enough for myself.
+#Soldier
+>Nonetheless ma'am I'm going to need to see your food stores.
+#Isabel
+>Very well.
+//fast travel to her food stores
+#Soldier
+>Alright, this will have to do.
+#Isabel
+>What? What do you mean?
+#Soldier
+>We'll be taking this flour and cornmeal, the dried meat, these vegetables, the-
+#Isabel
+>That's ridiculous.  That's everything.  What am I supposed to eat?
+#Soldier
+>As per standard operating procedure, you may keep the equivalent of 10 loaves of bread.  Also these fruits, as they won't last long enough to transport.
+#Isabel
+>10 loaves?  The next harvest isn't for another two months.  If you take that much you might as well take everything.  Either way, I'll starve.
+#Soldier
+>There's no point to taking everything.  As I said, the fruit won't last more than-
+#Isabel
+>That's not what I meant!  Are you even listening to me?  If you take that much food I'll die!
+#Soldier
+>Sorry, Ma'am.  These are the General's orders.  You'll have to figure something out.
+>A cart will be sent tomorrow to pick up the food.  I've already taken inventory so if anything goes missing you'll have to pay out of pocket.
+>Or worse, depending on the scale of the theft.
+#Isabel
+>Oh, so now it's theft?  Stealing my own food.
+#Soldier
+>Remember, we'll be around tomorrow.
+//cut to next day.
+#Soldier
+>Alright lady, that's it.  We've loaded everything up.
+>Thank you for your contribution.
+#Isabel
+>........
+>Your leader, the one who gave you your orders, who did you say that was?
+#Soldier
+>Orders came straight from the General.
+#Isabel
+>How can I speak with him?
+#Soldier
+>Pfft.  Lady, come on. Just let it-
+#Isabel
+>How can I speak with him?
+#Soldier
+>Aw geez.
+>The General doesn't meet with civilians.  He's very busy.
+#Isabel
+>There has to be some way.  Even he has to answer to somebody.
+>I have to do something.  If I don't I'll starve.
+#Soldier
+>Okay lady, listen.  I know what you're going through, really I do.  I come from a family near here.  Couple counties over.  Really poor area.
+>Part of why I joined the military was just so I always had food to eat.
+>.........
+>The General doesn't meet with individual civilians.  But the law states that he has to meet with "Community Liasons".
+>If you can get together a group of five people, then you'll get an audience.
+>And it has to be exactly five.  He doesn't want to meet with groups too big or small.  So pick your five people carefully.
+>But even when you do, I have to tell you, there's no guarantee he'll listen to you.
+>The General is not really the type that's open to outside criticism.  I wouldn't get my hopes up, lady.
+#Isabel
+>I have to try something.
+#Soldier
+>Yeah, well...  Just don't mention my name or anything.
+>And good luck.... I guess.
+
 
 
 
