@@ -162,7 +162,7 @@ std::shared_ptr<DNode> DialogueFactory::loadFromFile(int DialogueID, ResourceHol
 						
 					case '#':
 						//change who the speaker is
-						currentSpeaker = convertToSpeaker(dialogue);
+						currentSpeaker = textToSpeaker(dialogue);
 						break;
 						
 					case '*':

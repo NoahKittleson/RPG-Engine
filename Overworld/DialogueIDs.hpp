@@ -19,7 +19,7 @@ namespace Dialogue {
 	static std::map<Dialogue::Speaker, std::string> speakerMap;
 }
 
-struct Character {
+struct Identifier {
 	sf::String characterName;
 	Dialogue::Speaker characterID;
 	//font?

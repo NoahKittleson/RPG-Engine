@@ -123,6 +123,26 @@ The guiding principles of the conversation decisions-
 -The army cooperation path.
 
 
+//these are the characters that I currently plan to have be recruitable--
+//Dialogue written for these:
+1. Young Mean Girl Thief (Malaga)
+2. Costu/ Zerberi
+5. A dog? / Abelard
+6. Lady Sheriff/Fortuna
+9. Some random pig farmer / Vago
+
+
+//Possibilities:
+3. The Colonel
+4. The Ancient Tree
+7. Fisherman
+10.Old flirty shopkeeper/smith
+
+//Meh:
+8. Drunk
+
+
+
 
 
 

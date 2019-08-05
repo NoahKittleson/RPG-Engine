@@ -886,11 +886,11 @@ This second stage would also be where all the weird and big changes to the world
 2. Costu/ Zerberi
 3. The Colonel
 4. The Ancient Tree
-5. A dog?
+5. A dog? / Abelard
 6. Lady Sheriff/Fortuna
 7. Fisherman
 8. Drunk
-9. Some random pig farmer
+9. Some random pig farmer / Vago
 10.Old flirty shopkeeper/smith
 
 //but really after 5 I ran out of characters that I actually care about.  For hell's sake, 5 is just (dog?) which I really like the idea of right now but I really don't know what it entails.
@@ -1155,8 +1155,118 @@ This second stage would also be where all the weird and big changes to the world
 >Yeah, well...  Just don't mention my name or anything.
 >And good luck.... I guess.
 
+//Abelard is the name of the dog.
+//I could have it be that Abelard represents the tree/nature faction.  Since the tree obviously can't meet up with The Wolf.
 
 
+//Sometime after you meet and talk with the Old Tree
+#Abelard
+>Bark!
+#Isabel
+>Oh. hello there Dog.
+>Sorry, I haven't got any scraps for you.
+#Abelard
+>Bark Bark!
+//If they've talked with the old tree
+>Hey wait, stuff this.  You're the lady that talked with the old tree, right?
+#Isabel
+>Oh dear.
+#Abelard
+>Oh hell yeah, you definitely are.
+>I mean, if you can understand me you have to be.
+>You CAN understand me right?
+#Isabel
+>I... Oh this is no good at all.
+#Abelard
+>Ha!  Never talked to an animal before, have you?
+>Don't worry.  I won't sniff your butt or anything.
+>Just as long as you don't make me shake hands or stand on my hind legs or anything.
+>Oh yeah, and don't try to train me or anything.
+>I'm not gonna fetch or roll over or anything.
+#Isabel
+>I don't want to train you.
+>I barely even want to talk with you.
+>There's a lot on my plate right now and I don't have time to be making friends with random dogs.
+#Abelard
+>Hey hey hey, just hear me out.  We're on the same side.  I want to help you.
+>Also I'm not just a random dog.  My name is Abelard, thank you.
+>You're gathering folk to go against the army, right?
+#Isabel
+>I'm gathering people to go TALK to the army.
+#Abelard
+>Yeah, sure, whatever.
+>Listen, I can help!  I  wanna join ya.
+#Isabel
+>.......
+>You want to help?
+#Abelard
+>Yeah!
+#Isabel
+>Help... How?
+#Abelard
+>Oh you know.
+#Isabel
+>I assure you, I really don't.
+#Abelard
+>I can uh... Well I know about nature, right?
+>I know that old tree, I can be like the one that gives you that sort of perspective.
+>I mean, the old tree can't really follow you around and be part of your little group, but I can!
+>So whaddya think?
+*(1)Let Abelard join *(2)Decline
+#Isabel
+>(1)........
+>Alright fine.
+>I suppose it can't do any harm.
+#Abelard
+>Hey, alright!
+>To be honest, I really didn't think you were going to go for it.
+>Now let's set some ground rules.  Petting is fine, and so is scratching.  But it has to be on the head or back.  The belly is off limits.
+>And you might want to be careful, because I probably have fleas.
+#Isabel
+>Oh dear, what have I gotten myself into?
+#Isabel
+>(2)Absolutely not.
+>I'm sorry, but if I go talk to the commander with a dog as one of my community liaisons I'll be laughed out of town.
+#Abelard
+>You know, you're not wrong there.
+>Oh well.  That's life I suppose.  Can't do anything about it.
+>Good luck with the army and all that.
+
+
+//should I have the party members join in on this discussion, and if so how do I justify it.  This could be a good time to set a precedent for the party members understanding the dog.
+//Yeah, I think sometime later I should go in and add text that potential party members would say in response to Abelard's lines.
+
+
+//Let's just do some incidental dialogue.  Dialogue from random people around town the province, but not party members that you can recruit.
+
+#Beach Man
+>Hey lady, how's it going?
+>Great day for the weather, right?
+#Isabel
+>.......
+>What does that even mean?
+#Beach Man
+>Hey, don't worry about it.
+>Why worry about anything when life is this nice?
+>And you know why life is so nice?  It's cause I'm not worrying about anything!
+>Life's too short to worry about anything.  As soon as you pick one thing to worry about, you'll find more and more things to worry about.
+#Isabel
+>I take it you aren't concerned about the military then?
+#Beach Man
+>Nope.  No matter what they do the world'll keep spinning and the sun'll keep shining.
+#Isabel
+>That seems a rather low bar to set.
+#Beach Man
+>I guess.
+?Nobody
+#Isabel
+>Well good luck with that.
+?Fortuna
+#Fortuna
+>Isabel, This man is clearly an idiot.  If I have any sway, please listen to me when I say that we cannot let him join.
+#Isabel
+>Don't worry.  I doubt he'd want to join us even if we wanted him.
+>Which I most certainly don't.
 
 
 
