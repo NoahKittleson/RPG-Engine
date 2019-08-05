@@ -24,7 +24,7 @@ BattleState::BattleState(std::vector<std::shared_ptr<Character>>& enemies) {
 
 	info.NPCs = enemies;
 	info.PCs = party;
-	mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Bramble));
+	phase = make_unique<MenuMode>(info, resources.getFont(Fonts::Bramble));
 	
     info.combatants.setLooping(true);
 	positionSpritesAndStats();
@@ -32,14 +32,14 @@ BattleState::BattleState(std::vector<std::shared_ptr<Character>>& enemies) {
 
 void BattleState::update(sf::Clock& timer) {
     float elapsed = timer.restart().asSeconds();
-	if (mode) {
-		mode->update(elapsed, this);
+	if (phase) {
+		phase->update(elapsed, this);
 	}
 	//updateSprites(elapsed);
-	if (mode->isDone()) {
+	if (phase->isDone()) {
 		switch (currentMode) {
 			case menu:
-				mode = make_unique<AttackMode>(info);
+				phase = make_unique<AttackMode>(info);
 				currentMode = attack;
 				std::cout << "Mode changed to attack.\n";
 				break;
@@ -53,7 +53,7 @@ void BattleState::update(sf::Clock& timer) {
 				} while (info.combatants.get()->getHealth() <= 0);
 				info.currentAction.clear();
 				info.currentAction.attacker = info.combatants.get();
-				mode = make_unique<MenuMode>(info, resources.getFont(Fonts::Bramble));
+				phase = make_unique<MenuMode>(info, resources.getFont(Fonts::Bramble));
 				currentMode = menu;
 				std::cout << "Mode changed to menu.\n";
 				break;
@@ -75,8 +75,8 @@ void BattleState::draw(sf::RenderWindow& rw) {
 	rw.setView(rw.getDefaultView());
 	rw.clear(sf::Color::White);
 	drawAll(rw);
-	if (mode) {
-		mode->draw(rw);
+	if (phase) {
+		phase->draw(rw);
 	} else {
 		//anything?
 	}
@@ -84,8 +84,8 @@ void BattleState::draw(sf::RenderWindow& rw) {
 }
 
 void BattleState::handleInput(sf::RenderWindow& rw) {
-	if (mode) {
-		mode->handleInput(rw);
+	if (phase) {
+		phase->handleInput(rw);
 	} else {
 		sf::Event event;
 		while (rw.pollEvent(event)) {
@@ -126,11 +126,11 @@ bool BattleState::checkBattleOver() {
 	}
 	if (playersDead) {
 		currentMode = defeat;
-		mode = make_unique<BattleEndMode>(false, resources.getFont(Fonts::Bramble));
+		phase = make_unique<BattleEndMode>(false, resources.getFont(Fonts::Bramble));
 		return true;
 	} else if (enemiesDead) {
 		currentMode = victory;
-		mode = make_unique<BattleEndMode>(true, resources.getFont(Fonts::Bramble));
+		phase = make_unique<BattleEndMode>(true, resources.getFont(Fonts::Bramble));
 		return true;
 	}
 	return false;

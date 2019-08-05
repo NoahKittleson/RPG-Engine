@@ -21,6 +21,7 @@ struct BattleAction {
 	
 	void clear();
 	bool complete() const;
+	//void carryOutAction() 		//might be nice to have this here.
 };
 
 #pragma once

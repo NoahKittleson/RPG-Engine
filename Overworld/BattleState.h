@@ -24,7 +24,7 @@ public:
 	void handleInput(sf::RenderWindow& rw) override;
 	
 private:
-	std::unique_ptr<Mode> mode;
+	std::unique_ptr<Mode> phase;
 	enum ModeType {menu, attack, victory, defeat};
 	ModeType currentMode = menu;
 	BattleInfo info;
