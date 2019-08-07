@@ -8,8 +8,8 @@
 
 #include "Fade.hpp"
 
-Fade::Fade(bool inOut, float time) : totalDuration(time) {
-    inOrOut = inOut;
+Fade::Fade(FadeDirection inOrOut, float time) : totalDuration(time) {
+    fadeDir = inOrOut;
     jankScreenFade.setSize(sf::Vector2f(2000,2000));
     auto color = sf::Color::Black;
     inOrOut ? color.a = 255 : color.a = 0;
@@ -25,9 +25,9 @@ void Fade::update(float elapsed, State* context) {
         fadePercent = 1.0f;
     }
     sf::Color color = jankScreenFade.getFillColor();
-    inOrOut ? color.a = 255 - 255 * fadePercent : color.a = 255 * fadePercent;
+    fadeDir == in ? color.a = 255 - 255 * fadePercent : color.a = 255 * fadePercent;
     jankScreenFade.setFillColor(color);
-	if ((!inOrOut && color.a >= 255) || (inOrOut && color.a <= 0)) {
+	if ((fadeDir == out && color.a >= 255) || (fadeDir == in && color.a <= 0)) {
 		done = true;
 	}
 }

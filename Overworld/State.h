@@ -49,6 +49,11 @@ protected:
 	void requestStackAdd(std::unique_ptr<State>&&);
 	void requestStackPop();
 	void requestStateClear();
+	
+	//testing this out as an idea...
+	void setFade();
+	bool fade;
+	void fadeOut();
 };
 
 

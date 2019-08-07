@@ -96,7 +96,7 @@ void OverworldMode::update(sf::Clock& timer) {
 		int index = checkExits();
 		if (index >= 0) {
 			currentMode = fadeOut;
-			mode = std::unique_ptr<Mode>(new Fade(false, 1.f));
+			mode = std::unique_ptr<Mode>(new Fade(out, 1.f));
 		} else if (handleMovement(elapsed)) {
 			updateView();
 		}
@@ -122,14 +122,14 @@ void OverworldMode::update(sf::Clock& timer) {
 					updateView();
 					audioPlayer.playMusic(currentMap->music);
 				}
-				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
+				mode = std::unique_ptr<Mode>(new Fade(in, 1.f));
 				std::cout << "Mode changed to Fade.\n";
 			}
 				break;
 				
 			case battleFadeOut:
 				currentMode = fadeIn;
-				mode = std::unique_ptr<Mode>(new Fade(true, 1.f));
+				mode = std::unique_ptr<Mode>(new Fade(in, 1.f));
 				//create new state from trigger
 				for (int iii = 0; iii < currentMap->getTriggerList().size(); iii++) {
 					if (player->intersects(currentMap->getTriggerList()[iii])) {
@@ -238,13 +238,13 @@ void OverworldMode::checkTriggers() {
 				switch (currentMap->getTriggerList()[iii].getEffect()) {
 					case GroundTrigger::blink:
 						currentMode = battleFadeOut;
-						mode = std::unique_ptr<Mode>(new BlinkFade(false, 1.5f));
+						mode = std::unique_ptr<Mode>(new BlinkFade(out, 1.5f));
 						break;
 						
 					case GroundTrigger::fade:
 						//this might be wonky.  Ye be warned.
 						currentMode = fadeOut;
-						mode = std::unique_ptr<Mode>(new Fade(false, 1.5f));
+						mode = std::unique_ptr<Mode>(new Fade(out, 1.5f));
 						break;
 						
 					case GroundTrigger::none:

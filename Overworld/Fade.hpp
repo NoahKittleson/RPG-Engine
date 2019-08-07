@@ -9,9 +9,11 @@
 #pragma once
 #include "Mode.hpp"
 
+enum FadeDirection {in, out};
+
 class Fade : public Mode {
 public:
-    Fade(bool inOut, float duration);                //fade in true, fade out false... Yes I realize this is terrible
+    Fade(FadeDirection inOrOut, float duration);
 	~Fade();
 	void update(float elapsed, State* context) override;
 	void draw(sf::RenderWindow &rw) override;
@@ -20,6 +22,6 @@ public:
 protected:
     const float totalDuration;
     float fadePercent = 0.f;
-    bool inOrOut;
+    FadeDirection fadeDir;
     sf::RectangleShape jankScreenFade;
 };

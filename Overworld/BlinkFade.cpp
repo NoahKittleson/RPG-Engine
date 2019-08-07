@@ -9,7 +9,7 @@
 #include "BlinkFade.hpp"
 
 
-BlinkFade::BlinkFade(bool inOut, float duration) : Fade(inOut, duration) {
+BlinkFade::BlinkFade(FadeDirection inOrOut, float duration) : Fade(inOrOut, duration) {
 
 }
 
