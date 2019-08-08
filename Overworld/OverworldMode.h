@@ -16,6 +16,7 @@
 #include "MapFactory.hpp"
 #include "BlinkFade.hpp"
 #include "PauseState.hpp"
+#include "SafeStack.hpp"
 
 
 #include <thread>
@@ -30,10 +31,9 @@ public:
 	void draw(sf::RenderWindow &rw) override;
 	
 private:
-	//return true if movement occurs
-	bool handleMovement(float elapsed);
+	bool handleMovement(float elapsed);				//return true if movement occurs
 	void handleOOB() const;
-	int checkExits();						//returns index of intersected exit, or -1 if none intersect
+	int checkExits();								//returns index of intersected exit, or -1 if none intersect
 	void changeMap(ZoneExit);
 	void checkTriggers();
 	void checkForInteraction(sf::RenderWindow &rw);
@@ -42,10 +42,10 @@ private:
 	void drawPlayerCollision(sf::RenderWindow &rw);
 	void drawAllBoxes(sf::RenderWindow &rw);
 	
-	enum ModeType { fadeIn, fadeOut, battleFadeOut, normal };
-	ModeType currentMode = normal;
 	sf::View view;
-	std::unique_ptr<Mode> mode;
+	//std::unique_ptr<Mode> activePhase;
+	SafeStack<Mode> activePhase;
+	
 	//if Commands get complicated, make them their own class, rather than just an enum
 	enum Command {Left, Right, Up, Down, X, Z};
 	std::vector<Command> CommandQueue;

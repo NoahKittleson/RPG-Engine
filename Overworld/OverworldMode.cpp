@@ -26,8 +26,8 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 		requestStackAdd(make_unique<PauseState>(rw));
 		return;
 	}
-	if (mode) {
-		mode->handleInput(rw);
+	if (!activePhase.empty()) {
+		activePhase.getCurrentT()->handleInput(rw);
 		return;
 	} else {
 		sf::Event event;
@@ -89,70 +89,53 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 
 void OverworldMode::update(sf::Clock& timer) {
 	float elapsed = timer.restart().asSeconds();
-	if (mode) {
-		mode->update(elapsed, this);
+	if (!activePhase.empty()) {
+		activePhase.getCurrentT()->update(elapsed, this);
 	} else {
 		checkTriggers();
 		int index = checkExits();
 		if (index >= 0) {
-			currentMode = fadeOut;
-			mode = std::unique_ptr<Mode>(new Fade(out, 1.f));
+			activePhase.requestAdd(std::unique_ptr<Mode>(new Fade(out, 1.f)));
 		} else if (handleMovement(elapsed)) {
 			updateView();
 		}
 		currentMap->update(elapsed);
-	} if (mode && mode->isDone()) {
-		switch (currentMode) {
-			case fadeIn:
-				currentMode = normal;
-				mode = nullptr;
-				std::cout << "Mode changed back to normal.\n";
-				break;
-				
-			case fadeOut: {
-				currentMode = fadeIn;
-				int exitIndex = checkExits();
-				if (exitIndex >= 0) {
-					ZoneExit exit = currentMap->getExitList()[exitIndex];
-					player->move(currentMap->getGlobalPosition());
-					player->move(exit.getMoveOffset());
-					currentMap = MapFactory::create(exit.getNextZone(), resources, conditions);
-					player->move(-currentMap->getGlobalPosition());
-					handleOOB();
-					updateView();
-					audioPlayer.playMusic(currentMap->music);
-				}
-				mode = std::unique_ptr<Mode>(new Fade(in, 1.f));
-				std::cout << "Mode changed to Fade.\n";
-			}
-				break;
-				
-			case battleFadeOut:
-				currentMode = fadeIn;
-				mode = std::unique_ptr<Mode>(new Fade(in, 1.f));
-				//create new state from trigger
-				for (int iii = 0; iii < currentMap->getTriggerList().size(); iii++) {
-					if (player->intersects(currentMap->getTriggerList()[iii])) {
-						State* unsafePtr = currentMap->getTriggerList()[iii].proc(conditions);
-						if (unsafePtr != nullptr) {
-							currentMap->popTriggerAt(iii);					//I should find a better way to pop triggers
-							requestStackAdd(std::unique_ptr<State>(unsafePtr));
-							std::cout << "Battlestate created.\n";
-						}
-					}
-				}
-				break;
-
-				
-			case normal:
-				std::cout << "Something has gone horribly wrong... \n";
-				break;
-				
-			default:
-				std::cout << "Mode unaccounted for.\n";
-				break;
-		}
 	}
+	
+	if (!activePhase.empty() && activePhase.getCurrentT()->isDone()) {
+		activePhase.requestPop();
+	}
+//			case fadeOut: {
+//				currentMode = fadeIn;
+//				int exitIndex = checkExits();
+//				if (exitIndex >= 0) {
+//					ZoneExit exit = currentMap->getExitList()[exitIndex];
+//					player->move(currentMap->getGlobalPosition());
+//					player->move(exit.getMoveOffset());
+//					currentMap = MapFactory::create(exit.getNextZone(), resources, conditions);
+//					player->move(-currentMap->getGlobalPosition());
+//					handleOOB();
+//					updateView();
+//					audioPlayer.playMusic(currentMap->music);
+//				}
+//				mode = std::unique_ptr<Mode>(new Fade(in, 1.f));
+//				std::cout << "Mode changed to Fade.\n";
+//			}
+		
+//			case battleFadeOut:
+//				currentMode = fadeIn;
+//				mode = std::unique_ptr<Mode>(new Fade(in, 1.f));
+//				//create new state from trigger
+//				for (int iii = 0; iii < currentMap->getTriggerList().size(); iii++) {
+//					if (player->intersects(currentMap->getTriggerList()[iii])) {
+//						State* unsafePtr = currentMap->getTriggerList()[iii].proc(conditions);
+//						if (unsafePtr != nullptr) {
+//							currentMap->popTriggerAt(iii);					//I should find a better way to pop triggers
+//							requestStackAdd(std::unique_ptr<State>(unsafePtr));
+//							std::cout << "Battlestate created.\n";
+//						}
+//					}
+
 }
 
 void OverworldMode::draw(sf::RenderWindow &rw) {
@@ -162,8 +145,8 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	currentMap->drawExits(rw);
 	currentMap->drawAllObjects(rw, *player);
 	currentMap->drawLighting(rw);
-	if (mode) {
-		mode->draw(rw);
+	if (activePhase.getCurrentT()) {
+		activePhase.getCurrentT()->draw(rw);
 	} else {
 		if (debugMode) {
 			drawAllBoxes(rw);
@@ -178,6 +161,7 @@ void OverworldMode::changeMap(ZoneExit exit) {
 	MapID nextZone = exit.getNextZone();
 	if (nextZone != currentMap->ID) {
 		currentMap = MapFactory::create(nextZone, resources, conditions);
+		//mode = std::unique_ptr<Mode>(new Fade(in, 1.f));	//axz
 	}
 	sf::Vector2f transitionOffset = exit.getMoveOffset();
 	player->move(transitionOffset.x, transitionOffset.y);
@@ -237,14 +221,12 @@ void OverworldMode::checkTriggers() {
 			if (currentMap->getTriggerList()[iii].meetsReqs(conditions)) {
 				switch (currentMap->getTriggerList()[iii].getEffect()) {
 					case GroundTrigger::blink:
-						currentMode = battleFadeOut;
-						mode = std::unique_ptr<Mode>(new BlinkFade(out, 1.5f));
+						activePhase.requestAdd(std::unique_ptr<Mode>(new BlinkFade(out, 1.5f)));
 						break;
 						
 					case GroundTrigger::fade:
 						//this might be wonky.  Ye be warned.
-						currentMode = fadeOut;
-						mode = std::unique_ptr<Mode>(new Fade(out, 1.5f));
+						activePhase.requestAdd(std::unique_ptr<Mode>(new Fade(out, 1.5f)));
 						break;
 						
 					case GroundTrigger::none:

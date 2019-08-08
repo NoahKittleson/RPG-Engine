@@ -161,6 +161,7 @@
 		B7DAD364212A23D3002E7000 /* BoothAnimation.png in Resources */ = {isa = PBXBuildFile; fileRef = B7DAD363212A23D3002E7000 /* BoothAnimation.png */; };
 		B7DD37451C35DFFC0089224E /* BattleState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DD37431C35DFFC0089224E /* BattleState.cpp */; };
 		B7DEE729207F2AAD00B1B97C /* MapFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7DEE727207F2AAD00B1B97C /* MapFactory.cpp */; };
+		B7E3923422FBE034005431CA /* SafeStack.inl in Sources */ = {isa = PBXBuildFile; fileRef = B7E3923222FBE034005431CA /* SafeStack.inl */; };
 		B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */; };
 		B7E99BDB20B7817800FABB99 /* BeachWest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E99BD920B7817800FABB99 /* BeachWest.cpp */; };
 		B7EE61632071DEAD00AA376E /* BattleEndMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7EE61612071DEAD00AA376E /* BattleEndMode.cpp */; };
@@ -385,6 +386,8 @@
 		B7DD37441C35DFFC0089224E /* BattleState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleState.h; sourceTree = "<group>"; };
 		B7DEE727207F2AAD00B1B97C /* MapFactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapFactory.cpp; sourceTree = "<group>"; };
 		B7DEE728207F2AAD00B1B97C /* MapFactory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MapFactory.hpp; sourceTree = "<group>"; };
+		B7E3923222FBE034005431CA /* SafeStack.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = SafeStack.inl; sourceTree = "<group>"; };
+		B7E3923322FBE034005431CA /* SafeStack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SafeStack.hpp; sourceTree = "<group>"; };
 		B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OverworldMode.cpp; sourceTree = "<group>"; usesTabs = 1; };
 		B7E5DD491AE879C800E6EA3F /* OverworldMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverworldMode.h; sourceTree = "<group>"; usesTabs = 1; };
 		B7E99BD920B7817800FABB99 /* BeachWest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BeachWest.cpp; sourceTree = "<group>"; };
@@ -705,6 +708,8 @@
 			children = (
 				B7E5DD491AE879C800E6EA3F /* OverworldMode.h */,
 				B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */,
+				B7E3923322FBE034005431CA /* SafeStack.hpp */,
+				B7E3923222FBE034005431CA /* SafeStack.inl */,
 				B7C9F3801E6235D300E7A045 /* Fade.hpp */,
 				B7C9F37F1E6235D300E7A045 /* Fade.cpp */,
 				B7408AC120B3EE4A00CADF12 /* BlinkFade.hpp */,
@@ -972,6 +977,7 @@
 				B7AA2BB820F33DAB003B1F42 /* LighthouseCoast.cpp in Sources */,
 				B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */,
 				B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */,
+				B7E3923422FBE034005431CA /* SafeStack.inl in Sources */,
 				B7AA2BB520F33B88003B1F42 /* TownSouth.cpp in Sources */,
 				B7977978204676D4000870C2 /* PlayerObject.cpp in Sources */,
 				B797796F2044DBF7000870C2 /* AttackMode.cpp in Sources */,
