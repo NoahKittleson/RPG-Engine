@@ -32,7 +32,7 @@ void StateStack::clear()
 	}
 }
 
-StateStack::PendingChange::PendingChange(States::Action action, StatePtr&& add)
+StateStack::PendingChange::PendingChange(States::MyAction action, StatePtr&& add)
 : action (action), add(std::move(add))
 {
 	

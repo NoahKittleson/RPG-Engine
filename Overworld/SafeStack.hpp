@@ -7,7 +7,8 @@
 //
 
 #include "PrefixHeader.pch"
-#include <queue>
+//#include "StateStack.h"
+#include "PendingChange.hpp"
 
 
 //this is just a templated version of StateStack, to use for modes.  Also uses a queue instead of stack.  Stupid name.
@@ -30,9 +31,9 @@ public:
 private:
 	struct PendingChange
 	{
-		explicit PendingChange(States::Action action, std::unique_ptr<T>&& add = nullptr);
+		explicit PendingChange(States::MyAction action, std::unique_ptr<T>&& add = nullptr);
 		
-		States::Action action;
+		States::MyAction action;
 		std::unique_ptr<T> add;
 	};
 	
@@ -41,7 +42,7 @@ private:
 	void clear();
 	void popTop();
 	
-	std::queue<std::unique_ptr<T>> objectStack;
+	std::stack<std::unique_ptr<T>> objectStack;
 	std::vector<PendingChange> pendingChanges;
 };
 

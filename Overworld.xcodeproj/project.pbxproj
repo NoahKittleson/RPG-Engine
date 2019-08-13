@@ -164,6 +164,8 @@
 		B7E3923422FBE034005431CA /* SafeStack.inl in Sources */ = {isa = PBXBuildFile; fileRef = B7E3923222FBE034005431CA /* SafeStack.inl */; };
 		B7E5DD4A1AE879C800E6EA3F /* OverworldMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */; };
 		B7E99BDB20B7817800FABB99 /* BeachWest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E99BD920B7817800FABB99 /* BeachWest.cpp */; };
+		B7ECEB8D23021642001C9204 /* MapChange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ECEB8B23021642001C9204 /* MapChange.cpp */; };
+		B7ECEB9323023128001C9204 /* PendingChange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7ECEB9123023128001C9204 /* PendingChange.cpp */; };
 		B7EE61632071DEAD00AA376E /* BattleEndMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7EE61612071DEAD00AA376E /* BattleEndMode.cpp */; };
 		B7EF1BC420D246DE00CFD04E /* WavesWest.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EF1BC320D246DE00CFD04E /* WavesWest.png */; };
 		B7EFA047218002AC00825C67 /* DialogueIDs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7EFA046218002AC00825C67 /* DialogueIDs.cpp */; };
@@ -392,6 +394,10 @@
 		B7E5DD491AE879C800E6EA3F /* OverworldMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverworldMode.h; sourceTree = "<group>"; usesTabs = 1; };
 		B7E99BD920B7817800FABB99 /* BeachWest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BeachWest.cpp; sourceTree = "<group>"; };
 		B7E99BDA20B7817800FABB99 /* BeachWest.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BeachWest.hpp; sourceTree = "<group>"; };
+		B7ECEB8B23021642001C9204 /* MapChange.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MapChange.cpp; sourceTree = "<group>"; };
+		B7ECEB8C23021642001C9204 /* MapChange.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MapChange.hpp; sourceTree = "<group>"; };
+		B7ECEB9123023128001C9204 /* PendingChange.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PendingChange.cpp; sourceTree = "<group>"; };
+		B7ECEB9223023128001C9204 /* PendingChange.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PendingChange.hpp; sourceTree = "<group>"; };
 		B7EE61612071DEAD00AA376E /* BattleEndMode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BattleEndMode.cpp; sourceTree = "<group>"; };
 		B7EE61622071DEAD00AA376E /* BattleEndMode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BattleEndMode.hpp; sourceTree = "<group>"; };
 		B7EF1BC320D246DE00CFD04E /* WavesWest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WavesWest.png; sourceTree = "<group>"; };
@@ -673,6 +679,8 @@
 				B78316FC20E6EA7400740527 /* PauseState.cpp */,
 				B75B77901C00723900122CCC /* StateStack.h */,
 				B75B778F1C00723900122CCC /* StateStack.cpp */,
+				B7ECEB9223023128001C9204 /* PendingChange.hpp */,
+				B7ECEB9123023128001C9204 /* PendingChange.cpp */,
 				B772BB422188219600A6F120 /* MainMenuState.hpp */,
 				B772BB412188219600A6F120 /* MainMenuState.cpp */,
 				B770E8381C75214E00F0A688 /* Utility */,
@@ -710,6 +718,8 @@
 				B7E5DD481AE879C800E6EA3F /* OverworldMode.cpp */,
 				B7E3923322FBE034005431CA /* SafeStack.hpp */,
 				B7E3923222FBE034005431CA /* SafeStack.inl */,
+				B7ECEB8C23021642001C9204 /* MapChange.hpp */,
+				B7ECEB8B23021642001C9204 /* MapChange.cpp */,
 				B7C9F3801E6235D300E7A045 /* Fade.hpp */,
 				B7C9F37F1E6235D300E7A045 /* Fade.cpp */,
 				B7408AC120B3EE4A00CADF12 /* BlinkFade.hpp */,
@@ -959,6 +969,7 @@
 				B77784091AE5C84D007FA840 /* Game.cpp in Sources */,
 				B78316FE20E6EA7400740527 /* PauseState.cpp in Sources */,
 				B7034DA61E7298C3007288A6 /* Mode.cpp in Sources */,
+				B7ECEB9323023128001C9204 /* PendingChange.cpp in Sources */,
 				B7E99BDB20B7817800FABB99 /* BeachWest.cpp in Sources */,
 				B75B77911C00723900122CCC /* StateStack.cpp in Sources */,
 				B77F7EAB208E825C009FEE8A /* DialogueFactory.cpp in Sources */,
@@ -975,6 +986,7 @@
 				B772BB432188219600A6F120 /* MainMenuState.cpp in Sources */,
 				B75F862C1BACE0C60093B615 /* Character.cpp in Sources */,
 				B7AA2BB820F33DAB003B1F42 /* LighthouseCoast.cpp in Sources */,
+				B7ECEB8D23021642001C9204 /* MapChange.cpp in Sources */,
 				B77BE44C1BB5E03500F5645C /* Menu.cpp in Sources */,
 				B7A26C121C8070370083989B /* ZoneExit.cpp in Sources */,
 				B7E3923422FBE034005431CA /* SafeStack.inl in Sources */,

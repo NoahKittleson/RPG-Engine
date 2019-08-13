@@ -35,7 +35,7 @@ void SafeStack<T>::clear()
 }
 
 template <typename T>
-SafeStack<T>::PendingChange::PendingChange(States::Action action, std::unique_ptr<T>&& add)
+SafeStack<T>::PendingChange::PendingChange(States::MyAction action, std::unique_ptr<T>&& add)
 : action (action), add(std::move(add))
 {
 	
@@ -45,7 +45,7 @@ template <typename T>
 std::unique_ptr<T>& SafeStack<T>::getCurrentT()
 {
 	assert(!objectStack.empty());
-	return objectStack.front();
+	return objectStack.top();
 }
 
 template <typename T>
@@ -69,7 +69,7 @@ void SafeStack<T>::requestClear()
 template <typename T>
 void SafeStack<T>::requestPop()
 {
-	pendingChanges.emplace_back(PendingChange(States::Pop));
+	pendingChanges.emplace_back(PendingChange(States::MyAction::Pop));
 }
 
 template <typename T>
@@ -77,15 +77,15 @@ void SafeStack<T>::applyPendingChanges()
 {
 	for (auto & change : pendingChanges) {
 		switch (change.action) {
-			case States::Add:
-				addState(std::move(change.add));
+			case States::MyAction::Add:
+				addT(std::move(change.add));
 				break;
 				
-			case States::Pop:
+			case States::MyAction::Pop:
 				popTop();
 				break;
 				
-			case States::Clear:
+			case States::MyAction::Clear:
 				clear();
 				break;
 				

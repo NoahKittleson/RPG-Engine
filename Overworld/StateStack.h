@@ -10,19 +10,10 @@
 #include "PrefixHeader.pch"
 #include "State.h"
 #include <stack>
+#include "PendingChange.hpp"
 
 class State;
 using StatePtr = std::unique_ptr<State>;
-
-namespace States {
-	enum Action
-	{
-		Add,
-		Pop,
-		Clear,
-	};
-}
-
 
 class StateStack
 {
@@ -40,9 +31,9 @@ public:
 private:
 	struct PendingChange
 	{
-		explicit PendingChange(States::Action action, StatePtr&& add = nullptr);
+		explicit PendingChange(States::MyAction action, StatePtr&& add = nullptr);
 		
-		States::Action action;
+		States::MyAction action;
 		StatePtr add;
 	};
 	

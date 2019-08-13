@@ -22,6 +22,13 @@ OverworldMode::OverworldMode() {
 
 void OverworldMode::handleInput(sf::RenderWindow& rw) {
 	CommandQueue.clear();
+	//just some activePhase housekeeping that needs to happen either first thing or last thing
+	if (!activePhase.empty() && activePhase.getCurrentT()->isDone()) {
+		activePhase.requestPop();
+	}
+	activePhase.applyPendingChanges();
+
+	
 	if (!rw.hasFocus()) {
 		requestStackAdd(make_unique<PauseState>(rw));
 		return;
@@ -95,7 +102,13 @@ void OverworldMode::update(sf::Clock& timer) {
 		checkTriggers();
 		int index = checkExits();
 		if (index >= 0) {
+			if (mapChange == true) {
+				mapChange = false;
+				changeMap(currentMap->getExitList()[index]);
+			} else {
 			activePhase.requestAdd(std::unique_ptr<Mode>(new Fade(out, 1.f)));
+			mapChange = true;
+			}
 		} else if (handleMovement(elapsed)) {
 			updateView();
 		}
@@ -145,7 +158,7 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	currentMap->drawExits(rw);
 	currentMap->drawAllObjects(rw, *player);
 	currentMap->drawLighting(rw);
-	if (activePhase.getCurrentT()) {
+	if (!activePhase.empty()) {
 		activePhase.getCurrentT()->draw(rw);
 	} else {
 		if (debugMode) {
