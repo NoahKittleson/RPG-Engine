@@ -27,12 +27,11 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 		activePhase.requestPop();
 	}
 	activePhase.applyPendingChanges();
-
-	
-	if (!rw.hasFocus()) {
-		requestStackAdd(make_unique<PauseState>(rw));
-		return;
-	}
+//	removed for now because this makes some testing hard
+//	if (!rw.hasFocus()) {
+//		requestStackAdd(make_unique<PauseState>(rw));
+//		return;
+//	}
 	if (!activePhase.empty()) {
 		activePhase.getCurrentT()->handleInput(rw);
 		return;
@@ -115,26 +114,6 @@ void OverworldMode::update(sf::Clock& timer) {
 		currentMap->update(elapsed);
 	}
 	
-	if (!activePhase.empty() && activePhase.getCurrentT()->isDone()) {
-		activePhase.requestPop();
-	}
-//			case fadeOut: {
-//				currentMode = fadeIn;
-//				int exitIndex = checkExits();
-//				if (exitIndex >= 0) {
-//					ZoneExit exit = currentMap->getExitList()[exitIndex];
-//					player->move(currentMap->getGlobalPosition());
-//					player->move(exit.getMoveOffset());
-//					currentMap = MapFactory::create(exit.getNextZone(), resources, conditions);
-//					player->move(-currentMap->getGlobalPosition());
-//					handleOOB();
-//					updateView();
-//					audioPlayer.playMusic(currentMap->music);
-//				}
-//				mode = std::unique_ptr<Mode>(new Fade(in, 1.f));
-//				std::cout << "Mode changed to Fade.\n";
-//			}
-		
 //			case battleFadeOut:
 //				currentMode = fadeIn;
 //				mode = std::unique_ptr<Mode>(new Fade(in, 1.f));
@@ -152,6 +131,19 @@ void OverworldMode::update(sf::Clock& timer) {
 }
 
 void OverworldMode::draw(sf::RenderWindow &rw) {
+	//this is SUPER JANK
+	static bool test = false;
+	if (test != mapChange) {
+		if (!mapChange) {
+			rw.clear(sf::Color::Black);
+			test = mapChange;
+			rw.display();
+			return;
+		}
+		test = mapChange;
+	}
+	
+	
 	rw.clear(sf::Color::White);
 	rw.setView(view);
 	currentMap->drawBackground(rw);
@@ -171,15 +163,21 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 }
 
 void OverworldMode::changeMap(ZoneExit exit) {
+	//The if() could be useful if I ever decide to have zoneExits that take player to other parts of the existing MapSection
 	MapID nextZone = exit.getNextZone();
-	if (nextZone != currentMap->ID) {
-		currentMap = MapFactory::create(nextZone, resources, conditions);
-		//mode = std::unique_ptr<Mode>(new Fade(in, 1.f));	//axz
+	if (nextZone == currentMap->ID) {
+		activePhase.requestAdd(std::unique_ptr<Mode>(new Fade(in, 1.f)));
+	} else {
+		player->move(currentMap->getGlobalPosition());
+		player->move(exit.getMoveOffset());
+		currentMap = MapFactory::create(exit.getNextZone(), resources, conditions);
+		player->move(-currentMap->getGlobalPosition());
+		handleOOB();
+		updateView();
+		audioPlayer.playMusic(currentMap->music);
+		
+		activePhase.requestAdd(std::unique_ptr<Mode>(new Fade(in, 1.f)));
 	}
-	sf::Vector2f transitionOffset = exit.getMoveOffset();
-	player->move(transitionOffset.x, transitionOffset.y);
-	view.move(transitionOffset);
-	audioPlayer.playMusic(currentMap->music);
 }
 
 bool OverworldMode::handleMovement(float elapsed) {

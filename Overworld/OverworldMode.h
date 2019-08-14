@@ -43,7 +43,6 @@ private:
 	void drawAllBoxes(sf::RenderWindow &rw);
 	
 	sf::View view;
-	//std::unique_ptr<Mode> activePhase;
 	SafeStack<Mode> activePhase;
 	
 	//if Commands get complicated, make them their own class, rather than just an enum

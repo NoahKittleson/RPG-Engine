@@ -14,9 +14,11 @@ void MapChange::update(float elapsed, State* context) {
 }
 
 void MapChange::draw(sf::RenderWindow &rw) {
-	
+	//possibly have a loading bar eventually?  But for now a black screen is totally fine.
+	rw.clear(sf::Color::Black);
 }
 
 void MapChange::handleInput(sf::RenderWindow &rw) {
-	
+	//no input handling in this mode
+	return;
 }
