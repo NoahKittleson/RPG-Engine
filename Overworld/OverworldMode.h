@@ -50,7 +50,7 @@ private:
 	std::vector<Command> CommandQueue;
 	
 	bool debugMode = false;
-	bool mapChange = false;
+	bool fadePlayed = false;
 };
 
 

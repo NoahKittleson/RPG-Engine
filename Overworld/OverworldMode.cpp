@@ -97,50 +97,36 @@ void OverworldMode::update(sf::Clock& timer) {
 	float elapsed = timer.restart().asSeconds();
 	if (!activePhase.empty()) {
 		activePhase.getCurrentT()->update(elapsed, this);
+		return;
 	} else {
 		checkTriggers();
 		int index = checkExits();
 		if (index >= 0) {
-			if (mapChange == true) {
-				mapChange = false;
+			if (fadePlayed == true) {
+				fadePlayed = false;
 				changeMap(currentMap->getExitList()[index]);
 			} else {
 			activePhase.requestAdd(std::unique_ptr<Mode>(new Fade(out, 1.f)));
-			mapChange = true;
+			fadePlayed = true;
 			}
 		} else if (handleMovement(elapsed)) {
 			updateView();
 		}
 		currentMap->update(elapsed);
 	}
-	
-//			case battleFadeOut:
-//				currentMode = fadeIn;
-//				mode = std::unique_ptr<Mode>(new Fade(in, 1.f));
-//				//create new state from trigger
-//				for (int iii = 0; iii < currentMap->getTriggerList().size(); iii++) {
-//					if (player->intersects(currentMap->getTriggerList()[iii])) {
-//						State* unsafePtr = currentMap->getTriggerList()[iii].proc(conditions);
-//						if (unsafePtr != nullptr) {
-//							currentMap->popTriggerAt(iii);					//I should find a better way to pop triggers
-//							requestStackAdd(std::unique_ptr<State>(unsafePtr));
-//							std::cout << "Battlestate created.\n";
-//						}
-//					}
-
 }
 
 void OverworldMode::draw(sf::RenderWindow &rw) {
 	//this is SUPER JANK
 	static bool test = false;
-	if (test != mapChange) {
-		if (!mapChange) {
+	if (test != fadePlayed) {
+		if (!fadePlayed) {
 			rw.clear(sf::Color::Black);
-			test = mapChange;
+			test = fadePlayed;
 			rw.display();
 			return;
 		}
-		test = mapChange;
+		test = fadePlayed;
 	}
 	
 	
@@ -230,28 +216,41 @@ void OverworldMode::checkTriggers() {
 	for (int iii = 0; iii < currentMap->getTriggerList().size(); iii++) {
 		if (player->intersects(currentMap->getTriggerList()[iii])) {
 			if (currentMap->getTriggerList()[iii].meetsReqs(conditions)) {
-				switch (currentMap->getTriggerList()[iii].getEffect()) {
-					case GroundTrigger::blink:
-						activePhase.requestAdd(std::unique_ptr<Mode>(new BlinkFade(out, 1.5f)));
-						break;
-						
-					case GroundTrigger::fade:
-						//this might be wonky.  Ye be warned.
-						activePhase.requestAdd(std::unique_ptr<Mode>(new Fade(out, 1.5f)));
-						break;
-						
-					case GroundTrigger::none:
-						State* unsafePtr = currentMap->getTriggerList()[iii].proc(conditions);
-						if (unsafePtr != nullptr) {
-							currentMap->popTriggerAt(iii);					//I should find a better way to pop triggers
-							requestStackAdd(std::unique_ptr<State>(unsafePtr));
-							std::cout << "New State created.\n";
-						} else {
-							delete unsafePtr;
-						}
-						break;
+				if (!fadePlayed) {
+					switch (currentMap->getTriggerList()[iii].getEffect()) {
+						case GroundTrigger::blink:
+							activePhase.requestAdd(std::unique_ptr<Mode>(new BlinkFade(out, 1.5f)));
+							fadePlayed = true;
+							break;
+							
+						case GroundTrigger::fade:
+							//this might be wonky.  Ye be warned.
+							activePhase.requestAdd(std::unique_ptr<Mode>(new Fade(out, 1.5f)));
+							fadePlayed = true;
+							break;
+							
+						case GroundTrigger::none:
+							State* unsafePtr = currentMap->getTriggerList()[iii].proc(conditions);
+							if (unsafePtr != nullptr) {
+								currentMap->popTriggerAt(iii);					//I should find a better way to pop triggers
+								requestStackAdd(std::unique_ptr<State>(unsafePtr));
+								std::cout << "New State created.\n";
+							} else {
+								delete unsafePtr;
+							}
+							break;
+					}
+				} else {
+					//if an effect has already happened, then create a trigger
+					fadePlayed = false;
+					activePhase.requestAdd(std::unique_ptr<Mode>(new Fade(in, 1.f)));
+					State* unsafePtr = currentMap->getTriggerList()[iii].proc(conditions);
+					if (unsafePtr != nullptr) {
+						currentMap->popTriggerAt(iii);					//I should find a better way to pop triggers
+						requestStackAdd(std::unique_ptr<State>(unsafePtr));
+						std::cout << "Battlestate created.\n";
+					}
 				}
-				
 				//what if instead...
 				//cueUpChange(blinkFade);
 				//cueUpChange(triggerList[iii]);
