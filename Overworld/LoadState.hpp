@@ -10,11 +10,12 @@
 #include "WalkingAnimation.hpp"
 #include "MapFactory.hpp"
 #include "CharacterGenerator.hpp"
+#include "SafeStack.hpp"
 
 class LoadState: public State
 {
 public:
-    LoadState(StateStack& stack);
+    LoadState(SafeStack<State>& stack);
 	void handleInput(sf::RenderWindow& rw) override;
     void update(sf::Clock&) override;
     void draw(sf::RenderWindow&) override;

@@ -39,16 +39,16 @@ void Game::run()
 		}
 		loadThread.join();
 		std::cout << "Assets loaded in " << gameTimer.restart().asSeconds() << " seconds\n";
-		//in brackets to make sure memory is released as soon as possible but loading still works.
+		//in brackets to make sure this memory is released as soon as possible but that loading still works.
 	}
 	
 	gameStack.requestAdd(std::unique_ptr<State>(new MainMenuState()));
 	gameStack.applyPendingChanges();
 
 	while (mainWindow.isOpen()) {
-		gameStack.getCurrentState()->handleInput(mainWindow);
-		gameStack.getCurrentState()->update(gameTimer);
-		gameStack.getCurrentState()->draw(mainWindow);
+		gameStack.getCurrent()->handleInput(mainWindow);
+		gameStack.getCurrent()->update(gameTimer);
+		gameStack.getCurrent()->draw(mainWindow);
 		if (gameStack.empty()) {
 			mainWindow.close();
 		}
@@ -60,7 +60,7 @@ void Game::run()
 
 sf::RenderWindow Game::mainWindow;
 sf::Clock Game::gameTimer;
-StateStack Game::gameStack;
+SafeStack<State> Game::gameStack;
 
 
 //Saving this mostly for the pre-written abilities and such that I will add back in later

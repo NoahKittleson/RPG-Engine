@@ -8,9 +8,7 @@
 
 #pragma once
 #include "PrefixHeader.pch"
-//#include "OverworldMode.h"
 #include "MainMenuState.hpp"
-#include "Start.h"
 #include "LoadState.hpp"
 
 class Game
@@ -21,6 +19,6 @@ public:
 	
 	static void run();
 	static sf::RenderWindow mainWindow;
-	static StateStack gameStack;
+	static SafeStack<State> gameStack;
 	static sf::Clock gameTimer;
 };

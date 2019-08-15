@@ -79,7 +79,6 @@
 		B75ABA241C7BD81D00B9FFDE /* OptionNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75ABA1E1C7BD81D00B9FFDE /* OptionNode.cpp */; };
 		B75ABA251C7BD81D00B9FFDE /* TalkNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75ABA201C7BD81D00B9FFDE /* TalkNode.cpp */; };
 		B75ABA291C7BE1C400B9FFDE /* DialogueMode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75ABA271C7BE1C400B9FFDE /* DialogueMode.cpp */; };
-		B75B77911C00723900122CCC /* StateStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75B778F1C00723900122CCC /* StateStack.cpp */; };
 		B75F862C1BACE0C60093B615 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F862A1BACE0C60093B615 /* Character.cpp */; };
 		B75F862F1BACE0FB0093B615 /* Ability.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B75F862D1BACE0FB0093B615 /* Ability.cpp */; };
 		B7603A88210BD0B400B6B858 /* BuildingOutline2.png in Resources */ = {isa = PBXBuildFile; fileRef = B7603A86210BD0B400B6B858 /* BuildingOutline2.png */; };
@@ -272,8 +271,6 @@
 		B75ABA201C7BD81D00B9FFDE /* TalkNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TalkNode.cpp; sourceTree = "<group>"; };
 		B75ABA271C7BE1C400B9FFDE /* DialogueMode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DialogueMode.cpp; sourceTree = "<group>"; };
 		B75ABA281C7BE1C400B9FFDE /* DialogueMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogueMode.h; sourceTree = "<group>"; };
-		B75B778F1C00723900122CCC /* StateStack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateStack.cpp; sourceTree = "<group>"; };
-		B75B77901C00723900122CCC /* StateStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateStack.h; sourceTree = "<group>"; };
 		B75F862A1BACE0C60093B615 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Character.cpp; sourceTree = "<group>"; };
 		B75F862B1BACE0C60093B615 /* Character.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Character.h; sourceTree = "<group>"; };
 		B75F862D1BACE0FB0093B615 /* Ability.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ability.cpp; sourceTree = "<group>"; };
@@ -674,8 +671,6 @@
 				B7D17D191E512CDC00D71290 /* LoadState.cpp */,
 				B78316FD20E6EA7400740527 /* PauseState.hpp */,
 				B78316FC20E6EA7400740527 /* PauseState.cpp */,
-				B75B77901C00723900122CCC /* StateStack.h */,
-				B75B778F1C00723900122CCC /* StateStack.cpp */,
 				B7E3923322FBE034005431CA /* SafeStack.hpp */,
 				B7E3923222FBE034005431CA /* SafeStack.inl */,
 				B772BB422188219600A6F120 /* MainMenuState.hpp */,
@@ -965,7 +960,6 @@
 				B78316FE20E6EA7400740527 /* PauseState.cpp in Sources */,
 				B7034DA61E7298C3007288A6 /* Mode.cpp in Sources */,
 				B7E99BDB20B7817800FABB99 /* BeachWest.cpp in Sources */,
-				B75B77911C00723900122CCC /* StateStack.cpp in Sources */,
 				B77F7EAB208E825C009FEE8A /* DialogueFactory.cpp in Sources */,
 				B73D2DCC2060C44600E23998 /* StatusEffect.cpp in Sources */,
 				B7439C1E1ECB8DED00724D0B /* GraphicsComponent.cpp in Sources */,

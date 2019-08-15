@@ -23,7 +23,7 @@ void State::requestStackPop()
 	stack->requestPop();
 }
 
-void State::requestStateClear()
+void State::requestStackClear()
 {
 	stack->requestClear();
 }
@@ -85,7 +85,7 @@ void State::save(const std::string& filename) {
 
 
 const ResourceHolder State::resources;
-StateStack* State::stack;
+SafeStack<State>* State::stack;
 std::unique_ptr<MapSection> State::currentMap;
 std::vector<std::shared_ptr<Character>> State::party;
 std::unique_ptr<PlayerObject> State::player;

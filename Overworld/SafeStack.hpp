@@ -6,20 +6,22 @@
 //  Copyright © 2019 Noah. All rights reserved.
 //
 
+#pragma once
 #include "PrefixHeader.pch"
+#include <stack>
 
 
 //this is just a templated version of StateStack, to use for modes.  Also uses a queue instead of stack.  Stupid name.
 //If this is actually useful then actually make it not stupid.
 
-//namespace States {
-//	enum Action
-//	{
-//		Pop,
-//		Add,
-//		Clear,
-//	};
-//}
+namespace States {
+	enum Action
+	{
+		Pop,
+		Add,
+		Clear,
+	};
+}
 
 template <typename T>
 class SafeStack

@@ -8,8 +8,8 @@
 
 #include "LoadState.hpp"
 
-LoadState::LoadState(StateStack& States) {
-	stack = &States;
+LoadState::LoadState(SafeStack<State>& stateStack) {
+	stack = &stateStack;
 	//load stuff for loading bar, loading text, etc...
 }
 

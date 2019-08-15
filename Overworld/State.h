@@ -8,7 +8,7 @@
 
 #pragma once
 #include "PrefixHeader.pch"
-#include "StateStack.h"
+#include "SafeStack.hpp"
 #include "MapSection.h"
 #include "ResourceHolder.h"
 #include "PlayerObject.hpp"
@@ -17,7 +17,7 @@
 
 //#include "SaveInfo.h"
 
-class StateStack;
+//class StateStack;
 class Mode;
 
 class State
@@ -43,12 +43,12 @@ protected:
 	static std::vector<std::shared_ptr<Character>> party;
 	static std::unique_ptr<PlayerObject> player;
     const static ResourceHolder resources;
-	static StateStack* stack;
+	static SafeStack<State>* stack;
     static std::vector<Condition> conditions;
     //sf::Music musicPlayer;
 	void requestStackAdd(std::unique_ptr<State>&&);
 	void requestStackPop();
-	void requestStateClear();
+	void requestStackClear();
 	
 	//testing this out as an idea...
 	void setFade();
@@ -59,6 +59,5 @@ protected:
 
 //Things to do:
 //1.Create GameInfo class for map, party, player, others?
-//2.Give ability to save game
 
 
