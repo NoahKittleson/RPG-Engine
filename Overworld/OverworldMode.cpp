@@ -23,7 +23,7 @@ OverworldMode::OverworldMode() {
 void OverworldMode::handleInput(sf::RenderWindow& rw) {
 	CommandQueue.clear();
 	//just some activePhase housekeeping that needs to happen either first thing or last thing
-	if (!activePhase.empty() && activePhase.getCurrentT()->isDone()) {
+	if (!activePhase.empty() && activePhase.getCurrent()->isDone()) {
 		activePhase.requestPop();
 	}
 	activePhase.applyPendingChanges();
@@ -33,7 +33,7 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 //		return;
 //	}
 	if (!activePhase.empty()) {
-		activePhase.getCurrentT()->handleInput(rw);
+		activePhase.getCurrent()->handleInput(rw);
 		return;
 	} else {
 		sf::Event event;
@@ -96,7 +96,7 @@ void OverworldMode::handleInput(sf::RenderWindow& rw) {
 void OverworldMode::update(sf::Clock& timer) {
 	float elapsed = timer.restart().asSeconds();
 	if (!activePhase.empty()) {
-		activePhase.getCurrentT()->update(elapsed, this);
+		activePhase.getCurrent()->update(elapsed, this);
 		return;
 	} else {
 		checkTriggers();
@@ -137,7 +137,7 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 	currentMap->drawAllObjects(rw, *player);
 	currentMap->drawLighting(rw);
 	if (!activePhase.empty()) {
-		activePhase.getCurrentT()->draw(rw);
+		activePhase.getCurrent()->draw(rw);
 	} else {
 		if (debugMode) {
 			drawAllBoxes(rw);
@@ -149,8 +149,8 @@ void OverworldMode::draw(sf::RenderWindow &rw) {
 }
 
 void OverworldMode::changeMap(ZoneExit exit) {
-	//The if() could be useful if I ever decide to have zoneExits that take player to other parts of the existing MapSection
 	MapID nextZone = exit.getNextZone();
+	//The if() block could be more useful if I ever decide to have zoneExits that take player to other parts of the existing MapSection
 	if (nextZone == currentMap->ID) {
 		activePhase.requestAdd(std::unique_ptr<Mode>(new Fade(in, 1.f)));
 	} else {
@@ -234,7 +234,7 @@ void OverworldMode::checkTriggers() {
 							if (unsafePtr != nullptr) {
 								currentMap->popTriggerAt(iii);					//I should find a better way to pop triggers
 								requestStackAdd(std::unique_ptr<State>(unsafePtr));
-								std::cout << "New State created.\n";
+								std::cout << "New State created from trigger.\n";
 							} else {
 								delete unsafePtr;
 							}
@@ -248,7 +248,7 @@ void OverworldMode::checkTriggers() {
 					if (unsafePtr != nullptr) {
 						currentMap->popTriggerAt(iii);					//I should find a better way to pop triggers
 						requestStackAdd(std::unique_ptr<State>(unsafePtr));
-						std::cout << "Battlestate created.\n";
+						std::cout << "New State created from trigger .\n";
 					}
 				}
 				//what if instead...

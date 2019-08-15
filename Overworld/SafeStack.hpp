@@ -7,12 +7,19 @@
 //
 
 #include "PrefixHeader.pch"
-//#include "StateStack.h"
-#include "PendingChange.hpp"
 
 
 //this is just a templated version of StateStack, to use for modes.  Also uses a queue instead of stack.  Stupid name.
 //If this is actually useful then actually make it not stupid.
+
+//namespace States {
+//	enum Action
+//	{
+//		Pop,
+//		Add,
+//		Clear,
+//	};
+//}
 
 template <typename T>
 class SafeStack
@@ -21,7 +28,7 @@ public:
 	~SafeStack();
 	
 	bool empty() const;
-	std::unique_ptr<T>& getCurrentT();
+	std::unique_ptr<T>& getCurrent();
 	
 	void requestAdd(std::unique_ptr<T>&& add);
 	void requestClear();
@@ -31,14 +38,14 @@ public:
 private:
 	struct PendingChange
 	{
-		explicit PendingChange(States::MyAction action, std::unique_ptr<T>&& add = nullptr);
+		explicit PendingChange(States::Action action, std::unique_ptr<T>&& add = nullptr);
 		
-		States::MyAction action;
+		States::Action action;
 		std::unique_ptr<T> add;
 	};
 	
 private:
-	void addT(std::unique_ptr<T>&&);
+	void add(std::unique_ptr<T>&&);
 	void clear();
 	void popTop();
 	
