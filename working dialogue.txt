@@ -1269,5 +1269,74 @@ This second stage would also be where all the weird and big changes to the world
 >Which I most certainly don't.
 
 
+//hmm... back to the old writing block.  Let's loosen up and just try writing some context-less and throwaway dialogue to have with the colonel.
+#Colonel
+>Isabel, I'm glad to see you again.  Perhaps you can help me with something?
+#Isabel
+>Help you?  I'm not so sure.  I have much of my own to be worried about, frankly.
+#Colonel
+>Hmmm, fair enough, to be true.  But don't misunderstand me.  I wouldn't be considering this a favor, this is something that could be mutually beneficial to us both.
+>I'm hoping for your help with finding someone.  Knowing where this person is could be good for us both, as well as the entire community.  I'm also prepared to help you out with whatever you need in exchange.
+#Isabel
+>Oh? Who are you looking for?
+>I've lived here long enough maybe I know them.
+#Colonel
+>Indeed.  Our search has been made more difficult by the fact that we don't know their real name.  We only have an alias.
+>He goes by the name "Saltpeter".
+?Fortuna
+#Fortuna
+>Isabel!
+>This is the same person I'm after!  We have to take this.
+#Isabel
+>Fortuna, I understand that this is important to you, but remember that we're already on our own mission.  One that has greater consequences than just one person.
+#Fortuna
+>Isabel, I know.  I understand that perfectly.  But this is also my duty, and I cannot abandon it.
+>I cannot force anything of you.  But if you respect my mission and my goal then please take this man's offer.
+?
+?Malaga
+#Malaga
+>HA!
+#Isabel
+>Excuse me for a second, Colonel.  I need to talk with my companion.
+#Colonel
+>Of course.
+#Isabel
+>Malaga, what was that?
+#Malaga
+>Oh this is too perfect.  Isabel, I'm SO glad I joined you.
+#Isabel
+>What are you even talking about?
+#Malaga
+>Saltpeter is me!  That's my name within the underground.
+>And wow, he doesn't know anything.  He doesn't even know I'm a girl! What an idiot.
+#Isabel
+>I assume I don't want to know what kind of things you get up to under that name?
+#Malaga
+>Probably not.  But the point is moot anyway because I wouldn't tell you anyway.
+>But Isabel, you're missing the point.  We HAVE to take him up on this.
+#Isabel
+>What?  You can't be serious.
+#Malaga
+>Of course I am.  If we take him up on this, then we can actively stifle his investigation into me.
+>We can feed him all kinds of bad information.  And even some good information too, to make it seem like we're trustworthy.
+>But also: just think about how badass it would be to swindle him that hard.
+#Isabel
+>This sounds incredibly dangerous for no real purpose.
+#Malaga
+>Do you not understand what 'badass' means?
+>Plus, it's not even dangerous for you.  You can just pretend you didn't know it was me.  And I'll corroborate it, I don't care.  If I get found out, I'm the one getting executed, not you.
+>You gotta to do it, Isabel.
+?
+
+?Malaga & Fortuna
+
+
+
+
+
+
+
+
+
 
 
