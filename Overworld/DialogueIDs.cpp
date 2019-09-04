@@ -56,4 +56,17 @@ Dialogue::Speaker Dialogue::textToSpeaker(std::string text) {
 //}
 
 
+boost::bimap<Dialogue::Speaker, std::string> Dialogue::getSpeakerMap() {
+	boost::bimap<Dialogue::Speaker, std::string> map;
+	map.insert(idPair(Speaker::OldLady, 		"Isabel"));
+	map.insert(idPair(Speaker::Narrator,		"Narrator"));
+	map.insert(idPair(Speaker::Gabriela, 		"Gabriela"));
+	map.insert(idPair(Speaker::SittingGuard, 	"Sitting Guard"));
+	map.insert(idPair(Speaker::StandingGuard, 	"Standing Guard"));
+	map.insert(idPair(Speaker::TheColonel, 		"The Colonel"));
+	map.insert(idPair(Speaker::Unknown, 		"??????"));
+	map.insert(idPair(Speaker::System, 			"System"));
+}
+
+
 

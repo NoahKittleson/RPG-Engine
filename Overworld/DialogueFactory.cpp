@@ -142,10 +142,13 @@ std::shared_ptr<DNode> DialogueFactory::loadFromFile(int DialogueID, ResourceHol
 	std::string searchTerm = "[" + std::to_string(DialogueID) + "]";
 	std::string oneLine;
 	std::shared_ptr<TalkNode> node;
+	bool found = false;
 	while (inputFile) {
 		getline(inputFile, oneLine);
-		//if this is true, we've found our dialogue item and it's time to start parsing
-		if (oneLine.find(searchTerm) != std::string::npos) {
+		//If this is true, we've found our dialogue item and it's time to start parsing.
+		//The first part of the conditional is to make searching faster.
+		if (oneLine[0] == '[' && oneLine.find(searchTerm) != std::string::npos) {
+			found = true;
 			std::string dialogue;
 			Dialogue::Speaker  currentSpeaker = Dialogue::Speaker::Unknown;
 			do {
@@ -179,7 +182,13 @@ std::shared_ptr<DNode> DialogueFactory::loadFromFile(int DialogueID, ResourceHol
 		}
 	}
 	inputFile.close();
-	std::cout << "Dialogue load completed successfully.\n";
+	if (found) {
+		std::cout << "Dialogue load completed successfully.\n";
+	} else {
+		std::cout << "Dialogue ID not found.\n";
+	}
+	
+	//currently, this can return a nullptr, down the line I should change this to return a dummy text object.
 	return node;
 }
 
