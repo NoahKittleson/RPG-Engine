@@ -9,22 +9,33 @@
 #pragma once
 #include "PrefixHeader.pch"
 #include <boost/bimap.hpp>
+#include <boost/assign.hpp>
 
 namespace Dialogue {
 	enum class ID { Intro01, Intro02, Error, None, Test001, Test002, Test003, GuardStop1, GuardStop2, ColonelGreeting01, StandingGuard01 };
 	enum class Speaker { Narrator, Gabriela, Marquez, SittingGuard, Unknown, System, TheColonel, OldLady, StandingGuard };
 	
-	typedef boost::bimap<Dialogue::Speaker, std::string> speakerBiMap;
-	typedef speakerBiMap::value_type idPair;
-	
 	sf::String speakerToText(Dialogue::Speaker speaker);
 	Dialogue::Speaker textToSpeaker(std::string text);
 	
-	//static std::map<Dialogue::Speaker, std::string> speakerMap;
-	speakerBiMap getSpeakerMap();
+//	SpeakerBiMap getSpeakerMap();
+//	static SpeakerBiMap test = getSpeakerMap();
+
+	typedef boost::bimap<Dialogue::Speaker, std::string> SpeakerBiMap;
+	typedef SpeakerBiMap::value_type idPair;
 	
-	static map<int, char> m = {{1, 'a'}, {3, 'b'}, {5, 'c'}, {7, 'd'}};
-	static speakerBiMap test = {{Speaker::Narrator, "test"}, {Speaker::Gabriela, "one"}, {Speaker::Marquez, "two"}, {Speaker::OldLady, "dddd"}};
+	const static SpeakerBiMap speakerMap = boost::assign::list_of< SpeakerBiMap::relation >
+	(Speaker::OldLady, 		"Isabel")
+	(Speaker::Narrator,		"Narrator")
+	(Speaker::OldLady, 		"Isabel")
+	(Speaker::Narrator,		"Narrator")
+	(Speaker::Gabriela, 	"Gabriela")
+	(Speaker::SittingGuard, "Sitting Guard")
+	(Speaker::StandingGuard,"Standing Guard")
+	(Speaker::TheColonel, 	"The Colonel")
+	(Speaker::Unknown, 		"??????")
+	(Speaker::System, 		"System");
+
 	
 }
 
